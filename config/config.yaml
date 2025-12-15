@@ -1,0 +1,174 @@
+# ==================================================
+# Agentic Infra Co-Pilot - YAML Configuration
+# ==================================================
+
+# Project metadata
+project:
+  name: "Agentic Infra Co-Pilot"
+  version: "0.1.0"
+  description: "RAG-based Infrastructure Fault Diagnosis System"
+  author: "Your Name"
+  thesis: "Master's Thesis - AISS"
+
+# Data ingestion configuration
+ingestion:
+  telekom:
+    enabled: true
+    file_pattern: "*.pdf"
+    max_page_length: 10000
+    extract_metadata: true
+
+  siemens:
+    enabled: true
+    file_pattern: "*.csv"
+    encoding: "utf-8"
+    delimiter: ","
+    handle_missing: "fill"  # Options: "fill", "drop", "interpolate"
+
+  illigo:
+    enabled: true
+    file_pattern: "*.json"
+    validate_schema: true
+    ocpp_version: "2.0.1"
+
+# Preprocessing configuration
+preprocessing:
+  text_cleaning:
+    remove_special_chars: true
+    normalize_whitespace: true
+    lowercase: false
+
+  entity_extraction:
+    extract_devices: true
+    extract_errors: true
+    extract_procedures: true
+
+  anomaly_detection:
+    method: "statistical"  # Options: "statistical", "ml", "rule-based"
+    threshold: 3.0  # Standard deviations for outlier detection
+
+# Knowledge Graph configuration
+graph:
+  neo4j:
+    batch_size: 1000
+    create_indexes: true
+    create_constraints: true
+
+  schema:
+    node_labels:
+      - Device
+      - Error
+      - Procedure
+      - Event
+      - Hardware
+
+    relationship_types:
+      - CAUSES
+      - RESOLVES
+      - OCCURS_IN
+      - DETECTED_BY
+      - FOLLOWS
+      - REQUIRES
+
+# Vector store configuration
+vector_store:
+  chromadb:
+    collection_name: "infra_knowledge"
+    distance_metric: "cosine"  # Options: "cosine", "euclidean", "dot"
+    persist: true
+
+  faiss:
+    index_type: "IndexFlatL2"
+    nlist: 100  # Number of clusters for IVF index
+
+# Embedding configuration
+embeddings:
+  openai:
+    model: "text-embedding-3-small"
+    batch_size: 100
+    max_retries: 3
+
+  sentence_transformers:
+    model: "all-MiniLM-L6-v2"
+    device: "cpu"  # Options: "cpu", "cuda"
+    batch_size: 32
+
+# RAG retrieval configuration
+retrieval:
+  top_k: 5  # Number of documents to retrieve
+  min_similarity: 0.7  # Minimum similarity threshold
+
+  hybrid_search:
+    enabled: true
+    vector_weight: 0.6
+    graph_weight: 0.4
+
+  metadata_filters:
+    apply_domain_filter: false
+    apply_date_filter: false
+
+# Agent configuration
+agent:
+  llm:
+    model: "gpt-4o"
+    temperature: 0.1
+    max_tokens: 2000
+
+  reasoning:
+    max_iterations: 10
+    early_stopping: true
+    verbose: true
+
+  chain_of_thought:
+    enabled: true
+    log_trace: true
+    min_confidence: 0.6
+
+# Simulation configuration
+simulation:
+  jan_2026_gridlock:
+    enabled: true
+    scenario_file: "./data/scenarios/jan_2026_gridlock.json"
+    repetitions: 10  # Number of simulation runs
+
+  metrics:
+    - mtti  # Mean Time to Innocence
+    - accuracy
+    - precision
+    - recall
+    - f1_score
+
+  visualization:
+    save_plots: true
+    plot_format: "png"  # Options: "png", "pdf", "svg"
+    output_dir: "./results/plots"
+
+# Logging configuration
+logging:
+  level: "INFO"  # Options: "DEBUG", "INFO", "WARNING", "ERROR"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+  handlers:
+    console:
+      enabled: true
+
+    file:
+      enabled: true
+      filename: "logs/app.log"
+      max_bytes: 10485760  # 10MB
+      backup_count: 5
+
+# Evaluation configuration
+evaluation:
+  test_set_path: "./data/test_set.json"
+
+  metrics:
+    accuracy: true
+    precision: true
+    recall: true
+    f1_score: true
+    mtti: true
+
+  cross_validation:
+    enabled: false
+    folds: 5

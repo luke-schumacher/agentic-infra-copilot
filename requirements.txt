@@ -1,0 +1,61 @@
+# ===================================================================
+# Agentic Infra Co-Pilot - Dependencies
+# Master's Thesis Project: RAG-based Infrastructure Fault Diagnosis
+# ===================================================================
+
+# Core RAG & Logic Framework
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-community>=0.0.20
+python-dotenv>=1.0.0
+
+# Data Ingestion - "The Eyes"
+# PDF parsing for Telekom Intent docs
+pypdf>=3.17.0
+# CSV processing for Siemens Hardware scans (500+ files)
+pandas>=2.1.0
+# JSON parsing for Illigo Event logs
+jq>=1.6.0
+# Schema validation for OCPP 2.0.1 logs
+pydantic>=2.5.0
+
+# Graph & Vector Store - "The Brain"
+# Neo4j Knowledge Graph database driver
+neo4j>=5.14.0
+# LangChain integration for Neo4j graphs
+langchain-neo4j>=0.0.5
+# Vector database options (choose one or both)
+chromadb>=0.4.18
+faiss-cpu>=1.7.4
+# Local embeddings (alternative to OpenAI)
+sentence-transformers>=2.2.2
+
+# Visualization - For Thesis Results
+# Plotting "Mean Time to Innocence" charts
+matplotlib>=3.8.0
+seaborn>=0.13.0
+# Jupyter notebooks for EDA and prototyping
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipykernel>=6.27.0
+
+# Additional Utilities
+# HTTP requests for API calls
+requests>=2.31.0
+# YAML configuration parsing
+pyyaml>=6.0.1
+# Progress bars for data processing
+tqdm>=4.66.0
+# Logging and debugging
+loguru>=0.7.2
+
+# Testing & Quality Assurance
+pytest>=7.4.3
+pytest-cov>=4.1.0
+black>=23.12.0
+flake8>=6.1.0
+mypy>=1.7.0
+
+# Optional: OpenAI API (if not using local models)
+openai>=1.6.0
+tiktoken>=0.5.2
