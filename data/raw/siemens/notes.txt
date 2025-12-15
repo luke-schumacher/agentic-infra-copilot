@@ -1,0 +1,61 @@
+Interesting Questions for Analysis
+
+  High Priority - Strategic Insights:
+
+  1. Page 8 (D8): "What percentage of patients are planned with MR images?"
+    - Why: Direct measure of MR adoption rate in RT
+  2. Page 9 (D9-D11): Clinical sites table - Which anatomical sites use MR
+    - Why: Identifies most common use cases and market opportunities
+  3. Page 10: "How are MR images acquired?" (Existing vs. RT-specific)
+    - Why: Understand workflow integration and dedicated equipment needs
+  4. Page 6: "MR vendor and model"
+    - Why: Competitive analysis - which equipment is being used
+  5. Page 11 (P1): "Positioning product solutions vendors"
+    - Why: Market share analysis for positioning equipment
+
+  Medium Priority - Pain Points:
+
+  6. Page 13-15: Open-ended pain point questions
+    - "Which pains using/exchanging positioning packages?"
+    - "Brain/head-neck RT coil setup main pains?"
+    - Why: Identifies product improvement opportunities
+  7. Page 12: "Comfort changing diagnostic to RT positioning" (1-7 scale)
+    - Why: Workflow friction indicator
+  8. Page 14: "Ideal positioning package contents"
+    - Why: Feature requirements for product development
+  9. Page 14: Pricing sensitivity questions (Van Westendorp model)
+    - Why: Price point optimization
+
+  Lower Priority - Technical Details:
+
+  10. Page 5: Equipment counts (LINACs, CT simulators, brachytherapy)
+    - Why: Institution size/capability segmentation
+  11. Page 15: "Flat RT couch acceptable?"
+    - Why: Product design validation
+  12. Page 17: "Surface guidance can replace RT laser?"
+    - Why: Emerging technology adoption
+  13. Page 4: Respondent role
+    - Why: Segment responses by stakeholder type
+
+
+    Wide Format
+
+  - Looks like a normal Excel spreadsheet
+  - Good for viewing individual interviews
+  - 100+ columns, can be hard to analyze systematically
+
+  Long Format (Recommended)
+
+  - Better for research questions like "What are common pain points?"
+  - Easy to filter, aggregate, and analyze with Python/SQL
+  - Perfect for feeding into AI for text analysis
+  - Scalable to 100s of questionnaires
+
+  Sample Insights from the Data:
+
+  The samples show realistic data including:
+  - Different institution types: University hospital (Germany), private cancer center (USA), academic hospital (Sweden)
+  - Pain points: Coil positioning challenges, workflow inefficiencies, equipment compatibility issues
+  - Pricing data: Van Westendorp analysis (too low: €5-7k, bargain: €15-18k, expensive: €25-30k, too high: €35-45k)
+  - MR usage: 45-78% of patients planned with MR
+  - Clinical sites: Brain, prostate, and brain mets most common
