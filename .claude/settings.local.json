@@ -5,7 +5,9 @@
       "Bash(python run_siemens_pipeline.py:*)",
       "Bash(find:*)",
       "Bash(python:*)",
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "WebSearch",
+      "WebFetch(domain:console.groq.com)"
     ]
   }
 }
