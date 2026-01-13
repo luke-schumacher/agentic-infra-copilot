@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(python run_siemens_pipeline.py:*)",
+      "Bash(find:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)"
     ]
   }
 }
