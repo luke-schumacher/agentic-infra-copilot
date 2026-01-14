@@ -9,6 +9,21 @@ langchain-openai>=0.0.5
 langchain-community>=0.0.20
 python-dotenv>=1.0.0
 
+# ===================================================================
+# Multi-Agent System (MAS) Dependencies
+# ===================================================================
+
+# FastAPI Microservices
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+httpx>=0.26.0
+
+# DSPy for Agent Reasoning (replaces raw LangChain chains)
+dspy-ai>=2.4.0
+
+# Streamlit UI Orchestrator
+streamlit>=1.31.0
+
 # Data Ingestion - "The Eyes"
 # PDF parsing for Telekom Intent docs
 pypdf>=3.17.0
