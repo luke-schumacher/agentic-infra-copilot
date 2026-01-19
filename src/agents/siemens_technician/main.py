@@ -258,6 +258,11 @@ async def consult(request: ConsultRequest):
         # Extract query from payload
         query = card.payload.get("query", "")
         equipment_type = card.payload.get("equipment_type", "unknown")
+        delegated_by = card.payload.get("delegated_by", None)
+
+        # Log delegation context if present
+        if delegated_by:
+            logger.info(f"Handling delegated request from {delegated_by}")
 
         if not query:
             raise HTTPException(
@@ -322,8 +327,11 @@ async def consult(request: ConsultRequest):
                 "severity": getattr(result, 'severity', 'unknown'),
                 "diagnostic_steps": getattr(result, 'diagnostic_steps', 'No steps available'),
                 "requires_escalation": getattr(result, 'requires_escalation', 'no'),
-                "answer": getattr(result, 'answer', '')
+                "answer": getattr(result, 'answer', ''),
+                "specialist_agent": "siemens_technician"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             severity = getattr(result, 'severity', 'low')
             priority = Priority.CRITICAL if severity == 'critical' else (
                 Priority.HIGH if severity == 'high' else Priority.NORMAL
@@ -332,24 +340,33 @@ async def consult(request: ConsultRequest):
             response_payload = {
                 "answer": getattr(result, 'answer', 'Unable to find specification'),
                 "equipment_details": getattr(result, 'equipment_details', ''),
-                "source_institutions": getattr(result, 'source_institutions', '')
+                "source_institutions": getattr(result, 'source_institutions', ''),
+                "specialist_agent": "siemens_technician"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             priority = Priority.NORMAL
         elif query_type == "pain_point":
             response_payload = {
                 "common_issues": getattr(result, 'common_issues', 'No issues found'),
                 "affected_institutions": getattr(result, 'affected_institutions', ''),
                 "recommended_solutions": getattr(result, 'recommended_solutions', ''),
-                "answer": getattr(result, 'answer', '')
+                "answer": getattr(result, 'answer', ''),
+                "specialist_agent": "siemens_technician"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             priority = Priority.NORMAL
         else:
             response_payload = {
                 "answer": getattr(result, 'answer', 'Unable to process query'),
                 "troubleshooting_steps": getattr(result, 'troubleshooting_steps', ''),
                 "likely_resolution": getattr(result, 'likely_resolution', ''),
-                "parts_or_service_needed": getattr(result, 'parts_or_service_needed', '')
+                "parts_or_service_needed": getattr(result, 'parts_or_service_needed', ''),
+                "specialist_agent": "siemens_technician"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             priority = Priority.NORMAL
 
         # Build response card

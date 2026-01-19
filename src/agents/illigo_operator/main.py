@@ -267,6 +267,11 @@ async def consult(request: ConsultRequest):
         query = card.payload.get("query", "")
         station_id = card.payload.get("station_id", "unknown")
         timestamp = card.payload.get("timestamp", "")
+        delegated_by = card.payload.get("delegated_by", None)
+
+        # Log delegation context if present
+        if delegated_by:
+            logger.info(f"Handling delegated request from {delegated_by}")
 
         if not query:
             raise HTTPException(
@@ -332,8 +337,11 @@ async def consult(request: ConsultRequest):
                 "impact": getattr(result, 'impact', 'Unknown impact'),
                 "severity": getattr(result, 'severity', 'unknown'),
                 "corrective_actions": getattr(result, 'corrective_actions', 'No actions recommended'),
-                "answer": getattr(result, 'answer', '')
+                "answer": getattr(result, 'answer', ''),
+                "specialist_agent": "illigo_operator"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             severity = getattr(result, 'severity', 'low')
             priority = Priority.CRITICAL if severity == 'critical' else (
                 Priority.HIGH if severity == 'high' else Priority.NORMAL
@@ -344,8 +352,11 @@ async def consult(request: ConsultRequest):
                 "anomaly_type": getattr(result, 'anomaly_type', ''),
                 "deviation_description": getattr(result, 'deviation_description', ''),
                 "risk_level": getattr(result, 'risk_level', 'unknown'),
-                "answer": getattr(result, 'answer', '')
+                "answer": getattr(result, 'answer', ''),
+                "specialist_agent": "illigo_operator"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             risk = getattr(result, 'risk_level', 'low')
             priority = Priority.HIGH if risk == 'high' else Priority.NORMAL
         elif query_type == "correlation":
@@ -354,8 +365,11 @@ async def consult(request: ConsultRequest):
                 "pattern_description": getattr(result, 'pattern_description', ''),
                 "causal_chain": getattr(result, 'causal_chain', ''),
                 "affected_stations": getattr(result, 'affected_stations', ''),
-                "answer": getattr(result, 'answer', '')
+                "answer": getattr(result, 'answer', ''),
+                "specialist_agent": "illigo_operator"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             priority = Priority.NORMAL
         elif query_type == "load":
             response_payload = {
@@ -363,15 +377,21 @@ async def consult(request: ConsultRequest):
                 "overloaded_stations": getattr(result, 'overloaded_stations', ''),
                 "underutilized_stations": getattr(result, 'underutilized_stations', ''),
                 "recommendations": getattr(result, 'recommendations', ''),
-                "answer": getattr(result, 'answer', '')
+                "answer": getattr(result, 'answer', ''),
+                "specialist_agent": "illigo_operator"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             priority = Priority.NORMAL
         else:
             response_payload = {
                 "answer": getattr(result, 'answer', 'Unable to process query'),
                 "data_summary": getattr(result, 'data_summary', ''),
-                "confidence": getattr(result, 'confidence', 'low')
+                "confidence": getattr(result, 'confidence', 'low'),
+                "specialist_agent": "illigo_operator"
             }
+            if delegated_by:
+                response_payload["delegated_by"] = delegated_by
             priority = Priority.NORMAL
 
         # Build response card

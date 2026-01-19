@@ -8,7 +8,8 @@
       "Bash(pip install:*)",
       "WebSearch",
       "WebFetch(domain:console.groq.com)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(xargs:*)"
     ]
   }
 }

@@ -353,8 +353,50 @@ def render_chat_interface():
                         f"*Reason: {delegation.get('reason', 'Requires specialist expertise')}*"
                     )
 
+                # Display specialist findings if available
+                specialist_findings = payload.get('specialist_findings')
+                if specialist_findings:
+                    with st.expander("🔬 Specialist Analysis", expanded=True):
+                        spec_card = specialist_findings.get('response_card', {})
+                        spec_payload = spec_card.get('payload', {})
+                        spec_agent = spec_payload.get('specialist_agent', 'specialist')
+
+                        # Agent icon mapping
+                        agent_icons = {
+                            'siemens_technician': '🔧',
+                            'illigo_operator': '⚡'
+                        }
+                        icon = agent_icons.get(spec_agent, '🔍')
+
+                        st.markdown(f"### {icon} {spec_agent.replace('_', ' ').title()}")
+
+                        # Display key specialist findings
+                        if spec_payload.get('diagnosis'):
+                            st.markdown(f"**Diagnosis:** {spec_payload['diagnosis']}")
+                        if spec_payload.get('severity'):
+                            st.markdown(f"**Severity:** {spec_payload['severity']}")
+                        if spec_payload.get('diagnostic_steps'):
+                            st.markdown(f"**Diagnostic Steps:** {spec_payload['diagnostic_steps']}")
+                        if spec_payload.get('root_cause'):
+                            st.markdown(f"**Root Cause:** {spec_payload['root_cause']}")
+                        if spec_payload.get('impact'):
+                            st.markdown(f"**Impact:** {spec_payload['impact']}")
+                        if spec_payload.get('corrective_actions'):
+                            st.markdown(f"**Corrective Actions:** {spec_payload['corrective_actions']}")
+                        if spec_payload.get('answer'):
+                            st.markdown(f"**Analysis:** {spec_payload['answer']}")
+                        if spec_payload.get('common_issues'):
+                            st.markdown(f"**Common Issues:** {spec_payload['common_issues']}")
+                        if spec_payload.get('recommended_solutions'):
+                            st.markdown(f"**Recommended Solutions:** {spec_payload['recommended_solutions']}")
+
+                        # Processing time from specialist
+                        spec_time = specialist_findings.get('processing_time_ms', 0)
+                        if spec_time > 0:
+                            st.caption(f"⏱️ Specialist response: {spec_time:.0f}ms")
+
                 # Display timing
-                st.caption(f"⏱️ Response time: {response.processing_time_ms:.0f}ms")
+                st.caption(f"⏱️ Total response time: {response.processing_time_ms:.0f}ms")
 
             else:
                 error_msg = response.error if response else "Failed to get response from agent"

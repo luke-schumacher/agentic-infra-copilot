@@ -317,13 +317,18 @@ async def consult(request: ConsultRequest):
         LAST_QUERY_TIME = datetime.utcnow()
         processing_time = (time.time() - start_time) * 1000
 
-        # If delegation needed, trigger async delegation
+        # If delegation needed, await specialist response
         target_agent = getattr(result, 'target_agent', 'self')
         if target_agent and target_agent != 'self':
-            # Fire and forget delegation (async)
             logger.info(f"Delegating to {target_agent}...")
-            # Note: In production, this would be background task
-            # await delegate_to_specialist(target_agent, result.refined_query, card.message_id)
+            specialist_response = await delegate_to_specialist(
+                target_agent,
+                getattr(result, 'refined_query', query),
+                card.message_id
+            )
+            if specialist_response:
+                response_payload["specialist_findings"] = specialist_response
+                logger.info(f"Specialist {target_agent} findings added to response")
 
         logger.info(f"Consultation completed in {processing_time:.2f}ms")
 

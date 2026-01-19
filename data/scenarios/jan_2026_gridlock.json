@@ -1,0 +1,117 @@
+{
+  "scenario_id": "jan_2026_gridlock",
+  "scenario_name": "January 2026 Grid-Lock Incident",
+  "description": "A cascade of faults affecting the Abidjan EV charging network during peak season. Used for MTTI evaluation.",
+  "created_at": "2026-01-19",
+  "version": "1.0.0",
+
+  "faults": [
+    {
+      "fault_id": "F001",
+      "timestamp": "2026-01-15T14:22:00",
+      "station_id": "KOUMASSI",
+      "query": "Ground fault detected at Koumassi charging station, insulation failure reported, CX002 error",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Insulation degradation in charging cable connector due to humidity and wear",
+        "risk_level": "high",
+        "violated_slas": ["SLA-AVAIL-001", "SLA-SAFETY-002"],
+        "keywords": ["ground fault", "insulation", "CX002", "charging cable"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F002",
+      "timestamp": "2026-01-15T15:45:00",
+      "station_id": "ANGRE",
+      "query": "Over-current protection tripped at ANGRE station, multiple connectors affected",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Load imbalance from simultaneous high-power charging sessions exceeding transformer capacity",
+        "risk_level": "critical",
+        "violated_slas": ["SLA-AVAIL-001", "SLA-LOAD-001"],
+        "keywords": ["over-current", "load imbalance", "transformer", "protection"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F003",
+      "timestamp": "2026-01-16T09:00:00",
+      "station_id": "ABATTA",
+      "query": "Which hospitals have reported coil positioning issues with MR scanners?",
+      "expected_delegation": "siemens_technician",
+      "ground_truth": {
+        "root_cause": "Hardware pain point - coil positioning system requires calibration",
+        "risk_level": "medium",
+        "violated_slas": [],
+        "keywords": ["coil positioning", "MR scanner", "calibration", "pain point"]
+      },
+      "test_type": "hardware_query"
+    },
+    {
+      "fault_id": "F004",
+      "timestamp": "2026-01-16T11:30:00",
+      "station_id": "GANDHI",
+      "query": "Communication failure between GANDHI charger and backend OCPP server, timeout errors",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Network connectivity issue - OCPP WebSocket connection interrupted by firewall update",
+        "risk_level": "high",
+        "violated_slas": ["SLA-UPTIME-001", "SLA-COMM-001"],
+        "keywords": ["OCPP", "communication", "WebSocket", "timeout", "backend"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F005",
+      "timestamp": "2026-01-17T08:15:00",
+      "station_id": "KOUMASSI",
+      "query": "What are the SLA requirements for charging station availability in the Telekom network?",
+      "expected_delegation": "self",
+      "ground_truth": {
+        "root_cause": "N/A - Information query",
+        "risk_level": "low",
+        "violated_slas": [],
+        "keywords": ["SLA", "availability", "requirements", "network"]
+      },
+      "test_type": "sla_query"
+    }
+  ],
+
+  "success_criteria": {
+    "mtti_threshold_seconds": 30,
+    "accuracy_threshold": 0.8,
+    "delegation_accuracy_threshold": 0.9,
+    "description": "MTTI under 30s, 80% diagnosis accuracy, 90% correct delegation routing"
+  },
+
+  "stations": {
+    "KOUMASSI": {
+      "location": "Koumassi, Abidjan",
+      "connector_count": 4,
+      "max_power_kw": 150
+    },
+    "ANGRE": {
+      "location": "Angre, Abidjan",
+      "connector_count": 6,
+      "max_power_kw": 350
+    },
+    "ABATTA": {
+      "location": "Abatta, Abidjan",
+      "connector_count": 2,
+      "max_power_kw": 50
+    },
+    "GANDHI": {
+      "location": "Gandhi, Abidjan",
+      "connector_count": 4,
+      "max_power_kw": 150
+    }
+  },
+
+  "evaluation_notes": [
+    "F001-F004 test fault delegation to specialists",
+    "F005 tests self-handled SLA query (no delegation needed)",
+    "F003 specifically tests Siemens Technician routing for hardware queries",
+    "Ground truth keywords help measure semantic accuracy of diagnosis"
+  ]
+}
