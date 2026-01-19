@@ -41,9 +41,13 @@ neo4j>=5.14.0
 langchain-neo4j>=0.0.5
 # Vector database options (choose one or both)
 chromadb>=0.4.18
+langchain-chroma>=0.1.0
 faiss-cpu>=1.7.4
-# Local embeddings (alternative to OpenAI)
+# Embeddings (OpenAI or local HuggingFace)
 sentence-transformers>=2.2.2
+langchain-huggingface>=0.0.1
+# Text splitting for document chunking
+langchain-text-splitters>=0.0.1
 
 # Visualization - For Thesis Results
 # Plotting "Mean Time to Innocence" charts

@@ -1,0 +1,27 @@
+site,label,type,power_kw,kind,status
+Petro Ivoire GANDHI,CP01-CN2,GB_T_DC,60,DC,Disponible
+Petro Ivoire GANDHI,CP01-CNA,GB_T_DC,60,DC,Disponible
+Petro Ivoire GANDHI,CP02-CNA,GB_T_DC,60,DC,Disponible
+Petro Ivoire GANDHI,CP02-CNB,GB_T_DC,60,DC,Disponible
+Petro Ivoire GANDHI,CP03-CNA,GB_T_DC,60,DC,Disponible
+Petro Ivoire GANDHI,CP03-CNB,GB_T_DC,60,DC,Disponible
+Petro Ivoire GANDHI,CP04-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP05-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP06-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP07-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP08-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP09-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP10-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP11-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP12-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire GANDHI,CP13-CNA,GB_T_AC,22,AC,Disponible
+Petro Ivoire ANGRÉ,CP01-CNA,GB_T_DC,60,DC,Available
+Petro Ivoire ANGRÉ,CP01-CNB,GB_T_DC,60,DC,Available
+Petro Ivoire ANGRÉ,CP02-CNA,GB_T_DC,60,DC,Available
+Petro Ivoire ANGRÉ,CP02-CNB,GB_T_DC,60,DC,Available
+Petro Ivoire ABATTA,CP00-CNB,GB_T_DC,60,DC,Disponible
+Petro Ivoire ABATTA,CP01-CNA,GB_T_DC,60,DC,Disponible
+Petro Ivoire ABATTA,CP02-CNA,GB_T_DC,60,DC,Disponible
+Petro Ivoire ABATTA,CP02-CNB,GB_T_DC,60,DC,Disponible
+Petro Ivoire KOUMASSI,CP01-CNA,GB_T_DC,60,DC,Available
+Petro Ivoire KOUMASSI,CP01-CNB,GB_T_DC,60,DC,Available
