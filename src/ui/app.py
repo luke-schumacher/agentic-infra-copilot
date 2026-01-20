@@ -16,6 +16,7 @@ Usage:
 Author: Thesis Project - Agentic Infra Co-Pilot
 """
 
+import os
 import sys
 from pathlib import Path
 from datetime import datetime
@@ -34,24 +35,29 @@ from src.protocol.schema import (
 )
 
 # ============================================================
-# Configuration
+# Configuration (supports Docker and local environments)
 # ============================================================
+
+# Agent URLs - use environment variables for Docker, fallback to localhost
+TELEKOM_URL = os.getenv("TELEKOM_MINISTER_URL", "http://localhost:8001")
+SIEMENS_URL = os.getenv("SIEMENS_TECHNICIAN_URL", "http://localhost:8002")
+ILLIGO_URL = os.getenv("ILLIGO_OPERATOR_URL", "http://localhost:8003")
 
 AGENT_ENDPOINTS = {
     "Telekom Minister": {
-        "url": "http://localhost:8001",
+        "url": TELEKOM_URL,
         "role": AgentRole.TELEKOM_MINISTER,
         "description": "Governance - SLAs & Intent",
         "port": 8001
     },
     "Siemens Technician": {
-        "url": "http://localhost:8002",
+        "url": SIEMENS_URL,
         "role": AgentRole.SIEMENS_TECHNICIAN,
         "description": "Hardware Expert - Specs & Manuals",
         "port": 8002
     },
     "Illigo Operator": {
-        "url": "http://localhost:8003",
+        "url": ILLIGO_URL,
         "role": AgentRole.ILLIGO_OPERATOR,
         "description": "Live Monitor - Logs & Events",
         "port": 8003
@@ -138,6 +144,8 @@ def send_query_to_minister(
 
         if response.status_code == 200:
             return ConsultResponse(**response.json())
+        else:
+            st.error(f"Telekom Minister returned error {response.status_code}: {response.text}")
     except Exception as e:
         st.error(f"Failed to contact Telekom Minister: {e}")
 

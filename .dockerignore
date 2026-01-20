@@ -1,0 +1,46 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info
+.eggs
+*.egg
+.mypy_cache
+.pytest_cache
+.coverage
+htmlcov
+
+# Virtual environments
+venv
+env
+.venv
+.env.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Build artifacts
+dist
+build
+*.log
+
+# Data volumes (mounted separately)
+chroma_db
+results
+
+# Notebooks (optional - remove if needed)
+notebooks/*.ipynb
+
+# Documentation
+docs/*.pdf
+*.md
+!requirements.txt

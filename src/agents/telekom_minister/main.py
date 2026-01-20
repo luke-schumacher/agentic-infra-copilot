@@ -369,9 +369,13 @@ async def delegate_to_specialist(target: str, query: str, correlation_id: str):
         query: Refined query for the specialist
         correlation_id: Original message ID for correlation
     """
+    # Support Docker and local environments via environment variables
+    siemens_url = os.getenv("SIEMENS_TECHNICIAN_URL", "http://localhost:8002")
+    illigo_url = os.getenv("ILLIGO_OPERATOR_URL", "http://localhost:8003")
+
     agent_urls = {
-        "siemens_technician": "http://localhost:8002/consult",
-        "illigo_operator": "http://localhost:8003/consult"
+        "siemens_technician": f"{siemens_url}/consult",
+        "illigo_operator": f"{illigo_url}/consult"
     }
 
     if target not in agent_urls:

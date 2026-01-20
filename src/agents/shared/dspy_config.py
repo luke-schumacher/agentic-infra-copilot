@@ -1,7 +1,7 @@
 """
 DSPy Configuration - Shared LLM Setup for All Agents
 
-Configures DSPy with Groq's Llama 3 70B model for all agents.
+Configures DSPy with Groq's Llama 3.3 70B model for all agents.
 Replaces LangChain ChatGroq with native DSPy integration.
 
 Author: Thesis Project - Agentic Infra Co-Pilot
@@ -23,7 +23,7 @@ def configure_dspy() -> dspy.LM:
     """
     Configure DSPy with Groq backend.
 
-    Uses groq/llama3-70b-8192 as the primary model.
+    Uses groq/llama-3.3-70b-versatile as the primary model.
     Must be called at agent startup before using any DSPy signatures.
 
     Returns:
@@ -33,11 +33,11 @@ def configure_dspy() -> dspy.LM:
     if not groq_api_key:
         raise ValueError("GROQ_API_KEY not found in environment. Please set it in .env file.")
 
-    logger.info("Configuring DSPy with Groq/Llama3-70B-8192...")
+    logger.info("Configuring DSPy with Groq/Llama-3.3-70B-Versatile...")
 
     # Configure DSPy with Groq
     lm = dspy.LM(
-        model="groq/llama3-70b-8192",
+        model="groq/llama-3.3-70b-versatile",
         api_key=groq_api_key,
         temperature=0.1,
         max_tokens=2000

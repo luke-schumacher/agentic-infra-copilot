@@ -12,7 +12,7 @@ Author: Thesis Project - Agentic Infra Co-Pilot
 from datetime import datetime
 from typing import Any, Dict, List, Literal, Optional
 from enum import Enum
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_serializer
 import uuid
 
 
@@ -110,6 +110,11 @@ class AgentCard(BaseModel):
         }
     }
 
+    @field_serializer('timestamp')
+    def serialize_timestamp(self, value: datetime) -> str:
+        """Serialize datetime to ISO format string for JSON compatibility."""
+        return value.isoformat() if value else None
+
 
 class ConsultRequest(BaseModel):
     """Request model for the /consult endpoint."""
@@ -138,3 +143,8 @@ class AgentHealthStatus(BaseModel):
     document_count: int
     last_query_time: Optional[datetime] = None
     uptime_seconds: float
+
+    @field_serializer('last_query_time')
+    def serialize_last_query_time(self, value: Optional[datetime]) -> Optional[str]:
+        """Serialize datetime to ISO format string for JSON compatibility."""
+        return value.isoformat() if value else None
