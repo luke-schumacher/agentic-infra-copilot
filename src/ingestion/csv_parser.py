@@ -42,26 +42,76 @@ class SiemensCSVParser:
         """
         logger.info(f"Parsing CSV: {csv_path.name}")
 
-        # TODO: Implement CSV parsing logic
-        # - Read CSV with appropriate encoding
-        # - Handle missing values
-        # - Standardize column names
-        # - Validate data types
+        try:
+            # Read CSV with UTF-8 encoding, handle missing values
+            # Use error_bad_lines=False for Python < 3.10, on_bad_lines='skip' for >= 3.10
+            df = pd.read_csv(
+                csv_path,
+                encoding='utf-8',
+                na_values=['', 'NA', 'N/A', 'null', 'None'],
+                keep_default_na=True,
+                on_bad_lines='warn',  # Warn but continue on malformed lines
+                engine='python'  # More flexible parser
+            )
 
-        raise NotImplementedError("CSV parsing logic to be implemented")
+            # Add source file tracking
+            df['source_file'] = csv_path.name
 
-    def parse_all(self) -> pd.DataFrame:
+            # Detect format based on column structure
+            if 'section' in df.columns and 'question_id' in df.columns:
+                df['format_type'] = 'long'
+                logger.info(f"Detected long format: {len(df)} rows")
+            else:
+                df['format_type'] = 'wide'
+                logger.info(f"Detected wide format: {len(df)} rows, {len(df.columns)} columns")
+
+            return df
+
+        except Exception as e:
+            logger.error(f"Error parsing {csv_path.name}: {str(e)}")
+            raise
+
+    def parse_all(self) -> Dict[str, pd.DataFrame]:
         """
-        Parse all CSV files and combine into a single DataFrame.
+        Parse all CSV files and return them organized by format type.
 
         Returns:
-            Combined DataFrame with all hardware scan data
+            Dictionary with keys 'wide' and 'long', each containing a DataFrame
         """
         csv_files = list(self.input_dir.glob("*.csv"))
         logger.info(f"Found {len(csv_files)} CSV files to parse")
 
-        # TODO: Parse all files and concatenate
-        # - Handle schema variations across files
-        # - Add source file tracking column
+        if not csv_files:
+            logger.warning(f"No CSV files found in {self.input_dir}")
+            return {"wide": pd.DataFrame(), "long": pd.DataFrame()}
 
-        raise NotImplementedError("Batch CSV parsing to be implemented")
+        wide_dfs = []
+        long_dfs = []
+
+        for csv_file in csv_files:
+            try:
+                df = self.parse_csv(csv_file)
+
+                # Separate by format type
+                if df['format_type'].iloc[0] == 'long':
+                    long_dfs.append(df)
+                else:
+                    wide_dfs.append(df)
+
+            except Exception as e:
+                logger.error(f"Skipping {csv_file.name} due to error: {str(e)}")
+                continue
+
+        # Combine dataframes by type
+        result = {
+            'wide': pd.concat(wide_dfs, ignore_index=True) if wide_dfs else pd.DataFrame(),
+            'long': pd.concat(long_dfs, ignore_index=True) if long_dfs else pd.DataFrame()
+        }
+
+        logger.info(f"Parsed {len(wide_dfs)} wide format files, {len(long_dfs)} long format files")
+        if not result['wide'].empty:
+            logger.info(f"Wide format: {len(result['wide'])} total rows")
+        if not result['long'].empty:
+            logger.info(f"Long format: {len(result['long'])} total rows")
+
+        return result

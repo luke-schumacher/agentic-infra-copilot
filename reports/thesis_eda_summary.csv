@@ -1,0 +1,4 @@
+Domain,Data_Type,Records,Key_Finding
+Siemens (Hardware),CSV Questionnaires,206,Heterogeneous vendor install base
+Illigo (Operations),PDF Logs + Faults,4,Koumassi load imbalance + ground fault
+Telekom (Intent),PDF Documentation,0,High SLA keyword density
