@@ -75,6 +75,8 @@ if target_agent and target_agent != 'self':
 2. Add response aggregation
 3. Return combined results from Minister + Specialist
 
+*(Note: Recent checks indicate this might be partially implemented. Verify and harden.)*
+
 ---
 
 ### 3. 📊 MEDIUM PRIORITY: Add Evaluation Metrics
@@ -93,11 +95,24 @@ if target_agent and target_agent != 'self':
 
 ---
 
-### 4. 🔗 MEDIUM PRIORITY: Knowledge Graph Integration
+### 4. ⚖️ MEDIUM PRIORITY: Implement Agent-as-a-Judge (Best Practice)
+
+**What:** Create an automated evaluator agent to grade system responses.
+
+**Why:** "Automated Evaluation" is a key best practice. Manual review doesn't scale.
+
+**Tasks:**
+- [ ] Create a "Judge" DSPy signature.
+- [ ] Feed agent outputs + ground truth to the Judge.
+- [ ] Score on: Accuracy, Relevance, SLA Compliance.
+
+---
+
+### 5. 🔗 MEDIUM PRIORITY: Knowledge Graph Integration
 
 **What:** Connect to Neo4j for relationship-based reasoning
 
-**Why:** Vector search finds similar documents; graph search finds connected entities
+**Why:** Vector search finds similar documents; graph search finds connected entities. **Critical for "Neuro-Symbolic" best practice.**
 
 **Where:** `src/graph/neo4j_connector.py` and `src/graph/graph_builder.py`
 
@@ -109,7 +124,20 @@ if target_agent and target_agent != 'self':
 
 ---
 
-### 5. 🎯 LOW PRIORITY: Optimization & Production Readiness
+### 6. 🕸️ MEDIUM PRIORITY: Upgrade to Graph Orchestration (Best Practice)
+
+**What:** Transition from P2P delegation to a State Graph (e.g., LangGraph).
+
+**Why:** Best practices suggest "Graph-Based Orchestration" for cyclic workflows (Reflect -> Retry) and better state management.
+
+**Tasks:**
+- [ ] Model the conversation state (Messages, Current Agent, Next Step).
+- [ ] Implement a central Orchestrator Graph.
+- [ ] Add "Reflection" nodes for self-correction.
+
+---
+
+### 7. 🎯 LOW PRIORITY: Optimization & Production Readiness
 
 **What:** Performance improvements and production hardening
 
@@ -120,10 +148,11 @@ if target_agent and target_agent != 'self':
 - [ ] Docker containerization
 - [ ] Health check monitoring
 - [ ] Logging to file/cloud
+- [ ] **Observability:** Implement distributed tracing (e.g., OpenTelemetry) to trace 'Chain of Thought' across agents.
 
 ---
 
-### 6. 📝 LOW PRIORITY: Documentation & Thesis
+### 8. 📝 LOW PRIORITY: Documentation & Thesis
 
 **What:** Complete documentation for thesis submission
 
@@ -132,6 +161,22 @@ if target_agent and target_agent != 'self':
 - [ ] API documentation (Swagger is auto-generated)
 - [ ] Evaluation results and charts
 - [ ] Thesis chapter: System Implementation
+
+---
+
+## Best Practices Alignment Analysis
+
+Based on `docs/MAS_BEST_PRACTICES.md`, here is how the current system compares:
+
+| Best Practice Area | Current Status | Gap / Action Item |
+|-------------------|----------------|-------------------|
+| **Modularity** | ✅ High. Specialized agents (Minister, Technician, Operator). | None. |
+| **Orchestration** | ⚠️ Partial. Hierarchical delegation implemented, but lacks Graph features. | **Action:** Upgrade to Graph-based orchestration (LangGraph) for loops/retries. |
+| **Neuro-Symbolic** | ⚠️ Partial. RAG is used, but Knowledge Graph is missing. | **Action:** Implement Neo4j integration (Priority #5). |
+| **Communication** | ✅ Good. Standardized `AgentCard` protocol. | None. |
+| **Collaboration** | ⚠️ Basic. Direct delegation. No "Debate" or "Reflection". | **Action:** Add Reflection steps/agents. |
+| **Evaluation** | ❌ Missing. No automated "Agent-as-a-Judge". | **Action:** Implement Judge agent (Priority #4). |
+| **Observability** | ⚠️ Basic. Logs exist, but no cross-agent tracing. | **Action:** Add correlation ID tracing or OpenTelemetry. |
 
 ---
 
