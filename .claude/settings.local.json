@@ -15,7 +15,8 @@
       "Bash(docker-compose logs:*)",
       "Bash(timeout:*)",
       "Bash(ping:*)",
-      "Bash(docker logs:*)"
+      "Bash(docker logs:*)",
+      "Bash(docker-compose down:*)"
     ]
   }
 }
