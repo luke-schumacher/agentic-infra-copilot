@@ -273,16 +273,21 @@ async def consult(request: ConsultRequest):
             for doc in documents
         ]
 
-        # Build response payload based on query type
+        # Extract delegation info from brain result
+        target_agent = getattr(result, 'target_agent', 'self')
+        delegation_reason = getattr(result, 'delegation_reason', '')
+        refined_query = getattr(result, 'refined_query', query)
+
+        # Build base response payload based on query type
         if is_symptom:
             response_payload = {
                 "risk_level": getattr(result, 'risk_level', 'unknown'),
                 "violated_slas": getattr(result, 'violated_slas', 'None identified'),
                 "recommended_actions": getattr(result, 'recommended_actions', 'No immediate actions'),
                 "delegation": {
-                    "target_agent": getattr(result, 'target_agent', 'self'),
-                    "reason": getattr(result, 'delegation_reason', ''),
-                    "refined_query": getattr(result, 'refined_query', query)
+                    "target_agent": target_agent,
+                    "reason": delegation_reason,
+                    "refined_query": refined_query
                 }
             }
             # Set priority based on risk level
@@ -296,14 +301,31 @@ async def consult(request: ConsultRequest):
                 "confidence": getattr(result, 'confidence', 'low'),
                 "sources_used": getattr(result, 'sources_used', ''),
                 "delegation": {
-                    "target_agent": getattr(result, 'target_agent', 'self'),
-                    "reason": getattr(result, 'delegation_reason', ''),
-                    "refined_query": getattr(result, 'refined_query', query)
+                    "target_agent": target_agent,
+                    "reason": delegation_reason,
+                    "refined_query": refined_query
                 }
             }
             priority = Priority.NORMAL
 
-        # Build response card
+        # If delegation needed, await specialist response BEFORE building response card
+        if target_agent and target_agent != 'self':
+            logger.info(f"Delegating to {target_agent}...")
+            specialist_response = await delegate_to_specialist(
+                target_agent,
+                refined_query,
+                card.message_id
+            )
+            if specialist_response:
+                response_payload["specialist_findings"] = specialist_response
+                logger.info(f"Specialist {target_agent} findings integrated into response")
+            else:
+                logger.warning(f"Delegation to {target_agent} returned no response")
+                response_payload["specialist_findings"] = {
+                    "error": f"Specialist {target_agent} unavailable or returned no response"
+                }
+
+        # Build response card WITH specialist findings included
         response_card = AgentCard(
             correlation_id=card.message_id,
             sender=AgentRole.TELEKOM_MINISTER,
@@ -316,19 +338,6 @@ async def consult(request: ConsultRequest):
 
         LAST_QUERY_TIME = datetime.utcnow()
         processing_time = (time.time() - start_time) * 1000
-
-        # If delegation needed, await specialist response
-        target_agent = getattr(result, 'target_agent', 'self')
-        if target_agent and target_agent != 'self':
-            logger.info(f"Delegating to {target_agent}...")
-            specialist_response = await delegate_to_specialist(
-                target_agent,
-                getattr(result, 'refined_query', query),
-                card.message_id
-            )
-            if specialist_response:
-                response_payload["specialist_findings"] = specialist_response
-                logger.info(f"Specialist {target_agent} findings added to response")
 
         logger.info(f"Consultation completed in {processing_time:.2f}ms")
 
