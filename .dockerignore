@@ -36,6 +36,9 @@ build
 # Data volumes (mounted separately)
 chroma_db
 results
+data/
+PDFs/
+logs/
 
 # Notebooks (optional - remove if needed)
 notebooks/*.ipynb

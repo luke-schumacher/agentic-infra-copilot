@@ -45,7 +45,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration
-MINISTER_URL = "http://localhost:8001/consult"
+# Default to localhost (works inside the container or locally)
+# Can be overridden by env var TELEKOM_MINISTER_URL
+MINISTER_URL = os.getenv("TELEKOM_MINISTER_URL", "http://localhost:8001/consult").replace("/consult", "") + "/consult"
 SCENARIOS_DIR = project_root / "data" / "scenarios"
 RESULTS_DIR = project_root / "results"
 
@@ -510,16 +512,16 @@ def main():
     print()
 
     # Check if Minister is available
-    print("Checking agent availability...")
+    print(f"Checking agent availability at {MINISTER_URL.replace('/consult', '/health')}...")
     try:
-        response = httpx.get("http://localhost:8001/health", timeout=5.0)
+        response = httpx.get(MINISTER_URL.replace("/consult", "/health"), timeout=5.0)
         if response.status_code != 200:
             print("WARNING: Telekom Minister not responding correctly")
             print("Make sure all agents are running before starting simulation")
             return
         print("Telekom Minister: ONLINE")
     except Exception as e:
-        print(f"ERROR: Cannot reach Telekom Minister at localhost:8001")
+        print(f"ERROR: Cannot reach Telekom Minister at {MINISTER_URL}")
         print("Please start the agents first:")
         print("  python src/agents/telekom_minister/main.py")
         print("  python src/agents/siemens_technician/main.py")
