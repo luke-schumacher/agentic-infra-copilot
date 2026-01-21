@@ -42,6 +42,7 @@ from src.agents.siemens_technician.brain import SiemensTechnicianModule
 from src.agents.siemens_technician.data_loader import SiemensLoader
 from src.agents.siemens_technician.vector_store import SiemensVectorStore
 from src.agents.shared.dspy_config import configure_dspy
+from src.agents.shared.graph_service import get_graph_service
 
 # Configure logging
 logging.basicConfig(
@@ -94,6 +95,20 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"Failed to initialize brain: {e}")
         app.state.brain = None
+
+    try:
+        # Initialize graph service for hybrid search
+        app.state.graph_service = get_graph_service()
+        if app.state.graph_service.is_available():
+            logger.info("Knowledge Graph service ready (Neo4j connected)")
+            app.state.graph_ready = True
+        else:
+            logger.warning("Knowledge Graph service unavailable (Neo4j not connected)")
+            app.state.graph_ready = False
+    except Exception as e:
+        logger.warning(f"Graph service initialization skipped: {e}")
+        app.state.graph_service = None
+        app.state.graph_ready = False
 
     logger.info("=" * 60)
     logger.info("SIEMENS TECHNICIAN AGENT - Ready to serve!")
@@ -283,24 +298,43 @@ async def consult(request: ConsultRequest):
                 detail="Brain module not initialized"
             )
 
-        # Retrieve relevant documents
+        # Retrieve relevant documents (Vector Search)
         documents = app.state.vector_store.similarity_search(query, k=5)
 
         # Build context from retrieved documents
-        context = "\n\n".join([
+        vector_context = "\n\n".join([
             f"[Institution: {doc.metadata.get('institution', 'unknown')}]\n{doc.page_content}"
             for doc in documents
         ])
 
-        if not context:
-            context = "No relevant equipment or pain point data found."
+        if not vector_context:
+            vector_context = "No relevant equipment or pain point data found."
+
+        # Enrich with Knowledge Graph context (Hybrid Search)
+        graph_context = ""
+        if hasattr(app.state, 'graph_service') and app.state.graph_service:
+            try:
+                graph_context = app.state.graph_service.get_enriched_context(
+                    query=query,
+                    location=None  # Siemens doesn't use location context
+                )
+                if graph_context:
+                    logger.info(f"Graph context retrieved: {len(graph_context)} chars")
+            except Exception as e:
+                logger.warning(f"Graph context retrieval failed: {e}")
+
+        # Combine vector + graph context
+        if graph_context:
+            context = f"{vector_context}\n\n--- Knowledge Graph Context ---\n{graph_context}"
+        else:
+            context = vector_context
 
         # Determine query type
         query_type = _determine_query_type(query)
         logger.info(f"Query type detected: {query_type}")
 
         # Process through DSPy brain
-        logger.info("Processing through DSPy brain...")
+        logger.info("Processing through DSPy brain (hybrid context)...")
         result = app.state.brain(
             query=query,
             context=context,

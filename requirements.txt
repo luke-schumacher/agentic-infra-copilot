@@ -1,9 +1,9 @@
 # ===================================================================
 # Agentic Infra Co-Pilot - Dependencies
-# Master's Thesis Project: RAG-based Infrastructure Fault Diagnosis
+# Master's Thesis Project: Agentic Infrastructure Fault Diagnosis
 # ===================================================================
 
-# Core RAG & Logic Framework
+# Core Agent & Logic Framework
 langchain>=0.1.0
 langchain-openai>=0.0.5
 langchain-community>=0.0.20

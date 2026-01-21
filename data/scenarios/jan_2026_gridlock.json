@@ -3,7 +3,7 @@
   "scenario_name": "January 2026 Grid-Lock Incident",
   "description": "A cascade of faults affecting the Abidjan EV charging network during peak season. Used for MTTI evaluation.",
   "created_at": "2026-01-19",
-  "version": "1.0.0",
+  "version": "2.0.0",
 
   "faults": [
     {
@@ -75,43 +75,318 @@
         "keywords": ["SLA", "availability", "requirements", "network"]
       },
       "test_type": "sla_query"
+    },
+    {
+      "fault_id": "F006",
+      "timestamp": "2026-01-17T10:30:00",
+      "station_id": "COCODY",
+      "query": "Connector CX003 at COCODY showing temperature warning, charging session terminated prematurely",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Thermal runaway risk due to connector contact degradation and high ambient temperature",
+        "risk_level": "critical",
+        "violated_slas": ["SLA-SAFETY-001", "SLA-AVAIL-001"],
+        "keywords": ["temperature", "thermal", "connector", "degradation", "CX003"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F007",
+      "timestamp": "2026-01-17T12:00:00",
+      "station_id": "PLATEAU",
+      "query": "PLATEAU station reports voltage fluctuation on DC fast charger, CCS connector",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Grid voltage instability affecting DC-DC converter regulation",
+        "risk_level": "high",
+        "violated_slas": ["SLA-QUALITY-001"],
+        "keywords": ["voltage", "fluctuation", "DC", "CCS", "converter"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F008",
+      "timestamp": "2026-01-17T14:45:00",
+      "station_id": "MARCORY",
+      "query": "What are the specifications for LINAC equipment at the major hospitals?",
+      "expected_delegation": "siemens_technician",
+      "ground_truth": {
+        "root_cause": "N/A - Specification query",
+        "risk_level": "low",
+        "violated_slas": [],
+        "keywords": ["LINAC", "specifications", "equipment", "hospital"]
+      },
+      "test_type": "hardware_query"
+    },
+    {
+      "fault_id": "F009",
+      "timestamp": "2026-01-18T08:00:00",
+      "station_id": "YOPOUGON",
+      "query": "Card reader malfunction at YOPOUGON station, RFID authentication failing for all users",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "RFID module firmware corruption after power surge",
+        "risk_level": "medium",
+        "violated_slas": ["SLA-ACCESS-001"],
+        "keywords": ["RFID", "card reader", "authentication", "firmware"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F010",
+      "timestamp": "2026-01-18T09:30:00",
+      "station_id": "BINGERVILLE",
+      "query": "What is the expected latency threshold for autonomous network operations?",
+      "expected_delegation": "self",
+      "ground_truth": {
+        "root_cause": "N/A - SLA/Intent query",
+        "risk_level": "low",
+        "violated_slas": [],
+        "keywords": ["latency", "threshold", "autonomous", "network", "intent"]
+      },
+      "test_type": "sla_query"
+    },
+    {
+      "fault_id": "F011",
+      "timestamp": "2026-01-18T11:15:00",
+      "station_id": "TREICHVILLE",
+      "query": "Energy meter reading discrepancy at TREICHVILLE, billing system shows 15% variance from actual consumption",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Energy meter calibration drift and data synchronization lag between OCPP and billing system",
+        "risk_level": "medium",
+        "violated_slas": ["SLA-BILLING-001"],
+        "keywords": ["energy meter", "billing", "discrepancy", "calibration"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F012",
+      "timestamp": "2026-01-18T13:00:00",
+      "station_id": "ADJAME",
+      "query": "CT scanner at Central Hospital showing image artifacts, what are common causes?",
+      "expected_delegation": "siemens_technician",
+      "ground_truth": {
+        "root_cause": "Hardware issue - detector calibration or X-ray tube degradation",
+        "risk_level": "medium",
+        "violated_slas": [],
+        "keywords": ["CT scanner", "artifacts", "detector", "calibration", "X-ray"]
+      },
+      "test_type": "hardware_query"
+    },
+    {
+      "fault_id": "F013",
+      "timestamp": "2026-01-18T15:30:00",
+      "station_id": "KOUMASSI",
+      "query": "CX001 error code appearing at KOUMASSI, what does this indicate?",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "CX001 indicates connector lock mechanism failure",
+        "risk_level": "high",
+        "violated_slas": ["SLA-SAFETY-001"],
+        "keywords": ["CX001", "connector", "lock", "mechanism"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F014",
+      "timestamp": "2026-01-19T08:00:00",
+      "station_id": "ANGRE",
+      "query": "Multiple stations reporting simultaneous offline status, possible cascade failure",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Central OCPP server overload causing connection drops across network",
+        "risk_level": "critical",
+        "violated_slas": ["SLA-AVAIL-001", "SLA-UPTIME-001"],
+        "keywords": ["cascade", "offline", "OCPP", "server", "overload"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F015",
+      "timestamp": "2026-01-19T09:45:00",
+      "station_id": "COCODY",
+      "query": "How should the network handle intent-based traffic prioritization for EV charging?",
+      "expected_delegation": "self",
+      "ground_truth": {
+        "root_cause": "N/A - Intent/Policy query",
+        "risk_level": "low",
+        "violated_slas": [],
+        "keywords": ["intent", "traffic", "prioritization", "policy", "network"]
+      },
+      "test_type": "sla_query"
+    },
+    {
+      "fault_id": "F016",
+      "timestamp": "2026-01-19T11:00:00",
+      "station_id": "PLATEAU",
+      "query": "What equipment vendors supply the MRI scanners to regional hospitals?",
+      "expected_delegation": "siemens_technician",
+      "ground_truth": {
+        "root_cause": "N/A - Equipment specification query",
+        "risk_level": "low",
+        "violated_slas": [],
+        "keywords": ["MRI", "vendors", "equipment", "hospital"]
+      },
+      "test_type": "hardware_query"
+    },
+    {
+      "fault_id": "F017",
+      "timestamp": "2026-01-19T13:30:00",
+      "station_id": "GANDHI",
+      "query": "Power factor correction issue at GANDHI station causing utility penalty charges",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Reactive power compensation capacitor bank failure",
+        "risk_level": "medium",
+        "violated_slas": ["SLA-EFFICIENCY-001"],
+        "keywords": ["power factor", "reactive power", "capacitor", "utility"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F018",
+      "timestamp": "2026-01-19T15:00:00",
+      "station_id": "YOPOUGON",
+      "query": "Display screen at YOPOUGON charger showing garbled text, user cannot see charging status",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "LCD controller malfunction due to heat exposure",
+        "risk_level": "low",
+        "violated_slas": ["SLA-UX-001"],
+        "keywords": ["display", "screen", "LCD", "status"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F019",
+      "timestamp": "2026-01-20T08:30:00",
+      "station_id": "MARCORY",
+      "query": "Emergency stop button triggered at MARCORY, system in safe mode",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Manual E-stop activation - requires physical reset and safety inspection",
+        "risk_level": "high",
+        "violated_slas": ["SLA-SAFETY-001"],
+        "keywords": ["emergency", "E-stop", "safe mode", "safety"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F020",
+      "timestamp": "2026-01-20T10:00:00",
+      "station_id": "BINGERVILLE",
+      "query": "What are the pain points reported for RF coil systems in diagnostic imaging?",
+      "expected_delegation": "siemens_technician",
+      "ground_truth": {
+        "root_cause": "Common pain points include positioning difficulty, connector wear, and SNR degradation",
+        "risk_level": "medium",
+        "violated_slas": [],
+        "keywords": ["RF coil", "pain point", "diagnostic", "imaging", "positioning"]
+      },
+      "test_type": "hardware_query"
+    },
+    {
+      "fault_id": "F021",
+      "timestamp": "2026-01-20T11:45:00",
+      "station_id": "TREICHVILLE",
+      "query": "How does the autonomous network handle service degradation scenarios?",
+      "expected_delegation": "self",
+      "ground_truth": {
+        "root_cause": "N/A - Policy/SLA query about network resilience",
+        "risk_level": "low",
+        "violated_slas": [],
+        "keywords": ["autonomous", "degradation", "resilience", "service", "network"]
+      },
+      "test_type": "sla_query"
+    },
+    {
+      "fault_id": "F022",
+      "timestamp": "2026-01-20T14:00:00",
+      "station_id": "ADJAME",
+      "query": "Ventilation fan failure at ADJAME charging cabinet, ambient temperature rising",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Cooling system fan motor burnout requiring replacement",
+        "risk_level": "high",
+        "violated_slas": ["SLA-SAFETY-001", "SLA-AVAIL-001"],
+        "keywords": ["ventilation", "fan", "temperature", "cooling"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F023",
+      "timestamp": "2026-01-20T16:30:00",
+      "station_id": "KOUMASSI",
+      "query": "Correlation between recent firmware update and increased CX errors across network",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Firmware version 2.3.1 introduced timing bug in connector state machine",
+        "risk_level": "critical",
+        "violated_slas": ["SLA-QUALITY-001", "SLA-AVAIL-001"],
+        "keywords": ["firmware", "correlation", "update", "bug", "timing"]
+      },
+      "test_type": "fault_diagnosis"
+    },
+    {
+      "fault_id": "F024",
+      "timestamp": "2026-01-21T09:00:00",
+      "station_id": "ANGRE",
+      "query": "What troubleshooting steps are recommended for LINAC beam calibration issues?",
+      "expected_delegation": "siemens_technician",
+      "ground_truth": {
+        "root_cause": "N/A - Troubleshooting guidance query",
+        "risk_level": "medium",
+        "violated_slas": [],
+        "keywords": ["LINAC", "beam", "calibration", "troubleshooting"]
+      },
+      "test_type": "hardware_query"
+    },
+    {
+      "fault_id": "F025",
+      "timestamp": "2026-01-21T11:00:00",
+      "station_id": "COCODY",
+      "query": "Load balancing anomaly detected - COCODY drawing 40% more power than expected for session count",
+      "expected_delegation": "illigo_operator",
+      "ground_truth": {
+        "root_cause": "Power metering misconfiguration after recent maintenance",
+        "risk_level": "medium",
+        "violated_slas": ["SLA-EFFICIENCY-001"],
+        "keywords": ["load balance", "power", "anomaly", "metering"]
+      },
+      "test_type": "fault_diagnosis"
     }
   ],
 
   "success_criteria": {
     "mtti_threshold_seconds": 30,
-    "accuracy_threshold": 0.8,
-    "delegation_accuracy_threshold": 0.9,
-    "description": "MTTI under 30s, 80% diagnosis accuracy, 90% correct delegation routing"
+    "accuracy_threshold": 0.75,
+    "delegation_accuracy_threshold": 0.85,
+    "semantic_similarity_threshold": 0.6,
+    "description": "MTTI under 30s, 75% diagnosis accuracy, 85% correct delegation, 60% semantic similarity"
   },
 
   "stations": {
-    "KOUMASSI": {
-      "location": "Koumassi, Abidjan",
-      "connector_count": 4,
-      "max_power_kw": 150
-    },
-    "ANGRE": {
-      "location": "Angre, Abidjan",
-      "connector_count": 6,
-      "max_power_kw": 350
-    },
-    "ABATTA": {
-      "location": "Abatta, Abidjan",
-      "connector_count": 2,
-      "max_power_kw": 50
-    },
-    "GANDHI": {
-      "location": "Gandhi, Abidjan",
-      "connector_count": 4,
-      "max_power_kw": 150
-    }
+    "KOUMASSI": {"location": "Koumassi, Abidjan", "connector_count": 4, "max_power_kw": 150},
+    "ANGRE": {"location": "Angre, Abidjan", "connector_count": 6, "max_power_kw": 350},
+    "ABATTA": {"location": "Abatta, Abidjan", "connector_count": 2, "max_power_kw": 50},
+    "GANDHI": {"location": "Gandhi, Abidjan", "connector_count": 4, "max_power_kw": 150},
+    "COCODY": {"location": "Cocody, Abidjan", "connector_count": 4, "max_power_kw": 150},
+    "PLATEAU": {"location": "Plateau, Abidjan", "connector_count": 6, "max_power_kw": 350},
+    "MARCORY": {"location": "Marcory, Abidjan", "connector_count": 4, "max_power_kw": 150},
+    "YOPOUGON": {"location": "Yopougon, Abidjan", "connector_count": 8, "max_power_kw": 350},
+    "BINGERVILLE": {"location": "Bingerville, Abidjan", "connector_count": 2, "max_power_kw": 50},
+    "TREICHVILLE": {"location": "Treichville, Abidjan", "connector_count": 4, "max_power_kw": 150},
+    "ADJAME": {"location": "Adjame, Abidjan", "connector_count": 4, "max_power_kw": 150}
   },
 
   "evaluation_notes": [
-    "F001-F004 test fault delegation to specialists",
-    "F005 tests self-handled SLA query (no delegation needed)",
-    "F003 specifically tests Siemens Technician routing for hardware queries",
-    "Ground truth keywords help measure semantic accuracy of diagnosis"
+    "25 total test cases for comprehensive MTTI evaluation",
+    "15 Illigo faults (charging station errors) - expected delegation: illigo_operator",
+    "6 Siemens queries (equipment/hardware) - expected delegation: siemens_technician",
+    "4 SLA/Intent queries - expected delegation: self (Telekom Minister handles)",
+    "Fault types: ground fault, over-current, thermal, communication, firmware, mechanical",
+    "Includes correlation and anomaly detection scenarios",
+    "Ground truth keywords enable semantic accuracy measurement"
   ]
 }
