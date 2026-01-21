@@ -1,26 +1,26 @@
 # Agentic Infra Co-Pilot
 
-A RAG-based infrastructure fault diagnosis system for Master's thesis research in AISS.
+A Multi-Agent System (MAS) for infrastructure fault diagnosis, powered by RAG and Neuro-Symbolic AI.
 
 ## Project Overview
 
-**Agentic Infra Co-Pilot** is a Python-based Retrieval-Augmented Generation (RAG) application designed to diagnose infrastructure faults by ingesting and analyzing data from three distinct domains:
+**Agentic Infra Co-Pilot** is a distributed **Multi-Agent System (MAS)** designed to autonomously diagnose complex infrastructure faults. It mimics a specialized human team by orchestrating distinct AI agents that collaborate to analyze data from three distinct domains:
 
-1. **Telekom PDF Intent Docs** - Infrastructure documentation and troubleshooting procedures
-2. **Siemens CSV Hardware Scans** - 500+ hardware diagnostic scan files
-3. **Illigo JSON Event Logs** - OCPP 2.0.1 charging infrastructure event logs
+1. **Telekom Minister (Governance)**: Enforces SLAs and interprets Network Intent (PDFs).
+2. **Siemens Technician (Hardware)**: Diagnoses physical equipment faults using technical manuals (CSV/PDFs).
+3. **Illigo Operator (Telemetry)**: Monitors live event logs and detects anomalies (JSON).
 
-The system combines Knowledge Graph technology (Neo4j) with vector-based semantic search to provide intelligent fault diagnosis and resolution recommendations.
+The system leverages **Retrieval-Augmented Generation (RAG)** and **Knowledge Graph technology (Neo4j)** to provide intelligent, grounded fault diagnosis and resolution recommendations.
 
 ## Key Features
 
-- **Tripartite Data Ingestion**: Custom parsers for PDF, CSV, and JSON formats
-- **Knowledge Graph**: Neo4j-based graph database for relationship modeling
-- **Vector Search**: ChromaDB/FAISS for semantic similarity search
-- **RAG Pipeline**: LangChain-powered retrieval and reasoning
-- **Chain of Thought**: Step-by-step reasoning for complex diagnoses
-- **Simulation Framework**: "Jan 2026 Grid-Lock" scenario testing
-- **Mean Time to Innocence (MTTI)**: Performance measurement and evaluation
+- **Multi-Agent Architecture**: Three specialized agents (Governance, Hardware, Telemetry) working in concert.
+- **Tripartite Data Ingestion**: Custom parsers for PDF, CSV, and JSON formats.
+- **Neuro-Symbolic Reasoning**: Combines Knowledge Graphs (Neo4j) with Large Language Models.
+- **Retrieval Capabilities**: LangChain-powered retrieval for grounded answers.
+- **Chain of Thought**: Step-by-step reasoning for complex diagnoses.
+- **Simulation Framework**: "Jan 2026 Grid-Lock" scenario testing.
+- **Mean Time to Innocence (MTTI)**: Performance measurement and evaluation.
 
 ## Project Structure
 
@@ -66,7 +66,7 @@ agentic-infra-copilot/
 │   ├── 01_eda_telekom.ipynb        # Telekom data EDA
 │   ├── 02_eda_siemens.ipynb        # Siemens data EDA
 │   ├── 03_eda_illigo.ipynb         # Illigo data EDA
-│   └── 04_prototype_rag.ipynb      # RAG prototype testing
+│   └── 04_prototype_rag.ipynb      # Retrieval mechanism prototyping
 │
 ├── config/                         # Configuration files
 │   ├── .env.example                # Environment variables template
@@ -170,7 +170,7 @@ with Neo4jConnector() as connector:
     builder.build_graph(telekom_data, siemens_data, illigo_data)
 ```
 
-### 3. Run RAG Query
+### 3. Run Diagnostic Query
 
 ```python
 from src.agent.reasoning_engine import ReasoningEngine
@@ -212,21 +212,17 @@ simulation.save_results("results/gridlock_results.json")
   - Node types: Device, Error, Procedure, Event, Hardware
   - Relationships: CAUSES, RESOLVES, OCCURS_IN, DETECTED_BY, FOLLOWS
 
-### RAG Retrieval (`src/retrieval/`)
+### Knowledge Retrieval (`src/retrieval/`)
 
 - **vector_store.py**: Manages ChromaDB or FAISS vector database
 - **embeddings.py**: Generates embeddings using OpenAI or local models
 
-### Agent (`src/agent/`)
+### Agents (`src/agents/`)
 
-- **reasoning_engine.py**: LangChain-based fault diagnosis agent
-- **chain_of_thought.py**: Implements step-by-step reasoning
-  1. Identify fault
-  2. Retrieve context
-  3. Analyze root causes
-  4. Cross-reference data
-  5. Rank hypotheses
-  6. Generate recommendations
+- **Telekom Minister**: FastAPI microservice for governance and delegation.
+- **Siemens Technician**: FastAPI microservice for hardware diagnosis.
+- **Illigo Operator**: FastAPI microservice for telemetry analysis.
+- **Shared Brain**: DSPy-based reasoning modules used by all agents (`src/agent/reasoning_engine.py`).
 
 ### Simulation (`src/simulation/`)
 

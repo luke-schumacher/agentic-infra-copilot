@@ -6,7 +6,7 @@
 project:
   name: "Agentic Infra Co-Pilot"
   version: "0.1.0"
-  description: "RAG-based Infrastructure Fault Diagnosis System"
+  description: "Multi-Agent Infrastructure Fault Diagnosis System"
   author: "Your Name"
   thesis: "Master's Thesis - AISS"
 
@@ -93,7 +93,7 @@ embeddings:
     device: "cpu"  # Options: "cpu", "cuda"
     batch_size: 32
 
-# RAG retrieval configuration
+# Retrieval configuration
 retrieval:
   top_k: 5  # Number of documents to retrieve
   min_similarity: 0.7  # Minimum similarity threshold

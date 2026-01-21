@@ -105,7 +105,7 @@ The Multi-Agent System has a solid architectural foundation with well-designed c
 
 ---
 
-## 3. RAG Pipeline (80% Complete)
+## 3. Information Retrieval (80% Complete)
 
 ### What's Implemented
 - Vector stores: ChromaDB per agent
@@ -246,7 +246,7 @@ TELEKOM_MINISTER_URL   # Entry point
 |-----------|--------------|------------------|
 | Agent Implementations | 85% | Partial |
 | Data Ingestion | 60% | No |
-| Vector Stores (RAG) | 80% | Yes |
+| Vector Stores (Retrieval) | 80% | Yes |
 | Neo4j Knowledge Graph | 40% | No |
 | Reasoning Modules (DSPy) | 90% | Yes |
 | Agent Delegation | 50% | No |

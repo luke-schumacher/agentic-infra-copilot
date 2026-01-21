@@ -16,7 +16,8 @@
       "Bash(timeout:*)",
       "Bash(ping:*)",
       "Bash(docker logs:*)",
-      "Bash(docker-compose down:*)"
+      "Bash(docker-compose down:*)",
+      "Bash(ls -la \"C:\\\\Users\\\\lukis\\\\Documents\\\\GitHub\\\\agentic-infra-copilot\\\\src\\\\graph\"\" 2>&1 || echo \"Directory may not exist \")"
     ]
   }
 }

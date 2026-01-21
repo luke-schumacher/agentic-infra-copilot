@@ -172,7 +172,7 @@ Based on `docs/MAS_BEST_PRACTICES.md`, here is how the current system compares:
 |-------------------|----------------|-------------------|
 | **Modularity** | ✅ High. Specialized agents (Minister, Technician, Operator). | None. |
 | **Orchestration** | ⚠️ Partial. Hierarchical delegation implemented, but lacks Graph features. | **Action:** Upgrade to Graph-based orchestration (LangGraph) for loops/retries. |
-| **Neuro-Symbolic** | ⚠️ Partial. RAG is used, but Knowledge Graph is missing. | **Action:** Implement Neo4j integration (Priority #5). |
+| **Neuro-Symbolic** | ⚠️ Partial. Agents utilize RAG tools, but Knowledge Graph is missing. | **Action:** Implement Neo4j integration (Priority #5). |
 | **Communication** | ✅ Good. Standardized `AgentCard` protocol. | None. |
 | **Collaboration** | ⚠️ Basic. Direct delegation. No "Debate" or "Reflection". | **Action:** Add Reflection steps/agents. |
 | **Evaluation** | ❌ Missing. No automated "Agent-as-a-Judge". | **Action:** Implement Judge agent (Priority #4). |
