@@ -33,16 +33,18 @@ from fastapi.middleware.cors import CORSMiddleware
 project_root = Path(__file__).parent.parent.parent.parent
 sys.path.insert(0, str(project_root))
 
+from pydantic import ValidationError
 from src.protocol.schema import (
     AgentCard, AgentRole, IntentType, Priority,
     ConsultRequest, ConsultResponse, AgentHealthStatus,
-    DocumentReference
+    DocumentReference, ConsultPayload
 )
 from src.agents.illigo_operator.brain import IlligoOperatorModule
 from src.agents.illigo_operator.data_loader import IlligoLoader
 from src.agents.illigo_operator.vector_store import IlligoVectorStore
 from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
+from src.agents.shared.security import configure_cors
 
 # Configure logging
 logging.basicConfig(
@@ -132,13 +134,8 @@ app = FastAPI(
 )
 
 # CORS configuration for Streamlit and other clients
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Restricted to known origins (configurable via CORS_ALLOWED_ORIGINS env var)
+configure_cors(app)
 
 
 @app.get("/")
@@ -278,21 +275,23 @@ async def consult(request: ConsultRequest):
         card = request.card
         logger.info(f"Received consultation from {card.sender}: {card.intent}")
 
-        # Extract query from payload
-        query = card.payload.get("query", "")
-        station_id = card.payload.get("station_id", "unknown")
-        timestamp = card.payload.get("timestamp", "")
-        delegated_by = card.payload.get("delegated_by", None)
+        # Validate and extract payload fields
+        try:
+            validated_payload = ConsultPayload.from_payload(card.payload)
+        except ValidationError as e:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid payload: {e.errors()}"
+            )
+
+        query = validated_payload.query
+        station_id = validated_payload.station_id or "unknown"
+        timestamp = validated_payload.timestamp or ""
+        delegated_by = validated_payload.delegated_by
 
         # Log delegation context if present
         if delegated_by:
             logger.info(f"Handling delegated request from {delegated_by}")
-
-        if not query:
-            raise HTTPException(
-                status_code=400,
-                detail="Query is required in payload"
-            )
 
         # Check if vector store and brain are available
         if not app.state.vector_store:
@@ -598,16 +597,11 @@ async def get_recent_events(station_id: Optional[str] = None, k: int = 10):
 
 
 if __name__ == "__main__":
-    import uvicorn
+    from src.agents.shared.server_utils import run_agent_server
 
-    # Get port from environment or default to 8003
-    port = int(os.getenv("ILLIGO_OPERATOR_PORT", "8003"))
-
-    logger.info(f"Starting Illigo Operator on port {port}...")
-
-    uvicorn.run(
-        app,
-        host="0.0.0.0",
-        port=port,
-        log_level="info"
+    run_agent_server(
+        app=app,
+        agent_name="Illigo Operator",
+        env_var_name="ILLIGO_OPERATOR_PORT",
+        default_port=8003
     )

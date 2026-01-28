@@ -33,16 +33,18 @@ import httpx
 project_root = Path(__file__).parent.parent.parent.parent
 sys.path.insert(0, str(project_root))
 
+from pydantic import ValidationError
 from src.protocol.schema import (
     AgentCard, AgentRole, IntentType, Priority,
     ConsultRequest, ConsultResponse, AgentHealthStatus,
-    DocumentReference
+    DocumentReference, ConsultPayload
 )
 from src.agents.telekom_minister.brain import TelekomMinisterModule
 from src.agents.telekom_minister.data_loader import TelekomLoader
 from src.agents.telekom_minister.vector_store import TelekomVectorStore
 from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
+from src.agents.shared.security import configure_cors
 
 # Configure logging
 logging.basicConfig(
@@ -132,13 +134,8 @@ app = FastAPI(
 )
 
 # CORS configuration for Streamlit and other clients
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Restricted to known origins (configurable via CORS_ALLOWED_ORIGINS env var)
+configure_cors(app)
 
 
 @app.get("/")
@@ -231,16 +228,18 @@ async def consult(request: ConsultRequest):
         card = request.card
         logger.info(f"Received consultation from {card.sender}: {card.intent}")
 
-        # Extract query from payload
-        query = card.payload.get("query", "")
-        location = card.payload.get("location", "unknown")
-        is_symptom = card.payload.get("is_symptom", True)
-
-        if not query:
+        # Validate and extract payload fields
+        try:
+            validated_payload = ConsultPayload.from_payload(card.payload)
+        except ValidationError as e:
             raise HTTPException(
                 status_code=400,
-                detail="Query is required in payload"
+                detail=f"Invalid payload: {e.errors()}"
             )
+
+        query = validated_payload.query
+        location = validated_payload.location or "unknown"
+        is_symptom = validated_payload.is_symptom
 
         # Check if vector store and brain are available
         if not app.state.vector_store:
@@ -513,16 +512,11 @@ async def get_document_count():
 
 
 if __name__ == "__main__":
-    import uvicorn
+    from src.agents.shared.server_utils import run_agent_server
 
-    # Get port from environment or default to 8001
-    port = int(os.getenv("TELEKOM_MINISTER_PORT", "8001"))
-
-    logger.info(f"Starting Telekom Minister on port {port}...")
-
-    uvicorn.run(
-        app,
-        host="0.0.0.0",
-        port=port,
-        log_level="info"
+    run_agent_server(
+        app=app,
+        agent_name="Telekom Minister",
+        env_var_name="TELEKOM_MINISTER_PORT",
+        default_port=8001
     )
