@@ -1,0 +1,12 @@
+station_id,station_name,period_start,period_end,total_sessions,successful_sessions,failed_sessions,success_rate,total_energy_kwh,avg_session_duration_min,avg_energy_per_session_kwh,peak_hour,peak_sessions,revenue_cfa,uptime_percent,fault_count,common_fault_type
+KOUMASSI,Koumassi Station,2025-08-31,2026-01-11,1842,1798,44,97.6,28450.5,45.2,15.82,18:00,156,4267575,98.2,12,Communication Timeout
+ANGRE,Angre Station,2025-08-31,2026-01-11,2156,2089,67,96.9,42890.3,52.8,20.54,19:00,198,6433545,97.8,18,Ground Fault
+COCODY,Cocody Station,2025-08-31,2026-01-11,1654,1621,33,98.0,31205.8,48.6,19.25,17:00,142,4680870,99.1,8,Connector Lock
+PLATEAU,Plateau Station,2025-08-31,2026-01-11,1923,1885,38,98.0,35678.4,44.1,18.93,12:00,178,5351760,98.5,11,Payment Error
+YOPOUGON,Yopougon Station,2025-08-31,2026-01-11,1478,1436,42,97.2,24560.2,51.3,17.10,20:00,124,3684030,97.1,15,Thermal Warning
+MARCORY,Marcory Station,2025-08-31,2026-01-11,1245,1218,27,97.8,21340.5,49.8,17.52,18:30,108,3201075,98.8,7,RFID Timeout
+TREICHVILLE,Treichville Station,2025-08-31,2026-01-11,1567,1528,39,97.5,26780.9,46.2,17.53,17:30,134,4017135,97.9,13,Network Dropout
+ADJAME,Adjame Station,2025-08-31,2026-01-11,1389,1352,37,97.3,23450.6,50.1,17.34,19:30,118,3517590,97.5,14,Overcurrent Trip
+ABOBO,Abobo Station,2025-08-31,2026-01-11,1678,1641,37,97.8,28901.2,47.5,17.61,18:00,145,4335180,98.3,10,Display Fault
+BINGERVILLE,Bingerville Station,2025-08-31,2026-01-11,987,965,22,97.8,17230.4,53.2,17.86,16:00,82,2584560,98.9,6,Cable Damage
+GRAND_BASSAM,Grand Bassam Station,2025-08-31,2026-01-11,756,738,18,97.6,13450.8,55.8,18.23,15:00,62,2017620,99.0,5,Metering Error

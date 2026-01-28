@@ -249,11 +249,119 @@ class SiemensLoader:
 
         return documents
 
+    def load_equipment_specifications(self) -> List[Document]:
+        """
+        Load Versicharge equipment specifications from CSV.
+
+        Returns:
+            List of Documents with equipment specifications
+        """
+        csv_path = self.data_dir / "versicharge_specifications.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Equipment specifications not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading equipment specifications: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            # Group by category for better context
+            for category in df['category'].unique():
+                category_df = df[df['category'] == category]
+                specs_text = [f"EQUIPMENT SPECIFICATIONS - {category}"]
+
+                for _, row in category_df.iterrows():
+                    specs_text.append(
+                        f"- {row['parameter']}: {row['value']} {row['unit']} "
+                        f"({row['description']})"
+                    )
+                    if pd.notna(row.get('fault_relevance')) and row['fault_relevance'] != 'N/A':
+                        specs_text.append(f"  Fault Relevance: {row['fault_relevance']}")
+
+                doc = Document(
+                    page_content="\n".join(specs_text),
+                    metadata={
+                        'source_type': 'equipment_specification',
+                        'data_type': 'versicharge_specs',
+                        'category': category,
+                        'spec_count': len(category_df),
+                        'file_name': csv_path.name,
+                        'agent': 'siemens_technician'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} equipment specification groups")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading equipment specifications: {str(e)}")
+            return []
+
+    def load_failure_modes(self) -> List[Document]:
+        """
+        Load common failure modes from CSV.
+
+        Returns:
+            List of Documents with failure mode information
+        """
+        csv_path = self.data_dir / "common_failure_modes.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Failure modes not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading failure modes: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            for _, row in df.iterrows():
+                text = (
+                    f"FAILURE MODE: {row['failure_id']} - {row['failure_mode']}\n"
+                    f"Component: {row['component']}\n"
+                    f"Symptom: {row['symptom']}\n"
+                    f"Root Cause: {row['root_cause']}\n"
+                    f"Detection Method: {row['detection_method']}\n"
+                    f"Severity: {row['severity']}\n"
+                    f"Mean Time to Repair: {row['mttr_hours']} hours\n"
+                    f"Repair Action: {row['repair_action']}\n"
+                    f"Spare Parts Required: {row['spare_parts_required']}\n"
+                    f"Preventive Maintenance: {row['preventive_maintenance']}"
+                )
+
+                doc = Document(
+                    page_content=text,
+                    metadata={
+                        'source_type': 'failure_mode',
+                        'data_type': 'diagnostic_guide',
+                        'failure_id': row['failure_id'],
+                        'component': row['component'],
+                        'severity': row['severity'],
+                        'mttr_hours': row['mttr_hours'],
+                        'file_name': csv_path.name,
+                        'agent': 'siemens_technician'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} failure modes")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading failure modes: {str(e)}")
+            return []
+
     def load(self) -> List[Document]:
         """
         Load all CSV files from the Siemens directory.
 
         Automatically detects wide vs long format based on filename.
+        Also loads equipment specifications and failure modes.
 
         Returns:
             List of LangChain Documents
@@ -266,16 +374,20 @@ class SiemensLoader:
             logger.warning("Directory created but no CSVs found. Returning empty list.")
             return []
 
-        # Find all CSV files
-        csv_files = list(self.data_dir.glob("*.csv"))
-
-        if not csv_files:
-            logger.warning(f"No CSV files found in {self.data_dir}")
-            return []
-
-        logger.info(f"Found {len(csv_files)} CSV files to process")
-
         all_documents = []
+
+        # Load equipment specifications (new)
+        spec_docs = self.load_equipment_specifications()
+        all_documents.extend(spec_docs)
+
+        # Load failure modes (new)
+        failure_docs = self.load_failure_modes()
+        all_documents.extend(failure_docs)
+
+        # Find questionnaire CSV files (original functionality)
+        csv_files = list(self.data_dir.glob("*format*.csv"))
+
+        logger.info(f"Found {len(csv_files)} questionnaire CSV files to process")
 
         for csv_file in csv_files:
             try:

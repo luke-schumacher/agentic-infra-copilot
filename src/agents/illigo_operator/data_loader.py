@@ -449,9 +449,133 @@ class IlligoLoader:
 
         return ". ".join(text_parts) + "."
 
+    def load_fault_event_log(self) -> List[Document]:
+        """
+        Load fault event log from CSV (replaces mock generation with real data).
+
+        Returns:
+            List of Documents with fault events
+        """
+        csv_path = self.data_dir / "fault_event_log.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Fault event log not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading fault event log: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            for _, row in df.iterrows():
+                text = (
+                    f"FAULT EVENT: {row['event_id']}\n"
+                    f"Timestamp: {row['timestamp']}\n"
+                    f"Station: {row['station_id']}\n"
+                    f"Connector: {row['connector_id']}\n"
+                    f"Event Type: {row['event_type']}\n"
+                    f"Severity: {row['severity']}\n"
+                    f"Error Code: {row['error_code']}\n"
+                    f"Description: {row['description']}\n"
+                    f"Duration: {row['duration_minutes']} minutes\n"
+                    f"Resolution: {row['resolution']}\n"
+                    f"Related SLAs: {row['related_sla']}\n"
+                    f"Technician Notes: {row['technician_notes']}"
+                )
+
+                doc = Document(
+                    page_content=text,
+                    metadata={
+                        'source_type': 'fault_event_log',
+                        'data_type': 'fault_event',
+                        'event_id': row['event_id'],
+                        'station_id': row['station_id'],
+                        'connector_id': row['connector_id'],
+                        'event_type': row['event_type'],
+                        'severity': row['severity'],
+                        'error_code': row['error_code'],
+                        'timestamp': row['timestamp'],
+                        'related_sla': row['related_sla'],
+                        'file_name': csv_path.name,
+                        'agent': 'illigo_operator'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} fault events from log")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading fault event log: {str(e)}")
+            return []
+
+    def load_station_performance(self) -> List[Document]:
+        """
+        Load station performance statistics from CSV.
+
+        Returns:
+            List of Documents with performance metrics
+        """
+        csv_path = self.data_dir / "station_performance_statistics.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Station performance stats not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading station performance statistics: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            for _, row in df.iterrows():
+                text = (
+                    f"STATION PERFORMANCE: {row['station_name']}\n"
+                    f"Station ID: {row['station_id']}\n"
+                    f"Period: {row['period_start']} to {row['period_end']}\n"
+                    f"Total Sessions: {row['total_sessions']}\n"
+                    f"Successful Sessions: {row['successful_sessions']}\n"
+                    f"Failed Sessions: {row['failed_sessions']}\n"
+                    f"Success Rate: {row['success_rate']}%\n"
+                    f"Total Energy Delivered: {row['total_energy_kwh']} kWh\n"
+                    f"Average Session Duration: {row['avg_session_duration_min']} minutes\n"
+                    f"Average Energy per Session: {row['avg_energy_per_session_kwh']} kWh\n"
+                    f"Peak Hour: {row['peak_hour']}\n"
+                    f"Peak Sessions: {row['peak_sessions']}\n"
+                    f"Revenue: {row['revenue_cfa']} CFA\n"
+                    f"Uptime: {row['uptime_percent']}%\n"
+                    f"Fault Count: {row['fault_count']}\n"
+                    f"Most Common Fault: {row['common_fault_type']}"
+                )
+
+                doc = Document(
+                    page_content=text,
+                    metadata={
+                        'source_type': 'station_performance',
+                        'data_type': 'performance_metrics',
+                        'station_id': row['station_id'],
+                        'station_name': row['station_name'],
+                        'success_rate': row['success_rate'],
+                        'uptime_percent': row['uptime_percent'],
+                        'fault_count': row['fault_count'],
+                        'total_sessions': row['total_sessions'],
+                        'file_name': csv_path.name,
+                        'agent': 'illigo_operator'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} station performance records")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading station performance: {str(e)}")
+            return []
+
     def load(self) -> List[Document]:
         """
-        Load all Illigo data: PDFs, CSVs, and mock fault logs.
+        Load all Illigo data: PDFs, CSVs, fault logs, and performance stats.
 
         Returns:
             List of LangChain Documents
@@ -499,7 +623,17 @@ class IlligoLoader:
         documents.extend(connector_docs)
         logger.info(f"Added {len(connector_docs)} connector documents")
 
-        # Generate mock fault logs
+        # Load fault event log from CSV (real data)
+        fault_log_docs = self.load_fault_event_log()
+        documents.extend(fault_log_docs)
+        logger.info(f"Added {len(fault_log_docs)} fault event documents")
+
+        # Load station performance statistics
+        performance_docs = self.load_station_performance()
+        documents.extend(performance_docs)
+        logger.info(f"Added {len(performance_docs)} performance documents")
+
+        # Also include mock fault logs for backward compatibility and additional scenarios
         fault_events = self.generate_mock_fault_logs()
         for event in fault_events:
             event_text = self._fault_event_to_text(event)
@@ -507,7 +641,7 @@ class IlligoLoader:
                 page_content=event_text,
                 metadata={
                     'source_type': 'illigo_fault_logs',
-                    'data_type': 'fault_event',
+                    'data_type': 'fault_event_mock',
                     'event_id': event['event_id'],
                     'station_id': event['station_code'],
                     'timestamp': event['timestamp'],

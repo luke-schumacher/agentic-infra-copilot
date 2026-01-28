@@ -1,0 +1,258 @@
+{
+  "scenario_id": "cross_domain_evaluation",
+  "scenario_name": "Cross-Domain Reasoning Evaluation",
+  "description": "Test scenarios specifically designed to evaluate multi-agent collaboration across governance (Telekom), hardware (Siemens), and operations (Illigo) domains. Each query requires information from multiple agents for complete resolution.",
+  "created_at": "2026-01-28",
+  "version": "1.0.0",
+  "purpose": "RQ2 Evaluation - Cross-domain reasoning effectiveness",
+
+  "success_criteria": {
+    "cross_domain_accuracy_threshold": 0.75,
+    "multi_agent_delegation_accuracy": 0.85,
+    "information_integration_score": 0.70,
+    "mtti_threshold_seconds": 45
+  },
+
+  "faults": [
+    {
+      "fault_id": "CD001",
+      "timestamp": "2026-01-20T08:30:00",
+      "station_id": "KOUMASSI",
+      "query": "Koumassi station has a ground fault that caused billing discrepancies for 3 customers. What's the root cause, which SLAs are violated, and what hardware component failed?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Insulation failure in charging cable (FM-001) caused metering interruption during active sessions, resulting in incomplete energy readings",
+        "hardware_diagnosis": "Cable insulation degradation detected by RCD (VS-009), protection triggered correctly per VS-011 specifications",
+        "operational_impact": "3 sessions affected, 45.6 kWh delivered but only 32.1 kWh billed",
+        "sla_violations": ["SLA-008", "SLA-002"],
+        "risk_level": "critical",
+        "keywords": ["ground fault", "billing", "insulation", "metering", "RCD", "SLA-008", "SLA-002"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD002",
+      "timestamp": "2026-01-20T11:15:00",
+      "station_id": "ANGRE",
+      "query": "Multiple thermal warnings at Angre during peak hours. Are we meeting grid compliance requirements? What's the equipment diagnosis and what policy actions should be triggered?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Cooling system underperformance (FM-003) combined with high ambient temperature and 95% station utilization",
+        "hardware_diagnosis": "Internal temperature exceeded VS-015 limit of 55C, derating activated per VS-016 at 40C threshold",
+        "policy_triggered": "INT-003 Thermal Protection policy activated, power reduced proportionally",
+        "grid_compliance": "SLA-012 load management maintained via automatic power reduction",
+        "sla_violations": ["SLA-007"],
+        "risk_level": "high",
+        "keywords": ["thermal", "cooling", "grid compliance", "derating", "INT-003", "SLA-007", "peak hours"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD003",
+      "timestamp": "2026-01-20T14:45:00",
+      "station_id": "COCODY",
+      "query": "Communication loss at Cocody station during a firmware update attempt. The station is now offline and 8 charging sessions were interrupted. What went wrong, what's the hardware status, and what SLAs are at risk?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Network module failure (FM-004) coincided with OTA firmware update (VS-039), causing incomplete update and station lockout",
+        "hardware_diagnosis": "Network connectivity lost during firmware write, rollback (VS-040) failed due to corrupted state",
+        "operational_impact": "8 sessions interrupted, station offline for 2 hours, 156 kWh delivery lost",
+        "sla_violations": ["SLA-005", "SLA-010", "SLA-001"],
+        "policy_triggered": "INT-013 Firmware Security policy violated - update window exceeded",
+        "risk_level": "high",
+        "keywords": ["communication", "firmware", "update", "offline", "network", "SLA-005", "SLA-010"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD004",
+      "timestamp": "2026-01-21T09:00:00",
+      "station_id": "PLATEAU",
+      "query": "Payment system failure at Plateau station - our highest traffic location. 45 payment failures in 2 hours. What's causing this, what backup options exist per policy, and is the payment terminal hardware faulty?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Payment terminal communication timeout (FM-019) due to degraded network connection to payment processor",
+        "hardware_diagnosis": "Terminal hardware functional per VS-025 RFID specs, issue is network-side not hardware",
+        "operational_impact": "45 payment failures, 156 sessions still completed via RFID/app, revenue impact CFA 234,000",
+        "policy_triggered": "INT-009 Payment Fallback policy should be activated - enable free charging with manual reconciliation",
+        "sla_violations": ["SLA-013", "SLA-003"],
+        "risk_level": "medium",
+        "keywords": ["payment", "terminal", "timeout", "backup", "RFID", "SLA-013", "INT-009"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD005",
+      "timestamp": "2026-01-21T12:30:00",
+      "station_id": "YOPOUGON",
+      "query": "Cascade failure across Yopougon, Adjame, and Abobo stations - all showing voltage fluctuations simultaneously. Is this a grid issue or equipment fault? What SLAs are violated and what's our liability?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Grid voltage sag caused simultaneous undervoltage at 3 stations, triggering protective MCB trips (VS-012) and phase imbalance (FM-016)",
+        "hardware_diagnosis": "Equipment responded correctly to grid anomaly, VS-003 rated voltage exceeded tolerance, automatic protection activated",
+        "operational_impact": "89 sessions interrupted across 3 stations, 67% energy delivery reduction for 30 minutes",
+        "sla_violations": ["SLA-001", "SLA-006", "SLA-012"],
+        "liability_assessment": "Grid operator responsibility per utility agreement, stations responded per specification",
+        "risk_level": "critical",
+        "keywords": ["cascade", "voltage", "grid", "multiple stations", "SLA-001", "SLA-006", "phase imbalance"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD006",
+      "timestamp": "2026-01-21T15:00:00",
+      "station_id": "MARCORY",
+      "query": "Customer at Marcory reports their vehicle was damaged when cable was forcibly disconnected during charging. What safety mechanisms should have prevented this, what's our SLA liability, and what hardware inspection is needed?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Connector retention lock (FM-006) failed to engage properly, allowing cable removal during active session",
+        "hardware_diagnosis": "Lock solenoid malfunction per VS-023 specification, position sensor showed engaged but mechanical failure occurred",
+        "safety_assessment": "PowerContactor (VS-072) should have opened on breakaway detection per CableBreakawaySensor",
+        "sla_violations": ["SLA-015", "SLA-009"],
+        "liability": "Equipment malfunction - operator liability, customer compensation required",
+        "risk_level": "critical",
+        "keywords": ["cable", "safety", "lock", "damage", "liability", "SLA-015", "retention"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD007",
+      "timestamp": "2026-01-21T17:30:00",
+      "station_id": "TREICHVILLE",
+      "query": "Metering calibration drift detected at Treichville - analysis shows 2.1% overbilling over the past 30 days affecting 2,340 sessions. What's the hardware issue, what's our compliance status, and how do we remediate?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Energy meter calibration drift (FM-008) exceeded VS-035 Class B (MID) accuracy tolerance",
+        "hardware_diagnosis": "Meter component aging, recalibration required per VS-036 resolution specification",
+        "compliance_status": "SLA-002 billing accuracy violated, regulatory notification may be required",
+        "remediation": "Immediate recalibration, customer refund calculation (estimated CFA 156,000), monthly verification schedule",
+        "sla_violations": ["SLA-002"],
+        "risk_level": "high",
+        "keywords": ["metering", "calibration", "billing", "accuracy", "MID", "SLA-002", "compliance"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD008",
+      "timestamp": "2026-01-22T08:00:00",
+      "station_id": "BINGERVILLE",
+      "query": "Security alert at Bingerville - 23 suspicious authorization attempts detected over 4 hours. Is this a hardware attack, a software vulnerability, or a policy violation? What actions should be taken?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Attempted brute-force authentication attack detected by SecurityCtrlr, no successful breaches",
+        "hardware_diagnosis": "RFID reader (VS-025/VS-026) functioning correctly, rejecting invalid tokens as designed",
+        "security_response": "INT-010 Security Lockdown policy triggered, suspicious tokens blacklisted",
+        "policy_compliance": "Station responded correctly per security policies, no data breach occurred",
+        "sla_violations": [],
+        "risk_level": "medium",
+        "keywords": ["security", "authentication", "attack", "lockdown", "INT-010", "RFID"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD009",
+      "timestamp": "2026-01-22T10:30:00",
+      "station_id": "GRAND_BASSAM",
+      "query": "Scheduled maintenance at Grand Bassam extended from 4 hours to 8 hours due to control board issues. We're approaching SLA availability threshold. What's the hardware diagnosis and what policy exceptions apply?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "Control board replacement (FM-010) complicated by configuration backup corruption, extended recovery time",
+        "hardware_diagnosis": "Main control board failure, replacement required, VS-040 firmware restore delayed due to backup issue",
+        "operational_impact": "Station offline 8 hours vs planned 4 hours, 67 sessions lost",
+        "policy_assessment": "INT-007 Maintenance Window policy applies, but extension affects SLA-001 availability threshold",
+        "sla_violations": ["SLA-001"],
+        "risk_level": "medium",
+        "keywords": ["maintenance", "control board", "extended", "availability", "SLA-001", "INT-007"]
+      },
+      "test_type": "cross_domain_fault"
+    },
+    {
+      "fault_id": "CD010",
+      "timestamp": "2026-01-22T14:00:00",
+      "station_id": "ADJAME",
+      "query": "Grid operator issued emergency load reduction signal but Adjame station failed to respond for 12 minutes. What caused the delay, is our equipment faulty, and what's our regulatory exposure?",
+      "expected_delegation": ["illigo_operator", "siemens_technician"],
+      "required_domains": ["governance", "hardware", "operations"],
+      "ground_truth": {
+        "root_cause": "SmartChargingCtrlr (VS-021) signal processing delay, grid operator command not propagated to active sessions",
+        "hardware_diagnosis": "Firmware bug in grid signal handler, VS-007 power adjustment delayed, not hardware failure",
+        "regulatory_exposure": "SLA-012 grid compliance violated, INT-002 Grid Stability policy not enforced within required 60 seconds",
+        "remediation": "Firmware patch required, redundant grid signal monitoring recommended, regulatory response preparation",
+        "sla_violations": ["SLA-012"],
+        "policy_violated": "INT-002",
+        "risk_level": "high",
+        "keywords": ["grid", "load reduction", "compliance", "signal", "regulatory", "SLA-012", "INT-002"]
+      },
+      "test_type": "cross_domain_fault"
+    }
+  ],
+
+  "evaluation_metrics": {
+    "primary_metrics": [
+      {
+        "metric": "cross_domain_resolution_rate",
+        "description": "Percentage of queries correctly resolved using information from all required domains",
+        "target": 0.75
+      },
+      {
+        "metric": "multi_agent_delegation_accuracy",
+        "description": "Percentage of correct agent delegation decisions",
+        "target": 0.85
+      },
+      {
+        "metric": "information_integration_score",
+        "description": "Quality of synthesized response combining multiple domain insights",
+        "target": 0.70
+      }
+    ],
+    "secondary_metrics": [
+      {
+        "metric": "sla_identification_accuracy",
+        "description": "Correctly identified violated SLAs",
+        "target": 0.80
+      },
+      {
+        "metric": "hardware_diagnosis_accuracy",
+        "description": "Correct hardware component identification",
+        "target": 0.75
+      },
+      {
+        "metric": "policy_trigger_accuracy",
+        "description": "Correct identification of applicable policies",
+        "target": 0.70
+      }
+    ]
+  },
+
+  "ablation_tests": [
+    {
+      "test_id": "ABL001",
+      "description": "Single agent only (Telekom Minister) - no delegation",
+      "purpose": "Baseline for comparison with multi-agent system"
+    },
+    {
+      "test_id": "ABL002",
+      "description": "Two agents (Telekom + Illigo) - no hardware expertise",
+      "purpose": "Measure hardware domain contribution"
+    },
+    {
+      "test_id": "ABL003",
+      "description": "Two agents (Telekom + Siemens) - no operations data",
+      "purpose": "Measure operations domain contribution"
+    },
+    {
+      "test_id": "ABL004",
+      "description": "No graph context - vector search only",
+      "purpose": "Measure knowledge graph contribution (RQ1)"
+    }
+  ]
+}

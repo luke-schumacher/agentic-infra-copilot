@@ -1,0 +1,16 @@
+sla_code,sla_name,category,threshold_value,threshold_unit,severity,description,violation_action,applicable_stations
+SLA-001,Service Availability,Availability,99.5,percent,critical,"Charging station must maintain 99.5% uptime during operating hours (06:00-22:00)","Automatic escalation to operations team, customer compensation",all
+SLA-002,Billing Accuracy,Metering,99.9,percent,high,"Energy metering must be accurate within 0.1% tolerance per OCPP FiscalMetering standards","Audit trigger, potential refund processing",all
+SLA-003,Transaction Response Time,Performance,5,seconds,medium,"Authorization and transaction start must complete within 5 seconds of ID token presentation","Performance monitoring alert",all
+SLA-004,Connector Availability,Hardware,95,percent,high,"Each connector must be available for use 95% of scheduled operating time","Maintenance dispatch within 4 hours",all
+SLA-005,Communication Uptime,Network,99,percent,high,"OCPP connection to CSMS must maintain 99% uptime with automatic reconnection","Network diagnostics trigger",all
+SLA-006,Power Quality,Electrical,3,percent_thd,medium,"Total Harmonic Distortion must remain below 3% during charging sessions","Power quality investigation",high_power_stations
+SLA-007,Thermal Management,Safety,55,celsius,critical,"Internal temperature must not exceed 55C during normal operation","Automatic power reduction or shutdown",all
+SLA-008,Ground Fault Response,Safety,30,milliseconds,critical,"RCD must trip within 30ms of detecting ground fault exceeding 30mA","Immediate lockout pending inspection",all
+SLA-009,Emergency Stop Response,Safety,100,milliseconds,critical,"Emergency stop must disconnect power within 100ms of activation","Incident report, safety inspection required",all
+SLA-010,Firmware Currency,Maintenance,90,days,low,"Charging station firmware must be updated within 90 days of security patch release","Update scheduling notification",all
+SLA-011,Session Completion Rate,Operations,98,percent,medium,"98% of initiated charging sessions must complete successfully","Root cause analysis trigger",all
+SLA-012,Load Balancing Compliance,Grid,100,percent,high,"Must comply with grid operator load management signals within 60 seconds","Grid compliance violation report",grid_connected
+SLA-013,Payment Processing,Financial,99.5,percent,high,"Payment terminal must successfully process 99.5% of payment attempts","Payment system audit",payment_enabled
+SLA-014,Display Functionality,User Experience,99,percent,medium,"User display must be operational and readable 99% of operating hours","Display replacement within 24 hours",all
+SLA-015,Cable Management,Safety,100,percent,critical,"Charging cables must pass daily insulation test per OCPP GroundIsolationProtection","Cable replacement, station lockout",all

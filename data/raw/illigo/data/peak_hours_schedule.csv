@@ -1,0 +1,5 @@
+period_type,period_name_fr,period_name_en,start_time,end_time,spans_midnight
+off_peak,Heures creuses,Off-peak hours,00:00,07:30,false
+peak,Heures pleines,Peak hours,07:30,19:30,false
+rush,Heures de pointe,Rush hours,19:30,23:00,false
+peak,Heures pleines,Peak hours,23:00,00:00,true

@@ -1,0 +1,8 @@
+metric,hypothesis_value,bt_36kw,mt_60kw,difference,calculation_note
+subscription_cost_cfa_per_month,,33804.72,168218.35,134413.63,BT: 36kW * bimonthly_rate/2; MT: 60kW * annual_rate/12
+avg_energy_tariff_ht_cfa_per_kwh,,104.4,74.06,-30.34,MT uses peak_hours tariff from MT tariff table
+station_monthly_consumption_kwh,3960,,,,24h * 30days * 5.5kW
+station_monthly_energy_cost_cfa,,413424,293277.6,-120146.4,tariff * station_consumption
+terminal_monthly_consumption_kwh,8000,,,,assumed monthly terminal consumption
+terminal_monthly_energy_cost_cfa,,835200,592480,-242720,tariff * terminal_consumption
+monthly_savings_ht_cfa,,,,-228452.77,sum of all differences (negative = savings with MT)
