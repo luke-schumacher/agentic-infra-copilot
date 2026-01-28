@@ -1,0 +1,7 @@
+item,amount_fcfa_ht,vat_18_percent,amount_fcfa_ttc,unit,period_type
+fixed_premium_per_kw,33643.67,6055.86,39699.53,per_kw_per_year,
+energy_rate,74.06,13.33,87.39,per_kwh,peak
+energy_rate,101,18.18,119.18,per_kwh,rush
+energy_rate,61.29,11.03,72.32,per_kwh,off_peak
+rti_fee,,,1000,per_month,
+rural_electrification_levy,,,1870,per_kw_per_year,

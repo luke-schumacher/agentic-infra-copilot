@@ -1,0 +1,9 @@
+item,amount_fcfa_ht,vat_18_percent,amount_fcfa_ttc,unit,note
+fixed_premium,1878.04,338.05,2216.09,per_bimester,per subscribed kW
+energy_rate_below_threshold,104.43,18.8,123.23,per_kwh,threshold = 180 * subscribed_power per bimester
+energy_rate_above_threshold,88.81,15.98,104.79,per_kwh,threshold = 180 * subscribed_power per bimester
+rural_electrification_levy,,,100,per_bimester,
+rural_electrification_levy_kwh,,,1.1,per_kwh,
+rti_fee,,,2000,per_kwh,RTI = Radiodiffusion Television Ivoirienne
+garbage_tax_abidjan,,,2.5,per_kwh,Abidjan municipality only
+garbage_tax_other,,,1,per_kwh,other municipalities

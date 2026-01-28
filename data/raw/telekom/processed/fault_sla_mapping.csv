@@ -1,0 +1,21 @@
+fault_code,fault_name,fault_category,related_sla_codes,risk_level,typical_cause,detection_method,auto_remediation,manual_intervention_required
+F001,Ground Fault,Electrical Safety,SLA-008;SLA-015,critical,Insulation degradation in charging cable or connector,RCD trip detection via OCPP RCD component,Immediate power disconnection,Yes - cable inspection required
+F002,Over-Current,Electrical Safety,SLA-004;SLA-007,high,Excessive load or short circuit condition,OverCurrentProtection component trip,Circuit breaker trip and lockout,Yes - load analysis required
+F003,Thermal Runaway Warning,Thermal Safety,SLA-007;SLA-009,critical,Inadequate cooling or environmental conditions,TemperatureSensor exceeding threshold,Power reduction then shutdown,Yes - cooling system inspection
+F004,Communication Failure,Network,SLA-005;SLA-011,medium,Network connectivity loss or CSMS unreachable,DataLink component status monitoring,Automatic reconnection attempts,No - if reconnects within 5 minutes
+F005,Authorization Timeout,Operations,SLA-003;SLA-011,low,Slow network or CSMS processing delay,Transaction timeout monitoring,Retry with cached authorization,No - automatic retry
+F006,Metering Discrepancy,Financial,SLA-002;SLA-013,high,Calibration drift or meter malfunction,FiscalMetering vs ControlMetering comparison,Flag transaction for review,Yes - meter recalibration
+F007,Connector Lock Failure,Mechanical,SLA-004;SLA-015,medium,Mechanical wear or obstruction in ConnectorPlugRetentionLock,Lock sensor feedback mismatch,Disable affected connector,Yes - mechanical repair
+F008,Display Failure,User Experience,SLA-014,low,Display hardware malfunction or power supply issue,Display component self-test failure,Switch to audio feedback if available,Yes - display replacement
+F009,Payment Terminal Error,Financial,SLA-013,medium,Card reader malfunction or payment network issue,PaymentCtrlr error reporting,Offer alternative payment method,Yes if persistent
+F010,Emergency Stop Activated,Safety,SLA-009,critical,User-initiated or automatic safety trigger,EmergencyStopSensor activation,Immediate full power disconnection,Yes - safety inspection required
+F011,Firmware Update Failed,Maintenance,SLA-010,low,Network interruption during update or invalid signature,InvalidFirmwareSignature security event,Rollback to previous version,Yes if rollback fails
+F012,Load Imbalance,Grid Compliance,SLA-006;SLA-012,medium,Uneven phase distribution across site,AcPhaseSelector monitoring,Automatic phase rebalancing,No - if within tolerance
+F013,Ventilation Failure,Environmental,SLA-007,medium,Fan malfunction in AirCoolingSystem or AreaVentilation,Airflow sensor or fan speed monitoring,Reduce charging power,Yes - fan replacement
+F014,Cable Breakaway,Physical Safety,SLA-015,high,Vehicle drive-away with cable connected,CableBreakawaySensor activation,Lock out connector and alert,Yes - cable inspection
+F015,Tamper Detection,Security,SLA-001,critical,Unauthorized access attempt to charging station,TamperDetectionActivated security event,Alert security and lock station,Yes - security investigation
+F016,Voltage Fluctuation,Power Quality,SLA-006,medium,Grid instability or local electrical issues,ControlMetering voltage monitoring,Adjust charging rate,No - if stabilizes
+F017,Session Interruption,Operations,SLA-011,low,EV disconnection or user cancellation,Transaction state monitoring,Log and bill partial session,No
+F018,Token Reader Failure,Access,SLA-003;SLA-013,medium,RFID reader malfunction,TokenReader component error,Enable backup authentication,Yes - reader replacement
+F019,Isolation Test Failure,Safety,SLA-008;SLA-015,critical,Insulation breakdown detected during self-test,GroundIsolationProtection test failure,Prevent charging session start,Yes - electrical inspection
+F020,Clock Sync Failure,Operations,SLA-002,low,NTP server unreachable or time drift detected,ClockCtrlr time deviation alert,Use local RTC fallback,No - if within 60 seconds
