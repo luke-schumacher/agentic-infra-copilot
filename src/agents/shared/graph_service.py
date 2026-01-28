@@ -10,6 +10,7 @@ Author: Thesis Project - Agentic Infra Co-Pilot
 import os
 import re
 import logging
+import threading
 from typing import List, Dict, Any, Optional
 
 logger = logging.getLogger(__name__)
@@ -272,13 +273,21 @@ class GraphService:
         return ""
 
 
-# Singleton instance for sharing across agents
+# Singleton instance for sharing across agents (thread-safe)
 _graph_service_instance = None
+_graph_service_lock = threading.Lock()
 
 
 def get_graph_service() -> GraphService:
-    """Get or create the singleton GraphService instance."""
+    """
+    Get or create the singleton GraphService instance.
+
+    Uses double-checked locking pattern for thread safety.
+    """
     global _graph_service_instance
     if _graph_service_instance is None:
-        _graph_service_instance = GraphService()
+        with _graph_service_lock:
+            # Double-check after acquiring lock
+            if _graph_service_instance is None:
+                _graph_service_instance = GraphService()
     return _graph_service_instance

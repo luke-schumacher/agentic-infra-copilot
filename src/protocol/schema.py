@@ -116,6 +116,71 @@ class AgentCard(BaseModel):
         return value.isoformat() if value else None
 
 
+class ConsultPayload(BaseModel):
+    """
+    Validated payload for /consult requests.
+
+    Provides input validation for the payload dictionary in AgentCard,
+    ensuring queries meet length requirements and optional fields have
+    sensible defaults and constraints.
+    """
+    query: str = Field(
+        ...,
+        min_length=1,
+        max_length=10000,
+        description="The consultation query text"
+    )
+    location: Optional[str] = Field(
+        default="unknown",
+        max_length=200,
+        description="Geographic location context"
+    )
+    is_symptom: bool = Field(
+        default=True,
+        description="Whether the query describes a symptom"
+    )
+    equipment_type: Optional[str] = Field(
+        default="unknown",
+        max_length=200,
+        description="Type of equipment involved"
+    )
+    station_id: Optional[str] = Field(
+        default=None,
+        max_length=100,
+        description="Charging station identifier (for Illigo)"
+    )
+    timestamp: Optional[str] = Field(
+        default="",
+        max_length=50,
+        description="Timestamp of the event/issue"
+    )
+    delegated_by: Optional[str] = Field(
+        default=None,
+        max_length=100,
+        description="Agent that delegated this request"
+    )
+    context: Optional[Dict[str, Any]] = Field(
+        default_factory=dict,
+        description="Additional context information"
+    )
+
+    @classmethod
+    def from_payload(cls, payload: Dict[str, Any]) -> "ConsultPayload":
+        """
+        Create a ConsultPayload from a raw payload dictionary.
+
+        Args:
+            payload: Raw payload dictionary from AgentCard
+
+        Returns:
+            Validated ConsultPayload instance
+
+        Raises:
+            ValueError: If validation fails
+        """
+        return cls(**payload)
+
+
 class ConsultRequest(BaseModel):
     """Request model for the /consult endpoint."""
     card: AgentCard
