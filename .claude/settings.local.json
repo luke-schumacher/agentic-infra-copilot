@@ -21,7 +21,20 @@
       "Bash(sort:*)",
       "Bash(powershell -Command \"Expand-Archive -Path ''Appendices_CSV_v2.1.zip'' -DestinationPath ''./appendices_csv'' -Force\")",
       "Bash(copy:*)",
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(findstr:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(docker-compose stop:*)",
+      "Bash(docker-compose rm:*)",
+      "Bash(BASELINE_MODE=true docker-compose run:*)",
+      "Bash(docker inspect:*)",
+      "Bash(docker exec:*)",
+      "Bash(docker stop:*)",
+      "Bash(docker rm:*)",
+      "Bash(pkill:*)"
     ]
   }
 }
