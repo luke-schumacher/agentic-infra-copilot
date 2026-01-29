@@ -6,6 +6,10 @@ Governance Agent responsible for:
 - Network Intent validation
 - Workflow orchestration and delegation to specialist agents
 
+Supports BASELINE_MODE for single-agent evaluation (RQ2 comparison):
+- When BASELINE_MODE=true: Uses unified vector store with ALL domain knowledge
+- When BASELINE_MODE=false (default): Uses multi-agent delegation
+
 Endpoints:
 - POST /consult - Primary consultation endpoint
 - GET /health - Health check
@@ -46,6 +50,13 @@ from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
 from src.agents.shared.security import configure_cors
 
+# Baseline mode imports (for single-agent A/B comparison)
+try:
+    from src.agents.baseline.unified_store import UnifiedVectorStore
+    BASELINE_AVAILABLE = True
+except ImportError:
+    BASELINE_AVAILABLE = False
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -57,6 +68,9 @@ logger = logging.getLogger(__name__)
 START_TIME: Optional[datetime] = None
 LAST_QUERY_TIME: Optional[datetime] = None
 
+# Baseline mode configuration (for single-agent A/B comparison)
+BASELINE_MODE = os.getenv("BASELINE_MODE", "false").lower() == "true"
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -65,10 +79,16 @@ async def lifespan(app: FastAPI):
 
     # ==================== STARTUP ====================
     logger.info("=" * 60)
-    logger.info("TELEKOM MINISTER AGENT - Starting up...")
+    if BASELINE_MODE:
+        logger.info("TELEKOM MINISTER AGENT - Starting up in BASELINE MODE...")
+        logger.info("Single-agent mode: Using unified vector store, NO delegation")
+    else:
+        logger.info("TELEKOM MINISTER AGENT - Starting up in MULTI-AGENT MODE...")
+        logger.info("Multi-agent mode: Using domain-specific store WITH delegation")
     logger.info("=" * 60)
 
     START_TIME = datetime.utcnow()
+    app.state.baseline_mode = BASELINE_MODE
 
     try:
         # Configure DSPy with Groq
@@ -80,10 +100,21 @@ async def lifespan(app: FastAPI):
         app.state.dspy_ready = False
 
     try:
-        # Initialize vector store
-        app.state.vector_store = TelekomVectorStore()
-        doc_count = app.state.vector_store.get_document_count()
-        logger.info(f"Vector store ready: {doc_count} documents indexed")
+        # Initialize vector store based on mode
+        if BASELINE_MODE and BASELINE_AVAILABLE:
+            # BASELINE MODE: Use unified vector store with ALL domain knowledge
+            logger.info("Initializing UNIFIED vector store (baseline mode)...")
+            app.state.vector_store = UnifiedVectorStore()
+            doc_count = app.state.vector_store.get_document_count()
+            if doc_count == 0:
+                logger.info("Unified store empty - indexing all domain documents...")
+                doc_count = app.state.vector_store.index_documents(force_reindex=True)
+            logger.info(f"Unified vector store ready: {doc_count} documents (all domains)")
+        else:
+            # MULTI-AGENT MODE: Use domain-specific Telekom store
+            app.state.vector_store = TelekomVectorStore()
+            doc_count = app.state.vector_store.get_document_count()
+            logger.info(f"Telekom vector store ready: {doc_count} documents indexed")
         app.state.vs_ready = True
     except Exception as e:
         logger.error(f"Failed to initialize vector store: {e}")
@@ -146,6 +177,8 @@ async def root():
         "role": "Governance Agent",
         "port": 8001,
         "status": "running",
+        "baseline_mode": BASELINE_MODE,
+        "mode_description": "Single-agent (unified knowledge)" if BASELINE_MODE else "Multi-agent (delegation enabled)",
         "endpoints": ["/health", "/consult", "/index"]
     }
 
@@ -342,7 +375,14 @@ async def consult(request: ConsultRequest):
             priority = Priority.NORMAL
 
         # If delegation needed, await specialist response BEFORE building response card
-        if target_agent and target_agent != 'self':
+        # BASELINE MODE: Skip delegation entirely - answer from unified knowledge
+        if BASELINE_MODE:
+            if target_agent and target_agent != 'self':
+                logger.info(f"BASELINE MODE: Would delegate to {target_agent}, but answering directly instead")
+                response_payload["delegation"]["skipped"] = True
+                response_payload["delegation"]["reason"] = "Baseline mode - single agent answering from unified knowledge"
+        elif target_agent and target_agent != 'self':
+            # MULTI-AGENT MODE: Execute delegation
             logger.info(f"Delegating to {target_agent}...")
             specialist_response = await delegate_to_specialist(
                 target_agent,

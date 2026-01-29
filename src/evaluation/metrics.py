@@ -281,3 +281,314 @@ def risk_level_accuracy(
             confusion[actual][pred] += 1
 
     return accuracy, confusion
+
+
+# ============================================================================
+# CooperBench-Inspired Metrics for Multi-Agent Evaluation
+# Added for thesis RQ2 evaluation: Single-Agent vs Multi-Agent comparison
+# ============================================================================
+
+@dataclass
+class CommunicationOverhead:
+    """Metrics for measuring inter-agent communication overhead."""
+    delegation_count: int
+    total_delegation_time_ms: float
+    avg_delegation_time_ms: float
+    delegation_success_rate: float
+    overhead_ratio: float  # delegation_time / total_time
+
+
+def calculate_communication_overhead(
+    response: dict,
+    total_processing_time_ms: float
+) -> CommunicationOverhead:
+    """
+    Calculate communication overhead for multi-agent coordination.
+
+    Measures time and resources spent on inter-agent delegation,
+    inspired by CooperBench's coordination overhead analysis.
+
+    Args:
+        response: Full response dict from Minister agent
+        total_processing_time_ms: Total query processing time
+
+    Returns:
+        CommunicationOverhead dataclass with metrics
+    """
+    delegation_count = 0
+    delegation_time_ms = 0.0
+    delegation_successes = 0
+
+    if not response:
+        return CommunicationOverhead(
+            delegation_count=0,
+            total_delegation_time_ms=0.0,
+            avg_delegation_time_ms=0.0,
+            delegation_success_rate=0.0,
+            overhead_ratio=0.0
+        )
+
+    response_card = response.get('response_card', {})
+    payload = response_card.get('payload', {})
+
+    # Check if delegation occurred
+    delegation = payload.get('delegation', {})
+    target = delegation.get('target_agent', 'self')
+    skipped = delegation.get('skipped', False)
+
+    if target and target != 'self' and not skipped:
+        delegation_count = 1
+
+        # Check if specialist findings exist (successful delegation)
+        specialist = payload.get('specialist_findings')
+        if specialist and isinstance(specialist, dict):
+            delegation_successes = 1
+
+            # Extract specialist processing time if available
+            spec_time = specialist.get('processing_time_ms', 0)
+            if spec_time:
+                delegation_time_ms = float(spec_time)
+            else:
+                # Estimate: assume delegation takes ~40% of total time
+                delegation_time_ms = total_processing_time_ms * 0.4
+
+    avg_time = delegation_time_ms / delegation_count if delegation_count > 0 else 0.0
+    success_rate = delegation_successes / delegation_count if delegation_count > 0 else 1.0
+    overhead = delegation_time_ms / total_processing_time_ms if total_processing_time_ms > 0 else 0.0
+
+    return CommunicationOverhead(
+        delegation_count=delegation_count,
+        total_delegation_time_ms=delegation_time_ms,
+        avg_delegation_time_ms=avg_time,
+        delegation_success_rate=success_rate,
+        overhead_ratio=overhead
+    )
+
+
+def cross_domain_resolution_rate(
+    response: str,
+    required_domains: List[str]
+) -> Tuple[float, List[str], List[str]]:
+    """
+    Calculate cross-domain resolution rate.
+
+    Measures what percentage of required domains are addressed in the response.
+    Critical for evaluating RQ2: effectiveness of cross-domain reasoning.
+
+    Args:
+        response: Full response text (combined from all agents)
+        required_domains: List of domains needed for complete resolution
+                         ('governance', 'hardware', 'operations')
+
+    Returns:
+        Tuple of (resolution_rate, domains_covered, domains_missing)
+    """
+    response_lower = response.lower()
+    domains_covered = []
+    domains_missing = []
+
+    # Domain-specific marker detection
+    domain_markers = {
+        'governance': [
+            'sla', 'policy', 'compliance', 'governance', 'regulation',
+            'int-', 'intent', 'violation', 'threshold', 'requirement'
+        ],
+        'hardware': [
+            'equipment', 'hardware', 'component', 'fm-', 'vs-',
+            'failure mode', 'specification', 'cable', 'connector',
+            'rcd', 'mcb', 'meter', 'sensor'
+        ],
+        'operations': [
+            'station', 'session', 'charging', 'fault event', 'connector',
+            'ocpp', 'kwh', 'energy', 'load', 'anomaly', 'telemetry'
+        ]
+    }
+
+    for domain in required_domains:
+        markers = domain_markers.get(domain, [])
+        if any(marker in response_lower for marker in markers):
+            domains_covered.append(domain)
+        else:
+            domains_missing.append(domain)
+
+    rate = len(domains_covered) / len(required_domains) if required_domains else 1.0
+
+    return rate, domains_covered, domains_missing
+
+
+@dataclass
+class IntegrationScore:
+    """Score for information integration quality."""
+    coherence_score: float  # How well information is connected
+    completeness_score: float  # Coverage of required information
+    synthesis_score: float  # Quality of combining multiple sources
+    overall_score: float
+
+
+def information_integration_score(
+    minister_response: dict,
+    specialist_responses: Optional[List[dict]] = None,
+    ground_truth: Optional[dict] = None
+) -> IntegrationScore:
+    """
+    Calculate information integration quality score.
+
+    Measures how well the Minister agent integrates specialist findings
+    into a coherent, complete response. Key metric for multi-agent evaluation.
+
+    Args:
+        minister_response: Minister's full response
+        specialist_responses: List of specialist agent responses
+        ground_truth: Optional expected answer for completeness check
+
+    Returns:
+        IntegrationScore with component and overall scores
+    """
+    if not minister_response:
+        return IntegrationScore(
+            coherence_score=0.0,
+            completeness_score=0.0,
+            synthesis_score=0.0,
+            overall_score=0.0
+        )
+
+    response_card = minister_response.get('response_card', {})
+    payload = response_card.get('payload', {})
+
+    # 1. Coherence: Check if response has logical structure
+    coherence_markers = [
+        'root cause', 'because', 'therefore', 'due to',
+        'recommendation', 'action', 'next step'
+    ]
+
+    response_text = " ".join([
+        str(payload.get('answer', '')),
+        str(payload.get('risk_level', '')),
+        str(payload.get('violated_slas', '')),
+        str(payload.get('recommended_actions', '')),
+    ]).lower()
+
+    coherence_hits = sum(1 for m in coherence_markers if m in response_text)
+    coherence_score = min(1.0, coherence_hits / 3)  # Expect at least 3 markers
+
+    # 2. Completeness: Check specialist findings integration
+    specialist_findings = payload.get('specialist_findings')
+    completeness_score = 0.5  # Base score
+
+    if specialist_findings and isinstance(specialist_findings, dict):
+        # Successfully integrated specialist response
+        completeness_score = 0.8
+
+        spec_card = specialist_findings.get('response_card', {})
+        spec_payload = spec_card.get('payload', {})
+
+        # Check if specialist content is reflected in main response
+        spec_content = str(spec_payload.get('diagnosis', '')) + str(spec_payload.get('root_cause', ''))
+
+        if spec_content:
+            # Extract key terms from specialist
+            spec_words = set(spec_content.lower().split())
+            response_words = set(response_text.split())
+
+            overlap = len(spec_words & response_words)
+            if overlap >= 3:
+                completeness_score = 1.0
+
+    # 3. Synthesis: Check if multiple data sources are referenced
+    synthesis_markers = [
+        'according to', 'based on', 'from', 'analysis shows',
+        'indicates', 'suggests', 'source'
+    ]
+
+    synthesis_hits = sum(1 for m in synthesis_markers if m in response_text)
+    synthesis_score = min(1.0, synthesis_hits / 2)  # Expect at least 2 references
+
+    # Check documents referenced
+    documents = response_card.get('documents', [])
+    if len(documents) >= 3:
+        synthesis_score = min(1.0, synthesis_score + 0.3)
+
+    # Overall weighted score
+    overall = (
+        0.30 * coherence_score +
+        0.40 * completeness_score +
+        0.30 * synthesis_score
+    )
+
+    return IntegrationScore(
+        coherence_score=coherence_score,
+        completeness_score=completeness_score,
+        synthesis_score=synthesis_score,
+        overall_score=overall
+    )
+
+
+def cooperation_effectiveness(
+    baseline_results: List[dict],
+    multi_agent_results: List[dict]
+) -> dict:
+    """
+    Calculate cooperation effectiveness metrics.
+
+    Inspired by CooperBench's finding that coordinating agents often
+    perform worse than single agents. This metric identifies WHERE
+    multi-agent cooperation provides value.
+
+    Args:
+        baseline_results: List of scenario results from single-agent
+        multi_agent_results: List of scenario results from multi-agent
+
+    Returns:
+        Dictionary with cooperation effectiveness analysis
+    """
+    if len(baseline_results) != len(multi_agent_results):
+        raise ValueError("Result lists must have same length")
+
+    n = len(baseline_results)
+
+    # Per-scenario comparison
+    multi_agent_wins = 0
+    baseline_wins = 0
+    ties = 0
+
+    accuracy_improvements = []
+    mtti_differences = []
+
+    for baseline, multi in zip(baseline_results, multi_agent_results):
+        b_acc = baseline.get('keyword_accuracy', 0)
+        m_acc = multi.get('keyword_accuracy', 0)
+
+        if m_acc > b_acc:
+            multi_agent_wins += 1
+        elif b_acc > m_acc:
+            baseline_wins += 1
+        else:
+            ties += 1
+
+        accuracy_improvements.append(m_acc - b_acc)
+
+        b_mtti = baseline.get('mtti_seconds', 0)
+        m_mtti = multi.get('mtti_seconds', 0)
+        mtti_differences.append(m_mtti - b_mtti)
+
+    # Calculate cooperation benefit ratio
+    cooperation_benefit = multi_agent_wins / n if n > 0 else 0
+
+    # Identify scenario characteristics where multi-agent wins
+    avg_improvement = sum(accuracy_improvements) / n if n > 0 else 0
+    avg_mtti_overhead = sum(mtti_differences) / n if n > 0 else 0
+
+    return {
+        "scenario_count": n,
+        "multi_agent_wins": multi_agent_wins,
+        "baseline_wins": baseline_wins,
+        "ties": ties,
+        "cooperation_benefit_ratio": cooperation_benefit,
+        "avg_accuracy_improvement": avg_improvement,
+        "avg_mtti_overhead_seconds": avg_mtti_overhead,
+        "recommendation": (
+            "Multi-agent preferred" if cooperation_benefit > 0.6
+            else "Baseline preferred" if cooperation_benefit < 0.4
+            else "Context-dependent"
+        )
+    }
