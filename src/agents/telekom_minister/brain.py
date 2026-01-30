@@ -134,6 +134,44 @@ class SynthesizeResponse(dspy.Signature):
     )
 
 
+class IntegrateSpecialistFindings(dspy.Signature):
+    """
+    Integrate specialist agent findings with governance assessment.
+
+    This signature creates a coherent, unified response that:
+    1. Combines the Minister's SLA/policy analysis with specialist technical findings
+    2. Ensures the root cause and recommended actions are consistent
+    3. Provides clear, actionable recommendations
+
+    Used AFTER receiving specialist response to improve information integration.
+    """
+    original_query: str = dspy.InputField(
+        desc="The user's original query or symptom report"
+    )
+    minister_assessment: str = dspy.InputField(
+        desc="Minister's initial assessment including risk level, violated SLAs, and recommendations"
+    )
+    specialist_findings: str = dspy.InputField(
+        desc="Specialist agent's technical diagnosis, severity assessment, and recommended diagnostic steps"
+    )
+    specialist_agent: str = dspy.InputField(
+        desc="Which specialist provided the findings (siemens_technician or illigo_operator)"
+    )
+
+    integrated_risk_level: str = dspy.OutputField(
+        desc="Final risk level considering both governance and technical perspectives: 'low', 'medium', 'high', or 'critical'"
+    )
+    root_cause_summary: str = dspy.OutputField(
+        desc="Coherent summary of the root cause combining SLA violations and technical diagnosis"
+    )
+    integrated_sla_analysis: str = dspy.OutputField(
+        desc="Complete SLA analysis incorporating specialist findings"
+    )
+    integrated_actions: str = dspy.OutputField(
+        desc="Unified action plan combining governance requirements and technical remediation steps"
+    )
+
+
 class TelekomMinisterModule(dspy.Module):
     """
     Main DSPy module for Telekom Minister agent.
@@ -141,7 +179,8 @@ class TelekomMinisterModule(dspy.Module):
     Combines multiple signatures into a cohesive reasoning flow:
     1. Assess risk if symptom/issue is reported
     2. Delegate to specialists if needed
-    3. Synthesize response if handled directly
+    3. Integrate specialist findings with governance assessment
+    4. Synthesize coherent final response
     """
 
     def __init__(self):
@@ -150,6 +189,7 @@ class TelekomMinisterModule(dspy.Module):
         self.validate_intent = dspy.ChainOfThought(ValidateIntent)
         self.delegate_query = dspy.ChainOfThought(DelegateQuery)
         self.synthesize = dspy.ChainOfThought(SynthesizeResponse)
+        self.integrate_findings = dspy.ChainOfThought(IntegrateSpecialistFindings)
 
     def forward(
         self,
@@ -259,4 +299,67 @@ class TelekomMinisterModule(dspy.Module):
             proposed_change=proposed_change,
             intent_context=intent_context,
             current_state=current_state
+        )
+
+    def integrate_specialist_response(
+        self,
+        query: str,
+        minister_assessment: dict,
+        specialist_findings: dict,
+        specialist_agent: str
+    ) -> dspy.Prediction:
+        """
+        Integrate specialist findings with Minister's governance assessment.
+
+        This creates a coherent, unified response by:
+        1. Combining SLA/policy analysis with technical diagnosis
+        2. Reconciling risk levels between governance and technical perspectives
+        3. Creating unified, actionable recommendations
+
+        Args:
+            query: Original user query
+            minister_assessment: Minister's initial assessment dict with
+                                 risk_level, violated_slas, recommended_actions
+            specialist_findings: Specialist's response dict with
+                                 diagnosis, severity, diagnostic_steps
+            specialist_agent: Name of specialist agent
+
+        Returns:
+            DSPy Prediction with integrated assessment
+        """
+        # Format minister assessment as string
+        minister_str = (
+            f"Risk Level: {minister_assessment.get('risk_level', 'unknown')}\n"
+            f"Violated SLAs: {minister_assessment.get('violated_slas', 'None identified')}\n"
+            f"Recommended Actions: {minister_assessment.get('recommended_actions', 'None')}"
+        )
+
+        # Extract specialist payload (handle nested response structure)
+        if isinstance(specialist_findings, dict):
+            spec_payload = specialist_findings.get('response_card', {}).get('payload', specialist_findings)
+        else:
+            spec_payload = {}
+
+        # Format specialist findings as string
+        specialist_str = (
+            f"Diagnosis: {spec_payload.get('diagnosis', spec_payload.get('answer', 'No diagnosis'))}\n"
+            f"Severity: {spec_payload.get('severity', 'unknown')}\n"
+            f"Diagnostic Steps: {spec_payload.get('diagnostic_steps', 'None provided')}\n"
+            f"Requires Escalation: {spec_payload.get('requires_escalation', 'unknown')}"
+        )
+
+        logger.info(f"Integrating specialist findings from {specialist_agent}")
+
+        integration = self.integrate_findings(
+            original_query=query,
+            minister_assessment=minister_str,
+            specialist_findings=specialist_str,
+            specialist_agent=specialist_agent
+        )
+
+        return dspy.Prediction(
+            integrated_risk_level=integration.integrated_risk_level,
+            root_cause_summary=integration.root_cause_summary,
+            integrated_sla_analysis=integration.integrated_sla_analysis,
+            integrated_actions=integration.integrated_actions
         )
