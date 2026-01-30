@@ -356,10 +356,10 @@ async def consult(request: ConsultRequest):
                     "refined_query": refined_query
                 }
             }
-            # Set priority based on risk level
-            risk = getattr(result, 'risk_level', 'low')
-            priority = Priority.CRITICAL if risk == 'critical' else (
-                Priority.HIGH if risk == 'high' else Priority.NORMAL
+            # Set priority based on risk level (will be updated after integration if applicable)
+            initial_risk = getattr(result, 'risk_level', 'low')
+            priority = Priority.CRITICAL if initial_risk == 'critical' else (
+                Priority.HIGH if initial_risk == 'high' else Priority.NORMAL
             )
         else:
             response_payload = {
@@ -391,7 +391,40 @@ async def consult(request: ConsultRequest):
             )
             if specialist_response:
                 response_payload["specialist_findings"] = specialist_response
-                logger.info(f"Specialist {target_agent} findings integrated into response")
+                logger.info(f"Specialist {target_agent} response received")
+
+                # INTEGRATION STEP: Synthesize Minister + Specialist findings
+                # This improves coherence by creating a unified response
+                try:
+                    integration_result = app.state.brain.integrate_specialist_response(
+                        query=query,
+                        minister_assessment={
+                            "risk_level": response_payload.get("risk_level", "unknown"),
+                            "violated_slas": response_payload.get("violated_slas", "None"),
+                            "recommended_actions": response_payload.get("recommended_actions", "None")
+                        },
+                        specialist_findings=specialist_response,
+                        specialist_agent=target_agent
+                    )
+
+                    # Update response with integrated findings
+                    response_payload["risk_level"] = integration_result.integrated_risk_level
+                    response_payload["root_cause"] = integration_result.root_cause_summary
+                    response_payload["violated_slas"] = integration_result.integrated_sla_analysis
+                    response_payload["recommended_actions"] = integration_result.integrated_actions
+                    response_payload["integration_performed"] = True
+
+                    # Update priority based on integrated risk level
+                    integrated_risk = integration_result.integrated_risk_level.lower()
+                    if integrated_risk == 'critical':
+                        priority = Priority.CRITICAL
+                    elif integrated_risk == 'high':
+                        priority = Priority.HIGH
+
+                    logger.info(f"Specialist findings successfully integrated into coherent response")
+                except Exception as e:
+                    logger.warning(f"Integration step failed, using non-integrated response: {e}")
+                    response_payload["integration_performed"] = False
             else:
                 logger.warning(f"Delegation to {target_agent} returned no response")
                 response_payload["specialist_findings"] = {
