@@ -32,9 +32,9 @@ except ImportError:
     HUGGINGFACE_AVAILABLE = False
 
 # Import domain-specific loaders
-from src.agents.telekom_minister.data_loader import TelekomLoader
-from src.agents.siemens_technician.data_loader import SiemensLoader
-from src.agents.illigo_operator.data_loader import IlligoLoader
+from src.agents.governance_agent.data_loader import TelekomLoader
+from src.agents.hardware_agent.data_loader import SiemensLoader
+from src.agents.telemetry_agent.data_loader import IlligoLoader
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

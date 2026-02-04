@@ -21,14 +21,14 @@ services:
       retries: 5
 
   # ============================================================
-  # Telekom Minister Agent (Port 8001)
+  # Governance Agent (Port 8001)
   # ============================================================
-  telekom-minister:
+  governance-agent:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: agentic-telekom-minister
-    command: python src/agents/telekom_minister/main.py
+    container_name: agentic-governance-agent
+    command: python src/agents/governance_agent/main.py
     ports:
       - "8001:8001"
     environment:
@@ -37,8 +37,8 @@ services:
       - NEO4J_USERNAME=neo4j
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
       # URLs for delegation to other agents
-      - SIEMENS_TECHNICIAN_URL=http://siemens-technician:8002
-      - ILLIGO_OPERATOR_URL=http://illigo-operator:8003
+      - SIEMENS_TECHNICIAN_URL=http://hardware-agent:8002
+      - ILLIGO_OPERATOR_URL=http://telemetry-agent:8003
     volumes:
       - ./data:/app/data
       - ./chroma_db:/app/chroma_db
@@ -52,14 +52,14 @@ services:
       retries: 3
 
   # ============================================================
-  # Siemens Technician Agent (Port 8002)
+  # Hardware Agent (Port 8002)
   # ============================================================
-  siemens-technician:
+  hardware-agent:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: agentic-siemens-technician
-    command: python src/agents/siemens_technician/main.py
+    container_name: agentic-hardware-agent
+    command: python src/agents/hardware_agent/main.py
     ports:
       - "8002:8002"
     environment:
@@ -80,14 +80,14 @@ services:
       retries: 3
 
   # ============================================================
-  # Illigo Operator Agent (Port 8003)
+  # Telemetry Agent (Port 8003)
   # ============================================================
-  illigo-operator:
+  telemetry-agent:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: agentic-illigo-operator
-    command: python src/agents/illigo_operator/main.py
+    container_name: agentic-telemetry-agent
+    command: python src/agents/telemetry_agent/main.py
     ports:
       - "8003:8003"
     environment:
@@ -121,13 +121,13 @@ services:
     environment:
       - GROQ_API_KEY=${GROQ_API_KEY}
       # Agent URLs for inter-container communication
-      - TELEKOM_MINISTER_URL=http://telekom-minister:8001
-      - SIEMENS_TECHNICIAN_URL=http://siemens-technician:8002
-      - ILLIGO_OPERATOR_URL=http://illigo-operator:8003
+      - TELEKOM_MINISTER_URL=http://governance-agent:8001
+      - SIEMENS_TECHNICIAN_URL=http://hardware-agent:8002
+      - ILLIGO_OPERATOR_URL=http://telemetry-agent:8003
     depends_on:
-      - telekom-minister
-      - siemens-technician
-      - illigo-operator
+      - governance-agent
+      - hardware-agent
+      - telemetry-agent
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8501"]
       interval: 10s

@@ -14,7 +14,7 @@ payload = {
     "card": {
         "message_id": str(uuid.uuid4()),
         "sender": "orchestrator",
-        "recipient": "telekom_minister",
+        "recipient": "governance_agent",
         "intent": "diagnose",
         "priority": "high",
         "payload": {

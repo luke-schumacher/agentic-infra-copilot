@@ -18,10 +18,15 @@ import uuid
 
 class AgentRole(str, Enum):
     """Enumeration of agent roles in the system."""
-    TELEKOM_MINISTER = "telekom_minister"
-    SIEMENS_TECHNICIAN = "siemens_technician"
-    ILLIGO_OPERATOR = "illigo_operator"
+    # New role names (primary)
+    GOVERNANCE_AGENT = "governance_agent"
+    HARDWARE_AGENT = "hardware_agent"
+    TELEMETRY_AGENT = "telemetry_agent"
     ORCHESTRATOR = "orchestrator"
+    # Legacy aliases (deprecated - kept for backwards compatibility)
+    TELEKOM_MINISTER = "governance_agent"
+    SIEMENS_TECHNICIAN = "hardware_agent"
+    ILLIGO_OPERATOR = "telemetry_agent"
 
 
 class IntentType(str, Enum):
@@ -32,6 +37,16 @@ class IntentType(str, Enum):
     REPORT = "report"                  # Status/results report
     DELEGATE = "delegate"              # Task delegation
     ESCALATE = "escalate"              # Priority escalation
+
+
+class ResponseType(str, Enum):
+    """Types of responses agents can provide for autonomy protocol."""
+    ANSWER = "answer"           # Complete, confident answer
+    PARTIAL = "partial"         # Partial answer, needs more context
+    CLARIFY = "clarify"         # Needs clarification from requester
+    REDIRECT = "redirect"       # Should be handled by different agent
+    REFUSE = "refuse"           # Cannot or should not answer
+    CONSULT = "consult"         # Answered after consulting another agent
 
 
 class Priority(str, Enum):
@@ -91,6 +106,22 @@ class AgentCard(BaseModel):
 
     # Metadata for debugging and tracing
     metadata: Dict[str, Any] = Field(default_factory=dict)
+
+    # Autonomy protocol fields (new)
+    confidence: float = Field(
+        default=0.0,
+        ge=0.0,
+        le=1.0,
+        description="Agent's confidence in its response (0.0-1.0)"
+    )
+    response_type: ResponseType = Field(
+        default=ResponseType.ANSWER,
+        description="Type of response being provided"
+    )
+    suggested_agent: Optional[AgentRole] = Field(
+        default=None,
+        description="Suggested agent for REDIRECT/CONSULT response types"
+    )
 
     model_config = {
         "json_schema_extra": {

@@ -527,9 +527,9 @@ def main():
     import sys
     sys.path.insert(0, str(project_root))
 
-    from src.agents.telekom_minister.data_loader import TelekomLoader
-    from src.agents.siemens_technician.data_loader import SiemensLoader
-    from src.agents.illigo_operator.data_loader import IlligoLoader
+    from src.agents.governance_agent.data_loader import TelekomLoader
+    from src.agents.hardware_agent.data_loader import SiemensLoader
+    from src.agents.telemetry_agent.data_loader import IlligoLoader
 
     print("=" * 60)
     print("Knowledge Graph Builder")
