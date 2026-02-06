@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="MR głowy" name="dcterms.title"/>
+<meta content="MR głowy - szablon Autorzy: Flanders AE, i wsp." name="dcterms.description"/>
+<meta content="https://open.radreport.org/template/0050041" name="dcterms.identifier"/>
+<meta content="pl" name="dcterms.language"/>
+<meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="Do użytkowania darmowego, według zasad zawartych w umowie licencyjnej" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2012-07-16" name="dcterms.date"/>
+<meta content="Flanders AE i wsp." name="dcterms.creator"/>
+<meta content="Bozkurt S [coder]" name="dcterms.contributor"/>
+<meta content="Kahn CE Jr [redaktor]" name="dcterms.contributor"/>
+<meta content="American Society of Neuroradiology (ASNR)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>0</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>brain</code_meaning>
+<code_value>RID6434</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>head</code_meaning>
+<code_value>RID9080</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>magnetic resonance imaging</code_meaning>
+<code_value>RID10312</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry ORIGTXT="T45_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_3">
+<term>
+<code_meaning>magnetic resonance imaging</code_meaning>
+<code_value>RID10312</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_4">
+<term>
+<code_meaning>brain</code_meaning>
+<code_value>RID6434</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_6">
+<term>
+<code_meaning>imaging technique</code_meaning>
+<code_value>RID28482</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_7">
+<term>
+<code_meaning>contrast agent</code_meaning>
+<code_value>RID11582</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_8">
+<term>
+<code_meaning>imaging technique</code_meaning>
+<code_value>RID28482</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>imaging technique modifier</code_meaning>
+<code_value>RID28642</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_9">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_11">
+<term>
+<code_meaning>allergic or anaphylactoid reaction</code_meaning>
+<code_value>RID11532</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_12">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_14">
+<term>
+<code_meaning>stroke</code_meaning>
+<code_value>RID5178</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_16">
+<term>
+<code_meaning>injury due to mechanical trauma</code_meaning>
+<code_value>RID4630</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_17">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_18">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_19">
+<term>
+<code_meaning>imaging technique</code_meaning>
+<code_value>RID28482</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_20">
+<term>
+<code_meaning>contrast agent</code_meaning>
+<code_value>RID11582</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_21">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_22">
+<term>
+<code_meaning>extramedullary space</code_meaning>
+<code_value>RID7113</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_23">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_24">
+<term>
+<code_meaning>widened</code_meaning>
+<code_value>RID5797</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_25">
+<term>
+<code_meaning>intracranial</code_meaning>
+<code_value>RID6383</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>hemorrhage</code_meaning>
+<code_value>RID4700</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_26">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_27">
+<term>
+<code_meaning>subdural</code_meaning>
+<code_value>RID6388</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_28">
+<term>
+<code_meaning>subarachnoid</code_meaning>
+<code_value>RID6386</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_29">
+<term>
+<code_meaning>epidural</code_meaning>
+<code_value>RID6378</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_30">
+<term>
+<code_meaning>intraventricular</code_meaning>
+<code_value>RID11163</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_31">
+<term>
+<code_meaning>brain</code_meaning>
+<code_value>RID6434</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>parenchyma</code_meaning>
+<code_value>RID5978</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_32">
+<term>
+<code_meaning>ventricular system of brain</code_meaning>
+<code_value>RID13786</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_33">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_34">
+<term>
+<code_meaning>enlarged</code_meaning>
+<code_value>RID5791</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_35">
+<term>
+<code_meaning>small</code_meaning>
+<code_value>RID5774</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_36">
+<term>
+<code_meaning>interpeduncular cistern</code_meaning>
+<code_value>RID7187</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_37">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_38">
+<term>
+<code_meaning>enlarged</code_meaning>
+<code_value>RID5791</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_39">
+<term>
+<code_meaning>small</code_meaning>
+<code_value>RID5774</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_40">
+<term>
+<code_meaning>parenchyma</code_meaning>
+<code_value>RID5978</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>telencephalon</code_meaning>
+<code_value>RID6437</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_41">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_42">
+<term>
+<code_meaning>microvascular ischemia</code_meaning>
+<code_value>RID3242</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_43">
+<term>
+<code_meaning>infarction</code_meaning>
+<code_value>RID5172</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_45">
+<term>
+<code_meaning>gliosis</code_meaning>
+<code_value>RID3827</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_46">
+<term>
+<code_meaning>hemorrhage</code_meaning>
+<code_value>RID4700</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_47">
+<term>
+<code_meaning>deviation position</code_meaning>
+<code_value>RID10445</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_48">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_49">
+<term>
+<code_meaning>left</code_meaning>
+<code_value>RID5824</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>deviation position</code_meaning>
+<code_value>RID10445</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_50">
+<term>
+<code_meaning>right</code_meaning>
+<code_value>RID5825</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>deviation position</code_meaning>
+<code_value>RID10445</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_51">
+<term>
+<code_meaning>cerebellum</code_meaning>
+<code_value>RID6815</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_52">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_53">
+<term>
+<code_meaning>brainstem</code_meaning>
+<code_value>RID6677</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_54">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_55">
+<term>
+<code_meaning>skull</code_meaning>
+<code_value>RID9196</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_56">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_57">
+<term>
+<code_meaning>osteolysis</code_meaning>
+<code_value>RID5382</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_58">
+<term>
+<code_meaning>sclerosis</code_meaning>
+<code_value>RID5227</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_59">
+<term>
+<code_meaning>vascular region</code_meaning>
+<code_value>RID28822</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_60">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>exit of excited spins from volume</code_meaning>
+<code_value>RID11450</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_62">
+<term>
+<code_meaning>obstruction</code_meaning>
+<code_value>RID4962</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_63">
+<term>
+<code_meaning>dissection</code_meaning>
+<code_value>RID3317</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_64">
+<term>
+<code_meaning>paranasal sinuses</code_meaning>
+<code_value>RID28579</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mastoid air cell</code_meaning>
+<code_value>RID10144</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_65">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_66">
+<term>
+<code_meaning>scattered</code_meaning>
+<code_value>RID5705</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mild</code_meaning>
+<code_value>RID5671</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>inflammation</code_meaning>
+<code_value>RID3382</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mucosa</code_meaning>
+<code_value>RID5975</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>thickening</code_meaning>
+<code_value>RID28509</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_67">
+<term>
+<code_meaning>orbits</code_meaning>
+<code_value>RID28601</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>partial</code_meaning>
+<code_value>RID5687</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_68">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_69">
+<term>
+<code_meaning>cervical spine region</code_meaning>
+<code_value>RID28674</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>spine</code_meaning>
+<code_value>RID7741</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>limited</code_meaning>
+<code_value>RID5684</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_70">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_71">
+<term>
+<code_meaning>sella turcica</code_meaning>
+<code_value>RID9286</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_72">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_73">
+<term>
+<code_meaning>skull</code_meaning>
+<code_value>RID9196</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>base</code_meaning>
+<code_value>RID5949</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_74">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_75">
+<term>
+<code_meaning>bone marrow</code_meaning>
+<code_value>RID38594</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_76">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_77">
+<term>
+<code_meaning>extramedullary space</code_meaning>
+<code_value>RID7113</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_78">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_79">
+<term>
+<code_meaning>widened</code_meaning>
+<code_value>RID5797</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_80">
+<term>
+<code_meaning>intracranial</code_meaning>
+<code_value>RID6383</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>hemorrhage</code_meaning>
+<code_value>RID4700</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_81">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_82">
+<term>
+<code_meaning>subdural</code_meaning>
+<code_value>RID6388</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_83">
+<term>
+<code_meaning>subarachnoid</code_meaning>
+<code_value>RID6386</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_84">
+<term>
+<code_meaning>epidural</code_meaning>
+<code_value>RID6378</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_85">
+<term>
+<code_meaning>intraventricular</code_meaning>
+<code_value>RID11163</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_86">
+<term>
+<code_meaning>brain</code_meaning>
+<code_value>RID6434</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>parenchyma</code_meaning>
+<code_value>RID5978</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_87">
+<term>
+<code_meaning>ventricular system of brain</code_meaning>
+<code_value>RID13786</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_88">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_89">
+<term>
+<code_meaning>enlarged</code_meaning>
+<code_value>RID5791</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_90">
+<term>
+<code_meaning>small</code_meaning>
+<code_value>RID5774</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_91">
+<term>
+<code_meaning>interpeduncular cistern</code_meaning>
+<code_value>RID7187</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_92">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_93">
+<term>
+<code_meaning>enlarged</code_meaning>
+<code_value>RID5791</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_94">
+<term>
+<code_meaning>small</code_meaning>
+<code_value>RID5774</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_95">
+<term>
+<code_meaning>parenchyma</code_meaning>
+<code_value>RID5978</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>telencephalon</code_meaning>
+<code_value>RID6437</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_96">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_97">
+<term>
+<code_meaning>microvascular ischemia</code_meaning>
+<code_value>RID3242</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_98">
+<term>
+<code_meaning>infarction</code_meaning>
+<code_value>RID5172</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_100">
+<term>
+<code_meaning>gliosis</code_meaning>
+<code_value>RID3827</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_101">
+<term>
+<code_meaning>hemorrhage</code_meaning>
+<code_value>RID4700</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_102">
+<term>
+<code_meaning>deviation position</code_meaning>
+<code_value>RID10445</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_103">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_104">
+<term>
+<code_meaning>left</code_meaning>
+<code_value>RID5824</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>deviation position</code_meaning>
+<code_value>RID10445</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_105">
+<term>
+<code_meaning>right</code_meaning>
+<code_value>RID5825</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>deviation position</code_meaning>
+<code_value>RID10445</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_106">
+<term>
+<code_meaning>skull</code_meaning>
+<code_value>RID9196</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_107">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_108">
+<term>
+<code_meaning>osteolysis</code_meaning>
+<code_value>RID5382</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_109">
+<term>
+<code_meaning>sclerosis</code_meaning>
+<code_value>RID5227</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_110">
+<term>
+<code_meaning>vascular region</code_meaning>
+<code_value>RID28822</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_111">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>exit of excited spins from volume</code_meaning>
+<code_value>RID11450</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_113">
+<term>
+<code_meaning>obstruction</code_meaning>
+<code_value>RID4962</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_114">
+<term>
+<code_meaning>dissection</code_meaning>
+<code_value>RID3317</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_115">
+<term>
+<code_meaning>paranasal sinuses</code_meaning>
+<code_value>RID28579</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mastoid air cell</code_meaning>
+<code_value>RID10144</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_116">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_117">
+<term>
+<code_meaning>scattered</code_meaning>
+<code_value>RID5705</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mild</code_meaning>
+<code_value>RID5671</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>inflammation</code_meaning>
+<code_value>RID3382</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mucosa</code_meaning>
+<code_value>RID5975</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>thickening</code_meaning>
+<code_value>RID28509</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_118">
+<term>
+<code_meaning>orbits</code_meaning>
+<code_value>RID28601</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>partial</code_meaning>
+<code_value>RID5687</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_119">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_120">
+<term>
+<code_meaning>cervical spine region</code_meaning>
+<code_value>RID28674</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>spine</code_meaning>
+<code_value>RID7741</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>limited</code_meaning>
+<code_value>RID5684</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_121">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_122">
+<term>
+<code_meaning>sella turcica</code_meaning>
+<code_value>RID9286</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_123">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_124">
+<term>
+<code_meaning>skull</code_meaning>
+<code_value>RID9196</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>base</code_meaning>
+<code_value>RID5949</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_125">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_126">
+<term>
+<code_meaning>bone marrow</code_meaning>
+<code_value>RID38594</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_127">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_128">
+<term>
+<code_meaning>skull</code_meaning>
+<code_value>RID9196</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_129">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_130">
+<term>
+<code_meaning>osteolysis</code_meaning>
+<code_value>RID5382</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_131">
+<term>
+<code_meaning>sclerosis</code_meaning>
+<code_value>RID5227</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_132">
+<term>
+<code_meaning>vascular region</code_meaning>
+<code_value>RID28822</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_133">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>exit of excited spins from volume</code_meaning>
+<code_value>RID11450</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_135">
+<term>
+<code_meaning>obstruction</code_meaning>
+<code_value>RID4962</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_136">
+<term>
+<code_meaning>dissection</code_meaning>
+<code_value>RID3317</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_137">
+<term>
+<code_meaning>paranasal sinuses</code_meaning>
+<code_value>RID28579</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mastoid air cell</code_meaning>
+<code_value>RID10144</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_138">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_139">
+<term>
+<code_meaning>scattered</code_meaning>
+<code_value>RID5705</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mild</code_meaning>
+<code_value>RID5671</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>inflammation</code_meaning>
+<code_value>RID3382</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>mucosa</code_meaning>
+<code_value>RID5975</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>thickening</code_meaning>
+<code_value>RID28509</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_140">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T45_142">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>MR głowy</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1">MR głowy</header>
+<p>
+<textarea id="T45_2" name="Procedure"> </textarea>
+</p>
+<p>
+<label for="T45_6">Technika obrazowania:</label>
+<input type="text" id="T45_6" name="Technique" value=""/>
+</p>
+<p>
+<label for="T45_7">Kontrast:</label>
+<input type="text" id="T45_7" name="IV Contrast" value=""/>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1">Dane kliniczne</header>
+<p>
+<textarea id="T45_9" name="Clinical information"> </textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1">Porównano z badaniem z dnia:</header>
+<p>
+<textarea id="T45_17" name="Comparison">Brak. </textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1">Wynik badania</header>
+<p>
+<label for="T45_22">Przestrzeń okołomózgowa:</label>
+<input type="text" id="T45_22" name="Extra-axial spaces" value="Prawidłowa morfologia oraz budowa dla grupy wiekowej."/>
+</p>
+<p>
+<label for="T45_25">Cechy krwawienia wewnątrzczaszkowego: </label>
+<input type="text" id="T45_25" name="Intracranial hemorrhage" value="Nie uwidoczniono."/>
+</p>
+<p>
+<label for="T45_32">Układ komorowy:</label>
+<input type="text" id="T45_32" name="Ventricular system" value="Prawidłowa morfologia oraz budowa dla grupy wiekowej."/>
+</p>
+<p>
+<label for="T45_36">Zbiorniki podstawy czaszki:</label>
+<input type="text" id="T45_36" name="Basal cisterns" value="Prawidłowe. "/>
+</p>
+<p>
+<label for="T45_40">Mózgowie:</label>
+<input type="text" id="T45_40" name="Cerebral parenchyma" value="Prawidłowe. "/>
+</p>
+<p>
+<label for="T45_47">Przesunięcie linii środkowej: </label>
+<input type="text" id="T45_47" name="Midline shift" value="Brak."/>
+<p>
+<label for="T45_51">Móżdżek:</label>
+<input type="text" id="T45_51" name="Cerebellum" value="Prawidłowy. "/>
+</p>
+<p>
+<label for="T45_53">Rdzeń przedłużony:</label>
+<input type="text" id="T45_53" name="Brainstem" value="Prawidłowy. "/>
+</p>
+<p>
+<label for="T45_55">Czaszka:</label>
+<input type="text" id="T45_55" name="Calvarium" value="Prawidłowa. "/>
+</p>
+<p>
+<label for="T45_59">Układ naczyniowy:</label>
+<input type="text" id="T45_59" name="Vascular system" value="Prawidłowy, nie uwidoczniono blaszek, okluzji ani cech rozwarstwienia."/>
+</p>
+<p>
+<label for="T45_64">Zatoki oboczne nosa oraz wyrostki sutkowate:</label>
+<input type="text" id="T45_64" name="Paranasal sinuses and mastoid air cells" value="Prawidłowo powietrzne."/>
+</p>
+<p>
+<label for="T45_67">Oczodoły:</label>
+<input type="text" id="T45_67" name="Visualized orbits" value="Prawidłowe. "/>
+</p>
+<p>
+<label for="T45_69">Uwidoczniona część kręgosłupa szyjnego:</label>
+<input type="text" id="T45_69" name="Visualized upper cervical spine" value="Prawidłowa. "/>
+</p>
+<p>
+<label for="T45_71">Siodło tureckie:</label>
+<input type="text" id="T45_71" name="Sella" value="Prawidłowe. "/>
+</p>
+<p>
+<label for="T45_73">Podstawa czaszki:</label>
+<input type="text" id="T45_73" name="Skull base" value="Prawidłowa. "/>
+</p>
+<p>
+<label for="T45_75">Szpik kostny:</label>
+<input type="text" id="T45_75" name="Marrow" value="Prawidłowy. "/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1">Wniosek</header>
+<p>
+<textarea id="T45_140" name="Impression"> </textarea>
+</p>
+</section>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Dr. Charles Kahn [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Muñeca bilateral Radiografía" name="dcterms.title"/>
+<meta content="Bilateral Wrist Xray template :: Authored by Langlotz CP" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050107" name="dcterms.identifier"/>
+<meta content="es" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-01-14" name="dcterms.date"/>
+<meta content="Langlotz CP" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Penn Medicine | Hospital of the University of Pennsylvania (Penn)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>1</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>projection radiography</code_meaning>
+<code_value>RID10345</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>wrist</code_meaning>
+<code_value>RID2177</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry origtxt="T278_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_5">
+<term>
+<code_meaning>right</code_meaning>
+<code_value>RID5825</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>wrist</code_meaning>
+<code_value>RID2177</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_6">
+<term>
+<code_meaning>left</code_meaning>
+<code_value>RID5824</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>wrist</code_meaning>
+<code_value>RID2177</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_7">
+<term>
+<code_meaning>both</code_meaning>
+<code_value>RID5770</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>wrist</code_meaning>
+<code_value>RID2177</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_8">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Clinical information</code_meaning>
+<code_value>55752-0</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_9">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_10">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_11">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Radiology Study observation (narrative)</code_meaning>
+<code_value>18782-3</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_12">
+<term>
+<code_meaning>set of bones</code_meaning>
+<code_value>RID28569</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_13">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_14">
+<term>
+<code_meaning>set of joints</code_meaning>
+<code_value>RID28711</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_15">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_16">
+<term>
+<code_meaning>mild</code_meaning>
+<code_value>RID5671</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_17">
+<term>
+<code_meaning>moderate</code_meaning>
+<code_value>RID5672</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_18">
+<term>
+<code_meaning>severe</code_meaning>
+<code_value>RID5673</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_19">
+<term>
+<code_meaning>prominent</code_meaning>
+<code_value>RID5796</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_20">
+<term>
+<code_meaning>thumb</code_meaning>
+<code_value>RID2392</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_21">
+<term>
+<code_meaning>intercarpal joint</code_meaning>
+<code_value>RID2240</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_22">
+<term>
+<code_meaning>interphalangeal joint</code_meaning>
+<code_value>RID34530</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_23">
+<term>
+<code_meaning>portion of soft tissue</code_meaning>
+<code_value>RID35730</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_24">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_25">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>wrist</code_meaning>
+<code_value>RID2177</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_26">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>wrist</code_meaning>
+<code_value>RID2177</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_27">
+<term>
+<code_meaning>mild</code_meaning>
+<code_value>RID5671</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>osteoarthritis</code_meaning>
+<code_value>RID3555</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_28">
+<term>
+<code_meaning>moderate</code_meaning>
+<code_value>RID5672</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>osteoarthritis</code_meaning>
+<code_value>RID3555</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T278_29">
+<term>
+<code_meaning>severe</code_meaning>
+<code_value>RID5673</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>osteoarthritis</code_meaning>
+<code_value>RID3555</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Muñeca bilateral Radiografía</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Bilateral Wrist Xray">Muñeca bilateral Radiografía</header>
+<p>
+<textarea id="T278_2" name="Procedimiento" data-english-name="Procedure" data-english-innertext=" "></textarea>
+</p>
+<p>
+<label for="T278_3" data-english="Number of views:">Número de visitas:</label>
+<input type="number" id="T278_3" name="N&uacute;mero de visitas" data-field-units="views" min="1" max="8" data-english-name="Number of views"/> <label for="T278_3" data-english="views">vistas</label>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">La información clínica</header>
+<p>
+<textarea id="T278_8" name="La informaci&oacute;n cl&iacute;nica" data-english-name="Clinical information" data-english-innertext=" "></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Comparación</header>
+<p>
+<textarea id="T278_9" name="Comparaci&oacute;n" data-english-name="Comparison" data-english-innertext="None. ">Ninguna.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Hallazgos</header>
+<p>
+<textarea id="T278_11" name="Hallazgos" data-english-name="Findings" data-english-innertext=" "></textarea>
+</p>
+<p>
+<label for="T278_12" data-english="Bones:">Huesos:</label>
+<input type="text" id="T278_12" name="Huesos" value="" data-english-value="" data-english-name="Bones"/>
+</p>
+<p>
+<label for="T278_14" data-english="Joints:">Articulaciones:</label>
+<input type="text" id="T278_14" name="Articulaciones" value="No hay fracturas est&aacute;n presentes." data-english-value="No fractures are present. " data-english-name="Joints"/>
+</p>
+<p>
+<label for="T278_23" data-english="Soft tissues:">Los tejidos blandos:</label>
+<input type="text" id="T278_23" name="Los tejidos blandos" value="Normal. No osteoartritis." data-english-value="Normal. No osteoarthritis. " data-english-name="Soft tissues"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Impresión</header>
+<p>
+<textarea id="T278_24" name="Impresi&oacute;n" data-english-name="Impression" data-english-innertext="Normal wrists. ">Muñecas normales.</textarea>
+</p>
+</section>
+</body>
+</html>

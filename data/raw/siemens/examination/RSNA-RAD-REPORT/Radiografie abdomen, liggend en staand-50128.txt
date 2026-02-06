@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Jan Bosmans [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Radiografie abdomen, liggend en staand" name="dcterms.title"/>
+<meta content="Abdomen Series template :: Authored by Kahn CE Jr" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050128" name="dcterms.identifier"/>
+<meta content="nl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-06-18" name="dcterms.date"/>
+<meta content="Kahn CE Jr" name="dcterms.creator"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>0</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>abdomen</code_meaning>
+<code_value>RID56</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>intestine</code_meaning>
+<code_value>RID130</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>pneumoperitoneum</code_meaning>
+<code_value>RID4803</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>projection radiography</code_meaning>
+<code_value>RID10345</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry ORIGTXT="T100_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_3">
+<term>
+<code_meaning>patient position</code_meaning>
+<code_value>RID10420</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_4">
+<term>
+<code_meaning>supine position</code_meaning>
+<code_value>RID10421</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Supine abdominal X-ray (procedure)</code_meaning>
+<code_value>416733000</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_5">
+<term>
+<code_meaning>upright position</code_meaning>
+<code_value>RID10455</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_6">
+<term>
+<code_meaning>left lateral decubitus position</code_meaning>
+<code_value>RID10425</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_7">
+<term>
+<code_meaning>right lateral decubitus position</code_meaning>
+<code_value>RID10424</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_8">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_9">
+<term>
+<code_meaning>abdomen</code_meaning>
+<code_value>RID56</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>pain</code_meaning>
+<code_value>RID28803</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Nonspecific abdominal pain (finding)</code_meaning>
+<code_value>304542004</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_10">
+<term>
+<code_meaning>distended</code_meaning>
+<code_value>RID5787</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>abdomen</code_meaning>
+<code_value>RID56</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_11">
+<term>
+<code_meaning>placement</code_meaning>
+<code_value>RID28707</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>nasogastric tube</code_meaning>
+<code_value>RID5566</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_12">
+<term>
+<code_meaning>postoperative</code_meaning>
+<code_value>RID5729</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>imaging procedure</code_meaning>
+<code_value>RID13060</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_13">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_14">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_15">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_17">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_18">
+<term>
+<code_meaning>pneumoperitoneum</code_meaning>
+<code_value>RID4803</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_19">
+<term>
+<code_meaning>absent</code_meaning>
+<code_value>RID28473</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Absent (qualifier value)</code_meaning>
+<code_value>2667000</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_20">
+<term>
+<code_meaning>present</code_meaning>
+<code_value>RID28472</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Present (qualifier value)</code_meaning>
+<code_value>52101004</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_21">
+<term>
+<code_meaning>abnormal</code_meaning>
+<code_value>RID28453</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>calcifications</code_meaning>
+<code_value>RID34642</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_22">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_23">
+<term>
+<code_meaning>set of bones</code_meaning>
+<code_value>RID28569</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_24">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_25">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_26">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_27">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_28">
+<term>
+<code_meaning>absent</code_meaning>
+<code_value>RID28473</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Absent (qualifier value)</code_meaning>
+<code_value>2667000</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T100_29">
+<term>
+<code_meaning>present</code_meaning>
+<code_value>RID28472</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Present (qualifier value)</code_meaning>
+<code_value>52101004</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Radiografie abdomen, liggend en staand</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Abdomen Series">Radiografie abdomen, liggend en staand</header>
+<p>
+<textarea id="T100_2" name="Procedure" data-english-name="Procedure" data-english-innertext="Supine and upright views of the abdomen. ">Radiografie van het abdomen, in rugligging en staand</textarea>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Klinische informatie</header>
+<p>
+<textarea id="T100_8" name="Klinische informatie" data-english-name="Clinical information"></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Vergelijking</header>
+<p>
+<textarea id="T100_13" name="Vergelijking" data-english-name="Comparison" data-english-innertext="None. ">Geen.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Bevindingen</header>
+<p>
+<label for="T100_16" data-english="Bowel gas pattern: ">Darmgasverdeling:</label>
+<input type="text" id="T100_16" name="Darmgasverdeling:" value="Normaal." data-english-value="Normal. " data-english-name="Bowel gas pattern"/>
+</p>
+<p>
+<label for="T100_18" data-english="Free air: ">Vrije lucht:</label>
+<input type="text" id="T100_18" name="Vrije lucht:" value="Geen." data-english-value="None. " data-english-name="Free air"/>
+</p>
+<p>
+<label for="T100_21" data-english="Abnormal calcifications: ">Abnormale verkalkingen:</label>
+<input type="text" id="T100_21" name="Abnormale verkalkingen" value="Geen." data-english-value="None. " data-english-name="Abnormal calcifications"/>
+</p>
+<p>
+<label for="T100_23" data-english="Bones: ">Skelet:</label>
+<input type="text" id="T100_23" name="Skelet" value="Normaal." data-english-value="Normal. " data-english-name="Bones"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Conclusie</header>
+<p>
+<textarea id="T100_25" name="Conclusie" data-english-name="Impression" data-english-innertext="Normal. No free air.">Normaal. Geen vrije lucht.</textarea>
+</p>
+</section>
+</body>
+</html>

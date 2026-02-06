@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head><meta content="Heiva Segura [translator]" name="dcterms.contributor"/>
+		<meta charset="UTF-8" />
+		<meta content="Extremidad inferior bilateral de EE. UU." name="dcterms.title" />
+		<meta content="US Bilateral Lower Extremity template :: Authored by Kahn CE Jr" name="dcterms.description" />
+		<meta content="http://open.radreport.org/template/0050311" name="dcterms.identifier" />
+		<meta content="es" name="dcterms.language" />
+		<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type" />
+		<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher" />
+		<meta content="May be used gratis, subject to license agreement" name="dcterms.rights" />
+		<meta content="http://www.radreport.org/license.pdf" name="dcterms.license" />
+		<meta content="2018-02-27" name="dcterms.date" />
+		<meta content="Kahn CE Jr" name="dcterms.creator" />
+		<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css" />
+		<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+		<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+<coded_content>
+</coded_content>
+</template_attributes>
+-->
+		</script>
+		<title>Extremidad inferior bilateral de EE. UU.</title>
+	</head>
+	<body>
+		<section data-section-name="Procedure">
+			<header class="level1" data-english="Bilateral lower extremity venous ultrasound examination">Examen de ultrasonido venoso bilateral de la extremidad inferior</header>
+		</section>
+		<section data-section-name="Clinical information">
+			<header class="level1" data-english="Clinical information">Información clínica</header>
+			<p>
+			<textarea id="T273_1" name="Informaci&oacute;n cl&iacute;nica" data-english-name="Clinical information" data-english-innertext="Swelling.">Hinchazón.</textarea>
+			</p>
+		</section>
+		<section data-section-name="Comparison">
+			<header class="level1" data-english="Comparison">Comparación</header>
+			<p>
+				<textarea id="T273_2" name="Comparaci&oacute;n" data-english-name="Comparison" data-english-innertext="None." >Ninguna.</textarea>
+			</p>
+		</section>
+		<section data-section-name="Findings">
+			<header class="level1" data-english="Findings">Recomendaciones</header>
+			<section data-section-name="Thigh veins">
+				<header class="level2" data-english="Thigh veins">Venas del muslo</header>
+				<p>
+				<textarea id="T273_3" name="venas del muslo" data-english-name="thigh veins" data-english-innertext="The common femoral, femoral, popliteal, proximal medial saphenous, and deep femoral veins are patent and free of thrombus bilaterally. The veins are normally compressible, and have normal phasic flow and augmentation response.">Las venas femoral común, femoral, poplítea, safena interna proximal y femoral profunda son patentes y están libres de trombos bilateralmente. Las venas son normalmente compresibles y tienen un flujo fásico normal y una respuesta de aumento.</textarea>
+				</p>
+			</section> 
+			<section data-section-name="Calf veins">
+				<header class="level2" data-english="Calf veins">Venas de la pantorrilla</header>
+				<p>
+				<textarea id="T273_4" name="venas de la pantorrilla" data-english-name="calf veins" data-english-innertext="The paired peroneal and posterior tibial calf veins are patent bilaterally." >Las venas de la pantorrilla peronea y tibial posterior emparejadas son patentes bilateralmente.</textarea>
+				</p>
+			</section> 
+		</section>
+		<section data-section-name="Impression">
+			<header class="level1" data-english="Impression">Impresión</header>
+			<p>
+				<textarea id="T273_5" name="Impresi&oacute;n" data-english-name="Impression" data-english-innertext="Negative study. No deep vein thrombosis." >Estudio negativo Sin trombosis venosa profunda.</textarea>
+			</p>
+		</section>
+	</body>
+</html>

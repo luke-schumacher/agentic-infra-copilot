@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="Thorax CT Lungenembolie" name="dcterms.title"/>
+<meta content="CT Chest Pulmonary Embolism template :: Authored by Heilbrun ME" name="dcterms.description"/>
+<meta content="http://www.radreport.org/template/0000294" name="dcterms.identifier"/>
+<meta content="de" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2014-03-20" name="dcterms.date"/>
+<meta content="Heilbrun ME" name="dcterms.creator"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>1</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>computed tomography</code_meaning>
+<code_value>RID10321</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>pulmonary embolism</code_meaning>
+<code_value>RID4834</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>set of pulmonary arteries</code_meaning>
+<code_value>RID28586</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>thorax</code_meaning>
+<code_value>RID1243</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>thromboembolism</code_meaning>
+<code_value>RID4837</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry ORIGTXT="T116_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_3">
+<term>
+<code_meaning>contrast agent</code_meaning>
+<code_value>RID11582</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_5">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+
+<entry ORIGTXT="T116_10">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_11">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_12">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_13">
+<term>
+<code_meaning>diagnostic quality</code_meaning>
+<code_value>RID12</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_14">
+<term>
+<code_meaning>diagnostic quality</code_meaning>
+<code_value>RID12</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Adequate (qualifier value)</code_meaning>
+<code_value>88323005</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_17">
+<term>
+<code_meaning>motion related artifact</code_meaning>
+<code_value>RID11423</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_18">
+<term>
+<code_meaning>pulmonary embolism</code_meaning>
+<code_value>RID4834</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_19">
+<term>
+<code_meaning>absent</code_meaning>
+<code_value>RID28473</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_20">
+<term>
+<code_meaning>present</code_meaning>
+<code_value>RID28472</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_21">
+<term>
+<code_meaning>lung</code_meaning>
+<code_value>RID1301</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>parenchyma</code_meaning>
+<code_value>RID5978</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_22">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_23">
+<term>
+<code_meaning>pleural effusion</code_meaning>
+<code_value>RID34539</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_24">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_25">
+<term>
+<code_meaning>central</code_meaning>
+<code_value>RID5827</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>airway</code_meaning>
+<code_value>RID1245</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_26">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_27">
+<term>
+<code_meaning>lymphadenopathy</code_meaning>
+<code_value>RID3798</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_28">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_29">
+<term>
+<code_meaning>heart</code_meaning>
+<code_value>RID1385</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_30">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_31">
+<term>
+<code_meaning>upper abdomen</code_meaning>
+<code_value>RID29990</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_32">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_33">
+<term>
+<code_meaning>set of bones</code_meaning>
+<code_value>RID28569</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_34">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_35">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_36">
+<term>
+<code_meaning>pulmonary embolism</code_meaning>
+<code_value>RID4834</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_37">
+<term>
+<code_meaning>absent</code_meaning>
+<code_value>RID28473</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_38">
+<term>
+<code_meaning>present</code_meaning>
+<code_value>RID28472</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_39">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_40">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_41">
+<term>
+<code_meaning>absent</code_meaning>
+<code_value>RID28473</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T116_42">
+<term>
+<code_meaning>present</code_meaning>
+<code_value>RID28472</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Thorax CT Lungenembolie</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="CT Chest Pulmonary Embolism">Thorax CT Lungenembolie</header>
+<p>
+<label for="T116_3" data-english="Intravenous contrast (agent and volume): ">Intravenöses Kontrastmittel (Name und Volumen):</label>
+<input type="text" id="T116_3" name="Intravenöses Kontrastmittel" value="" data-english-value="" data-english-name="Intravenous contrast"/>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Klinische Informationen</header>
+<p>
+<textarea id="T116_5" name="Klinische Informationen" data-english-name="Clinical information"></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Vergleichsuntersuchung</header>
+<p>
+<textarea id="T116_10" name="Vergleichsuntersuchung" data-english-name="Comparison" data-english-innertext="None. ">Keine.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Befund</header>
+<p>
+<label for="T116_13" data-english="Diagnostic quality: ">Diagnostische Qualität:</label>
+<select id="T116_13" name="Diagnostische Qualität" data-english-name="Diagnostic quality">
+<option id="T116_14" name="Ausreichend" value="Ausreichend" data-english-name="Adequate" data-english-value="Adequate" data-english-innertext="Adequate">Ausreichend</option>
+<option id="T116_15" name="Suboptimal" value="Suboptimal" data-english-name="Suboptimal" data-english-value="Suboptimal" data-english-innertext="Suboptimal">Suboptimal</option>
+<option id="T116_16" name="Nicht diagnostisch" value="Nicht diagnostisch" data-english-name="Nondiagnostic" data-english-value="Nondiagnostic" data-english-innertext="Nondiagnostic">Nicht diagnostisch</option>
+</select>
+</p>
+<p>
+<label for="T116_18" data-english="Pulmonary embolism:">Lungenembolie:</label>
+<input type="text" id="T116_18" name="Lungenembolie" value="Keine." data-english-value="None. " data-english-name="Pulmonary embolism"/>
+</p>
+<p>
+<label for="T116_101" data-english="Right heart strain:">Rechtsherzbelastung:</label>
+<input type="text" id="T116_101" name="Rechtsherzbelastung" value="Keine." data-english-value="None. " data-english-name="Right heart strain"/>
+</p>
+<p>
+<label for="T116_100" data-english="Pulmonary arteries:">Lungenarterien:</label>
+<input type="text" id="T116_100" name="Lungenarterien" value="Normkalibrig." data-english-value="Normal in caliber. " data-english-name="Pulmonary arteries"/>
+</p>
+<p>
+<label for="T116_21" data-english="Lung parenchyma: ">Lungenparenchym:</label>
+<input type="text" id="T116_21" name="Lungenparenchym" value="Normal." data-english-value="Normal. " data-english-name="Lung parenchyma"/>
+</p>
+<p>
+<label for="T116_23" data-english="Pleural effusion: ">Pleuraerguss:</label>
+<input type="text" id="T116_23" name="Pleuraerguss" value="Keiner." data-english-value="None. " data-english-name="Pleural effusion"/>
+</p>
+<p>
+<label for="T116_25" data-english="Central airways: ">Zentrale Atemwege:</label>
+<input type="text" id="T116_25" name="Zentrale Atemwege" value="Normal." data-english-value="Normal. " data-english-name="Central airways"/>
+</p>
+<p>
+<label for="T116_27" data-english="Adenopathy: ">Adenopathie:</label>
+<input type="text" id="T116_27" name="Adenopathie" value="Keine." data-english-value="None. " data-english-name="Adenopathy"/>
+</p>
+<p>
+<label for="T116_29" data-english="Heart and great vessels: ">Herz und große Gefäße:</label>
+<input type="text" id="T116_29" name="Herz" value="Normal." data-english-value="Normal. " data-english-name="Heart"/>
+</p>
+<p>
+<label for="T116_31" data-english="Upper abdomen: ">Oberbauch:</label>
+<input type="text" id="T116_31" name="Oberbauch" value="Normal." data-english-value="Normal. " data-english-name="Upper abdomen"/>
+</p>
+<p>
+<label for="T116_33" data-english="Bones: ">Knochen:</label>
+<input type="text" id="T116_33" name="Knochen" value="Normal. " data-english-name="Bones"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Beurteilung</header>
+<p>
+<textarea id="T116_35" name="Beurteilung" data-english-name="Impression" data-english-innertext="No acute or chronic pulmonary embolism. ">Keine akute oder chronische Lungenembolie.</textarea>
+</p>
+</section>
+</body>
+</html>

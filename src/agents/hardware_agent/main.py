@@ -40,7 +40,8 @@ from src.protocol.schema import (
     DocumentReference, ConsultPayload
 )
 from src.agents.hardware_agent.brain import SiemensTechnicianModule
-from src.agents.hardware_agent.data_loader import SiemensLoader
+from src.agents.hardware_agent.data_loader import SiemensLoader  # Legacy loader
+from src.agents.hardware_agent.mri_hardware_loader import MRIHardwareLoader  # New MRI loader
 from src.agents.hardware_agent.vector_store import SiemensVectorStore
 from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
@@ -489,12 +490,13 @@ async def consult(request: ConsultRequest):
 
 
 @app.post("/index")
-async def index_documents(force_reindex: bool = False):
+async def index_documents(force_reindex: bool = False, use_legacy: bool = False):
     """
     Trigger vector store indexing.
 
     Args:
         force_reindex: If True, clear existing documents and re-index
+        use_legacy: If True, use legacy SiemensLoader instead of MRIHardwareLoader
 
     Returns:
         Indexing results with document count
@@ -502,9 +504,15 @@ async def index_documents(force_reindex: bool = False):
     try:
         logger.info("Starting document indexing...")
 
-        # Load documents
-        loader = SiemensLoader()
-        documents = loader.load()
+        # Load documents using appropriate loader
+        if use_legacy:
+            logger.info("Using legacy SiemensLoader (raw data)")
+            loader = SiemensLoader()
+            documents = loader.load()
+        else:
+            logger.info("Using MRIHardwareLoader (processed Siemens MRI data)")
+            loader = MRIHardwareLoader()
+            documents = loader.load(include_pdfs=True)
 
         if not documents:
             return {

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Chiara Carducci [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="US Tiroide" name="dcterms.title"/>
+<meta content="US Thyroid template :: Authored by Kahn CE Jr" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050305" name="dcterms.identifier"/>
+<meta content="it" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2017-11-30" name="dcterms.date"/>
+<meta content="Kahn CE Jr" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<term>
+ <code meaning="thyroid gland" value="RID7578" scheme="RadLex">
+</term>
+<term>
+ <code meaning="ultrasound" value="RID10326" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T195_3">
+  <term>
+  <code meaning="Clinical information" value="55752-0" scheme="LOINC">
+ </term>
+</entry>
+<entry ORIGTXT="T195_4">
+ <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T195_22">
+ <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>US Tiroide</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Thyroid Ultrasound Examination">Esame ecografico tiroide</header>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Informazioni cliniche</header>
+<p>
+<textarea id="T195_3" name="Informazioni cliniche" data-english-name="Clinical information" data-english-innertext=" "></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Confronto</header>
+<p>
+<textarea id="T195_4" name="Confronto" data-english-name="Comparison" data-english-innertext="None. ">Nessuna.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">I risultati</header>
+<p>
+<textarea id="T195_7" name="Tiroide" data-english-name="Thyroid" data-english-innertext="Right and left thyroid lobes are normal in size and echotexture. No thyroid nodules are present.">I lobi della tiroide destra e sinistra hanno dimensioni normali ed ecostruura. Non sono presenti noduli tiroidei.</textarea>
+</p>
+<p>
+<label for="T195_10" data-english="Right thyroid lobe:">Lobo destro della tiroide:</label>
+<input type="text" class="short" id="T195_10" name="Dimensioni della tiroide destra" value="" data-english-value="" data-english-name="Right thyroid size"/> centimetro </p>
+<p>
+<label for="T195_15" data-english="Left thyroid lobe:">Lobo sinistro della tiroide:</label>
+<input type="text" class="short" id="T195_15" name="Dimensione della tiroide sinistra" value="" data-english-value="" data-english-name="Left thyroid size"/> centimetro </p>
+<p>
+<p>
+<label for="T195_20" data-english="Cervical lymphadenopathy:">Linfoadenopatia cervicale:</label>
+<input type="text" id="T195_20" name="T195_20" value="Nessuna." data-english-value="None." data-english-name="T195_20"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Conclusioni</header>
+<p>
+<textarea id="T195_22" name="Conclusioni" data-english-name="Impression" data-english-innertext="Normal thyroid ultrasound examination. ">Ecografia tiroidea normale.</textarea>
+</p>
+</section>
+</body>
+</html>

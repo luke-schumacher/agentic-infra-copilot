@@ -1,0 +1,30 @@
+TC FEGATO 
+
+Contrasto EV: []
+Informazioni cliniche [es:Sorveglianza per carcinoma epatocellulare. ]
+Confronto
+[Nessuna. ]
+Risultati
+Morfologia del fegato: [Normale. Nessuna evidenza di cirrosi, rigenerazione nodulare o atrofia lobare o segmentaria. ]
+Lesioni epatiche: [Nessuna. ]
+Ipertensione portale: []
+Milza: [ ]
+Dimensione della milza: [] cm
+Ascite: [Nessuno. ]
+Vene collaterali: [Nessuna. ]
+Shunt spontaneo: [Nessuno. ]
+Colecisti: [normale. ]
+Sistema biliare: [Normale.]
+Pancreas: [Normale]
+Reni [normale]
+Tratto urinario: [Normale.]
+Ghiandole surrenali: [Normale. ]
+Tratto GI: [normale]
+Peritoneo o retroperitoneo: [Normale.]
+Strutture pelviche: [Normale. ]
+Vescica: [Normale.]
+Muscoloscheletrico: [Normale /]
+Torace inferiore visualizzato: [Normale.]
+Conclusioni []
+Raccomandazioni: []
+

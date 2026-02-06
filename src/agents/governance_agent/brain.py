@@ -50,7 +50,7 @@ class AssessRisk(dspy.Signature):
         desc="Immediate recommended actions"
     )
     delegation_needed: str = dspy.OutputField(
-        desc="Which specialist agent to consult: 'siemens_technician', 'illigo_operator', or 'none'"
+        desc="Which specialist agent to consult: 'hardware_agent', 'telemetry_agent', or 'none'"
     )
 
 
@@ -97,7 +97,7 @@ class DelegateQuery(dspy.Signature):
     )
 
     target_agent: str = dspy.OutputField(
-        desc="Agent to delegate to: 'siemens_technician', 'illigo_operator', or 'self'"
+        desc="Agent to delegate to: 'hardware_agent', 'telemetry_agent', or 'self'"
     )
     delegation_reason: str = dspy.OutputField(
         desc="Reason for delegation decision"
@@ -155,7 +155,7 @@ class IntegrateSpecialistFindings(dspy.Signature):
         desc="Specialist agent's technical diagnosis, severity assessment, and recommended diagnostic steps"
     )
     specialist_agent: str = dspy.InputField(
-        desc="Which specialist provided the findings (siemens_technician or illigo_operator)"
+        desc="Which specialist provided the findings (hardware_agent or telemetry_agent)"
     )
 
     integrated_risk_level: str = dspy.OutputField(
@@ -174,38 +174,43 @@ class IntegrateSpecialistFindings(dspy.Signature):
 
 class EvaluateRequest(dspy.Signature):
     """
-    Evaluate whether this agent can effectively handle an incoming request.
+    Evaluate if I can handle this request before attempting diagnosis.
 
     This signature enables agent autonomy by allowing the agent to:
     1. Assess if the query falls within its expertise
     2. Determine confidence level for potential response
     3. Suggest alternative agents if better suited
-    4. Request clarification if needed
+    4. Request clarification or consultation if needed
+
+    Per design doc section 3 - Autonomy Protocol.
     """
     query: str = dspy.InputField(
         desc="The incoming query or request to evaluate"
     )
-    context_available: str = dspy.InputField(
-        desc="Summary of available context and retrieved documents"
+    my_expertise: str = dspy.InputField(
+        desc="Description of this agent's domain expertise (e.g., 'SLA compliance, network intent, governance policies')"
     )
-    agent_capabilities: str = dspy.InputField(
-        desc="Description of this agent's domain expertise and capabilities"
+    available_data: str = dspy.InputField(
+        desc="Summary of retrieved context and available documents"
     )
 
-    can_handle: str = dspy.OutputField(
-        desc="'yes' if can fully handle, 'partial' if partially, 'no' if not at all"
+    can_fully_answer: bool = dspy.OutputField(
+        desc="True if agent can provide a complete, confident answer"
     )
-    confidence: str = dspy.OutputField(
+    confidence_level: float = dspy.OutputField(
         desc="Confidence score from 0.0 to 1.0"
     )
     response_type: str = dspy.OutputField(
-        desc="Recommended response type: 'answer', 'partial', 'clarify', 'redirect', 'refuse'"
-    )
-    suggested_agent: str = dspy.OutputField(
-        desc="If redirect needed, which agent: 'hardware_agent', 'telemetry_agent', or 'none'"
+        desc="Response type: 'answer', 'partial', 'clarify', 'redirect', 'refuse', or 'consult'"
     )
     reasoning: str = dspy.OutputField(
         desc="Brief explanation of the evaluation decision"
+    )
+    suggested_agent: str = dspy.OutputField(
+        desc="If redirect/consult needed: 'hardware_agent', 'telemetry_agent', or 'none'"
+    )
+    missing_info: str = dspy.OutputField(
+        desc="If partial/clarify: what information is missing or needed"
     )
 
 
@@ -255,9 +260,10 @@ class TelekomMinisterModule(dspy.Module):
         delegation = self.delegate_query(
             query=query,
             available_agents=(
-                "siemens_technician (hardware specifications, equipment manuals, "
-                "technical diagnostics), illigo_operator (OCPP event logs, charging "
-                "station faults, real-time monitoring)"
+                "hardware_agent (MRI hardware specifications, Siemens equipment manuals, "
+                "thermal sensors, gradient coils, technical diagnostics), "
+                "telemetry_agent (MRI event logs, session monitoring, "
+                "temporal fault patterns, anomaly detection)"
             )
         )
 
@@ -414,7 +420,7 @@ class TelekomMinisterModule(dspy.Module):
         This method enables agent autonomy by assessing:
         - Whether the query falls within governance/SLA domain
         - Confidence level for potential response
-        - Whether to redirect to specialist agents
+        - Whether to redirect to or consult specialist agents
 
         Args:
             query: The incoming query or request
@@ -422,19 +428,20 @@ class TelekomMinisterModule(dspy.Module):
 
         Returns:
             DSPy Prediction with:
-                - can_handle: 'yes', 'partial', or 'no'
-                - confidence: float 0.0-1.0
-                - response_type: 'answer', 'partial', 'clarify', 'redirect', 'refuse'
+                - can_fully_answer: bool
+                - confidence_level: float 0.0-1.0
+                - response_type: 'answer', 'partial', 'clarify', 'redirect', 'refuse', 'consult'
                 - suggested_agent: 'hardware_agent', 'telemetry_agent', or 'none'
                 - reasoning: explanation of decision
+                - missing_info: what's missing if partial/clarify
         """
         return self.evaluate_request(
             query=query,
-            context_available=context_summary,
-            agent_capabilities=(
+            my_expertise=(
                 "SLA compliance assessment, Network Intent validation, "
                 "risk assessment for infrastructure decisions, governance policies, "
-                "latency/bandwidth/reliability requirements for microgrids and charging stations. "
+                "latency/bandwidth/reliability requirements for microgrids and MRI equipment. "
                 "Can delegate to hardware_agent for equipment issues or telemetry_agent for event logs."
-            )
+            ),
+            available_data=context_summary
         )

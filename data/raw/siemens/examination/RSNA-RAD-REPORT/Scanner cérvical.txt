@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CT Neck</title>
+        <meta charset="UTF-8" />
+        <meta name="dcterms.identifier" content="efed3455-539f-4e76-97b9-84fd73f059a9" />
+        <meta name="dcterms.title" content="CT Neck" />
+        <meta name="dcterms.description" content="CT Neck template :: Authored by Phillips CD, et al." />
+        <meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE" />
+        <meta name="dcterms.language" content="fr" />
+        <meta name="dcterms.publisher" content="Radiological Society of North America (RSNA)" />
+        <meta name="dcterms.rights" content="May be used gratis, subject to license agreement" />
+        <meta name="dcterms.license" content="http://www.radreport.org/license.pdf" />
+        <meta name="dcterms.date" content="2015-11-30" />
+        <meta name="dcterms.creator" content="Phillips CD, et al." />
+        <meta name="dcterms.contributor" content="Nadya Pyatigorskaya [translator]" />
+        <meta name="dcterms.contributor" content="Hong Y [coder]" />
+        <meta name="dcterms.contributor" content="Kahn CE Jr [editor]" />
+        <meta name="dcterms.contributor" content="American Society of Head and Neck Radiology (ASHNR)" />
+        <script type="text/xml">
+            <template_attributes>
+                <coded_content>
+                    <coding_schemes>
+                        <coding_scheme name="RADLEX" designator="2.16.840.1.113883.6.256"></coding_scheme>
+                    </coding_schemes>
+                    <entry origtxt="T13_41">
+                        <term>
+                            <code meaning="lymph node group" value="RID28847" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_15">
+                        <term>
+                            <code meaning="suprahyoid neck" value="RID7540" scheme="RADLEX"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_33">
+                        <term>
+                            <code meaning="thyroid gland" value="RID7578" scheme="RADLEX"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_45">
+                        <term>
+                            <code meaning="impression section" value="RID13170" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_44">
+                        <term>
+                            <code meaning="normal" value="RID13173" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_35">
+                        <term>
+                            <code meaning="thoracic inlet" value="RID1432" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_43">
+                        <term>
+                            <code meaning="vasculature of organ" value="RID15990" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_25">
+                        <term>
+                            <code meaning="infrahyoid neck" value="RID7576" scheme="RADLEX"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_13">
+                        <term>
+                            <code meaning="nasopharynx" value="RID9990" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_7">
+                        <term>
+                            <code meaning="orbits" value="RID28601" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_3">
+                        <term>
+                            <code meaning="clinical information" value="RID13166" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T13_2">
+                        <term>
+                            <code meaning="procedure" value="RID1559" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                </coded_content>
+            </template_attributes>
+        </script>
+    </head>
+    <body>
+        <section id="Procedure" class="level1" data-section-name="Procedure">
+            <header class="level1">
+                Procedure
+            </header>
+            <p title="">
+                <label for="T13_2">T&eacute;chnique</label>
+                <textarea rows="3" cols="100" id="T13_2" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+        </section>
+        <section id="Clinical_information" class="level1" data-section-name="Clinical information">
+            <header class="level1">
+                Clinical information
+            </header>
+            <p title="">
+                <label for="T13_3">Indication</label>
+                <textarea rows="3" cols="100" id="T13_3" name="" data-field-type="TEXT" data-field-completion-action="NONE">Bilan</textarea>
+            </p>
+        </section>
+        <section id="Comparison" class="level1" data-section-name="Comparison">
+            <header class="level1">
+                Comparison
+            </header>
+            <p title="">
+                <label for="TEXT_1448916408646"></label>
+                <input type="text" id="TEXT_1448916408646" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Pas d'examen ant&eacute;rieur dans notre disposition pour la comparaison " />
+            </p>
+        </section>
+        <section id="Findings" class="level1" data-section-name="Findings">
+            <header class="level1">
+                Findings
+            </header>
+            <p title="">
+                <label for="T13_7">Orbites, sinus, et la base du cr&acirc;ne:</label>
+                <input type="text" id="T13_7" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Normal." />
+            </p>
+            <p title="">
+                <label for="T13_13">Nasopharynx:</label>
+                <input type="text" id="T13_13" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Normal." />
+            </p>
+            <p title="">
+                <label for="T13_15">Sus-glottique</label>
+                <input type="text" id="T13_15" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Oropharynx normal, pas d'anomalie de la cavit&eacute; buccale, de l'espace parapharyng&eacute;, et l'espace r&eacute;tropharyng&eacute;" />
+            </p>
+            <p title="">
+                <label for="T13_25">Sous-glottique</label>
+                <input type="text" id="T13_25" name="" data-field-type="TEXT" data-field-completion-action="NONE" value=" Larynx, l'hypopharynx, et r&eacute;gion susglottique normaux" />
+            </p>
+            <p title="">
+                <label for="T13_33">Thyro&iuml;de</label>
+                <input type="text" id="T13_33" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Normal." />
+            </p>
+            <p title="">
+                <label for="T13_35">Atteinte pulmonaire</label>
+                <input type="text" id="T13_35" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Apex pulmonaires normaux et pas d'anomalie des plexus brachiaux." />
+            </p>
+            <p title="">
+                <label for="T13_41">Les ganglions lymphatiques</label>
+                <input type="text" id="T13_41" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Normal. Pas d'ad&Atilde;&copy;nom&Atilde;&copy;galie " />
+            </p>
+            <p title="">
+                <label for="T13_43">Structures vasculaires:</label>
+                <input type="text" id="T13_43" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Normal." />
+            </p>
+            <p title="">
+                <label for="T13_44">Autres constatations:</label>
+                <input type="text" id="T13_44" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Aucun." />
+            </p>
+        </section>
+        <section id="Impression" class="level1" data-section-name="Impression">
+            <header class="level1">
+                Impression
+            </header>
+            <p title="">
+                <label for="T13_45">Conclusion: </label>
+                <textarea rows="3" cols="100" id="T13_45" name="" data-field-type="TEXT" data-field-completion-action="NONE">Examen normal</textarea>
+            </p>
+        </section>
+    </body>
+</html>

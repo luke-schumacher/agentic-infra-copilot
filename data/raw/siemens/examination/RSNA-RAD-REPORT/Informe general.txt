@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.radreport.org/convert/0000158 -->
+<html><head>
+<meta charset="UTF-8">
+<meta content="Informe general" name="dcterms.title">
+<meta content="Informe general template :: Authored by Langlotz CP, Kahn CE Jr" name="dcterms.description">
+<meta content="http://www.radreport.org/template/0000158" name="dcterms.identifier">
+<meta content="es" name="dcterms.language">
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type">
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher">
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights">
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license">
+<meta content="2012-03-23" name="dcterms.date">
+<meta content="Langlotz CP, Kahn CE Jr" name="dcterms.creator">
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor">
+<meta content="Kahn CE Jr [translator]" name="dcterms.contributor">
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css">
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>0</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>report</code_meaning>
+<code_value>RID28487</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry ORIGTXT="T158_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T158_3">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Clinical information</code_meaning>
+<code_value>55752-0</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T158_4">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T158_5">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T158_6">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Radiology Study observation (narrative)</code_meaning>
+<code_value>18782-3</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T158_7">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Informe general</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1">Procedimiento</header>
+<p>
+<textarea id="T158_2" name="Procedimiento"></textarea>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1">Información clínica</header>
+<p>
+<textarea id="T158_3" name="Información clínica"></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1">Estudios previos</header>
+<p>
+<textarea id="T158_4" name="Estudios previos">Ninguno. </textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1">Hallazgos</header>
+<p>
+<textarea id="T158_6" name="Hallazgos"></textarea>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1">Impresión diagnóstica</header>
+<p>
+<textarea id="T158_7" name="Impresión diagnóstica"></textarea>
+</p>
+</section>
+
+
+</body></html>

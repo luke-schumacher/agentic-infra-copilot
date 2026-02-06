@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="Radiografía de Torax para detección de Tuberculosis" name="dcterms.title"/>
+<meta content="Chest Xray - TB screening template :: Authored by Kohli MD" name="dcterms.description"/>
+<meta content="http://www.radreport.org/template/0000232" name="dcterms.identifier"/>
+<meta content="es" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-10-24" name="dcterms.date"/>
+<meta content="Kohli MD" name="dcterms.creator"/>
+<meta content="Arellano S [translator]" name="dcterms.contributor"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<term>
+ <code meaning="projection radiography" value="RID10345" scheme="RadLex">
+</term>
+<term>
+ <code meaning="thorax" value="RID1243" scheme="RadLex">
+</term>
+<term>
+ <code meaning="tuberculosis" value="RID29116" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T104_2">
+  <term>
+  <code meaning="(unspecified)" value="363679005" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T104_3">
+ <term>
+  <code meaning="clinical information" value="RID13166" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_4">
+ <term>
+  <code meaning="tuberculosis" value="RID29116" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="screening" value="RID28817" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_6">
+ <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_8">
+ <term>
+  <code meaning="observations section" value="RID28486" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_12">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_13">
+ <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_14">
+ <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_16">
+ <term>
+  <code meaning="diffuse" value="RID5701" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_17">
+ <term>
+  <code meaning="lung" value="RID1301" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="volume" value="RID28668" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_18">
+ <term>
+  <code meaning="normal" value="RID13173" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_19">
+ <term>
+  <code meaning="hyperinflated" value="RID5884" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_21">
+ <term>
+  <code meaning="interstitial lung disease" value="RID28799" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_22">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_23">
+ <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_24">
+ <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_25">
+  <term>
+  <code meaning="Entire perihilar region of lung (body structure)" value="201508005" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T104_26">
+ <term>
+  <code meaning="diffuse" value="RID5701" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_27">
+ <term>
+  <code meaning="atelectasis" value="RID28493" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_28">
+ <term>
+  <code meaning="normal" value="RID13173" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_29">
+ <term>
+  <code meaning="lower lobe of right lung" value="RID1315" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_30">
+ <term>
+  <code meaning="lower lobe of right lung" value="RID1315" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_31">
+ <term>
+  <code meaning="upper lobe of left lung" value="RID1327" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_32">
+ <term>
+  <code meaning="lower lobe of left lung" value="RID1338" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_34">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_35">
+ <term>
+  <code meaning="coin lesion" value="RID35095" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_37">
+ <term>
+  <code meaning="multiple" value="RID5765" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_38">
+ <term>
+  <code meaning="miliary pattern" value="RID35377" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_41">
+  <term>
+  <code meaning="(unspecified)" value="8186001" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T104_42">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_43">
+ <term>
+  <code meaning="mild" value="RID5671" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_44">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_45">
+ <term>
+  <code meaning="severe" value="RID5673" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_46">
+ <term>
+  <code meaning="aorta" value="RID480" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_47">
+ <term>
+  <code meaning="normal" value="RID13173" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_48">
+ <term>
+  <code meaning="aorta" value="RID480" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="ectatic" value="RID5789" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_49">
+ <term>
+  <code meaning="aorta" value="RID480" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="aneurysm" value="RID3321" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_50">
+ <term>
+  <code meaning="set of pulmonary veins" value="RID28588" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="set of pulmonary arteries" value="RID28586" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_51">
+ <term>
+  <code meaning="normal" value="RID13173" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_52">
+ <term>
+  <code meaning="enlarged" value="RID5791" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_53">
+ <term>
+  <code meaning="decreased" value="RID36044" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_54">
+ <term>
+  <code meaning="lymphadenopathy" value="RID3798" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="paratracheal lymph node" value="RID7726" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_55">
+ <term>
+  <code meaning="absent" value="RID28473" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_56">
+ <term>
+  <code meaning="present" value="RID28472" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_57">
+ <term>
+  <code meaning="lymphadenopathy" value="RID3798" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="bronchopulmonary lymph node" value="RID1497" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_58">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_59">
+ <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_60">
+ <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_61">
+ <term>
+  <code meaning="mediastinum" value="RID1384" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="mass" value="RID3874" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_62">
+ <term>
+  <code meaning="absent" value="RID28473" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_63">
+ <term>
+  <code meaning="present" value="RID28472" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_68">
+ <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_69">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_70">
+ <term>
+  <code meaning="small" value="RID5774" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_71">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_72">
+ <term>
+  <code meaning="large" value="RID5778" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_73">
+ <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_74">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_75">
+ <term>
+  <code meaning="small" value="RID5774" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_76">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_77">
+ <term>
+  <code meaning="large" value="RID5778" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_78">
+ <term>
+  <code meaning="pleura" value="RID1362" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="scar" value="RID3829" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_79">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_80">
+ <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="apex of lung" value="RID28584" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_81">
+ <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="laterality" value="RID5821" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_82">
+ <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="basilar" value="RID5834" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_83">
+ <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="apical" value="RID5833" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_84">
+ <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="laterality" value="RID5821" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_85">
+ <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="basilar" value="RID5834" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_88">
+ <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_89">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_90">
+ <term>
+  <code meaning="small" value="RID5774" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_91">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_92">
+ <term>
+  <code meaning="large" value="RID5778" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_93">
+ <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_94">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_95">
+ <term>
+  <code meaning="small" value="RID5774" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_96">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_97">
+ <term>
+  <code meaning="large" value="RID5778" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T104_198">
+ <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Radiografía de Torax para detección de Tuberculosis</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Chest Xray - TB screening">Radiografía de Torax para detección de Tuberculosis</header>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Información clínica</header>
+<p>
+<select id="T104_2" name="Procedimiento" multiple="multiple" data-english-name="Procedure">
+<option id="T104_4" name="Detección de Tuberculosis" value="Detección de Tuberculosis" selected data-english-name="Primary TB screening" data-english-value="Primary TB screening" data-english-innertext="Primary TB screening">Detección de Tuberculosis</option>
+<option id="T104_5" name="Asintomática" value="Asintomática" data-english-name="Asymptomatic" data-english-value="Asymptomatic" data-english-innertext="Asymptomatic">Asintomática</option>
+</select>
+</p>
+<p>
+<textarea id="T104_3" name="Información clínica" data-english-name="Clinical information" data-english-innertext=" "></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Comparación</header>
+<p>
+<textarea id="T104_6" name="Comparación" data-english-name="Comparison" data-english-innertext="None. ">Ninguna.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Hallazgos</header>
+
+<section data-section-name="Lungs">
+<header class="level2" data-english="Lungs">Pulmones</header>
+<p>
+<label for="T104_11" data-english="Infiltrate:">Infiltrado:</label>
+<select id="T104_11" name="Infiltrado" data-english-name="Infiltrate">
+<option id="T104_12" name="Ninguno" value="Ninguno" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguno</option>
+<option id="T104_13" name="Derecho" value="Derecho" data-english-name="Right" data-english-value="Right" data-english-innertext="Right">Derecho</option>
+<option id="T104_14" name="Izquierdo" value="Izquierdo" data-english-name="Left" data-english-value="Left" data-english-innertext="Left">Izquierdo</option>
+<option id="T104_15" name="Perihiliar" value="Perihiliar" data-english-name="Perihilar" data-english-value="Perihilar" data-english-innertext="Perihilar">Perihiliar</option>
+<option id="T104_16" name="Difusa" value="Difusa" data-english-name="Diffuse" data-english-value="Diffuse" data-english-innertext="Diffuse">Difusa</option>
+</select>
+</p>
+<p>
+<label for="T104_17" data-english="Inflation:">Inflación:</label>
+<select id="T104_17" name="Inflación" data-english-name="Inflation">
+<option id="T104_18" name="Normal" value="Normal" selected data-english-name="Normal" data-english-value="Normal" data-english-innertext="Normal">Normal</option>
+<option id="T104_19" name="Hiperventilado" value="Hiperventilado" data-english-name="Hyperinflated" data-english-value="Hyperinflated" data-english-innertext="Hyperinflated">Hiperventilado</option>
+<option id="T104_20" name="Hipoventilado" value="Hipoventilado" data-english-name="Hypoinflated" data-english-value="Hypoinflated" data-english-innertext="Hypoinflated">Hipoventilado</option>
+</select>
+</p>
+<p>
+<label for="T104_21" data-english="Interstitial disease:">Enfermedad intersticial:</label>
+<select id="T104_21" name="Enfermedad intersticial" data-english-name="Interstitial disease">
+<option id="T104_22" name="Ninguna" value="Ninguna" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguna</option>
+<option id="T104_23" name="Derecha" value="Derecha" data-english-name="Right" data-english-value="Right" data-english-innertext="Right">Derecha</option>
+<option id="T104_24" name="Izquierda" value="Izquierda" data-english-name="Left" data-english-value="Left" data-english-innertext="Left">Izquierda</option>
+<option id="T104_25" name="Perihiliar" value="Perihiliar" data-english-name="Perihilar" data-english-value="Perihilar" data-english-innertext="Perihilar">Perihiliar</option>
+<option id="T104_26" name="Difusa" value="Difusa" data-english-name="Diffuse" data-english-value="Diffuse" data-english-innertext="Diffuse">Difusa</option>
+</select>
+</p>
+<p>
+<label for="T104_27" data-english="Parenchymal scarring or atelectasis:">Cicatrización o atelectasias a nivel del parenquima:</label>
+<select id="T104_27" name="Cicatrización o atelectasias a nivel del parenquima" multiple="multiple" data-english-name="Parenchymal scarring or atelectasis">
+<option id="T104_28" name="Normal" value="Normal" selected data-english-name="Normal" data-english-value="Normal" data-english-innertext="Normal">Normal</option>
+<option id="T104_29" name="Superior derecho" value="Superior derecho" data-english-name="Right upper" data-english-value="Right upper" data-english-innertext="Right upper">Superior derecho</option>
+<option id="T104_30" name="Inferior derecho" value="Inferior derecho" data-english-name="Right lower" data-english-value="Right lower" data-english-innertext="Right lower">Inferior derecho</option>
+<option id="T104_31" name="Superior izquierdo" value="Superior izquierdo" data-english-name="Left upper" data-english-value="Left upper" data-english-innertext="Left upper">Superior izquierdo</option>
+<option id="T104_32" name="Inferior izquierdo" value="Inferior izquierdo" data-english-name="Left lower" data-english-value="Left lower" data-english-innertext="Left lower">Inferior izquierdo</option>
+</select>
+</p>
+<p>
+<label for="T104_33" data-english="Pulmonary nodules:">Nódulos pulmonares:</label>
+<select id="T104_33" name="Nódulos pulmonares" data-english-name="Pulmonary nodules">
+<option id="T104_34" name="Ninguno" value="Ninguno" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguno</option>
+<option id="T104_35" name="Solitario" value="Solitario" data-english-name="Solitary" data-english-value="Solitary" data-english-innertext="Solitary">Solitario</option>
+<option id="T104_36" name="De dos a cinco" value="De dos a cinco" data-english-name="Two to five" data-english-value="Two to five" data-english-innertext="Two to five">De dos a cinco</option>
+<option id="T104_37" name="Más de cinco" value="Más de cinco" data-english-name="More than five" data-english-value="More than five" data-english-innertext="More than five">Más de cinco</option>
+<option id="T104_38" name="Cambios miliares" value="Cambios miliares" data-english-name="Miliary changes" data-english-value="Miliary changes" data-english-innertext="Miliary changes">Cambios miliares</option>
+</select>
+</p>
+</section>
+
+<section data-section-name="Mediastinum">
+<header class="level2" data-english="Mediastinum">Mediastino</header>
+<p>
+<label for="T104_41" data-english="Cardiomegaly">Cardiomegalia</label>
+<select id="T104_41" name="Cardiomegalia" data-english-name="Cardiomegaly">
+<option id="T104_42" name="Ninguno" value="Ninguno" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguno</option>
+<option id="T104_43" name="Leve" value="Leve" data-english-name="Mild" data-english-value="Mild" data-english-innertext="Mild">Leve</option>
+<option id="T104_44" name="Moderado" value="Moderado" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderado</option>
+<option id="T104_45" name="Severo" value="Severo" data-english-name="Severe" data-english-value="Severe" data-english-innertext="Severe">Severo</option>
+</select>
+</p>
+<p>
+<label for="T104_46" data-english="Aorta">Aorta</label>
+<select id="T104_46" name="Aorta" data-english-name="Aorta">
+<option id="T104_47" name="Normal" value="Normal" selected data-english-name="Normal" data-english-value="Normal" data-english-innertext="Normal">Normal</option>
+<option id="T104_48" name="Desplegado" value="Desplegado" data-english-name="Unfolded" data-english-value="Unfolded" data-english-innertext="Unfolded">Desplegado</option>
+<option id="T104_49" name="Aneurisma aórtico" value="Aneurisma aórtico" data-english-name="Aortic aneurysm" data-english-value="Aortic aneurysm" data-english-innertext="Aortic aneurysm">Aneurisma aórtico</option>
+</select>
+</p>
+<p>
+<label for="T104_50" data-english="Pulmonary vasculature">Vasculatura pulmonar</label>
+<select id="T104_50" name="Vasculatura pulmonar" data-english-name="Pulmonary vasculature">
+<option id="T104_51" name="Normal" value="Normal" selected data-english-name="Normal" data-english-value="Normal" data-english-innertext="Normal">Normal</option>
+<option id="T104_52" name="Aumentada" value="Aumentada" data-english-name="Enlarged" data-english-value="Enlarged" data-english-innertext="Enlarged">Aumentada</option>
+<option id="T104_53" name="Disminuida" value="Disminuida" data-english-name="Decreased" data-english-value="Decreased" data-english-innertext="Decreased">Disminuida</option>
+</select>
+</p>
+<p>
+<label for="T104_54" data-english="Paratracheal adenopathy">Adenopatía paratraqueal</label>
+<select id="T104_54" name="Adenopatía paratraqueal" data-english-name="Paratracheal adenopathy">
+<option id="T104_55" name="Ausente" value="Ausente" selected data-english-name="Absent" data-english-value="Absent" data-english-innertext="Absent">Ausente</option>
+<option id="T104_56" name="Presente" value="Presente" data-english-name="Present" data-english-value="Present" data-english-innertext="Present">Presente</option>
+</select>
+</p>
+<p>
+<label for="T104_57" data-english="Hilar adenopathy">Adenopatía hiliar</label>
+<select id="T104_57" name="Adenopatía hiliar" data-english-name="Hilar adenopathy">
+<option id="T104_58" name="Ausente" value="Ausente" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ausente</option>
+<option id="T104_59" name="Derecha" value="Derecha" data-english-name="Right" data-english-value="Right" data-english-innertext="Right">Derecha</option>
+<option id="T104_60" name="Izquierda" value="Izquierda" data-english-name="Left" data-english-value="Left" data-english-innertext="Left">Izquierda</option>
+</select>
+</p>
+<p>
+<label for="T104_61" data-english="Mediastinal mass">Masa mediastinal</label>
+<select id="T104_61" name="Masa mediastinal" data-english-name="Mediastinal mass">
+<option id="T104_62" name="Ausente" value="Ausente" selected data-english-name="Absent" data-english-value="Absent" data-english-innertext="Absent">Ausente</option>
+<option id="T104_63" name="Presente" value="Presente" data-english-name="Present" data-english-value="Present" data-english-innertext="Present">Presente</option>
+</select>
+</p>
+</section>
+
+
+<section data-section-name="Pleura">
+<header class="level2" data-english="Pleura">Pleura</header>
+<p>
+<label for="T104_68" data-english="Right pleural effusion:">Derecho derrame pleural:</label>
+<select id="T104_68" name="Derrame pleural derecho" data-english-name="Right pleural effusion">
+<option id="T104_69" name="Ninguno" value="Ninguno" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguno</option>
+<option id="T104_70" name="Pequeña" value="Pequeña" data-english-name="Small" data-english-value="Small" data-english-innertext="Small">Pequeña</option>
+<option id="T104_71" name="Moderado" value="Moderado" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderado</option>
+<option id="T104_72" name="Grande" value="Grande" data-english-name="Large" data-english-value="Large" data-english-innertext="Large">Grande</option>
+</select>
+</p>
+<p>
+<label for="T104_73" data-english="Left pleural effusion:">Izquierda derrame pleural:</label>
+<select id="T104_73" name="Derrame pleural izquierdo" data-english-name="Left pleural effusion">
+<option id="T104_74" name="Ninguno" value="Ninguno" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguno</option>
+<option id="T104_75" name="Pequeña" value="Pequeña" data-english-name="Small" data-english-value="Small" data-english-innertext="Small">Pequeña</option>
+<option id="T104_76" name="Moderado" value="Moderado" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderado</option>
+<option id="T104_77" name="Grande" value="Grande" data-english-name="Large" data-english-value="Large" data-english-innertext="Large">Grande</option>
+</select>
+</p>
+<p>
+<label for="T104_78" data-english="Pleural scarring:">Cicatrización pleural:</label>
+<select id="T104_78" name="Cicatrización pleural" multiple="multiple" data-english-name="Pleural scarring">
+<option id="T104_79" name="Ninguno" value="Ninguno" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguno</option>
+<option id="T104_80" name="Apical derecho" value="Apical derecho" data-english-name="Right apical" data-english-value="Right apical" data-english-innertext="Right apical">Apical derecho</option>
+<option id="T104_81" name="Lateral derecho" value="Lateral derecho" data-english-name="Right lateral" data-english-value="Right lateral" data-english-innertext="Right lateral">Lateral derecho</option>
+<option id="T104_82" name="Basilar derecho" value="Basilar derecho" data-english-name="Right basilar" data-english-value="Right basilar" data-english-innertext="Right basilar">Basilar derecho</option>
+<option id="T104_83" name="Apical izquierdo" value="Apical izquierdo" data-english-name="Left apical" data-english-value="Left apical" data-english-innertext="Left apical">Apical izquierdo</option>
+<option id="T104_84" name="Lateral izquierdo" value="Lateral izquierdo" data-english-name="Left lateral" data-english-value="Left lateral" data-english-innertext="Left lateral">Lateral izquierdo</option>
+<option id="T104_85" name="Basilar izquierdo" value="Basilar izquierdo" data-english-name="Left basilar" data-english-value="Left basilar" data-english-innertext="Left basilar">Basilar izquierdo</option>
+</select>
+</p>
+<p>
+<label for="T104_88" data-english="Right pneumothorax:">Neumotórax derecho:</label>
+<select id="T104_88" name="Neumotórax derecho" data-english-name="Right pneumothorax">
+<option id="T104_89" name="Ninguno" value="Ninguno" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguno</option>
+<option id="T104_90" name="Pequeño" value="Pequeño" data-english-name="Small" data-english-value="Small" data-english-innertext="Small">Pequeño</option>
+<option id="T104_91" name="Moderado" value="Moderado" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderado</option>
+<option id="T104_92" name="Grande" value="Grande" data-english-name="Large" data-english-value="Large" data-english-innertext="Large">Grande</option>
+</select>
+</p>
+<p>
+<label for="T104_93" data-english="Left pneumothorax:">Neumotórax izquierdo:</label>
+<select id="T104_93" name="Neumotórax izquierdo" data-english-name="Left pneumothorax">
+<option id="T104_94" name="Ninguno" value="Ninguno" selected data-english-name="None" data-english-value="None" data-english-innertext="None">Ninguno</option>
+<option id="T104_95" name="Pequeño" value="Pequeño" data-english-name="Small" data-english-value="Small" data-english-innertext="Small">Pequeño</option>
+<option id="T104_96" name="Moderado" value="Moderado" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderado</option>
+<option id="T104_97" name="Grande" value="Grande" data-english-name="Large" data-english-value="Large" data-english-innertext="Large">Grande</option>
+</select>
+</p>
+</section>
+
+<section data-section-name="Other findings">
+<header class="level2" data-english="Other findings">Otros resultados</header>
+<p>
+<textarea id="T104_8" name="Otros resultados" data-english-name="Other findings" data-english-innertext=" ">Ninguno.</textarea>
+</p>
+</section>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Impresión</header>
+<p>
+<textarea id="T104_198" name="Impresión" data-english-name="Impression" data-english-innertext=" "></textarea>
+</p>
+</section>
+</body>
+</html>

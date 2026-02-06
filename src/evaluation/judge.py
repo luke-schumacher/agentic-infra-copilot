@@ -26,6 +26,7 @@ class JudgeResult:
     accuracy_score: float      # 0-1: Factual correctness
     relevance_score: float     # 0-1: Relevance to query
     completeness_score: float  # 0-1: Response completeness
+    cross_domain_score: float  # 0-1: Cross-domain synthesis quality
     overall_score: float       # Weighted average
     reasoning: str             # Explanation of scores
     passed: bool               # Whether meets threshold
@@ -36,7 +37,9 @@ class JudgeSignature(dspy.Signature):
     Evaluate an agent's response against ground truth.
 
     You are an expert evaluator assessing the quality of an AI agent's
-    response to an infrastructure diagnosis query.
+    response to an infrastructure diagnosis query. Pay special attention
+    to whether the response synthesizes information across multiple domains
+    (governance/SLA, hardware/equipment, telemetry/events).
     """
     query: str = dspy.InputField(desc="The original user query")
     agent_response: str = dspy.InputField(desc="The agent's response to evaluate")
@@ -51,6 +54,10 @@ class JudgeSignature(dspy.Signature):
     )
     completeness_score: float = dspy.OutputField(
         desc="Score 0.0-1.0: How complete is the response? Does it address all aspects?"
+    )
+    cross_domain_score: float = dspy.OutputField(
+        desc="Score 0.0-1.0: Does the response synthesize information across multiple domains "
+        "(governance, hardware, telemetry)? 0=single domain, 1=rich cross-domain synthesis"
     )
     reasoning: str = dspy.OutputField(
         desc="Brief explanation of the scores given (2-3 sentences)"
@@ -133,14 +140,21 @@ class AgentJudge:
             accuracy = self._parse_score(result.accuracy_score)
             relevance = self._parse_score(result.relevance_score)
             completeness = self._parse_score(result.completeness_score)
+            cross_domain = self._parse_score(result.cross_domain_score)
 
             # Calculate weighted overall score
-            overall = (accuracy * 0.4) + (relevance * 0.3) + (completeness * 0.3)
+            overall = (
+                accuracy * 0.35 +
+                relevance * 0.2 +
+                completeness * 0.2 +
+                cross_domain * 0.25
+            )
 
             return JudgeResult(
                 accuracy_score=accuracy,
                 relevance_score=relevance,
                 completeness_score=completeness,
+                cross_domain_score=cross_domain,
                 overall_score=overall,
                 reasoning=str(result.reasoning),
                 passed=overall >= self.threshold
@@ -191,12 +205,30 @@ class AgentJudge:
         # Completeness based on keyword coverage
         completeness = accuracy  # Same as accuracy for fallback
 
-        overall = (accuracy * 0.4) + (relevance * 0.3) + (completeness * 0.3)
+        # Cross-domain: check for domain-specific terms
+        domain_indicators = {
+            'governance': ['sla', 'compliance', 'policy', 'uptime', 'contract'],
+            'hardware': ['sensor', 'coil', 'amplifier', 'calibration', 'component'],
+            'telemetry': ['event', 'pattern', 'log', 'anomaly', 'monitoring'],
+        }
+        domains_referenced = sum(
+            1 for terms in domain_indicators.values()
+            if any(t in response_lower for t in terms)
+        )
+        cross_domain = domains_referenced / 3.0
+
+        overall = (
+            accuracy * 0.35 +
+            relevance * 0.2 +
+            completeness * 0.2 +
+            cross_domain * 0.25
+        )
 
         return JudgeResult(
             accuracy_score=accuracy,
             relevance_score=relevance,
             completeness_score=completeness,
+            cross_domain_score=cross_domain,
             overall_score=overall,
             reasoning="Fallback keyword-based evaluation (DSPy unavailable)",
             passed=overall >= self.threshold
@@ -248,6 +280,7 @@ class AgentJudge:
             'avg_accuracy': sum(r.accuracy_score for r in results) / n,
             'avg_relevance': sum(r.relevance_score for r in results) / n,
             'avg_completeness': sum(r.completeness_score for r in results) / n,
+            'avg_cross_domain': sum(r.cross_domain_score for r in results) / n,
             'avg_overall': sum(r.overall_score for r in results) / n,
             'min_overall': min(r.overall_score for r in results),
             'max_overall': max(r.overall_score for r in results)

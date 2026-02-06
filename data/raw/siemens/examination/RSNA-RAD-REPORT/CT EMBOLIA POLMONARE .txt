@@ -1,0 +1,19 @@
+CT EMBOLIA POLMONARE 
+Contrasto endovenoso (agente e volume): 
+Informazioni cliniche
+Confronto[Nessuno]
+Risultati
+Qualit&agrave; diagnostica: [Adeguato | Subottimale | non diagnostico]
+Embolia polmonare: [Nessuna]
+Arterie polmonari: [Normali in calibro]
+Parenchima polmonare: [Normale]
+Versamento pleurico: [Nessuno]
+Vie aeree centrali: [Normali]
+Adenopatia: [Nessuna]
+Cuore e grandi vasi: [Normali]
+Addome superiore: [Normale]
+Ossa: [Normali]
+Conclusioni 
+[Nessuna embolia polmonare acuta o cronica. ]
+
+

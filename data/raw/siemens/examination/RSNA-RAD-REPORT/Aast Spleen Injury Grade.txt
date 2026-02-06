@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Jan Bosmans [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Aast Spleen Injury Grade" name="dcterms.title"/>
+<meta content="AAST Spleen Injury Grade report module" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050208" name="dcterms.identifier"/>
+<meta content="nl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2016-10-17" name="dcterms.date"/>
+<meta content="Tolat P, Kahn CE Jr" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css" />
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>false</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<coded_content>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Aast Spleen Injury Grade</title>
+</head>
+<body>
+<section data-section-name="AAST Spleen Injury Grade">
+
+<header class="level1" data-english="+ AAST Spleen Injury Grade">+ Aast gradering miltletsels</header>
+<p>
+<select id="T266_1" name="+ Aast gradering miltletsels" data-english-name="AAST Spleen Injury Grade">
+<option id="T266_2" name="Aast miltletsel graad" value="0" data-english-name="AAST Spleen Injury Grade" data-english-value="0" data-english-innertext="0.
+    No splenic injury. ">0. Geen miltletsel.</option>
+<option id="T266_3" name="Aast miltletsel graad" value="1" data-english-name="AAST Spleen Injury Grade" data-english-value="1" data-english-innertext="1.
+    Subcapsular hematoma (&amp;lt;10% surface area) or Capsular tear (&amp;lt;1cm parenchymal depth).">1. Subcapsulair hematoom (&lt;10% oppervlakte) of kapselscheur (&lt;1 cm parenchymdiepte).</option>
+<option id="T266_4" name="Aast miltletsel graad" value="2" data-english-name="AAST Spleen Injury Grade" data-english-value="2" data-english-innertext="2.
+    Subcapsular hematoma (10% to 50% surface area), Intraparenchymal hematoma (&amp;lt;5 cm in diameter), Capsular tear (1-3 cm parenchymal depth that does not involve a trabecular vessel), or Multiple &quot;Grade 1&quot; injuries.">2. Subcapsulair hematoom (10% tot 50% oppervlakte), intraparenchymateus hematoom (&lt;5 cm diameter), kapselscheur (1-3 cm parenchymdiepte, zonder trabeculair vat), of meerdere verwondingen van graad 1.</option>
+<option id="T266_5" name="Aast miltletsel graad" value="3" data-english-name="AAST Spleen Injury Grade" data-english-value="3" data-english-innertext="3.
+    Subcapsular hematoma (&amp;gt;50% surface area or expanding), Ruptured subcapsular or parenchymal hematoma, Intraparenchymal hematoma (&amp;gt;= 5 cm or expanding), Laceration (&amp;gt;3 cm parenchymal depth or involving trabecular vessels), or Multiple &quot;Grade 2&quot; injuries. ">3. Subcapsulair hematoom (&gt; 50% oppervlakte of uitbreidend), geruptureerd subcapsulair of parenchymhematoom, intraparenchymateus hematoom (&gt; = 5 cm of uitbreidend), laceratie (&gt; 3 cm parenchymdiepte of met betrokkenheid van de trabeculaire vaten), of meerdere verwondingen van graad 2.</option>
+<option id="T266_6" name="Aast miltletsel graad" value="4" data-english-name="AAST Spleen Injury Grade" data-english-value="4" data-english-innertext="4.
+    Laceration involving segmental or hilar vessels producing major devascularization (&amp;gt;25% of spleen). ">4. Laceratie met betrokkenheid van de segmentale of hilaire vaten, waardoor ernstige devascularisatie (&gt; 25% van de milt).</option>
+<option id="T266_7" name="Aast miltletsel graad" value="5" data-english-name="AAST Spleen Injury Grade" data-english-value="5" data-english-innertext="5.
+    Completely shattered spleen, or Hilar vascular injury with devascularized spleen. 
+">5. Volledig vernietigde milt, of hilair vasculair letsel met gedevasculariseerde milt.</option>
+</select>
+</p>
+</section>
+</body>
+</html>

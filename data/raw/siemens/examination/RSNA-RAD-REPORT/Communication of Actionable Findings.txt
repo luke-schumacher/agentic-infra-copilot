@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="Communication of Actionable Findings" name="dcterms.title"/>
+<meta content="Communication of Actionable Findings" name="dcterms.description"/>
+<meta content="http://www.radreport.org/template/0000297" name="dcterms.identifier"/>
+<meta content="en" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2014-04-06" name="dcterms.date"/>
+<meta content="Larson PA, et al." name="dcterms.creator"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="American College of Radiology (ACR)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>false</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<coded_content>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Communication of Actionable Findings</title>
+</head>
+<body>
+<section data-section-name="Communication of Actionable Findings">
+<header class="level1">Communication of Actionable Findings</header>
+<p>
+<select id="T297_1" name="Category" multiple="multiple">
+<option id="T297_1.1" name="Category 1" value="Category 1">Category 1</option>
+<option id="T297_1.2" name="Category 2" value="Category 2">Category 2</option>
+<option id="T297_1.3" name="Category 3" value="Category 3">Category 3</option>
+</select>
+<label>actionable findings</label>
+<select id="T297_2" name="actionable findings">
+<option id="T297_2.1" name="discussed directly" value="discussed directly">discussed directly</option>
+<option id="T297_2.2" name="discussed by telephone" value="discussed by telephone">discussed by telephone</option>
+<option id="T297_2.3" name="described in message" value="described in message">described in message</option>
+</select>
+<label>by</label> <input type="text" id="T297_3" name="Radiologist" />
+<label>to</label> <input type="text" id="T297_4" name="Referring clinician" />
+<label>on</label> <input type="date" id="T297_5" name="Date" />
+<label>at</label> <input type="time" id="T297_6" name="Time" />.
+</p>
+<p>(Actionable findings categories defined by: Larson PA, et al. J Am Coll Radiol 2014; published online. DOI 10.1016/j.jacr.2013.12.016)</p>
+</section>
+</body>
+</html>

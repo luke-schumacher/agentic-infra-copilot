@@ -1,0 +1,44 @@
+The original text template is provided below. The XML version has been translated. 
+
+Clinical History
+
+    * Medical history
+    * Risk factors
+    * Allergies, if relevant
+    * Reason for exam, including medical necessity: [headache | stroke | dizziness | trauma]
+
+Imaging Technique
+
+    * Time of image acquisition
+    * Imaging device [MR, CT]
+    * Image acquisition parameters, such as device settings, patient positioning, interventions (e.g., Valsalva maneuver)
+    * Contrast materials and other medications administered (including name, dose, route, and time of administration)
+    * Radiation dose
+
+Comparison
+
+    * Date and type of previous exams reviewed, if applicable
+
+Observations
+
+    * Extra axial spaces: [normal in size and morphology for the patient's age* | widened]
+    * Hemorrhage: [none* ; subdural ; subarachnoid; epidural, intraventricular, parenchymal]
+    * Ventricular system: [normal in size and morphology for the patient's age* | enlarged | small]
+    * Basal cisterns: [normal* | enlarged | small]
+    * Cerebral parenchyma: [normal*; microvascular changes; infarction; encephalomalacia; gliosis; hemorrhage]
+    * Midline shift: [none* | leftward shift | rightward shift]
+    * Cerebellum: [normal*]
+    * Brainstem: [normal*]
+
+Other:
+
+    * Calvarium: [normal*; non-depressed fracture; depressed fracture; osteolysis; sclerosis]
+    * Vascular system: [normal* | vascular calcifications (CT) | appropriate arterial and dural sinus flow voids (MR)]
+    * Visualized Paranasal sinuses: [clear* | scattered mild inflammatory mucosal thickening]
+    * Visualized Orbits: [normal*]
+    * Visualized upper cervical spine: [normal*]
+    * Sella and skull base: [normal* | partially empty sella | left/right mastoid air cell fluid]
+
+Summary (or Impression)
+
+    * An itemized list of key observations, including any recommendations.

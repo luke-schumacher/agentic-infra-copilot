@@ -1,0 +1,112 @@
+The original text template is provided below. The XML version has been translated. 
+
+				MRI RENAL MASS TEMPLATE
+
+
+
+PROCEDURE: MRI ABDOMEN [AND PELVIS] WITHOUT AND WITH CONTRAST 
+
+
+CLINICAL INDICATION: [Suspected or known renal mass(es)].
+
+ 
+COMPARISON: [Specify modality: e.g CT, enhanced MRI <date> | None*].
+
+TECHNIQUE: Pre contrast evaluation of the kidneys was performed on a [field strength] Tesla scanner. The following sequences were obtained: [axial T1-weighted in-phase and opposed phase gradient recalled-echo, [axia]) [coronal] {single shot T2-weighted fast (turbo) spin-echo] [steady-state free precession], and [coronal] [axial] dynamic fat suppressed T1-weighted 3-D gradient recalled-echo prior to and following gadolinium contrast administration in the [corticomedullary], [neprhrographic]and [excretory] phases of enhancement. [ ] ml of [name of contrast agent] was administered. 
+
+[Diffusion-weighted images with [x] B values were obtained
+
+[Post-processing included [subtractions] [MPRs] [MIPS][enhancement kinetics][ADC map] ]
+
+Image quality is [satisfactory/degraded by motion/etc].
+
+FINDINGS:
+
+Right kidney: [Unremarkable, no concerning cystic or solid mass lesions.*] Kidney has [normal/decreased/increased] size, [normal/decreased/increased] signal intensity and [normal/abnormal] enhancement
+Cortex [normal][thin] [diffusely][focally] 
+
+Left kidney: [Unremarkable, no concerning cystic or solid mass lesions.*] Kidney has [normal/decreased/increased] size, [normal/decreased/increased] signal intensity and [normal/abnormal] enhancement
+Cortex [normal][thin] [diffusely][focally]
+
+Hydronephrosis [present] [not present] [left/right/bilateral]
+
+{Module for description and characterization of a renal mass.  Replace default statement with the following description.}           
+
+Renal Mass: [None] 
+Lesion: [none |solitary*] [ ]{add number for 2 or more}
+Location: Lesion centered in:[] 
+{Anterior/posterior/posteromedial/anteromedial/lateral}
+intraparenchymal, exophytic, sinus, collecting system
+{upper pole/mid/lower pole}
+
+- Image location: series [#] image [#]
+	Margin [well defines, ill defined]
+	Morphology [round, elongated, lobulated]
+	Size: [# x # cm]
+
+Signal intensity relative to renal cotex [hypo, iso, hyper] T1-weighted and T2-weighted 
+
+- Composition: [ simple cyst *| solid lesion| cystic lesion| hemorrhagic cyst 
+][ ]
+
+Contains lipid [(Yes/No)], [macroscopic or cytoplasmic]
+
+hemorrhagic products [(Yes/No)]
+
+Enhancement pattern relative to renal cortex on the arterial, nephrographic, and excretory phases [no enhancement; hypo, iso, hyper enhancement] 
+Solid lesion enhancement: [Not applicable | homogeneous enhancement | 
+heterogeneous enhancement] 
+	
+- Cystic lesion features: [Not applicable | few fine septa | thick septa and/or nodules | enhancing masses/nodules suspicious for malignancy | low suspicion indeterminate features that should be followed][ ]
+
+- Renal vein invasion: [present | not present]. Extent: [ ]
+
+- Extension through renal capsule [indeterminate | present | not present]. 
+Extent: [ ]
+
+- Extension beyond Gerota’s fascia [present | not present]. Extent: [ ]
+
+- Additional renal findings: [none* ]
+
+- Perinephric adenopathy: [None*| Present|
+
+{If nodes present, insert following node module}
+
+Node [#n], Image location: series [#], image [#]: Size: [# x # cm]; Shape: [round; oblong]. {comment} [free text]
+
+
+Remainder of examination:
+ 
+
+Lower thorax: [Unremarkable*]
+
+Liver: [Unremarkable* ]                       
+
+Spleen: [Unremarkable*]
+
+Pancreas: [Unremarkable*]
+
+Adrenal glands:  [Unremarkable*]
+
+Retroperitoneum: [No adenopathy*]
+
+Peritoneum: [No masses or ascites*]
+
+Pelvis: [Normal* | Not imaged]
+
+Musculoskeletal: [Unremarkable*]
+
+ 
+
+IMPRESSION:
+
+ 
+
+1.  [ ]
+
+
+
+
+
+
+

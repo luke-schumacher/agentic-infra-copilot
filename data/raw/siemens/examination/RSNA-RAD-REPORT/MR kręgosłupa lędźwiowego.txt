@@ -1,0 +1,58 @@
+Rozpoznanie:
+Cel badania:
+Por&oacute;wnano z badaniem z dnia:
+
+Wynik badania:
+
+    * Lordoza: prawidłowa [pogłębiona] [zniesiona]
+    * Ustawienie trzon&oacute;w kręg&oacute;w: [prawidłowa] [retrolisteza] [anterolisteza]
+    * Kanał kręgowy: [prawidłowy] [stenotyczny] [pojemny]
+    * Anatomia: [prawidłowa, bez obecności kręg&oacute;w przejściowych | kręgi przejściowe ]
+
+Trzony kręg&oacute;w:
+
+    * Szpik kostny: prawidłowy | tłuszczowa przebudowa | obrzęk | sklerotyczne {typ Modic I - III}
+    * Łuki kręgowe: prawidłowe | złamanie | przemieszczenie
+    * Obrys kory: prawidłowa | złamanie | lityczne
+    * Obrys blaszek granicznych:  prawidłowa | obniżona | degeneracja]
+    * Jamy szpikowe: prawidłowe | osteopeniczne | sklerotyczne
+
+Przestrzeń międzykręgowa
+
+
+Na poziomie L1/L2:
+- Stawy unkowertebralne {lewy / prawy C2-3 to C7/T1}: prawidłowy* | degenerated | hipertrofia ]
+- Morfologia krążka międzykręgowego: [prawidłowa | okrężna wypuklina krążka m/k | wypuklina (protruzja) | przepuklina (ekstruzja) | sekwestr) ] {size modifier: niewielka | umiarkowana | duża} {: centralna | paracentralna | foraminalna | ekstraforaminalna} {superior/inferior modifier: nasadowa | nadnasadowa | podnasadowa}
+- Kanał kręgowy: w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+- Zachyłek boczny {lewy / prawy}:  [w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+- Otw&oacute;r m/k {lewy / prawy}: [w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+- Korzenie nerwowe: prawidłowe | contact | deviation | deformity]
+
+Na poziomie L2/L3:
+- Stawy unkowertebralne {lewy / prawy C2-3 to C7/T1}: [prawidłowy* | degenerated | hipertrofia ]
+- Morfologia krążka międzykręgowego: [prawidłowa | okrężna wypuklina krążka m/k | wypuklina (protruzja) | przepuklina (ekstruzja) | sekwestr) ] {size modifier: niewielka | umiarkowana | duża} {: centralna | paracentralna | foraminalna | ekstraforaminalna} {superior/inferior modifier: nasadowa | nadnasadowa | podnasadowa}
+- Kanał kręgowy: w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+- Otw&oacute;r m/k {lewy / prawy}: [w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+
+Na poziomie L3/L4:
+- Stawy unkowertebralne {lewy / prawy C2-3 to C7/T1}: [prawidłowy* | degenerated | hipertrofia ]
+- Morfologia krążka międzykręgowego: [prawidłowa | okrężna wypuklina krążka m/k | wypuklina (protruzja) | przepuklina (ekstruzja) | sekwestr) ] {size modifier: niewielka | umiarkowana | duża} {: centralna | paracentralna | foraminalna | ekstraforaminalna} {superior/inferior modifier: nasadowa | nadnasadowa | podnasadowa}
+- Kanał kręgowy: w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+- Otw&oacute;r m/k {lewy / prawy}: [w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+
+Na poziomie L4/L5:
+- Stawy unkowertebralne {lewy / prawy C2-3 to C7/T1}: [prawidłowy* | degenerated | hipertrofia ]
+- Morfologia krążka międzykręgowego: [prawidłowa | okrężna wypuklina krążka m/k | wypuklina (protruzja) | przepuklina (ekstruzja) | sekwestr) ] {size modifier: niewielka | umiarkowana | duża} {: centralna | paracentralna | foraminalna | ekstraforaminalna} {superior/inferior modifier: nasadowa | nadnasadowa | podnasadowa}
+- Kanał kręgowy: w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+- Otw&oacute;r m/k {lewy / prawy}: [w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+
+Na poziomie L5/S1:
+- Stawy unkowertebralne {lewy / prawy C2-3 to C7/T1}: [prawidłowy* | degenerated | hipertrofia ]
+- Morfologia krążka międzykręgowego: [prawidłowa | okrężna wypuklina krążka m/k | wypuklina (protruzja) | przepuklina (ekstruzja) | sekwestr) ] {size modifier: niewielka | umiarkowana | duża} {: centralna | paracentralna | foraminalna | ekstraforaminalna} {superior/inferior modifier: nasadowa | nadnasadowa | podnasadowa}
+- Kanał kręgowy: w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+- Otw&oacute;r m/k {lewy / prawy}: [w normie* | niewielka stenoza (1/3) | zaawansowana stenoza (&gt;2/3) ]
+
+- Rdzeń kręgowy: [o prawidłowym sygnale i morfologii*; atroficzny; poszerzony; z cechami obrzęku; malacyjny; krwotoczny; torbielowaty; kompresja]
+- Korzenie nerwowe: prawidłowe | contact | deviation | deformity]
+
+Wniosek:

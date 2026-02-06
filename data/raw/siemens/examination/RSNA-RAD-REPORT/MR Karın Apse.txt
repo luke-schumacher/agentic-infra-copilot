@@ -1,0 +1,50 @@
+The original text template is provided below. The XML version has been translated. 
+
+PROCEDURE:[ Enhanced | Unenhanced ] MRI of the Abdomen/pelvis
+
+CLINICAL INDICATION: [Evaluate fluid collection]. 
+
+COMPARISON: [<date> | None*].
+
+TECHNIQUE: 
+
+Patients were imaged using a []-T MR scanner with a phased-array pelvic coil. 
+
+Orthogonal T-2W SSFSE images were obtained. Axial T2-W images and T1-W gradient echo images were obtained.
+
+Pre and [non-dynamic | dynamic] post contrast imaging of the [abdomen/pelvis] after the infusion of[ ] ml of [name of contrast agent] was administered before and after fat  suppressed T1-weighted imaging. 
+
+Image quality is [satisfactory/degraded by motion/etc]. 
+
+[In addition, high-resolution T2-weighted images were performed in sagittal, coronal and axial planes].
+
+
+FINDINGS: 
+
+Lung bases:
+
+There[is/are]loculated fluid collection[s]identified in[locations] which measure[size in cm]. These show[]signal on T1-W and T2-W images. This/these contains [simple unilocular/septated/layering debris]. There [is/is not]susceptibility artifact in the collection, which may represent the presence of gas. The appearance is suggestive of[abscess/hemorrhage].
+
+The fluid collection[s] is/are seen in the vicinity of abnormal [hallow/solid viscera] suggesting this may the source of [infection/hemorrhage]. There[are/are no] fistulas identified.
+
+The hepatic and mesenteric vasculature[is/is not] patent.
+
+Liver:
+Gallbladder:
+Pancreas:
+Spleen:
+Adrenals and kidneys:
+Bladder:
+Prostate/Uterus/Adnexa:
+
+Lymphadenopathy:[Present/absent]
+
+Free fluid:[Present/absent]
+
+Bones and soft tissues:
+
+ 
+IMPRESSION:
+
+
+

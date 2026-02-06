@@ -40,7 +40,8 @@ from src.protocol.schema import (
     DocumentReference, ConsultPayload
 )
 from src.agents.telemetry_agent.brain import IlligoOperatorModule
-from src.agents.telemetry_agent.data_loader import IlligoLoader
+from src.agents.telemetry_agent.data_loader import IlligoLoader  # Legacy loader
+from src.agents.telemetry_agent.mri_data_loader import MRITelemetryLoader  # New MRI telemetry loader
 from src.agents.telemetry_agent.vector_store import IlligoVectorStore
 from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
@@ -516,12 +517,13 @@ async def consult(request: ConsultRequest):
 
 
 @app.post("/index")
-async def index_documents(force_reindex: bool = False):
+async def index_documents(force_reindex: bool = False, use_legacy: bool = False):
     """
     Trigger vector store indexing.
 
     Args:
         force_reindex: If True, clear existing documents and re-index
+        use_legacy: If True, use legacy IlligoLoader instead of MRITelemetryLoader
 
     Returns:
         Indexing results with document count
@@ -529,9 +531,15 @@ async def index_documents(force_reindex: bool = False):
     try:
         logger.info("Starting document indexing...")
 
-        # Load documents
-        loader = IlligoLoader()
-        documents = loader.load()
+        # Load documents using appropriate loader
+        if use_legacy:
+            logger.info("Using legacy IlligoLoader (raw Illigo data)")
+            loader = IlligoLoader()
+            documents = loader.load()
+        else:
+            logger.info("Using MRITelemetryLoader (processed MRI telemetry data)")
+            loader = MRITelemetryLoader()
+            documents = loader.load()
 
         if not documents:
             return {

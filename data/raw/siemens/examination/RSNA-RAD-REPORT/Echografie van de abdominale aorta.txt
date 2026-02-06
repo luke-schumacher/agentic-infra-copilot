@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta content="Echografie van de abdominale aorta" name="dcterms.title">
+        <meta content="Echografie van de abdominale aorta - report template" name="dcterms.description">
+        <meta content="http://www.radreport.org/template/0000312" name="dcterms.identifier">
+        <meta content="en" name="dcterms.language">
+        <meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type">
+        <meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher">
+        <meta content="May be used gratis, subject to license agreement" name="dcterms.rights">
+        <meta content="http://www.radreport.org/license.pdf" name="dcterms.license">
+        <meta content="2014-07-11" name="dcterms.date">
+        <meta content="Kahn CE Jr" name="dcterms.creator">
+        <meta content="Kahn CE Jr [editor]" name="dcterms.contributor">
+        <meta content="Bosmans JML [translator]" name="dcterms.contributor">
+        <link rel="stylesheet" type="text/css" href="IHE_Template_Style.css">
+		<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+        <script type="text/xml">
+		<!--
+		<template_attributes>
+		<top-level-flag>0</top-level-flag>
+		<status>ACTIVE</status>
+		<coded_content></coded_content>
+		</template_attributes>
+		-->
+        </script>
+        <title>Echografie van de abdominale aorta</title>
+    </head>
+    <body>
+        <section data-section-name="Procedure">
+            <header class="level1">Echografie van de abdominale aorta</header>
+			            <p>
+                <textarea id="T272_0" name="Procedure"></textarea>
+            </p>
+
+        </section>
+        <section data-section-name="Clinical information">
+            <header class="level1">Klinische informatie</header>
+            <p>
+                <textarea id="T272_1" name="Klinische informatie"></textarea>
+            </p>
+        </section>
+        <section data-section-name="Comparison">
+            <header class="level1">Vergelijking</header>
+            <p>
+                <textarea id="T272_2" name="Vergelijking">Geen.</textarea>
+            </p>
+        </section>
+        <section data-section-name="Bevindingen">
+            <header class="level1">Bevindingen</header>
+
+            <section data-section-name="Abdominal aorta">
+                <header class="level2">Abdominale aorta</header>
+                <p>
+                    <label>Proximaal:</label>
+                    <input type="number" id="T272_3" name="Diameter van de proximale aorta:" data-field-units="cm"> <label>cm</label> 
+				</p>
+                <p>
+                    <label>Midden:</label>
+                    <input type="number" id="T272_4" name="Diameter van het middendeel van de aorta:" data-field-units="cm"> <label>cm</label>  
+				</p>
+                <p><label>Distaal:</label>
+                    <input type="number" id="T272_5" name="Diameter van de distale aorta:" data-field-units="cm"> <label>cm</label> 
+				</p>
+            </section>
+
+            <section data-section-name="Common iliac arteries">
+                <header class="level2">Aa. iliacae communes</header>
+                <p>
+                    <label>Rechter a. iliaca communis:</label>
+                    <input type="number" id="T272_6" name="Rechter a. iliaca communis:" data-field-units="cm"> <label>cm</label> </p>
+                <p>
+                    <label>Linker a. iliaca communis:</label>
+                    <input type="number" id="T272_7" name="Linker a. iliaca communis:" data-field-units="cm"> <label>cm</label> </p>
+            </section>
+
+            <section data-section-name="Kidneys">
+                <header class="level2">Nieren</header>
+                <p>
+                    <label>Morfologie:</label>
+                    <input type="text" id="T272_8" name="Morfologie nieren" style="width:40em;" value="">
+                </p>
+                <p>
+                    <label>Lengte rechternier:</label>
+                    <input type="number" id="T272_9" name="Lengte rechternier:" data-field-units="cm"> <label>cm</label> </p>
+                <p>
+                    <label>Lengte linkernier:</label>
+                    <input type="number" id="T272_10" name="Lengte linkernier:" data-field-units="cm"> <label>cm</label> </p>
+            </section>
+
+            <section data-section-name="Free fluid">
+                <header class="level2">Vrij vocht</header>
+                <p>
+                    <input type="text" id="T272_11" name="Vrij vocht" value="">
+                </p>
+            </section>
+        </section>
+
+        <section data-section-name="Impression">
+            <header class="level1">Conclusie</header>
+            <p>
+                <textarea id="T272_12" name="Conclusie:">Negatief. Geen abdominaal aorta-aneurysma.</textarea>
+            </p>
+        </section>
+    
+
+</body></html>

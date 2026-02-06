@@ -1,0 +1,13 @@
+The original text template is provided below. The XML version has been translated. 
+
+History: Reason For Study 
+
+Technique:Technique:one/two/three/four/five/six Side:Right/Left/Both
+
+Comparison: Comparison:None/Yesterday/Earlier today
+
+Findings:
+Bones:  Bones:Normal/Demineralization 
+Joints: The ankle mortise is normally aligned. Joints:Normal/Mild/Moderate/Severe Associated Findings:None/Mild/Moderate  
+Impression: 
+1. Impression:Normal/mild/moderate/severe  More Impression

@@ -1,0 +1,57 @@
+The original text template is provided below. The XML version has been translated. 
+
+PROCEDURE: MRI ABDOMEN
+
+CLINICAL INDICATION: [Suspected pancreatic mass]. 
+
+COMPARISON: [<date> | None*].
+
+TECHNIQUE: Pre and dynamic post contrast evaluation of the abdomen was performed on a [field strength] Tesla scanner. [ ] ml of [name of contrast agent] was administered. [<MRCP was also performed.>] Image quality is [satisfactory/degraded by motion/etc].
+
+FINDINGS:
+
+Pancreas has [normal/decreased] signal intensity and [normal/abnormal] enhancement. Pancreatic size is [ ]. The pancreatic duct [ ]. 
+
+Solid Pancreatic Masses: [None] 
+	Size: [# x # cm]
+	Location: [ ]   
+	Image location: series [#] image [#]
+	Involves vessels or extrapancreatic tissue: [none visualized] [present, described below]
+
+Cystic Pancreatic Masses:  [None]
+	Number: [ ] 
+	Size [of largest cystic mass]: [# x # cm]
+	Tissue components: [ unilocular | septated | layering debris  | solid nodular components | 
+	Fluid characteristics: [ | simple | hemorrhagic | slight protein or hemorrhagic ]
+	Calcification: [none* | benign pattern | indeterminate] 
+	Location: [ ]   
+	Image location: series [#] image [#]
+	Other cysts / cystic masses: [ ]
+
+Involved Extrapancreatic Tissues: [none]
+	[ Portal vein | Superior mesenteric vein | Superior mesenteric artery | Celiac artery | other ]
+
+Celiac arterial anatomy [      ]. Aorta is [    ]. Arterial stenoses [none, describe] 
+
+Intrahepatic and extrahepatic bile ducts: [ ]. Gallbladder is [    ].
+
+Lymph nodes: [<Normal size>][<Enlarged; probably reactive>].  
+
+Liver demonstrates [     ].  There is [no/mild/moderate/severe]  fatty infiltration. [ ]
+
+There is [   ] ascites.
+
+Spleen: [   ].  
+
+Adrenal glands: [    ].  
+
+Kidneys: [    ].  
+
+[Bones, lung bases].
+
+IMPRESSION:
+
+1.  [ ]
+
+Recommendations: [ ]
+

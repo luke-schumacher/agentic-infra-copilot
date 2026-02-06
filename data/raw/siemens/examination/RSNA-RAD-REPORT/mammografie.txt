@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mammografie in de screening</title>
+        <meta charset="UTF-8" />
+        <meta name="dcterms.identifier" content="6a9df878-54d8-423d-ae10-25fbb95682ae" />
+        <meta name="dcterms.title" content="Mammografie in de screening" />
+        <meta name="dcterms.description" content="Mammografie in de screening" />
+        <meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE" />
+        <meta name="dcterms.language" content="nl" />
+        <meta name="dcterms.publisher" content="" />
+        <meta name="dcterms.rights" content="May be used freely, subject to license agreement" />
+        <meta name="dcterms.license" content="http://www.radreport.org/license.pdf" />
+        <meta name="dcterms.date" content="2015-12-06" />
+        <meta name="dcterms.creator" content="Alexander Plousios Wanders" />
+        <meta name="dcterms.contributor" content="Alexander Wanders" />
+        <script type="text/xml">
+            <template_attributes>
+                <coded_content>
+                    <coding_schemes>
+                        <coding_scheme name="RADLEX" designator="2.16.840.1.113883.6.256"></coding_scheme>
+                    </coding_schemes>
+                </coded_content>
+            </template_attributes>
+        </script>
+    </head>
+    <body>
+        <section id="procedureInformation" class="level1" data-section-name="Procedure Information">
+            <header class="level1">
+                Procedure Information
+            </header>
+            <section id="SECTION_HEADER_1449391812112" class="level2" data-section-name="Uitvoerende radiologen">
+                <header class="level2">
+                    Uitvoerende radiologen
+                </header>
+                <p title="">
+                    <label for="SELECTION_LIST_1449391812301">plaats onderzoek</label>
+                    <select id="SELECTION_LIST_1449391812301" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="in ziekenhuis">
+                        <option id="SELECTION_LIST_1449391812301_0" value="in ziekenhuis" name="SELECTION_LIST_1449391812301" selected="">in ziekenhuis</option>
+                        <option id="SELECTION_LIST_1449391812301_1" value="screening" name="SELECTION_LIST_1449391812301">screening</option>
+                    </select>
+                </p>
+                <p title="">
+                    <label for="DATE_1449391812304">datum onderzoek</label>
+                    <input type="date" id="DATE_1449391812304" name="" data-field-type="DATE" data-field-completion-action="PROHIBIT" value="" />
+                </p>
+                <p title="">
+                    <label for="DATE_1449391812145">datum van beoordeling</label>
+                    <input type="date" id="DATE_1449391812145" name="" data-field-type="DATE" data-field-completion-action="PROHIBIT" value="" />
+                </p>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812120">Radioloog 1</label>
+                <select id="SELECTION_LIST_1449391812120" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="1001">
+                    <option id="SELECTION_LIST_1449391812120_0" value="1001" name="SELECTION_LIST_1449391812120" selected="">1001</option>
+                    <option id="SELECTION_LIST_1449391812120_1" value="1002" name="SELECTION_LIST_1449391812120">1002</option>
+                    <option id="SELECTION_LIST_1449391812120_2" value="1003" name="SELECTION_LIST_1449391812120">1003</option>
+                    <option id="SELECTION_LIST_1449391812120_3" value="1004" name="SELECTION_LIST_1449391812120">1004</option>
+                    <option id="SELECTION_LIST_1449391812120_4" value="1005" name="SELECTION_LIST_1449391812120">1005</option>
+                    <option id="SELECTION_LIST_1449391812120_5" value="" name="SELECTION_LIST_1449391812120"></option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812127">Radioloog 2</label>
+                <select id="SELECTION_LIST_1449391812127" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="nvt">
+                    <option id="SELECTION_LIST_1449391812127_0" value="1001" name="SELECTION_LIST_1449391812127">1001</option>
+                    <option id="SELECTION_LIST_1449391812127_1" value="1002" name="SELECTION_LIST_1449391812127">1002</option>
+                    <option id="SELECTION_LIST_1449391812127_2" value="1003" name="SELECTION_LIST_1449391812127">1003</option>
+                    <option id="SELECTION_LIST_1449391812127_3" value="1004" name="SELECTION_LIST_1449391812127">1004</option>
+                    <option id="SELECTION_LIST_1449391812127_4" value="1005" name="SELECTION_LIST_1449391812127">1005</option>
+                    <option id="SELECTION_LIST_1449391812127_5" value="nvt" name="SELECTION_LIST_1449391812127" selected="">nvt</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812139">Radioloog 3</label>
+                <select id="SELECTION_LIST_1449391812139" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="nvt">
+                    <option id="SELECTION_LIST_1449391812139_0" value="1001" name="SELECTION_LIST_1449391812139">1001</option>
+                    <option id="SELECTION_LIST_1449391812139_1" value="1002" name="SELECTION_LIST_1449391812139">1002</option>
+                    <option id="SELECTION_LIST_1449391812139_2" value="1003" name="SELECTION_LIST_1449391812139">1003</option>
+                    <option id="SELECTION_LIST_1449391812139_3" value="1004" name="SELECTION_LIST_1449391812139">1004</option>
+                    <option id="SELECTION_LIST_1449391812139_4" value="1005" name="SELECTION_LIST_1449391812139">1005</option>
+                    <option id="SELECTION_LIST_1449391812139_5" value="nvt" name="SELECTION_LIST_1449391812139" selected="">nvt</option>
+                </select>
+            </p>
+        </section>
+        <section id="clinicalInformation" class="level1" data-section-name="Clinical Information">
+            <header class="level1">
+                Clinical Information
+            </header>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812114">Er zijn aanwijzingen voor maligniteit</label>
+                <select id="SELECTION_LIST_1449391812114" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Ja">
+                    <option id="SELECTION_LIST_1449391812114_0" value="Ja" name="SELECTION_LIST_1449391812114" selected="">Ja</option>
+                    <option id="SELECTION_LIST_1449391812114_1" value="Nee" name="SELECTION_LIST_1449391812114">Nee</option>
+                </select>
+            </p>
+        </section>
+        <section id="comparisons" class="level1" data-section-name="Comparison">
+            <header class="level1">
+                Comparison
+            </header>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812240">Eerder onderzoek?</label>
+                <select id="SELECTION_LIST_1449391812240" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="nee">
+                    <option id="SELECTION_LIST_1449391812240_0" value="nee" name="SELECTION_LIST_1449391812240" selected="">nee</option>
+                    <option id="SELECTION_LIST_1449391812240_1" value="ja" name="SELECTION_LIST_1449391812240">ja</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="DATE_1449391812236">Datum eerder onderzoek</label>
+                <input type="date" id="DATE_1449391812236" name="" data-field-type="DATE" data-field-completion-action="ALERT" value="" />
+            </p>
+        </section>
+        <section id="findings" class="level1" data-section-name="Findings">
+            <header class="level1">
+                Findings
+            </header>
+            <section id="SECTION_HEADER_1449391812321" class="level2" data-section-name="Dichtheid klierweefsel">
+                <header class="level2">
+                    Dichtheid klierweefsel
+                </header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812322">dichtheid</label>
+                <select id="SELECTION_LIST_1449391812322" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="1">
+                    <option id="SELECTION_LIST_1449391812322_0" value="1" name="SELECTION_LIST_1449391812322" selected="">1</option>
+                    <option id="SELECTION_LIST_1449391812322_1" value="2" name="SELECTION_LIST_1449391812322">2</option>
+                    <option id="SELECTION_LIST_1449391812322_2" value="3" name="SELECTION_LIST_1449391812322">3</option>
+                    <option id="SELECTION_LIST_1449391812322_3" value="4" name="SELECTION_LIST_1449391812322">4</option>
+                </select>
+            </p>
+            <section id="SECTION_HEADER_1449391812305" class="level2" data-section-name="Plaats afwijking">
+                <header class="level2">
+                    Plaats afwijking
+                </header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812079">Zijde</label>
+                <select id="SELECTION_LIST_1449391812079" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="Rechts">
+                    <option id="SELECTION_LIST_1449391812079_0" value="Rechts" name="SELECTION_LIST_1449391812079" selected="">Rechts</option>
+                    <option id="SELECTION_LIST_1449391812079_1" value="Links" name="SELECTION_LIST_1449391812079">Links</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812091">Plaats in de borst op de medio oblique opname</label>
+                <select id="SELECTION_LIST_1449391812091" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="boven">
+                    <option id="SELECTION_LIST_1449391812091_0" value="boven" name="SELECTION_LIST_1449391812091" selected="">boven</option>
+                    <option id="SELECTION_LIST_1449391812091_1" value="midden" name="SELECTION_LIST_1449391812091">midden</option>
+                    <option id="SELECTION_LIST_1449391812091_2" value="onder" name="SELECTION_LIST_1449391812091">onder</option>
+                    <option id="SELECTION_LIST_1449391812091_3" value="volgens uurwerk met de klok mee" name="SELECTION_LIST_1449391812091">volgens uurwerk met de klok mee</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812244">met de klok mee op de medio oblique opname</label>
+                <select id="SELECTION_LIST_1449391812244" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="1">
+                    <option id="SELECTION_LIST_1449391812244_0" value="1" name="SELECTION_LIST_1449391812244" selected="">1</option>
+                    <option id="SELECTION_LIST_1449391812244_1" value="2" name="SELECTION_LIST_1449391812244">2</option>
+                    <option id="SELECTION_LIST_1449391812244_2" value="3" name="SELECTION_LIST_1449391812244">3</option>
+                    <option id="SELECTION_LIST_1449391812244_3" value="4" name="SELECTION_LIST_1449391812244">4</option>
+                    <option id="SELECTION_LIST_1449391812244_4" value="5" name="SELECTION_LIST_1449391812244">5</option>
+                    <option id="SELECTION_LIST_1449391812244_5" value="6" name="SELECTION_LIST_1449391812244">6</option>
+                    <option id="SELECTION_LIST_1449391812244_6" value="7" name="SELECTION_LIST_1449391812244">7</option>
+                    <option id="SELECTION_LIST_1449391812244_7" value="8" name="SELECTION_LIST_1449391812244">8</option>
+                    <option id="SELECTION_LIST_1449391812244_8" value="9" name="SELECTION_LIST_1449391812244">9</option>
+                    <option id="SELECTION_LIST_1449391812244_9" value="10" name="SELECTION_LIST_1449391812244">10</option>
+                    <option id="SELECTION_LIST_1449391812244_10" value="11" name="SELECTION_LIST_1449391812244">11</option>
+                    <option id="SELECTION_LIST_1449391812244_11" value="12" name="SELECTION_LIST_1449391812244">12</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812098">Plaats in de borst op de cranio caudale opname</label>
+                <select id="SELECTION_LIST_1449391812098" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="lateraal ">
+                    <option id="SELECTION_LIST_1449391812098_0" value="lateraal " name="SELECTION_LIST_1449391812098" selected="">lateraal </option>
+                    <option id="SELECTION_LIST_1449391812098_1" value="centraal" name="SELECTION_LIST_1449391812098">centraal</option>
+                    <option id="SELECTION_LIST_1449391812098_2" value="mediaal" name="SELECTION_LIST_1449391812098">mediaal</option>
+                    <option id="SELECTION_LIST_1449391812098_3" value="volgens uurwerk met de klok mee" name="SELECTION_LIST_1449391812098">volgens uurwerk met de klok mee</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812270">met de klok mee op de cranio caudale opname</label>
+                <select id="SELECTION_LIST_1449391812270" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="1">
+                    <option id="SELECTION_LIST_1449391812270_0" value="1" name="SELECTION_LIST_1449391812270" selected="">1</option>
+                    <option id="SELECTION_LIST_1449391812270_1" value="2" name="SELECTION_LIST_1449391812270">2</option>
+                    <option id="SELECTION_LIST_1449391812270_2" value="3" name="SELECTION_LIST_1449391812270">3</option>
+                    <option id="SELECTION_LIST_1449391812270_3" value="4" name="SELECTION_LIST_1449391812270">4</option>
+                    <option id="SELECTION_LIST_1449391812270_4" value="5" name="SELECTION_LIST_1449391812270">5</option>
+                    <option id="SELECTION_LIST_1449391812270_5" value="6" name="SELECTION_LIST_1449391812270">6</option>
+                    <option id="SELECTION_LIST_1449391812270_6" value="7" name="SELECTION_LIST_1449391812270">7</option>
+                    <option id="SELECTION_LIST_1449391812270_7" value="8" name="SELECTION_LIST_1449391812270">8</option>
+                    <option id="SELECTION_LIST_1449391812270_8" value="9" name="SELECTION_LIST_1449391812270">9</option>
+                    <option id="SELECTION_LIST_1449391812270_9" value="10" name="SELECTION_LIST_1449391812270">10</option>
+                    <option id="SELECTION_LIST_1449391812270_10" value="11" name="SELECTION_LIST_1449391812270">11</option>
+                    <option id="SELECTION_LIST_1449391812270_11" value="12" name="SELECTION_LIST_1449391812270">12</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812149">Plaats in de borst ten opzichte van de tepel</label>
+                <select id="SELECTION_LIST_1449391812149" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="retromammillair">
+                    <option id="SELECTION_LIST_1449391812149_0" value="retromammillair" name="SELECTION_LIST_1449391812149" selected="">retromammillair</option>
+                    <option id="SELECTION_LIST_1449391812149_1" value="voor in de klierschijf" name="SELECTION_LIST_1449391812149">voor in de klierschijf</option>
+                    <option id="SELECTION_LIST_1449391812149_2" value="midden in de klierschijf" name="SELECTION_LIST_1449391812149">midden in de klierschijf</option>
+                    <option id="SELECTION_LIST_1449391812149_3" value="achter in de klierschijf" name="SELECTION_LIST_1449391812149">achter in de klierschijf</option>
+                    <option id="SELECTION_LIST_1449391812149_4" value="" name="SELECTION_LIST_1449391812149"></option>
+                </select>
+            </p>
+            <section id="SECTION_HEADER_1449391812327" class="level2" data-section-name="Aard afwijking">
+                <header class="level2">
+                    Aard afwijking
+                </header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812328">Massa: vorm </label>
+                <select id="SELECTION_LIST_1449391812328" name="" data-field-type="SELECTION_LIST" data-field-completion-action="ALERT" value="vorm: ovaal">
+                    <option id="SELECTION_LIST_1449391812328_0" value="vorm: ovaal" name="SELECTION_LIST_1449391812328" selected="">vorm: ovaal</option>
+                    <option id="SELECTION_LIST_1449391812328_1" value="vorm: rond" name="SELECTION_LIST_1449391812328">vorm: rond</option>
+                    <option id="SELECTION_LIST_1449391812328_2" value="vorm: irregulair" name="SELECTION_LIST_1449391812328">vorm: irregulair</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812484">Massa: begrenzing </label>
+                <select id="SELECTION_LIST_1449391812484" name="" data-field-type="SELECTION_LIST" data-field-completion-action="ALERT" value="vorm: ovaal">
+                    <option id="SELECTION_LIST_1449391812484_0" value="begrenzing: scherp begrensd" name="SELECTION_LIST_1449391812484">begrenzing: scherp begrensd</option>
+                    <option id="SELECTION_LIST_1449391812484_1" value="begrenzing: overschaduwd" name="SELECTION_LIST_1449391812484">begrenzing: overschaduwd</option>
+                    <option id="SELECTION_LIST_1449391812484_2" value="begrenzing: met microlobulaties" name="SELECTION_LIST_1449391812484">begrenzing: met microlobulaties</option>
+                    <option id="SELECTION_LIST_1449391812484_3" value="begrenzing: onscherp begrensd" name="SELECTION_LIST_1449391812484">begrenzing: onscherp begrensd</option>
+                    <option id="SELECTION_LIST_1449391812484_4" value="begrenzing: gespiculeerd" name="SELECTION_LIST_1449391812484">begrenzing: gespiculeerd</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812485">Massa: densiteit </label>
+                <select id="SELECTION_LIST_1449391812485" name="" data-field-type="SELECTION_LIST" data-field-completion-action="ALERT" value="vorm: ovaal">
+                    <option id="SELECTION_LIST_1449391812485_0" value="densiteit: hyperdens" name="SELECTION_LIST_1449391812485">densiteit: hyperdens</option>
+                    <option id="SELECTION_LIST_1449391812485_1" value="densiteit: isodens" name="SELECTION_LIST_1449391812485">densiteit: isodens</option>
+                    <option id="SELECTION_LIST_1449391812485_2" value="densiteit: hypodens" name="SELECTION_LIST_1449391812485">densiteit: hypodens</option>
+                    <option id="SELECTION_LIST_1449391812485_3" value="densiteit: lucent" name="SELECTION_LIST_1449391812485">densiteit: lucent</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812331">Calcificaties: typisch benigne</label>
+                <select id="SELECTION_LIST_1449391812331" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="verdachte vorm: amorf">
+                    <option id="SELECTION_LIST_1449391812331_0" value="typisch benigne: huid" name="SELECTION_LIST_1449391812331">typisch benigne: huid</option>
+                    <option id="SELECTION_LIST_1449391812331_1" value="typisch benigne: vasculair" name="SELECTION_LIST_1449391812331">typisch benigne: vasculair</option>
+                    <option id="SELECTION_LIST_1449391812331_2" value="typisch benigne: grof popcorn" name="SELECTION_LIST_1449391812331">typisch benigne: grof popcorn</option>
+                    <option id="SELECTION_LIST_1449391812331_3" value="typisch benigne: grof staafvormig" name="SELECTION_LIST_1449391812331">typisch benigne: grof staafvormig</option>
+                    <option id="SELECTION_LIST_1449391812331_4" value="typisch benigne: rond puntvormig" name="SELECTION_LIST_1449391812331">typisch benigne: rond puntvormig</option>
+                    <option id="SELECTION_LIST_1449391812331_5" value="typisch benigne: wandstandig" name="SELECTION_LIST_1449391812331">typisch benigne: wandstandig</option>
+                    <option id="SELECTION_LIST_1449391812331_6" value="typisch benigne: dystrofisch" name="SELECTION_LIST_1449391812331">typisch benigne: dystrofisch</option>
+                    <option id="SELECTION_LIST_1449391812331_7" value="typisch benigne: kalkmelkspiegels" name="SELECTION_LIST_1449391812331">typisch benigne: kalkmelkspiegels</option>
+                    <option id="SELECTION_LIST_1449391812331_8" value="typisch benigne: in sutuur" name="SELECTION_LIST_1449391812331">typisch benigne: in sutuur</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812543">Calcificaties: verdachte vorm </label>
+                <select id="SELECTION_LIST_1449391812543" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="verdachte vorm: amorf">
+                    <option id="SELECTION_LIST_1449391812543_0" value="verdachte vorm: amorf" name="SELECTION_LIST_1449391812543" selected="">verdachte vorm: amorf</option>
+                    <option id="SELECTION_LIST_1449391812543_1" value="verdachte vorm: grof heterogeen" name="SELECTION_LIST_1449391812543">verdachte vorm: grof heterogeen</option>
+                    <option id="SELECTION_LIST_1449391812543_2" value="verdachte vorm: fijn pleiomorf" name="SELECTION_LIST_1449391812543">verdachte vorm: fijn pleiomorf</option>
+                    <option id="SELECTION_LIST_1449391812543_3" value="verdachte vorm: fijn lineair" name="SELECTION_LIST_1449391812543">verdachte vorm: fijn lineair</option>
+                    <option id="SELECTION_LIST_1449391812543_4" value="verdachte vorm: fijn lineair vertakkend" name="SELECTION_LIST_1449391812543">verdachte vorm: fijn lineair vertakkend</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812544">Calcificaties: distributie</label>
+                <select id="SELECTION_LIST_1449391812544" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="verdachte vorm: amorf">
+                    <option id="SELECTION_LIST_1449391812544_0" value="distributie: diffuus verspreid" name="SELECTION_LIST_1449391812544">distributie: diffuus verspreid</option>
+                    <option id="SELECTION_LIST_1449391812544_1" value="distributie: regionaal" name="SELECTION_LIST_1449391812544">distributie: regionaal</option>
+                    <option id="SELECTION_LIST_1449391812544_2" value="distributie: gegroepeerd" name="SELECTION_LIST_1449391812544">distributie: gegroepeerd</option>
+                    <option id="SELECTION_LIST_1449391812544_3" value="distributie: lineair" name="SELECTION_LIST_1449391812544">distributie: lineair</option>
+                    <option id="SELECTION_LIST_1449391812544_4" value="distributie: segmenteel" name="SELECTION_LIST_1449391812544">distributie: segmenteel</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812334">Architectuurverstoring</label>
+                <select id="SELECTION_LIST_1449391812334" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="">
+                    <option id="SELECTION_LIST_1449391812334_0" value="" name="SELECTION_LIST_1449391812334" selected=""></option>
+                    <option id="SELECTION_LIST_1449391812334_1" value="" name="SELECTION_LIST_1449391812334" selected=""></option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812337">Asymmetrie</label>
+                <select id="SELECTION_LIST_1449391812337" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="asymmetrie">
+                    <option id="SELECTION_LIST_1449391812337_0" value="asymmetrie" name="SELECTION_LIST_1449391812337" selected="">asymmetrie</option>
+                    <option id="SELECTION_LIST_1449391812337_1" value="globale asymmetrie" name="SELECTION_LIST_1449391812337">globale asymmetrie</option>
+                    <option id="SELECTION_LIST_1449391812337_2" value="focale asymmetrie  in 2 richtingen" name="SELECTION_LIST_1449391812337">focale asymmetrie in 2 richtingen</option>
+                    <option id="SELECTION_LIST_1449391812337_3" value="zich ontwikkelende asymmetrie in 2 richtingen" name="SELECTION_LIST_1449391812337">zich ontwikkelende asymmetrie in 2 richtingen</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812340">Anders</label>
+                <select id="SELECTION_LIST_1449391812340" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="intramammaire lymfeklier">
+                    <option id="SELECTION_LIST_1449391812340_0" value="intramammaire lymfeklier" name="SELECTION_LIST_1449391812340" selected="">intramammaire lymfeklier</option>
+                    <option id="SELECTION_LIST_1449391812340_1" value="huidafwijking" name="SELECTION_LIST_1449391812340">huidafwijking</option>
+                    <option id="SELECTION_LIST_1449391812340_2" value="solitaire verwijde duct" name="SELECTION_LIST_1449391812340">solitaire verwijde duct</option>
+                    <option id="SELECTION_LIST_1449391812340_3" value="prothese " name="SELECTION_LIST_1449391812340">prothese </option>
+                    <option id="SELECTION_LIST_1449391812340_4" value="prothese formaat tov klierweefsel &gt;80 %" name="SELECTION_LIST_1449391812340">prothese formaat tov klierweefsel &gt;80 %</option>
+                    <option id="SELECTION_LIST_1449391812340_5" value="prothese lekkend" name="SELECTION_LIST_1449391812340">prothese lekkend</option>
+                    <option id="SELECTION_LIST_1449391812340_6" value="device" name="SELECTION_LIST_1449391812340">device</option>
+                    <option id="SELECTION_LIST_1449391812340_7" value="device kwetsbaar bij mammografie" name="SELECTION_LIST_1449391812340">device kwetsbaar bij mammografie</option>
+                </select>
+            </p>
+            <section id="SECTION_HEADER_1449391812624" class="level2" data-section-name="Geassocieerde afwijking of bevindingen">
+                <header class="level2">
+                    Geassocieerde afwijking of bevindingen
+                </header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812628">Geassocieerde bevindingen</label>
+                <select id="SELECTION_LIST_1449391812628" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="huidintrekking">
+                    <option id="SELECTION_LIST_1449391812628_0" value="huidintrekking" name="SELECTION_LIST_1449391812628" selected="">huidintrekking</option>
+                    <option id="SELECTION_LIST_1449391812628_1" value="tepelintrekking" name="SELECTION_LIST_1449391812628">tepelintrekking</option>
+                    <option id="SELECTION_LIST_1449391812628_2" value="huidverdikking meer dan 2mm" name="SELECTION_LIST_1449391812628">huidverdikking meer dan 2mm</option>
+                    <option id="SELECTION_LIST_1449391812628_3" value="verdikte fibreuze septa" name="SELECTION_LIST_1449391812628">verdikte fibreuze septa</option>
+                    <option id="SELECTION_LIST_1449391812628_4" value="axillaire lymfadenopathie" name="SELECTION_LIST_1449391812628">axillaire lymfadenopathie</option>
+                    <option id="SELECTION_LIST_1449391812628_5" value="architectuurverstoring" name="SELECTION_LIST_1449391812628">architectuurverstoring</option>
+                    <option id="SELECTION_LIST_1449391812628_6" value="verkalkingen" name="SELECTION_LIST_1449391812628">verkalkingen</option>
+                </select>
+            </p>
+            <section id="SECTION_HEADER_1449391812343" class="level2" data-section-name="Afmeting">
+                <header class="level2">
+                    Afmeting
+                </header>
+            </section>
+            <p title="">
+                <label for="TEXT_1449391812345">afmetingen afwijking of gebied in mm</label>
+                <input type="text" id="TEXT_1449391812345" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="" />
+            </p>
+        </section>
+        <section id="impression" class="level1" data-section-name="Impression">
+            <header class="level1">
+                Impression
+            </header>
+            <p title="">
+                <label for="SELECTION_LIST_1449391812311">BIRADS</label>
+                <select id="SELECTION_LIST_1449391812311" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="1 ">
+                    <option id="SELECTION_LIST_1449391812311_0" value="1 " name="SELECTION_LIST_1449391812311" selected="">1 </option>
+                    <option id="SELECTION_LIST_1449391812311_1" value="2" name="SELECTION_LIST_1449391812311">2</option>
+                    <option id="SELECTION_LIST_1449391812311_2" value="3" name="SELECTION_LIST_1449391812311">3</option>
+                    <option id="SELECTION_LIST_1449391812311_3" value="4" name="SELECTION_LIST_1449391812311">4</option>
+                    <option id="SELECTION_LIST_1449391812311_4" value="4a" name="SELECTION_LIST_1449391812311">4a</option>
+                    <option id="SELECTION_LIST_1449391812311_5" value="4b" name="SELECTION_LIST_1449391812311">4b</option>
+                    <option id="SELECTION_LIST_1449391812311_6" value="4c" name="SELECTION_LIST_1449391812311">4c</option>
+                    <option id="SELECTION_LIST_1449391812311_7" value="5" name="SELECTION_LIST_1449391812311">5</option>
+                    <option id="SELECTION_LIST_1449391812311_8" value="6" name="SELECTION_LIST_1449391812311">6</option>
+                </select>
+            </p>
+        </section>
+    </body>
+</html>

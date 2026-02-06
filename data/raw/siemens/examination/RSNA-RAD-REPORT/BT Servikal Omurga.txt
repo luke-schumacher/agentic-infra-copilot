@@ -1,0 +1,13 @@
+The original text template is provided below. The XML version has been translated. 
+
+Cervical Spine CT
+
+HISTORY: [ Trauma ]
+
+COMPARISON: [None*]
+
+TECHNIQUE: Axial [x mm thick] images of the cervical spine are obtained from the occiput to the [T1 | T2 | T3] vertebral body without intravenous contrast. [Coronal and sagittal 2-dimensional reconstructions are also obtained.*]
+
+FINDINGS: The soft tissues of the neck are unremarkable. No fractures or dislocations are seen. The alignment of the cervical spine is normal including the cervicovertebral junction and cervicothoracic junction.
+
+IMPRESSION: [Unremarkable cervical spine CT without evidence of fracture] 

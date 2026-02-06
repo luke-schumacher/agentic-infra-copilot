@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Dr. Charles Kahn [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Radiografía de tórax" name="dcterms.title"/>
+<meta content="Chest Xray template :: Authored by Kahn CE Jr" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050135" name="dcterms.identifier"/>
+<meta content="es" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-10-15" name="dcterms.date"/>
+<meta content="Kahn CE Jr" name="dcterms.creator"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>0</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>projection radiography</code_meaning>
+<code_value>RID10345</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>thorax</code_meaning>
+<code_value>RID1243</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry ORIGTXT="T102_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_3">
+<term>
+<code_meaning></code_meaning>
+<code_value>RID12243</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_4">
+<term>
+<code_meaning>posteroanterior projection</code_meaning>
+<code_value>RID28625</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_5">
+<term>
+<code_meaning>anteroposterior projection</code_meaning>
+<code_value>RID28784</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_6">
+<term>
+<code_meaning>laterality</code_meaning>
+<code_value>RID5821</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_7">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_8">
+<term>
+<code_meaning>Cough (finding)</code_meaning>
+<code_value>49727002</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_9">
+<term>
+<code_meaning>Fever (finding)</code_meaning>
+<code_value>386661006</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_11">
+<term>
+<code_meaning>preoperative</code_meaning>
+<code_value>RID28815</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_12">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_13">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_14">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_15">
+<term>
+<code_meaning>heart</code_meaning>
+<code_value>RID1385</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_16">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_17">
+<term>
+<code_meaning>lungs</code_meaning>
+<code_value>RID13437</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_18">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_20">
+<term>
+<code_meaning>set of bones</code_meaning>
+<code_value>RID28569</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_21">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_23">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_24">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T102_26">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Radiografía de tórax</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Chest Xray">Radiografía de tórax</header>
+<p>
+<textarea id="T102_2" name="Procedimiento" data-english-name="Procedure" data-english-innertext="PA and lateral views. ">PA y lateral.</textarea>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">La información clínica</header>
+<p>
+<textarea id="T102_7" name="La información clínica" data-english-name="Clinical information" data-english-innertext=" "></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Comparación</header>
+<p>
+<textarea id="T102_12" name="Comparación" data-english-name="Comparison" data-english-innertext="None. ">Ninguno.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Hallazgos</header>
+<p>
+<label for="T102_15" data-english="Heart:">Corazón:</label>
+<input type="text" id="T102_15" name="Corazón" value="Normal." data-english-value="Normal." data-english-name="Heart"/>
+</p>
+<p>
+<label for="T102_17" data-english="Lungs:">Pulmones:</label>
+<input type="text" id="T102_17" name="Pulmones" value="Normales." data-english-value="Normal." data-english-name="Lungs"/>
+</p>
+<p>
+<label for="T102_20" data-english="Bones:">Huesos:</label>
+<input type="text" id="T102_20" name="Huesos" value="Normales." data-english-value="Normal." data-english-name="Bones"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Impresión</header>
+<p>
+<textarea id="T102_23" name="Impresión" data-english-name="Impression" data-english-innertext="No acute disease. ">Ninguna enfermedad aguda.</textarea>
+</p>
+</section>
+</body>
+</html>

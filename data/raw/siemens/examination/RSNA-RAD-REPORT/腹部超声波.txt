@@ -1,0 +1,43 @@
+The original text template is provided below. The XML version has been translated. 
+
+US Abdomen Complete (generic)
+
+Clinical History: [abdominal pain, fever, mass, etc]
+
+Study: [complete ultrasound of abdomen] 
+
+Prior study:	[none]
+       	[ultrasound dated …….]
+[CT abdomen dated ….]
+                	[MR abdomen dated …]							                  
+
+Liver:  	size-	[normal] 
+[enlarged]
+	[small]
+	echogenicity-	[normal] [hyperechoic consistent with hepatic steatosis]   		                                                                       	[heterogenous
+	contour-	[smooth]
+	[nodular consistent with cirrhosis]
+         	mass-	[none]
+		[cyst measuring L x AP x W cm]
+	[solid mass measuring L x AP x W cm]]
+		    
+	bile ducts-	[intrahepatic and extrahepatic bile ducts not dilated with common bile duct measuring ….. mm]
+	[intrahepatic bile ducts dilated]
+	[extrahepatic bile duct dilated with common bile duct measuring..mm]
+
+Gallbladder:	[normal]
+		[cholelithiasis]
+               	[gallbladder wall thickened]
+		[no pain over gallbladder]		    
+
+Pancreas:	[head, body, and tail appeared normal]
+	[head and body appear normal; tail obscured by bowel gas]
+
+Spleen:	[normal measuring L x AP x W cm]
+
+Kidneys:	[no pelvicalyceal dilatation with right kidney measuring … cm in length; left kidney measuring … cm in length]
+
+Aorta & Inferior vena cava:   [visualized portions appear normal]    
+Ascites:   [none]
+
+IMPRESSION:   […………………………………]

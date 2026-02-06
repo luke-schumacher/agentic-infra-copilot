@@ -1,0 +1,31 @@
+PROCEDURA: RM addome e pelvi senza e con mdc
+
+CONFRONTO: [specificare la modalit&agrave; e la data/nessuno]
+
+TECNICA: 
+Esame eseguito previa iperidratazione orale/con sondino nasogastrico, somministrando soluzione iperosmolare (specificare la tipologia di soluzione e quantit&agrave; somministrata).
+Si somministra miorilassante (Buscopan/Glucagone)/Non viene somministrato miorilassante (per eventuali controindicazioni).
+Acquisizione in decubito prono/supino, senza e con mdc ev.
+
+Distensione del piccolo intestino (adeguata/inadeguata).
+
+REPERTI:
+Ispessimento parietale: assente/presente [specificare l&rsquo;estensione in cm e la sede]
+                                      presenza di pseudopolipi/ulcere della sottomucosa
+Stenosi: assente/presente [se presente senza/con dilatazione anse a monte]
+Enhancement parietale: assente/presente
+                                       caratteristiche (diffuso/stratificato)
+Iperemia dei vasa recta (comb sign): presente/assente [specificare la sede]
+Fistole: assenti/presenti [specificare localizzazione, tipo, descrizione]
+Ascessi: assenti/presenti [specificare localizzazione, descrizione, associazione con fistole o anse ileali patologiche]
+Linfonodi: [localizzazione, dimensioni]
+Versamento endoperitoneale: assente/presente
+Stomaco, duodeno, colon (mostrano/non mostrano) coinvolgimento patologico [specificare la sede]
+
+Altri reperti:
+eventuali reperti extra-intestinali
+
+CONCLUSIONI DIAGNOSTICHE:
+1.	presenza, localizzazione e attivit&agrave; di malattia
+2.	complicanze
+3.	reperti extra-intestinali

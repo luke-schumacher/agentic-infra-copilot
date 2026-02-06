@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<grammar
+	ns="http://www.radreport.org/" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:radlex="http://www.radlex.org/" xmlns:snomed="http://www.ihtsdo.org/" xmlns:loinc="http://www.loinc.org/" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+    <start>
+        <element name="Rapor" radlex:id="RID28487" radlex:match="Exact"> <!-- Report -->
+            <attribute name="template">
+                <value>http://www.radreport.org/template/0000102</value>
+            </attribute>
+            <interleave>
+                <ref name="Procedure"/>
+                <ref name="Clinical_information"/>
+                <ref name="Comparison"/>
+                <ref name="Findings"/>
+                <ref name="Impression"/>
+            </interleave>
+        </element>
+    </start>
+
+    <define name="Procedure">
+        <element name="Prosedür" radlex:id="RID1559" radlex:match="Exact"> <!-- Procedure -->
+            <element name="Görünüm" radlex:id="RID12243" radlex:match="Exact"> <!-- View -->
+                <optional>
+                    <element name="PA" radlex:id="RID28625" radlex:match="Exact"> <!-- PA -->
+                        <empty/>
+                    </element>
+                </optional>
+                <optional>
+                    <element name="AP" radlex:id="RID28784" radlex:match="Exact" > <!-- AP -->
+                        <empty/>
+                    </element>
+                </optional>
+                <optional>
+                    <element name="Lateral" radlex:id="RID5821" radlex:match="Exact"> <!-- Lateral -->
+                        <empty/>
+                    </element>
+                </optional>
+                <text/>
+            </element>
+            <text/>
+        </element>
+    </define>
+
+    <define name="Clinical_information">
+        <element name="Klinik_bilgi" radlex:id="RID13166" radlex:match="Exact"> <!-- Clinical information -->
+            <optional>
+                <element name="Öksürük" radlex:id="" radlex:match="" snomed:id="49727002"> <!-- Cough -->
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <element name="Ateş" radlex:id="" radlex:match="" snomed:id="386661006"> <!-- Fever -->
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <element name="Nefes_darlığı" > <!-- Shortness of breath -->
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <element name="Pre-operatif_değerlendirme" radlex:id="RID28815" radlex:match="Exact"> <!-- Pre-operative exam -->
+                    <text/>
+                </element>
+            </optional>
+            <text/>
+        </element>
+    </define>
+
+    
+    <define name="Comparison">
+        <element name="Karşılaştırma" radlex:id="RID28483" radlex:match="Exact"> <!-- Comparison -->
+            <choice>
+                <element name="Yok" radlex:id="RID28454" radlex:match="Exact"> <!-- None -->
+                    <text/>
+                </element>
+                <text/>
+            </choice>
+        </element>
+    </define>
+
+
+    <define name="Findings">
+        <element name="Bulgular" radlex:id="RID28486" radlex:match="Exact" > <!-- Findings -->
+            <element name="Kalp" radlex:id="RID1385" radlex:match="Exact"> <!-- Heart -->
+                <ref name="Normal_or_text"/>
+            </element>
+            <element name="Akciğer" radlex:id="RID13437" radlex:match="Exact"> <!-- Lungs -->
+                <choice>
+                    <element name="Normal" radlex:id="RID13173" radlex:match="Exact"> <!-- Normal --> <!-- Normal --> <!-- Normal --> <!-- Normal -->
+                        <text/>
+                    </element>
+                    <element name="Akut_hastalık yok" > <!-- No acute disease -->
+                        <text/>
+                    </element>
+                    <text/>
+                </choice>
+            </element>
+            <element name="Kemik" radlex:id="RID28569" radlex:match="Exact"> <!-- Bones -->
+                <choice>
+                    <element name="Normal" radlex:id="RID13173" radlex:match="Exact">
+                        <text/>
+                    </element>
+                    <element name="Dejeneratif_değişiklikler" > <!-- Degenerative changes -->
+                        <text/>
+                    </element>
+                    <text/>
+                </choice>
+            </element>
+            <text/>
+        </element>
+    </define>
+
+    <define name="Impression">
+        <element name="Izlenim" radlex:id="RID13170" radlex:match="Exact" > <!-- Impression -->
+            <choice>
+                <element name="Normal" radlex:id="RID13173" radlex:match="Exact">
+                    <text/>
+                </element>
+                <element name="Akut_hastalık_yok" > <!-- No acute disease -->
+                    <text/>
+                </element>
+                <text/>
+            </choice>
+        </element>
+    </define>
+
+    <define name="Normal_or_text">
+        <choice>
+            <element name="Normal" radlex:id="RID13173" radlex:match="Exact">
+                <text/>
+            </element>
+            <text/>
+        </choice>
+    </define>
+
+</grammar>

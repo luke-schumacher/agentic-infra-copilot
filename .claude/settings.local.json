@@ -34,7 +34,10 @@
       "Bash(docker exec:*)",
       "Bash(docker stop:*)",
       "Bash(docker rm:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git mv:*)"
     ]
   }
 }

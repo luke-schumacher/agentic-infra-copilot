@@ -168,38 +168,43 @@ class AnalyzeLoadBalance(dspy.Signature):
 
 class EvaluateRequest(dspy.Signature):
     """
-    Evaluate whether this agent can effectively handle an incoming request.
+    Evaluate if I can handle this request before attempting diagnosis.
 
     This signature enables agent autonomy by allowing the agent to:
     1. Assess if the query falls within its expertise
     2. Determine confidence level for potential response
     3. Suggest alternative agents if better suited
-    4. Request clarification if needed
+    4. Request clarification or consultation if needed
+
+    Per design doc section 3 - Autonomy Protocol.
     """
     query: str = dspy.InputField(
         desc="The incoming query or request to evaluate"
     )
-    context_available: str = dspy.InputField(
-        desc="Summary of available context and retrieved documents"
+    my_expertise: str = dspy.InputField(
+        desc="Description of this agent's domain expertise (e.g., 'MRI event logs, session monitoring')"
     )
-    agent_capabilities: str = dspy.InputField(
-        desc="Description of this agent's domain expertise and capabilities"
+    available_data: str = dspy.InputField(
+        desc="Summary of retrieved context and available documents"
     )
 
-    can_handle: str = dspy.OutputField(
-        desc="'yes' if can fully handle, 'partial' if partially, 'no' if not at all"
+    can_fully_answer: bool = dspy.OutputField(
+        desc="True if agent can provide a complete, confident answer"
     )
-    confidence: str = dspy.OutputField(
+    confidence_level: float = dspy.OutputField(
         desc="Confidence score from 0.0 to 1.0"
     )
     response_type: str = dspy.OutputField(
-        desc="Recommended response type: 'answer', 'partial', 'clarify', 'redirect', 'refuse'"
-    )
-    suggested_agent: str = dspy.OutputField(
-        desc="If redirect needed, which agent: 'governance_agent', 'hardware_agent', or 'none'"
+        desc="Response type: 'answer', 'partial', 'clarify', 'redirect', 'refuse', or 'consult'"
     )
     reasoning: str = dspy.OutputField(
         desc="Brief explanation of the evaluation decision"
+    )
+    suggested_agent: str = dspy.OutputField(
+        desc="If redirect/consult needed: 'governance_agent', 'hardware_agent', or 'none'"
+    )
+    missing_info: str = dspy.OutputField(
+        desc="If partial/clarify: what information is missing or needed"
     )
 
 
@@ -411,7 +416,7 @@ class IlligoOperatorModule(dspy.Module):
         This method enables agent autonomy by assessing:
         - Whether the query falls within telemetry/event monitoring domain
         - Confidence level for potential response
-        - Whether to redirect to other agents
+        - Whether to redirect to or consult other agents
 
         Args:
             query: The incoming query or request
@@ -419,19 +424,20 @@ class IlligoOperatorModule(dspy.Module):
 
         Returns:
             DSPy Prediction with:
-                - can_handle: 'yes', 'partial', or 'no'
-                - confidence: float 0.0-1.0
-                - response_type: 'answer', 'partial', 'clarify', 'redirect', 'refuse'
+                - can_fully_answer: bool
+                - confidence_level: float 0.0-1.0
+                - response_type: 'answer', 'partial', 'clarify', 'redirect', 'refuse', 'consult'
                 - suggested_agent: 'governance_agent', 'hardware_agent', or 'none'
                 - reasoning: explanation of decision
+                - missing_info: what's missing if partial/clarify
         """
         return self.evaluate_request(
             query=query,
-            context_available=context_summary,
-            agent_capabilities=(
-                "OCPP event log analysis, anomaly detection in charging station data, "
-                "real-time fault correlation, temporal event pattern recognition, "
-                "EV charging station operations monitoring, load balance analysis. "
-                "Specializes in Illigo charging station statistics, fault events, and session data."
-            )
+            my_expertise=(
+                "MRI event log analysis, anomaly detection, session monitoring, "
+                "real-time fault correlation, temporal event pattern recognition (e.g., 90-minute cycles), "
+                "protocol start/stop tracking, idle time calculation, thermal event detection. "
+                "Can consult hardware_agent for equipment specs or governance_agent for SLA implications."
+            ),
+            available_data=context_summary
         )

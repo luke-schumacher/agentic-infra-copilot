@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mammografie version 2</title>
+        <meta charset="UTF-8" />
+        <meta name="dcterms.identifier" content="fbcdbf25-0421-4b7e-9b61-1d535d13f309" />
+        <meta name="dcterms.title" content="mammografie version 2" />
+        <meta name="dcterms.description" content="mammografie" />
+        <meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE" />
+        <meta name="dcterms.language" content="nl" />
+        <meta name="dcterms.publisher" content="" />
+        <meta name="dcterms.rights" content="May be used freely, subject to license agreement" />
+        <meta name="dcterms.license" content="http://www.radreport.org/license.pdf" />
+        <meta name="dcterms.date" content="2015-12-22" />
+        <meta name="dcterms.creator" content="Alexander Wanders" />
+        <script type="text/xml">
+            <template_attributes>
+                <coded_content>
+                    <coding_schemes>
+                        <coding_scheme name="RADLEX" designator="2.16.840.1.113883.6.256"></coding_scheme>
+                    </coding_schemes>
+                </coded_content>
+            </template_attributes>
+        </script>
+    </head>
+    <body>
+        <section id="procedureInformation" class="level1" data-section-name="Procedure Information">
+            <header class="level1">
+                Procedure Information
+            </header>
+            <section id="SECTION_HEADER_1450682011283" class="level2" data-section-name="Algemene informatie">
+                <header class="level2">
+                    Algemene informatie
+                </header>
+                <section id="SECTION_HEADER_1450685126630" class="level2" data-section-name="">
+                    <header class="level2">
+                    </header>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449431264012">Plaats onderzoek</label>
+                        <select id="SELECTION_LIST_1449431264012" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="in ziekenhuis">
+                            <option id="SELECTION_LIST_1449431264012_0" value="in ziekenhuis" name="SELECTION_LIST_1449431264012" selected="">in ziekenhuis</option>
+                            <option id="SELECTION_LIST_1449431264012_1" value="in bevolkingsonderzoek" name="SELECTION_LIST_1449431264012">in bevolkingsonderzoek</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="DATE_1449431264015">Datum onderzoek</label>
+                        <input type="date" id="DATE_1449431264015" name="" data-field-type="DATE" data-field-completion-action="NONE" value="" />
+                    </p>
+                    <p title="">
+                        <label for="DATE_1449431264016">Datum beoordeling</label>
+                        <input type="date" id="DATE_1449431264016" name="" data-field-type="DATE" data-field-completion-action="NONE" value="" />
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449431264017">Beoordelend radioloog1</label>
+                        <select id="SELECTION_LIST_1449431264017" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="rad1">
+                            <option id="SELECTION_LIST_1449431264017_0" value="rad1" name="SELECTION_LIST_1449431264017" selected="">rad1</option>
+                            <option id="SELECTION_LIST_1449431264017_1" value="rad2" name="SELECTION_LIST_1449431264017">rad2</option>
+                            <option id="SELECTION_LIST_1449431264017_2" value="rad3" name="SELECTION_LIST_1449431264017">rad3</option>
+                            <option id="SELECTION_LIST_1449431264017_3" value="rad4" name="SELECTION_LIST_1449431264017">rad4</option>
+                            <option id="SELECTION_LIST_1449431264017_4" value="" name="SELECTION_LIST_1449431264017"></option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449431264020">Beoordelend radioloog 2</label>
+                        <select id="SELECTION_LIST_1449431264020" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449431264020_0" value="rad1" name="SELECTION_LIST_1449431264020">rad1</option>
+                            <option id="SELECTION_LIST_1449431264020_1" value="rad2" name="SELECTION_LIST_1449431264020">rad2</option>
+                            <option id="SELECTION_LIST_1449431264020_2" value="rad3" name="SELECTION_LIST_1449431264020">rad3</option>
+                            <option id="SELECTION_LIST_1449431264020_3" value="rad4" name="SELECTION_LIST_1449431264020">rad4</option>
+                            <option id="SELECTION_LIST_1449431264020_4" value="nvt" name="SELECTION_LIST_1449431264020" selected="">nvt</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449431434875">Beoordelend radioloog 3</label>
+                        <select id="SELECTION_LIST_1449431434875" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449431434875_0" value="rad1" name="SELECTION_LIST_1449431434875">rad1</option>
+                            <option id="SELECTION_LIST_1449431434875_1" value="rad2" name="SELECTION_LIST_1449431434875">rad2</option>
+                            <option id="SELECTION_LIST_1449431434875_2" value="rad3" name="SELECTION_LIST_1449431434875">rad3</option>
+                            <option id="SELECTION_LIST_1449431434875_3" value="rad4" name="SELECTION_LIST_1449431434875">rad4</option>
+                            <option id="SELECTION_LIST_1449431434875_4" value="nvt" name="SELECTION_LIST_1449431434875" selected="">nvt</option>
+                        </select>
+                    </p>
+                </section>
+            </section>
+        </section>
+        <section id="clinicalInformation" class="level1" data-section-name="Clinical Information">
+            <header class="level1">
+                Clinical Information
+            </header>
+            <section id="SECTION_HEADER_1450682011284" class="level2" data-section-name="Klinische informatie, vraagstelling">
+                <header class="level2">
+                    Klinische informatie, vraagstelling
+                </header>
+                <section id="SECTION_HEADER_1450685126624" class="level2" data-section-name="">
+                    <header class="level2">
+                    </header>
+                </section>
+                <section id="SECTION_HEADER_1450771813596" class="level2" data-section-name="">
+                    <header class="level2">
+                    </header>
+                    <p title="">
+                        <label for="TEXT_1450682011285">Vraagstelling:</label>
+                        <input type="text" id="TEXT_1450682011285" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="" />
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449431434878">Zijn er afwijkingen zichtbaar?</label>
+                        <select id="SELECTION_LIST_1449431434878" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nee">
+                            <option id="SELECTION_LIST_1449431434878_0" value="nee" name="SELECTION_LIST_1449431434878" selected="">nee</option>
+                            <option id="SELECTION_LIST_1449431434878_1" value="ja" name="SELECTION_LIST_1449431434878">ja</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449431434881">Is er verdenking op maligniteit?</label>
+                        <select id="SELECTION_LIST_1449431434881" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449431434881_0" value="ja" name="SELECTION_LIST_1449431434881">ja</option>
+                            <option id="SELECTION_LIST_1449431434881_1" value="nee" name="SELECTION_LIST_1449431434881">nee</option>
+                            <option id="SELECTION_LIST_1449431434881_2" value="nvt" name="SELECTION_LIST_1449431434881" selected="">nvt</option>
+                        </select>
+                    </p>
+                </section>
+            </section>
+        </section>
+        <section id="comparisons" class="level1" data-section-name="Comparison">
+            <header class="level1">
+                Comparison
+            </header>
+            <section id="SECTION_HEADER_1450682011290" class="level2" data-section-name="Vergelijk met eerder">
+                <header class="level2">
+                    Vergelijk met eerder
+                </header>
+                <section id="SECTION_HEADER_1450685126625" class="level2" data-section-name="">
+                    <header class="level2">
+                    </header>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449431434888">Is er eerder onderzoek?</label>
+                        <select id="SELECTION_LIST_1449431434888" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="ja">
+                            <option id="SELECTION_LIST_1449431434888_0" value="ja" name="SELECTION_LIST_1449431434888" selected="">ja</option>
+                            <option id="SELECTION_LIST_1449431434888_1" value="nee" name="SELECTION_LIST_1449431434888">nee</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1450771813597">Eerder onderzoek</label>
+                        <select id="SELECTION_LIST_1450771813597" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="nvt">
+                            <option id="SELECTION_LIST_1450771813597_0" value="mammografie in screening" name="SELECTION_LIST_1450771813597">mammografie in screening</option>
+                            <option id="SELECTION_LIST_1450771813597_1" value="mammografie in ziekenhuis" name="SELECTION_LIST_1450771813597">mammografie in ziekenhuis</option>
+                            <option id="SELECTION_LIST_1450771813597_2" value="echografie " name="SELECTION_LIST_1450771813597">echografie </option>
+                            <option id="SELECTION_LIST_1450771813597_3" value="MRI" name="SELECTION_LIST_1450771813597">MRI</option>
+                            <option id="SELECTION_LIST_1450771813597_4" value="nvt" name="SELECTION_LIST_1450771813597" selected="">nvt</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="DATE_1449431434891">Datum eerder onderzoek</label>
+                        <input type="date" id="DATE_1449431434891" name="" data-field-type="DATE" data-field-completion-action="NONE" value="" />
+                    </p>
+                </section>
+            </section>
+        </section>
+        <section id="findings" class="level1" data-section-name="Findings">
+            <header class="level1">
+                Findings
+            </header>
+            <section id="SECTION_HEADER_1450682011291" class="level2" data-section-name="Bevindingen mammografie">
+                <header class="level2">
+                    Bevindingen mammografie
+                </header>
+                <section id="SECTION_HEADER_1450685126626" class="level2" data-section-name="">
+                    <header class="level2">
+                    </header>
+                </section>
+            </section>
+            <section id="SECTION_HEADER_1450771813603" class="level2" data-section-name="Dichtheid klierweefsel">
+                <header class="level2">
+                    Dichtheid klierweefsel
+                </header>
+                <p title="">
+                    <label for="SELECTION_LIST_1449429049695">ACR classificatie</label>
+                    <select id="SELECTION_LIST_1449429049695" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                        <option id="SELECTION_LIST_1449429049695_0" value="a. De mamma bestaat vrijwel geheel uit vetweefsel" name="SELECTION_LIST_1449429049695">a. De mamma bestaat vrijwel geheel uit vetweefsel</option>
+                        <option id="SELECTION_LIST_1449429049695_1" value="b. Verspreide gebieden met fibroglandulair weefsel" name="SELECTION_LIST_1449429049695">b. Verspreide gebieden met fibroglandulair weefsel</option>
+                        <option id="SELECTION_LIST_1449429049695_2" value="c. Heterogeen dens fibroglandulair weefsel" name="SELECTION_LIST_1449429049695">c. Heterogeen dens fibroglandulair weefsel</option>
+                        <option id="SELECTION_LIST_1449429049695_3" value="d. Zeer dens fibroglandulair weefsel" name="SELECTION_LIST_1449429049695">d. Zeer dens fibroglandulair weefsel</option>
+                        <option id="SELECTION_LIST_1449429049695_4" value="nvt" name="SELECTION_LIST_1449429049695" selected="">nvt</option>
+                    </select>
+                </p>
+            </section>
+            <section id="SECTION_HEADER_1450771813609" class="level2" data-section-name="Plaats">
+                <header class="level2">
+                    Plaats
+                </header>
+                <p title="">
+                    <label for="SELECTION_LIST_1449429049698">Plaats hoofdafwijking</label>
+                    <select id="SELECTION_LIST_1449429049698" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                        <option id="SELECTION_LIST_1449429049698_0" value="rechts" name="SELECTION_LIST_1449429049698">rechts</option>
+                        <option id="SELECTION_LIST_1449429049698_1" value="links" name="SELECTION_LIST_1449429049698">links</option>
+                        <option id="SELECTION_LIST_1449429049698_2" value="nvt" name="SELECTION_LIST_1449429049698" selected="">nvt</option>
+                    </select>
+                </p>
+                <p title="">
+                    <label for="SELECTION_LIST_1449429049701">Plaats in de borst op de medio oblique opname</label>
+                    <select id="SELECTION_LIST_1449429049701" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                        <option id="SELECTION_LIST_1449429049701_0" value="nvt" name="SELECTION_LIST_1449429049701" selected="">nvt</option>
+                        <option id="SELECTION_LIST_1449429049701_1" value="boven" name="SELECTION_LIST_1449429049701">boven</option>
+                        <option id="SELECTION_LIST_1449429049701_2" value="midden" name="SELECTION_LIST_1449429049701">midden</option>
+                        <option id="SELECTION_LIST_1449429049701_3" value="onder" name="SELECTION_LIST_1449429049701">onder</option>
+                        <option id="SELECTION_LIST_1449429049701_4" value="niet zichtbaar" name="SELECTION_LIST_1449429049701">niet zichtbaar</option>
+                    </select>
+                </p>
+                <p title="">
+                    <label for="SELECTION_LIST_1449432120760">Plaats in de borst op de cranio caudale opname</label>
+                    <select id="SELECTION_LIST_1449432120760" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                        <option id="SELECTION_LIST_1449432120760_0" value="lateraal" name="SELECTION_LIST_1449432120760">lateraal</option>
+                        <option id="SELECTION_LIST_1449432120760_1" value="centraal" name="SELECTION_LIST_1449432120760">centraal</option>
+                        <option id="SELECTION_LIST_1449432120760_2" value="mediaal" name="SELECTION_LIST_1449432120760">mediaal</option>
+                        <option id="SELECTION_LIST_1449432120760_3" value="niet zichtbaar" name="SELECTION_LIST_1449432120760">niet zichtbaar</option>
+                        <option id="SELECTION_LIST_1449432120760_4" value="nvt" name="SELECTION_LIST_1449432120760" selected="">nvt</option>
+                    </select>
+                </p>
+                <p title="">
+                    <label for="SELECTION_LIST_1449432120763">Plaats in de borst met de klok mee</label>
+                    <select id="SELECTION_LIST_1449432120763" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                        <option id="SELECTION_LIST_1449432120763_0" value="1uur" name="SELECTION_LIST_1449432120763">1uur</option>
+                        <option id="SELECTION_LIST_1449432120763_1" value="2uur" name="SELECTION_LIST_1449432120763">2uur</option>
+                        <option id="SELECTION_LIST_1449432120763_2" value="3uur" name="SELECTION_LIST_1449432120763">3uur</option>
+                        <option id="SELECTION_LIST_1449432120763_3" value="4uur" name="SELECTION_LIST_1449432120763">4uur</option>
+                        <option id="SELECTION_LIST_1449432120763_4" value="5uur" name="SELECTION_LIST_1449432120763">5uur</option>
+                        <option id="SELECTION_LIST_1449432120763_5" value="6uur" name="SELECTION_LIST_1449432120763">6uur</option>
+                        <option id="SELECTION_LIST_1449432120763_6" value="7uur" name="SELECTION_LIST_1449432120763">7uur</option>
+                        <option id="SELECTION_LIST_1449432120763_7" value="8uur" name="SELECTION_LIST_1449432120763">8uur</option>
+                        <option id="SELECTION_LIST_1449432120763_8" value="9uur" name="SELECTION_LIST_1449432120763">9uur</option>
+                        <option id="SELECTION_LIST_1449432120763_9" value="10uur" name="SELECTION_LIST_1449432120763">10uur</option>
+                        <option id="SELECTION_LIST_1449432120763_10" value="11uur" name="SELECTION_LIST_1449432120763">11uur</option>
+                        <option id="SELECTION_LIST_1449432120763_11" value="12uur" name="SELECTION_LIST_1449432120763">12uur</option>
+                        <option id="SELECTION_LIST_1449432120763_12" value="niet zichtbaar" name="SELECTION_LIST_1449432120763">niet zichtbaar</option>
+                        <option id="SELECTION_LIST_1449432120763_13" value="nvt" name="SELECTION_LIST_1449432120763" selected="">nvt</option>
+                    </select>
+                </p>
+                <p title="">
+                    <label for="SELECTION_LIST_1449432120768">Plaats in de borst ten opzichte van de tepel</label>
+                    <select id="SELECTION_LIST_1449432120768" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                        <option id="SELECTION_LIST_1449432120768_0" value="nvt" name="SELECTION_LIST_1449432120768" selected="">nvt</option>
+                        <option id="SELECTION_LIST_1449432120768_1" value="retromammillair" name="SELECTION_LIST_1449432120768">retromammillair</option>
+                        <option id="SELECTION_LIST_1449432120768_2" value="ventraal in de mamma" name="SELECTION_LIST_1449432120768">ventraal in de mamma</option>
+                        <option id="SELECTION_LIST_1449432120768_3" value="centraal in de mamma" name="SELECTION_LIST_1449432120768">centraal in de mamma</option>
+                        <option id="SELECTION_LIST_1449432120768_4" value="dorsaal in de mamma" name="SELECTION_LIST_1449432120768">dorsaal in de mamma</option>
+                    </select>
+                </p>
+            </section>
+            <section id="SECTION_HEADER_1450771813618" class="level2" data-section-name="Ernst afwijking">
+                <header class="level2">
+                    Ernst afwijking
+                </header>
+                <p title="">
+                    <label for="SELECTION_LIST_1449468761470">Afwijking benigne of maligne</label>
+                    <select id="SELECTION_LIST_1449468761470" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                        <option id="SELECTION_LIST_1449468761470_0" value="benigne" name="SELECTION_LIST_1449468761470">benigne</option>
+                        <option id="SELECTION_LIST_1449468761470_1" value="waarschijnlijk benigne" name="SELECTION_LIST_1449468761470">waarschijnlijk benigne</option>
+                        <option id="SELECTION_LIST_1449468761470_2" value="waarschijnlijk maligne" name="SELECTION_LIST_1449468761470">waarschijnlijk maligne</option>
+                        <option id="SELECTION_LIST_1449468761470_3" value="maligne" name="SELECTION_LIST_1449468761470">maligne</option>
+                        <option id="SELECTION_LIST_1449468761470_4" value="nvt" name="SELECTION_LIST_1449468761470" selected="">nvt</option>
+                    </select>
+                </p>
+            </section>
+            <section id="SECTION_HEADER_1450771813617" class="level2" data-section-name="Beschrijving hoofdafwijking">
+                <header class="level2">
+                    Beschrijving hoofdafwijking
+                </header>
+                <section id="SECTION_HEADER_1450771813624" class="level2" data-section-name="Massa">
+                    <header class="level2">
+                        Massa
+                    </header>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120777">Massa vorm</label>
+                        <select id="SELECTION_LIST_1449432120777" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120777_0" value="nvt" name="SELECTION_LIST_1449432120777" selected="">nvt</option>
+                            <option id="SELECTION_LIST_1449432120777_1" value="ovaal" name="SELECTION_LIST_1449432120777">ovaal</option>
+                            <option id="SELECTION_LIST_1449432120777_2" value="rond" name="SELECTION_LIST_1449432120777">rond</option>
+                            <option id="SELECTION_LIST_1449432120777_3" value="irregulair" name="SELECTION_LIST_1449432120777">irregulair</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120780">Massa begrenzing</label>
+                        <select id="SELECTION_LIST_1449432120780" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120780_0" value="nvt" name="SELECTION_LIST_1449432120780" selected="">nvt</option>
+                            <option id="SELECTION_LIST_1449432120780_1" value="scherp begrensd" name="SELECTION_LIST_1449432120780">scherp begrensd</option>
+                            <option id="SELECTION_LIST_1449432120780_2" value="overschaduwd" name="SELECTION_LIST_1449432120780">overschaduwd</option>
+                            <option id="SELECTION_LIST_1449432120780_3" value="met microlobulaties" name="SELECTION_LIST_1449432120780">met microlobulaties</option>
+                            <option id="SELECTION_LIST_1449432120780_4" value="onscherp begrensd" name="SELECTION_LIST_1449432120780">onscherp begrensd</option>
+                            <option id="SELECTION_LIST_1449432120780_5" value="met spiculae" name="SELECTION_LIST_1449432120780">met spiculae</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120783">Massa densiteit</label>
+                        <select id="SELECTION_LIST_1449432120783" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120783_0" value="nvt" name="SELECTION_LIST_1449432120783" selected="">nvt</option>
+                            <option id="SELECTION_LIST_1449432120783_1" value="hyperdens" name="SELECTION_LIST_1449432120783">hyperdens</option>
+                            <option id="SELECTION_LIST_1449432120783_2" value="isodens" name="SELECTION_LIST_1449432120783">isodens</option>
+                            <option id="SELECTION_LIST_1449432120783_3" value="hypodens" name="SELECTION_LIST_1449432120783">hypodens</option>
+                            <option id="SELECTION_LIST_1449432120783_4" value="lucent" name="SELECTION_LIST_1449432120783">lucent</option>
+                        </select>
+                    </p>
+                </section>
+            </section>
+            <section id="SECTION_HEADER_1450771813626" class="level2" data-section-name="">
+                <header class="level2">
+                </header>
+                <section id="SECTION_HEADER_1450771813625" class="level2" data-section-name="Calcificaties">
+                    <header class="level2">
+                        Calcificaties
+                    </header>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120786">Calcificaties benigne</label>
+                        <select id="SELECTION_LIST_1449432120786" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120786_0" value="nvt" name="SELECTION_LIST_1449432120786" selected="">nvt</option>
+                            <option id="SELECTION_LIST_1449432120786_1" value="huid" name="SELECTION_LIST_1449432120786">huid</option>
+                            <option id="SELECTION_LIST_1449432120786_2" value="vasculair" name="SELECTION_LIST_1449432120786">vasculair</option>
+                            <option id="SELECTION_LIST_1449432120786_3" value="grof popcorn" name="SELECTION_LIST_1449432120786">grof popcorn</option>
+                            <option id="SELECTION_LIST_1449432120786_4" value="grof staafvormig" name="SELECTION_LIST_1449432120786">grof staafvormig</option>
+                            <option id="SELECTION_LIST_1449432120786_5" value="rond puntvormig" name="SELECTION_LIST_1449432120786">rond puntvormig</option>
+                            <option id="SELECTION_LIST_1449432120786_6" value="wandstandig" name="SELECTION_LIST_1449432120786">wandstandig</option>
+                            <option id="SELECTION_LIST_1449432120786_7" value="dystrofisch" name="SELECTION_LIST_1449432120786">dystrofisch</option>
+                            <option id="SELECTION_LIST_1449432120786_8" value="kalkmelkspiegels" name="SELECTION_LIST_1449432120786">kalkmelkspiegels</option>
+                            <option id="SELECTION_LIST_1449432120786_9" value="in sutuur" name="SELECTION_LIST_1449432120786">in sutuur</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120789">Calcificaties verdacht</label>
+                        <select id="SELECTION_LIST_1449432120789" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120789_0" value="nvt" name="SELECTION_LIST_1449432120789" selected="">nvt</option>
+                            <option id="SELECTION_LIST_1449432120789_1" value="amorf" name="SELECTION_LIST_1449432120789">amorf</option>
+                            <option id="SELECTION_LIST_1449432120789_2" value="grof heterogeen" name="SELECTION_LIST_1449432120789">grof heterogeen</option>
+                            <option id="SELECTION_LIST_1449432120789_3" value="fijn pleiomorf" name="SELECTION_LIST_1449432120789">fijn pleiomorf</option>
+                            <option id="SELECTION_LIST_1449432120789_4" value="fijn lineair (vertakkend)" name="SELECTION_LIST_1449432120789">fijn lineair (vertakkend)</option>
+                        </select>
+                    </p>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120792">Calcificaties distributie</label>
+                        <select id="SELECTION_LIST_1449432120792" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120792_0" value="diffuus verspreid" name="SELECTION_LIST_1449432120792">diffuus verspreid</option>
+                            <option id="SELECTION_LIST_1449432120792_1" value="gegroepeerd" name="SELECTION_LIST_1449432120792">gegroepeerd</option>
+                            <option id="SELECTION_LIST_1449432120792_2" value="lineair" name="SELECTION_LIST_1449432120792">lineair</option>
+                            <option id="SELECTION_LIST_1449432120792_3" value="segmenteel" name="SELECTION_LIST_1449432120792">segmenteel</option>
+                            <option id="SELECTION_LIST_1449432120792_4" value="nvt" name="SELECTION_LIST_1449432120792" selected="">nvt</option>
+                        </select>
+                    </p>
+                </section>
+            </section>
+            <section id="SECTION_HEADER_1450771813627" class="level2" data-section-name="">
+                <header class="level2">
+                </header>
+                <section id="SECTION_HEADER_1450771813628" class="level2" data-section-name="Architectuurverstoring">
+                    <header class="level2">
+                        Architectuurverstoring
+                    </header>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120795">Architectuurverstoring</label>
+                        <select id="SELECTION_LIST_1449432120795" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120795_0" value="nvt" name="SELECTION_LIST_1449432120795" selected="">nvt</option>
+                            <option id="SELECTION_LIST_1449432120795_1" value="ja" name="SELECTION_LIST_1449432120795">ja</option>
+                            <option id="SELECTION_LIST_1449432120795_2" value="nee" name="SELECTION_LIST_1449432120795">nee</option>
+                        </select>
+                    </p>
+                </section>
+            </section>
+            <section id="SECTION_HEADER_1450771813629" class="level2" data-section-name="">
+                <header class="level2">
+                </header>
+                <section id="SECTION_HEADER_1450771813630" class="level2" data-section-name="Asymmetrie">
+                    <header class="level2">
+                        Asymmetrie
+                    </header>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120798">Asymmetrie</label>
+                        <select id="SELECTION_LIST_1449432120798" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120798_0" value="nvt" name="SELECTION_LIST_1449432120798" selected="">nvt</option>
+                            <option id="SELECTION_LIST_1449432120798_1" value="asymmetrie" name="SELECTION_LIST_1449432120798">asymmetrie</option>
+                            <option id="SELECTION_LIST_1449432120798_2" value="globale asymmetrie" name="SELECTION_LIST_1449432120798">globale asymmetrie</option>
+                            <option id="SELECTION_LIST_1449432120798_3" value="focale asymmetrie in twee richtingen" name="SELECTION_LIST_1449432120798">focale asymmetrie in twee richtingen</option>
+                            <option id="SELECTION_LIST_1449432120798_4" value="zich ontwikkelende asymmetrie in 2 richtingen" name="SELECTION_LIST_1449432120798">zich ontwikkelende asymmetrie in 2 richtingen</option>
+                        </select>
+                    </p>
+                </section>
+            </section>
+            <section id="SECTION_HEADER_1450771813632" class="level2" data-section-name="">
+                <header class="level2">
+                </header>
+                <section id="SECTION_HEADER_1450771813631" class="level2" data-section-name="Afmetingen hoofdafwijking">
+                    <header class="level2">
+                        Afmetingen hoofdafwijking
+                    </header>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120805">Afmetingen van de afwijking of het gebied waarin de afwijking in mm</label>
+                        <select id="SELECTION_LIST_1449432120805" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="">
+                            <option id="SELECTION_LIST_1449432120805_0" value="" name="SELECTION_LIST_1449432120805" selected=""></option>
+                            <option id="SELECTION_LIST_1449432120805_1" value="" name="SELECTION_LIST_1449432120805" selected=""></option>
+                        </select>
+                    </p>
+                </section>
+            </section>
+            <section id="SECTION_HEADER_1450771813633" class="level2" data-section-name="">
+                <header class="level2">
+                </header>
+                <section id="SECTION_HEADER_1450771813634" class="level2" data-section-name="Naast de hoofdafwijking is/zijn er ook">
+                    <header class="level2">
+                        Naast de hoofdafwijking is/zijn er ook
+                    </header>
+                    <p title="">
+                        <label for="SELECTION_LIST_1449432120774">bijkomende afwijking</label>
+                        <select id="SELECTION_LIST_1449432120774" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                            <option id="SELECTION_LIST_1449432120774_0" value="massa" name="SELECTION_LIST_1449432120774">massa</option>
+                            <option id="SELECTION_LIST_1449432120774_1" value="calcificaties" name="SELECTION_LIST_1449432120774">calcificaties</option>
+                            <option id="SELECTION_LIST_1449432120774_2" value="architectuurverstoring" name="SELECTION_LIST_1449432120774">architectuurverstoring</option>
+                            <option id="SELECTION_LIST_1449432120774_3" value="asymmetrie" name="SELECTION_LIST_1449432120774">asymmetrie</option>
+                            <option id="SELECTION_LIST_1449432120774_4" value="nvt" name="SELECTION_LIST_1449432120774" selected="">nvt</option>
+                        </select>
+                    </p>
+                </section>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1449432120802">Geassocieerde bevindingen</label>
+                <select multiple="multiple" id="SELECTION_LIST_1449432120802" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                    <option id="SELECTION_LIST_1449432120802_0" value="nvt" name="SELECTION_LIST_1449432120802" selected="">nvt</option>
+                    <option id="SELECTION_LIST_1449432120802_1" value="huidafwijking" name="SELECTION_LIST_1449432120802">huidafwijking</option>
+                    <option id="SELECTION_LIST_1449432120802_2" value="tepelintrekking" name="SELECTION_LIST_1449432120802">tepelintrekking</option>
+                    <option id="SELECTION_LIST_1449432120802_3" value="huidverdikking meer dan 2mm" name="SELECTION_LIST_1449432120802">huidverdikking meer dan 2mm</option>
+                    <option id="SELECTION_LIST_1449432120802_4" value="toegenomen trabeculaire tekening" name="SELECTION_LIST_1449432120802">toegenomen trabeculaire tekening</option>
+                    <option id="SELECTION_LIST_1449432120802_5" value="axillaire lymfeadenopathie" name="SELECTION_LIST_1449432120802">axillaire lymfeadenopathie</option>
+                    <option id="SELECTION_LIST_1449432120802_6" value="architectuurverstoring" name="SELECTION_LIST_1449432120802">architectuurverstoring</option>
+                    <option id="SELECTION_LIST_1449432120802_7" value="benigne calcificaties" name="SELECTION_LIST_1449432120802">benigne calcificaties</option>
+                    <option id="SELECTION_LIST_1449432120802_8" value="intramammaire lymfeklier" name="SELECTION_LIST_1449432120802">intramammaire lymfeklier</option>
+                    <option id="SELECTION_LIST_1449432120802_9" value="huidafwijking" name="SELECTION_LIST_1449432120802">huidafwijking</option>
+                    <option id="SELECTION_LIST_1449432120802_10" value="solitair verwijde duct" name="SELECTION_LIST_1449432120802">solitair verwijde duct</option>
+                    <option id="SELECTION_LIST_1449432120802_11" value="prothese" name="SELECTION_LIST_1449432120802">prothese</option>
+                    <option id="SELECTION_LIST_1449432120802_12" value="prothese formaat tov klierweefsel &gt;80%" name="SELECTION_LIST_1449432120802">prothese formaat tov klierweefsel &gt;80%</option>
+                    <option id="SELECTION_LIST_1449432120802_13" value="electronic device" name="SELECTION_LIST_1449432120802">electronic device</option>
+                    <option id="SELECTION_LIST_1449432120802_14" value="electronic device kwetsbaar bij mammografie" name="SELECTION_LIST_1449432120802">electronic device kwetsbaar bij mammografie</option>
+                </select>
+            </p>
+        </section>
+        <section id="impression" class="level1" data-section-name="Impression">
+            <header class="level1">
+                Impression
+            </header>
+            <section id="SECTION_HEADER_1450682011292" class="level2" data-section-name="Conclusie en advies">
+                <header class="level2">
+                    Conclusie en advies
+                </header>
+                <section id="SECTION_HEADER_1450685126622" class="level2" data-section-name="">
+                    <header class="level2">
+                    </header>
+                    <section id="SECTION_HEADER_1450685126627" class="level2" data-section-name="conclusie">
+                        <header class="level2">
+                            conclusie
+                        </header>
+                        <p title="">
+                            <label for="SELECTION_LIST_1450682011185">Benigne afwijkingen passende bij</label>
+                            <select id="SELECTION_LIST_1450682011185" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                                <option id="SELECTION_LIST_1450682011185_0" value="cyste" name="SELECTION_LIST_1450682011185">cyste</option>
+                                <option id="SELECTION_LIST_1450682011185_1" value="fibroadenoom" name="SELECTION_LIST_1450682011185">fibroadenoom</option>
+                                <option id="SELECTION_LIST_1450682011185_2" value="fibroadenoom met calcificaties" name="SELECTION_LIST_1450682011185">fibroadenoom met calcificaties</option>
+                                <option id="SELECTION_LIST_1450682011185_3" value="benigne calcificaties" name="SELECTION_LIST_1450682011185">benigne calcificaties</option>
+                                <option id="SELECTION_LIST_1450682011185_4" value="fibrolipoadenoom" name="SELECTION_LIST_1450682011185">fibrolipoadenoom</option>
+                                <option id="SELECTION_LIST_1450682011185_5" value="anders" name="SELECTION_LIST_1450682011185">anders</option>
+                                <option id="SELECTION_LIST_1450682011185_6" value="nvt" name="SELECTION_LIST_1450682011185" selected="">nvt</option>
+                            </select>
+                        </p>
+                        <p title="">
+                            <label for="SELECTION_LIST_1450682011242">Maligne afwijkingen</label>
+                            <select id="SELECTION_LIST_1450682011242" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="nvt">
+                                <option id="SELECTION_LIST_1450682011242_0" value="verdacht" name="SELECTION_LIST_1450682011242">verdacht</option>
+                                <option id="SELECTION_LIST_1450682011242_1" value="zeer verdacht" name="SELECTION_LIST_1450682011242">zeer verdacht</option>
+                                <option id="SELECTION_LIST_1450682011242_2" value="nvt" name="SELECTION_LIST_1450682011242" selected="">nvt</option>
+                            </select>
+                        </p>
+                        <p title="">
+                            <label for="SELECTION_LIST_1449432120754">BIRADS classificatie</label>
+                            <select id="SELECTION_LIST_1449432120754" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="0">
+                                <option id="SELECTION_LIST_1449432120754_0" value="0" name="SELECTION_LIST_1449432120754" selected="">0</option>
+                                <option id="SELECTION_LIST_1449432120754_1" value="1" name="SELECTION_LIST_1449432120754">1</option>
+                                <option id="SELECTION_LIST_1449432120754_2" value="2" name="SELECTION_LIST_1449432120754">2</option>
+                                <option id="SELECTION_LIST_1449432120754_3" value="3" name="SELECTION_LIST_1449432120754">3</option>
+                                <option id="SELECTION_LIST_1449432120754_4" value="4" name="SELECTION_LIST_1449432120754">4</option>
+                                <option id="SELECTION_LIST_1449432120754_5" value="4a" name="SELECTION_LIST_1449432120754">4a</option>
+                                <option id="SELECTION_LIST_1449432120754_6" value="4b" name="SELECTION_LIST_1449432120754">4b</option>
+                                <option id="SELECTION_LIST_1449432120754_7" value="4c" name="SELECTION_LIST_1449432120754">4c</option>
+                                <option id="SELECTION_LIST_1449432120754_8" value="5" name="SELECTION_LIST_1449432120754">5</option>
+                                <option id="SELECTION_LIST_1449432120754_9" value="6" name="SELECTION_LIST_1449432120754">6</option>
+                            </select>
+                        </p>
+                    </section>
+                    <section id="SECTION_HEADER_1450771813641" class="level2" data-section-name="Advies">
+                        <header class="level2">
+                            Advies
+                        </header>
+                        <p title="">
+                            <label for="SELECTION_LIST_1450682011251"></label>
+                            <select id="SELECTION_LIST_1450682011251" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="echografie">
+                                <option id="SELECTION_LIST_1450682011251_0" value="echografie" name="SELECTION_LIST_1450682011251" selected="">echografie</option>
+                                <option id="SELECTION_LIST_1450682011251_1" value="MRI" name="SELECTION_LIST_1450682011251">MRI</option>
+                                <option id="SELECTION_LIST_1450682011251_2" value="histologie" name="SELECTION_LIST_1450682011251">histologie</option>
+                                <option id="SELECTION_LIST_1450682011251_3" value="stereotactische bioptie" name="SELECTION_LIST_1450682011251">stereotactische bioptie</option>
+                                <option id="SELECTION_LIST_1450682011251_4" value="herhaling beeldvorming over 6 maanden" name="SELECTION_LIST_1450682011251">herhaling beeldvorming over 6 maanden</option>
+                                <option id="SELECTION_LIST_1450682011251_5" value="geen verder onderzoek meer nodig" name="SELECTION_LIST_1450682011251">geen verder onderzoek meer nodig</option>
+                                <option id="SELECTION_LIST_1450682011251_6" value="geen verder onderzoek meer nodig, retour bevolkingsonderzoek" name="SELECTION_LIST_1450682011251">geen verder onderzoek meer nodig, retour bevolkingsonderzoek</option>
+                            </select>
+                        </p>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </body>
+</html>

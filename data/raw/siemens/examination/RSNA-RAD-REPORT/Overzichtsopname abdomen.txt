@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="Overzichtsopname abdomen" name="dcterms.title"/>
+<meta content="Abdomen Complete template :: Authored by Langlotz CP" name="dcterms.description"/>
+<meta content="http://www.radreport.org/template/0000309" name="dcterms.identifier"/>
+<meta content="nl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-06-18" name="dcterms.date"/>
+<meta content="Langlotz CP" name="dcterms.creator"/>
+<meta content="Bosmans JM [translator]" name="dcterms.contributor"/>
+<meta content="Kahn CE Jr. [editor]" name="dcterms.contributor"/>
+<meta content="Penn Medicine | Hospital of the University of Pennsylvania (Penn)" name="dcterms.contributor"/>
+<link rel="stylesheet" href="IHE_Template_Style.css" type="text/css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+
+<term>
+ <code meaning="abdomen" value="RID56" scheme="RadLex">
+</term>
+<term>
+ <code meaning="projection radiography" value="RID10345" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T141_2">
+ <term>
+  <code meaning="procedure" value="RID1559" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T141_3">
+   <term>
+  <code meaning="Abdomen X-ray 2 views" value="36641-9" scheme="LOINC">
+ </term>
+</entry>
+<entry ORIGTXT="T141_8">
+  <term>
+  <code meaning="Clinical information" value="55752-0" scheme="LOINC">
+ </term>
+</entry>
+<entry ORIGTXT="T141_9">
+ <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T141_11">
+  <term>
+  <code meaning="Radiology Study observation (narrative)" value="18782-3" scheme="LOINC">
+ </term>
+</entry>
+<entry ORIGTXT="T141_13">
+ <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Overzichtsopname abdomen</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Abdomen Series">Overzichtsopname abdomen</header>
+<p>
+<label for="T141_2" data-english="Number of views:">Aantal keer bekeken:</label>
+<input type="number" id="T141_2" name="Aantal keer bekeken" data-english-name="Number of views"/>
+<!-- <label for="T141_3">Views</label> -->
+<input type="text" id="T141_3" name="Aantal keer bekeken - tekst" value="" data-english-value="" data-english-name="Number of views - text"/>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Klinische informatie</header>
+<p>
+<!-- <label for="T141_8">Clinical information</label> -->
+<textarea id="T141_8" name="Klinische informatie" data-english-name="Clinical information"></textarea>
+</p>
+</section>
+
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Vergelijking</header>
+<p>
+<!-- <label for="T141_9">Comparison</label> -->
+<textarea id="T141_9" name="Vergelijking" data-codedcontent-default-val="None" data-codedcontent-default-ref="T141_9" data-english-name="Comparison" data-english-innertext="None.">Geen.</textarea>
+</p>
+</section>
+
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Bevindingen</header>
+<p>
+<!-- <label for="T141_11">Findings</label> -->
+<textarea id="T141_11" name="Bevindingen" data-english-name="Findings" data-english-innertext="There are nondilated loops of small and large bowel containing gas and stool. There are no dilated loops to suggest ileus or obstruction. There is no evidence of free intra-abdominal gas. ">Gas en feces zijn aanwezig in de dunne en de dikke darm. Deze zijn niet gedilateerd. Geen verwijde lussen die ileus of obstructie suggereren. Geen aanwijzingen voor vrije lucht intra-abdominaal.</textarea>
+</p>
+</section>
+
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Conclusie</header>
+<p>
+<!-- <label for="T141_13">Impression</label> -->
+<textarea id="T141_13" name="Conclusie" data-english-name="Impression" data-english-innertext="Normal bowel. No ileus or obstruction.">Normale darm. Geen ileus of obstructie.</textarea>
+</p>
+</section>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Marcin Czarniecki [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="RTG Jamy brzusznej" name="dcterms.title"/>
+<meta content="Abdomen Xray template :: Authored by Kahn CE Jr" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050116" name="dcterms.identifier"/>
+<meta content="pl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-03-26" name="dcterms.date"/>
+<meta content="Kahn CE Jr" name="dcterms.creator"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>0</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>abdomen</code_meaning>
+<code_value>RID56</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>projection radiography</code_meaning>
+<code_value>RID10345</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry ORIGTXT="T99_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_4">
+<term>
+<code_meaning>supine position</code_meaning>
+<code_value>RID10421</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_5">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_6">
+<term>
+<code_meaning>abdomen</code_meaning>
+<code_value>RID56</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>pain</code_meaning>
+<code_value>RID28803</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_7">
+<term>
+<code_meaning>distended</code_meaning>
+<code_value>RID5787</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>abdomen</code_meaning>
+<code_value>RID56</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_8">
+<term>
+<code_meaning>placement</code_meaning>
+<code_value>RID28707</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>nasogastric tube</code_meaning>
+<code_value>RID5566</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_9">
+<term>
+<code_meaning>postoperative</code_meaning>
+<code_value>RID5729</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_10">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_11">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_12">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_14">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_15">
+<term>
+<code_meaning>abnormal</code_meaning>
+<code_value>RID28453</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>calcifications</code_meaning>
+<code_value>RID34642</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_16">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_17">
+<term>
+<code_meaning>set of bones</code_meaning>
+<code_value>RID28569</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_18">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_19">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_20">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_21">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T99_22">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>RTG Jamy brzusznej</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Abdomen Radiography">RTG Jamy brzusznej</header>
+<p>
+<label for="T99_2" data-english="Procedure">Procedura</label>
+<select id="T99_2" name="Procedura" data-english-name="Procedure">
+<option id="T99_2.1" name="Jama brzuszna w 1 projekcji" value="Jama brzuszna w 1 projekcji" data-english-name="Abdomen 1 View" data-english-value="Abdomen 1 View" data-english-innertext="Abdomen 1 View">Jama brzuszna w 1 projekcji</option>
+<option id="T99_2.2" name="Seria &#039;Ostry Brzuch&#039;" value="Seria &#039;Ostry Brzuch&#039;" data-english-name="Acute Abdominal Series" data-english-value="Acute Abdominal Series" data-english-innertext="Acute Abdominal Series">Seria &#039;Ostry Brzuch&#039;</option>
+<option id="T99_2.3" name="Jama brzuszna w pozycji stojącej i leżącej" value="Jama brzuszna w pozycji stojącej i leżącej" data-english-name="Upright and Supine Abdomen" data-english-value="Upright and Supine Abdomen" data-english-innertext="Upright and Supine Abdomen">Jama brzuszna w pozycji stojącej i leżącej</option>
+<option id="T99_2.4" name="Inne" value="Inne" data-english-name="Other" data-english-value="Other" data-english-innertext="Other">Inne</option>
+</select>
+<label for="T99_3" data-english="Other">Inne</label>
+<input type="text" id="T99_3" name="Inne" data-english-name="Other"/>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Dane kliniczne</header>
+<p>
+<label for="T99_5" data-english="Clinical information">Dane kliniczne</label>
+<select id="T99_5" name="Dane kliniczne" data-english-name="Clinical information">
+<option id="T99_6" name="B&oacute;l brzucha" value="B&oacute;l brzucha" data-english-name="Abdominal pain" data-english-value="Abdominal pain" data-english-innertext="Abdominal pain">B&oacute;l brzucha</option>
+<option id="T99_7" name="Wzdęty brzuch" value="Wzdęty brzuch" data-english-name="Distended abdomen" data-english-value="Distended abdomen" data-english-innertext="Distended abdomen">Wzdęty brzuch</option>
+<option id="T99_8" name="Umieszczenie sondy żołądkowej" value="Umieszczenie sondy żołądkowej" data-english-name="Nasogastric tube placement" data-english-value="Nasogastric tube placement" data-english-innertext="Nasogastric tube placement">Umieszczenie sondy żołądkowej</option>
+<option id="T99_9" name="Badanie pooperacyjne" value="Badanie pooperacyjne" data-english-name="Post-operative examination" data-english-value="Post-operative examination" data-english-innertext="Post-operative examination">Badanie pooperacyjne</option>
+<option id="T99_5.1" name="Inne" value="Inne" data-english-name="Other" data-english-value="Other" data-english-innertext="Other">Inne</option>
+</select>
+<label for="T99_5.2" data-english="Other">Inne</label>
+<input type="text" id="T99_5.2" name="Inne" data-english-name="Other"/>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Porównano z badaniem</header>
+<p>
+<input type="text" id="T99_10" name="Por&oacute;wnano z badaniem" value="" data-english-value="" data-english-name="Comparison"/>
+</p>
+</section>
+<section data-section-name="Observations">
+<header class="level1" data-english="Observations">Wynik badania:</header>
+<p>
+<label for="T99_13" data-english="Bowel gas pattern">Wzór gazu jelit</label>
+<input type="text" id="T99_13" name="Wz&oacute;r gazu jelit" value="" data-english-value="" data-english-name="Bowel gas pattern"/>
+</p>
+<p>
+<label for="T99_15" data-english="Abnormal calcifications">Nieprawidłowe zwapnienia</label>
+<input type="text" id="T99_15" name="Nieprawidłowe zwapnienia" value="Brak" data-english-value="None" data-english-name="Abnormal calcifications"/>
+</p>
+<p>
+<label for="T99_17" data-english="Bones">Kości</label>
+<input type="text" id="T99_17" name="Kości" value="Prawidłowy" data-english-value="Normal" data-english-name="Bones"/>
+</p>
+<p>
+<label for="T99_18" data-english="Other">Inne</label>
+<input type="text" id="T99_18" name="Inne" value="Brak" data-english-value="None" data-english-name="Other"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Wniosek</header>
+<p>
+<input type="text" id="T99_19" name="Wniosek" value="Prawidłowe" data-english-value="Normal" data-english-name="Impression"/>
+</p>
+</section>
+</body>
+</html>

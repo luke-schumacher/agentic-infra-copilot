@@ -1,0 +1,21 @@
+Esame defeco-RM eseguito previa introduzione rettale di gel ecografico e condotto con sequenze dinamiche nella fasi di riposo, contrazione, ponzamento e evacuativa.
+
+Parametri della fisiologia defecatoria:
+
+-Distanza passaggio retto-anale dalla linea pubo-coccigea: 
+     in fase di riposo ........cm (versante craniale/caudale).
+     in contrazione .........cm (versante craniale/caudale).
+     in ponzamento ..........cm (versante craniale/caudale).
+     in fase evacuativa ..........cm (versante craniale/caudale).
+
+-Angolo retto-anale: 
+     riposo ....&deg; 
+     contrazione ....&deg;
+     ponzamento ....&deg; 
+     evacuzione ....&deg;
+
+Reperti:
+-rettocele anteriore di ......cm con/in assenza di intussuscezione retto-anale; 
+-cistocele con discesa del fondo vescicale di .......cm rispetto alla linea pubo-coccigea; 
+-enterocele (di cui descrivere la sede di estrinsecazione e rapporti con il lume rettale)
+-sigmoidocele (di cui descrivere la sede di estrinsecazione e rapporti con il lume rettale)

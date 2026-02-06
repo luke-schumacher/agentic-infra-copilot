@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Dr. Maya Galperin-Aizenberg [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="צלום בית חזה, 2 מבטים" name="dcterms.title"/>
+<meta content="Chest Xray - 2 Views template :: Authored by Langlotz CP" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050105" name="dcterms.identifier"/>
+<meta content="he" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2014-10-22" name="dcterms.date"/>
+<meta content="Langlotz CP" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Penn Medicine | Hospital of the University of Pennsylvania (Penn)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>1</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>projection radiography</code_meaning>
+<code_value>RID10345</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>thorax</code_meaning>
+<code_value>RID1243</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry origtxt="T144_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T144_5">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Clinical information</code_meaning>
+<code_value>55752-0</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>צלום בית חזה, 2 מבטים</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Procedure">פרטים טכניים</header>
+<p>
+<textarea id="T144_3" name="פרטים טכניים" data-english-name="Procedure" data-english-innertext="PA and lateral views of the chest.">מבט קדמי וצידי של החזה.</textarea>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">מידע קליני</header>
+<p>
+<textarea id="T144_5" name="מידע קליני" data-english-name="Clinical information"></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">השוואה</header>
+<p>
+<textarea id="T144_6" name="השוואה" data-codedcontent-default-val="None" data-codedcontent-default-ref="T144_6" data-english-name="Comparison" data-english-innertext="None.">אין</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">ממצאים</header>
+<p>
+<label for="T144_9" data-english="Lungs:">ריאות:</label>
+<select id="T144_9" name="ריאות" data-english-name="Lungs">
+<option id="T144_9a" name="תקין" value="תקין" data-english-name="Clear" data-english-value="Clear" data-english-innertext="The lungs are clear.">הריאות תקינות</option>
+<option id="T144_9b" name="נפח נמוך" value="נפח נמוך" data-english-name="Low volume" data-english-value="Low volume" data-english-innertext="The inspiratory volumes are small, and this probably accounts for some vascular crowding and atelectasis at the bases.">נפחי הריאות הם קטנים, וזה כנראה מסביר צפיפות כלי דם טמתים בבסיסים.</option>
+<option id="T144_9c" name="טמת בריאה ימנית" value="טמת בריאה ימנית" data-english-name="Right atelectasis" data-english-value="Right atelectasis" data-english-innertext="There is focal opacity at the right lung base most likely representing right lower lobe atelectasis.">יש הצללה מוקדית בבסיס הריאה הימנית כנראה מייצג טמת.</option>
+<option id="T144_9d" name="טמת ותפליט מימין" value="טמת ותפליט מימין" data-english-name="Right atelectasis and effusion" data-english-value="Right atelectasis and effusion" data-english-innertext="There is focal opacity at the right lung base most likely representing a combination of a moderate right pleural effusion and associated passive right lower lobe atelectasis.">יש הצללה מוקדית בבסיס הריאה הימנית הסביר ביותר המייצגת שילוב של תפליט פּלֶאוֹרָלי ימיני וטמת ופסיבי באונה תחתונה הימינית.</option>
+<option id="T144_9e" name="טמת בריאה שמאלית" value="טמת בריאה שמאלית" data-english-name="Left atelectasis" data-english-value="Left atelectasis" data-english-innertext="There is a focal opacity at the left lung base most like representing left lower lobe atelectasis.">הצללה מוקדית בבסיס הריאה השמאלית כנראה מייצג טמת</option>
+<option id="T144_9f" name="טמת ותפליט משמאל" value="טמת ותפליט משמאל" data-english-name="Left atelectasis and effusion" data-english-value="Left atelectasis and effusion" data-english-innertext="There is a focal opacity at the left lung base, characteristic of a combination of a moderate left pleural effusion and associated atelectasis.">יש הצללה מוקדית בבסיס הריאה השמאלית הסביר ביותר המייצגת שילוב של תפליט פּלֶאוֹרָלי שמאלי וטמת ופסיבי באונה תחתונה השמאלית.</option>
+<option id="T144_9g" name="טמתים בבסיסי הריאות" value="טמתים בבסיסי הריאות" data-english-name="Bibasilar atelectasis" data-english-value="Bibasilar atelectasis" data-english-innertext="There is patchy opacity at both lung bases characteristic of atelectasis.">הצללות בבסיס הריאות כנראה עקב טמתים.</option>
+<option id="T144_9h" name="טמתים ותפליתים בבסיסי הריאות" value="טמתים ותפליתים בבסיסי הריאות" data-english-name="Bibasilar atelectasis and effusion" data-english-value="Bibasilar atelectasis and effusion" data-english-innertext="There is patchy opacity at both lung bases characteristic of a combination of atelectasis and effusions.">הצללות בבסיס הריאות כנראה עקב שילוב טמתים ותפליתים.</option>
+<option id="T144_9i" name="בצקת ריאות קלה" value="בצקת ריאות קלה" data-english-name="Mild Edema" data-english-value="Mild Edema" data-english-innertext="There is vascular congestion with increased interstitial markings findings indicating mild cardiogenic edema.">גודש כלי דם עם ציור אינטרסטיציאלי מוגבר מצביעים על בצקת קרדיוגנית קלה.</option>
+<option id="T144_9j" name="בצקת בינונית" value="בצקת בינונית" data-english-name="Moderate edema" data-english-value="Moderate edema" data-english-innertext="There is vascular congestion with mixed interstitial and patchy alveolar opacities, findings indicating moderate cardiogenic edema.">גודש כלי דם עם שילוב של ציור אינטרסטיציאלי מוגבר והצללות כתמיות אלוואולריות מצביעים על בצקת קרדיוגנית בינונית.</option>
+<option id="T144_9k" name="בצקת חמורה" value="בצקת חמורה" data-english-name="Severe edema" data-english-value="Severe edema" data-english-innertext="There is extensive alveolar consolidation in the lungs bilaterally, most likely representing pulmonary edema. This is probably on the basis of severe congestive heart failure but could be a result of noncardiogenic causes.">הסננות אלואולריות בריאות דו&ndash;צדדית מצביעות על בצקת קרדיוגנית חמורה . זה כנראה על הבסיס של אי ספיקת לב קשה, אבל יכול להיות תוצאה של גורמים לא קרדיאוגנים.</option>
+<option id="T144_9l" name="דלקת ריאות" value="דלקת ריאות" data-english-name="Multifocal pneumonia" data-english-value="Multifocal pneumonia" data-english-innertext="There are multiple patchy areas of consolidation, widely scattered about the lungs bilaterally. This most likely represents a multifocal pneumonia."></option>
+<option id="T144_9m" name="הכל" value="הכל" data-english-name="Everything" data-english-value="Everything" data-english-innertext="There is patchy opacity at both lung bases characteristic of a combination of atelectasis and effusions. There is mild vascular and interstitial prominence, likely reflecting mild pulmonary edema."></option>
+<option id="T144_9n" name="גודש" value="גודש" data-english-name="Congestion" data-english-value="Congestion" data-english-innertext="There is mild pulmonary vascular engorgement without pulmonary edema.">גודש  קל בכלי דם הריאתיים ללא בצקת ריאות.</option>
+</select>
+</p>
+<p>
+<label for="T144_24" data-english="Heart:">לב:</label>
+<select id="T144_24" name="לב" data-english-name="Heart">
+<option id="T144_24a" name="רגיל" value="רגיל" data-english-name="Normal" data-english-value="Normal" data-english-innertext="The heart is normal in size.">הלב הוא בגודל תקין.</option>
+<option id="T144_24b" name="קל" value="קל" data-english-name="Mild" data-english-value="Mild" data-english-innertext="There is mild cardiomegaly."></option>
+<option id="T144_24c" name="מתון" value="מתון" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="There is moderate cardiomegaly."></option>
+<option id="T144_24d" name="חמור" value="חמור" data-english-name="Severe" data-english-value="Severe" data-english-innertext="There is severe cardiomegaly."></option>
+<option id="T144_24e" name="ניכר" value="ניכר" data-english-name="Marked" data-english-value="Marked" data-english-innertext="There is marked cardiomegaly.">יש cardiomegaly ניכרת.</option>
+<option id="T144_24f" name="" value="תקין" data-english-name="Top" data-english-value="Top" data-english-innertext="The heart is top normal in size.">הלב הוא בגבול העליון  של הנורמה.</option>
+</select>
+</p>
+<p>
+<label data-english="Mediastinum: "></label>
+<select id="T144_100" name="מיצר" data-english-name="Mediastinum">
+<option id="T144_100a" name="תקין" value="הסתיידות" data-english-name="Normal" data-english-value="Normal" data-english-innertext="The mediastinum is within normal limits."></option>
+<option id="T144_100b" name="הסתיידות" value="מפותל" data-english-name="Calcification" data-english-value="Calcification" data-english-innertext="Atherosclerotic calcifications are seen in the aorta.">הסתיידויות טרשתיות נראות באב העורקים.</option>
+<option id="T144_100c" name="מפותל" value="מפרצת" data-english-name="Tortuous" data-english-value="Tortuous" data-english-innertext="The aorta appears tortuous, a finding usually associated with either atherosclerosis or systemic hypertension.">אב העורקים מפותל, ממצא מזוהה בדרך כלל עם טרשת עורקים או יתר לחץ דם מערכתי.</option>
+<option id="T144_100d" name="מפרצת" value="לאחר ניתוח" data-english-name="Aneurysm" data-english-value="Aneurysm" data-english-innertext="The aortic contour is quite prominent, a finding likely indicating either an aortic aneurysm or dissection.">אב העורקים הוא בולט, ממצא המצביע על סבירות או מפרצת של אב העורקים או נתיחה.</option>
+<option id="T144_100e" name="לאחר ניתוח" value="שינויים ניווניים" data-english-name="Post-op" data-english-value="Post-op" data-english-innertext="Post-operative changes are present in the mediastinum.">שינויים שלאחר ניתוח נמצאים בחלל החזה.</option>
+<option id="T144_100f" name="שינויים ניווניים" value="ללא מחלה פעילה" data-english-name="DDD" data-english-value="DDD" data-english-innertext="Degenerative changes are present in the thoracic spine.">שינויים ניווניים בעמוד השדרה החזי.</option>
+</select>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">לסיכום</header>
+<p>
+<select id="T144_101" name="לסיכום" data-english-name="Impression">
+<option id="T144_101a" name="ללא מחלה פעילה" value="הגדלת צל הלב" data-english-name="NAD" data-english-value="NAD" data-english-innertext="No active disease.">ללא מחלה פעילה</option>
+<option id="T144_101b" name="הגדלת צל הלב" value="בצקת קלה" data-english-name="Cardiomegaly" data-english-value="Cardiomegaly" data-english-innertext="Cardiomegaly.">הגדלת צל הלב</option>
+<option id="T144_101c" name="בצקת קלה" value="בצקת בינונית" data-english-name="Mild edema" data-english-value="Mild edema" data-english-innertext="Mild cardiogenic edema.">בצקת קרדיוגנית קלה.</option>
+<option id="T144_101d" name="בצקת בינונית" value="בצקת חמורה" data-english-name="Moderate edema" data-english-value="Moderate edema" data-english-innertext="Moderate cardiogenic edema.">בצקת קרדיוגנית בינונית.</option>
+<option id="T144_101e" name="בצקת חמורה" value="תמט" data-english-name="Severe edema" data-english-value="Severe edema" data-english-innertext="Severe edema, probably cardiogenic.">בצקת חמורה, כנראה קרדיוגנית.</option>
+<option id="T144_101f" name="תמט" value=" לאחר ניתוח" data-english-name="Atelectasis" data-english-value="Atelectasis" data-english-innertext="Atelectasis.">תמט</option>
+<option id="T144_101g" name=" לאחר ניתוח" value="גודש" data-english-name="Post-op" data-english-value="Post-op" data-english-innertext="Satisfactory post-operative status.">מצב לאחר ניתוח משביע רצון.</option>
+<option id="T144_101h" name="גודש" value="נפח נמוך" data-english-name="Congestion" data-english-value="Congestion" data-english-innertext="Pulmonary vascular congestion.">גודש בכלי דם הריאתיים.</option>
+<option id="T144_101i" name="נפח נמוך" value="נפח נמוך" data-english-name="Low volume" data-english-value="Low volume" data-english-innertext="Low inspiratory volumes."></option>
+</select>
+</p>
+</section>
+</body>
+</html>

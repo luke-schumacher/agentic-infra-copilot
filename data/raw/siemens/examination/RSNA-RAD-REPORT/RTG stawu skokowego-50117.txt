@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Marcin Czarniecki [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="RTG stawu skokowego" name="dcterms.title"/>
+<meta content="Ankle Xray template :: Authored by Langlotz CP" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050117" name="dcterms.identifier"/>
+<meta content="pl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-03-26" name="dcterms.date"/>
+<meta content="Langlotz CP" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr. [editor]" name="dcterms.contributor"/>
+<meta content="Penn Medicine | Hospital of the University of Pennsylvania (Penn)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css" />
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>1</top-level-flag>
+<status>ACTIVE</status>
+<term>
+  <code_meaning>ankle</code_meaning>
+  <code_value>RID28545</code_value>
+  <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+  <code_meaning>projection radiography</code_meaning>
+  <code_value>RID10345</code_value>
+  <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+  <entry ORIGTXT="T142_1">
+    <term>
+      <code_meaning>side (laterality)</code_meaning>
+      <code_value>RID5821</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="right">
+    <term>
+      <code_meaning>right</code_meaning>
+      <code_value>RID5825</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="left">
+    <term>
+      <code_meaning>left</code_meaning>
+      <code_value>RID5824</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="bilateral">
+    <term>
+      <code_meaning>bilateral</code_meaning>
+      <code_value>RID5771</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T142_2">
+    <term>
+      <code_meaning>imaging procedure</code_meaning>
+      <code_value>RID13060</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T142_7">
+    <term>
+      <code_meaning>clinical information</code_meaning>
+      <code_value>RID13166</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T142_7">
+    <term>
+    <code_meaning>Clinical information</code_meaning>
+    <code_value>55752-0</code_value>
+    <coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T142_8">
+    <term>
+      <code_meaning>comparison</code_meaning>
+      <code_value>RID28483</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T142_12">
+    <term>
+      <code_meaning>bones (set of bones)</code_meaning>
+      <code_value>RID28569</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T142_13">
+    <term>
+      <code_meaning>demineralization</code_meaning>
+      <code_value>RID5387</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T142_14">
+    <term>
+      <code_meaning>set of joints</code_meaning>
+      <code_value>RID28711</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T142_24">
+    <term>
+      <code_meaning>impression section</code_meaning>
+      <code_value>RID13170</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>RTG stawu skokowego</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Ankle Xray">RTG stawu skokowego</header>
+<p>
+<label for="T142_1" data-english="Side:">Strona:</label>
+<select id="T142_1" name="Strona" data-english-name="Side">
+	<option id="right" name="prawa" value="prawa" data-english-name="right" data-english-value="right" data-english-innertext="Right">Prawa</option>
+	<option id="left" name="lewa" value="lewa" data-english-name="left" data-english-value="left" data-english-innertext="Left">Lewa</option>
+	<option id="bilateral" name="dwustonne" value="dwustronne" data-english-name="bilateral" data-english-value="bilateral" data-english-innertext="Bilateral">Dwustronne</option>
+</select>
+</p>
+<p>
+<label for="T142_3" data-english="Number of views:">Ilość projekcji:</label>
+<input type="number" id="T142_3" name="Ilość projekcji" data-field-units="" min="1" max="8" data-english-name="Number of views"/>
+</p>
+<p>
+<textarea id="T142_2" name="procedure_comments" data-english-name="procedure_comments"></textarea>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Dane kliniczne</header>
+<p>
+<!-- <label for="T142_7">Clinical information</label> -->
+<textarea id="T142_7" name="Dane kliniczne" data-english-name="Clinical information"></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Porównano z badaniem</header>
+<p>
+<!-- <label for="T142_8">Comparison</label> -->
+<input type="text" id="T142_8" name="Por&oacute;wnano z badaniem" value="" data-codedcontent-default-val="None" data-codedcontent-default-ref="T142_9" data-english-value="" data-english-name="Comparison"/>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Wynik badania</header>
+<p>
+<label for="T142_11" data-english="Bones:">Struktury kostne:</label>
+<input type="text" id="T142_12" name="Struktury kostne" value="Brak." data-english-value="None." data-english-name="Bones"/>
+</p>
+<p>
+<label for="T142_13" data-english="Mineralization:">Mineralizacja:</label>
+<input type="text" id="T142_13" name="Mineralizacja" value="Ułożenie kości prawidłowe. Nie uwidoczniono złamania lub zwichnięcia." data-english-value="Normal anatomic alignment. No fracture or dislocation." data-english-name="Mineralization"/>
+</p>
+<p>
+<label for="T142_14" data-english="Joints:">Stawy:</label>
+<input type="text" id="T142_14" name="Stawy" value="Prawidłowa." data-english-value="Normal." data-english-name="Joints"/>
+</p>
+<p>
+<label for="T142_19" data-english="Other findings:">Inne ustalenia:</label>
+<input type="text" id="T142_19" name="Inne ustalenia" value="Prawidłowe. Bez cech zapalenia." data-english-value="Normal. No arthritis." data-english-name="Other findings"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Wniosek</header>
+<p>
+<textarea id="T142_24" name="Wniosek" data-english-name="Impression" data-english-innertext="Normal. No fracture or dislocation.">Obraz prawidłowy. Nie uwidoczniono złamania lub zwichnięcia.</textarea>
+</p>
+</section>
+</body>
+</html>

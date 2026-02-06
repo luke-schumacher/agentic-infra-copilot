@@ -1,0 +1,88 @@
+The original text template is provided below. The XML version has been translated. 
+
+MRI OF THE [RIGHT][LEFT] KNEE [WITH][WITHOUT] CONTRAST.
+
+INDICATION:  []
+
+TECHNIQUE: [Axial, coronal, and sagittal images of the [right][left] knee were 
+obtained on a [1.5] Tesla magnet.]
+
+COMPARISON:  [None].
+
+FINDINGS:
+
+Fluid:  [Normal.][[[Small][Moderate][Large] effusion.][Baker's cyst.]]
+
+Medial compartment:
+
+- Medial meniscus: [Normal.][[Oblique][Horizontal][Radial][Complex] tear of 
+the [posterior horn][body][anterior horn][ with [parameniscal 
+cyst][extrusion].]] [Displaced fragment]
+
+- Medial collateral ligament: [Normal.][Grade [1][2][3] sprain pattern.]
+
+- Medial femoral condyle cartilage: [Normal.][[[Partial][Full]-thickness 
+cartilage thinning[ with subchondral [bone marrow edema][cyst 
+formation].][Osteophytosis.]]]
+
+- Medial tibial plateau cartilage: [Normal.][[[Partial][Full]-thickness 
+cartilage thinning[ with subchondral [bone marrow edema][cyst 
+formation].][Osteophytosis.]]]
+
+Lateral compartment:
+
+- Lateral meniscus: [Normal.][[Oblique][Horizontal][Radial][Complex] tear of 
+the [posterior horn][body][anterior horn][ with [parameniscal 
+cyst][extrusion].]] [Displaced fragment]
+
+- Lateral collateral ligament complex: [Normal.][Grade [1][2][3] sprain 
+pattern.]
+
+- Lateral femoral condyle cartilage: [Normal.][[[Partial][Full]-thickness 
+cartilage thinning[ with subchondral [bone marrow edema][cyst 
+formation].][Osteophytosis.]]]
+
+- Lateral tibial plateau cartilage: [Normal.][[[Partial][Full]-thickness 
+cartilage thinning[ with subchondral [bone marrow edema][cyst 
+formation].][Osteophytosis.]]]
+
+Posterolateral corner:
+Popliteus tendon:  [Normal.][[Mild][Moderate][Marked] tendinosis.]
+Popliteofibular ligament:  [Normal.][Grade [1][2][3] sprain pattern.]
+Proximal tibiofibular joint:  [Normal.][[Mild][Moderate][Marked] osteoarthritis.]
+
+Anterior compartment:
+
+Alignment:  [Normal.][Patella [alta][infera].]
+Quadriceps tendon:  [Normal.][[Mild][Moderate][Marked] tendinosis.]
+Patellar tendon:  [Normal.][[Mild][Moderate][Marked] tendinosis.]
+
+Retinaculum: Medial [Normal.][[Partial][Full] thickness tear.] Lateral 
+[Normal.][[Partial][Full] thickness tear.]
+
+Patellar cartilage: [Normal.][[[Partial][Full]-thickness cartilage thinning[ 
+with subchondral [bone marrow edema][cyst formation].][Osteophytosis.]]]
+
+Trochlea: [Normal.][[Shallow trochlear groove [without patellar tilt or 
+subluxation].][[Partial][Full]-thickness cartilage thinning[ with subchondral 
+[bone marrow edema][cyst formation].]]] Plica: [None.] Hoffa fat pad: [Normal.]
+
+Intercondylar compartment:
+
+- Anterior cruciate ligament: [Normal.][[[Partial][Full] thickness tear.][Mucoid 
+degeneration.]]
+
+- Posterior cruciate ligament:  [Normal.][[Partial][Full] thickness tear.]
+
+Bones (other than subarticular marrow):  [Normal.]
+
+Muscles:  [Normal.]
+
+Vessels:  [Normal.]
+
+Nerves:  [Normal.]
+
+
+IMPRESSION:
+
+[]

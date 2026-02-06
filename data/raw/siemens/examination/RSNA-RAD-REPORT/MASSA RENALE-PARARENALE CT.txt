@@ -1,0 +1,16 @@
+MASSA RENALE/PARARENALE CT
+
+Informazioni cliniche
+[Valutare la massa renale]
+Contrasto:
+Confronto[Nessuno]
+Risultati
+Reni
+Numero di masse: []
+Ubicazione / i di massa: []
+Ubicazione nelle immagini: []
+Numero di serie: []
+Numero immagine: []
+Dimensione: [ ]
+Composizione: []
+Miglioramento: [Nessuno.]

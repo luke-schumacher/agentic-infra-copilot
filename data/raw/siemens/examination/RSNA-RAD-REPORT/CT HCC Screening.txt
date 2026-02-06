@@ -1,0 +1,98 @@
+EXAMINATION: [CT abdomen with contrast.]
+
+CLINICAL INFORMATION: [Hepatic cirrhosis. Surveillance for hepatocellular carcinoma.]
+
+COMPARISON:  [None.]
+
+TECHNIQUE:  
+  Axial 2.5 mm images of the abdomen; sagittal and coronal reformatted images.
+  IV contrast:  [Omnipaque-350]  [125] mL.
+  Oral contrast:  [Water was given as enteric contrast.]
+  Technical comments:  [Dual-phase with equilibrium imaging of the abdomen.]
+
+FINDINGS:
+
+HEPATOBILIARY SYSTEM
+Liver morphology:  [Cirrhosis evidenced by heterogeneous appearance, surface nodularity, and/or hypertrophy of the left/caudate lobes.]
+
+Portal hypertension: [Described the presence/absence of portal hypertension. If present, described the portosystemic varices.]
+   Spleen:  [Splenomegaly.]    [  ]  cm.        
+   Ascites:  [None.]
+
+Focal liver lesions:
+   Lesions compatible with hepatocellular carcinoma by OPTN class 5 criteria:  [Dictate &quot;no&quot; or &quot;Powerscribe hepatocellular carcinoma&quot;]
+
+   Indeterminate liver lesions:  [None.]
+
+   Benign liver lesions:   [None.]
+
+Hepatic vasculature:    
+   Portal and hepatic veins:  [Normally patent.]
+   Arterial anatomy:  [Normal (Type I).]
+
+Gallbladder and bile ducts:
+   Gallbladder:  [Gallbladder in situ. No gallbladder wall thickening or pericholecystic fluid.]
+   Bile ducts:   [No intra-or extrahepatic biliary dilatation.] 
+   
+RETROPERITONEUM
+   Pancreas:  [Normal.]
+   Adrenals:  [Normal.]
+   Kidneys:  [Normal.]
+   Lymph nodes:  [No lymphadenopathy in the abdomen or pelvis.]
+
+GASTROINTESTINAL
+  [Imaged bowel and mesentery are normal.]
+
+LOWER CHEST  
+   [Heart is normal in size. Lung bases are clear. No pleural or pericardial effusions.]
+
+BONES
+  [ No significant lesion.]
+
+
+Impression:
+[Impression statements here]
+
+
+The following OPTN class 5 criteria are used to determine if liver lesions are compatible with hepatocellular carcinoma by imaging, as follows:
+
+OPTN Class 5A - Must meet ALL criteria:
+   1. Nodule measuring between 1 and 1.9 cm.
+   2. Increased contrast enhancement on late arterial phase (&quot;hypervascularity&quot;), relative to hepatic parenchyma.
+   3. BOTH &quot;washout&quot; on later contrast phase AND delayed peripheral rim enhancement (capsule/pseudocapsule).
+
+OPTN Class 5A-g - Must meet ALL criteria:
+   1. Nodule measuring between 1 and 1.9 cm.
+   2. Increased contrast enhancement on late arterial phase (hypervascularity relative to hepatic parenchyma).
+   3. Growth (maximum diameter) by 50% or more on serial MR/CT obtained at least 6 months apart. Growth criteria does not apply to previously ablated lesions.
+
+OPTN Class 5B - Must meet ALL criteria:
+   1. Nodule measuring between 2 and 5 cm.
+   2. Increased contrast enhancement on late arterial phase (&quot;hypervascularity&quot;), relative to hepatic parenchyma.
+   3. One of the following:
+       a. &quot;Washout&quot; on portal venous/delayed phase.
+       b. Delayed peripheral rim enhancement (capsule/pseudocapsule).
+       c. Growth (maximum diameter) by 50% or more on serial MR/CT obtained at least 6 months apart. Growth criteria does not apply to previously ablated lesions
+       d. Biopsy proven.
+
+http://optn.transplant.hrsa.gov/resources/by-organ/liver-intestine/
+
+
+
+Milan Criteria for potential transplantation:
+   -  one lesion smaller than 5 cm 
+   -  up to 3 lesions smaller than 3 cm
+   -  no extrahepatic manifestations 
+   -  no vascular invasion
+
+&ldquo;Hepatocellular Carcinoma&rdquo; sub-template
+
+Lesion # [  ]  :
+   Lesion size: [  ]  cm (series  [ ]   , image [ ]   ).
+   Lesion location: Segment  [  ] .
+
+   Hypervascularity:  [Yes/no]
+   Washout:  [Yes/no]
+   Capsule/pseudocapsule:  [Yes/no].
+
+   Change in lesion since prior exam:  [Not applicable. Baseline study.]

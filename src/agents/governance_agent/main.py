@@ -44,7 +44,8 @@ from src.protocol.schema import (
     DocumentReference, ConsultPayload
 )
 from src.agents.governance_agent.brain import TelekomMinisterModule
-from src.agents.governance_agent.data_loader import TelekomLoader
+from src.agents.governance_agent.data_loader import TelekomLoader  # Legacy loader
+from src.agents.governance_agent.clinical_governance_loader import ClinicalGovernanceLoader  # New clinical loader
 from src.agents.governance_agent.vector_store import TelekomVectorStore
 from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
@@ -534,12 +535,16 @@ async def delegate_to_specialist(target: str, query: str, correlation_id: str):
         correlation_id: Original message ID for correlation
     """
     # Support Docker and local environments via environment variables
-    siemens_url = os.getenv("SIEMENS_TECHNICIAN_URL", "http://localhost:8002")
-    illigo_url = os.getenv("ILLIGO_OPERATOR_URL", "http://localhost:8003")
+    hardware_url = os.getenv("SIEMENS_TECHNICIAN_URL", "http://localhost:8002")
+    telemetry_url = os.getenv("ILLIGO_OPERATOR_URL", "http://localhost:8003")
 
     agent_urls = {
-        "siemens_technician": f"{siemens_url}/consult",
-        "illigo_operator": f"{illigo_url}/consult"
+        # New canonical names
+        "hardware_agent": f"{hardware_url}/consult",
+        "telemetry_agent": f"{telemetry_url}/consult",
+        # Legacy aliases for backward compatibility
+        "siemens_technician": f"{hardware_url}/consult",
+        "illigo_operator": f"{telemetry_url}/consult",
     }
 
     if target not in agent_urls:
@@ -547,7 +552,7 @@ async def delegate_to_specialist(target: str, query: str, correlation_id: str):
         return None
 
     target_role = (
-        AgentRole.HARDWARE_AGENT if "siemens" in target
+        AgentRole.HARDWARE_AGENT if target in ("hardware_agent", "siemens_technician")
         else AgentRole.TELEMETRY_AGENT
     )
 
@@ -578,12 +583,13 @@ async def delegate_to_specialist(target: str, query: str, correlation_id: str):
 
 
 @app.post("/index")
-async def index_documents(force_reindex: bool = False):
+async def index_documents(force_reindex: bool = False, use_legacy: bool = False):
     """
     Trigger vector store indexing.
 
     Args:
         force_reindex: If True, clear existing documents and re-index
+        use_legacy: If True, use legacy TelekomLoader instead of ClinicalGovernanceLoader
 
     Returns:
         Indexing results with document count
@@ -591,9 +597,15 @@ async def index_documents(force_reindex: bool = False):
     try:
         logger.info("Starting document indexing...")
 
-        # Load documents
-        loader = TelekomLoader()
-        documents = loader.load()
+        # Load documents using appropriate loader
+        if use_legacy:
+            logger.info("Using legacy TelekomLoader (raw Telekom data)")
+            loader = TelekomLoader()
+            documents = loader.load()
+        else:
+            logger.info("Using ClinicalGovernanceLoader (processed clinical protocols)")
+            loader = ClinicalGovernanceLoader()
+            documents = loader.load()
 
         if not documents:
             return {

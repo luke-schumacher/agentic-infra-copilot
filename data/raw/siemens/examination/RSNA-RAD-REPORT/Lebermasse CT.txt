@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Steven Eberhardt [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Lebermasse CT" name="dcterms.title"/>
+<meta content="CT Onco Primary Liver Mass template :: Authored by Gottlieb R, et al." name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050148" name="dcterms.identifier"/>
+<meta content="de" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-11-10" name="dcterms.date"/>
+<meta content="Gottlieb R, et al." name="dcterms.creator"/>
+<meta content="Bozkurt S [coder]" name="dcterms.contributor"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<term>
+ <code meaning="computed tomography" value="RID10321" scheme="RadLex">
+</term>
+<term>
+ <code meaning="liver" value="RID58" scheme="RadLex">
+</term>
+<term>
+ <code meaning="mass" value="RID3874" scheme="RadLex">
+</term>
+<term>
+ <code meaning="neoplasm" value="RID3957" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T17_2">
+ <term>
+  <code meaning="procedure" value="RID1559" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_8">
+ <term>
+  <code meaning="clinical information" value="RID13166" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_9">
+ <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_14">
+ <term>
+  <code meaning="(unspecified)" value="RID5768" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_16">
+  <term>
+  <code meaning="Size (attribute)" value="246115007" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T17_17">
+ <term>
+  <code meaning="anatomic sub-part" value="RID5945" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="anatomical structure" value="RID13390" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_38">
+ <term>
+  <code meaning="enhancement characteristic" value="RID6054" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_44">
+ <term>
+  <code meaning="calcification" value="RID5196" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_47">
+ <term>
+  <code meaning="fat" value="RID1538" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_50">
+ <term>
+  <code meaning="(unspecified)" value="RID84" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_53">
+ <term>
+  <code meaning="Single with satellite lesions (qualifier value)" value="264920001" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T17_56">
+  <term>
+  <code meaning="Extent of tumor (attribute)" value="260862004" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T17_58">
+ <term>
+  <code meaning="(unspecified)" value="RID84" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="pathophysiologic finding" value="RID4736" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="pathophysiologic process modifier" value="RID7466" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_59">
+ <term>
+  <code meaning="peritoneum" value="RID410" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="pathophysiologic finding" value="RID4736" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="pathophysiologic process modifier" value="RID7466" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_60">
+ <term>
+  <code meaning="adjacent" value="RID5849" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="set of organs" value="RID15506" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_61">
+ <term>
+  <code meaning="vascular region" value="RID28822" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="pathophysiologic finding" value="RID4736" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="pathophysiologic process modifier" value="RID7466" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_87">
+ <term>
+  <code meaning="bile duct" value="RID191" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_93">
+ <term>
+  <code meaning="adjacent" value="RID5849" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="lymph node" value="RID13296" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T17_96">
+  <term>
+  <code meaning="Distant metastases.clinical [Class] Cancer" value="21907-1" scheme="LOINC">
+ </term>
+</entry>
+<entry ORIGTXT="T17_183">
+ <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Lebermasse CT</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="CT Onco Primary Liver Mass">CT Onco primären Lebermassen</header>
+<p>
+<textarea id="T17_2" name="Prozedur" data-english-name="Procedure" data-english-innertext=" "></textarea>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Klinische Informationen</header>
+<p>
+<textarea id="T17_8" name="Klinische Informationen" data-english-name="Clinical information" data-english-innertext=" "></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Gegenüberstellung</header>
+<p>
+<textarea id="T17_9" name="Gegen&uuml;berstellung" data-english-name="Comparison" data-english-innertext="None. ">Keine.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Erkenntnisse</header>
+<section data-section-name="Liver">
+<header class="level2" data-english="Liver">Leber</header>
+<p>
+<label for="T17_14" data-english="Number of masses:">Anzahl der Massen:</label>
+<input type="number" id="T17_14" name="T17_14" value="" data-english-value="" data-english-name="T17_14"/>
+</p>
+<p>
+<label for="T17_16" data-english="Size:">Größe:</label>
+<input type="number" id="T17_16" name="T17_16" data-field-units="" min="" max="" data-english-name="T17_16"/> cm </p>
+<p>
+<label for="T17_17" data-english="Location:">Ort:</label>
+<input type="text" id="T17_17" name="T17_17" value="" data-english-value="" data-english-name="T17_17"/>
+</p>
+<p>
+<label for="T17_38" data-english="Enhancement:">Verbesserung:</label>
+<input type="text" id="T17_38" name="T17_38" value="" data-english-value="" data-english-name="T17_38"/>
+</p>
+<p>
+<label for="T17_44" data-english="Calcification:">Verkalkung:</label>
+<input type="text" id="T17_44" name="T17_44" value="Keine." data-english-value="None." data-english-name="T17_44"/>
+</p>
+<p>
+<label for="T17_47" data-english="Fat:">Fett:</label>
+<input type="text" id="T17_47" name="T17_47" value="Keine." data-english-value="None." data-english-name="T17_47"/>
+</p>
+<p>
+<label for="T17_50" data-english="Capsular retraction:">Kapsel Einfahren:</label>
+<input type="text" id="T17_50" name="T17_50" value="Keine." data-english-value="None." data-english-name="T17_50"/>
+</p>
+<p>
+<label for="T17_53" data-english="Satellite lesions:">Satelliten-Läsionen:</label>
+<input type="text" id="T17_53" name="T17_53" value="Keine." data-english-value="None." data-english-name="T17_53"/>
+</p>
+<p>
+<label for="T17_56" data-english="Local extension:">Lokale Erweiterung:</label>
+<input type="text" id="T17_56" name="T17_56" value="Keine." data-english-value="None." data-english-name="T17_56"/>
+</p>
+<p>
+<label for="T17_58" data-english="Capsular penetration:">Kapselpenetration:</label>
+<input type="text" id="T17_58" name="T17_58" value="Keine." data-english-value="None." data-english-name="T17_58"/>
+</p>
+</section>
+<section data-section-name="Liver">
+<header class="level2" data-english="Liver">Leber</header>
+<p>
+<label for="T17_59" data-english="Peritoneal disease:">Bauchfellerkrankungen:</label>
+<input type="text" id="T17_59" name="T17_59" value="Keine." data-english-value="None." data-english-name="T17_59"/>
+</p>
+<p>
+<label for="T17_60" data-english="Adjacent organs:">Benachbarte Organe:</label>
+<input type="text" id="T17_60" name="T17_60" value="Keine." data-english-value="None." data-english-name="T17_60"/>
+</p>
+<p>
+<label for="T17_61" data-english="Vascular involvement:">Gefäßbeteiligung:</label>
+<input type="text" id="T17_61" name="T17_61" value="Normal." data-english-value="Normal." data-english-name="T17_61"/>
+</p>
+<p>
+<label for="T17_87" data-english="Bile duct involvement:">Gallengang Beteiligung:</label>
+<input type="text" id="T17_87" name="T17_87" value="Keine." data-english-value="None." data-english-name="T17_87"/>
+</p>
+<p>
+<label for="T17_93" data-english="Adjacent lymph nodes:">Benachbarten Lymphknoten:</label>
+<input type="text" id="T17_93" name="T17_93" value="Keine." data-english-value="None." data-english-name="T17_93"/>
+</p>
+<p>
+<label for="T17_96" data-english="Distant metastases:">Fernmetastasen:</label>
+<input type="text" id="T17_96" name="T17_96" value="" data-english-value="" data-english-name="T17_96"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Eindruck</header>
+<p>
+<textarea id="T17_183" name="Eindruck" data-english-name="Impression" data-english-innertext=" "></textarea>
+</p>
+</section>
+</body>
+</html>

@@ -150,9 +150,9 @@ class GraphService:
         Extract error codes from text using regex patterns.
 
         Supports patterns like:
-        - CX001, CX002 (Illigo/charging station)
+        - FM-001 (MRI failure mode IDs)
+        - CX001, CX002 (Legacy charging station errors)
         - ERR-001, ERR-002 (Generic)
-        - OCPP errors
 
         Args:
             text: Text to search for error codes
@@ -161,9 +161,9 @@ class GraphService:
             List of unique error codes found
         """
         patterns = [
-            r'CX\d{3}',           # Charging station errors (CX001, CX002)
+            r'FM[-_]?\d{3}',      # MRI failure mode IDs (FM-001, FM001)
+            r'CX\d{3}',           # Legacy charging station errors
             r'ERR[-_]?\d{3}',     # Generic errors (ERR-001, ERR001)
-            r'OCPP[-_]?\d{3}',    # OCPP protocol errors
             r'FAULT[-_]?\d{3}',   # Fault codes
         ]
 
@@ -174,27 +174,69 @@ class GraphService:
 
         return list(error_codes)
 
-    def extract_station_ids(self, text: str, known_stations: List[str] = None) -> List[str]:
+    def extract_symptom_keywords(self, text: str) -> List[str]:
         """
-        Extract station IDs from text.
+        Extract MRI-relevant symptom keywords from query text.
 
         Args:
-            text: Text to search
-            known_stations: Optional list of known station IDs to match
+            text: Query text to analyze
 
         Returns:
-            List of station IDs found
+            List of relevant keywords for graph lookup
         """
-        # Default known stations from Illigo data
-        if known_stations is None:
-            known_stations = [
-                'KOUMASSI', 'ANGRE', 'COCODY', 'PLATEAU',
-                'BINGERVILLE', 'YOPOUGON', 'MARCORY', 'TREICHVILLE'
-            ]
+        mri_keywords = [
+            'thermal', 'temperature', 'shutdown', 'overheat', 'cooling',
+            'gradient', 'coil', 'degradation', 'artifact',
+            'helium', 'quench', 'cryogen', 'compressor',
+            'rf amplifier', 'signal', 'snr', 'noise',
+            'table', 'positioning', 'alignment',
+            'dicom', 'network', 'pacs', 'transfer',
+            'shimming', 'b0', 'homogeneity',
+            'reconstruction', 'timeout', 'queue',
+            'interlock', 'door', 'safety',
+            'protocol', 'sequence', 'scan',
+            'calibration', 'drift', 'sensor',
+            'power', 'ups', 'supply',
+            'sar', 'ecg', 'gating',
+        ]
 
-        text_upper = text.upper()
-        found = [s for s in known_stations if s in text_upper]
+        text_lower = text.lower()
+        found = [kw for kw in mri_keywords if kw in text_lower]
         return found
+
+    def get_fault_context_by_symptom(self, symptom: str) -> Optional[List[Dict[str, Any]]]:
+        """
+        Query graph for faults matching symptom keywords.
+
+        Args:
+            symptom: Symptom description text
+
+        Returns:
+            List of matching fault records
+        """
+        if not self._lazy_init():
+            return None
+
+        try:
+            keywords = self.extract_symptom_keywords(symptom)
+            results = []
+            for keyword in keywords[:3]:  # Limit to top 3 keywords
+                matches = self._builder.query_fault_by_symptom(keyword)
+                results.extend(matches)
+
+            # Deduplicate by fault_id
+            seen = set()
+            unique = []
+            for r in results:
+                fid = r.get('fault_id', '')
+                if fid not in seen:
+                    seen.add(fid)
+                    unique.append(r)
+
+            return unique[:5] if unique else None
+        except Exception as e:
+            logger.error(f"Error querying faults by symptom: {e}")
+            return None
 
     def get_enriched_context(
         self,
@@ -204,19 +246,19 @@ class GraphService:
         """
         Get graph-enriched context for a query.
 
-        Extracts error codes and station IDs from the query,
-        queries the graph, and returns formatted context.
+        Extracts fault IDs, symptom keywords, and component references,
+        then queries the graph and returns formatted context.
 
         Args:
             query: User query text
-            location: Optional location/station hint
+            location: Optional location hint
 
         Returns:
             Formatted string with graph knowledge
         """
         context_parts = []
 
-        # Extract and query error codes
+        # 1. Extract and query explicit fault/error codes
         error_codes = self.extract_error_codes(query)
         for code in error_codes:
             fault_info = self.get_fault_context(code)
@@ -227,7 +269,6 @@ class GraphService:
                     f"Domain={fault_info.get('domain', 'unknown')}"
                 )
 
-                # Add resolution procedures if available
                 procedures = fault_info.get('resolution_procedures', [])
                 if procedures:
                     proc_str = "; ".join([
@@ -236,12 +277,10 @@ class GraphService:
                     ])
                     context_parts.append(f"[Graph - Procedures]: {proc_str}")
 
-                # Add violated SLAs if available
                 slas = fault_info.get('violated_slas', [])
                 if slas:
                     context_parts.append(f"[Graph - Violated SLAs]: {', '.join(slas)}")
 
-            # Find related errors
             related = self.find_related_errors(code)
             if related:
                 related_str = ", ".join([
@@ -250,12 +289,27 @@ class GraphService:
                 ])
                 context_parts.append(f"[Graph - Related Errors]: {related_str}")
 
-        # Query station history
-        stations = self.extract_station_ids(query)
-        if location and location.upper() not in [s.upper() for s in stations]:
+        # 2. Symptom-based fault lookup (MRI-specific)
+        symptom_faults = self.get_fault_context_by_symptom(query)
+        if symptom_faults:
+            context_parts.append("[Graph - Matching MRI Fault Modes]:")
+            for fault in symptom_faults[:3]:
+                context_parts.append(
+                    f"  {fault.get('fault_id', '?')}: {fault.get('failure_mode', '?')} "
+                    f"({fault.get('severity', '?')}) - "
+                    f"Component: {fault.get('component', '?')}, "
+                    f"Root cause: {fault.get('root_cause', '?')[:100]}"
+                )
+                repair = fault.get('repair_action', '')
+                if repair:
+                    context_parts.append(f"    Repair: {repair[:150]}")
+
+        # 3. Legacy station history queries
+        stations = []
+        if location:
             stations.append(location.upper())
 
-        for station in stations[:2]:  # Limit to 2 stations
+        for station in stations[:2]:
             history = self.get_station_history(station)
             if history:
                 events = history.get('events', [])
