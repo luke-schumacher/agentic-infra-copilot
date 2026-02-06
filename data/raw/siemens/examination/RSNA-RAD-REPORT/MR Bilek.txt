@@ -1,0 +1,68 @@
+The original text template is provided below. The XML version has been translated. 
+
+MRI OF THE [RIGHT][LEFT] WRIST [WITH CONTRAST][WITHOUT CONTRAST].
+
+INDICATION:  []
+
+TECHNIQUE: [Axial proton density and T2, coronal proton density, and sagittal 
+T1 and proton density images of the [right][left] wrist were obtained on a 
+[1.5] Tesla magnet.]
+
+COMPARISON:  [None].
+
+FINDINGS:
+
+Alignment:  
+[Normal.]
+[[[Positive][Negative] ulnar variance.]
+[[Congruent] distal radioulnar joint.]
+[[DISI][VISI] carpal instability.]]
+
+Fluid:
+Carpus effusion:  [None.][[Mild.][Moderate.][Marked.]]
+Distal radioulnar joint effusion:  [None.][[Mild.][Moderate.][Marked.]]
+
+Intrinsic ligaments:
+Scapholunate:  [Intact.][[Dorsal][Central][Volar] tear.]
+Lunotriquetral:  [Intact.][[Dorsal][Central][Volar] tear.]
+
+Ulnar side:
+
+Triangular fibrocartilage: [Intact.][[[Full][Partial]-thickness [radial 
+(central)][ulnar (peripheral)] tear.]]
+
+Lunate facet:  [Yes.][No.]
+[[Hamate-lunate:  [Mild][Moderate][Marked][ chondromalacia][ osteoarthritis].]]
+
+Extensor compartment:
+I:  [Normal.][[Mild][Moderate][Marked][ tendinosis.]]
+II:  [Normal.][[Mild][Moderate][Marked][ tendinosis.]]
+III:  [Normal.][[Mild][Moderate][Marked][ tendinosis.]]
+IV:  [Normal.][[Mild][Moderate][Marked][ tendinosis.]]
+V:  [Normal.][[Mild][Moderate][Marked][ tendinosis.]]
+VI:  [Normal.][[Mild][Moderate][Marked][ tendinosis.]]
+
+Flexor compartment:
+
+Carpal tunnel:
+Median nerve:  [Normal.][[Abnormal signal intensity.][Flat shape.][Swollen.]]
+Flexor retinaculum:  [Normal.][Bowed.]
+Flexor tendons:  [Normal.][[Mild][Moderate][Marked] tenosynovitis.]]
+
+Guyon canal:  [Normal.][...ulnar nerve/ulnar vessels/ganglion...]
+
+Articular:
+Thumb carpometacarpal joint:  [Normal.][[Mild][Moderate][Marked][ osteoarthritis.]]
+Scaphotrapezotrapezoidal joint:  [Normal.][[Mild][Moderate][Marked][ osteoarthritis.]]
+Pisiform-triquetral joint:  [Normal.][[Mild][Moderate][Marked][ osteoarthritis.]]
+
+Bones (other than subarticular marrow):  [Normal.]
+
+Muscles:  [Normal.]
+
+Vessels:  [Normal.]
+
+IMPRESSION:
+
+[]
+

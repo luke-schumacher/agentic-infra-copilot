@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<grammar
+	ns="http://www.radreport.org/" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:radlex="http://www.radlex.org/" xmlns:snomed="http://www.ihtsdo.org/" xmlns:loinc="http://www.loinc.org/" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+    <start>
+        <element name="报告" radlex:id="RID28487" radlex:match="Exact"> <!-- Report -->
+            <attribute name="template">
+                <value>http://www.radreport.org/template/0000102</value>
+            </attribute>
+            <interleave>
+                <ref name="Procedure"/>
+                <ref name="Clinical_information"/>
+                <ref name="Comparison"/>
+                <ref name="Findings"/>
+                <ref name="Impression"/>
+            </interleave>
+        </element>
+    </start>
+
+    <define name="Procedure">
+        <element name="程序" radlex:id="RID1559" radlex:match="Exact"> <!-- Procedure -->
+            <element name="观察" radlex:id="RID12243" radlex:match="Exact"> <!-- View -->
+                <optional>
+                    <element name="PA" radlex:id="RID28625" radlex:match="Exact"> <!-- PA -->
+                        <empty/>
+                    </element>
+                </optional>
+                <optional>
+                    <element name="AP" radlex:id="RID28784" radlex:match="Exact" > <!-- AP -->
+                        <empty/>
+                    </element>
+                </optional>
+                <optional>
+                    <element name="横向" radlex:id="RID5821" radlex:match="Exact"> <!-- Lateral -->
+                        <empty/>
+                    </element>
+                </optional>
+                <text/>
+            </element>
+            <text/>
+        </element>
+    </define>
+
+    <define name="Clinical_information">
+        <element name="临床信息" radlex:id="RID13166" radlex:match="Exact"> <!-- Clinical information -->
+            <optional>
+                <element name="咳嗽" radlex:id="" radlex:match="" snomed:id="49727002"> <!-- Cough -->
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <element name="发烧" radlex:id="" radlex:match="" snomed:id="386661006"> <!-- Fever -->
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <element name="呼吸急促" > <!-- Shortness of breath -->
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <element name="术前检查" radlex:id="RID28815" radlex:match="Exact"> <!-- Pre-operative exam -->
+                    <text/>
+                </element>
+            </optional>
+            <text/>
+        </element>
+    </define>
+
+    
+    <define name="Comparison">
+        <element name="比较" radlex:id="RID28483" radlex:match="Exact"> <!-- Comparison -->
+            <choice>
+                <element name="无" radlex:id="RID28454" radlex:match="Exact"> <!-- None -->
+                    <text/>
+                </element>
+                <text/>
+            </choice>
+        </element>
+    </define>
+
+
+    <define name="Findings">
+        <element name="发现" radlex:id="RID28486" radlex:match="Exact" > <!-- Findings -->
+            <element name="心" radlex:id="RID1385" radlex:match="Exact"> <!-- Heart -->
+                <ref name="Normal_or_text"/>
+            </element>
+            <element name="肺" radlex:id="RID13437" radlex:match="Exact"> <!-- Lungs -->
+                <choice>
+                    <element name="正常" radlex:id="RID13173" radlex:match="Exact"> <!-- Normal -->
+                        <text/>
+                    </element>
+                    <element name="无急性疾病" > <!-- No acute disease -->
+                        <text/>
+                    </element>
+                    <text/>
+                </choice>
+            </element>
+            <element name="骨头" radlex:id="RID28569" radlex:match="Exact"> <!-- Bones -->
+                <choice>
+                    <element name="正常" radlex:id="RID13173" radlex:match="Exact"> <!-- Normal -->
+                        <text/>
+                    </element>
+                    <element name="退行性改变" > <!-- Degenerative changes -->
+                        <text/>
+                    </element>
+                    <text/>
+                </choice>
+            </element>
+            <text/>
+        </element>
+    </define>
+
+    <define name="Impression">
+        <element name="印象" radlex:id="RID13170" radlex:match="Exact" > <!-- Impression -->
+            <choice>
+                <element name="正常" radlex:id="RID13173" radlex:match="Exact"> <!-- Normal -->
+                    <text/>
+                </element>
+                <element name="无急性疾病" > <!-- No acute disease -->
+                    <text/>
+                </element>
+                <text/>
+            </choice>
+        </element>
+    </define>
+
+    <define name="Normal_or_text">
+        <choice>
+            <element name="正常" radlex:id="RID13173" radlex:match="Exact"> <!-- Normal -->
+                <text/>
+            </element>
+            <text/>
+        </choice>
+    </define>
+
+</grammar>

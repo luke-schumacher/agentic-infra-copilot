@@ -1,0 +1,63 @@
+The original text template is provided below. The XML version has been translated. 
+
+PROCEDURE:[ Enhanced | Unenhanced ] MRI Rectum
+
+CLINICAL INDICATION: [rectal tumor staging]. 
+
+COMPARISON: [<date> | None*].
+
+TECHNIQUE: 
+
+Pre and [non-dynamic] [dynamic] post contrast imaging of the pelvis with the 
+focus on the rectum was performed on a [field strength] Tesla scanner. [ ] ml 
+of [name of contrast agent] was administered before and after fat suppressed 
+T1-weighted imaging. Image quality is [satisfactory/degraded by motion/etc]. 
+In addition, high-resolution T2-weighted images were performed in sagittal, 
+coronal and axial planes; the axial images were performed in a plane 
+perpendicular to the long-axis of the rectum to assess the relationship of the 
+tumor to the rectal wall and the circumferential resection margin (CRM) [also 
+known as the peri-rectal fascia].
+
+Imaging was performed using [endorectal coil / phased-array surface coil / a 
+combination of endorectal phased-array surface coils].
+
+
+FINDINGS:
+
+Rectal tumor
+	Size: [# x # x # cm]
+
+Appearance on the T2-weighted images: [Predominantly solid lesion with 
+intermediate signal intensity (SI), between that of skeletal muscle and fluid] 
+or [Predominantly fluid-like lesion with signal intensity similar to or higher 
+than fluid suggesting a mucinous tumor]
+
+Distance of the lower edge of the tumor to the anal verge (lower edge of the 
+anal canal): # cm
+
+Distance of the lower edge of the tumor to the pelvic floor (to define the 
+relationship of the tumor to the anal sphincter complex): # cm
+
+Circumference of the rectum involved: [% of the total diameter]
+
+T-stage of the tumor
+	[T1 (tumor invades the submucosa]]
+	[T2 (tumor invades the muscularis propria]]
+	[T3 (tumor invades the perirectal fat]]
+		[T3a: tumor <5 mm into the perirectal fat or extramural]
+		[T3b: tumor 5-10 mm into the perirectal fat or extramural]
+		[T3a: tumor >10 mm into the perirectal fat or extramural]
+	[T4 (tumor invades the adjacent vital organs]]
+	[T4 (tumor is within 2 mm of the CRM]]
+
+Lymph nodes: [No enlarged nodes / number and size of the lymph nodes in the 
+perirectal space as well as along the major pelvic vessels]
+
+NOTE: in case of mucinous-type of rectal tumor the involved lymph nodes may 
+have fluid-like signal intensity
+
+Bony metastases: [None visible / number and size of any bony metastases
+
+IMPRESSION:
+
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="Radiografie abdomen" name="dcterms.title"/>
+<meta content="Abdomen Xray template :: Authored by Kahn CE Jr" name="dcterms.description"/>
+<meta content="http://www.radreport.org/template/0000311" name="dcterms.identifier"/>
+<meta content="nl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-06-18" name="dcterms.date"/>
+<meta content="Kahn CE Jr" name="dcterms.creator"/>
+<meta content="Bosmans JM [translator]" name="dcterms.contributor"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+
+<term>
+ <code meaning="abdomen" value="RID56" scheme="RadLex">
+</term>
+<term>
+ <code meaning="projection radiography" value="RID10345" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T99_2">
+ <term>
+  <code meaning="procedure" value="RID1559" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_5">
+ <term>
+  <code meaning="clinical information" value="RID13166" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_6">
+ <term>
+  <code meaning="abdomen" value="RID56" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="pain" value="RID28803" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_7">
+ <term>
+  <code meaning="distended" value="RID5787" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="abdomen" value="RID56" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_8">
+ <term>
+  <code meaning="placement" value="RID28707" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="nasogastric tube" value="RID5566" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_9">
+ <term>
+  <code meaning="postoperative" value="RID5729" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_10">
+ <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_15">
+ <term>
+  <code meaning="abnormal" value="RID28453" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="calcifications" value="RID34642" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_17">
+ <term>
+  <code meaning="set of bones" value="RID28569" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_18">
+ <term>
+  <code meaning="normal" value="RID13173" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T99_19">
+ <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Radiografie abdomen</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Abdomen Radiography">Radiografie abdomen</header>
+<p>
+<label for="T99_2" data-english="Procedure">Procedure</label>
+<select id="T99_2" name="Procedure" data-english-name="Procedure">
+<option id="T99_2.1" name="Overzichtsopname abdomen" value="Overzichtsopname abdomen" data-english-name="Abdomen 1 View" data-english-value="Abdomen 1 View" data-english-innertext="Abdomen 1 View">Overzichtsopname abdomen</option>
+<option id="T99_2.2" name="Acute abdominale reeks" value="Acute abdominale reeks" data-english-name="Acute Abdominal Series" data-english-value="Acute Abdominal Series" data-english-innertext="Acute Abdominal Series">Acute abdominale reeks</option>
+<option id="T99_2.3" name="Rechtop en in rugligging" value="Rechtop en in rugligging" data-english-name="Upright and Supine Abdomen" data-english-value="Upright and Supine Abdomen" data-english-innertext="Upright and Supine Abdomen">Rechtop en in rugligging</option>
+<option id="T99_2.4" name="Andere" value="Andere" data-english-name="Other" data-english-value="Other" data-english-innertext="Other">Andere</option>
+</select>
+<label for="T99_3" data-english="Other">Andere</label>
+<input type="text" id="T99_3" name="Andere" data-english-name="Other"/>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Klinische informatie</header>
+<p>
+<label for="T99_5" data-english="Clinical information">Klinische informatie</label>
+<select id="T99_5" name="Klinische informatie" data-english-name="Clinical information">
+<option id="T99_6" name="Buikpijn" value="Buikpijn" data-english-name="Abdominal pain" data-english-value="Abdominal pain" data-english-innertext="Abdominal pain">Buikpijn</option>
+<option id="T99_7" name="Opgezette buik" value="Opgezette buik" data-english-name="Distended abdomen" data-english-value="Distended abdomen" data-english-innertext="Distended abdomen">Opgezette buik</option>
+<option id="T99_8" name="Plaatsing neussonde" value="Plaatsing neussonde" data-english-name="Nasogastric tube placement" data-english-value="Nasogastric tube placement" data-english-innertext="Nasogastric tube placement">Plaatsing neussonde</option>
+<option id="T99_9" name="Post-operatief onderzoek" value="Post-operatief onderzoek" data-english-name="Post-operative examination" data-english-value="Post-operative examination" data-english-innertext="Post-operative examination">Post-operatief onderzoek</option>
+<option id="T99_5.1" name="Andere" value="Andere" data-english-name="Other" data-english-value="Other" data-english-innertext="Other">Andere</option>
+</select>
+<label for="T99_5.2" data-english="Other">Andere</label>
+<input type="text" id="T99_5.2" name="Andere" data-english-name="Other"/>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Vergelijking</header>
+<p>
+<input type="text" id="T99_10" name="Vergelijking" value="" data-english-value="" data-english-name="Comparison"/>
+</p>
+</section>
+<section data-section-name="Observations">
+<header class="level1" data-english="Observations">Waarnemingen</header>
+<p>
+<label for="T99_13" data-english="Bowel gas pattern">Darmgasverdeling</label>
+<input type="text" id="T99_13" name="Darmgasverdeling" value="" data-english-value="" data-english-name="Bowel gas pattern"/>
+</p>
+<p>
+<label for="T99_15" data-english="Abnormal calcifications">Abnormale verkalkingen</label>
+<input type="text" id="T99_15" name="Abnormale verkalkingen" value="Geen" data-english-value="None" data-english-name="Abnormal calcifications"/>
+</p>
+<p>
+<label for="T99_17" data-english="Bones">Skelet</label>
+<input type="text" id="T99_17" name="Skelet" value="Normaal" data-english-value="Normal" data-english-name="Bones"/>
+</p>
+<p>
+<label for="T99_18" data-english="Other">Andere</label>
+<input type="text" id="T99_18" name="Andere" value="Geen" data-english-value="None" data-english-name="Other"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Conclusie</header>
+<p>
+<input type="text" id="T99_19" name="Conclusie" value="Normaal" data-english-value="Normal" data-english-name="Impression"/>
+</p>
+</section>
+</body>
+</html>

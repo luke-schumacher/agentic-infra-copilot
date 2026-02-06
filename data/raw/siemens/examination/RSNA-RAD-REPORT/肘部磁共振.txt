@@ -1,0 +1,71 @@
+The original text template is provided below. The XML version has been translated. 
+
+MRI OF THE [RIGHT][LEFT] ELBOW [WITH CONTRAST][WITHOUT CONTRAST].
+
+INDICATION:  []
+
+TECHNIQUE: [Axial, coronal and sagittal proton density images of the 
+[right][left] elbow were obtained on a [1.5] Tesla magnet.]
+
+COMPARISON:  [None].
+
+FINDINGS:
+
+Joint fluid:  [Normal.][[Small][Moderate][Large] joint effusion.]
+
+Medial:
+	Ulnar collateral ligament:  [Normal.][[[Mild][Moderate][Marked] thickening.]
+    [Partial-thickness tear from the [humeral][ulnar] attachment.]
+    [Full-thickness tear.]]
+	Common flexor tendon:  [Normal.][[[Mild][Moderate][Marked] tendinosis.]
+    [[Low-][High-]grade partial-thickness tear.][Full -thickness tear.]]
+	Medial epicondyle:  [Normal.][[Osteophyte.][[Soft tissue][Bone marrow] edema.]]
+
+Lateral:
+	Radial collateral ligament:  [Normal.][[[Mild][Moderate][Marked] thickening.]
+    [Partial-thickness tear from the [humeral][radial] attachment.]
+    [Full-thickness tear.]]
+	Lateral ulnar collateral ligament:  [Normal.]
+    [[[Mild][Moderate][Marked] thickening.]
+    [Partial-thickness tear from the [humeral][ulnar] attachment.]
+    [Full-thickness tear.]]
+	Common extensor tendon:  [Normal.][[[Mild][Moderate][Marked] tendinosis.]
+    [[Low-][High-]grade partial-thickness tear.][Full-thickness tear.]]
+	Lateral epicondyle:  [Normal.][[Osteophyte.][[Soft tissue][Bone marrow] edema.]]
+
+Posterior:
+	Triceps:  [Normal.][[[Mild][Moderate][Marked] tendinosis.]
+    [[Low-][High-]grade partial-thickness tear.][Full-thickness tear.]]
+	Olecranon:  [Normal.][[Osteophyte.][Fracture.]
+    [[Mild][Moderate][Marked] bursitis.]]
+
+Anterior:
+	Biceps:  [Normal.][[[Mild][Moderate][Marked] tendinosis.]
+    [[Low-][High-]grade partial-thickness tear.][Full-thickness tear.]]
+	Brachialis:  [Normal.][[[Mild][Moderate][Marked] tendinosis.]
+    [[Low-][High-]grade partial-thickness tear.][Full-thickness tear.]]
+	Bicipitoradial bursa:  [Normal.][[Mild][Moderate][Marked] bursitis.]
+
+Articular:
+	Radio-capitellar joint:  [Normal.]
+    [...Alignment/Cartilage/Osteophytes/Marrow/OCD...]
+	Ulno-humeral joint:  [Normal.]
+    [...Alignment/Cartilage/Osteophytes/Marrow/...]
+	Proximal radio-ulnar joint:  [Normal.]
+    [...Alignment/Cartilage/Osteophytes/Marrow/Annular ligament...]
+
+Bones (other than subarticular marrow):  [Normal.]
+
+Muscles:  [Normal.]
+
+Vessels:  [Normal.]
+
+Nerves: [Cubital tunnel normal, retinaculum intact.] [Anconeous epitrochlearis 
+muscle present]
+
+Intra-articular bodies:  [None.]
+
+
+IMPRESSION:
+
+[]

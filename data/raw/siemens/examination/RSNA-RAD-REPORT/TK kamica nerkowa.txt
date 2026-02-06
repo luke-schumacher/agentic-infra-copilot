@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TK Kamica nerkowa</title>
+        <meta charset="UTF-8" />
+        <meta name="dcterms.identifier" content="914347e3-e584-4b68-a4a5-0ad5e657e01a" />
+        <meta name="dcterms.title" content="TK Kamica nerkowa" />
+        <meta name="dcterms.description" content="TK Kamica nerkowa szablon :: Authored by Heilbrun ME, et al." />
+        <meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE" />
+        <meta name="dcterms.language" content="pl" />
+        <meta name="dcterms.publisher" content="" />
+        <meta name="dcterms.rights" content="May be used gratis, subject to license agreement" />
+        <meta name="dcterms.license" content="http://www.radreport.org/license.pdf" />
+        <meta name="dcterms.date" content="2016-02-25" />
+        <meta name="dcterms.creator" content="Heilbrun ME, et al." />
+        <meta name="dcterms.contributor" content="Hong Y [coder]" />
+        <meta name="dcterms.contributor" content="Kahn CE Jr [editor]" />
+        <meta name="dcterms.contributor" content="Society of Abdominal Radiology (SAR)" />
+        <script type="text/xml">
+            <template_attributes>
+                <coded_content>
+                    <coding_schemes>
+                        <coding_scheme name="RADLEX" designator="2.16.840.1.113883.6.256"></coding_scheme>
+                    </coding_schemes>
+                    <entry origtxt="T28_70">
+                        <term>
+                            <code meaning="pancreas" value="RID170" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_61">
+                        <term>
+                            <code meaning="wall" value="RID5987" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_28">
+                        <term>
+                            <code meaning="dilated" value="RID5786" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_66">
+                        <term>
+                            <code meaning="liver" value="RID58" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_68">
+                        <term>
+                            <code meaning="spleen" value="RID86" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_45">
+                        <term>
+                            <code meaning="ureteral" value="RID11198" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_23">
+                        <term>
+                            <code meaning="ureteral" value="RID11198" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_60">
+                        <term>
+                            <code meaning="measurement" value="RID10409" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_3">
+                        <term>
+                            <code meaning="comparison" value="RID28483" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_2">
+                        <term>
+                            <code meaning="procedure" value="RID1559" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_14">
+                        <term>
+                            <code meaning="count" value="RID28492" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_15">
+                        <term>
+                            <code meaning="measurement" value="RID10409" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_16">
+                        <term>
+                            <code meaning="measurement" value="RID10409" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_17">
+                        <term>
+                            <code meaning="hydronephrosis" value="RID34393" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_74">
+                        <term>
+                            <code meaning="lymphadenopathy" value="RID3798" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_39">
+                        <term>
+                            <code meaning="hydronephrosis" value="RID34393" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_38">
+                        <term>
+                            <code meaning="measurement" value="RID10409" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_37">
+                        <term>
+                            <code meaning="measurement" value="RID10409" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_72">
+                        <term>
+                            <code meaning="set of adrenal glands" value="RID28752" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_36">
+                        <term>
+                            <code meaning="count" value="RID28492" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_78">
+                        <term>
+                            <code meaning="ascites" value="RID1541" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_59">
+                        <term>
+                            <code meaning="measurement" value="RID10409" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_76">
+                        <term>
+                            <code meaning="intestine" value="RID130" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_58">
+                        <term>
+                            <code meaning="count" value="RID28492" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_5">
+                        <term>
+                            <code meaning="clinical information" value="RID13166" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_135">
+                        <term>
+                            <code meaning="impression section" value="RID13170" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T28_50">
+                        <term>
+                            <code meaning="dilated" value="RID5786" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                </coded_content>
+            </template_attributes>
+        </script>
+    </head>
+    <body>
+        <section id="Procedure" class="level1" data-section-name="Procedure">
+            <header class="level1">
+                Procedure
+            </header>
+            <p title="">
+                <label for="T28_2"></label>
+                <textarea rows="3" cols="100" id="T28_2" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+        </section>
+        <section id="Clinical_information" class="level1" data-section-name="Clinical information">
+            <header class="level1">
+                Clinical information
+            </header>
+            <p title="">
+                <label for="T28_5"></label>
+                <textarea rows="3" cols="100" id="T28_5" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+        </section>
+        <section id="Comparison" class="level1" data-section-name="Comparison">
+            <header class="level1">
+                Comparison
+            </header>
+            <p title="">
+                <label for="T28_3"></label>
+                <textarea rows="3" cols="100" id="T28_3" name="" data-field-type="TEXT" data-field-completion-action="NONE">None.</textarea>
+            </p>
+        </section>
+        <section id="Findings" class="level1" data-section-name="Findings">
+            <header class="level1">
+                Findings
+            </header>
+            <section id="Left_kidney_and_ureter" class="level2" data-section-name="Lewa nerka i moczow&oacute;d">
+                <header class="level2">
+                    Lewa nerka i moczow&oacute;d
+                </header>
+                <p title="">
+                    <label for="T28_36">Ilość złog&oacute;w</label>
+                    <input type="text" id="T28_36" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+                <p title="">
+                    <label for="T28_37">Minimalna szerokość:</label>
+                    <span>
+                        <input type="number" step="1.0" data-field-units="mm" id="T28_37" name="" data-field-type="NUMBER" data-field-completion-action="NONE" value="" />
+                        mm
+                    </span>
+                </p>
+                <p title="">
+                    <label for="T28_38">Maksymalna szerokość:</label>
+                    <span>
+                        <input type="number" step="1.0" data-field-units="mm" id="T28_38" name="" data-field-type="NUMBER" data-field-completion-action="NONE" value="" />
+                        mm
+                    </span>
+                </p>
+                <p title="">
+                    <label for="T28_39">Wodonercze:</label>
+                    <input type="text" id="T28_39" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+                <p title="">
+                    <label for="T28_45">Złogi w moczowodzie:</label>
+                    <input type="text" id="T28_45" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+                <p title="">
+                    <label for="T28_50">Poszerzenie moczowodu:</label>
+                    <input type="text" id="T28_50" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+            </section>
+            <section id="Right_kidney_and_ureter" class="level2" data-section-name="Prawa nerka i moczow&oacute;d">
+                <header class="level2">
+                    Prawa nerka i moczow&oacute;d
+                </header>
+                <p title="">
+                    <label for="T28_14">Ilość złog&oacute;w:</label>
+                    <input type="text" id="T28_14" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+                <p title="">
+                    <label for="T28_15">Minimalna szerokość:</label>
+                    <span>
+                        <input type="number" step="1.0" data-field-units="mm" id="T28_15" name="" data-field-type="NUMBER" data-field-completion-action="NONE" value="" />
+                        mm
+                    </span>
+                </p>
+                <p title="">
+                    <label for="T28_16">Maksymalna szerokość:</label>
+                    <span>
+                        <input type="number" step="1.0" data-field-units="mm" id="T28_16" name="" data-field-type="NUMBER" data-field-completion-action="NONE" value="" />
+                        mm
+                    </span>
+                </p>
+                <p title="">
+                    <label for="T28_17">Wodonercze:</label>
+                    <input type="text" id="T28_17" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+                <p title="">
+                    <label for="T28_23">Złogi moczowodowe:</label>
+                    <input type="text" id="T28_23" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+                <p title="">
+                    <label for="T28_28">Poszerzenie moczowodu:</label>
+                    <input type="text" id="T28_28" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+            </section>
+            <section id="Urinary_bladder" class="level2" data-section-name="Pęcherz moczowy">
+                <header class="level2">
+                    Pęcherz moczowy
+                </header>
+                <p title="">
+                    <label for="T28_58">Ilość złog&oacute;w:</label>
+                    <input type="text" id="T28_58" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+                <p title="">
+                    <label for="T28_59">Minimalna szerokość:</label>
+                    <span>
+                        <input type="number" step="1.0" data-field-units="mm" id="T28_59" name="" data-field-type="NUMBER" data-field-completion-action="NONE" value="" />
+                        mm
+                    </span>
+                </p>
+                <p title="">
+                    <label for="T28_60">Maksymalna szerokość:</label>
+                    <span>
+                        <input type="number" step="1.0" data-field-units="mm" id="T28_60" name="" data-field-type="NUMBER" data-field-completion-action="NONE" value="" />
+                        mm
+                    </span>
+                </p>
+                <p title="">
+                    <label for="T28_61">Pogrubienie ściany pęcherza moczowego:</label>
+                    <input type="text" id="T28_61" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+            </section>
+            <section id="Other_findings" class="level2" data-section-name="Inne">
+                <header class="level2">
+                    Inne
+                </header>
+                <p title="">
+                    <label for="T28_66">Wątroba:</label>
+                    <input type="text" id="T28_66" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Prawidłowa." />
+                </p>
+                <p title="">
+                    <label for="T28_68">Śledziona:</label>
+                    <input type="text" id="T28_68" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Prawidłowa." />
+                </p>
+                <p title="">
+                    <label for="T28_70">Trzustka:</label>
+                    <input type="text" id="T28_70" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Prawidłowa." />
+                </p>
+                <p title="">
+                    <label for="T28_72">Nadnercza:</label>
+                    <input type="text" id="T28_72" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Prawidłowe." />
+                </p>
+                <p title="">
+                    <label for="T28_74">Limfadenopatia:</label>
+                    <input type="text" id="T28_74" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+                <p title="">
+                    <label for="T28_76">Jelita:</label>
+                    <input type="text" id="T28_76" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Prawidłowe." />
+                </p>
+                <p title="">
+                    <label for="T28_78">Wodobrzusze:</label>
+                    <input type="text" id="T28_78" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Brak." />
+                </p>
+            </section>
+        </section>
+        <section id="Impression" class="level1" data-section-name="Impression">
+            <header class="level1">
+                Impression
+            </header>
+            <p title="">
+                <label for="T28_135"></label>
+                <textarea rows="3" cols="100" id="T28_135" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+        </section>
+    </body>
+</html>

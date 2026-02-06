@@ -1,0 +1,28 @@
+The original text template is provided below. The XML version has been translated. 
+
+Ultrasound-guided thoracentesis.
+
+Comparison:  [ None ]
+
+Clinical information:
+  [ Pleural effusion. ]
+  INR:  [ ___ ]
+  Platelet count: [ ___ ] * 1000 / µL
+  Goal:  [ Diagnostic | Therapeutic | Diagnostic and therapeutic ]
+
+Procedure:
+  Site:  [ right | left ] chest
+  [ The procedure, risks, complications, and alternatives were discussed
+     with the patient. Verbal and written consent was obtained. ]
+  [ A time-out was observed to confirm the correct patient, correct procedure,
+     and correct site. ]
+  [ The skin was cleaned and draped in the usual sterile fashion. Subcutaneous
+     tissues were anaesthetized with Lidocaine 1%. ]
+  Catherter:  [_____]
+  Aspirated fluid:  [___] mL
+    [ clear yellow | cloudy yellow | serosanguinous | bloody ]
+  Complications:  [ None ]
+
+
+Impression:
+Ultrasound-guided thoracentesis.

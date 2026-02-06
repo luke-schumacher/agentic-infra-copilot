@@ -1,0 +1,15 @@
+The original text template is provided below. The XML version has been translated. 
+
+Bone age 
+
+
+HISTORY: [ ]
+
+COMPARISON: [None*]
+
+TECHNIQUE: A single PA view of the [left*] hand and wrist was obtained for determination of bone age.
+
+FINDINGS: The patient is a [male | female] with a chronologic age of [#] years and [#] months. Based on the standards of Greulich and Pyle, the patient's bone age is [#] years and [#] months with a standard deviation of [#] months.
+
+IMPRESSION: [Normal | Advanced | Delayed] bone age, [within | more than] 2 standard deviations [of | above | below] chronologic age.
+

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Jan Bosmans [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Radiografie pols beiderzijds" name="dcterms.title"/>
+<meta content="Bilateral Wrist Xray template :: Authored by Langlotz CP" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050212" name="dcterms.identifier"/>
+<meta content="nl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2016-10-23" name="dcterms.date"/>
+<meta content="Langlotz CP" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Penn Medicine | Hospital of the University of Pennsylvania (Penn)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<term>
+ <code meaning="projection radiography" value="RID10345" scheme="RadLex">
+</term>
+<term>
+ <code meaning="wrist" value="RID2177" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T278_2">
+ <term>
+  <code meaning="procedure" value="RID1559" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T278_8">
+  <term>
+  <code meaning="Clinical information" value="55752-0" scheme="LOINC">
+ </term>
+</entry>
+<entry ORIGTXT="T278_9">
+ <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T278_11">
+  <term>
+  <code meaning="Radiology Study observation (narrative)" value="18782-3" scheme="LOINC">
+ </term>
+</entry>
+<entry ORIGTXT="T278_12">
+ <term>
+  <code meaning="set of bones" value="RID28569" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T278_14">
+ <term>
+  <code meaning="set of joints" value="RID28711" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T278_23">
+ <term>
+  <code meaning="portion of soft tissue" value="RID35730" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T278_24">
+ <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Radiografie pols beiderzijds</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Bilateral Wrist Xray">Radiografie pols beiderzijds</header>
+<p>
+<textarea id="T278_2" name="Procedure" data-english-name="Procedure" data-english-innertext=" "></textarea>
+</p>
+<p>
+<label for="T278_3" data-english="Number of views:">Aantal opnamen:</label>
+<input type="number" id="T278_3" name="Aantal opnamen:" data-field-units="views" min="1" max="8" data-english-name="Number of views"/> <label for="T278_3" data-english="views">Opnamen</label>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Klinische informatie</header>
+<p>
+<textarea id="T278_8" name="Klinische informatie" data-english-name="Clinical information" data-english-innertext=" "></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Vergelijking</header>
+<p>
+<textarea id="T278_9" name="Vergelijking" data-english-name="Comparison" data-english-innertext="None. ">Geen beschikbaar.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Bevindingen</header>
+<p>
+<textarea id="T278_11" name="Bevindingen" data-english-name="Findings" data-english-innertext=" "></textarea>
+</p>
+<p>
+<label for="T278_12" data-english="Bones:">Skelet:</label>
+<input type="text" id="T278_12" name="Skelet:" value="" data-english-value="" data-english-name="Bones"/>
+</p>
+<p>
+<label for="T278_14" data-english="Joints:">gewrichten:</label>
+<input type="text" id="T278_14" name="Gewrichten:" value="Geen fracturen." data-english-value="No fractures are present. " data-english-name="Joints"/>
+</p>
+<p>
+<label for="T278_23" data-english="Soft tissues:">Zachte weefsels:</label>
+<input type="text" id="T278_23" name="Weke weefsels" value="Normaal. Geen artrose." data-english-value="Normal. No osteoarthritis. " data-english-name="Soft tissues"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Conclusie</header>
+<p>
+<textarea id="T278_24" name="Conclusie" data-english-name="Impression" data-english-innertext="Normal wrists. ">Normaal beeld van beide polsen.</textarea>
+</p>
+</section>
+</body>
+</html>

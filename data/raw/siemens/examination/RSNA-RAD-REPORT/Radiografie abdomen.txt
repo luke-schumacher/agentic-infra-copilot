@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Jan Bosmans [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Radiografie abdomen" name="dcterms.title"/>
+<meta content="Abdomen Complete template :: Authored by Langlotz CP" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050106" name="dcterms.identifier"/>
+<meta content="nl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2014-11-28" name="dcterms.date"/>
+<meta content="Langlotz CP" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr. [editor]" name="dcterms.contributor"/>
+<meta content="Penn Medicine | Hospital of the University of Pennsylvania (Penn)" name="dcterms.contributor"/>
+<link rel="stylesheet" href="IHE_Template_Style.css" type="text/css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>1</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>abdomen</code_meaning>
+<code_value>RID56</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>projection radiography</code_meaning>
+<code_value>RID10345</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry origtxt="T141_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_3">
+<term>
+<code_meaning>radiographic projection</code_meaning>
+<code_value>RID10511</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning></code_meaning>
+<code_value>60654006</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Abdomen X-ray 2 views</code_meaning>
+<code_value>36641-9</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_4">
+<term>
+<code_meaning>portable</code_meaning>
+<code_value>RID10383</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Portable X-ray (procedure)</code_meaning>
+<code_value>425583002</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_5">
+<term>
+<code_meaning>Radiologic imaging, special views and positions (procedure)</code_meaning>
+<code_value>363272006</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_6">
+<term>
+<code_meaning>Radiologic imaging, special views and positions (procedure)</code_meaning>
+<code_value>363272006</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_7">
+<term>
+<code_meaning>Radiologic imaging, special views and positions (procedure)</code_meaning>
+<code_value>363272006</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.96</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_8">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Clinical information</code_meaning>
+<code_value>55752-0</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_9">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_10">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_11">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Radiology Study observation (narrative)</code_meaning>
+<code_value>18782-3</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_12">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_13">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry origtxt="T141_14">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>intestine</code_meaning>
+<code_value>RID130</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Radiografie abdomen</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Abdomen Series">Radiografie abdomen</header>
+<p>
+<label for="T141_2" data-english="Number of views:">Aantal beelden</label>
+<input type="number" id="T141_2" name="Aantal&nbsp;beelden" data-english-name="Number of views"/>
+<!-- <label for="T141_3">Views</label> -->
+<input type="text" id="T141_3" name="Aantal beelden - tekst" value="" data-english-value="" data-english-name="Number of views - text"/>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Klinische inlichtingen</header>
+<p>
+<!-- <label for="T141_8">Clinical information</label> -->
+<textarea id="T141_8" name="Klinische inlichtingen" data-english-name="Clinical information"></textarea>
+</p>
+</section>
+
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Vergelijking</header>
+<p>
+<!-- <label for="T141_9">Comparison</label> -->
+<textarea id="T141_9" name="Vergelijking" data-codedcontent-default-val="None" data-codedcontent-default-ref="T141_9" data-english-name="Comparison" data-english-innertext="None.">Geen.</textarea>
+</p>
+</section>
+
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Bevindingen</header>
+<p>
+<!-- <label for="T141_11">Findings</label> -->
+<textarea id="T141_11" name="Bevindingen" data-english-name="Findings" data-english-innertext="There are nondilated loops of small and large bowel containing gas and stool. There are no dilated loops to suggest ileus or obstruction. There is no evidence of free intra-abdominal gas. ">De dunne en dikke darm bevatten gas en faeces. De darmlissen zijn niet gedilateerd. Er is geen aanwijzingen voor vrije lucht intra-abdominaal.</textarea>
+</p>
+</section>
+
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Conclusie</header>
+<p>
+<!-- <label for="T141_13">Impression</label> -->
+<textarea id="T141_13" name="Conclusie" data-english-name="Impression" data-english-innertext="Normal bowel. No ileus or obstruction.">Normale darm. Geen ileus of obstructie.</textarea>
+</p>
+</section>
+</body>
+</html>

@@ -44,23 +44,26 @@ SIEMENS_URL = os.getenv("SIEMENS_TECHNICIAN_URL", "http://localhost:8002")
 ILLIGO_URL = os.getenv("ILLIGO_OPERATOR_URL", "http://localhost:8003")
 
 AGENT_ENDPOINTS = {
-    "Telekom Minister": {
+    "Governance Agent": {
         "url": TELEKOM_URL,
-        "role": AgentRole.TELEKOM_MINISTER,
+        "role": AgentRole.GOVERNANCE_AGENT,
         "description": "Governance - SLAs & Intent",
-        "port": 8001
+        "port": 8001,
+        "legacy_name": "Telekom Minister"
     },
-    "Siemens Technician": {
+    "Hardware Agent": {
         "url": SIEMENS_URL,
-        "role": AgentRole.SIEMENS_TECHNICIAN,
+        "role": AgentRole.HARDWARE_AGENT,
         "description": "Hardware Expert - Specs & Manuals",
-        "port": 8002
+        "port": 8002,
+        "legacy_name": "Siemens Technician"
     },
-    "Illigo Operator": {
+    "Telemetry Agent": {
         "url": ILLIGO_URL,
-        "role": AgentRole.ILLIGO_OPERATOR,
+        "role": AgentRole.TELEMETRY_AGENT,
         "description": "Live Monitor - Logs & Events",
-        "port": 8003
+        "port": 8003,
+        "legacy_name": "Illigo Operator"
     }
 }
 
@@ -109,7 +112,7 @@ def send_query_to_minister(
     is_symptom: bool = True
 ) -> Optional[ConsultResponse]:
     """
-    Send a query to Telekom Minister (entry point for all workflows).
+    Send a query to Governance Agent (entry point for all workflows).
 
     All queries start at the Minister, who may delegate to specialists.
 
@@ -123,7 +126,7 @@ def send_query_to_minister(
     """
     card = AgentCard(
         sender=AgentRole.ORCHESTRATOR,
-        recipient=AgentRole.TELEKOM_MINISTER,
+        recipient=AgentRole.GOVERNANCE_AGENT,
         intent=IntentType.QUERY,
         priority=Priority.NORMAL,
         payload={
@@ -137,7 +140,7 @@ def send_query_to_minister(
 
     try:
         response = httpx.post(
-            f"{AGENT_ENDPOINTS['Telekom Minister']['url']}/consult",
+            f"{AGENT_ENDPOINTS['Governance Agent']['url']}/consult",
             json=request.model_dump(),
             timeout=60.0
         )
@@ -145,9 +148,9 @@ def send_query_to_minister(
         if response.status_code == 200:
             return ConsultResponse(**response.json())
         else:
-            st.error(f"Telekom Minister returned error {response.status_code}: {response.text}")
+            st.error(f"Governance Agent returned error {response.status_code}: {response.text}")
     except Exception as e:
-        st.error(f"Failed to contact Telekom Minister: {e}")
+        st.error(f"Failed to contact Governance Agent: {e}")
 
     return None
 
@@ -197,7 +200,7 @@ def render_sidebar():
         with st.spinner("Indexing..."):
             try:
                 response = httpx.post(
-                    f"{AGENT_ENDPOINTS['Telekom Minister']['url']}/index",
+                    f"{AGENT_ENDPOINTS['Governance Agent']['url']}/index",
                     timeout=120.0
                 )
                 if response.status_code == 200:

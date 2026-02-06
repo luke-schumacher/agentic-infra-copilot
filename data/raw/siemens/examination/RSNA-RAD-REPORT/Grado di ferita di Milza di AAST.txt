@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Chiara Carducci [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Grado di ferita di Milza di AAST" name="dcterms.title"/>
+<meta content="AAST Spleen Injury Grade report module" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050301" name="dcterms.identifier"/>
+<meta content="it" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2017-11-30" name="dcterms.date"/>
+<meta content="Tolat P, Kahn CE Jr" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css" />
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>false</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<coded_content>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Grado di ferita di Milza di AAST</title>
+</head>
+<body>
+<section data-section-name="AAST Spleen Injury Grade">
+
+<header class="level1" data-english="+ AAST Spleen Injury Grade">+ AAST Injury Grade</header>
+<p>
+<select id="T266_1" name="Grado di ferita di Milza di AAST" data-english-name="AAST Spleen Injury Grade">
+<option id="T266_2" name="Grado di ferita di Milza di AAST" value="0" data-english-name="AAST Spleen Injury Grade" data-english-value="0" data-english-innertext="0.
+    No splenic injury. ">0. Nessun danno splenico.</option>
+<option id="T266_3" name="Grado di ferita di Milza di AAST" value="1" data-english-name="AAST Spleen Injury Grade" data-english-value="1" data-english-innertext="1.
+    Subcapsular hematoma (&amp;lt;10% surface area) or Capsular tear (&amp;lt;1cm parenchymal depth).">1. Ematoma sottocapsulare (&lt;10% della superficie) o Lacerazione capsulare (profondit&agrave; parenchimale inferiore a 1 cm).</option>
+<option id="T266_4" name="Grado di ferita di Milza di AAST" value="2" data-english-name="AAST Spleen Injury Grade" data-english-value="2" data-english-innertext="2.
+    Subcapsular hematoma (10% to 50% surface area), Intraparenchymal hematoma (&amp;lt;5 cm in diameter), Capsular tear (1-3 cm parenchymal depth that does not involve a trabecular vessel), or Multiple &quot;Grade 1&quot; injuries.">2. Ematoma sottocapsulare (dal 10% al 50% di superficie), ematoma intraparenchimale (&lt;5 cm di diametro), strappo capsulare (profondit&agrave; parenchimale di 1-3 cm che non coinvolge un vaso trabecolare), o lesioni multiple di &quot;Grado 1&quot;.</option>
+<option id="T266_5" name="Grado di ferita di Milza di AAST" value="3" data-english-name="AAST Spleen Injury Grade" data-english-value="3" data-english-innertext="3.
+    Subcapsular hematoma (&amp;gt;50% surface area or expanding), Ruptured subcapsular or parenchymal hematoma, Intraparenchymal hematoma (&amp;gt;= 5 cm or expanding), Laceration (&amp;gt;3 cm parenchymal depth or involving trabecular vessels), or Multiple &quot;Grade 2&quot; injuries. ">3. Ematoma sottocapsulare (&gt; 50% superficie o espansione), ematoma sottocapsulare o parenchimale, ematoma intraparenchimale (&gt; = 5 cm o espansione), lacerazione (&gt; 3 cm di profondit&agrave; parenchimale o che coinvolgono vasi trabecolari), o multiplo &quot;grado 2&quot; lesioni.</option>
+<option id="T266_6" name="Grado di ferita di Milza di AAST" value="4" data-english-name="AAST Spleen Injury Grade" data-english-value="4" data-english-innertext="4.
+    Laceration involving segmental or hilar vessels producing major devascularization (&amp;gt;25% of spleen). ">4. Lacerazione che coinvolge vasi segmentari o ilari che producono una devascolarizzazione maggiore (&gt; 25% della milza).</option>
+<option id="T266_7" name="Grado di ferita di Milza di AAST" value="5" data-english-name="AAST Spleen Injury Grade" data-english-value="5" data-english-innertext="5.
+    Completely shattered spleen, or Hilar vascular injury with devascularized spleen. 
+">5. Milza completamente frantumata o lesione vascolare del respiro con milza devascolarizzata.</option>
+</select>
+</p>
+</section>
+</body>
+</html>

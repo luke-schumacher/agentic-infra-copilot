@@ -1,0 +1,71 @@
+The original text template is provided below. The XML version has been translated. 
+
+PROCEDURE:[ Enhanced | Unenhanced ] MRI of the Ano-Rectum
+
+CLINICAL INDICATION: [Inflammation; fistula; abscess]. 
+
+COMPARISON: [<date> | None*].
+
+TECHNIQUE: 
+
+Pre and [non-dynamic] [dynamic] post contrast imaging of the pelvis with the 
+focus on the ano-rectum was performed on a [field strength] Tesla scanner. [ ] 
+ml of [name of contrast agent] was administered before and after fat 
+suppressed T1-weighted imaging. Image quality is [satisfactory/degraded by 
+motion/etc]. [In addition, high-resolution T2-weighted images were performed 
+in sagittal, coronal and axial planes].
+
+Imaging was performed using [endorectal coil / phased-array surface coil / a 
+combination of endorectal phased-array surface coils].
+
+
+FINDINGS: 
+
+Anal canal fistula: 
+
+- Internal opening: [this is the starting point of 
+the fistula from the anal canal; usually located between 2-3 cm from the anal 
+verge in the posterior aspect of the anal canal]
+
+- External opening: [this is the end point of the fistula located at the skin 
+level around the anus; usually visible at physical exam]
+
+Peri-anal fistulas based on the Parks’ classification:
+
+- [Inter-sphincteric fistula (located between the internal and the external 
+anal sphincter)]
+
+- [[Trans-sphincteric fistula (traverses is located between the internal and 
+the external anal sphincter)]
+
+- [Supra-sphincteric fistula (runs above the level of the anal canal but does 
+have an internal opening at the level of the anal canal)]
+
+- Extra-sphincteric fistula: fistula runs above the level of the anal canal and 
+has an internal opening with the rectum
+
+- [Horse-shoe fistula ( spreads bilaterally and horizontally within the 
+[inter-sphincteric] or [ischio-anal] or [supra-levator] space(s) Fistula 
+spreads bilaterally and vertiaclly within the [inter-sphincteric] or 
+[ischio-anal] or [supra-levator] space(s)]
+
+- [Ano-vaginal or recto-vesicle fistula (Describe the location of the fistula in 
+relation to the anal canal verge or the introitus of the vagina)]
+
+- [Complex fistula, otherwise not classified: (Very complex and large fistulas 
+[particularly if the fistulas cannot be classified according to the Parks’ 
+classification] raise the possibility of underlying inflammatory bowel disease 
+such as Crohn’s disease.)]
+
+Abscess: [None / location and size in # cm]
+
+- NOTE: Any part of the fistula (either the main fistula or a side branch) 
+that is wider than the remainder of the fistula is considered an abscess. Any 
+(loculated) fluid collection in the setting of ano-rectal inflammation is 
+suspect for an abscess
+
+Other findings: [Describe presence of any setons (threads of non-absorbable 
+material placed through the fistula] or drains.)
+
+IMPRESSION:
+

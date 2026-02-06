@@ -40,26 +40,36 @@ logger = logging.getLogger(__name__)
 class GraphBuilder:
     """Builder for the infrastructure fault diagnosis Knowledge Graph."""
 
-    # Define graph schema
+    # Define graph schema - MRI Healthcare Domain
     NODE_LABELS = {
+        "Scanner": ["scanner_id", "model", "manufacturer", "location", "install_date"],
+        "Component": ["component_id", "name", "type", "scanner_id", "expected_life_years"],
+        "Fault": ["fault_id", "failure_mode", "severity", "component", "mttr_hours"],
+        "Event": ["event_id", "timestamp", "level", "source", "description"],
+        "Protocol": ["protocol_id", "title", "modality", "body_region"],
+        "SLA": ["sla_id", "name", "metric", "threshold", "domain"],
+        "RadLexTerm": ["code", "meaning"],
+        # Legacy types kept for backward compatibility
         "Device": ["device_id", "name", "type", "manufacturer", "location"],
         "Error": ["error_code", "description", "severity", "domain"],
         "Procedure": ["procedure_id", "name", "steps", "domain"],
-        "Event": ["event_id", "timestamp", "event_type", "station_id"],
         "Hardware": ["hardware_id", "model", "manufacturer", "institution"],
         "Station": ["station_id", "name", "location", "connector_count"],
-        "SLA": ["sla_id", "name", "metric", "threshold", "domain"],
     }
 
     RELATIONSHIP_TYPES = {
-        "CAUSES": "Error or Event causes another Error or Event",
-        "RESOLVES": "Procedure resolves an Error",
-        "OCCURS_IN": "Error or Event occurs in a Device or Station",
-        "DETECTED_BY": "Error was detected by Hardware scan",
+        "CAUSES": "Fault or Event causes another Fault or Event",
+        "RESOLVES": "Procedure or repair action resolves a Fault",
+        "DETECTED_BY": "Fault detected by telemetry event pattern",
+        "PART_OF": "Component is part of Scanner",
+        "VIOLATES": "Fault or Event violates an SLA",
+        "TRIGGERS": "Event triggers a Fault mode",
+        "AFFECTS": "Fault affects a Component",
+        "USES_TERM": "Protocol uses a RadLex term",
+        "OCCURS_IN": "Event occurs in a Scanner or Component",
         "FOLLOWS": "Event follows another Event in sequence",
-        "REQUIRES": "Procedure requires a specific Hardware or Device",
-        "VIOLATES": "Event or Error violates an SLA",
-        "HAS_HARDWARE": "Station or Institution has Hardware",
+        "REQUIRES": "Procedure requires a specific Component or part",
+        "HAS_HARDWARE": "Scanner has Hardware component",
         "RELATED_TO": "Generic relationship for related entities",
     }
 
@@ -80,13 +90,19 @@ class GraphBuilder:
 
         # Create uniqueness constraints for each node type
         constraints = [
+            ("Scanner", "scanner_id"),
+            ("Component", "component_id"),
+            ("Fault", "fault_id"),
+            ("Event", "event_id"),
+            ("Protocol", "protocol_id"),
+            ("SLA", "sla_id"),
+            ("RadLexTerm", "code"),
+            # Legacy types
             ("Device", "device_id"),
             ("Error", "error_code"),
             ("Procedure", "procedure_id"),
-            ("Event", "event_id"),
             ("Hardware", "hardware_id"),
             ("Station", "station_id"),
-            ("SLA", "sla_id"),
         ]
 
         for label, property_name in constraints:
@@ -106,13 +122,21 @@ class GraphBuilder:
 
         # Create indexes for frequently queried properties
         indexes = [
-            ("Device", "type"),
-            ("Device", "location"),
-            ("Error", "severity"),
-            ("Error", "domain"),
+            ("Scanner", "model"),
+            ("Scanner", "location"),
+            ("Component", "type"),
+            ("Component", "scanner_id"),
+            ("Fault", "severity"),
+            ("Fault", "failure_mode"),
             ("Event", "timestamp"),
-            ("Event", "event_type"),
-            ("Station", "location"),
+            ("Event", "level"),
+            ("Event", "source"),
+            ("Protocol", "modality"),
+            ("Protocol", "body_region"),
+            ("RadLexTerm", "meaning"),
+            # Legacy indexes
+            ("Device", "type"),
+            ("Error", "severity"),
             ("Hardware", "manufacturer"),
         ]
 
@@ -374,6 +398,292 @@ class GraphBuilder:
             f"{events_created} events, {errors_created} errors"
         )
 
+    def ingest_mri_failure_modes(self, failure_modes: List[Dict[str, Any]]):
+        """
+        Ingest MRI failure modes into the graph.
+
+        Creates Fault nodes, Component nodes, and AFFECTS relationships.
+
+        Args:
+            failure_modes: List of failure mode dicts from failure_modes.csv
+        """
+        logger.info(f"Ingesting {len(failure_modes)} MRI failure modes")
+
+        faults_created = 0
+        components_created = 0
+
+        for fm in failure_modes:
+            fault_id = fm.get("failure_id", "")
+            component_name = fm.get("component", "")
+
+            # Create Fault node
+            self.connector.create_node(
+                "Fault",
+                {
+                    "fault_id": fault_id,
+                    "failure_mode": fm.get("failure_mode", ""),
+                    "severity": fm.get("severity", "medium"),
+                    "component": component_name,
+                    "symptom": fm.get("symptom", ""),
+                    "root_cause": fm.get("root_cause", ""),
+                    "detection_method": fm.get("detection_method", ""),
+                    "mttr_hours": float(fm.get("mttr_hours", 0)),
+                    "repair_action": fm.get("repair_action", ""),
+                    "spare_parts": fm.get("spare_parts_required", ""),
+                    "preventive_maintenance": fm.get("preventive_maintenance", ""),
+                },
+                unique_key="fault_id"
+            )
+            faults_created += 1
+
+            # Create Component node
+            if component_name:
+                comp_id = f"COMP-{component_name.replace(' ', '-').upper()[:30]}"
+                self.connector.create_node(
+                    "Component",
+                    {
+                        "component_id": comp_id,
+                        "name": component_name,
+                        "type": self._infer_component_type(component_name),
+                    },
+                    unique_key="component_id"
+                )
+                components_created += 1
+
+                # Create AFFECTS relationship
+                self.connector.create_relationship(
+                    "Fault", "fault_id", fault_id,
+                    "Component", "component_id", comp_id,
+                    "AFFECTS"
+                )
+
+        logger.info(
+            f"MRI failure modes ingested: {faults_created} faults, "
+            f"{components_created} components"
+        )
+
+    def ingest_mri_events(self, events: List[Dict[str, Any]], max_events: int = 1000):
+        """
+        Ingest MRI telemetry events into the graph.
+
+        Creates Event nodes and links to Fault nodes when patterns match.
+
+        Args:
+            events: List of event dicts from mri_events.csv
+            max_events: Maximum events to ingest (errors/warnings prioritized)
+        """
+        # Prioritize error and warning events
+        priority_events = [e for e in events if e.get("severity") in ("error", "warning")]
+        info_events = [e for e in events if e.get("severity") == "info"]
+        selected = priority_events[:max_events]
+        remaining = max_events - len(selected)
+        if remaining > 0:
+            selected += info_events[:remaining]
+
+        logger.info(f"Ingesting {len(selected)} MRI events (from {len(events)} total)")
+
+        events_created = 0
+        for evt in selected:
+            event_id = f"EVT-{evt.get('timestamp', '').replace(' ', '_').replace(':', '')[:20]}-{evt.get('event_id', '')}"
+            self.connector.create_node(
+                "Event",
+                {
+                    "event_id": event_id,
+                    "timestamp": evt.get("timestamp", ""),
+                    "level": evt.get("level", ""),
+                    "source": evt.get("source", ""),
+                    "event_id_raw": evt.get("event_id", ""),
+                    "description": evt.get("description", "")[:300],
+                    "is_mri_specific": evt.get("is_mri_specific", False),
+                    "is_thermal": evt.get("is_thermal", False),
+                },
+                unique_key="event_id"
+            )
+            events_created += 1
+
+            # Link thermal events to thermal fault
+            if evt.get("is_thermal"):
+                self.connector.create_relationship(
+                    "Event", "event_id", event_id,
+                    "Fault", "fault_id", "FM-001",
+                    "TRIGGERS"
+                )
+
+        logger.info(f"MRI events ingested: {events_created} events")
+
+    def ingest_clinical_protocols(self, protocols: List[Dict[str, Any]]):
+        """
+        Ingest clinical protocols and RadLex terms into the graph.
+
+        Creates Protocol and RadLexTerm nodes.
+
+        Args:
+            protocols: List of protocol dicts from clinical_protocols.csv
+        """
+        logger.info(f"Ingesting {len(protocols)} clinical protocols")
+
+        protocols_created = 0
+        for proto in protocols:
+            protocol_id = f"PROTO-{proto.get('filename', 'unknown')[:50]}"
+            self.connector.create_node(
+                "Protocol",
+                {
+                    "protocol_id": protocol_id,
+                    "title": proto.get("title", ""),
+                    "modality": proto.get("modality", "Other"),
+                    "body_region": proto.get("body_region", "General"),
+                    "description": proto.get("description", "")[:200],
+                    "language": proto.get("language", "en"),
+                },
+                unique_key="protocol_id"
+            )
+            protocols_created += 1
+
+        logger.info(f"Clinical protocols ingested: {protocols_created} protocols")
+
+    def ingest_radlex_terms(self, terms: List[Dict[str, Any]]):
+        """
+        Ingest RadLex ontology terms and link to protocols.
+
+        Args:
+            terms: List of term dicts from radlex_terms.csv
+        """
+        logger.info(f"Ingesting {len(terms)} RadLex terms")
+
+        terms_created = 0
+        for term in terms:
+            code = term.get("code", "")
+            if not code:
+                continue
+
+            self.connector.create_node(
+                "RadLexTerm",
+                {
+                    "code": code,
+                    "meaning": term.get("meaning", ""),
+                },
+                unique_key="code"
+            )
+            terms_created += 1
+
+            # Link to protocol
+            template = term.get("template", "")
+            if template:
+                protocol_id = f"PROTO-{template[:50]}"
+                self.connector.create_relationship(
+                    "Protocol", "protocol_id", protocol_id,
+                    "RadLexTerm", "code", code,
+                    "USES_TERM"
+                )
+
+        logger.info(f"RadLex terms ingested: {terms_created} terms")
+
+    def _infer_component_type(self, component_name: str) -> str:
+        """Infer component type from name."""
+        name_lower = component_name.lower()
+        if any(w in name_lower for w in ["coil", "gradient", "rf"]):
+            return "electromagnetic"
+        elif any(w in name_lower for w in ["sensor", "temperature", "thermal"]):
+            return "sensor"
+        elif any(w in name_lower for w in ["compressor", "cryostat", "helium", "cold head"]):
+            return "cryogenic"
+        elif any(w in name_lower for w in ["table", "motor", "lock", "valve"]):
+            return "mechanical"
+        elif any(w in name_lower for w in ["software", "syngo", "application", "controller"]):
+            return "software"
+        elif any(w in name_lower for w in ["network", "dicom"]):
+            return "network"
+        elif any(w in name_lower for w in ["power", "psu", "amplifier"]):
+            return "electrical"
+        else:
+            return "general"
+
+    def query_faults_by_component(self, component_type: str) -> List[Dict[str, Any]]:
+        """
+        Query faults affecting a specific component type.
+
+        Args:
+            component_type: Component type (e.g., "sensor", "electromagnetic")
+
+        Returns:
+            List of faults affecting that component type
+        """
+        query = """
+        MATCH (f:Fault)-[:AFFECTS]->(c:Component)
+        WHERE toLower(c.type) = toLower($component_type)
+           OR toLower(c.name) CONTAINS toLower($component_type)
+        RETURN f.fault_id as fault_id,
+               f.failure_mode as failure_mode,
+               f.severity as severity,
+               f.symptom as symptom,
+               f.root_cause as root_cause,
+               f.repair_action as repair_action,
+               c.name as component_name,
+               c.type as component_type
+        """
+        return self.connector.execute_query(query, {"component_type": component_type})
+
+    def query_faults_by_severity(self, severity: str) -> List[Dict[str, Any]]:
+        """
+        Query faults by severity level.
+
+        Args:
+            severity: Severity level (critical, high, medium, low)
+        """
+        query = """
+        MATCH (f:Fault)
+        WHERE toLower(f.severity) = toLower($severity)
+        RETURN f.fault_id as fault_id,
+               f.failure_mode as failure_mode,
+               f.severity as severity,
+               f.component as component,
+               f.symptom as symptom,
+               f.root_cause as root_cause,
+               f.repair_action as repair_action,
+               f.mttr_hours as mttr_hours
+        ORDER BY f.mttr_hours DESC
+        """
+        return self.connector.execute_query(query, {"severity": severity})
+
+    def query_fault_by_symptom(self, symptom_keywords: str) -> List[Dict[str, Any]]:
+        """
+        Find faults matching symptom keywords.
+
+        Args:
+            symptom_keywords: Keywords from symptom description
+
+        Returns:
+            Matching faults with details
+        """
+        query = """
+        MATCH (f:Fault)
+        WHERE toLower(f.symptom) CONTAINS toLower($keywords)
+           OR toLower(f.failure_mode) CONTAINS toLower($keywords)
+           OR toLower(f.root_cause) CONTAINS toLower($keywords)
+        RETURN f.fault_id as fault_id,
+               f.failure_mode as failure_mode,
+               f.severity as severity,
+               f.component as component,
+               f.symptom as symptom,
+               f.root_cause as root_cause,
+               f.repair_action as repair_action
+        LIMIT 5
+        """
+        return self.connector.execute_query(query, {"keywords": symptom_keywords})
+
+    def query_protocols_by_modality(self, modality: str) -> List[Dict[str, Any]]:
+        """Query clinical protocols by modality (CT, MRI, etc.)."""
+        query = """
+        MATCH (p:Protocol)
+        WHERE toLower(p.modality) = toLower($modality)
+        RETURN p.protocol_id as protocol_id,
+               p.title as title,
+               p.modality as modality,
+               p.body_region as body_region
+        LIMIT 20
+        """
+        return self.connector.execute_query(query, {"modality": modality})
+
     def _infer_severity(self, content: str) -> str:
         """Infer severity from content text."""
         content_lower = content.lower()
@@ -388,18 +698,18 @@ class GraphBuilder:
 
     def build_graph(
         self,
-        telekom_data: List[Dict[str, Any]],
-        siemens_data: List[Dict[str, Any]],
-        illigo_data: List[Dict[str, Any]],
+        telekom_data: List[Dict[str, Any]] = None,
+        siemens_data: List[Dict[str, Any]] = None,
+        illigo_data: List[Dict[str, Any]] = None,
         clear_existing: bool = False
     ):
         """
         Build the complete Knowledge Graph from all data sources.
 
         Args:
-            telekom_data: Processed Telekom documents
-            siemens_data: Processed Siemens scans
-            illigo_data: Processed Illigo events
+            telekom_data: Processed Telekom/governance documents
+            siemens_data: Processed Siemens/hardware scans
+            illigo_data: Processed Illigo/telemetry events
             clear_existing: Whether to delete existing graph data
         """
         logger.info("Building Knowledge Graph from tripartite data")
@@ -411,15 +721,57 @@ class GraphBuilder:
         # Create schema
         self.create_schema()
 
-        # Ingest data from all domains
-        self.ingest_telekom_data(telekom_data)
-        self.ingest_siemens_data(siemens_data)
-        self.ingest_illigo_data(illigo_data)
+        # Ingest data from all domains (legacy methods)
+        if telekom_data:
+            self.ingest_telekom_data(telekom_data)
+        if siemens_data:
+            self.ingest_siemens_data(siemens_data)
+        if illigo_data:
+            self.ingest_illigo_data(illigo_data)
 
         # Log final stats
         stats = self.connector.get_stats()
         logger.info(f"Knowledge Graph construction complete: {stats}")
 
+        return stats
+
+    def build_mri_graph(
+        self,
+        failure_modes: List[Dict[str, Any]] = None,
+        events: List[Dict[str, Any]] = None,
+        protocols: List[Dict[str, Any]] = None,
+        radlex_terms: List[Dict[str, Any]] = None,
+        clear_existing: bool = False
+    ):
+        """
+        Build the MRI Healthcare Knowledge Graph from processed data.
+
+        Args:
+            failure_modes: From data/processed/telemetry/failure_modes.csv
+            events: From data/processed/telemetry/mri_events.csv
+            protocols: From data/processed/governance/clinical_protocols.csv
+            radlex_terms: From data/processed/governance/radlex_terms.csv
+            clear_existing: Whether to delete existing graph data
+        """
+        logger.info("Building MRI Healthcare Knowledge Graph")
+
+        if clear_existing:
+            logger.warning("Clearing existing graph data")
+            self.connector.delete_all()
+
+        self.create_schema()
+
+        if failure_modes:
+            self.ingest_mri_failure_modes(failure_modes)
+        if events:
+            self.ingest_mri_events(events)
+        if protocols:
+            self.ingest_clinical_protocols(protocols)
+        if radlex_terms:
+            self.ingest_radlex_terms(radlex_terms)
+
+        stats = self.connector.get_stats()
+        logger.info(f"MRI Knowledge Graph construction complete: {stats}")
         return stats
 
     def query_fault_path(self, error_code: str) -> List[Dict[str, Any]]:
@@ -523,49 +875,64 @@ class GraphBuilder:
 
 
 def main():
-    """Example usage of the graph builder."""
+    """Build the MRI Healthcare Knowledge Graph from processed data."""
+    import csv
     import sys
     sys.path.insert(0, str(project_root))
 
-    from src.agents.telekom_minister.data_loader import TelekomLoader
-    from src.agents.siemens_technician.data_loader import SiemensLoader
-    from src.agents.illigo_operator.data_loader import IlligoLoader
-
     print("=" * 60)
-    print("Knowledge Graph Builder")
+    print("MRI Healthcare Knowledge Graph Builder")
     print("=" * 60)
 
-    # Load data from all sources
-    print("\nLoading data...")
-    telekom_loader = TelekomLoader()
-    siemens_loader = SiemensLoader()
-    illigo_loader = IlligoLoader()
+    data_dir = project_root / "data" / "processed"
 
-    telekom_docs = telekom_loader.load()
-    siemens_docs = siemens_loader.load()
-    illigo_docs = illigo_loader.load()
+    # Load failure modes
+    failure_modes = []
+    fm_path = data_dir / "telemetry" / "failure_modes.csv"
+    if fm_path.exists():
+        with open(fm_path, 'r', encoding='utf-8') as f:
+            failure_modes = list(csv.DictReader(f))
+    print(f"Failure modes: {len(failure_modes)}")
 
-    print(f"Telekom docs: {len(telekom_docs)}")
-    print(f"Siemens docs: {len(siemens_docs)}")
-    print(f"Illigo docs: {len(illigo_docs)}")
+    # Load events (sample for graph - full dataset is too large)
+    events = []
+    events_path = data_dir / "telemetry" / "mri_events.csv"
+    if events_path.exists():
+        with open(events_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for i, row in enumerate(reader):
+                events.append(row)
+                if i >= 5000:  # Limit for graph ingestion
+                    break
+    print(f"Events (sampled): {len(events)}")
 
-    # Convert LangChain documents to dicts
-    def docs_to_dicts(docs):
-        return [
-            {"content": d.page_content, "metadata": d.metadata}
-            for d in docs
-        ]
+    # Load protocols
+    protocols = []
+    proto_path = data_dir / "governance" / "clinical_protocols.csv"
+    if proto_path.exists():
+        with open(proto_path, 'r', encoding='utf-8') as f:
+            protocols = list(csv.DictReader(f))
+    print(f"Protocols: {len(protocols)}")
+
+    # Load RadLex terms
+    radlex_terms = []
+    radlex_path = data_dir / "governance" / "radlex_terms.csv"
+    if radlex_path.exists():
+        with open(radlex_path, 'r', encoding='utf-8') as f:
+            radlex_terms = list(csv.DictReader(f))
+    print(f"RadLex terms: {len(radlex_terms)}")
 
     try:
         print("\nConnecting to Neo4j...")
         with Neo4jConnector() as connector:
             builder = GraphBuilder(connector)
 
-            print("Building graph...")
-            stats = builder.build_graph(
-                docs_to_dicts(telekom_docs),
-                docs_to_dicts(siemens_docs),
-                docs_to_dicts(illigo_docs),
+            print("Building MRI Knowledge Graph...")
+            stats = builder.build_mri_graph(
+                failure_modes=failure_modes,
+                events=events,
+                protocols=protocols,
+                radlex_terms=radlex_terms,
                 clear_existing=True
             )
 
@@ -573,13 +940,20 @@ def main():
             print(f"Nodes: {stats['nodes']}")
             print(f"Relationships: {stats['relationships']}")
 
-            # Test query
-            print("\nTesting fault path query for CX002...")
-            results = builder.query_fault_path("CX002")
+            # Test MRI queries
+            print("\nTesting fault query for thermal components...")
+            results = builder.query_faults_by_component("sensor")
             if results:
-                print(f"Found: {results}")
+                for r in results[:3]:
+                    print(f"  {r['fault_id']}: {r['failure_mode']} ({r['severity']})")
             else:
-                print("No results found for CX002")
+                print("  No results found")
+
+            print("\nTesting critical fault query...")
+            results = builder.query_faults_by_severity("critical")
+            if results:
+                for r in results[:3]:
+                    print(f"  {r['fault_id']}: {r['failure_mode']} - MTTR: {r['mttr_hours']}h")
 
     except ValueError as e:
         print(f"\nNeo4j connection not configured: {e}")

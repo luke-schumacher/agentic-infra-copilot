@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="TK mózgu (perfuzja)" name="dcterms.title"/>
+<meta content="TK mózgu (perfuzja) - szablon Autorzy: Flanders AE, i wsp." name="dcterms.description"/>
+<meta content="https://open.radreport.org/template/0050038" name="dcterms.identifier"/>
+<meta content="pl" name="dcterms.language"/>
+<meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="Do użytkowania darmowego, według zasad zawartych w umowie licencyjnej" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2012-07-19" name="dcterms.date"/>
+<meta content="Flanders AE i wsp." name="dcterms.creator"/>
+<meta content="Kahn CE Jr [redaktor]" name="dcterms.contributor"/>
+<meta content="American Society of Neuroradiology (ASNR)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>0</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>brain</code_meaning>
+<code_value>RID6434</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>computed tomography</code_meaning>
+<code_value>RID10321</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>perfusion</code_meaning>
+<code_value>RID10376</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>stroke</code_meaning>
+<code_value>RID5178</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry ORIGTXT="T5_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_3">
+<term>
+<code_meaning>image acquisition modifier</code_meaning>
+<code_value>RID28767</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_4">
+<term>
+<code_meaning>CT detector configuration</code_meaning>
+<code_value>RID10588</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_5">
+<term>
+<code_meaning></code_meaning>
+<code_value>RID12414</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_7">
+<term>
+<code_meaning>slice thickness</code_meaning>
+<code_value>RID28669</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_9">
+<term>
+<code_meaning>contrast agent</code_meaning>
+<code_value>RID11582</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_10">
+<term>
+<code_meaning>parametric mapping</code_meaning>
+<code_value>RID12755</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_11">
+<term>
+<code_meaning>cerebral blood volume map</code_meaning>
+<code_value>RID28489</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_12">
+<term>
+<code_meaning>cerebral blood flow map</code_meaning>
+<code_value>RID12707</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_13">
+<term>
+<code_meaning>time-to-peak map</code_meaning>
+<code_value>RID28490</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_14">
+<term>
+<code_meaning>mean transit time map</code_meaning>
+<code_value>RID12709</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_17">
+<term>
+<code_meaning>3D image processing</code_meaning>
+<code_value>RID36017</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_18">
+<term>
+<code_meaning>3D image processing</code_meaning>
+<code_value>RID36017</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_19">
+<term>
+<code_meaning>3D image processing</code_meaning>
+<code_value>RID36017</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_20">
+<term>
+<code_meaning>3D image processing</code_meaning>
+<code_value>RID36017</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_21">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_22">
+<term>
+<code_meaning>ischemia</code_meaning>
+<code_value>RID3376</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>telencephalon</code_meaning>
+<code_value>RID6437</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_24">
+<term>
+<code_meaning>allergic or anaphylactoid reaction</code_meaning>
+<code_value>RID11532</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_25">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_26">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_27">
+<term>
+<code_meaning>image acquisition modifier</code_meaning>
+<code_value>RID28767</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_28">
+<term>
+<code_meaning>CT detector configuration</code_meaning>
+<code_value>RID10588</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_29">
+<term>
+<code_meaning></code_meaning>
+<code_value>RID12414</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_31">
+<term>
+<code_meaning>slice thickness</code_meaning>
+<code_value>RID28669</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_33">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_34">
+<term>
+<code_meaning>image quality</code_meaning>
+<code_value>RID10</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_35">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_36">
+<term>
+<code_meaning>motion</code_meaning>
+<code_value>RID28696</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_37">
+<term>
+<code_meaning>quality control</code_meaning>
+<code_value>RID28816</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>limited quality</code_meaning>
+<code_value>RID13</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_38">
+<term>
+<code_meaning>image processing procedure step</code_meaning>
+<code_value>RID12633</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning></code_meaning>
+<code_value>RID12234</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>CT imaging procedure step</code_meaning>
+<code_value>RID12307</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_39">
+<term>
+<code_meaning>anterior cerebral artery</code_meaning>
+<code_value>RID648</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_40">
+<term>
+<code_meaning>middle cerebral artery</code_meaning>
+<code_value>RID665</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_41">
+<term>
+<code_meaning>internal carotid artery</code_meaning>
+<code_value>RID585</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_42">
+<term>
+<code_meaning></code_meaning>
+<code_value>RID12234</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>CT imaging procedure step</code_meaning>
+<code_value>RID12307</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>image processing procedure step</code_meaning>
+<code_value>RID12633</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_43">
+<term>
+<code_meaning>torcular herophili</code_meaning>
+<code_value>RID1125</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_44">
+<term>
+<code_meaning>straight sinus</code_meaning>
+<code_value>RID1129</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_45">
+<term>
+<code_meaning>internal cerebral vein</code_meaning>
+<code_value>RID1142</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_46">
+<term>
+<code_meaning>superior sagittal sinus</code_meaning>
+<code_value>RID1127</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>inferior sagittal sinus</code_meaning>
+<code_value>RID1131</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_47">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>perfusion</code_meaning>
+<code_value>RID10376</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_48">
+<term>
+<code_meaning>right</code_meaning>
+<code_value>RID5825</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>anterior</code_meaning>
+<code_value>RID5818</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_49">
+<term>
+<code_meaning>left</code_meaning>
+<code_value>RID5824</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>anterior</code_meaning>
+<code_value>RID5818</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_50">
+<term>
+<code_meaning>posterior</code_meaning>
+<code_value>RID5819</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_51">
+<term>
+<code_meaning>parametric mapping</code_meaning>
+<code_value>RID12755</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_52">
+<term>
+<code_meaning>perfusion</code_meaning>
+<code_value>RID10376</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>computed tomography</code_meaning>
+<code_value>RID10321</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>modality-related characteristic</code_meaning>
+<code_value>RID6033</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_53">
+<term>
+<code_meaning>cerebral blood flow map</code_meaning>
+<code_value>RID12707</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_54">
+<term>
+<code_meaning>symmetrical</code_meaning>
+<code_value>RID5807</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_55">
+<term>
+<code_meaning>increased</code_meaning>
+<code_value>RID36043</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_56">
+<term>
+<code_meaning>decreased</code_meaning>
+<code_value>RID36044</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_57">
+<term>
+<code_meaning>mean transit time map</code_meaning>
+<code_value>RID12709</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_58">
+<term>
+<code_meaning>symmetrical</code_meaning>
+<code_value>RID5807</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_59">
+<term>
+<code_meaning>increased</code_meaning>
+<code_value>RID36043</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_60">
+<term>
+<code_meaning>decreased</code_meaning>
+<code_value>RID36044</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_61">
+<term>
+<code_meaning>cerebral blood volume map</code_meaning>
+<code_value>RID28489</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_62">
+<term>
+<code_meaning>symmetrical</code_meaning>
+<code_value>RID5807</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_63">
+<term>
+<code_meaning>increased</code_meaning>
+<code_value>RID36043</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_64">
+<term>
+<code_meaning>decreased</code_meaning>
+<code_value>RID36044</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_65">
+<term>
+<code_meaning>vascular region</code_meaning>
+<code_value>RID28822</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_66">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_67">
+<term>
+<code_meaning>anterior cerebral artery</code_meaning>
+<code_value>RID648</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_68">
+<term>
+<code_meaning>middle cerebral artery</code_meaning>
+<code_value>RID665</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_69">
+<term>
+<code_meaning>posterior cerebral artery</code_meaning>
+<code_value>RID804</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_70">
+<term>
+<code_meaning>portion of tissue</code_meaning>
+<code_value>RID13298</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_71">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_72">
+<term>
+<code_meaning>cortex</code_meaning>
+<code_value>RID5988</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>gray matter of neuraxis</code_meaning>
+<code_value>RID6903</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_73">
+<term>
+<code_meaning>subcortical</code_meaning>
+<code_value>RID6387</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>gray matter of neuraxis</code_meaning>
+<code_value>RID6903</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_74">
+<term>
+<code_meaning>white matter of neuraxis</code_meaning>
+<code_value>RID13395</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_75">
+<term>
+<code_meaning>measurement</code_meaning>
+<code_value>RID10409</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>vascular region</code_meaning>
+<code_value>RID28822</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_76">
+<term>
+<code_meaning>measurement</code_meaning>
+<code_value>RID10409</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>ischemia</code_meaning>
+<code_value>RID3376</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_77">
+<term>
+<code_meaning>measurement</code_meaning>
+<code_value>RID10409</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>ischemic</code_meaning>
+<code_value>RID6285</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_79">
+<term>
+<code_meaning>image quality</code_meaning>
+<code_value>RID10</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_80">
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_81">
+<term>
+<code_meaning>motion</code_meaning>
+<code_value>RID28696</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_82">
+<term>
+<code_meaning>quality control</code_meaning>
+<code_value>RID28816</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>limited quality</code_meaning>
+<code_value>RID13</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_83">
+<term>
+<code_meaning>parametric mapping</code_meaning>
+<code_value>RID12755</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_84">
+<term>
+<code_meaning>perfusion</code_meaning>
+<code_value>RID10376</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>computed tomography</code_meaning>
+<code_value>RID10321</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>modality-related characteristic</code_meaning>
+<code_value>RID6033</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_85">
+<term>
+<code_meaning>cerebral blood flow map</code_meaning>
+<code_value>RID12707</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_86">
+<term>
+<code_meaning>symmetrical</code_meaning>
+<code_value>RID5807</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_87">
+<term>
+<code_meaning>increased</code_meaning>
+<code_value>RID36043</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_88">
+<term>
+<code_meaning>decreased</code_meaning>
+<code_value>RID36044</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_89">
+<term>
+<code_meaning>mean transit time map</code_meaning>
+<code_value>RID12709</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_90">
+<term>
+<code_meaning>symmetrical</code_meaning>
+<code_value>RID5807</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_91">
+<term>
+<code_meaning>increased</code_meaning>
+<code_value>RID36043</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_92">
+<term>
+<code_meaning>decreased</code_meaning>
+<code_value>RID36044</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_93">
+<term>
+<code_meaning>cerebral blood volume map</code_meaning>
+<code_value>RID28489</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_94">
+<term>
+<code_meaning>symmetrical</code_meaning>
+<code_value>RID5807</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_95">
+<term>
+<code_meaning>increased</code_meaning>
+<code_value>RID36043</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_96">
+<term>
+<code_meaning>decreased</code_meaning>
+<code_value>RID36044</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_97">
+<term>
+<code_meaning>vascular region</code_meaning>
+<code_value>RID28822</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_98">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_99">
+<term>
+<code_meaning>anterior cerebral artery</code_meaning>
+<code_value>RID648</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_100">
+<term>
+<code_meaning>middle cerebral artery</code_meaning>
+<code_value>RID665</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_101">
+<term>
+<code_meaning>posterior cerebral artery</code_meaning>
+<code_value>RID804</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_102">
+<term>
+<code_meaning>portion of tissue</code_meaning>
+<code_value>RID13298</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_103">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_104">
+<term>
+<code_meaning>cortex</code_meaning>
+<code_value>RID5988</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>gray matter of neuraxis</code_meaning>
+<code_value>RID6903</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_105">
+<term>
+<code_meaning>subcortical</code_meaning>
+<code_value>RID6387</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>gray matter of neuraxis</code_meaning>
+<code_value>RID6903</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_106">
+<term>
+<code_meaning>white matter of neuraxis</code_meaning>
+<code_value>RID13395</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_107">
+<term>
+<code_meaning>measurement</code_meaning>
+<code_value>RID10409</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>normal</code_meaning>
+<code_value>RID13173</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>vascular region</code_meaning>
+<code_value>RID28822</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_108">
+<term>
+<code_meaning>measurement</code_meaning>
+<code_value>RID10409</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>ischemia</code_meaning>
+<code_value>RID3376</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_109">
+<term>
+<code_meaning>measurement</code_meaning>
+<code_value>RID10409</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>ischemic</code_meaning>
+<code_value>RID6285</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_111">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_112">
+<term>
+<code_meaning>perfusion</code_meaning>
+<code_value>RID10376</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>symmetric size</code_meaning>
+<code_value>RID5780</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_113">
+<term>
+<code_meaning>oligemia</code_meaning>
+<code_value>RID28517</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_114">
+<term>
+<code_meaning>oligemia</code_meaning>
+<code_value>RID28517</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T5_115">
+<term>
+<code_meaning>central</code_meaning>
+<code_value>RID5827</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>infarction</code_meaning>
+<code_value>RID5172</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>TK mózgu (perfuzja)</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1">TK mózgu (perfuzja)</header>
+<p>
+<textarea id="T5_2" name="Procedure"> </textarea>
+</p>
+<p>
+<label for="T5_4">Liczba detektorów:</label>
+<input type="number" id="T5_4" name="Number of detectors" data-field-units="" min="" max=""/> 
+</p>
+<p>
+<label for="T5_5">Liczba faz:</label>
+<input type="number" id="T5_5" name="Number of phases" data-field-units="" min="" max=""/> 
+</p>
+<p>
+<label for="T5_6">Liczba lokalizacji:</label>
+<input type="number" id="T5_6" name="Number of locations" data-field-units="" min="" max=""/> 
+</p>
+<p>
+<label for="T5_7">Grubość warstwy:</label>
+<input type="number" id="T5_7" name="Slice thickness" data-field-units="mm" min="" max=""/> mm </p>
+<p>
+<label for="T5_8">Liczba repetycji:</label>
+<input type="number" id="T5_8" name="Number of repetitions" data-field-units="" min="" max=""/> 
+</p>
+<p>
+<label for="T5_9">Kontrast:</label>
+<input type="text" id="T5_9" name="Contrast media" value=""/>
+</p>
+<p>
+<label for="T5_15">Stacja robocza:</label>
+<select id="T5_15" name="Workstation">
+<option id="T5_15_16" name="Vital Images" value="Vital Images">Vital Images</option>
+<option id="T5_15_17" name="Terrarecon" value="Terrarecon">Terrarecon</option>
+<option id="T5_15_18" name="GE Advantage" value="GE Advantage">GE Advantage</option>
+<option id="T5_15_19" name="Leonardo" value="Leonardo">Leonardo</option>
+<option id="T5_15_20" name="Philips" value="Philips">Philips</option>
+</select>
+<input type="text" id="T5_15_text" name="Workstation_text" value=""/>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1">Dane kliniczne</header>
+<p>
+<textarea id="T5_21" name="Clinical information">Udar mózgu. </textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1">Porównano z badaniem z dnia</header>
+<p>
+<textarea id="T5_25" name="Comparison">Brak. </textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1">Wynik badania</header>
+<section data-section-name="Technical parameters">
+<header class="level2">Parametry techniczne</header>
+<p>
+<label for="T5_34">Jakość obrazu:</label>
+<input type="text" id="T5_34" name="Image quality" value="Dostateczny. "/>
+</p>
+<p>
+<label for="T5_38">ROI tętnicy:</label>
+<select id="T5_38" name="Arterial input function ROI">
+<option id="T5_38_39" name="ACA" value="ACA">Tętnica przednia mózgu (ACA)</option>
+<option id="T5_38_40" name="MCA" value="MCA">Tętnica środkowa mózgu (MCA)</option>
+<option id="T5_38_41" name="ICA" value="ICA">Tętnica szyjna wewnętrzna (ICA)</option>
+</select>
+</p>
+<p>
+<label for="T5_42">ROI żylne:</label>
+<select id="T5_42" name="Venous outflow function ROI">
+<option id="T5_42_43" name="Torcula" value="Torcula">Spływ zatok</option>
+<option id="T5_42_44" name="Straight sinus" value="Straight sinus">Zatoka prosta</option>
+<option id="T5_42_45" name="ICV" value="ICV">Żyła wewnętrzna mózgu</option>
+<option id="T5_42_46" name="Sagittal sinus" value="Sagittal sinus">Zatoka strzałkowa</option>
+</select>
+</p>
+<p>
+<label for="T5_47">Obszar prawidłowej perfuzji:</label>
+<select id="T5_47" name="Site of normal perfusion">
+<option id="T5_47_48" name="Right anterior territory" value="Right anterior territory">Obszar przednio-prawostronny</option>
+<option id="T5_47_49" name="Left anterior territory" value="Left anterior territory">Obszar przednio-lewostronny</option>
+<option id="T5_47_50" name="Posterior territory" value="Posterior territory">Obszar tylny</option>
+</select>
+</p>
+<p>
+<label for="T5_51">Mapy parametryczne</label>
+<input type="text" id="T5_51" name="Parametric maps" value=""/>
+</p>
+</section>
+
+<section data-section-name="Parametric maps">
+<header class="level2">Mapy parametryczne</header> Cechy CTP {danego obszaru}: <p>		
+<label for="T5_53">Cerebral blood flow (CBF):</label>
+<select id="T5_53" name="CBF">
+<option id="T5_53_54" name="Symmetric" value="Symmetric" selected>Symetryczne</option>
+<option id="T5_53_55" name="Increased" value="Increased">Zwiększone</option>
+<option id="T5_53_56" name="Decreased" value="Decreased">Zmniejszone</option>
+</select>
+</p>
+<p>
+<label for="T5_57">Mean transit time (MTT):</label>
+<select id="T5_57" name="MTT">
+<option id="T5_57_58" name="Symmetric" value="Symmetric" selected>Symetryczne</option>
+<option id="T5_57_59" name="Increased" value="Increased">Zwiększone</option>
+<option id="T5_57_60" name="Decreased" value="Decreased">Zmniejszone</option>
+</select>
+</p>
+<p>
+<label for="T5_61">Cerebral blood volume (CBV):</label>
+<select id="T5_61" name="CBV">
+<option id="T5_61_62" name="Symmetric" value="Symmetric" selected>Symetryczne</option>
+<option id="T5_61_63" name="Increased" value="Increased">Zwiększone</option>
+<option id="T5_61_64" name="Decreased" value="Decreased">Zmniejszone</option>
+</select>
+</p>
+<p>
+<label for="T5_65">Unaczynienie danego obszaru:</label>
+<select id="T5_65" name="Vascular territory involved">
+<option id="T5_66" name="None" value="None">Nie dotyczy.</option>
+<option id="T5_67" name="ACA" value="ACA">Tętnica przednia mózgu (ACA)</option>
+<option id="T5_68" name="MCA" value="MCA">Tętnica środkowa mózgu (MCA)</option>
+<option id="T5_69" name="PCA" value="PCA">Tętnica tylna mózgu (PCA)</option>
+</select>
+<p>
+<label for="T5_70">Struktury mózgowia danego obszaru:</label>
+<input type="text" id="T5_70" name="Tissue involved" value="Nie dotyczy."/>
+</p>
+<p>
+<label for="T5_75">Procent obszaru naczynienia o zaburzonej perfuzji:</label>
+<input type="number" id="T5_75" name="normal vascular territory involved" value="" min="0" max="100" step="1"/>
+</p>
+<p>
+<label for="T5_76">Procent reprezentujący obszar zawałowy {CBV &lt; 2 mL/200gm}:</label>
+<input type="number" id="T5_76" name="abnormality representing ischemic core" value="" min="0" max="100" step="1"/>
+</p>
+<p>
+<label for="T5_77">Procent reprezentujący obszar penumbrii {MTT > 150% normy}:</label>
+<input type="number" id="T5_77" name="abnormality representing ischemic penumbra" value="" min="0" max="100" step="1"/>
+</p>
+<p>
+<label for="T5_78">Indeks penumbra/zawał:</label>
+<input type="number" id="T5_78" name="Ischemic core or penumbra ratio" value=""/>
+</p>
+</section>
+</section>
+<section data-section-name="Impression">
+<header class="level1">Wniosek</header>
+<p>
+<select id="T5_111" name="Impression">
+<option id="T5_112" name="Symmetric perfusion indices" value="Symmetric perfusion indices">Indeks perfuzyjny symetryczny</option>
+<option id="T5_113" name="Compensated oligemia" value="Compensated oligemia">Niedokrwienie kompensacyjne</option>
+<option id="T5_114" name="Non-compensated oligemia" value="Non-compensated oligemia">Niedokrwienie bez kompensacji</option>
+<option id="T5_115" name="Central infarct" value="Central infarct">Udar pnia</option>
+</select>
+</p>
+<p>
+<textarea id="T5_111_text" name="Impression text"> </textarea>
+</p>
+</section>
+</body>
+</html>

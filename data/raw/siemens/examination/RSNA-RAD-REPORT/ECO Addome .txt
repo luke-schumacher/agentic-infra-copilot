@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Chiara Carducci [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="ECO Addome " name="dcterms.title"/>
+<meta content="US Abdomen template :: Authored by Nisenbaum HL, et al." name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050304" name="dcterms.identifier"/>
+<meta content="it" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2017-11-30" name="dcterms.date"/>
+<meta content="Nisenbaum HL, et al." name="dcterms.creator"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Society of Radiologists in Ultrasound (SRU)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<term>
+ <code meaning="abdomen" value="RID56" scheme="RadLex">
+</term>
+<term>
+ <code meaning="ultrasound" value="RID10326" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T87_3">
+ <term>
+  <code meaning="clinical information" value="RID13166" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_10">
+ <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_15">
+  <term>
+  <code meaning="Size (attribute)" value="246115007" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_19">
+ <term>
+  <code meaning="measurement" value="RID10409" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_22">
+ <term>
+  <code meaning="echogenicity characteristic" value="RID6045" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_26">
+ <term>
+  <code meaning="contour" value="RID5957" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_29">
+ <term>
+  <code meaning="mass" value="RID3874" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_81">
+  <term>
+  <code meaning="Cystic dilation of intrahepatic duct (disorder)" value="307133008" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_83">
+ <term>
+  <code meaning="diameter" value="RID13432" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="common bile duct" value="RID199" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_85">
+ <term>
+  <code meaning="gallbladder" value="RID187" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_89">
+  <term>
+  <code meaning="Cholelithiasis without obstruction (disorder)" value="70342003" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_92">
+  <term>
+  <code meaning="Sludge (morphologic abnormality)" value="44901006" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_95">
+ <term>
+  <code meaning="gallbladder" value="RID187" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="wall" value="RID5987" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="thickening" value="RID28509" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_98">
+ <term>
+  <code meaning="fluid" value="RID1547" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_101">
+ <term>
+  <code meaning="Murphy&#039;s sign (finding)" value="53566005" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_106">
+ <term>
+  <code meaning="head of pancreas" value="RID171" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_114">
+ <term>
+  <code meaning="body of pancreas" value="RID174" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_126">
+ <term>
+  <code meaning="size descriptor" value="RID5772" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_130">
+  <term>
+  <code meaning="On examination - splenomegaly (finding)" value="164162005" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_131">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_132">
+ <term>
+  <code meaning="mild" value="RID5671" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_133">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_134">
+ <term>
+  <code meaning="severe" value="RID5673" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_141">
+ <term>
+  <code meaning="normal" value="RID13173" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_142">
+  <term>
+  <code meaning="Hydronephrosis (disorder)" value="43064006" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_143">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_144">
+ <term>
+  <code meaning="mild" value="RID5671" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_145">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_146">
+ <term>
+  <code meaning="severe" value="RID5673" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_147">
+  <term>
+  <code meaning="Size (attribute)" value="246115007" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_150">
+ <term>
+  <code meaning="normal" value="RID13173" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_151">
+  <term>
+  <code meaning="Hydronephrosis (disorder)" value="43064006" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_152">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_153">
+ <term>
+  <code meaning="mild" value="RID5671" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_154">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_155">
+ <term>
+  <code meaning="severe" value="RID5673" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_156">
+  <term>
+  <code meaning="Size (attribute)" value="246115007" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_157">
+ <term>
+  <code meaning="inferior vena cava" value="RID1178" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="abdominal aorta" value="RID905" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_159">
+  <term>
+  <code meaning="Ascites (disorder)" value="389026000" scheme="SNOMEDCT">
+ </term>
+</entry>
+<entry ORIGTXT="T87_160">
+ <term>
+  <code meaning="none" value="RID28454" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_161">
+ <term>
+  <code meaning="mild" value="RID5671" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_162">
+ <term>
+  <code meaning="moderate" value="RID5672" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_163">
+ <term>
+  <code meaning="severe" value="RID5673" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T87_321">
+ <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>ECO Addome </title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="US Abdomen">ECOGRAFIA Addome </header>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Informazioni cliniche</header>
+<p>
+<textarea id="T87_3" name="Informazioni cliniche" data-english-name="Clinical information" data-english-innertext=" "></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Confronto</header>
+<p>
+<textarea id="T87_10" name="Confronto" data-english-name="Comparison" data-english-innertext="None. ">Nessuna.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">I risultati</header>
+<section data-section-name="Liver">
+<header class="level2" data-english="Liver">Fegato</header>
+<p>
+<label for="T87_15" data-english="Size:">Dimensione:</label>
+<input type="text" id="T87_15" name="Dimensione" value="Normale." data-english-value="Normal." data-english-name="Size"/>
+</p>
+<p>
+<label for="T87_19" data-english="Craniocaudal length:">Lunghezza craniocaudale:</label>
+<input type="number" id="T87_19" name="Lunghezza craniocaudale" data-field-units="cm" min="0" max="" data-english-name="Craniocaudal length"/> cm
+</p>
+<p>
+<label for="T87_22" data-english="Echogenicity:">ecogenicità:</label>
+<input type="text" id="T87_22" name="ecogenicit&agrave;" value="" data-english-value="" data-english-name="Echogenicity"/>
+</p>
+<p>
+<label for="T87_26" data-english="Surface nodularity:">Nodularità superficiale:</label>
+<select id="T87_26" name="Nodularit&agrave; superficiale" data-english-name="Surface nodularity">
+<option id="T87_26.1" name="Nessuna" value="Nessuna" data-english-name="None" data-english-value="None" data-english-innertext="None">Nessuna</option>
+<option id="T87_26.2" name="lieve" value="lieve" data-english-name="Mild" data-english-value="Mild" data-english-innertext="Mild">lieve</option>
+<option id="T87_26.3" name="Moderata" value="Moderata" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderata</option>
+<option id="T87_26.4" name="Grave" value="Grave" data-english-name="Severe" data-english-value="Severe" data-english-innertext="Severe">Grave</option>
+</select>
+</p>
+<p>
+<label for="T87_29" data-english="Mass (size and location):">Massa (dimensione e posizione):</label>
+<input type="text" id="T87_29" name="Massa" value="Normale." data-english-value="Normal." data-english-name="Mass"/>
+</p>
+</section>
+<section data-section-name="Bile ducts">
+<header class="level2" data-english="Bile ducts">Dotti biliari</header>
+<p>
+<label for="T87_81" data-english="Intrahepatic ducts:">Condotti intraepatici:</label>
+<input type="text" id="T87_81" name="Condotti intraepatici" value="Nessuna." data-english-value="None." data-english-name="Intrahepatic ducts"/>
+</p>
+<p>
+<label for="T87_83" data-english="Common bile duct diameter:">Diametro del dotto biliare comune:</label>
+<input type="number" id="T87_83" name="CBD" value="Normale." min="0" step="1" data-field-units="mm" data-english-value="Normal." data-english-name="CBD"/> <label for="T87_83" data-english="mm">mm</label>
+</p>
+</section>
+<section data-section-name="Gallbladder">
+<header class="level2" data-english="Gallbladder">Cistifellea</header>
+<p>
+<select id="T87_85" name="Cistifellea" data-english-name="Gallbladder">
+<option id="T87_85.1" name="Normale" value="Normale" data-english-name="Normal" data-english-value="Normal" data-english-innertext="Normal">Normale</option>
+<option id="T87_85.2" name="Assente" value="Assente" data-english-name="Absent" data-english-value="Absent" data-english-innertext="Prior cholecystectomy">Colecistectomia precedente</option>
+<option id="T87_85.3" name="Non visto" value="Non visto" data-english-name="Not seen" data-english-value="Not seen" data-english-innertext="Not seen">Non visto</option>
+<option id="T87_85.4" name="Anormale" value="Anormale" data-english-name="Abnormal" data-english-value="Abnormal" data-english-innertext="Abnormal">Anormale</option>
+</select>
+</p>
+<p>
+<label for="T87_89" data-english="Gallstones:">Calcoli biliari:</label>
+<input type="text" id="T87_89" name="Calcoli biliari" value="" data-english-value="" data-english-name="Gallstones"/>
+</p>
+<p>
+<label for="T87_92" data-english="Gallbladder sludge:">Fango della cistifellea:</label>
+<input type="text" id="T87_92" name="Fango della cistifellea" value="Nessuna." data-english-value="None." data-english-name="Gallbladder sludge"/>
+</p>
+<p>
+<label for="T87_95" data-english="Gallbladder wall thickening:">Ispessimento della parete della cistifellea:</label>
+<input type="text" id="T87_95" name="Ispessimento della parete della cistifellea" value="Nessuna." data-english-value="None." data-english-name="Gallbladder wall thickening"/>
+</p>
+<p>
+<label for="T87_98" data-english="Pericholecystic fluid:">Fluido pericolecistico:</label>
+<input type="text" id="T87_98" name="Fluido  pericolecistico:" value="Nessuna." data-english-value="None." data-english-name="Pericholecystic fluid"/>
+</p>
+<p>
+<label for="T87_101" data-english="Sonographic Murphy sign:">Segno di Murphy sonografico:</label>
+<input type="text" id="T87_101" name="Segno Murphy" value="Nessuna." data-english-value="None." data-english-name="Murphy sign"/>
+</p>
+</section>
+<section data-section-name="Pancreas">
+<header class="level2" data-english="Pancreas">Pancreas</header>
+<p>
+<label for="T87_106" data-english="Head and uncinate process:">testa e uncinato:</label>
+<input type="text" id="T87_106" name=" testa e uncinato" value="Assente." data-english-value="Absent." data-english-name="Head and uncinate process"/>
+</p>
+<p>
+<label for="T87_114" data-english="Body and tail:">Corpo e coda:</label>
+<input type="text" id="T87_114" name="Corpo e coda" value="Normale." data-english-value="Normal." data-english-name="Body and tail"/>
+</p>
+</section>
+<section data-section-name="Spleen">
+<header class="level2" data-english="Spleen">Milza</header>
+<p>
+<label for="T87_130" data-english="Splenomegaly:">splenomegalia:</label>
+<select id="T87_130" name="splenomegalia" data-english-name="Splenomegaly">
+<option id="T87_131" name="Nessuna" value="Nessuna" data-english-name="None" data-english-value="None" data-english-innertext="None">Nessuna</option>
+<option id="T87_132" name="lieve" value="lieve" data-english-name="Mild" data-english-value="Mild" data-english-innertext="Mild">lieve</option>
+<option id="T87_133" name="Moderata" value="Moderata" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderata</option>
+<option id="T87_134" name="Grave" value="Grave" data-english-name="Severe" data-english-value="Severe" data-english-innertext="Severe">Grave</option>
+</select>
+</p>
+<p>
+<label for="T87_126" data-english="Craniocaudal length:">Lunghezza craniocaudale:</label>
+<input type="number" id="T87_126" name="Lunghezza della milza" value="Non visto." min="0" max="99" step="0.1" data-field-units="cm" data-english-value="Not seen." data-english-name="Spleen length"/> <label for="T87_126" data-english="cm">centimetro</label>
+</p>
+</section>
+<section data-section-name="Right kidney">
+<header class="level2" data-english="Right kidney">Rene destro</header>
+<p>
+<input type="text" id="T87_141" name="Rene destro" value="" data-english-value="" data-english-name="Right kidney"/>
+</p>
+<p>
+<label for="T87_142" data-english="Hydronephrosis:">idronefrosi:</label>
+<select id="T87_142" name="idronefrosi" data-english-name="Hydronephrosis">
+<option id="T87_143" name="Nessuna" value="Nessuna" data-english-name="None" data-english-value="None" data-english-innertext="None">Nessuna</option>
+<option id="T87_144" name="lieve" value="lieve" data-english-name="Mild" data-english-value="Mild" data-english-innertext="Mild">lieve</option>
+<option id="T87_145" name="Moderata" value="Moderata" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderata</option>
+<option id="T87_146" name="Grave" value="Grave" data-english-name="Severe" data-english-value="Severe" data-english-innertext="Severe">Grave</option>
+</select>
+</p>
+<p>
+<label for="T87_147" data-english="Size:">Dimensione:</label>
+<input type="text" id="T87_147" name="Dimensione" value="Normale." data-english-value="Normal." data-english-name="Size"/> <label for="T87_147" data-english="cm">centimetro</label>
+</p>
+</section>
+<section data-section-name="Left kidney">
+<header class="level2" data-english="Left kidney">Rene sinistro</header>
+<p>
+<input type="text" id="T87_150" name="Rene sinistro" value="" data-english-value="" data-english-name="Left kidney"/>
+</p>
+<p>
+<label for="T87_151" data-english="Hydronephrosis:">idronefrosi:</label>
+<select id="T87_151" name="idronefrosi" data-english-name="Hydronephrosis">
+<option id="T87_152" name="Nessuna" value="Nessuna" data-english-name="None" data-english-value="None" data-english-innertext="None">Nessuna</option>
+<option id="T87_153" name="Lieve" value="Lieve" data-english-name="Mild" data-english-value="Mild" data-english-innertext="Mild">Lieve</option>
+<option id="T87_154" name="Moderata" value="Moderata" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderata</option>
+<option id="T87_155" name="Grave" value="Grave" data-english-name="Severe" data-english-value="Severe" data-english-innertext="Severe">Grave</option>
+</select>
+</p>
+<p>
+<label for="T87_156" data-english="Size:">Dimensione:</label>
+<input type="text" id="T87_156" name="Dimensione" value="Normale." data-english-value="Normal." data-english-name="Size"/> <label for="T87_156" data-english="cm">centimetro</label>
+</p>
+</section>
+<section data-section-name="Abdominal aorta and IVC">
+<header class="level2" data-english="Abdominal aorta and IVC">Aorta addominale e IVC</header>
+<p>
+<input type="text" id="T87_157" name="Aorta addominale e IVC" value="" data-english-value="" data-english-name="Abdominal aorta and IVC"/>
+</p>
+</section>
+<section data-section-name="Ascites">
+<header class="level2" data-english="Ascites">ascite</header>
+<p>
+<select id="T87_159" name="ascite" data-english-name="Ascites">
+<option id="T87_160" name="Nessuna" value="Nessuna" data-english-name="None" data-english-value="None" data-english-innertext="None">Nessuna</option>
+<option id="T87_161" name="Lieve" value="Lieve" data-english-name="Mild" data-english-value="Mild" data-english-innertext="Mild">Lieve</option>
+<option id="T87_162" name="Moderata" value="Moderata" data-english-name="Moderate" data-english-value="Moderate" data-english-innertext="Moderate">Moderata</option>
+<option id="T87_163" name="Grave" value="Grave" data-english-name="Severe" data-english-value="Severe" data-english-innertext="Severe">Grave</option>
+</select>
+</p>
+</section>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Conclusioni</header>
+<p>
+<textarea id="T87_321" name="Conclusioni" data-english-name="Impression" data-english-innertext=" "></textarea>
+</p>
+</section>
+</body>
+</html>

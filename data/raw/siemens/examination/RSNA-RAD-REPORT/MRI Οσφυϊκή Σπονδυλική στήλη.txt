@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head><meta content="NIKOLAOS EFTHYMIADIS [translator]" name="dcterms.contributor"/>
+        <title>MRI Οσφυϊκή Σπονδυλική στήλη</title>
+        <meta charset="UTF-8" />
+        <meta name="dcterms.identifier" content="http://open.radreport.org/template/0050300" />
+        <meta name="dcterms.title" content="MRI Οσφυϊκή Σπονδυλική στήλη" />
+        <meta name="dcterms.description" content="For disc disease" />
+        <meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE" />
+        <meta name="dcterms.language" content="el" />
+        <meta name="dcterms.publisher" content="" />
+        <meta name="dcterms.rights" content="May be used freely, subject to license agreement" />
+        <meta name="dcterms.license" content="http://www.radreport.org/license.pdf" />
+        <meta name="dcterms.date" content="2017-11-30" />
+        <meta name="dcterms.creator" content="PRIYANK GUPTA" />
+        <script type="text/xml">
+            <template_attributes>
+                <coded_content>
+                    <coding_schemes>
+                        <coding_scheme name="RADLEX" designator="2.16.840.1.113883.6.256"></coding_scheme>
+                    </coding_schemes>
+                </coded_content>
+            </template_attributes>
+        </script>
+    </head>
+    <body>
+        <section id="procedureInformation" class="level1" data-section-name="Procedure Information">
+            <header class="level1" data-english="                Procedure Information            ">Πληροφορίες Διαδικασίας</header>
+            <p title="">
+                <label for="procedureInformationText" data-english="Acute, subacute, or chronic uncomplicated low back pain or radiculopathy.">Οξεία, υποξεία ή χρόνια μη επιπλεγμένη οσφυαλγία ή ριζοπάθεια.</label>
+                <textarea rows="3" cols="100" id="procedureInformationText" name="" data-field-type="TEXT" data-field-completion-action="PROHIBIT" data-english-name=""></textarea>
+            </p>
+        </section>
+        <section id="clinicalInformation" class="level1" data-section-name="Clinical Information">
+            <header class="level1" data-english="                Clinical Information            ">Κλινικές πληροφορίες</header>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960504" data-english="Previous study ">Προηγούμενη μελέτη</label>
+                <select id="SELECTION_LIST_1479343960504" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="No red flags. No prior management. " data-english-name="">
+                    <option id="SELECTION_LIST_1479343960504_0" value="&Delta;&epsilon;&nu; &upsilon;&pi;ά&rho;&chi;&omicron;&upsilon;&nu; &kappa;ό&kappa;&kappa;&iota;&nu;&epsilon;&sigmaf; &sigma;&eta;&mu;&alpha;ί&epsilon;&sigmaf;. &Delta;&epsilon;&nu; &upsilon;&pi;ά&rho;&chi;&epsilon;&iota; &pi;&rho;&omicron;&eta;&gamma;&omicron;ύ&mu;&epsilon;&nu;&eta; &delta;&iota;&alpha;&chi;&epsilon;ί&rho;&iota;&sigma;&eta;." name="SELECTION_LIST_1479343960504" selected="" data-english-name="SELECTION_LIST_1479343960504" data-english-value="No red flags. No prior management. " data-english-innertext="No red flags. No prior management. ">&Delta;&epsilon;&nu; &upsilon;&pi;ά&rho;&chi;&omicron;&upsilon;&nu; &kappa;ό&kappa;&kappa;&iota;&nu;&epsilon;&sigmaf; &sigma;&eta;&mu;&alpha;ί&epsilon;&sigmaf;. &Delta;&epsilon;&nu; &upsilon;&pi;ά&rho;&chi;&epsilon;&iota; &pi;&rho;&omicron;&eta;&gamma;&omicron;ύ&mu;&epsilon;&nu;&eta; &delta;&iota;&alpha;&chi;&epsilon;ί&rho;&iota;&sigma;&eta;.</option>
+                    <option id="SELECTION_LIST_1479343960504_1" value="Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &alpha;&pi;ό &tau;&alpha; &alpha;&kappa;ό&lambda;&omicron;&upsilon;&theta;&alpha;: &tau;&rho;&alpha;ύ&mu;&alpha; &chi;&alpha;&mu;&eta;&lambda;ή&sigmaf; &tau;&alpha;&chi;ύ&tau;&eta;&tau;&alpha;&sigmaf;, &omicron;&sigma;&tau;&epsilon;&omicron;&pi;ό&rho;&omega;&sigma;&eta;, &eta;&lambda;&iota;&kappa;&iota;&omega;&mu;έ&nu;&omicron; ά&tau;&omicron;&mu;&omicron; ή &chi;&rho;ό&nu;&iota;&alpha; &chi;&rho;ή&sigma;&eta; &sigma;&tau;&epsilon;&rho;&omicron;&epsilon;&iota;&delta;ώ&nu;." name="SELECTION_LIST_1479343960504" data-english-name="SELECTION_LIST_1479343960504" data-english-value="One or more of the following: low velocity trauma, osteoporosis, elderly individual, or chronic steroid use. " data-english-innertext="One or more of the following: low velocity trauma, osteoporosis, elderly individual, or chronic steroid use. ">Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &alpha;&pi;ό &tau;&alpha; &alpha;&kappa;ό&lambda;&omicron;&upsilon;&theta;&alpha;: &tau;&rho;&alpha;ύ&mu;&alpha; &chi;&alpha;&mu;&eta;&lambda;ή&sigmaf; &tau;&alpha;&chi;ύ&tau;&eta;&tau;&alpha;&sigmaf;, &omicron;&sigma;&tau;&epsilon;&omicron;&pi;ό&rho;&omega;&sigma;&eta;, &eta;&lambda;&iota;&kappa;&iota;&omega;&mu;έ&nu;&omicron; ά&tau;&omicron;&mu;&omicron; ή &chi;&rho;ό&nu;&iota;&alpha; &chi;&rho;ή&sigma;&eta; &sigma;&tau;&epsilon;&rho;&omicron;&epsilon;&iota;&delta;ώ&nu;.</option>
+                    <option id="SELECTION_LIST_1479343960504_2" value="Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &alpha;&pi;ό &tau;&alpha; &alpha;&kappa;ό&lambda;&omicron;&upsilon;&theta;&alpha;: &upsilon;&pi;&omicron;&psi;ί&alpha; &kappa;&alpha;&rho;&kappa;ί&nu;&omicron;&upsilon;, &mu;ό&lambda;&upsilon;&nu;&sigma;&eta;&sigmaf; ή &alpha;&nu;&omicron;&sigma;&omicron;&kappa;&alpha;&tau;&alpha;&sigma;&tau;&omicron;&lambda;ή&sigmaf;." name="SELECTION_LIST_1479343960504" data-english-name="SELECTION_LIST_1479343960504" data-english-value="One or more of the following: suspicion of cancer, infection, or immunosuppression. " data-english-innertext="One or more of the following: suspicion of cancer, infection, or immunosuppression. ">Έ&nu;&alpha; ή &pi;&epsilon;&rho;&iota;&sigma;&sigma;ό&tau;&epsilon;&rho;&alpha; &alpha;&pi;ό &tau;&alpha; &alpha;&kappa;ό&lambda;&omicron;&upsilon;&theta;&alpha;: &upsilon;&pi;&omicron;&psi;ί&alpha; &kappa;&alpha;&rho;&kappa;ί&nu;&omicron;&upsilon;, &mu;ό&lambda;&upsilon;&nu;&sigma;&eta;&sigmaf; ή &alpha;&nu;&omicron;&sigma;&omicron;&kappa;&alpha;&tau;&alpha;&sigma;&tau;&omicron;&lambda;ή&sigmaf;.</option>
+                    <option id="SELECTION_LIST_1479343960504_3" value="&Chi;&epsilon;&iota;&rho;&omicron;&upsilon;&rho;&gamma;&epsilon;ί&omicron; ή &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&omicron;&sigmaf; &epsilon;&pi;έ&mu;&beta;&alpha;&sigma;&eta;&sigmaf; &mu;&epsilon; &epsilon;&pi;ί&mu;&omicron;&nu;&alpha; ή &pi;&rho;&omicron;&omicron;&delta;&epsilon;&upsilon;&tau;&iota;&kappa;ά &sigma;&upsilon;&mu;&pi;&tau;ώ&mu;&alpha;&tau;&alpha; &kappa;&alpha;&tau;ά &tau;&eta; &delta;&iota;ά&rho;&kappa;&epsilon;&iota;&alpha; ή &mu;&epsilon;&tau;ά &alpha;&pi;ό 6 &epsilon;&beta;&delta;&omicron;&mu;ά&delta;&epsilon;&sigmaf; &sigma;&upsilon;&nu;&tau;&eta;&rho;&eta;&tau;&iota;&kappa;ή&sigmaf; &alpha;&nu;&tau;&iota;&mu;&epsilon;&tau;ώ&pi;&iota;&sigma;&eta;&sigmaf;." name="SELECTION_LIST_1479343960504" data-english-name="SELECTION_LIST_1479343960504" data-english-value="Surgery or intervention candidate with persistent or progressive symptoms during or following 6 weeks of conservative management. " data-english-innertext="Surgery or intervention candidate with persistent or progressive symptoms during or following 6 weeks of conservative management. ">&Chi;&epsilon;&iota;&rho;&omicron;&upsilon;&rho;&gamma;&epsilon;ί&omicron; ή &upsilon;&pi;&omicron;&psi;ή&phi;&iota;&omicron;&sigmaf; &epsilon;&pi;έ&mu;&beta;&alpha;&sigma;&eta;&sigmaf; &mu;&epsilon; &epsilon;&pi;ί&mu;&omicron;&nu;&alpha; ή &pi;&rho;&omicron;&omicron;&delta;&epsilon;&upsilon;&tau;&iota;&kappa;ά &sigma;&upsilon;&mu;&pi;&tau;ώ&mu;&alpha;&tau;&alpha; &kappa;&alpha;&tau;ά &tau;&eta; &delta;&iota;ά&rho;&kappa;&epsilon;&iota;&alpha; ή &mu;&epsilon;&tau;ά &alpha;&pi;ό 6 &epsilon;&beta;&delta;&omicron;&mu;ά&delta;&epsilon;&sigmaf; &sigma;&upsilon;&nu;&tau;&eta;&rho;&eta;&tau;&iota;&kappa;ή&sigmaf; &alpha;&nu;&tau;&iota;&mu;&epsilon;&tau;ώ&pi;&iota;&sigma;&eta;&sigmaf;.</option>
+                    <option id="SELECTION_LIST_1479343960504_4" value="&Upsilon;&pi;&omicron;&psi;ί&alpha; &iota;&pi;&pi;&omicron;&upsilon;&rho;&iota;&delta;&iota;&kappa;ή&sigmaf; &sigma;&upsilon;&nu;&delta;&rho;&omicron;&mu;ή&sigmaf; (cauda equina syndrome) ή &tau;&alpha;&chi;έ&omega;&sigmaf; &pi;&rho;&omicron;&omicron;&delta;&epsilon;&upsilon;&tau;&iota;&kappa;ό &nu;&epsilon;&upsilon;&rho;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ό έ&lambda;&lambda;&epsilon;&iota;&mu;&mu;&alpha;." name="SELECTION_LIST_1479343960504" data-english-name="SELECTION_LIST_1479343960504" data-english-value="Suspected cauda equina syndrome or rapidly progressive neurologic deficit. " data-english-innertext="Suspected cauda equina syndrome or rapidly progressive neurologic deficit. ">&Upsilon;&pi;&omicron;&psi;ί&alpha; &iota;&pi;&pi;&omicron;&upsilon;&rho;&iota;&delta;&iota;&kappa;ή&sigmaf; &sigma;&upsilon;&nu;&delta;&rho;&omicron;&mu;ή&sigmaf; (cauda equina syndrome) ή &tau;&omicron; &tau;&alpha;&chi;έ&omega;&sigmaf; &pi;&rho;&omicron;&omicron;&delta;&epsilon;&upsilon;&tau;&iota;&kappa;ό &nu;&epsilon;&upsilon;&rho;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ό έ&lambda;&lambda;&epsilon;&iota;&mu;&mu;&alpha;.</option>
+                </select>
+            </p>
+        </section>
+        <section id="comparisons" class="level1" data-section-name="Comparison">
+            <header class="level1" data-english="                Comparison            ">Σύγκριση</header>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960510" data-english="Height">Ύψος</label>
+                <select id="SELECTION_LIST_1479343960510" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="None" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960510_0" value="&Kappa;&alpha;&mu;ί&alpha;" name="SELECTION_LIST_1479343960510" selected="" data-english-name="SELECTION_LIST_1479343960510" data-english-value="None" data-english-innertext="None">&Kappa;&alpha;&mu;ί&alpha;</option>
+                    <option id="SELECTION_LIST_1479343960510_1" value="&Sigma;ύ&gamma;&kappa;&rho;&iota;&sigma;&eta; &mu;&epsilon; &pi;&rho;&omicron;&eta;&gamma;&omicron;ύ&mu;&epsilon;&nu;&eta; &mu;&epsilon;&lambda;έ&tau;&eta;" name="SELECTION_LIST_1479343960510" data-english-name="SELECTION_LIST_1479343960510" data-english-value="Comparison made with Previous Study " data-english-innertext="Comparison made with Previous Study ">&Sigma;ύ&gamma;&kappa;&rho;&iota;&sigma;&eta; &mu;&epsilon; &pi;&rho;&omicron;&eta;&gamma;&omicron;ύ&mu;&epsilon;&nu;&eta; &mu;&epsilon;&lambda;έ&tau;&eta;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="DATE_1479347114573" data-english="Contour">Περίγραμμα</label>
+                <input type="date" id="DATE_1479347114573" name="" data-field-type="DATE" data-field-completion-action="NONE" value="" data-english-value="" data-english-name="" />
+            </p>
+        </section>
+        <section id="findings" class="level1" data-section-name="Findings">
+            <header class="level1" data-english="                Findings            ">Ευρήματα</header>
+            <section id="SECTION_HEADER_1479347114563" class="level2" data-section-name="Lumbar Vertebral bodies &amp; Posterior elements">
+                <header class="level2" data-english="                    Lumbar Vertebral bodies &amp; Posterior elements                ">Οσφυϊκά σπονδυλικά σώματα & Στοιχεία οπίσθιου τόξου</header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960377" data-english="Alignment">Ευθυγράμμιση</label>
+                <select id="SELECTION_LIST_1479343960377" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960377_0" value="&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ό" name="SELECTION_LIST_1479343960377" selected="" data-english-name="SELECTION_LIST_1479343960377" data-english-value="Normal" data-english-innertext="Normal">&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ό</option>
+                    <option id="SELECTION_LIST_1479343960377_1" value="&Mu;&epsilon;&iota;&omega;&mu;έ&nu;&omicron;" name="SELECTION_LIST_1479343960377" data-english-name="SELECTION_LIST_1479343960377" data-english-value="Reduced" data-english-innertext="Reduced">&Mu;&epsilon;&iota;&omega;&mu;έ&nu;&omicron;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960380" data-english="Signal intensity">Ένταση σήματος</label>
+                <select id="SELECTION_LIST_1479343960380" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960380_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό" name="SELECTION_LIST_1479343960380" selected="" data-english-name="SELECTION_LIST_1479343960380" data-english-value="Normal" data-english-innertext="Normal">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό</option>
+                    <option id="SELECTION_LIST_1479343960380_1" value="&Omicron;&sigma;&tau;&epsilon;ό&phi;&upsilon;&tau;&alpha; &delta;ί&kappa;&eta;&nu; &rho;ά&mu;&phi;&omicron;&upsilon;&sigmaf;" name="SELECTION_LIST_1479343960380" data-english-name="SELECTION_LIST_1479343960380" data-english-value="Marginal Osteophytes " data-english-innertext="Marginal Osteophytes ">&Omicron;&sigma;&tau;&epsilon;ό&phi;&upsilon;&tau;&alpha; έ&lambda;&xi;&epsilon;&omega;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960380_2" value="&Omicron;&sigma;&tau;&epsilon;ό&phi;&upsilon;&tau;&alpha; &delta;ί&kappa;&eta;&nu; &rho;ά&mu;&phi;&omicron;&upsilon;&sigmaf;" name="SELECTION_LIST_1479343960380" data-english-name="SELECTION_LIST_1479343960380" data-english-value="Claw osteophytes" data-english-innertext="Claw osteophytes">&Omicron;&sigma;&tau;&epsilon;ό&phi;&upsilon;&tau;&alpha; &delta;ί&kappa;&eta;&nu; &rho;ά&mu;&phi;&omicron;&upsilon;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960380_3" value="&Sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&mu;ό&phi;&upsilon;&tau;&alpha;" name="SELECTION_LIST_1479343960380" data-english-name="SELECTION_LIST_1479343960380" data-english-value="Syndesmophytes" data-english-innertext="Syndesmophytes">&Sigma;&upsilon;&nu;&delta;&epsilon;&sigma;&mu;ό&phi;&upsilon;&tau;&alpha;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960385" data-english="End plate margins">Περιθώρια τελικής πλάκας</label>
+                <select id="SELECTION_LIST_1479343960385" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960385_0" value="&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ή" name="SELECTION_LIST_1479343960385" selected="" data-english-name="SELECTION_LIST_1479343960385" data-english-value="Normal" data-english-innertext="Normal">&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ή</option>
+                    <option id="SELECTION_LIST_1479343960385_1" value="&Sigma;&pi;&omicron;&nu;&delta;&upsilon;&lambda;&omicron;&lambda;ί&sigma;&theta;&eta;&sigma;&eta;" name="SELECTION_LIST_1479343960385" data-english-name="SELECTION_LIST_1479343960385" data-english-value="Spondylolisthesis" data-english-innertext="Spondylolisthesis">&Sigma;&pi;&omicron;&nu;&delta;&upsilon;&lambda;&omicron;&lambda;ί&sigma;&theta;&eta;&sigma;&eta;</option>
+                    <option id="SELECTION_LIST_1479343960385_2" value="&Kappa;ύ&phi;&omega;&sigma;&eta;" name="SELECTION_LIST_1479343960385" data-english-name="SELECTION_LIST_1479343960385" data-english-value="Kyphosis" data-english-innertext="Kyphosis">&Kappa;ύ&phi;&omega;&sigma;&eta;</option>
+                    <option id="SELECTION_LIST_1479343960385_3" value="&Sigma;&kappa;&omicron;&lambda;ί&omega;&sigma;&eta;" name="SELECTION_LIST_1479343960385" data-english-name="SELECTION_LIST_1479343960385" data-english-value="Scoliosis" data-english-innertext="Scoliosis">&Sigma;&kappa;&omicron;&lambda;ί&omega;&sigma;&eta;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960390" data-english="Facet joints">Αποφυσιακές αρθρώσεις</label>
+                <select id="SELECTION_LIST_1479343960390" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960390_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ή" name="SELECTION_LIST_1479343960390" selected="" data-english-name="SELECTION_LIST_1479343960390" data-english-value="Normal" data-english-innertext="Normal">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ή</option>
+                    <option id="SELECTION_LIST_1479343960390_1" value="&Alpha;&lambda;&lambda;&omicron;&iota;ώ&sigma;&epsilon;&iota;&sigmaf; &tau;ύ&pi;&omicron;&upsilon; Modic" name="SELECTION_LIST_1479343960390" data-english-name="SELECTION_LIST_1479343960390" data-english-value="Modic changes" data-english-innertext="Modic changes">&Alpha;&lambda;&lambda;&omicron;&iota;ώ&sigma;&epsilon;&iota;&sigmaf; &tau;ύ&pi;&omicron;&upsilon; Modic</option>
+                    <option id="SELECTION_LIST_1479343960390_2" value="&Epsilon;&sigma;&tau;&iota;&alpha;&kappa;έ&sigmaf; &beta;&lambda;ά&beta;&epsilon;&sigmaf;" name="SELECTION_LIST_1479343960390" data-english-name="SELECTION_LIST_1479343960390" data-english-value="Focal lesions" data-english-innertext="Focal lesions">&Epsilon;&sigma;&tau;&iota;&alpha;&kappa;έ&sigmaf; &beta;&lambda;ά&beta;&epsilon;&sigmaf;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960415" data-english="Lumbar vertebral bodies &amp;amp; Posterior elements">Οσφυϊκά σπονδυλικά σώματα & Στοιχεία οπίσθιου τόξου</label>
+                <select id="SELECTION_LIST_1479343960415" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960415_0" value="&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ά" name="SELECTION_LIST_1479343960415" selected="" data-english-name="SELECTION_LIST_1479343960415" data-english-value="Normal" data-english-innertext="Normal">&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ά</option>
+                    <option id="SELECTION_LIST_1479343960415_1" value="&Alpha;&nu;ώ&mu;&alpha;&lambda;&alpha; &mu;&epsilon; &delta;&iota;&alpha;&beta;&rho;ώ&sigma;&epsilon;&iota;&sigmaf;" name="SELECTION_LIST_1479343960415" data-english-name="SELECTION_LIST_1479343960415" data-english-value="Irregular with Erosions" data-english-innertext="Irregular with Erosions">&Alpha;&nu;ώ&mu;&alpha;&lambda;&alpha; &mu;&epsilon; &delta;&iota;&alpha;&beta;&rho;ώ&sigma;&epsilon;&iota;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960415_2" value="Ό&zeta;&omicron;&iota; &tau;&omicron;&upsilon; Schmorl" name="SELECTION_LIST_1479343960415" data-english-name="SELECTION_LIST_1479343960415" data-english-value="Schmorl&#039;s nodes" data-english-innertext="Schmorl&#039;s nodes">Ό&zeta;&omicron;&iota;  &tau;&omicron;&upsilon; Schmorl</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960395" data-english="Ligamentum flavum ">Ωχροί σύνδεσμοι</label>
+                <select id="SELECTION_LIST_1479343960395" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960395_0" value="&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;έ&sigmaf;" name="SELECTION_LIST_1479343960395" selected="" data-english-name="SELECTION_LIST_1479343960395" data-english-value="Normal" data-english-innertext="Normal">&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;έ&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960395_1" value="&Alpha;&rho;&theta;&rho;&omicron;&pi;ά&theta;&epsilon;&iota;&alpha;" name="SELECTION_LIST_1479343960395" data-english-name="SELECTION_LIST_1479343960395" data-english-value="Arthropathy" data-english-innertext="Arthropathy">&Alpha;&rho;&theta;&rho;&omicron;&pi;ά&theta;&epsilon;&iota;&alpha;</option>
+                    <option id="SELECTION_LIST_1479343960395_2" value="Έ&lambda;&lambda;&epsilon;&iota;&mu;&mu;&alpha; &pi;&epsilon;&tau;ά&lambda;&omicron;&upsilon; &tau;&omicron;&upsilon; &omicron;&pi;&iota;&sigma;&theta;ί&omicron;&upsilon; &tau;ό&xi;&omicron;&upsilon;" name="SELECTION_LIST_1479343960395" data-english-name="SELECTION_LIST_1479343960395" data-english-value="Pars interarticularis defect" data-english-innertext="Pars interarticularis defect">Έ&lambda;&lambda;&epsilon;&iota;&mu;&mu;&alpha; &pi;&epsilon;&tau;ά&lambda;&omicron;&upsilon; &tau;&omicron;&upsilon; &omicron;&pi;&iota;&sigma;&theta;ί&omicron;&upsilon; &tau;ό&xi;&omicron;&upsilon;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479347114565" data-english="Ligamentum Flavum">Ωχροί σύνδεσμοι</label>
+                <textarea rows="3" cols="100" id="TEXT_1479347114565" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960491" data-english="L1-L2 disc">Δίσκος Ο1-Ο2</label>
+                <select id="SELECTION_LIST_1479343960491" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960491_0" value="&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;&omicron;ί" name="SELECTION_LIST_1479343960491" selected="" data-english-name="SELECTION_LIST_1479343960491" data-english-value="Normal" data-english-innertext="Normal">&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;&omicron;ί</option>
+                    <option id="SELECTION_LIST_1479343960491_1" value="&Pi;&epsilon;&pi;&alpha;&chi;&upsilon;&mu;έ&nu;&omicron;&iota;" name="SELECTION_LIST_1479343960491" data-english-name="SELECTION_LIST_1479343960491" data-english-value="Thickening" data-english-innertext="Thickening">&Pi;&epsilon;&pi;&alpha;&chi;&upsilon;&mu;έ&nu;&omicron;&iota;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479347114566" data-english="L2-L3 disc">Δίσκο Ο2-Ο3</label>
+                <textarea rows="3" cols="100" id="TEXT_1479347114566" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <section id="SECTION_HEADER_1479347114564" class="level2" data-section-name="Intervertebral discs">
+                <header class="level2" data-english="                    Intervertebral discs                ">Μεσοσπονδύλιοι δίσκοι</header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960420" data-english="L3-L4 disc">Δίσκο Ο3-Ο4</label>
+                <select id="SELECTION_LIST_1479343960420" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal height &amp; signal intensity" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960420_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;" name="SELECTION_LIST_1479343960420" selected="" data-english-name="SELECTION_LIST_1479343960420" data-english-value="Normal height &amp;amp; signal intensity" data-english-innertext="Normal height &amp;amp; signal intensity">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960420_1" value="&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960420" data-english-name="SELECTION_LIST_1479343960420" data-english-value="Disc degeneration" data-english-innertext="Disc degeneration">&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960420_2" value="&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;" name="SELECTION_LIST_1479343960420" data-english-name="SELECTION_LIST_1479343960420" data-english-value="Annular tear" data-english-innertext="Annular tear">&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960420_3" value="&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960420" data-english-name="SELECTION_LIST_1479343960420" data-english-value="Disc protrusion" data-english-innertext="Disc protrusion">&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960420_4" value="&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960420" data-english-name="SELECTION_LIST_1479343960420" data-english-value="Disc extrusion" data-english-innertext="Disc extrusion">&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                    <option id="SELECTION_LIST_1479343960420_5" value="&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960420" data-english-name="SELECTION_LIST_1479343960420" data-english-value="Disc sequestration" data-english-innertext="Disc sequestration">&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960439" data-english="L4-L5 disc">Δίσκο Ο4-LΟ5</label>
+                <select id="SELECTION_LIST_1479343960439" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal height &amp; signal intensity" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960439_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;" name="SELECTION_LIST_1479343960439" selected="" data-english-name="SELECTION_LIST_1479343960439" data-english-value="Normal height &amp;amp; signal intensity" data-english-innertext="Normal height &amp;amp; signal intensity">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960439_1" value="&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960439" data-english-name="SELECTION_LIST_1479343960439" data-english-value="Disc degeneration" data-english-innertext="Disc degeneration">&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960439_2" value="&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon; " name="SELECTION_LIST_1479343960439" data-english-name="SELECTION_LIST_1479343960439" data-english-value="Annular tear" data-english-innertext="Annular tear">&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;
+</option>
+                    <option id="SELECTION_LIST_1479343960439_3" value="&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon; " name="SELECTION_LIST_1479343960439" data-english-name="SELECTION_LIST_1479343960439" data-english-value="Disc protrusion" data-english-innertext="Disc protrusion">&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon; </option>
+                    <option id="SELECTION_LIST_1479343960439_4" value="&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta; " name="SELECTION_LIST_1479343960439" data-english-name="SELECTION_LIST_1479343960439" data-english-value="Disc extrusion" data-english-innertext="Disc extrusion">&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                    <option id="SELECTION_LIST_1479343960439_5" value="&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960439" data-english-name="SELECTION_LIST_1479343960439" data-english-value="Disc sequestration" data-english-innertext="Disc sequestration">&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960446" data-english="L5-S1 disc">Δίσκο Ο5-Ι1</label>
+                <select id="SELECTION_LIST_1479343960446" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal height &amp; signal intensity" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960446_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;" name="SELECTION_LIST_1479343960446" selected="" data-english-name="SELECTION_LIST_1479343960446" data-english-value="Normal height &amp;amp; signal intensity" data-english-innertext="Normal height &amp;amp; signal intensity">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960446_1" value="&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960446" data-english-name="SELECTION_LIST_1479343960446" data-english-value="Disc degeneration" data-english-innertext="Disc degeneration">&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960446_2" value="&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;" name="SELECTION_LIST_1479343960446" data-english-name="SELECTION_LIST_1479343960446" data-english-value="Annular tear" data-english-innertext="Annular tear">&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960446_3" value="&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960446" data-english-name="SELECTION_LIST_1479343960446" data-english-value="Disc protrusion" data-english-innertext="Disc protrusion">&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960446_4" value="&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960446" data-english-name="SELECTION_LIST_1479343960446" data-english-value="Disc extrusion" data-english-innertext="Disc extrusion">&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                    <option id="SELECTION_LIST_1479343960446_5" value="&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960446" data-english-name="SELECTION_LIST_1479343960446" data-english-value="Disc sequestration" data-english-innertext="Disc sequestration">&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960459" data-english="Intervertebral Discs">Μεσοσπονδύλιος δίσκος</label>
+                <select id="SELECTION_LIST_1479343960459" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal height &amp; signal intensity" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960459_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;" name="SELECTION_LIST_1479343960459" selected="" data-english-name="SELECTION_LIST_1479343960459" data-english-value="Normal height &amp;amp; signal intensity" data-english-innertext="Normal height &amp;amp; signal intensity">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960459_1" value="&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960459" data-english-name="SELECTION_LIST_1479343960459" data-english-value="Disc degeneration" data-english-innertext="Disc degeneration">&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960459_2" value="&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;" name="SELECTION_LIST_1479343960459" data-english-name="SELECTION_LIST_1479343960459" data-english-value="Annular tear" data-english-innertext="Annular tear">&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960459_3" value="&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960459" data-english-name="SELECTION_LIST_1479343960459" data-english-value="Disc protrusion" data-english-innertext="Disc protrusion">&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960459_4" value="&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960459" data-english-name="SELECTION_LIST_1479343960459" data-english-value="Disc extrusion" data-english-innertext="Disc extrusion">&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                    <option id="SELECTION_LIST_1479343960459_5" value="&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960459" data-english-name="SELECTION_LIST_1479343960459" data-english-value="Disc sequestration" data-english-innertext="Disc sequestration">&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960431" data-english="Nerve root compression">Συμπίεση των ριζών των νεύρων</label>
+                <select id="SELECTION_LIST_1479343960431" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal height &amp; signal intensity" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960431_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;" name="SELECTION_LIST_1479343960431" selected="" data-english-name="SELECTION_LIST_1479343960431" data-english-value="Normal height &amp;amp; signal intensity" data-english-innertext="Normal height &amp;amp; signal intensity">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό ύ&psi;&omicron;&sigmaf; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960431_1" value="&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960431" data-english-name="SELECTION_LIST_1479343960431" data-english-value="Disc degeneration" data-english-innertext="Disc degeneration">&Epsilon;&kappa;&phi;&upsilon;&lambda;&iota;&sigma;&mu;ό&sigmaf; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960431_2" value="&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;" name="SELECTION_LIST_1479343960431" data-english-name="SELECTION_LIST_1479343960431" data-english-value="Annular tear" data-english-innertext="Annular tear">&Rho;ή&xi;&eta; &iota;&nu;ώ&delta;&omicron;&upsilon;&sigmaf; &delta;&alpha;&kappa;&tau;&upsilon;&lambda;ί&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960431_3" value="&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon;" name="SELECTION_LIST_1479343960431" data-english-name="SELECTION_LIST_1479343960431" data-english-value="Disc protrusion" data-english-innertext="Disc protrusion">&Pi;&rho;ό&pi;&tau;&omega;&sigma;&eta; &delta;ί&sigma;&kappa;&omicron;&upsilon;</option>
+                    <option id="SELECTION_LIST_1479343960431_4" value="&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960431" data-english-name="SELECTION_LIST_1479343960431" data-english-value="Disc extrusion" data-english-innertext="Disc extrusion">&Epsilon;&kappa;&beta;&lambda;&eta;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                    <option id="SELECTION_LIST_1479343960431_5" value="&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;" name="SELECTION_LIST_1479343960431" data-english-name="SELECTION_LIST_1479343960431" data-english-value="Disc sequestration" data-english-innertext="Disc sequestration">&Alpha;&pi;&omicron;&sigma;&pi;&alpha;&sigma;&theta;&epsilon;ί&sigma;&alpha; &kappa;ή&lambda;&eta;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479343960632" data-english="Nerve root compression">Συμπίεση των ριζών των νεύρων</label>
+                <textarea rows="3" cols="100" id="TEXT_1479343960632" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960466" data-english="Central spinal canal ">Σπονδυλικός σωλήνας</label>
+                <select id="SELECTION_LIST_1479343960466" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Not present" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960466_0" value="&Delta;&epsilon;&nu; &pi;&alpha;&rho;&alpha;&tau;&eta;&rho;&epsilon;ί&tau;&alpha;&iota;" name="SELECTION_LIST_1479343960466" selected="" data-english-name="SELECTION_LIST_1479343960466" data-english-value="Not present" data-english-innertext="Not present">&Delta;&epsilon;&nu; &pi;&alpha;&rho;&alpha;&tau;&eta;&rho;&epsilon;ί&tau;&alpha;&iota;</option>
+                    <option id="SELECTION_LIST_1479343960466_1" value="&Pi;&alpha;&rho;&alpha;&tau;&eta;&rho;&epsilon;ί&tau;&alpha;&iota;" name="SELECTION_LIST_1479343960466" data-english-name="SELECTION_LIST_1479343960466" data-english-value="Present" data-english-innertext="Present">&Pi;&alpha;&rho;&alpha;&tau;&eta;&rho;&epsilon;ί&tau;&alpha;&iota;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479343960647" data-english="Central spinal canal">Σπονδυλικός σωλήνας</label>
+                <textarea rows="3" cols="100" id="TEXT_1479343960647" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960483" data-english="Conus Medullaris">Μυελικός κώνος</label>
+                <select id="SELECTION_LIST_1479343960483" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960483_0" value="&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ό &epsilon;ύ&rho;&omicron;&sigmaf;" name="SELECTION_LIST_1479343960483" selected="" data-english-name="SELECTION_LIST_1479343960483" data-english-value="Normal" data-english-innertext="Normal">&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ό &epsilon;ύ&rho;&omicron;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960483_1" value="&Sigma;&tau;έ&nu;&omega;&sigma;&eta;" name="SELECTION_LIST_1479343960483" data-english-name="SELECTION_LIST_1479343960483" data-english-value="Stenosis" data-english-innertext="Stenosis">&Sigma;&tau;έ&nu;&omega;&sigma;&eta;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479347114567" data-english="Conus medullaris">Μυελικός κώνος</label>
+                <textarea rows="3" cols="100" id="TEXT_1479347114567" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960476" data-english="Cauda Equina">Ιππουρίδα</label>
+                <select id="SELECTION_LIST_1479343960476" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal position &amp; signal intensity" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960476_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ή &theta;έ&sigma;&eta; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;" name="SELECTION_LIST_1479343960476" selected="" data-english-name="SELECTION_LIST_1479343960476" data-english-value="Normal position &amp;amp; signal intensity" data-english-innertext="Normal position &amp;amp; signal intensity">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ή &theta;έ&sigma;&eta; &kappa;&alpha;&iota; έ&nu;&tau;&alpha;&sigma;&eta; &sigma;ή&mu;&alpha;&tau;&omicron;&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960476_1" value="&Pi;&alpha;&theta;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ό&sigmaf;" name="SELECTION_LIST_1479343960476" data-english-name="SELECTION_LIST_1479343960476" data-english-value="Abnormal " data-english-innertext="Abnormal ">&Pi;&alpha;&theta;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ό&sigmaf;</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479347114568" data-english="Cauda equina">Ιππουρίδα</label>
+                <textarea rows="3" cols="100" id="TEXT_1479347114568" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960488" data-english="Epidural space">Επισκληρίδιος χώρος</label>
+                <select id="SELECTION_LIST_1479343960488" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal distribution of nerve roots in thecal sac" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960488_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ή &kappa;&alpha;&tau;&alpha;&nu;&omicron;&mu;ή &tau;&omega;&nu; &nu;&epsilon;&upsilon;&rho;&iota;&kappa;ώ&nu; &rho;&iota;&zeta;ώ&nu; &sigma;&tau;&omicron;&nu; &sigma;ά&kappa;&omicron;" name="SELECTION_LIST_1479343960488" selected="" data-english-name="SELECTION_LIST_1479343960488" data-english-value="Normal distribution of nerve roots in thecal sac" data-english-innertext="Normal distribution of nerve roots in thecal sac">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ή &kappa;&alpha;&tau;&alpha;&nu;&omicron;&mu;ή  &tau;&omega;&nu; &nu;&epsilon;&upsilon;&rho;&iota;&kappa;ώ&nu; &rho;&iota;&zeta;ώ&nu; &sigma;&tau;&omicron;&nu; &sigma;ά&kappa;&omicron;</option>
+                    <option id="SELECTION_LIST_1479343960488_1" value="&Pi;&alpha;&theta;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ή" name="SELECTION_LIST_1479343960488" data-english-name="SELECTION_LIST_1479343960488" data-english-value="Abnormal " data-english-innertext="Abnormal ">&Pi;&alpha;&theta;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ή</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479347114569" data-english="Epidural space">Επησκληρίδιος χώρος</label>
+                <textarea rows="3" cols="100" id="TEXT_1479347114569" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960479" data-english="Posterior Paraspinal muscles">Οπίσθιοι παρασπονδικοί μύες</label>
+                <select id="SELECTION_LIST_1479343960479" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960479_0" value="&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό&sigmaf;" name="SELECTION_LIST_1479343960479" selected="" data-english-name="SELECTION_LIST_1479343960479" data-english-value="Normal" data-english-innertext="Normal">&Kappa;&alpha;&nu;&omicron;&nu;&iota;&kappa;ό&sigmaf;</option>
+                    <option id="SELECTION_LIST_1479343960479_1" value="&Mu;ά&zeta;&alpha;" name="SELECTION_LIST_1479343960479" data-english-name="SELECTION_LIST_1479343960479" data-english-value="Mass lesion" data-english-innertext="Mass lesion">&Mu;ά&zeta;&alpha;</option>
+                    <option id="SELECTION_LIST_1479343960479_2" value="&Sigma;&upsilon;&lambda;&lambda;&omicron;&gamma;ή" name="SELECTION_LIST_1479343960479" data-english-name="SELECTION_LIST_1479343960479" data-english-value="Collection" data-english-innertext="Collection">&Sigma;&upsilon;&lambda;&lambda;&omicron;&gamma;ή</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479347114570" data-english="Posterior Paraspinal muscles">Οπίσθιοι παρασπονδικοί μύες</label>
+                <textarea rows="3" cols="100" id="TEXT_1479347114570" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960499" data-english="Pre &amp;amp; Paravertebral Soft tissue">Προ και παρασπονδυλικά μαλακά μόρια</label>
+                <select id="SELECTION_LIST_1479343960499" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960499_0" value="&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;&omicron;ί" name="SELECTION_LIST_1479343960499" selected="" data-english-name="SELECTION_LIST_1479343960499" data-english-value="Normal" data-english-innertext="Normal">&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;&omicron;ί</option>
+                    <option id="SELECTION_LIST_1479343960499_1" value="&Alpha;&tau;&rho;&omicron;&phi;&iota;&kappa;&omicron;ί" name="SELECTION_LIST_1479343960499" data-english-name="SELECTION_LIST_1479343960499" data-english-value="Atrophied" data-english-innertext="Atrophied">&Alpha;&tau;&rho;&omicron;&phi;&iota;&kappa;&omicron;ί</option>
+                    <option id="SELECTION_LIST_1479343960499_2" value="&Mu;ά&zeta;&alpha;" name="SELECTION_LIST_1479343960499" data-english-name="SELECTION_LIST_1479343960499" data-english-value="Mass " data-english-innertext="Mass ">&Mu;ά&zeta;&alpha;</option>
+                    <option id="SELECTION_LIST_1479343960499_3" value="&Sigma;&upsilon;&lambda;&lambda;&omicron;&gamma;ή" name="SELECTION_LIST_1479343960499" data-english-name="SELECTION_LIST_1479343960499" data-english-value="Collection" data-english-innertext="Collection">&Sigma;&upsilon;&lambda;&lambda;&omicron;&gamma;ή</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479347114571" data-english="Pre &amp;amp; Paravertebral Soft tissue">Προ και παρασπονδυλικά μαλακά μόρια</label>
+                <textarea rows="3" cols="100" id="TEXT_1479347114571" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1479343960494" data-english="Text:">Κείμενο:</label>
+                <select id="SELECTION_LIST_1479343960494" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="Normal" data-english-name="">
+                    <option id="SELECTION_LIST_1479343960494_0" value="&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ά" name="SELECTION_LIST_1479343960494" selected="" data-english-name="SELECTION_LIST_1479343960494" data-english-value="Normal" data-english-innertext="Normal">&Phi;&upsilon;&sigma;&iota;&omicron;&lambda;&omicron;&gamma;&iota;&kappa;ά</option>
+                    <option id="SELECTION_LIST_1479343960494_1" value="&Mu;ά&zeta;&alpha;" name="SELECTION_LIST_1479343960494" data-english-name="SELECTION_LIST_1479343960494" data-english-value="Mass " data-english-innertext="Mass ">&Mu;ά&zeta;&alpha;</option>
+                    <option id="SELECTION_LIST_1479343960494_2" value="&Sigma;&upsilon;&lambda;&lambda;&omicron;&gamma;ή" name="SELECTION_LIST_1479343960494" data-english-name="SELECTION_LIST_1479343960494" data-english-value="Collection" data-english-innertext="Collection">&Sigma;&upsilon;&lambda;&lambda;&omicron;&gamma;ή</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="TEXT_1479347114572">Pre & Paravertebral Soft tissue</label>
+                <textarea rows="3" cols="100" id="TEXT_1479347114572" name="" data-field-type="TEXT" data-field-completion-action="ALERT" data-english-name=""></textarea>
+            </p>
+        </section>
+        <section id="impression" class="level1" data-section-name="Impression">
+            <header class="level1" data-english="                Impression            ">Εντύπωση</header>
+            <p title="">
+                <label for="impressionText">Text:</label>
+                <textarea rows="3" cols="100" id="impressionText" name="" data-field-type="TEXT" data-field-completion-action="NONE" data-english-name=""></textarea>
+            </p>
+        </section>
+    </body>
+</html>

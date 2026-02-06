@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="TK jamy brzusznej" name="dcterms.title"/>
+<meta content="TK jamy brzusznej - szablon Autorzy: Lakhani P" name="dcterms.description"/>
+<meta content="https://open.radreport.org/template/0050043" name="dcterms.identifier"/>
+<meta content="pl" name="dcterms.language"/>
+<meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="Do użytkowania darmowego, według zasad zawartych w umowie licencyjnej" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2012-08-03" name="dcterms.date"/>
+<meta content="Lakhani P" name="dcterms.creator"/>
+<meta content="Cameron G [coder]" name="dcterms.contributor"/>
+<meta content="Kahn CE Jr [redaktor]" name="dcterms.contributor"/>
+<meta content="Thomas Jefferson University" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>0</top-level-flag>
+<status>ACTIVE</status>
+<term>
+<code_meaning>abdomen</code_meaning>
+<code_value>RID56</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>computed tomography</code_meaning>
+<code_value>RID10321</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<coded_content>
+<entry ORIGTXT="T234_2">
+<term>
+<code_meaning>procedure</code_meaning>
+<code_value>RID1559</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T234_8">
+<term>
+<code_meaning>clinical information</code_meaning>
+<code_value>RID13166</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Clinical information</code_meaning>
+<code_value>55752-0</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T234_9">
+<term>
+<code_meaning>comparison</code_meaning>
+<code_value>RID28483</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T234_10">
+<term>
+<code_meaning>none</code_meaning>
+<code_value>RID28454</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T234_11">
+<term>
+<code_meaning>observations section</code_meaning>
+<code_value>RID28486</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+<term>
+<code_meaning>Radiology Study observation (narrative)</code_meaning>
+<code_value>18782-3</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.1</coding_scheme_designator>
+</term>
+</entry>
+<entry ORIGTXT="T234_27">
+<term>
+<code_meaning>impression section</code_meaning>
+<code_value>RID13170</code_value>
+<coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+</term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>TK jamy brzusznej</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1">TK jamy brzusznej</header>
+<p>
+<label for="T234_4">Kontrast dożylny:</label>
+<input type="text" id="T234_4" name="IV contrast" value=""/>
+</p>
+<p>
+<label for="T234_3">Kontrast doustny:</label>
+<input type="text" id="T234_3" name="Oral contrast" value="Kontrast podany."/>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1">Dane kliniczne:</header>
+<p>
+<textarea id="T234_8" name="Clinical information"> </textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1">Porównano z badaniem z dnia:</header>
+<p>
+<textarea id="T234_9" name="Comparison">Brak. </textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1">Wynik badania</header>
+<p>
+<label for="T234_13">Wątroba:</label>
+<input type="text" id="T234_13" name="Liver" value="Prawidłowa."/>
+</p>
+<p>
+<label for="T234_14">Drogi żółciowe:</label>
+<input type="text" id="T234_14" name="Bile ducts" value="Prawidłowe."/>
+</p>
+<p>
+<label for="T234_15">Woreczek żółciowy:</label>
+<input type="text" id="T234_15" name="Gallbladder" value="Nie uwidoczniono uwapniononych złogów. Grubość ściany prawidłowa."/>
+</p>
+<p>
+<label for="T234_16">Trzustka:</label>
+<input type="text" id="T234_16" name="Pancreas" value="Prawidłowa."/>
+</p>
+<p>
+<label for="T234_17">Śledziona:</label>
+<input type="text" id="T234_17" name="Spleen" value="Prawidłowa."/>
+</p>
+<p>
+<label for="T234_18">Nadnercza:</label>
+<input type="text" id="T234_18" name="Adrenals" value="Prawidłowe."/>
+</p>
+<p>
+<label for="T234_19">Nerki:</label>
+<input type="text" id="T234_19" name="Kidneys" value="Prawidłowe."/>
+</p>
+<p>
+<label for="T234_20">Jelita:</label>
+<input type="text" id="T234_20" name="Bowel" value="Prawidłowej grubości."/>
+</p>
+<p>
+<label for="T234_21">Węzły chłonne krezki:</label>
+<input type="text" id="T234_21" name="Mesenteric lymph nodes" value="Prawidłowej wielkości."/>
+</p>
+<p>
+<label for="T234_22">Otrzewna:</label>
+<input type="text" id="T234_22" name="Peritoneum" value="Brak wodobrzusza, powietrza, kolekcji płynowej."/>
+</p>
+<p>
+<label for="T234_23">Układ naczyniowy:</label>
+<input type="text" id="T234_23" name="Vessels" value="Zmiany miażdżycowe."/>
+</p>
+<p>
+<label for="T234_24">Przestrzeń zaotrzewnowa:</label>
+<input type="text" id="T234_24" name="Retroperitoneum" value="Prawidłowe."/>
+</p>
+<p>
+<label for="T234_25">Ściany brzucha:</label>
+<input type="text" id="T234_25" name="Abdominal wall" value="Prawidłowe."/>
+</p>
+<p>
+<label for="T234_26">Struktury kostne:</label>
+<input type="text" id="T234_26" name="Bones" value="Prawidłowe."/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1">Wniosek</header>
+<p>
+<textarea id="T234_27" name="Impression"> </textarea>
+</p>
+</section>
+</body>
+</html>

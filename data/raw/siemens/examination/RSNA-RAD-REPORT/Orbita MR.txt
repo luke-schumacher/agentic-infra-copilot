@@ -1,0 +1,31 @@
+The original text template is provided below. The XML version has been translated. 
+
+Orbit MR
+
+Clinical Indication:
+Exam:
+
+MR [Sequences Performed]:
+Comparison:
+
+Mass: [if none, delete]
+
+Globes:
+Bony Orbit:
+
+Pre-septal soft tissues:
+
+Optic Nerves and complex:
+EOM's:
+Lacrimal apparatus:
+
+Orbital apex:
+
+Associated findings: [brain, cavernous sinuses, etc.]
+Non-related findings:
+
+Impression:
+
+1.
+2.
+3.

@@ -1,0 +1,32 @@
+TC TORACE ADDOME
+
+Contrasto EV: mL
+Informazioni cliniche
+Confronto[Nessuno]
+Risultati
+Torace 
+Polmoni e grandi vie respiratorie: [Normale]
+Pleura: [Normale]
+Vasi: [Normale.]
+Cuore: [cuore normale.]
+Versamento pericardico: [nessun versamento pericardico.]
+Mediastino e ili: [Normale]
+Parete del torace e collo inferiore: [Normale]
+Addome
+Fegato: [Normale.]
+Dotti biliari: [Normale.]
+Colecisti: [nessun calcolo biliare calcificato. Parete di calibro normale.]
+Pancreas: [Normale.]
+Milza: [Normale.]
+Surreni: [Normale.]
+Reni: [Normale.]
+Intestino: [normale calibro.]
+Linfonodi mesenterici: [Nessun linfonodo mesenterico ingrandito.]
+Peritoneo: [Senza ascite o aria libera; nessuna raccolta di liquidi.]
+Retroperitoneo: [Normale.]
+Parete addominale: [Normale.]
+Ossa: [Normale.]
+Organi riproduttivi: [nessuna massa pelvica]
+Ureteri: [Normale]
+Vescica: [Normale.]
+Conclusioni

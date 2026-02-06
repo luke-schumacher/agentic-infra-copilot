@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Marcin Czarniecki [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Uszkodzenie nerek według skali AAST" name="dcterms.title"/>
+<meta content="AAST Kidney Injury Grade report module" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050118" name="dcterms.identifier"/>
+<meta content="pl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-03-26" name="dcterms.date"/>
+<meta content="Tolat P, Kahn CE Jr" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css" />
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>0</top-level-flag>
+<status>ACTIVE</status>
+<coded_content>
+  <entry ORIGTXT="T264_1">
+    <term>
+      <code_meaning>kidney</code_meaning>
+      <code_value>RID205</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+  <entry ORIGTXT="T264_1">
+    <term>
+      <code_meaning>injury</code_meaning>
+      <code_value>RID4628</code_value>
+      <coding_scheme_designator>2.16.840.1.113883.6.256</coding_scheme_designator>
+    </term>
+  </entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Uszkodzenie nerek według skali AAST</title>
+</head>
+<body>
+<section data-section-name="AAST Kidney Injury Grade">
+<header class="level1" data-english="+ AAST Kidney Injury Grade">+ Uszkodzenie nerek według skali AAST</header>
+<p>
+<select id="T264_1" name="Uszkodzenie nerek według skali AAST" data-english-name="AAST Kidney Injury Grade">
+<option id="T264_2" name="Uszkodzenie nerek według skali AAST" value="0" data-english-name="AAST Kidney Injury Grade" data-english-value="0" data-english-innertext="0.
+    No kidney injury. ">0. Nie uwidoczniono uszkodzenia nerek.</option>
+<option id="T264_3" name="Uszkodzenie nerek stopnia 1 według skali AAST" value="1" data-english-name="AAST Kidney Injury Grade" data-english-value="1" data-english-innertext="1.
+    Contusion (microscopic or gross hematuria, urologic studies normal), or Subcapsular hematoma (nonexpanding without parenchymal laceration). ">1. Stłuczenie (krwinkomocz lub krwiomocz, badania urologiczne normalne) lub Krwiak podtorebkowy (bez powiększającego się uszkodzenia miąższu).</option>
+<option id="T264_4" name="Uszkodzenie nerek według skali AAST" value="2" data-english-name="AAST Kidney Injury Grade" data-english-value="2" data-english-innertext="2.
+    Hematoma (nonexpanding perirenal hematoma confined to renal retroperitoneum), Laceration (&amp;lt;1.0 cm parenchymal depth of renal cortex without urinary extravasation), or Multiple &quot;Grade 1&quot; injuries. ">2. Krwiak (nie powiększający się krwiak okołonerkowy ograniczony do przestrzeni zaotrzewnowej nerek), Uszkodzenie (&lt;1,0 cm głębokości miąższu kory nerki bez wynaczynienia moczu) lub mnogie urazy stopnia 1.</option>
+<option id="T264_5" name="Uszkodzenie nerek według skali AAST" value="3" data-english-name="AAST Kidney Injury Grade" data-english-value="3" data-english-innertext="3.
+    Laceration (&amp;lt;1.0 cm parenchymal depth of renal cortex without collecting system rupture or urinary extravasation), or Multiple &quot;Grade 2&quot; injuries. ">3. Uszkodzenie (&lt;1,0 cm głębokości miąższu kory nerki bez uszkodzenia układu zbiorczego lub wynaczynienia) lub mnogie urazy stopnia 2.</option>
+<option id="T264_6" name="Uszkodzenie nerek według skali AAST" value="4" data-english-name="AAST Kidney Injury Grade" data-english-value="4" data-english-innertext="4.
+    Parenchymal laceration (extending through renal cortex, medulla, and collecting system), or Main renal artery or vein injury with contained hemorrhage. ">4. Uszkodzenie miąższu (uwikłanie kory nerki, rdzeń i układ zbiorczy), lub uszkodzenie tętnicy lub żyły gł&oacute;wnej nerek z krwotokiem.</option>
+<option id="T264_7" name="Uszkodzenie nerek według skali AAST" value="5" data-english-name="AAST Kidney Injury Grade" data-english-value="5" data-english-innertext="5.
+    Completely shattered kidney, or Avulsion of renal hilum which devascularizes kidney. ">5. Całkowite rozkawałkowanie nerki lub oderwanie wnęki nerki, z odnaczynieniem nerki.</option>
+</select>
+</p>
+</section>
+</body>
+</html>

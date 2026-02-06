@@ -1,0 +1,66 @@
+Klinische informatie.
+&hellip;
+
+Vraagstelling.
+&hellip;
+
+Verslag.
+Onderzoek volgens hersentumor protocol. 
+
+&bull;	Vergeleken met 
+(zoals gespecificeerd door aanvrager of anders minimaal de 2 voorgaande onderzoeken):
+&hellip;
+
+&bull;	Localisatie resectieholte:
+&hellip;
+
+&bull;	Localisatie tumor/restafwijkingen 
+(nummeren bij multipele localisaties):
+&hellip;
+
+&bull;	Aankleuring 
+(ja/nee; solide/puntvormig/rand; toename/afname/verdwenen): 
+&hellip;
+
+&bull;	Afmeting maximale solide aankleuring in 2 perpendiculaire richtingen 
+(in mm; % toename/afname van het product van de gemeten diameters):
+&hellip;
+
+&bull;	Visuele beoordeling van niet-meetbare aankleuring 
+(stabiel/toename/afname; minimaal/substantieel):
+&hellip;
+
+&bull;	Uitbreiding niet-aankleurende T2-signaalafwijkingen 
+(stabiel/toename/afname; minimaal/substantieel/met massa effect):
+&hellip;
+
+&bull;	Nieuwe laesies 
+(localisatie; met/zonder aankleuring; zeker/dubieus):
+&hellip;
+
+&bull;	Perfusiemeting 
+(rCBV ratio ten opzichte van contralaterale witte stof):
+&hellip;
+
+&bull;	Overige aankleuring 
+(leptomeningeaal, hersenzenuwen):
+&hellip;
+
+&bull;	Complicaties 
+(bv. hydrocephalus, massawerking, herniatie, ischemie, bloeding):
+&hellip;
+
+&bull;	Overige bevindingen:
+&hellip;
+
+Conclusie.
+&hellip;
+Toename van/afname van/verdwijnen van/stabiele aankleurende/niet-aankleurende afwijkingen. 
+Wel/niet onstaan van nieuwe aankleurende/niet-aankleurende afwijkingen.
+
+Indien toename van aankleuring van bekend behandeld HGG &ndash; perfusie de volgende tekst toevoegen: 
+2: &lsquo;bevindingen meer passend bij vitaal tumorweefsel&rsquo;.
+
+Indien toename van niet-aankleurende LGG &ndash; eventuele toename van perfusie benoemen als verdenking op maligne transformatie.
+
+Let op dat volgens RANO de grens voor progressie ligt bij &gt;25% toename, en voor respons bij 

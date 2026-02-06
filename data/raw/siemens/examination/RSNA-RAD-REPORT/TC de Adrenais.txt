@@ -1,0 +1,108 @@
+The original text template is provided below. The XML version has been translated. 
+
+CLINICAL HISTORY: []
+
+
+TECHNIQUE:
+
+{Institution specific, with verbiage regarding post-processing per institution 
+protocol as necessary for billing and coding purposes.}
+
+Unenhanced [<scan mode>] [# mm] transaxial imaging from a [<scanner>] of the 
+adrenal glands.
+
+{If a lipid-rich adrenal adenoma is identified on non-contrast imaging, the 
+following technique section should be deleted}
+
+Intravenous contrast enhanced [<scan mode>] [# mm] transaxial imaging through 
+the adrenal glands at [#seconds]. Imaging was continued through the abdomen 
+[and pelvis].
+
+After [15*|10] minutes delay, [] mm sections were again obtained through the 
+adrenal glands.
+
+ 
+
+IV contrast: [# ml] [<Contrast agent and concentration>] 
+
+Oral contrast: [<Contrast agent and concentration>]
+CT radiation dose: {Dose  CTDLP: xxx  mGy*cm, for example.}
+
+COMPARISON: [None*| specific date]
+
+OBSERVATIONS:
+
+ 
+
+Right adrenal gland:
+
+[The right adrenal gland is normal.*] 
+
+{Module for description and characterization of an adrenal mass. Replace 
+default statement with the following description.}
+
+[There is an adrenal mass measuring [# x # mm]. The mass is 
+[homogeneous|heterogeneous] in attenuation on unenhanced images.
+
+The unenhanced attenuation of the mass is [# HU].
+
+The adrenal mass measures [# HU] on parenchymal phase images. 
+
+The adrenal mass measures [# HU] on delayed phase images.
+
+Absolute washout is [#%]. 
+
+ 
+
+Left adrenal gland:
+
+[The left adrenal gland is normal.*]
+
+ 
+
+Remainder of study:
+
+Liver: [Normal*]
+
+Gallbladder: [Normal*]
+
+Spleen: [Normal*]
+
+Pancreas: [Normal*]
+
+Kidneys: [Normal*]
+
+Lymph nodes: [Normal*]
+
+Mesentery/Peritoneum: [Normal*]
+
+ 
+
+Stomach and small bowel: [Normal*]
+
+Large bowel: [Normal*]
+
+ 
+
+Free fluid: [Normal*]
+
+Blood vessels: [Normal, no aneurysm]
+
+Skeletal structures and soft tissues: [Normal*]
+
+
+Pelvis: [Normal*]
+
+Lung bases:  [Normal. No pulmonary parenchymal mass or pleural effuson.*]
+
+ 
+
+IMPRESSION:
+
+[Normal study of the adrenal glands.*]
+
+[Right|Left|Bilateral] adrenal mass in keeping with [lipid-rich adenoma| 
+lipid-poor adenoma| myelolipoma.]
+
+[This lesion does not satisfy CT criteria for definitive characterization. 
+Differential diagnosis includes [].]

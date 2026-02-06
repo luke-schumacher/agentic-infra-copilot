@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mri sacro-iliacale gewrichten</title>
+        <meta charset="UTF-8" />
+        <meta name="dcterms.identifier" content="9b779033-9cbe-49fe-99d2-48bd414d8a58" />
+        <meta name="dcterms.title" content="Mri sacro-iliacale gewrichten" />
+        <meta name="dcterms.description" content="verslagsjabloon MRI SIG" />
+        <meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE" />
+        <meta name="dcterms.language" content="nl" />
+        <meta name="dcterms.publisher" content="" />
+        <meta name="dcterms.rights" content="May be used gratis, subject to license agreement" />
+        <meta name="dcterms.license" content="http://www.radreport.org/license.pdf" />
+        <meta name="dcterms.date" content="2015-11-18" />
+        <meta name="dcterms.creator" content="Dr Van Cauter Sofie" />
+        <meta name="dcterms.contributor" content="Prof Vandevenne Jan" />
+        <meta name="dcterms.contributor" content="Mr David Smets" />
+        <script type="text/xml">
+            <template_attributes>
+                <coded_content>
+                    <coding_schemes>
+                        <coding_scheme name="RADLEX" designator="2.16.840.1.113883.6.256"></coding_scheme>
+                    </coding_schemes>
+                    <entry origtxt="T4_5">
+                        <term>
+                            <code meaning="clinical information" value="RID13166" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T4_127">
+                        <term>
+                            <code meaning="impression section" value="RID13170" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T4_10">
+                        <term>
+                            <code meaning="comparison" value="RID28483" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                </coded_content>
+            </template_attributes>
+        </script>
+    </head>
+    <body>
+        <section id="Procedure" class="level1" data-section-name="Procedure">
+            <header class="level1">
+                Procedure
+            </header>
+            <section id="SECTION_HEADER_1447856805168" class="level2" data-section-name="Techniek">
+                <header class="level2">
+                    Techniek
+                </header>
+            </section>
+            <p title="">
+                <label for="TEXT_1447856805169"></label>
+                <textarea rows="3" cols="100" id="TEXT_1447856805169" name="" data-field-type="TEXT" data-field-completion-action="NONE">Paracoronale T1. Paracoronale en axiale PD met vetsaturatie/STIR</textarea>
+            </p>
+        </section>
+        <section id="Clinical_information" class="level1" data-section-name="Clinical information">
+            <header class="level1">
+                Clinical information
+            </header>
+            <p title="">
+                <label for="T4_5"></label>
+                <textarea rows="3" cols="100" id="T4_5" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+        </section>
+        <section id="Comparison" class="level1" data-section-name="Comparison">
+            <header class="level1">
+                Comparison
+            </header>
+            <p title="">
+                <label for="T4_10"></label>
+                <textarea rows="3" cols="100" id="T4_10" name="" data-field-type="TEXT" data-field-completion-action="NONE">None.</textarea>
+            </p>
+        </section>
+        <section id="Findings" class="level1" data-section-name="Findings">
+            <header class="level1">
+                Findings
+            </header>
+            <section id="SECTION_HEADER_1447857147104" class="level2" data-section-name="Bevindingen">
+                <header class="level2">
+                    Bevindingen
+                </header>
+            </section>
+            <section id="SECTION_HEADER_1447857147124" class="level2" data-section-name="Tekenen van chronische veranderingen">
+                <header class="level2">
+                    Tekenen van chronische veranderingen
+                </header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147105">Subchondrale vervetting: </label>
+                <select id="SELECTION_LIST_1447857147105" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447857147105_0" value="afwezig" name="SELECTION_LIST_1447857147105" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147105_1" value="aanwezig" name="SELECTION_LIST_1447857147105">aanwezig</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147126">Sclerose: </label>
+                <select id="SELECTION_LIST_1447857147126" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447857147126_0" value="afwezig" name="SELECTION_LIST_1447857147126" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147126_1" value="aanwezig" name="SELECTION_LIST_1447857147126">aanwezig</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147131">Geoden/erosies: </label>
+                <select id="SELECTION_LIST_1447857147131" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447857147131_0" value="afwezig" name="SELECTION_LIST_1447857147131" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147131_1" value="aanwezig" name="SELECTION_LIST_1447857147131">aanwezig</option>
+                </select>
+            </p>
+            <p title="Indien aanwezig: beschrijven">
+                <label for="TEXT_1447857147109"></label>
+                <textarea rows="3" cols="100" id="TEXT_1447857147109" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+            <section id="SECTION_HEADER_1447857147125" class="level2" data-section-name="Tekenen van acute inflammatoire veranderingen">
+                <header class="level2">
+                    Tekenen van acute inflammatoire veranderingen
+                </header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147138">Subchondraal botoedeem: </label>
+                <select id="SELECTION_LIST_1447857147138" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447857147138_0" value="afwezig" name="SELECTION_LIST_1447857147138" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147138_1" value="aanwezig" name="SELECTION_LIST_1447857147138">aanwezig</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147141">Capsulitis/enthesitis: </label>
+                <input list="SELECTION_LIST_1447857147141_LIST" id="SELECTION_LIST_1447857147141" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig" />
+                <datalist id="SELECTION_LIST_1447857147141_LIST">
+                    <option id="SELECTION_LIST_1447857147141_0" value="afwezig" name="SELECTION_LIST_1447857147141" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147141_1" value="aanwezig" name="SELECTION_LIST_1447857147141">aanwezig</option>
+                </datalist>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147152">Hydrops/synovitis: </label>
+                <input list="SELECTION_LIST_1447857147152_LIST" id="SELECTION_LIST_1447857147152" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig" />
+                <datalist id="SELECTION_LIST_1447857147152_LIST">
+                    <option id="SELECTION_LIST_1447857147152_0" value="afwezig" name="SELECTION_LIST_1447857147152" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147152_1" value="aanwezig" name="SELECTION_LIST_1447857147152">aanwezig</option>
+                </datalist>
+            </p>
+            <p title="indien aanwezig: beschrijven">
+                <label for="TEXT_1447857147159"></label>
+                <textarea rows="3" cols="100" id="TEXT_1447857147159" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+            <section id="SECTION_HEADER_1447857147155" class="level2" data-section-name="Differentieel diagnose">
+                <header class="level2">
+                    Differentieel diagnose
+                </header>
+            </section>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147156">Degeneratieve veranderingen: </label>
+                <select id="SELECTION_LIST_1447857147156" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447857147156_0" value="afwezig" name="SELECTION_LIST_1447857147156" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147156_1" value="aanwezig" name="SELECTION_LIST_1447857147156">aanwezig</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147160">Facetlijden L5-S1: </label>
+                <input list="SELECTION_LIST_1447857147160_LIST" id="SELECTION_LIST_1447857147160" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig" />
+                <datalist id="SELECTION_LIST_1447857147160_LIST">
+                    <option id="SELECTION_LIST_1447857147160_0" value="afwezig" name="SELECTION_LIST_1447857147160" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147160_1" value="aanwezig" name="SELECTION_LIST_1447857147160">aanwezig</option>
+                </datalist>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147163">Coxartrose: </label>
+                <select id="SELECTION_LIST_1447857147163" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447857147163_0" value="afwezig" name="SELECTION_LIST_1447857147163" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147163_1" value="aanwezig" name="SELECTION_LIST_1447857147163">aanwezig</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147166">Sacrum insufficientie fractuur: </label>
+                <select id="SELECTION_LIST_1447857147166" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447857147166_0" value="afwezig" name="SELECTION_LIST_1447857147166" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147166_1" value="aanwezig" name="SELECTION_LIST_1447857147166">aanwezig</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447857147169">Meta:</label>
+                <select id="SELECTION_LIST_1447857147169" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447857147169_0" value="afwezig" name="SELECTION_LIST_1447857147169" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447857147169_1" value="aanwezig" name="SELECTION_LIST_1447857147169">aanwezig</option>
+                </select>
+            </p>
+            <p title="Indien aanwezig: beschrijven">
+                <label for="TEXT_1447857147184"></label>
+                <textarea rows="3" cols="100" id="TEXT_1447857147184" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+        </section>
+        <section id="Impression" class="level1" data-section-name="Impression">
+            <header class="level1">
+                Impression
+            </header>
+            <p title="[MRI beeld suggestief voor … / inflammatoire sacroiliitis / degeneratief sacroiliacaal lijden. Volgens ASAS criteria van actieve inflammatoire sacroiliitis: MRI onderzoek is positief/negatief">
+                <label for="T4_127"></label>
+                <textarea rows="3" cols="100" id="T4_127" name="" data-field-type="TEXT" data-field-completion-action="NONE">Normal.</textarea>
+            </p>
+        </section>
+    </body>
+</html>

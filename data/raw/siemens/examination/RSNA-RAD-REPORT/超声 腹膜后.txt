@@ -1,0 +1,40 @@
+The original text template is provided below. The XML version has been translated. 
+
+US Retroperitoneum Complete (generic non urinary tract indication)
+
+Clinical History: [mass, etc]
+
+Study: [complete ultrasound of retroperitoneum] 
+
+Prior study: 	[none]
+		[ultrasound dated …….]
+		[CT abdomen dated ….]
+		[MR abdomen dated …]
+			
+Kidney:	size- right measures L x AP x W cm; left measures L x AP x W cm  
+	echogenicity-	[normal]
+		[hyperechoic]
+	parenchymal thickness-	[normal]
+	[thinned]
+	contour-	[smooth]
+	[scarred]
+	pelvicalyceal dilatation-	[none] 
+			                     	[mild, moderate, severe]
+	calculus-	[none] 
+		          	[nonobstructing measuring ….mm]
+	mass-	[none]
+	[cyst measuring … cm] 
+	[solid measuring ... cm]
+Aorta:  [normal] 
+[atherosclerotic]
+aneurysm-	[none]
+	[location- infrarenal, etc]
+	[measures ……cm]
+ 
+IVC:	[normal]
+          	[dilated suggesting heart disease] 
+
+Bladder:	[normal]
+	[empty]
+
+IMPRESSION:   [normal complete ultrasound of retroperitoneum]	

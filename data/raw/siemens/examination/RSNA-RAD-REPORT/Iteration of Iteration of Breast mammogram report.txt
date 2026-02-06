@@ -1,0 +1,14 @@
+Routine views of both breast CC and MLO view.
+ACR breast density:
+Comparison made to previous study dated:
+Presence of any masses Y/N, description and location
+Presence of any calcification benign/malignant
+Associated features:
+Skin thickening Y/N
+Nipple retraction Y/N
+Lymph nodes Y/N
+Architectural distortion Y/N
+
+BIRADS category:
+
+Recommendation and followup:

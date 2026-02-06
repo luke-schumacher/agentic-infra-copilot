@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta content="Serie Abdomen" name="dcterms.title"/>
+<meta content="Abdomen Series template" name="dcterms.description"/>
+<meta content="http://www.radreport.org/template/0000233" name="dcterms.identifier"/>
+<meta content="es" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2015-10-24" name="dcterms.date"/>
+<meta content="Kahn CE Jr" name="dcterms.creator"/>
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Arellano S [translator]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css"/>
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+<coding_schemes>
+ <coding_scheme name="RadLex" designator="2.16.840.1.113883.6.256" />
+ <coding_scheme name="SNOMEDCT" designator="2.16.840.1.113883.6.96" />
+ <coding_scheme name="LOINC" designator="2.16.840.1.113883.6.1" />
+</coding_schemes>
+<term>
+ <code meaning="abdomen" value="RID56" scheme="RadLex">
+</term>
+<term>
+ <code meaning="intestine" value="RID130" scheme="RadLex">
+</term>
+<term>
+ <code meaning="pneumoperitoneum" value="RID4803" scheme="RadLex">
+</term>
+<term>
+ <code meaning="projection radiography" value="RID10345" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T100_2">
+ <term>
+  <code meaning="procedure" value="RID1559" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T100_8">
+ <term>
+  <code meaning="clinical information" value="RID13166" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T100_13">
+ <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T100_18">
+ <term>
+  <code meaning="pneumoperitoneum" value="RID4803" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T100_21">
+ <term>
+  <code meaning="abnormal" value="RID28453" scheme="RadLex">
+ </term>
+ <term>
+  <code meaning="calcifications" value="RID34642" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T100_23">
+ <term>
+  <code meaning="set of bones" value="RID28569" scheme="RadLex">
+ </term>
+</entry>
+<entry ORIGTXT="T100_25">
+ <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+</entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Serie Abdomen</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Abdomen Series">Serie Abdominal</header>
+<p>
+<textarea id="T100_2" name="Procedimiento" data-english-name="Procedure" data-english-innertext=""></textarea>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Información clínica</header>
+<p>
+<textarea id="T100_8" name="Información clínica" data-english-name="Clinical information"></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Comparación</header>
+<p>
+<textarea id="T100_13" name="Comparación" data-english-name="Comparison" data-english-innertext="None. ">Ninguna.</textarea>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Hallazgos</header>
+<p>
+<label for="T100_16" data-english="Bowel gas pattern: ">Patrón de gas intestinal:</label>
+<input type="text" id="T100_16" name="Patrón de gas intestinal" value="Normal." data-english-value="Normal. " data-english-name="Bowel gas pattern"/>
+</p>
+<p>
+<label for="T100_18" data-english="Free air: ">Aire libre:</label>
+<input type="text" id="T100_18" name="Aire libre" value="Ausente." data-english-value="None. " data-english-name="Free air"/>
+</p>
+<p>
+<label for="T100_21" data-english="Abnormal calcifications: ">Calcificaciones anormales:</label>
+<input type="text" id="T100_21" name="Calcificaciones anormales" value="Ninguna." data-english-value="None. " data-english-name="Abnormal calcifications"/>
+</p>
+<p>
+<label for="T100_23" data-english="Bones: ">Huesos:</label>
+<input type="text" id="T100_23" name="Huesos" value="Normales." data-english-value="Normal. " data-english-name="Bones"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Impresión</header>
+<p>
+<textarea id="T100_25" name="Impresión" data-english-name="Impression" data-english-innertext="Normal. No free air.">Normal. No hay aire libre.</textarea>
+</p>
+</section>
+</body>
+</html>

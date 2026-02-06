@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ct schedel: acute stroke</title>
+        <meta charset="UTF-8" />
+        <meta name="dcterms.identifier" content="17a5b88a-33cd-4fb1-8bf0-9fcf39e87c93" />
+        <meta name="dcterms.title" content="Ct schedel: acute stroke" />
+        <meta name="dcterms.description" content="verslagsjabloon acute stroke" />
+        <meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE" />
+        <meta name="dcterms.language" content="nl" />
+        <meta name="dcterms.publisher" content="" />
+        <meta name="dcterms.rights" content="May be used gratis, subject to license agreement" />
+        <meta name="dcterms.license" content="http://www.radreport.org/license.pdf" />
+        <meta name="dcterms.date" content="2015-11-19" />
+        <meta name="dcterms.creator" content="Dr Van Cauter Sofie" />
+        <meta name="dcterms.contributor" content="Prof Vandevenne J" />
+        <meta name="dcterms.contributor" content="Mr David Smets" />
+        <script type="text/xml">
+            <template_attributes>
+                <coded_content>
+                    <coding_schemes>
+                        <coding_scheme name="RADLEX" designator="2.16.840.1.113883.6.256"></coding_scheme>
+                    </coding_schemes>
+                    <entry origtxt="T4_127">
+                        <term>
+                            <code meaning="impression section" value="RID13170" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                    <entry origtxt="T4_10">
+                        <term>
+                            <code meaning="comparison" value="RID28483" scheme="RadLex"></code>
+                        </term>
+                    </entry>
+                </coded_content>
+            </template_attributes>
+        </script>
+    </head>
+    <body>
+        <section id="Procedure" class="level1" data-section-name="Procedure">
+            <header class="level1">
+                Procedure
+            </header>
+            <section id="SECTION_HEADER_1447848348759" class="level2" data-section-name="Techniek">
+                <header class="level2">
+                    Techniek
+                </header>
+            </section>
+            <p title="">
+                <label for="TEXT_1447848348760"></label>
+                <textarea rows="3" cols="100" id="TEXT_1447848348760" name="" data-field-type="TEXT" data-field-completion-action="NONE">Sequenti&euml;le scantechniek met axiale coupes van 5mm dikte, zonder i.v. contrast.CT angio met arteri&euml;le fase van aortaboog tot de vertex (7sec scan time), gevolgd door veneuze fase (4 sec reposition time en 4 sec scan time) en laat-veneuze fase (4 sec reposition time en 4 sec scan time) van occiput tot vertex, uitgewerkt als 3 thin-MIP series (dus telkens 8 sec scan interval time).</textarea>
+            </p>
+        </section>
+        <section id="Clinical_information" class="level1" data-section-name="Clinical information">
+            <header class="level1">
+                Clinical information
+            </header>
+            <section id="SECTION_HEADER_1447848348761" class="level2" data-section-name="Kliniek">
+                <header class="level2">
+                    Kliniek
+                </header>
+            </section>
+            <p title="">
+                <label for="TEXT_1447848348762"></label>
+                <input type="text" id="TEXT_1447848348762" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="" />
+            </p>
+        </section>
+        <section id="Comparison" class="level1" data-section-name="Comparison">
+            <header class="level1">
+                Comparison
+            </header>
+            <section id="SECTION_HEADER_1447848348789" class="level2" data-section-name="Vergelijking">
+                <header class="level2">
+                    Vergelijking
+                </header>
+            </section>
+            <p title="">
+                <label for="T4_10"></label>
+                <textarea rows="3" cols="100" id="T4_10" name="" data-field-type="TEXT" data-field-completion-action="NONE">None.</textarea>
+            </p>
+        </section>
+        <section id="Findings" class="level1" data-section-name="Findings">
+            <header class="level1">
+                Findings
+            </header>
+            <p title="">
+                <label for="SELECTION_LIST_1447848348763">Bloeding intracranieel: </label>
+                <select id="SELECTION_LIST_1447848348763" name="" data-field-type="SELECTION_LIST" data-field-completion-action="PROHIBIT" value="afwezig">
+                    <option id="SELECTION_LIST_1447848348763_0" value="afwezig" name="SELECTION_LIST_1447848348763" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447848348763_1" value="intraparenchymateus" name="SELECTION_LIST_1447848348763">intraparenchymateus</option>
+                    <option id="SELECTION_LIST_1447848348763_2" value="intraventriculair" name="SELECTION_LIST_1447848348763">intraventriculair</option>
+                    <option id="SELECTION_LIST_1447848348763_3" value="subarachnoidaal" name="SELECTION_LIST_1447848348763">subarachnoidaal</option>
+                    <option id="SELECTION_LIST_1447848348763_4" value="subduraal" name="SELECTION_LIST_1447848348763">subduraal</option>
+                    <option id="SELECTION_LIST_1447848348763_5" value="epiduraal" name="SELECTION_LIST_1447848348763">epiduraal</option>
+                </select>
+            </p>
+            <p title="Onderliggende oorzaak suggereren">
+                <label for="TEXT_1447848348788"></label>
+                <textarea rows="3" cols="100" id="TEXT_1447848348788" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447848348790">Klonter: </label>
+                <select id="SELECTION_LIST_1447848348790" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="afwezig">
+                    <option id="SELECTION_LIST_1447848348790_0" value="afwezig" name="SELECTION_LIST_1447848348790" selected="">afwezig</option>
+                    <option id="SELECTION_LIST_1447848348790_1" value="proximaal" name="SELECTION_LIST_1447848348790">proximaal</option>
+                    <option id="SELECTION_LIST_1447848348790_2" value="distaal" name="SELECTION_LIST_1447848348790">distaal</option>
+                    <option id="SELECTION_LIST_1447848348790_3" value="proximaal en distaal" name="SELECTION_LIST_1447848348790">proximaal en distaal</option>
+                </select>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447848348804">Klonter groote: </label>
+                <select id="SELECTION_LIST_1447848348804" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="">
+                    <option id="SELECTION_LIST_1447848348804_0" value="" name="SELECTION_LIST_1447848348804" selected=""></option>
+                    <option id="SELECTION_LIST_1447848348804_1" value="Klein" name="SELECTION_LIST_1447848348804">Klein</option>
+                    <option id="SELECTION_LIST_1447848348804_2" value="Groot" name="SELECTION_LIST_1447848348804">Groot</option>
+                </select>
+            </p>
+            <p title="beschrijf de grootte van de klonter">
+                <label for="SELECTION_LIST_1447848348807">Klonter lengte: </label>
+                <input list="SELECTION_LIST_1447848348807_LIST" id="SELECTION_LIST_1447848348807" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="" />
+                <datalist id="SELECTION_LIST_1447848348807_LIST">
+                    <option id="SELECTION_LIST_1447848348807_0" value="" name="SELECTION_LIST_1447848348807" selected=""></option>
+                    <option id="SELECTION_LIST_1447848348807_1" value="" name="SELECTION_LIST_1447848348807" selected=""></option>
+                </datalist>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447848348816">Klonter plaats: </label>
+                <input list="SELECTION_LIST_1447848348816_LIST" id="SELECTION_LIST_1447848348816" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="" />
+                <datalist id="SELECTION_LIST_1447848348816_LIST">
+                    <option id="SELECTION_LIST_1447848348816_0" value="linker ACI" name="SELECTION_LIST_1447848348816">linker ACI</option>
+                    <option id="SELECTION_LIST_1447848348816_1" value="linker ACM" name="SELECTION_LIST_1447848348816">linker ACM</option>
+                    <option id="SELECTION_LIST_1447848348816_2" value="linker ACA" name="SELECTION_LIST_1447848348816">linker ACA</option>
+                    <option id="SELECTION_LIST_1447848348816_3" value="linker ACP" name="SELECTION_LIST_1447848348816">linker ACP</option>
+                    <option id="SELECTION_LIST_1447848348816_4" value="linker basilaris" name="SELECTION_LIST_1447848348816">linker basilaris</option>
+                    <option id="SELECTION_LIST_1447848348816_5" value="linker vertebralis" name="SELECTION_LIST_1447848348816">linker vertebralis</option>
+                    <option id="SELECTION_LIST_1447848348816_6" value="rechter ACI" name="SELECTION_LIST_1447848348816">rechter ACI</option>
+                    <option id="SELECTION_LIST_1447848348816_7" value="rechter ACM" name="SELECTION_LIST_1447848348816">rechter ACM</option>
+                    <option id="SELECTION_LIST_1447848348816_8" value="rechter ACA" name="SELECTION_LIST_1447848348816">rechter ACA</option>
+                    <option id="SELECTION_LIST_1447848348816_9" value="rechter ACP" name="SELECTION_LIST_1447848348816">rechter ACP</option>
+                    <option id="SELECTION_LIST_1447848348816_10" value="rechter basilaris" name="SELECTION_LIST_1447848348816">rechter basilaris</option>
+                    <option id="SELECTION_LIST_1447848348816_11" value="rechter vertebralis" name="SELECTION_LIST_1447848348816">rechter vertebralis</option>
+                    <option id="SELECTION_LIST_1447848348816_12" value="" name="SELECTION_LIST_1447848348816" selected=""></option>
+                </datalist>
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447853208142">Aspect score: </label>
+                <select id="SELECTION_LIST_1447853208142" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="10/10">
+                    <option id="SELECTION_LIST_1447853208142_0" value="10/10" name="SELECTION_LIST_1447853208142" selected="">10/10</option>
+                    <option id="SELECTION_LIST_1447853208142_1" value="9/10" name="SELECTION_LIST_1447853208142">9/10</option>
+                    <option id="SELECTION_LIST_1447853208142_2" value="8/10" name="SELECTION_LIST_1447853208142">8/10</option>
+                    <option id="SELECTION_LIST_1447853208142_3" value="7/10" name="SELECTION_LIST_1447853208142">7/10</option>
+                    <option id="SELECTION_LIST_1447853208142_4" value="6/10" name="SELECTION_LIST_1447853208142">6/10</option>
+                    <option id="SELECTION_LIST_1447853208142_5" value="5/10" name="SELECTION_LIST_1447853208142">5/10</option>
+                    <option id="SELECTION_LIST_1447853208142_6" value="4/10" name="SELECTION_LIST_1447853208142">4/10</option>
+                    <option id="SELECTION_LIST_1447853208142_7" value="3/10" name="SELECTION_LIST_1447853208142">3/10</option>
+                    <option id="SELECTION_LIST_1447853208142_8" value="2/10" name="SELECTION_LIST_1447853208142">2/10</option>
+                    <option id="SELECTION_LIST_1447853208142_9" value="1/10" name="SELECTION_LIST_1447853208142">1/10</option>
+                    <option id="SELECTION_LIST_1447853208142_10" value="0/10" name="SELECTION_LIST_1447853208142">0/10</option>
+                </select>
+            </p>
+            <p title="Indien score minder dan 10/10 regio vermelden">
+                <label for="SELECTION_LIST_1447853208154">Afwijkende regio: </label>
+                <select id="SELECTION_LIST_1447853208154" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="">
+                    <option id="SELECTION_LIST_1447853208154_0" value="" name="SELECTION_LIST_1447853208154" selected=""></option>
+                    <option id="SELECTION_LIST_1447853208154_1" value="Nc Caudatus" name="SELECTION_LIST_1447853208154">Nc Caudatus</option>
+                    <option id="SELECTION_LIST_1447853208154_2" value="Nc Lentiformis" name="SELECTION_LIST_1447853208154">Nc Lentiformis</option>
+                    <option id="SELECTION_LIST_1447853208154_3" value="Capsula interna" name="SELECTION_LIST_1447853208154">Capsula interna</option>
+                    <option id="SELECTION_LIST_1447853208154_4" value="Insulaire cortex" name="SELECTION_LIST_1447853208154">Insulaire cortex</option>
+                    <option id="SELECTION_LIST_1447853208154_5" value="Corticale regio’s  thv basale ganglia M1" name="SELECTION_LIST_1447853208154">Corticale regio’s thv basale ganglia M1</option>
+                    <option id="SELECTION_LIST_1447853208154_6" value="Corticale regio’s  thv basale ganglia M2" name="SELECTION_LIST_1447853208154">Corticale regio’s thv basale ganglia M2</option>
+                    <option id="SELECTION_LIST_1447853208154_7" value="Corticale regio’s  thv basale ganglia M3" name="SELECTION_LIST_1447853208154">Corticale regio’s thv basale ganglia M3</option>
+                    <option id="SELECTION_LIST_1447853208154_8" value="Corticale regio's craniaal van basale ganglia M4" name="SELECTION_LIST_1447853208154">Corticale regio's craniaal van basale ganglia M4</option>
+                    <option id="SELECTION_LIST_1447853208154_9" value="Corticale regio's craniaal van basale ganglia M5" name="SELECTION_LIST_1447853208154">Corticale regio's craniaal van basale ganglia M5</option>
+                    <option id="SELECTION_LIST_1447853208154_10" value="Corticale regio's craniaal van basale ganglia M6" name="SELECTION_LIST_1447853208154">Corticale regio's craniaal van basale ganglia M6</option>
+                </select>
+            </p>
+            <p title="Indien hypodensiteiten in kader van ACA of ACP infarct, of voor infarct in fossa posterior: beschrijven">
+                <label for="TEXT_1447853208166"></label>
+                <input type="text" id="TEXT_1447853208166" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="" />
+            </p>
+            <p title="">
+                <label for="SELECTION_LIST_1447853208189">Collateral scoring: </label>
+                <select id="SELECTION_LIST_1447853208189" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="5/5">
+                    <option id="SELECTION_LIST_1447853208189_0" value="5/5" name="SELECTION_LIST_1447853208189" selected="">5/5</option>
+                    <option id="SELECTION_LIST_1447853208189_1" value="4/5" name="SELECTION_LIST_1447853208189">4/5</option>
+                    <option id="SELECTION_LIST_1447853208189_2" value="3/5" name="SELECTION_LIST_1447853208189">3/5</option>
+                    <option id="SELECTION_LIST_1447853208189_3" value="2/5" name="SELECTION_LIST_1447853208189">2/5</option>
+                    <option id="SELECTION_LIST_1447853208189_4" value="1/5" name="SELECTION_LIST_1447853208189">1/5</option>
+                    <option id="SELECTION_LIST_1447853208189_5" value="" name="SELECTION_LIST_1447853208189"></option>
+                </select>
+            </p>
+            <p title="Indien score is minder dan 5/5">
+                <label for="SELECTION_LIST_1447853208202">Flow</label>
+                <input list="SELECTION_LIST_1447853208202_LIST" id="SELECTION_LIST_1447853208202" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="" />
+                <datalist id="SELECTION_LIST_1447853208202_LIST">
+                    <option id="SELECTION_LIST_1447853208202_0" value="verminderde collaterale flow links" name="SELECTION_LIST_1447853208202">verminderde collaterale flow links</option>
+                    <option id="SELECTION_LIST_1447853208202_1" value="verminderde collaterale flow rechts" name="SELECTION_LIST_1447853208202">verminderde collaterale flow rechts</option>
+                    <option id="SELECTION_LIST_1447853208202_2" value="" name="SELECTION_LIST_1447853208202" selected=""></option>
+                </datalist>
+            </p>
+            <p title="indien minder dan 5/5">
+                <label for="SELECTION_LIST_1447853208206">Vulling</label>
+                <input list="SELECTION_LIST_1447853208206_LIST" id="SELECTION_LIST_1447853208206" name="" data-field-type="SELECTION_LIST" data-field-completion-action="NONE" value="" />
+                <datalist id="SELECTION_LIST_1447853208206_LIST">
+                    <option id="SELECTION_LIST_1447853208206_0" value="vermindering van telkens 1 punt voor vertraagde vulling per fase " name="SELECTION_LIST_1447853208206">vermindering van telkens 1 punt voor vertraagde vulling per fase </option>
+                    <option id="SELECTION_LIST_1447853208206_1" value="asymmetrische vulling met dunnere vaten" name="SELECTION_LIST_1447853208206">asymmetrische vulling met dunnere vaten</option>
+                    <option id="SELECTION_LIST_1447853208206_2" value="asymmetrische vulling met afwezige vaten" name="SELECTION_LIST_1447853208206">asymmetrische vulling met afwezige vaten</option>
+                    <option id="SELECTION_LIST_1447853208206_3" value="" name="SELECTION_LIST_1447853208206" selected=""></option>
+                </datalist>
+            </p>
+            <p title="">
+                <label for="TEXT_1447853208219"></label>
+                <input type="text" id="TEXT_1447853208219" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="" />
+            </p>
+            <p title="">
+                <label for="TEXT_1447853208205">Andere bevindingen</label>
+                <input type="text" id="TEXT_1447853208205" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="" />
+            </p>
+        </section>
+        <section id="Impression" class="level1" data-section-name="Impression">
+            <header class="level1">
+                Impression
+            </header>
+            <p title="">
+                <label for="T4_127"></label>
+                <textarea rows="3" cols="100" id="T4_127" name="" data-field-type="TEXT" data-field-completion-action="NONE">Normal.</textarea>
+            </p>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Chiara Carducci [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="AAST Kidney Injury Grade" name="dcterms.title"/>
+<meta content="AAST Kidney Injury Grade report module" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050298" name="dcterms.identifier"/>
+<meta content="it" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2017-11-30" name="dcterms.date"/>
+<meta content="Tolat P, Kahn CE Jr" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr [editor]" name="dcterms.contributor"/>
+<meta content="Medical College of Wisconsin (MCW)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css" />
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>false</top-level-flag>
+<status>ACTIVE</status>
+<coded_content>
+<entry ORIGTXT="T264_1">
+     <term>
+  <code meaning="kidney" value="RID205" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="T264_1">
+     <term>
+  <code meaning="injury" value="RID4628" scheme="RadLex">
+ </term>
+  </entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>AAST Kidney Injury Grade</title>
+</head>
+<body>
+<section data-section-name="AAST Kidney Injury Grade">
+<header class="level1" data-english="+ AAST Kidney Injury Grade">+ AAST Kidney Injury Grade</header>
+<p>
+<select id="T264_1" name="AAST Kidney Injury Grade" data-english-name="AAST Kidney Injury Grade">
+<option id="T264_2" name="AAST Kidney Injury Grade" value="0" data-english-name="AAST Kidney Injury Grade" data-english-value="0" data-english-innertext="0.
+    No kidney injury. ">0. Nessuna lesione renale.</option>
+<option id="T264_3" name="AAST Kidney Injury Grade" value="1" data-english-name="AAST Kidney Injury Grade" data-english-value="1" data-english-innertext="1.
+    Contusion (microscopic or gross hematuria, urologic studies normal), or Subcapsular hematoma (nonexpanding without parenchymal laceration). ">1. Contusione (ematuria macroscopica o microscopica, studi urologici normali) o ematoma sottocapsulare (non espanso senza lacerazione parenchimale).</option>
+<option id="T264_4" name="AAST Kidney Injury Grade" value="2" data-english-name="AAST Kidney Injury Grade" data-english-value="2" data-english-innertext="2.
+    Hematoma (nonexpanding perirenal hematoma confined to renal retroperitoneum), Laceration (&amp;lt;1.0 cm parenchymal depth of renal cortex without urinary extravasation), or Multiple &quot;Grade 1&quot; injuries. ">2. Ematoma (ematoma perirenale non espansivo confinato nel retroperitoneo renale), Lacerazione (&lt;1,0 cm di profondit&agrave; parenchimale della corteccia renale senza stravaso urinario), o lesioni multiple &quot;Grado 1&quot;.</option>
+<option id="T264_5" name="AAST Kidney Injury Grade" value="3" data-english-name="AAST Kidney Injury Grade" data-english-value="3" data-english-innertext="3.
+    Laceration (&amp;lt;1.0 cm parenchymal depth of renal cortex without collecting system rupture or urinary extravasation), or Multiple &quot;Grade 2&quot; injuries. ">3. Lacerazione (&lt;1,0 cm di profondit&agrave; parenchimale della corteccia renale senza rotture del sistema o stravaso urinario), o lesioni multiple di &quot;Grado 2&quot;.</option>
+<option id="T264_6" name="AAST Kidney Injury Grade" value="4" data-english-name="AAST Kidney Injury Grade" data-english-value="4" data-english-innertext="4.
+    Parenchymal laceration (extending through renal cortex, medulla, and collecting system), or Main renal artery or vein injury with contained hemorrhage. ">4. Lacerazione parenchimale (che si estende attraverso la corticale renale, la midollare e il sistema collettore), o Arteria renale principale o lesione della vena con emorragia contenuta.</option>
+<option id="T264_7" name="AAST Kidney Injury Grade" value="5" data-english-name="AAST Kidney Injury Grade" data-english-value="5" data-english-innertext="5.
+    Completely shattered kidney, or Avulsion of renal hilum which devascularizes kidney. ">5. Rene completamente distrutto o Avulsione di ilo renale che devascolarizza il rene.</option>
+</select>
+</p>
+</section>
+</body>
+</html>

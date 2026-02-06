@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scanner cervico-facial </title>
+        <meta charset="UTF-8" />
+        <meta name="dcterms.identifier" content="12d284ce-213f-4139-8a1d-2da4eb7cdafd" />
+        <meta name="dcterms.title" content="Scanner cervico-facial " />
+        <meta name="dcterms.description" content="" />
+        <meta name="dcterms.type" content="IMAGE_REPORT_TEMPLATE" />
+        <meta name="dcterms.language" content="fr" />
+        <meta name="dcterms.publisher" content="CIREOL " />
+        <meta name="dcterms.rights" content="May be used freely, subject to license agreement" />
+        <meta name="dcterms.license" content="http://www.radreport.org/license.pdf" />
+        <meta name="dcterms.date" content="2015-11-30" />
+        <meta name="dcterms.creator" content="Nadya Pyatigorskaya" />
+        <meta name="dcterms.contributor" content="Nadya Pyatigorskaya" />
+        <meta name="dcterms.contributor" content="CIREOL" />
+        <meta name="dcterms.contributor" content="Guy Moulin " />
+        <script type="text/xml">
+            <template_attributes>
+                <coded_content>
+                    <coding_schemes>
+                        <coding_scheme name="RADLEX" designator="2.16.840.1.113883.6.256"></coding_scheme>
+                    </coding_schemes>
+                </coded_content>
+            </template_attributes>
+        </script>
+    </head>
+    <body>
+        <section id="procedureInformation" class="level1" data-section-name="Procedure Information">
+            <header class="level1">
+                Procedure Information
+            </header>
+            <p title="">
+                <label for="TEXT_1448919221586">Technique</label>
+                <input type="text" id="TEXT_1448919221586" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Acquisition volumique multicoupe, injection de produit de contraste iod&eacute; d’embl&eacute;e " />
+            </p>
+            <p title="">
+                <label for="TEXT_1448919221587">DLP (mGy.cm2)</label>
+                <input type="text" id="TEXT_1448919221587" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="" />
+            </p>
+        </section>
+        <section id="clinicalInformation" class="level1" data-section-name="Clinical Information">
+            <header class="level1">
+                Clinical Information
+            </header>
+            <p title="">
+                <label for="clinicalInformationText">Indication</label>
+                <textarea rows="3" cols="100" id="clinicalInformationText" name="" data-field-type="TEXT" data-field-completion-action="PROHIBIT">Bilan </textarea>
+            </p>
+        </section>
+        <section id="comparisons" class="level1" data-section-name="Comparison">
+            <header class="level1">
+                Comparison
+            </header>
+            <p title="">
+                <label for="comparisonsText"></label>
+                <textarea rows="3" cols="100" id="comparisonsText" name="" data-field-type="TEXT" data-field-completion-action="NONE">Pas d'examen ant&eacute;rieur dans notre disposition pour la comparaison </textarea>
+            </p>
+        </section>
+        <section id="findings" class="level1" data-section-name="Findings">
+            <header class="level1">
+                Findings
+            </header>
+            <p title="">
+                <label for="findingsText">Extension tumorale</label>
+                <textarea rows="3" cols="100" id="findingsText" name="" data-field-type="TEXT" data-field-completion-action="NONE">Pas de lesion tumorale visualis&eacute;e.</textarea>
+            </p>
+            <p title="commissure ant&eacute;rieure, corde vocale controlat&eacute;rale, espaces graisseux para-glottiques, commissure post&eacute;rieure, loge pr&eacute;-&eacute;piglottique (loge Hyo-Thyro-Epiglottique) extension sus-glottique&nbsp;: bandes ventriculaires">
+                <label for="TEXT_1448916565425">Sus-glottique </label>
+                <input type="text" id="TEXT_1448916565425" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Pas d'atteinte de l'oropharynx, de la langue ni de l'espace r&eacute;tropharyng&eacute;. " />
+            </p>
+            <p title="extension trach&eacute;ale obstruction laryng&eacute;e, cartilages laryng&eacute;s et anneaux trach&eacute;aux">
+                <label for="TEXT_1448919221579">Sous-glottiques</label>
+                <input type="text" id="TEXT_1448919221579" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Pas de l&eacute;sion laryng&eacute; ni des  sinus piriformes " />
+            </p>
+            <p title="">
+                <label for="TEXT_1448919221580">Ganglions lymphatiques</label>
+                <textarea rows="3" cols="100" id="TEXT_1448919221580" name="" data-field-type="TEXT" data-field-completion-action="NONE">Pas d'ad&eacute;nom&eacute;galie suspecte. </textarea>
+            </p>
+            <p title="">
+                <label for="TEXT_1448919221581">Atteinte thoracique</label>
+                <input type="text" id="TEXT_1448919221581" name="" data-field-type="TEXT" data-field-completion-action="NONE" value="Pas d'atteintes thoracique dans le volume explor&eacute;" />
+            </p>
+            <p title="">
+                <label for="TEXT_1448919221583">Autres l&eacute;sions mineures de d&eacute;couverte fortuite et variantes cong&eacute;nitales</label>
+                <textarea rows="3" cols="100" id="TEXT_1448919221583" name="" data-field-type="TEXT" data-field-completion-action="NONE">Pas d'autre anomalie mise en evidence </textarea>
+            </p>
+        </section>
+        <section id="impression" class="level1" data-section-name="Impression">
+            <header class="level1">
+                Impression
+            </header>
+            <p title="">
+                <label for="impressionText">classification pTNM</label>
+                <textarea rows="3" cols="100" id="impressionText" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+            <p title="">
+                <label for="TEXT_1448919221584">Si&egrave;ge de la tumeur</label>
+                <textarea rows="3" cols="100" id="TEXT_1448919221584" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+            <p title="">
+                <label for="TEXT_1448919221585">Extension de la lesion </label>
+                <textarea rows="3" cols="100" id="TEXT_1448919221585" name="" data-field-type="TEXT" data-field-completion-action="NONE"></textarea>
+            </p>
+        </section>
+    </body>
+</html>

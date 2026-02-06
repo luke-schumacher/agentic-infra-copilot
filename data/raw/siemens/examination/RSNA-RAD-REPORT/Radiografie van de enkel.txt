@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head><meta content="Jan Bosmans [translator]" name="dcterms.contributor"/>
+<meta charset="UTF-8"/>
+<meta content="Radiografie van de enkel" name="dcterms.title"/>
+<meta content="Ankle Xray template :: Authored by Langlotz CP" name="dcterms.description"/>
+<meta content="http://open.radreport.org/template/0050211" name="dcterms.identifier"/>
+<meta content="nl" name="dcterms.language"/>
+<meta content="IMAGE_REPORT_TEMPLATE" name="dcterms.type"/>
+<meta content="Radiological Society of North America (RSNA)" name="dcterms.publisher"/>
+<meta content="May be used gratis, subject to license agreement" name="dcterms.rights"/>
+<meta content="http://www.radreport.org/license.pdf" name="dcterms.license"/>
+<meta content="2016-10-20" name="dcterms.date"/>
+<meta content="Langlotz CP" name="dcterms.creator"/>
+
+<meta content="Kahn CE Jr. [editor]" name="dcterms.contributor"/>
+<meta content="Penn Medicine | Hospital of the University of Pennsylvania (Penn)" name="dcterms.contributor"/>
+<link rel="stylesheet" type="text/css" href="IHE_Template_Style.css" />
+<!-- The absolute link to the CSS file is http://www.radreport.org/html/IHE_Template_Style.css -->
+<script type="text/xml">
+<!--
+<template_attributes>
+<top-level-flag>true</top-level-flag>
+<status>ACTIVE</status>
+<term>
+ <code meaning="ankle" value="RID28545" scheme="RadLex">
+</term>
+<term>
+ <code meaning="projection radiography" value="RID10345" scheme="RadLex">
+</term>
+<coded_content>
+<entry ORIGTXT="T142_1">
+     <term>
+  <code meaning="side (laterality)" value="RID5821" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="right">
+     <term>
+  <code meaning="right" value="RID5825" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="left">
+     <term>
+  <code meaning="left" value="RID5824" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="bilateral">
+     <term>
+  <code meaning="bilateral" value="RID5771" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="T142_2">
+     <term>
+  <code meaning="imaging procedure" value="RID13060" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="T142_7">
+     <term>
+  <code meaning="clinical information" value="RID13166" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="T142_7">
+     <term>
+  <code meaning="Clinical information" value="55752-0" scheme="LOINC">
+ </term>
+  </entry>
+<entry ORIGTXT="T142_8">
+     <term>
+  <code meaning="comparison" value="RID28483" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="T142_12">
+     <term>
+  <code meaning="bones (set of bones)" value="RID28569" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="T142_13">
+     <term>
+  <code meaning="demineralization" value="RID5387" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="T142_14">
+     <term>
+  <code meaning="set of joints" value="RID28711" scheme="RadLex">
+ </term>
+  </entry>
+<entry ORIGTXT="T142_24">
+     <term>
+  <code meaning="impression section" value="RID13170" scheme="RadLex">
+ </term>
+  </entry>
+</coded_content>
+</template_attributes>
+-->
+</script>
+<title>Radiografie van de enkel</title>
+</head>
+<body>
+<section data-section-name="Procedure">
+<header class="level1" data-english="Ankle Xray">Radiografie van de enkel</header>
+<p>
+<label for="T142_1" data-english="Side:">Zijde:</label>
+<select id="T142_1" name="Zijde:" data-english-name="Side">
+	<option id="right" name="rechts" value="rechts" data-english-name="right" data-english-value="right" data-english-innertext="Right">Rechts</option>
+	<option id="left" name="links" value="links" data-english-name="left" data-english-value="left" data-english-innertext="Left">Links</option>
+	<option id="bilateral" name="bilaterale" value="bilaterale" data-english-name="bilateral" data-english-value="bilateral" data-english-innertext="Bilateral">bilaterale</option>
+</select>
+</p>
+<p>
+<label for="T142_3" data-english="Number of views:">Aantal opnamen:</label>
+<input type="number" id="T142_3" name="Aantal opnamen:" data-field-units="" min="1" max="8" data-english-name="Number of views"/>
+</p>
+<p>
+<textarea id="T142_2" name="Commentaar bij de opnamen:" data-english-name="procedure_comments"></textarea>
+</p>
+</section>
+<section data-section-name="Clinical information">
+<header class="level1" data-english="Clinical information">Klinische informatie</header>
+<p>
+<!-- <label for="T142_7">Clinical information</label> -->
+<textarea id="T142_7" name="Klinische informatie" data-english-name="Clinical information"></textarea>
+</p>
+</section>
+<section data-section-name="Comparison">
+<header class="level1" data-english="Comparison">Vergelijking</header>
+<p>
+<!-- <label for="T142_8">Comparison</label> -->
+<input type="text" id="T142_8" name="Vergelijking" value="" data-codedcontent-default-val="None" data-codedcontent-default-ref="T142_9" data-english-value="" data-english-name="Comparison"/>
+</p>
+</section>
+<section data-section-name="Findings">
+<header class="level1" data-english="Findings">Bevindingen</header>
+<p>
+<label for="T142_11" data-english="Bones:">Skelet</label>
+<input type="text" id="T142_12" name="Skelet" value="Geen beschikbaar." data-english-value="None." data-english-name="Bones"/>
+</p>
+<p>
+<label for="T142_13" data-english="Mineralization:">Mineralisatie:</label>
+<input type="text" id="T142_13" name="Mineralisatie" value="Normale anatomische alignatie. Geen fractuur of dislocatie." data-english-value="Normal anatomic alignment. No fracture or dislocation." data-english-name="Mineralization"/>
+</p>
+<p>
+<label for="T142_14" data-english="Joints:">Gewrichten:</label>
+<input type="text" id="T142_14" name="Gewrichten:" value="Normaal." data-english-value="Normal." data-english-name="Joints"/>
+</p>
+<p>
+<label for="T142_19" data-english="Other findings:">Andere bevindingen:</label>
+<input type="text" id="T142_19" name="Andere bevindingen:" value="Normaal. Geen artrose of artritis." data-english-value="Normal. No arthritis." data-english-name="Other findings"/>
+</p>
+</section>
+<section data-section-name="Impression">
+<header class="level1" data-english="Impression">Conclusie:</header>
+<p>
+<textarea id="T142_24" name="Conclusie" data-english-name="Impression" data-english-innertext="Normal. No fracture or dislocation.">Normaal. Geen fractuur of dislocatie.</textarea>
+</p>
+</section>
+</body>
+</html>

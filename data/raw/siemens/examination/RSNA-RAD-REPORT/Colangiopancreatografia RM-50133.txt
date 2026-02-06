@@ -1,0 +1,25 @@
+PROCEDURA: ColangioRM
+INDICAZIONI CLINICHE: [Esame mirato allo studio del sistema duttale bilio-pancreatico.]. 
+CONFRONTO CON ESAMI PRECEDENTI: [ | Non disponibili*]. 
+TECNICA D&rsquo;ESAME: esame eseguito previa idratazione orale e somministrazione di miorilassante per ottenere adeguata distensione duodenale
+
+REPERTI: 
+Le vie biliari extraepatiche presentano calibro nei limiti/dilatato (coledoco mm, dotto epatico comune mm) [descrivere presenza/assenza di stenosi, se presente sede e morfologia (netta o progressiva)
+Presenza/assenza di difetti di riempimento: singolo/multiplo, sede, dimensioni 
+
+Le vie biliari intraepatiche presentano calibro regolare/irregolare (dilatazioni cistiche), descrivere presenza/assenza di stenosi, se presente sede , presenza/assenza di comunicazione tra sistema biliare destro e sinistro
+Presenza/assenza di difetti di riempimento: singolo/multiplo, sede, dimensioni 
+Presenza/assenza di varianti anatomiche
+Colecisti  [presente/assente; aspetto]
+Presenza/assenza di difetti di riempimento: singolo/multiplo, sede, dimensioni 
+Presenza/assenza di formazioni cistiche peribiliari comunicanti/non comunicanti con i dotti biliari
+
+Sistema duttale pancreatico [descrivere presenza/assenza di stenosi, dilatazioni, difetti di riempimento].
+Presenza/assenza di formazioni cistiche pancreatiche comunicanti/non comunicanti con i dotti pancreatici
+Presenza/assenza di varianti anatomiche
+Parenchima epatico [normale/reperti]. 
+Milza: [ ]. 
+Ghiandole surrenali: [ ]. 
+Reni: [ ]. 
+Linfonodi: [][]. 
+Ascite [si/no] .
