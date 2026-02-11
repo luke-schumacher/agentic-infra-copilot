@@ -1,14 +1,15 @@
 """
-Telekom Minister Brain - DSPy Signatures for Governance Agent
+Workflow Anthropologist Brain - DSPy Signatures for Agent 2 (The Anthropologist)
 
 Defines DSPy signatures for:
-- SLA compliance assessment
-- Network Intent validation
-- Risk assessment for infrastructure decisions
-- Query delegation to specialist agents
+- Institution profiling (academic vs private, volume, staffing)
+- Workload pattern analysis (peak hours, bottlenecks, utilization)
+- Error context explanation (WHY errors occur at specific institutions)
+- Query delegation to Specialist and Auditor agents
+- Findings integration (merge technical + operational context)
 
-Domain: High-level network Intent/SLA requirements
-Data: Latency, bandwidth, reliability specs for microgrids and charging stations
+Domain: Institution workflows, operational context, customer feedback
+Data: MRRT Questionnaire responses, institution profiles, workload patterns
 
 Author: Thesis Project - Agentic Infra Co-Pilot
 """
@@ -21,166 +22,150 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class AssessRisk(dspy.Signature):
+class ProfileInstitution(dspy.Signature):
     """
-    Assess the risk level of an infrastructure issue based on SLA requirements.
+    Build an institution profile explaining operational context and constraints.
 
-    Given a symptom report and relevant SLA documents, determine:
-    1. Which SLA requirements are potentially violated
-    2. The risk severity (low/medium/high/critical)
-    3. Recommended immediate actions
-    """
-    symptom_description: str = dspy.InputField(
-        desc="Description of the reported infrastructure symptom or issue"
-    )
-    sla_context: str = dspy.InputField(
-        desc="Relevant SLA documentation excerpts"
-    )
-    location: str = dspy.InputField(
-        desc="Location identifier (e.g., Koumassi microgrid)"
-    )
-
-    risk_level: str = dspy.OutputField(
-        desc="Risk severity: 'low', 'medium', 'high', or 'critical'"
-    )
-    violated_slas: str = dspy.OutputField(
-        desc="List of SLA requirements potentially violated"
-    )
-    recommended_actions: str = dspy.OutputField(
-        desc="Immediate recommended actions"
-    )
-    delegation_needed: str = dspy.OutputField(
-        desc="Which specialist agent to consult: 'hardware_agent', 'telemetry_agent', or 'none'"
-    )
-
-
-class ValidateIntent(dspy.Signature):
-    """
-    Validate whether a proposed network change aligns with Intent requirements.
-
-    Network Intent defines the desired state of the infrastructure.
-    This signature checks if proposed changes maintain compliance.
-    """
-    proposed_change: str = dspy.InputField(
-        desc="Description of the proposed network or infrastructure change"
-    )
-    intent_context: str = dspy.InputField(
-        desc="Current network Intent documentation"
-    )
-    current_state: str = dspy.InputField(
-        desc="Current infrastructure state description"
-    )
-
-    is_compliant: str = dspy.OutputField(
-        desc="'compliant' or 'non-compliant'"
-    )
-    compliance_reasoning: str = dspy.OutputField(
-        desc="Detailed reasoning for compliance decision"
-    )
-    required_approvals: str = dspy.OutputField(
-        desc="List of approvals needed if any"
-    )
-
-
-class DelegateQuery(dspy.Signature):
-    """
-    Determine which specialist agent should handle a technical query.
-
-    The Telekom Minister acts as a router, directing queries to the
-    appropriate domain expert based on the query type.
+    Given questionnaire data and error patterns, explain the operational
+    environment: institution type, volume, staffing, and why certain
+    error patterns emerge in this context.
     """
     query: str = dspy.InputField(
-        desc="The user's query or symptom report"
+        desc="Question about why errors occur at this institution or about its operational context"
+    )
+    institution_data: str = dspy.InputField(
+        desc="MRRT questionnaire data: institution name, country, scanner models, patient volume, staff count, org type"
+    )
+    event_pattern_context: str = dspy.InputField(
+        desc="Summary of error patterns for this institution (error counts, top error sources, severity distribution)"
+    )
+
+    institution_profile: str = dspy.OutputField(
+        desc="Profile: institution type (academic/private/cancer_center), volume level, staffing assessment"
+    )
+    contextual_explanation: str = dspy.OutputField(
+        desc="WHY errors occur - workload pressure, training gaps, equipment age, high patient volume factors"
+    )
+    risk_factors: str = dspy.OutputField(
+        desc="Identified risk factors specific to this institution's operational context"
+    )
+    recommendations: str = dspy.OutputField(
+        desc="Institution-specific workflow recommendations considering their constraints"
+    )
+
+
+class AnalyzeWorkloadPattern(dspy.Signature):
+    """
+    Analyze MRI workload patterns to explain operational challenges.
+
+    Uses event log statistics and institution context to identify
+    peak usage periods, bottlenecks, and utilization issues.
+    """
+    workload_data: str = dspy.InputField(
+        desc="Event log statistics: scan counts, error rates, idle times, peak hours, event distribution"
+    )
+    institution_context: str = dspy.InputField(
+        desc="Institution profile: type, patient volume, equipment count, staff size"
+    )
+
+    workload_assessment: str = dspy.OutputField(
+        desc="Assessment: 'overloaded', 'balanced', or 'underutilized' with reasoning"
+    )
+    peak_periods: str = dspy.OutputField(
+        desc="Identified peak usage periods and their impact on error rates"
+    )
+    bottleneck_analysis: str = dspy.OutputField(
+        desc="Where and why bottlenecks occur in the MRI workflow"
+    )
+    optimization_suggestions: str = dspy.OutputField(
+        desc="Scheduling and workflow optimization suggestions"
+    )
+
+
+class ExplainErrorContext(dspy.Signature):
+    """
+    Given a technical error from The Specialist, explain the operational context behind it.
+
+    Bridges the gap between technical diagnosis and operational reality:
+    why does this error happen more at certain institutions?
+    """
+    technical_error: str = dspy.InputField(
+        desc="Error description or diagnosis from The Specialist (Agent 1)"
+    )
+    institution_profile: str = dspy.InputField(
+        desc="Institution profile data: type, volume, equipment, staffing"
+    )
+    customer_feedback: str = dspy.InputField(
+        desc="Relevant customer complaints, questionnaire responses, or pain points"
+    )
+
+    contextual_explanation: str = dspy.OutputField(
+        desc="WHY this error happened in this operational context"
+    )
+    contributing_factors: str = dspy.OutputField(
+        desc="Operational factors: high volume, insufficient training, equipment age, understaffing"
+    )
+    similar_institutions: str = dspy.OutputField(
+        desc="Other institutions with similar patterns and what they did about it"
+    )
+
+
+class DelegateToSpecialist(dspy.Signature):
+    """
+    Determine if a query needs specialist (Agent 1) or auditor (Agent 3) input.
+
+    The Anthropologist acts as the primary entry point and router,
+    directing queries to the appropriate domain expert.
+    """
+    query: str = dspy.InputField(
+        desc="User query"
     )
     available_agents: str = dspy.InputField(
-        desc="List of available specialist agents and their domains"
+        desc="Available specialist agents and their capabilities"
     )
 
     target_agent: str = dspy.OutputField(
-        desc="Agent to delegate to: 'hardware_agent', 'telemetry_agent', or 'self'"
+        desc="Agent to delegate to: 'hardware_agent' (Specialist), 'telemetry_agent' (Auditor), or 'self'"
     )
     delegation_reason: str = dspy.OutputField(
-        desc="Reason for delegation decision"
+        desc="Why delegating to this agent"
     )
     refined_query: str = dspy.OutputField(
-        desc="Query refined for the target specialist"
+        desc="Query refined for the target agent's domain"
     )
 
 
-class SynthesizeResponse(dspy.Signature):
+class IntegrateFindings(dspy.Signature):
     """
-    Synthesize a final response from retrieved SLA/Intent documents.
+    Integrate specialist technical findings with operational context.
 
-    Used when the Minister handles the query directly without delegation.
-    """
-    query: str = dspy.InputField(
-        desc="The user's original query"
-    )
-    retrieved_context: str = dspy.InputField(
-        desc="Retrieved SLA and Intent documentation"
-    )
-    location: str = dspy.InputField(
-        desc="Location context if applicable"
-    )
-
-    answer: str = dspy.OutputField(
-        desc="Direct answer to the query based on documentation"
-    )
-    confidence: str = dspy.OutputField(
-        desc="Confidence level: 'high', 'medium', or 'low'"
-    )
-    sources_used: str = dspy.OutputField(
-        desc="List of source documents referenced"
-    )
-
-
-class IntegrateSpecialistFindings(dspy.Signature):
-    """
-    Integrate specialist agent findings with governance assessment.
-
-    This signature creates a coherent, unified response that:
-    1. Combines the Minister's SLA/policy analysis with specialist technical findings
-    2. Ensures the root cause and recommended actions are consistent
-    3. Provides clear, actionable recommendations
-
-    Used AFTER receiving specialist response to improve information integration.
+    Creates a unified analysis combining Agent 1's technical diagnosis
+    with The Anthropologist's institutional understanding.
     """
     original_query: str = dspy.InputField(
-        desc="The user's original query or symptom report"
-    )
-    minister_assessment: str = dspy.InputField(
-        desc="Minister's initial assessment including risk level, violated SLAs, and recommendations"
+        desc="Original user query"
     )
     specialist_findings: str = dspy.InputField(
-        desc="Specialist agent's technical diagnosis, severity assessment, and recommended diagnostic steps"
+        desc="Technical findings from The Specialist (Agent 1) or The Auditor (Agent 3)"
     )
-    specialist_agent: str = dspy.InputField(
-        desc="Which specialist provided the findings (hardware_agent or telemetry_agent)"
+    operational_context: str = dspy.InputField(
+        desc="Institution profile, workload analysis, and customer feedback"
     )
 
-    integrated_risk_level: str = dspy.OutputField(
-        desc="Final risk level considering both governance and technical perspectives: 'low', 'medium', 'high', or 'critical'"
+    integrated_analysis: str = dspy.OutputField(
+        desc="Unified analysis combining technical diagnosis with operational context"
     )
-    root_cause_summary: str = dspy.OutputField(
-        desc="Coherent summary of the root cause combining SLA violations and technical diagnosis"
+    root_cause_explanation: str = dspy.OutputField(
+        desc="Full explanation of root cause considering both technical and operational factors"
     )
-    integrated_sla_analysis: str = dspy.OutputField(
-        desc="Complete SLA analysis incorporating specialist findings"
-    )
-    integrated_actions: str = dspy.OutputField(
-        desc="Unified action plan combining governance requirements and technical remediation steps"
+    recommended_actions: str = dspy.OutputField(
+        desc="Action plan considering institutional constraints, staffing, and budget"
     )
 
 
 class EvaluateRequest(dspy.Signature):
     """
-    Evaluate if I can handle this request before attempting diagnosis.
-
-    This signature enables agent autonomy by allowing the agent to:
-    1. Assess if the query falls within its expertise
-    2. Determine confidence level for potential response
-    3. Suggest alternative agents if better suited
-    4. Request clarification or consultation if needed
+    Evaluate if I can handle this request before attempting analysis.
 
     Per design doc section 3 - Autonomy Protocol.
     """
@@ -188,7 +173,7 @@ class EvaluateRequest(dspy.Signature):
         desc="The incoming query or request to evaluate"
     )
     my_expertise: str = dspy.InputField(
-        desc="Description of this agent's domain expertise (e.g., 'SLA compliance, network intent, governance policies')"
+        desc="Description of this agent's domain expertise"
     )
     available_data: str = dspy.InputField(
         desc="Summary of retrieved context and available documents"
@@ -214,26 +199,27 @@ class EvaluateRequest(dspy.Signature):
     )
 
 
-class TelekomMinisterModule(dspy.Module):
+class WorkflowAnthropologistModule(dspy.Module):
     """
-    Main DSPy module for Telekom Minister agent (Governance Agent).
+    Main DSPy module for The Anthropologist (Agent 2 - Workflow & Context).
 
-    Combines multiple signatures into a cohesive reasoning flow:
+    Combines multiple signatures into a cohesive workflow analyst:
     1. Evaluate if request can be handled (autonomy)
-    2. Assess risk if symptom/issue is reported
-    3. Delegate to specialists if needed
-    4. Integrate specialist findings with governance assessment
-    5. Synthesize coherent final response
+    2. Profile institutions from questionnaire data
+    3. Analyze workload patterns from event log statistics
+    4. Explain error context using operational factors
+    5. Delegate to Specialist or Auditor when needed
+    6. Integrate specialist findings with operational context
     """
 
     def __init__(self):
         super().__init__()
         self.evaluate_request = dspy.ChainOfThought(EvaluateRequest)
-        self.assess_risk = dspy.ChainOfThought(AssessRisk)
-        self.validate_intent = dspy.ChainOfThought(ValidateIntent)
-        self.delegate_query = dspy.ChainOfThought(DelegateQuery)
-        self.synthesize = dspy.ChainOfThought(SynthesizeResponse)
-        self.integrate_findings = dspy.ChainOfThought(IntegrateSpecialistFindings)
+        self.profile_institution = dspy.ChainOfThought(ProfileInstitution)
+        self.analyze_workload = dspy.ChainOfThought(AnalyzeWorkloadPattern)
+        self.explain_context = dspy.ChainOfThought(ExplainErrorContext)
+        self.delegate_query = dspy.ChainOfThought(DelegateToSpecialist)
+        self.integrate_findings = dspy.ChainOfThought(IntegrateFindings)
 
     def forward(
         self,
@@ -243,16 +229,16 @@ class TelekomMinisterModule(dspy.Module):
         is_symptom: bool = True
     ) -> dspy.Prediction:
         """
-        Process an incoming query through the Minister's reasoning.
+        Process an incoming query through the Anthropologist's reasoning.
 
         Args:
             query: User query or symptom description
-            context: Retrieved SLA/Intent documentation
-            location: Location identifier
+            context: Retrieved institution profiles, workload data, feedback
+            location: Location/institution identifier
             is_symptom: Whether query describes an issue/symptom
 
         Returns:
-            DSPy Prediction with risk assessment, delegation, and response
+            DSPy Prediction with contextual analysis and delegation
         """
         logger.info(f"Processing query: {query[:100]}...")
 
@@ -260,91 +246,47 @@ class TelekomMinisterModule(dspy.Module):
         delegation = self.delegate_query(
             query=query,
             available_agents=(
-                "hardware_agent (MRI hardware specifications, Siemens equipment manuals, "
-                "thermal sensors, gradient coils, technical diagnostics), "
-                "telemetry_agent (MRI event logs, session monitoring, "
-                "temporal fault patterns, anomaly detection)"
+                "hardware_agent (The Specialist: DICOM conformance, MRI hardware diagnostics, "
+                "SOP Class UID analysis, event log error diagnosis), "
+                "telemetry_agent (The Auditor: MRI safety SOPs, compliance auditing, "
+                "safety zone management, personnel requirements)"
             )
         )
 
-        # If it's a symptom/issue, assess risk
         if is_symptom:
-            risk_assessment = self.assess_risk(
-                symptom_description=query,
-                sla_context=context,
-                location=location
+            # For symptom reports, profile the institution and explain context
+            result = self.profile_institution(
+                query=query,
+                institution_data=context,
+                event_pattern_context="See query context for error patterns."
             )
-
             return dspy.Prediction(
-                risk_level=risk_assessment.risk_level,
-                violated_slas=risk_assessment.violated_slas,
-                recommended_actions=risk_assessment.recommended_actions,
+                risk_level="medium",
+                institution_profile=result.institution_profile,
+                contextual_explanation=result.contextual_explanation,
+                risk_factors=result.risk_factors,
+                recommended_actions=result.recommendations,
                 target_agent=delegation.target_agent,
                 delegation_reason=delegation.delegation_reason,
-                refined_query=delegation.refined_query
+                refined_query=delegation.refined_query,
+                violated_slas=result.risk_factors,
             )
         else:
-            # Direct query - synthesize response
-            synthesis = self.synthesize(
-                query=query,
-                retrieved_context=context,
-                location=location
+            # Direct query - analyze workload or provide context
+            result = self.analyze_workload(
+                workload_data=query,
+                institution_context=context
             )
-
             return dspy.Prediction(
-                answer=synthesis.answer,
-                confidence=synthesis.confidence,
-                sources_used=synthesis.sources_used,
+                answer=result.workload_assessment,
+                workload_assessment=result.workload_assessment,
+                peak_periods=result.peak_periods,
+                bottleneck_analysis=result.bottleneck_analysis,
+                optimization_suggestions=result.optimization_suggestions,
                 target_agent=delegation.target_agent,
                 delegation_reason=delegation.delegation_reason,
-                refined_query=delegation.refined_query
+                refined_query=delegation.refined_query,
             )
-
-    def assess_infrastructure_risk(
-        self,
-        symptom: str,
-        sla_context: str,
-        location: str
-    ) -> dspy.Prediction:
-        """
-        Dedicated method for risk assessment.
-
-        Args:
-            symptom: Description of the infrastructure issue
-            sla_context: Relevant SLA documentation
-            location: Location of the issue
-
-        Returns:
-            DSPy Prediction with risk assessment
-        """
-        return self.assess_risk(
-            symptom_description=symptom,
-            sla_context=sla_context,
-            location=location
-        )
-
-    def validate_network_change(
-        self,
-        proposed_change: str,
-        intent_context: str,
-        current_state: str
-    ) -> dspy.Prediction:
-        """
-        Validate a proposed network change against Intent.
-
-        Args:
-            proposed_change: The change being proposed
-            intent_context: Network Intent documentation
-            current_state: Current infrastructure state
-
-        Returns:
-            DSPy Prediction with compliance decision
-        """
-        return self.validate_intent(
-            proposed_change=proposed_change,
-            intent_context=intent_context,
-            current_state=current_state
-        )
 
     def integrate_specialist_response(
         self,
@@ -354,59 +296,50 @@ class TelekomMinisterModule(dspy.Module):
         specialist_agent: str
     ) -> dspy.Prediction:
         """
-        Integrate specialist findings with Minister's governance assessment.
-
-        This creates a coherent, unified response by:
-        1. Combining SLA/policy analysis with technical diagnosis
-        2. Reconciling risk levels between governance and technical perspectives
-        3. Creating unified, actionable recommendations
+        Integrate specialist findings with operational context.
 
         Args:
             query: Original user query
-            minister_assessment: Minister's initial assessment dict with
-                                 risk_level, violated_slas, recommended_actions
-            specialist_findings: Specialist's response dict with
-                                 diagnosis, severity, diagnostic_steps
-            specialist_agent: Name of specialist agent
+            minister_assessment: Anthropologist's initial assessment
+            specialist_findings: Specialist's technical findings
+            specialist_agent: Which specialist provided findings
 
         Returns:
             DSPy Prediction with integrated assessment
         """
-        # Format minister assessment as string
-        minister_str = (
-            f"Risk Level: {minister_assessment.get('risk_level', 'unknown')}\n"
-            f"Violated SLAs: {minister_assessment.get('violated_slas', 'None identified')}\n"
-            f"Recommended Actions: {minister_assessment.get('recommended_actions', 'None')}"
+        # Format operational context
+        context_str = (
+            f"Institution Profile: {minister_assessment.get('institution_profile', 'unknown')}\n"
+            f"Risk Factors: {minister_assessment.get('risk_factors', 'None identified')}\n"
+            f"Contextual Explanation: {minister_assessment.get('contextual_explanation', 'None')}"
         )
 
-        # Extract specialist payload (handle nested response structure)
+        # Format specialist findings
         if isinstance(specialist_findings, dict):
             spec_payload = specialist_findings.get('response_card', {}).get('payload', specialist_findings)
         else:
             spec_payload = {}
 
-        # Format specialist findings as string
         specialist_str = (
             f"Diagnosis: {spec_payload.get('diagnosis', spec_payload.get('answer', 'No diagnosis'))}\n"
             f"Severity: {spec_payload.get('severity', 'unknown')}\n"
-            f"Diagnostic Steps: {spec_payload.get('diagnostic_steps', 'None provided')}\n"
-            f"Requires Escalation: {spec_payload.get('requires_escalation', 'unknown')}"
+            f"Component: {spec_payload.get('affected_component', 'unknown')}\n"
+            f"Steps: {spec_payload.get('diagnostic_steps', 'None provided')}"
         )
 
         logger.info(f"Integrating specialist findings from {specialist_agent}")
 
         integration = self.integrate_findings(
             original_query=query,
-            minister_assessment=minister_str,
             specialist_findings=specialist_str,
-            specialist_agent=specialist_agent
+            operational_context=context_str
         )
 
         return dspy.Prediction(
-            integrated_risk_level=integration.integrated_risk_level,
-            root_cause_summary=integration.root_cause_summary,
-            integrated_sla_analysis=integration.integrated_sla_analysis,
-            integrated_actions=integration.integrated_actions
+            integrated_risk_level="medium",
+            root_cause_summary=integration.root_cause_explanation,
+            integrated_sla_analysis=integration.integrated_analysis,
+            integrated_actions=integration.recommended_actions
         )
 
     def evaluate_incoming_request(
@@ -416,32 +349,16 @@ class TelekomMinisterModule(dspy.Module):
     ) -> dspy.Prediction:
         """
         Evaluate whether this agent should handle the incoming request.
-
-        This method enables agent autonomy by assessing:
-        - Whether the query falls within governance/SLA domain
-        - Confidence level for potential response
-        - Whether to redirect to or consult specialist agents
-
-        Args:
-            query: The incoming query or request
-            context_summary: Summary of retrieved context (e.g., "Retrieved 5 SLA documents")
-
-        Returns:
-            DSPy Prediction with:
-                - can_fully_answer: bool
-                - confidence_level: float 0.0-1.0
-                - response_type: 'answer', 'partial', 'clarify', 'redirect', 'refuse', 'consult'
-                - suggested_agent: 'hardware_agent', 'telemetry_agent', or 'none'
-                - reasoning: explanation of decision
-                - missing_info: what's missing if partial/clarify
         """
         return self.evaluate_request(
             query=query,
             my_expertise=(
-                "SLA compliance assessment, Network Intent validation, "
-                "risk assessment for infrastructure decisions, governance policies, "
-                "latency/bandwidth/reliability requirements for microgrids and MRI equipment. "
-                "Can delegate to hardware_agent for equipment issues or telemetry_agent for event logs."
+                "Institution profiling, MRI workflow analysis, workload pattern analysis, "
+                "operational context explanation, customer feedback interpretation, "
+                "why errors occur at specific institutions (volume, staffing, training factors), "
+                "academic vs private clinic operational differences, scheduling optimization. "
+                "Can delegate to hardware_agent for technical diagnostics or "
+                "telemetry_agent for safety compliance review."
             ),
             available_data=context_summary
         )

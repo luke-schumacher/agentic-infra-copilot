@@ -1,14 +1,14 @@
 """
-Illigo Operator Brain - DSPy Signatures for Live Monitor Agent
+Safety Auditor Brain - DSPy Signatures for Agent 3 (The Auditor)
 
 Defines DSPy signatures for:
-- OCPP event log analysis
-- Anomaly detection in charging station data
-- Real-time fault correlation
-- Temporal event pattern recognition
+- SOP compliance validation for proposed actions/workflow changes
+- Safety review of diagnostic actions from Agent 1
+- MRI safety zone compliance checking (Zone I-IV)
+- Workflow change auditing for regulatory compliance
 
-Domain: EV charging station operations and OCPP 2.0.1 event logs
-Data: Illigo charging station statistics, fault events, session data
+Domain: MRI safety procedures, SOP compliance, safety zone management
+Data: MRI-SOP.pdf, SOP-MRI-Safety-Training, ACR criteria
 
 Author: Thesis Project - Agentic Infra Co-Pilot
 """
@@ -21,160 +21,136 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class AnalyzeFaultEvent(dspy.Signature):
+class ValidateComplianceSOP(dspy.Signature):
     """
-    Analyze a fault event from OCPP logs to determine root cause and impact.
+    Check if a proposed action or workflow change complies with MRI SOPs.
 
-    Given a fault event description and historical context, determine:
-    1. Root cause analysis
-    2. Impact assessment on charging operations
-    3. Recommended corrective actions
+    Reviews proposed actions against safety procedures, minimum personnel
+    requirements, and zone access rules from the MRI-SOP documentation.
     """
-    fault_description: str = dspy.InputField(
-        desc="Description of the fault event from OCPP logs"
+    proposed_action: str = dspy.InputField(
+        desc="Proposed workflow change or corrective action (e.g., from The Specialist or The Anthropologist)"
     )
-    station_context: str = dspy.InputField(
-        desc="Historical performance data and previous events for the station"
+    sop_context: str = dspy.InputField(
+        desc="Relevant MRI-SOP procedure excerpts and safety requirements"
     )
-    timestamp: str = dspy.InputField(
-        desc="Timestamp of the fault event"
-    )
-
-    root_cause: str = dspy.OutputField(
-        desc="Identified root cause of the fault"
-    )
-    impact: str = dspy.OutputField(
-        desc="Impact on charging operations and service availability"
-    )
-    severity: str = dspy.OutputField(
-        desc="Severity level: 'low', 'medium', 'high', or 'critical'"
-    )
-    corrective_actions: str = dspy.OutputField(
-        desc="Recommended corrective actions to resolve the fault"
+    safety_zone_info: str = dspy.InputField(
+        desc="MRI safety zone definitions (Zone I-IV) and personnel requirements for the action"
     )
 
+    is_compliant: str = dspy.OutputField(
+        desc="'compliant', 'non-compliant', or 'needs-review'"
+    )
+    compliance_details: str = dspy.OutputField(
+        desc="Specific SOP sections referenced and how the action aligns or conflicts"
+    )
+    safety_concerns: str = dspy.OutputField(
+        desc="Any safety concerns with the proposed action"
+    )
+    required_personnel: str = dspy.OutputField(
+        desc="Required personnel per SOP: minimum staffing, qualifications, and supervision needs"
+    )
+    recommended_modifications: str = dspy.OutputField(
+        desc="How to modify the action to achieve full compliance if not currently compliant"
+    )
 
-class DetectAnomaly(dspy.Signature):
+
+class ReviewDiagnosticAction(dspy.Signature):
     """
-    Detect anomalies in charging station performance data.
+    Review a diagnostic action proposed by The Specialist (Agent 1) for safety compliance.
 
-    Compares current metrics against baseline performance to identify
-    deviations that may indicate emerging issues.
+    Ensures that proposed hardware interventions, calibrations, or service
+    procedures meet safety requirements before execution.
     """
-    current_metrics: str = dspy.InputField(
-        desc="Current performance metrics (energy consumption, session counts, etc.)"
+    diagnostic_action: str = dspy.InputField(
+        desc="Diagnostic or corrective action from The Specialist (e.g., 'recalibrate thermal sensors')"
     )
-    baseline_metrics: str = dspy.InputField(
-        desc="Historical baseline performance data"
+    equipment_context: str = dspy.InputField(
+        desc="MRI equipment details: scanner model, current operational state, location"
     )
-    station_id: str = dspy.InputField(
-        desc="Identifier of the charging station"
-    )
-
-    is_anomaly: str = dspy.OutputField(
-        desc="'yes' if anomaly detected, 'no' otherwise"
-    )
-    anomaly_type: str = dspy.OutputField(
-        desc="Type of anomaly if detected (e.g., 'load_imbalance', 'session_drop', 'energy_spike')"
-    )
-    deviation_description: str = dspy.OutputField(
-        desc="Description of the deviation from baseline"
-    )
-    risk_level: str = dspy.OutputField(
-        desc="Risk level of the anomaly: 'low', 'medium', 'high'"
+    sop_requirements: str = dspy.InputField(
+        desc="Relevant SOP requirements for this type of maintenance/diagnostic action"
     )
 
+    safety_assessment: str = dspy.OutputField(
+        desc="Safety assessment: 'safe', 'caution', or 'unsafe'"
+    )
+    sop_compliance: str = dspy.OutputField(
+        desc="SOP compliance status and relevant procedure sections"
+    )
+    personnel_requirements: str = dspy.OutputField(
+        desc="Required personnel: Level 1 or Level 2 MR personnel, service engineer, etc."
+    )
+    safety_checklist: str = dspy.OutputField(
+        desc="Pre-action safety checklist items that must be verified"
+    )
 
-class CorrelateEvents(dspy.Signature):
+
+class CheckSafetyZone(dspy.Signature):
     """
-    Correlate multiple events to identify patterns and cascading failures.
+    Verify safety zone compliance for an MRI-related activity.
 
-    Analyzes temporal relationships between events to identify
-    cause-effect chains and systemic issues.
+    MRI facilities have 4 safety zones (I-IV) with increasing restriction.
+    This signature checks that proposed activities respect zone boundaries.
     """
-    event_sequence: str = dspy.InputField(
-        desc="Sequence of events with timestamps"
+    activity: str = dspy.InputField(
+        desc="Proposed activity or maintenance procedure"
     )
-    time_window: str = dspy.InputField(
-        desc="Time window for correlation analysis (e.g., '1 hour', '24 hours')"
+    zone_definitions: str = dspy.InputField(
+        desc="MRI safety zone definitions: Zone I (public), II (reception), III (control room), IV (magnet room)"
     )
-
-    correlation_found: str = dspy.OutputField(
-        desc="'yes' if correlated events found, 'no' otherwise"
-    )
-    pattern_description: str = dspy.OutputField(
-        desc="Description of the identified event pattern"
-    )
-    causal_chain: str = dspy.OutputField(
-        desc="Identified cause-effect chain if applicable"
-    )
-    affected_stations: str = dspy.OutputField(
-        desc="List of stations affected by correlated events"
+    current_conditions: str = dspy.InputField(
+        desc="Current scanner state (scanning, idle, quenched) and environmental conditions"
     )
 
+    zone_classification: str = dspy.OutputField(
+        desc="Which safety zone(s) are involved in this activity"
+    )
+    access_requirements: str = dspy.OutputField(
+        desc="Who can access and under what conditions"
+    )
+    screening_requirements: str = dspy.OutputField(
+        desc="MRI safety screening requirements for personnel involved"
+    )
+    restrictions: str = dspy.OutputField(
+        desc="Restrictions: prohibited items, required procedures, and safety precautions"
+    )
 
-class QueryStationStatus(dspy.Signature):
+
+class AuditWorkflowChange(dspy.Signature):
     """
-    Query and synthesize current station status information.
+    Audit a workflow change recommendation for regulatory and safety compliance.
 
-    Used to answer questions about charging station operations,
-    session data, and performance metrics.
+    Reviews workflow optimization suggestions from The Anthropologist
+    to ensure they don't compromise patient safety or regulatory compliance.
     """
-    query: str = dspy.InputField(
-        desc="User's question about station status or operations"
+    workflow_change: str = dspy.InputField(
+        desc="Proposed workflow change from The Anthropologist (e.g., 'reduce patient prep overlap')"
     )
-    station_data: str = dspy.InputField(
-        desc="Retrieved station data including statistics and event logs"
+    safety_context: str = dspy.InputField(
+        desc="Safety SOPs, training requirements, and zone rules relevant to this workflow"
     )
-
-    answer: str = dspy.OutputField(
-        desc="Direct answer to the query based on station data"
-    )
-    data_summary: str = dspy.OutputField(
-        desc="Summary of relevant data points referenced"
-    )
-    confidence: str = dspy.OutputField(
-        desc="Confidence level: 'high', 'medium', or 'low'"
+    institution_context: str = dspy.InputField(
+        desc="Institution type (academic/private), current staffing levels, and equipment"
     )
 
-
-class AnalyzeLoadBalance(dspy.Signature):
-    """
-    Analyze load balance across charging stations.
-
-    Identifies load imbalances between stations that may indicate
-    infrastructure issues or demand planning problems.
-    """
-    station_loads: str = dspy.InputField(
-        desc="Energy consumption data for multiple stations"
+    audit_result: str = dspy.OutputField(
+        desc="'approved', 'conditionally-approved', or 'rejected'"
     )
-    time_period: str = dspy.InputField(
-        desc="Time period for analysis"
+    safety_gaps: str = dspy.OutputField(
+        desc="Any safety gaps identified in the proposed workflow change"
     )
-
-    imbalance_detected: str = dspy.OutputField(
-        desc="'yes' if significant load imbalance detected, 'no' otherwise"
+    training_requirements: str = dspy.OutputField(
+        desc="Additional training needed for staff to safely implement the change"
     )
-    overloaded_stations: str = dspy.OutputField(
-        desc="Stations with above-normal load"
-    )
-    underutilized_stations: str = dspy.OutputField(
-        desc="Stations with below-normal load"
-    )
-    recommendations: str = dspy.OutputField(
-        desc="Recommendations for balancing load"
+    documentation_requirements: str = dspy.OutputField(
+        desc="Required documentation, approvals, and audit trail for the change"
     )
 
 
 class EvaluateRequest(dspy.Signature):
     """
-    Evaluate if I can handle this request before attempting diagnosis.
-
-    This signature enables agent autonomy by allowing the agent to:
-    1. Assess if the query falls within its expertise
-    2. Determine confidence level for potential response
-    3. Suggest alternative agents if better suited
-    4. Request clarification or consultation if needed
+    Evaluate if I can handle this request before attempting analysis.
 
     Per design doc section 3 - Autonomy Protocol.
     """
@@ -182,7 +158,7 @@ class EvaluateRequest(dspy.Signature):
         desc="The incoming query or request to evaluate"
     )
     my_expertise: str = dspy.InputField(
-        desc="Description of this agent's domain expertise (e.g., 'MRI event logs, session monitoring')"
+        desc="Description of this agent's domain expertise"
     )
     available_data: str = dspy.InputField(
         desc="Summary of retrieved context and available documents"
@@ -208,27 +184,25 @@ class EvaluateRequest(dspy.Signature):
     )
 
 
-class IlligoOperatorModule(dspy.Module):
+class SafetyAuditorModule(dspy.Module):
     """
-    Main DSPy module for Illigo Operator agent (Telemetry Agent).
+    Main DSPy module for The Auditor (Agent 3 - Safety & Compliance).
 
-    Combines multiple signatures into a cohesive live monitoring expert:
+    Combines multiple signatures into a cohesive safety compliance expert:
     1. Evaluate if request can be handled (autonomy)
-    2. Analyze fault events from OCPP logs
-    3. Detect anomalies in performance data
-    4. Correlate events across time and stations
-    5. Query station status and operations
-    6. Analyze load balance
+    2. Validate proposed actions against MRI SOPs
+    3. Review diagnostic actions from Agent 1 for safety
+    4. Check safety zone compliance for activities
+    5. Audit workflow changes from Agent 2 for regulatory compliance
     """
 
     def __init__(self):
         super().__init__()
         self.evaluate_request = dspy.ChainOfThought(EvaluateRequest)
-        self.analyze_fault = dspy.ChainOfThought(AnalyzeFaultEvent)
-        self.detect_anomaly = dspy.ChainOfThought(DetectAnomaly)
-        self.correlate_events = dspy.ChainOfThought(CorrelateEvents)
-        self.query_status = dspy.ChainOfThought(QueryStationStatus)
-        self.analyze_load = dspy.ChainOfThought(AnalyzeLoadBalance)
+        self.validate_compliance = dspy.ChainOfThought(ValidateComplianceSOP)
+        self.review_action = dspy.ChainOfThought(ReviewDiagnosticAction)
+        self.check_zone = dspy.ChainOfThought(CheckSafetyZone)
+        self.audit_workflow = dspy.ChainOfThought(AuditWorkflowChange)
 
     def forward(
         self,
@@ -239,171 +213,89 @@ class IlligoOperatorModule(dspy.Module):
         timestamp: str = ""
     ) -> dspy.Prediction:
         """
-        Process an incoming query through the Operator's reasoning.
+        Process an incoming query through the Auditor's reasoning.
 
         Args:
-            query: User query or event description
-            context: Retrieved station data and event logs
-            query_type: Type of query - 'fault', 'anomaly', 'correlation', 'status', or 'load'
-            station_id: Station identifier if applicable
+            query: User query, proposed action, or safety question
+            context: Retrieved safety SOPs, zone definitions, compliance docs
+            query_type: 'compliance_check', 'action_review', 'safety_zone', 'workflow_audit', or 'general'
+            station_id: Scanner/institution identifier if applicable
             timestamp: Timestamp if applicable
 
         Returns:
-            DSPy Prediction with appropriate response based on query type
+            DSPy Prediction with safety/compliance assessment
         """
         logger.info(f"Processing query (type={query_type}): {query[:100]}...")
 
-        if query_type == "fault":
-            result = self.analyze_fault(
-                fault_description=query,
-                station_context=context,
-                timestamp=timestamp or "unknown"
+        if query_type == "compliance_check":
+            result = self.validate_compliance(
+                proposed_action=query,
+                sop_context=context,
+                safety_zone_info="See SOP context for zone definitions."
             )
             return dspy.Prediction(
-                root_cause=result.root_cause,
-                impact=result.impact,
-                severity=result.severity,
-                corrective_actions=result.corrective_actions,
-                answer=f"Root cause: {result.root_cause}. Impact: {result.impact}. Actions: {result.corrective_actions}"
+                is_compliant=result.is_compliant,
+                compliance_details=result.compliance_details,
+                safety_concerns=result.safety_concerns,
+                required_personnel=result.required_personnel,
+                answer=f"Compliance: {result.is_compliant}. {result.compliance_details}. Concerns: {result.safety_concerns}"
             )
 
-        elif query_type == "anomaly":
-            result = self.detect_anomaly(
-                current_metrics=query,
-                baseline_metrics=context,
-                station_id=station_id
+        elif query_type == "action_review":
+            result = self.review_action(
+                diagnostic_action=query,
+                equipment_context=station_id,
+                sop_requirements=context
             )
             return dspy.Prediction(
-                is_anomaly=result.is_anomaly,
-                anomaly_type=result.anomaly_type,
-                deviation_description=result.deviation_description,
-                risk_level=result.risk_level,
-                answer=f"Anomaly: {result.is_anomaly}. Type: {result.anomaly_type}. {result.deviation_description}"
+                safety_assessment=result.safety_assessment,
+                sop_compliance=result.sop_compliance,
+                personnel_requirements=result.personnel_requirements,
+                safety_checklist=result.safety_checklist,
+                answer=f"Safety: {result.safety_assessment}. {result.sop_compliance}. Checklist: {result.safety_checklist}"
             )
 
-        elif query_type == "correlation":
-            result = self.correlate_events(
-                event_sequence=query,
-                time_window=timestamp or "24 hours"
+        elif query_type == "safety_zone":
+            result = self.check_zone(
+                activity=query,
+                zone_definitions=context,
+                current_conditions=station_id or "normal operations"
             )
             return dspy.Prediction(
-                correlation_found=result.correlation_found,
-                pattern_description=result.pattern_description,
-                causal_chain=result.causal_chain,
-                affected_stations=result.affected_stations,
-                answer=f"Pattern: {result.pattern_description}. Causal chain: {result.causal_chain}"
+                zone_classification=result.zone_classification,
+                access_requirements=result.access_requirements,
+                screening_requirements=result.screening_requirements,
+                restrictions=result.restrictions,
+                answer=f"Zone: {result.zone_classification}. Access: {result.access_requirements}. {result.restrictions}"
             )
 
-        elif query_type == "load":
-            result = self.analyze_load(
-                station_loads=context,
-                time_period=timestamp or "last 24 hours"
+        elif query_type == "workflow_audit":
+            result = self.audit_workflow(
+                workflow_change=query,
+                safety_context=context,
+                institution_context=station_id or "general institution"
             )
             return dspy.Prediction(
-                imbalance_detected=result.imbalance_detected,
-                overloaded_stations=result.overloaded_stations,
-                underutilized_stations=result.underutilized_stations,
-                recommendations=result.recommendations,
-                answer=f"Load imbalance: {result.imbalance_detected}. {result.recommendations}"
+                audit_result=result.audit_result,
+                safety_gaps=result.safety_gaps,
+                training_requirements=result.training_requirements,
+                documentation_requirements=result.documentation_requirements,
+                answer=f"Audit: {result.audit_result}. Gaps: {result.safety_gaps}. Training: {result.training_requirements}"
             )
 
         else:
-            # General status query
-            result = self.query_status(
-                query=query,
-                station_data=context
+            # General safety query - default to compliance check
+            result = self.validate_compliance(
+                proposed_action=query,
+                sop_context=context,
+                safety_zone_info="See SOP context for zone definitions."
             )
             return dspy.Prediction(
-                answer=result.answer,
-                data_summary=result.data_summary,
-                confidence=result.confidence
+                answer=f"Compliance: {result.is_compliant}. {result.compliance_details}",
+                is_compliant=result.is_compliant,
+                safety_concerns=result.safety_concerns,
+                required_personnel=result.required_personnel,
             )
-
-    def analyze_station_fault(
-        self,
-        fault_description: str,
-        station_context: str,
-        timestamp: str
-    ) -> dspy.Prediction:
-        """
-        Dedicated method for fault event analysis.
-
-        Args:
-            fault_description: Description of the fault event
-            station_context: Historical context for the station
-            timestamp: When the fault occurred
-
-        Returns:
-            DSPy Prediction with fault analysis
-        """
-        return self.analyze_fault(
-            fault_description=fault_description,
-            station_context=station_context,
-            timestamp=timestamp
-        )
-
-    def check_for_anomalies(
-        self,
-        current_metrics: str,
-        baseline_metrics: str,
-        station_id: str
-    ) -> dspy.Prediction:
-        """
-        Check for performance anomalies.
-
-        Args:
-            current_metrics: Current performance data
-            baseline_metrics: Historical baseline
-            station_id: Station identifier
-
-        Returns:
-            DSPy Prediction with anomaly detection results
-        """
-        return self.detect_anomaly(
-            current_metrics=current_metrics,
-            baseline_metrics=baseline_metrics,
-            station_id=station_id
-        )
-
-    def find_event_correlations(
-        self,
-        event_sequence: str,
-        time_window: str = "24 hours"
-    ) -> dspy.Prediction:
-        """
-        Find correlations in event sequences.
-
-        Args:
-            event_sequence: Sequence of events
-            time_window: Time window for analysis
-
-        Returns:
-            DSPy Prediction with correlation results
-        """
-        return self.correlate_events(
-            event_sequence=event_sequence,
-            time_window=time_window
-        )
-
-    def check_load_balance(
-        self,
-        station_loads: str,
-        time_period: str = "last 24 hours"
-    ) -> dspy.Prediction:
-        """
-        Analyze load balance across stations.
-
-        Args:
-            station_loads: Load data for stations
-            time_period: Analysis period
-
-        Returns:
-            DSPy Prediction with load balance analysis
-        """
-        return self.analyze_load(
-            station_loads=station_loads,
-            time_period=time_period
-        )
 
     def evaluate_incoming_request(
         self,
@@ -412,32 +304,17 @@ class IlligoOperatorModule(dspy.Module):
     ) -> dspy.Prediction:
         """
         Evaluate whether this agent should handle the incoming request.
-
-        This method enables agent autonomy by assessing:
-        - Whether the query falls within telemetry/event monitoring domain
-        - Confidence level for potential response
-        - Whether to redirect to or consult other agents
-
-        Args:
-            query: The incoming query or request
-            context_summary: Summary of retrieved context (e.g., "Retrieved 10 event logs")
-
-        Returns:
-            DSPy Prediction with:
-                - can_fully_answer: bool
-                - confidence_level: float 0.0-1.0
-                - response_type: 'answer', 'partial', 'clarify', 'redirect', 'refuse', 'consult'
-                - suggested_agent: 'governance_agent', 'hardware_agent', or 'none'
-                - reasoning: explanation of decision
-                - missing_info: what's missing if partial/clarify
         """
         return self.evaluate_request(
             query=query,
             my_expertise=(
-                "MRI event log analysis, anomaly detection, session monitoring, "
-                "real-time fault correlation, temporal event pattern recognition (e.g., 90-minute cycles), "
-                "protocol start/stop tracking, idle time calculation, thermal event detection. "
-                "Can consult hardware_agent for equipment specs or governance_agent for SLA implications."
+                "MRI safety SOPs, compliance auditing, safety zone management (Zone I-IV), "
+                "minimum personnel requirements (Level 1/Level 2 MR personnel), "
+                "patient screening procedures, ferromagnetic object control, "
+                "quench emergency procedures, SAR monitoring, regulatory compliance, "
+                "ACR appropriateness criteria review. "
+                "Can consult governance_agent for institutional context or "
+                "hardware_agent for technical specifications."
             ),
             available_data=context_summary
         )

@@ -39,31 +39,40 @@ from src.protocol.schema import (
 # ============================================================
 
 # Agent URLs - use environment variables for Docker, fallback to localhost
-TELEKOM_URL = os.getenv("TELEKOM_MINISTER_URL", "http://localhost:8001")
-SIEMENS_URL = os.getenv("SIEMENS_TECHNICIAN_URL", "http://localhost:8002")
-ILLIGO_URL = os.getenv("ILLIGO_OPERATOR_URL", "http://localhost:8003")
+GOVERNANCE_URL = os.getenv(
+    "GOVERNANCE_AGENT_URL",
+    os.getenv("TELEKOM_MINISTER_URL", "http://localhost:8001")
+)
+HARDWARE_URL = os.getenv(
+    "HARDWARE_AGENT_URL",
+    os.getenv("SIEMENS_TECHNICIAN_URL", "http://localhost:8002")
+)
+TELEMETRY_URL = os.getenv(
+    "TELEMETRY_AGENT_URL",
+    os.getenv("ILLIGO_OPERATOR_URL", "http://localhost:8003")
+)
 
 AGENT_ENDPOINTS = {
-    "Governance Agent": {
-        "url": TELEKOM_URL,
+    "Workflow & Context (The Anthropologist)": {
+        "url": GOVERNANCE_URL,
         "role": AgentRole.GOVERNANCE_AGENT,
-        "description": "Governance - SLAs & Intent",
+        "description": "Institution profiling, workload analysis, operational context",
         "port": 8001,
-        "legacy_name": "Telekom Minister"
+        "legacy_name": "Governance Agent"
     },
-    "Hardware Agent": {
-        "url": SIEMENS_URL,
+    "Diagnostic & Technical (The Specialist)": {
+        "url": HARDWARE_URL,
         "role": AgentRole.HARDWARE_AGENT,
-        "description": "Hardware Expert - Specs & Manuals",
+        "description": "DICOM conformance, MRI hardware diagnostics, SOP Class analysis",
         "port": 8002,
-        "legacy_name": "Siemens Technician"
+        "legacy_name": "Hardware Agent"
     },
-    "Telemetry Agent": {
-        "url": ILLIGO_URL,
+    "Safety & Compliance (The Auditor)": {
+        "url": TELEMETRY_URL,
         "role": AgentRole.TELEMETRY_AGENT,
-        "description": "Live Monitor - Logs & Events",
+        "description": "MRI safety SOPs, Zone I-IV compliance, regulatory auditing",
         "port": 8003,
-        "legacy_name": "Illigo Operator"
+        "legacy_name": "Telemetry Agent"
     }
 }
 
@@ -106,41 +115,57 @@ def check_agent_health(agent_name: str, agent_config: Dict) -> Optional[AgentHea
     return None
 
 
-def send_query_to_minister(
+def send_query_to_anthropologist(
     query: str,
     location: str = "unknown",
-    is_symptom: bool = True
+    is_symptom: bool = True,
+    customer_id: str = "",
+    scanner_model: str = "",
+    institution_type: str = ""
 ) -> Optional[ConsultResponse]:
     """
-    Send a query to Governance Agent (entry point for all workflows).
+    Send a query to the Workflow Anthropologist (entry point for all workflows).
 
-    All queries start at the Minister, who may delegate to specialists.
+    All queries start at the Anthropologist, who may delegate to specialists.
 
     Args:
         query: User's question or symptom description
         location: Location context if applicable
         is_symptom: Whether this describes an issue/symptom
+        customer_id: Optional Siemens Customer ID
+        scanner_model: Optional MRI scanner model
+        institution_type: Optional institution type
 
     Returns:
         ConsultResponse if successful, None otherwise
     """
+    payload = {
+        "query": query,
+        "location": location,
+        "is_symptom": is_symptom
+    }
+    if customer_id:
+        payload["customer_id"] = customer_id
+    if scanner_model:
+        payload["scanner_model"] = scanner_model
+    if institution_type:
+        payload["institution_type"] = institution_type
+
     card = AgentCard(
         sender=AgentRole.ORCHESTRATOR,
         recipient=AgentRole.GOVERNANCE_AGENT,
         intent=IntentType.QUERY,
         priority=Priority.NORMAL,
-        payload={
-            "query": query,
-            "location": location,
-            "is_symptom": is_symptom
-        }
+        payload=payload
     )
 
     request = ConsultRequest(card=card)
 
+    anthropologist_url = AGENT_ENDPOINTS["Workflow & Context (The Anthropologist)"]["url"]
+
     try:
         response = httpx.post(
-            f"{AGENT_ENDPOINTS['Governance Agent']['url']}/consult",
+            f"{anthropologist_url}/consult",
             json=request.model_dump(),
             timeout=60.0
         )
@@ -148,9 +173,9 @@ def send_query_to_minister(
         if response.status_code == 200:
             return ConsultResponse(**response.json())
         else:
-            st.error(f"Governance Agent returned error {response.status_code}: {response.text}")
+            st.error(f"Anthropologist returned error {response.status_code}: {response.text}")
     except Exception as e:
-        st.error(f"Failed to contact Governance Agent: {e}")
+        st.error(f"Failed to contact Workflow Anthropologist: {e}")
 
     return None
 
@@ -199,8 +224,9 @@ def render_sidebar():
     if st.sidebar.button("📚 Index Documents"):
         with st.spinner("Indexing..."):
             try:
+                anthropologist_url = AGENT_ENDPOINTS["Workflow & Context (The Anthropologist)"]["url"]
                 response = httpx.post(
-                    f"{AGENT_ENDPOINTS['Governance Agent']['url']}/index",
+                    f"{anthropologist_url}/index",
                     timeout=120.0
                 )
                 if response.status_code == 200:
@@ -219,13 +245,13 @@ def render_header():
     with col1:
         st.title("Agentic Infra Co-Pilot")
         st.markdown(
-            "*Distributed Multi-Agent System for Critical Infrastructure Diagnosis*"
+            "*Multi-Agent System for MRI Operations Analysis*"
         )
 
     with col2:
         st.markdown("### Architecture")
         st.caption(
-            "Telekom 'External Minister' + 'Agent2Agent' Pattern"
+            "Anthropologist + Specialist + Auditor"
         )
 
 
@@ -265,7 +291,7 @@ def render_chat_interface():
     # Chat input
     st.markdown("---")
 
-    col1, col2 = st.columns([4, 1])
+    col1, col2, col3 = st.columns([3, 1, 1])
 
     with col1:
         query_type = st.radio(
@@ -276,13 +302,20 @@ def render_chat_interface():
         )
 
     with col2:
-        location = st.text_input(
-            "Location",
-            placeholder="e.g., Koumassi",
+        customer_id = st.text_input(
+            "Customer ID",
+            placeholder="e.g., mr176430",
             label_visibility="collapsed"
         )
 
-    if prompt := st.chat_input("Describe an infrastructure issue or ask a question..."):
+    with col3:
+        location = st.text_input(
+            "Location",
+            placeholder="e.g., Munich",
+            label_visibility="collapsed"
+        )
+
+    if prompt := st.chat_input("Describe an MRI operations issue or ask a question..."):
         # Add user message
         st.session_state.messages.append({
             "role": "user",
@@ -292,14 +325,15 @@ def render_chat_interface():
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        # Send to Minister
+        # Send to Anthropologist
         with st.chat_message("assistant"):
             with st.spinner("🔍 Consulting agents..."):
                 is_symptom = query_type == "Symptom/Issue"
-                response = send_query_to_minister(
+                response = send_query_to_anthropologist(
                     prompt,
                     location=location or "unknown",
-                    is_symptom=is_symptom
+                    is_symptom=is_symptom,
+                    customer_id=customer_id or ""
                 )
 
             if response and response.success:
@@ -374,6 +408,8 @@ def render_chat_interface():
 
                         # Agent icon mapping
                         agent_icons = {
+                            'diagnostic_specialist': '🔧',
+                            'safety_auditor': '🛡️',
                             'siemens_technician': '🔧',
                             'illigo_operator': '⚡'
                         }
@@ -394,6 +430,10 @@ def render_chat_interface():
                             st.markdown(f"**Impact:** {spec_payload['impact']}")
                         if spec_payload.get('corrective_actions'):
                             st.markdown(f"**Corrective Actions:** {spec_payload['corrective_actions']}")
+                        if spec_payload.get('compliance_status'):
+                            st.markdown(f"**Compliance Status:** {spec_payload['compliance_status']}")
+                        if spec_payload.get('safety_assessment'):
+                            st.markdown(f"**Safety Assessment:** {spec_payload['safety_assessment']}")
                         if spec_payload.get('answer'):
                             st.markdown(f"**Analysis:** {spec_payload['answer']}")
                         if spec_payload.get('common_issues'):

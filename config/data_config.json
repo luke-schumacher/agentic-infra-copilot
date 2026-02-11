@@ -1,37 +1,45 @@
 {
-  "data_version": "2.0",
-  "created": "2026-02-05T12:10:33.391508",
-  "description": "Healthcare MAS data configuration - Siemens MRI focus",
+  "data_version": "3.0",
+  "created": "2026-02-10T18:00:00.000000",
+  "description": "MRI Operations MAS - Siemens Healthineers validation",
   "agents": {
     "hardware_agent": {
+      "role": "Diagnostic & Technical (The Specialist)",
       "data_dir": "data/processed/hardware",
       "files": [
-        "documentation_index.csv",
-        "versicharge_specifications.csv",
-        "sample_processed_wide_format.csv",
-        "sample_processed_long_format.csv"
+        "dicom_sop_classes.csv",
+        "per_customer_error_profiles.csv",
+        "documentation_index.csv"
       ],
-      "raw_pdfs": "data/raw/siemens/*.pdf"
-    },
-    "telemetry_agent": {
-      "data_dir": "data/processed/telemetry",
-      "files": [
-        "mri_events.csv",
-        "event_summary.csv",
-        "detected_patterns.csv",
-        "failure_modes.csv"
-      ],
-      "raw_logs": "data/raw/siemens/eventlog_txt/"
+      "raw_pdfs": "data/raw/siemens/DCS_*.pdf",
+      "parquet_dir": "data/raw/siemens/eventlog_txt"
     },
     "governance_agent": {
+      "role": "Workflow & Context (The Anthropologist)",
       "data_dir": "data/processed/governance",
       "files": [
-        "clinical_protocols.csv",
-        "radlex_terms.csv",
-        "protocol_categories.csv"
+        "institution_profiles.csv",
+        "workload_patterns.csv"
       ],
-      "raw_templates": "data/raw/siemens/examination/RSNA-RAD-REPORT/"
+      "customer_mapping": "data/processed/customer_mapping.csv",
+      "raw_questionnaires": "data/raw/siemens/RT_Study_MTTI/"
+    },
+    "telemetry_agent": {
+      "role": "Safety & Compliance (The Auditor)",
+      "data_dir": "data/processed/telemetry",
+      "files": [
+        "safety_procedures.csv",
+        "safety_zones.csv",
+        "personnel_requirements.csv",
+        "safety_event_flags.csv"
+      ],
+      "raw_pdfs": "data/raw/siemens/MRI-SOP*.pdf"
     }
+  },
+  "shared": {
+    "customer_mapping": "data/processed/customer_mapping.csv",
+    "customer_overview": "data/raw/siemens/eventlog_txt/all_customers_overview.csv",
+    "knowledge_gap_report": "data/processed/knowledge_gap_report.csv"
   },
   "archive": {
     "telekom": "data/archive/telekom",
