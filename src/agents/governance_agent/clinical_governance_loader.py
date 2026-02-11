@@ -1,18 +1,17 @@
 """
-Clinical Governance Data Loader
+Workflow Anthropologist Data Loader
 
-Loads processed clinical governance data for the Governance Agent:
-- Clinical protocols (RSNA RadReport templates)
-- RadLex ontology terms
-- Protocol categories and statistics
-
-Uses preprocessed CSVs from data/processed/governance/ for fast RAG ingestion.
+Loads processed data for The Anthropologist (Agent 2 - Workflow & Context):
+- Institution profiles from MRRT questionnaire data
+- Customer feedback and pain points
+- Workload patterns from event log statistics
+- Customer-to-institution mapping
 
 Environment Variables:
 - GOVERNANCE_DATA_DIR: Path to processed governance data (default: data/processed/governance)
-- RAW_TEMPLATES_DIR: Path to raw RSNA templates (default: data/raw/siemens/examination/RSNA-RAD-REPORT)
+- PROCESSED_BASE_DIR: Path to processed data root (default: data/processed)
 
-Author: Thesis Project - Healthcare MAS
+Author: Thesis Project - Agentic Infra Co-Pilot
 """
 
 import os
@@ -25,355 +24,264 @@ from langchain_core.documents import Document
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Default paths (can be overridden via environment variables)
 DEFAULT_PROCESSED_DIR = "data/processed/governance"
-DEFAULT_RAW_TEMPLATES_DIR = "data/raw/siemens/examination/RSNA-RAD-REPORT"
+DEFAULT_PROCESSED_BASE = "data/processed"
+DEFAULT_RAW_DIR = "data/raw/siemens"
 
 
 class ClinicalGovernanceLoader:
-    """Loads clinical governance data including protocols and RadLex terms."""
+    """Loads institution profiles, workload patterns, and customer feedback for RAG."""
 
     def __init__(
         self,
         processed_dir: Optional[str] = None,
-        raw_templates_dir: Optional[str] = None
+        processed_base: Optional[str] = None,
+        raw_dir: Optional[str] = None
     ):
-        """
-        Initialize the Clinical Governance loader.
-
-        Args:
-            processed_dir: Directory with preprocessed CSVs (env: GOVERNANCE_DATA_DIR)
-            raw_templates_dir: Directory with raw RSNA templates (env: RAW_TEMPLATES_DIR)
-        """
         self.processed_dir = Path(
             processed_dir or os.getenv("GOVERNANCE_DATA_DIR", DEFAULT_PROCESSED_DIR)
         )
-        self.raw_templates_dir = Path(
-            raw_templates_dir or os.getenv("RAW_TEMPLATES_DIR", DEFAULT_RAW_TEMPLATES_DIR)
+        self.processed_base = Path(
+            processed_base or os.getenv("PROCESSED_BASE_DIR", DEFAULT_PROCESSED_BASE)
+        )
+        self.raw_dir = Path(
+            raw_dir or os.getenv("RAW_DATA_DIR", DEFAULT_RAW_DIR)
         )
 
-        logger.info(f"ClinicalGovernanceLoader initialized with processed_dir={self.processed_dir}")
+        logger.info(f"ClinicalGovernanceLoader initialized: {self.processed_dir}")
 
-    def load_clinical_protocols(self) -> List[Document]:
-        """
-        Load clinical protocols from preprocessed CSV.
-
-        Returns:
-            List of Documents with protocol information
-        """
-        csv_path = self.processed_dir / "clinical_protocols.csv"
+    def load_institution_profiles(self) -> List[Document]:
+        """Load institution profiles from preprocessed questionnaire data."""
+        csv_path = self.processed_dir / "institution_profiles.csv"
 
         if not csv_path.exists():
-            logger.warning(f"Clinical protocols not found: {csv_path}")
+            logger.warning(f"Institution profiles not found: {csv_path}")
             return []
 
-        logger.info(f"Loading clinical protocols: {csv_path}")
+        logger.info(f"Loading institution profiles: {csv_path}")
 
         try:
             df = pd.read_csv(csv_path, encoding='utf-8')
             documents = []
 
-            # Group protocols by modality for better organization
-            if 'modality' in df.columns:
-                for modality in df['modality'].unique():
-                    modality_df = df[df['modality'] == modality]
+            for _, row in df.iterrows():
+                institution = row.get('institution_name', 'Unknown')
+                country = row.get('country', 'Unknown')
+                org_type = row.get('institution_type', row.get('org_type', 'Unknown'))
 
-                    # Further group by body region
-                    for body_region in modality_df['body_region'].unique():
-                        region_df = modality_df[modality_df['body_region'] == body_region]
-
-                        text_parts = [
-                            f"CLINICAL PROTOCOLS - {modality} - {body_region}",
-                            f"Total protocols: {len(region_df)}",
-                            ""
-                        ]
-
-                        for _, row in region_df.iterrows():
-                            text_parts.append(f"Protocol: {row['title']}")
-                            if pd.notna(row.get('description')) and row['description']:
-                                text_parts.append(f"  Description: {row['description']}")
-                            text_parts.append(f"  Language: {row.get('language', 'en')}")
-                            text_parts.append(f"  File: {row['filename']}")
-                            text_parts.append("")
-
-                        doc = Document(
-                            page_content="\n".join(text_parts),
-                            metadata={
-                                'source_type': 'clinical_protocol',
-                                'data_type': 'rsna_radreport',
-                                'modality': modality,
-                                'body_region': body_region,
-                                'protocol_count': len(region_df),
-                                'file_name': csv_path.name,
-                                'agent': 'governance_agent'
-                            }
-                        )
-                        documents.append(doc)
-
-            else:
-                # Flat structure fallback
-                for _, row in df.iterrows():
-                    text = (
-                        f"Clinical Protocol: {row.get('title', row.get('filename', 'Unknown'))}\n"
-                        f"File: {row.get('filename', 'Unknown')}"
-                    )
-                    doc = Document(
-                        page_content=text,
-                        metadata={
-                            'source_type': 'clinical_protocol',
-                            'data_type': 'rsna_radreport',
-                            'file_name': csv_path.name,
-                            'agent': 'governance_agent'
-                        }
-                    )
-                    documents.append(doc)
-
-            logger.info(f"Loaded {len(documents)} clinical protocol groups")
-            return documents
-
-        except Exception as e:
-            logger.error(f"Error loading clinical protocols: {str(e)}")
-            return []
-
-    def load_radlex_terms(self) -> List[Document]:
-        """
-        Load RadLex ontology terms from preprocessed CSV.
-
-        Returns:
-            List of Documents with RadLex terminology
-        """
-        csv_path = self.processed_dir / "radlex_terms.csv"
-
-        if not csv_path.exists():
-            logger.warning(f"RadLex terms not found: {csv_path}")
-            return []
-
-        logger.info(f"Loading RadLex terms: {csv_path}")
-
-        try:
-            df = pd.read_csv(csv_path, encoding='utf-8')
-            documents = []
-
-            # Group by template for context
-            if 'template' in df.columns:
-                grouped = df.groupby('template')
-
-                for template, group in grouped:
-                    terms = group[['code', 'meaning']].drop_duplicates()
-
-                    text_parts = [
-                        f"RADLEX TERMS - {template}",
-                        f"Total terms: {len(terms)}",
-                        ""
-                    ]
-
-                    for _, row in terms.iterrows():
-                        text_parts.append(f"- {row['code']}: {row['meaning']}")
-
-                    doc = Document(
-                        page_content="\n".join(text_parts),
-                        metadata={
-                            'source_type': 'radlex_ontology',
-                            'data_type': 'terminology',
-                            'template': template,
-                            'term_count': len(terms),
-                            'file_name': csv_path.name,
-                            'agent': 'governance_agent'
-                        }
-                    )
-                    documents.append(doc)
-
-            else:
-                # Create a single document with all terms
-                unique_terms = df.drop_duplicates()
                 text_parts = [
-                    "RADLEX ONTOLOGY TERMS",
-                    f"Total unique terms: {len(unique_terms)}",
-                    ""
+                    f"INSTITUTION PROFILE - {institution}",
+                    f"Country: {country}",
+                    f"Type: {org_type}",
                 ]
 
-                for _, row in unique_terms.iterrows():
-                    text_parts.append(f"- {row['code']}: {row['meaning']}")
+                # Add available fields
+                for field in ['equipment', 'scanner_model', 'patients_per_year',
+                              'pct_mr_planning', 'clinical_sites_treated', 'pain_points']:
+                    val = row.get(field)
+                    if pd.notna(val) and str(val).strip():
+                        label = field.replace('_', ' ').title()
+                        text_parts.append(f"{label}: {val}")
 
                 doc = Document(
                     page_content="\n".join(text_parts),
                     metadata={
-                        'source_type': 'radlex_ontology',
-                        'data_type': 'terminology',
-                        'term_count': len(unique_terms),
+                        'source_type': 'institution_profile',
+                        'data_type': 'questionnaire_profile',
+                        'institution_name': str(institution),
+                        'country': str(country),
+                        'institution_type': str(org_type),
                         'file_name': csv_path.name,
                         'agent': 'governance_agent'
                     }
                 )
                 documents.append(doc)
 
-            logger.info(f"Loaded {len(documents)} RadLex term groups")
+            logger.info(f"Loaded {len(documents)} institution profiles")
             return documents
 
         except Exception as e:
-            logger.error(f"Error loading RadLex terms: {str(e)}")
+            logger.error(f"Error loading institution profiles: {str(e)}")
             return []
 
-    def load_protocol_categories(self) -> List[Document]:
-        """
-        Load protocol category statistics.
+    def load_customer_feedback(self) -> List[Document]:
+        """Load customer feedback and pain points from questionnaire responses."""
+        # Try long format first (more detail)
+        long_path = self.raw_dir / "sample_processed_long_format.csv"
+        if not long_path.exists():
+            long_path = self.processed_base / "sample_processed_long_format.csv"
 
-        Returns:
-            List of Documents with category information
-        """
-        csv_path = self.processed_dir / "protocol_categories.csv"
+        if not long_path.exists():
+            logger.warning(f"Questionnaire data not found")
+            return []
+
+        logger.info(f"Loading customer feedback: {long_path}")
+
+        try:
+            df = pd.read_csv(long_path, encoding='utf-8')
+            documents = []
+
+            if 'response_id' not in df.columns:
+                logger.warning("No response_id column in questionnaire data")
+                return []
+
+            for response_id, group in df.groupby('response_id'):
+                institution = group[group['field_name'] == 'institution_name']['response_value'].values
+                institution_name = institution[0] if len(institution) > 0 else f"Response {response_id}"
+
+                text_parts = [f"CUSTOMER FEEDBACK - {institution_name}"]
+
+                # Extract pain points and relevant feedback
+                for _, row in group.iterrows():
+                    q_text = row.get('question_text', '')
+                    r_value = row.get('response_value', '')
+                    r_text = row.get('response_text', '')
+                    r_comment = row.get('response_comment', '')
+
+                    if pd.notna(r_value) and str(r_value).strip():
+                        text_parts.append(f"Q: {q_text}")
+                        text_parts.append(f"A: {r_value}")
+                        if pd.notna(r_text) and str(r_text).strip():
+                            text_parts.append(f"   Detail: {r_text}")
+                        if pd.notna(r_comment) and str(r_comment).strip():
+                            text_parts.append(f"   Comment: {r_comment}")
+                        text_parts.append("")
+
+                doc = Document(
+                    page_content="\n".join(text_parts[:200]),  # Cap length
+                    metadata={
+                        'source_type': 'customer_feedback',
+                        'data_type': 'questionnaire_response',
+                        'response_id': str(response_id),
+                        'institution_name': str(institution_name),
+                        'file_name': long_path.name,
+                        'agent': 'governance_agent'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} customer feedback documents")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading customer feedback: {str(e)}")
+            return []
+
+    def load_workload_patterns(self) -> List[Document]:
+        """Load workload patterns from event log statistics."""
+        csv_path = self.processed_dir / "workload_patterns.csv"
 
         if not csv_path.exists():
-            logger.warning(f"Protocol categories not found: {csv_path}")
+            logger.warning(f"Workload patterns not found: {csv_path}")
             return []
 
-        logger.info(f"Loading protocol categories: {csv_path}")
+        logger.info(f"Loading workload patterns: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            group_col = 'customer_id' if 'customer_id' in df.columns else df.columns[0]
+            for customer_id, group in df.groupby(group_col):
+                text_parts = [
+                    f"WORKLOAD PATTERN - Customer {customer_id}",
+                ]
+
+                for _, row in group.iterrows():
+                    for col in group.columns:
+                        if col != group_col and pd.notna(row[col]):
+                            label = col.replace('_', ' ').title()
+                            text_parts.append(f"{label}: {row[col]}")
+
+                doc = Document(
+                    page_content="\n".join(text_parts),
+                    metadata={
+                        'source_type': 'workload_pattern',
+                        'data_type': 'event_statistics',
+                        'customer_id': str(customer_id),
+                        'file_name': csv_path.name,
+                        'agent': 'governance_agent'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} workload pattern documents")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading workload patterns: {str(e)}")
+            return []
+
+    def load_customer_mapping(self) -> List[Document]:
+        """Load customer-to-institution mapping."""
+        csv_path = self.processed_base / "customer_mapping.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Customer mapping not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading customer mapping: {csv_path}")
 
         try:
             df = pd.read_csv(csv_path, encoding='utf-8')
 
-            # Create summary document
             text_parts = [
-                "PROTOCOL CATEGORY STATISTICS",
-                f"Total categories: {len(df)}",
+                "CUSTOMER MAPPING OVERVIEW",
+                f"Total customers: {len(df)}",
                 ""
             ]
 
-            total_protocols = df['count'].sum()
-            text_parts.append(f"Total protocols across all categories: {total_protocols}")
-            text_parts.append("")
-
-            # Group by modality prefix
-            df['modality'] = df['category'].str.split('_').str[0]
-
-            for modality in df['modality'].unique():
-                modality_df = df[df['modality'] == modality]
-                modality_total = modality_df['count'].sum()
-                text_parts.append(f"{modality}: {modality_total} protocols")
-
-                for _, row in modality_df.iterrows():
-                    text_parts.append(f"  - {row['category']}: {row['count']}")
-
-                text_parts.append("")
+            for _, row in df.iterrows():
+                cid = row.get('customer_id', '')
+                institution = row.get('institution_name', 'Unknown')
+                has_parquet = row.get('has_parquet', False)
+                total_events = row.get('total_events', 0)
+                error_count = row.get('error_count', 0)
+                text_parts.append(
+                    f"- {cid}: {institution} | Events: {total_events} | Errors: {error_count} | Parquet: {has_parquet}"
+                )
 
             doc = Document(
                 page_content="\n".join(text_parts),
                 metadata={
-                    'source_type': 'category_statistics',
-                    'data_type': 'protocol_summary',
-                    'total_categories': len(df),
-                    'total_protocols': int(total_protocols),
+                    'source_type': 'customer_mapping',
+                    'data_type': 'customer_overview',
+                    'customer_count': len(df),
                     'file_name': csv_path.name,
                     'agent': 'governance_agent'
                 }
             )
 
-            logger.info(f"Loaded protocol category statistics")
+            logger.info(f"Loaded customer mapping with {len(df)} entries")
             return [doc]
 
         except Exception as e:
-            logger.error(f"Error loading protocol categories: {str(e)}")
-            return []
-
-    def load_radlex_by_modality(self, modality: str) -> List[Document]:
-        """
-        Load RadLex terms filtered by modality.
-
-        Args:
-            modality: Modality to filter by (e.g., 'MRI', 'CT')
-
-        Returns:
-            List of Documents with filtered RadLex terms
-        """
-        protocols_path = self.processed_dir / "clinical_protocols.csv"
-        radlex_path = self.processed_dir / "radlex_terms.csv"
-
-        if not protocols_path.exists() or not radlex_path.exists():
-            logger.warning("Required files not found for modality filter")
-            return []
-
-        try:
-            protocols_df = pd.read_csv(protocols_path)
-            radlex_df = pd.read_csv(radlex_path)
-
-            # Get templates for the specified modality
-            modality_templates = protocols_df[
-                protocols_df['modality'].str.contains(modality, case=False, na=False)
-            ]['filename'].tolist()
-
-            # Filter RadLex terms to these templates
-            filtered_radlex = radlex_df[radlex_df['template'].isin(modality_templates)]
-
-            if filtered_radlex.empty:
-                logger.warning(f"No RadLex terms found for modality: {modality}")
-                return []
-
-            # Group and create documents
-            documents = []
-            unique_terms = filtered_radlex[['code', 'meaning']].drop_duplicates()
-
-            text_parts = [
-                f"RADLEX TERMS FOR {modality.upper()}",
-                f"Total unique terms: {len(unique_terms)}",
-                ""
-            ]
-
-            # Organize by first letter for readability
-            for _, row in unique_terms.sort_values('meaning').iterrows():
-                text_parts.append(f"- {row['code']}: {row['meaning']}")
-
-            doc = Document(
-                page_content="\n".join(text_parts),
-                metadata={
-                    'source_type': 'radlex_ontology',
-                    'data_type': 'modality_terminology',
-                    'modality': modality,
-                    'term_count': len(unique_terms),
-                    'agent': 'governance_agent'
-                }
-            )
-            documents.append(doc)
-
-            logger.info(f"Loaded {len(unique_terms)} RadLex terms for {modality}")
-            return documents
-
-        except Exception as e:
-            logger.error(f"Error loading RadLex by modality: {str(e)}")
+            logger.error(f"Error loading customer mapping: {str(e)}")
             return []
 
     def load(self) -> List[Document]:
-        """
-        Load all governance data.
-
-        Returns:
-            List of all Documents
-        """
-        logger.info(f"Loading clinical governance data from {self.processed_dir}")
+        """Load all governance data for RAG indexing."""
+        logger.info(f"Loading Workflow Anthropologist data from {self.processed_dir}")
 
         all_documents = []
 
-        # Load clinical protocols
-        protocols = self.load_clinical_protocols()
-        all_documents.extend(protocols)
+        profiles = self.load_institution_profiles()
+        all_documents.extend(profiles)
 
-        # Load RadLex terms
-        radlex = self.load_radlex_terms()
-        all_documents.extend(radlex)
+        feedback = self.load_customer_feedback()
+        all_documents.extend(feedback)
 
-        # Load protocol categories
-        categories = self.load_protocol_categories()
-        all_documents.extend(categories)
+        workload = self.load_workload_patterns()
+        all_documents.extend(workload)
+
+        mapping = self.load_customer_mapping()
+        all_documents.extend(mapping)
 
         logger.info(f"Total documents loaded: {len(all_documents)}")
         return all_documents
 
     def get_summary(self) -> Dict[str, Any]:
-        """
-        Get a summary of available data.
-
-        Returns:
-            Dictionary with data statistics
-        """
+        """Get a summary of available data."""
         summary = {
             'processed_dir': str(self.processed_dir),
             'files': {}
@@ -389,79 +297,36 @@ class ClinicalGovernanceLoader:
             except Exception as e:
                 summary['files'][csv_file.name] = {'error': str(e)}
 
-        # Count modalities and body regions if available
-        protocols_path = self.processed_dir / "clinical_protocols.csv"
-        if protocols_path.exists():
+        # Check customer mapping
+        mapping_path = self.processed_base / "customer_mapping.csv"
+        if mapping_path.exists():
             try:
-                df = pd.read_csv(protocols_path)
-                if 'modality' in df.columns:
-                    summary['modalities'] = df['modality'].nunique()
-                if 'body_region' in df.columns:
-                    summary['body_regions'] = df['body_region'].nunique()
+                df = pd.read_csv(mapping_path)
+                summary['customer_mapping'] = {'rows': len(df)}
             except Exception:
                 pass
 
         return summary
 
-    def get_mri_protocols(self) -> List[Dict[str, Any]]:
-        """
-        Get MRI-specific protocols as structured data.
-
-        Returns:
-            List of dictionaries with MRI protocol information
-        """
-        csv_path = self.processed_dir / "clinical_protocols.csv"
-
-        if not csv_path.exists():
-            return []
-
-        try:
-            df = pd.read_csv(csv_path)
-            mri_df = df[df['modality'].str.contains('MRI', case=False, na=False)]
-
-            return mri_df.to_dict('records')
-
-        except Exception as e:
-            logger.error(f"Error getting MRI protocols: {str(e)}")
-            return []
-
 
 def main():
-    """Test the Clinical Governance loader."""
+    """Test the Workflow Anthropologist loader."""
     logger.info("=" * 60)
-    logger.info("Testing Clinical Governance Data Loader")
+    logger.info("Testing Workflow Anthropologist Data Loader")
     logger.info("=" * 60)
 
     try:
         loader = ClinicalGovernanceLoader()
-
-        # Print summary
         summary = loader.get_summary()
         logger.info(f"\nData Summary:")
         for file, info in summary.get('files', {}).items():
             logger.info(f"  {file}: {info}")
-        logger.info(f"  Modalities: {summary.get('modalities', 'N/A')}")
-        logger.info(f"  Body Regions: {summary.get('body_regions', 'N/A')}")
 
-        # Load all data
         documents = loader.load()
-
         logger.info(f"\nLoaded {len(documents)} documents")
 
         if documents:
-            logger.info("\n" + "=" * 60)
-            logger.info("EXAMPLE DOCUMENT:")
-            logger.info("=" * 60)
-            print(f"\nContent:\n{documents[0].page_content[:500]}...\n")
-            print(f"Metadata:\n{documents[0].metadata}\n")
-
-        # Test MRI-specific loader
-        mri_protocols = loader.get_mri_protocols()
-        logger.info(f"\nMRI Protocols found: {len(mri_protocols)}")
-
-        logger.info("\n" + "=" * 60)
-        logger.info("Loader test completed!")
-        logger.info("=" * 60)
+            logger.info(f"\nExample: {documents[0].page_content[:300]}...")
 
     except Exception as e:
         logger.error(f"Test failed: {str(e)}", exc_info=True)

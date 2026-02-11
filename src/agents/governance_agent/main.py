@@ -1,10 +1,12 @@
 """
-Telekom Minister - FastAPI Microservice (Port 8001)
+Workflow Anthropologist - FastAPI Microservice (Port 8001)
 
-Governance Agent responsible for:
-- SLA compliance monitoring
-- Network Intent validation
-- Workflow orchestration and delegation to specialist agents
+Agent 2: "The Anthropologist" - Workflow & Context Expert responsible for:
+- Institution profiling (academic vs private, volume, staffing)
+- Workload pattern analysis (peak hours, bottlenecks, utilization)
+- Error context explanation (WHY errors occur at specific institutions)
+- Query delegation to Specialist and Auditor agents
+- Findings integration (merge technical + operational context)
 
 Supports BASELINE_MODE for single-agent evaluation (RQ2 comparison):
 - When BASELINE_MODE=true: Uses unified vector store with ALL domain knowledge
@@ -15,7 +17,7 @@ Endpoints:
 - GET /health - Health check
 - POST /index - Trigger vector store indexing
 
-Follows Telekom's 'External Minister' pattern for MAS architecture.
+Part of the 3-Agent MAS for Siemens MRI Operations Analysis.
 
 Author: Thesis Project - Agentic Infra Co-Pilot
 """
@@ -43,13 +45,18 @@ from src.protocol.schema import (
     ConsultRequest, ConsultResponse, AgentHealthStatus,
     DocumentReference, ConsultPayload
 )
-from src.agents.governance_agent.brain import TelekomMinisterModule
-from src.agents.governance_agent.data_loader import TelekomLoader  # Legacy loader
-from src.agents.governance_agent.clinical_governance_loader import ClinicalGovernanceLoader  # New clinical loader
-from src.agents.governance_agent.vector_store import TelekomVectorStore
+from src.agents.governance_agent.brain import WorkflowAnthropologistModule
+from src.agents.governance_agent.clinical_governance_loader import ClinicalGovernanceLoader
+from src.agents.governance_agent.vector_store import WorkflowAnthropologistStore
 from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
 from src.agents.shared.security import configure_cors
+
+# Backward compatibility imports
+try:
+    from src.agents.governance_agent.data_loader import TelekomLoader
+except ImportError:
+    TelekomLoader = None
 
 # Baseline mode imports (for single-agent A/B comparison)
 try:
@@ -69,7 +76,7 @@ logger = logging.getLogger(__name__)
 START_TIME: Optional[datetime] = None
 LAST_QUERY_TIME: Optional[datetime] = None
 
-# Baseline mode configuration (for single-agent A/B comparison)
+# Baseline mode configuration
 BASELINE_MODE = os.getenv("BASELINE_MODE", "false").lower() == "true"
 
 
@@ -81,10 +88,10 @@ async def lifespan(app: FastAPI):
     # ==================== STARTUP ====================
     logger.info("=" * 60)
     if BASELINE_MODE:
-        logger.info("TELEKOM MINISTER AGENT - Starting up in BASELINE MODE...")
+        logger.info("WORKFLOW ANTHROPOLOGIST - Starting up in BASELINE MODE...")
         logger.info("Single-agent mode: Using unified vector store, NO delegation")
     else:
-        logger.info("TELEKOM MINISTER AGENT - Starting up in MULTI-AGENT MODE...")
+        logger.info("WORKFLOW ANTHROPOLOGIST (The Anthropologist) - Starting up...")
         logger.info("Multi-agent mode: Using domain-specific store WITH delegation")
     logger.info("=" * 60)
 
@@ -92,7 +99,6 @@ async def lifespan(app: FastAPI):
     app.state.baseline_mode = BASELINE_MODE
 
     try:
-        # Configure DSPy with Groq
         configure_dspy()
         logger.info("DSPy configured with Groq/Llama3-70B")
         app.state.dspy_ready = True
@@ -101,9 +107,7 @@ async def lifespan(app: FastAPI):
         app.state.dspy_ready = False
 
     try:
-        # Initialize vector store based on mode
         if BASELINE_MODE and BASELINE_AVAILABLE:
-            # BASELINE MODE: Use unified vector store with ALL domain knowledge
             logger.info("Initializing UNIFIED vector store (baseline mode)...")
             app.state.vector_store = UnifiedVectorStore()
             doc_count = app.state.vector_store.get_document_count()
@@ -112,10 +116,9 @@ async def lifespan(app: FastAPI):
                 doc_count = app.state.vector_store.index_documents(force_reindex=True)
             logger.info(f"Unified vector store ready: {doc_count} documents (all domains)")
         else:
-            # MULTI-AGENT MODE: Use domain-specific Telekom store
-            app.state.vector_store = TelekomVectorStore()
+            app.state.vector_store = WorkflowAnthropologistStore()
             doc_count = app.state.vector_store.get_document_count()
-            logger.info(f"Telekom vector store ready: {doc_count} documents indexed")
+            logger.info(f"Anthropologist vector store ready: {doc_count} documents indexed")
         app.state.vs_ready = True
     except Exception as e:
         logger.error(f"Failed to initialize vector store: {e}")
@@ -123,15 +126,13 @@ async def lifespan(app: FastAPI):
         app.state.vs_ready = False
 
     try:
-        # Initialize brain module
-        app.state.brain = TelekomMinisterModule()
+        app.state.brain = WorkflowAnthropologistModule()
         logger.info("Brain module (DSPy) initialized")
     except Exception as e:
         logger.error(f"Failed to initialize brain: {e}")
         app.state.brain = None
 
     try:
-        # Initialize graph service for hybrid search
         app.state.graph_service = get_graph_service()
         if app.state.graph_service.is_available():
             logger.info("Knowledge Graph service ready (Neo4j connected)")
@@ -145,56 +146,51 @@ async def lifespan(app: FastAPI):
         app.state.graph_ready = False
 
     logger.info("=" * 60)
-    logger.info("TELEKOM MINISTER AGENT - Ready to serve!")
+    logger.info("WORKFLOW ANTHROPOLOGIST (The Anthropologist) - Ready to serve!")
     logger.info("=" * 60)
 
     yield
 
     # ==================== SHUTDOWN ====================
-    logger.info("Telekom Minister shutting down...")
+    logger.info("Workflow Anthropologist shutting down...")
 
 
 # Create FastAPI app
 app = FastAPI(
-    title="Telekom Minister Agent",
+    title="Workflow Anthropologist Agent",
     description=(
-        "Governance Agent for SLA/Intent Authority. "
-        "Part of the Distributed Multi-Agent System (MAS) for infrastructure diagnosis."
+        "Agent 2: The Anthropologist - Institution profiling, workload analysis, "
+        "error context explanation, and specialist delegation. Part of the 3-Agent MAS."
     ),
-    version="1.0.0",
+    version="2.0.0",
     lifespan=lifespan
 )
 
-# CORS configuration for Streamlit and other clients
-# Restricted to known origins (configurable via CORS_ALLOWED_ORIGINS env var)
 configure_cors(app)
 
 
 @app.get("/")
 async def root():
-    """Root endpoint with agent information."""
     return {
-        "agent": "Telekom Minister",
-        "role": "Governance Agent",
+        "agent": "Workflow Anthropologist",
+        "role": "The Anthropologist (Agent 2)",
         "port": 8001,
         "status": "running",
         "baseline_mode": BASELINE_MODE,
         "mode_description": "Single-agent (unified knowledge)" if BASELINE_MODE else "Multi-agent (delegation enabled)",
+        "capabilities": [
+            "Institution profiling",
+            "Workload pattern analysis",
+            "Error context explanation",
+            "Specialist delegation",
+            "Findings integration"
+        ],
         "endpoints": ["/health", "/consult", "/index"]
     }
 
 
 @app.get("/health", response_model=AgentHealthStatus)
 async def health_check():
-    """
-    Health check endpoint.
-
-    Returns current status of the agent including:
-    - Vector store readiness
-    - DSPy readiness
-    - Document count
-    - Uptime
-    """
     global LAST_QUERY_TIME
 
     try:
@@ -211,7 +207,6 @@ async def health_check():
         if START_TIME:
             uptime = (datetime.utcnow() - START_TIME).total_seconds()
 
-        # Determine overall status
         if vs_ready and dspy_ready:
             status = "healthy"
         elif vs_ready or dspy_ready:
@@ -243,18 +238,7 @@ async def health_check():
 
 @app.post("/consult", response_model=ConsultResponse)
 async def consult(request: ConsultRequest):
-    """
-    Primary consultation endpoint.
-
-    Receives an Agent Card, processes the query using DSPy brain,
-    and returns a response card with findings and delegation decisions.
-
-    The Minister will:
-    1. Retrieve relevant SLA/Intent documents
-    2. Assess risk if symptom is reported
-    3. Determine if delegation to specialist is needed
-    4. Return structured response with recommendations
-    """
+    """Primary consultation endpoint for The Anthropologist."""
     global LAST_QUERY_TIME
     start_time = time.time()
 
@@ -262,45 +246,34 @@ async def consult(request: ConsultRequest):
         card = request.card
         logger.info(f"Received consultation from {card.sender}: {card.intent}")
 
-        # Validate and extract payload fields
         try:
             validated_payload = ConsultPayload.from_payload(card.payload)
         except ValidationError as e:
-            raise HTTPException(
-                status_code=400,
-                detail=f"Invalid payload: {e.errors()}"
-            )
+            raise HTTPException(status_code=400, detail=f"Invalid payload: {e.errors()}")
 
         query = validated_payload.query
         location = validated_payload.location or "unknown"
         is_symptom = validated_payload.is_symptom
+        customer_id = validated_payload.customer_id
 
-        # Check if vector store and brain are available
         if not app.state.vector_store:
-            raise HTTPException(
-                status_code=503,
-                detail="Vector store not initialized"
-            )
+            raise HTTPException(status_code=503, detail="Vector store not initialized")
 
         if not app.state.brain:
-            raise HTTPException(
-                status_code=503,
-                detail="Brain module not initialized"
-            )
+            raise HTTPException(status_code=503, detail="Brain module not initialized")
 
-        # Retrieve relevant documents (Vector Search)
+        # Retrieve relevant documents
         documents = app.state.vector_store.similarity_search(query, k=5)
 
-        # Build context from retrieved documents
         vector_context = "\n\n".join([
             f"[Source: {doc.metadata.get('file_name', 'unknown')}]\n{doc.page_content}"
             for doc in documents
         ])
 
         if not vector_context:
-            vector_context = "No relevant SLA or Intent documentation found."
+            vector_context = "No relevant institution or workflow data found."
 
-        # Enrich with Knowledge Graph context (Hybrid Search)
+        # Knowledge Graph enrichment
         graph_context = ""
         if hasattr(app.state, 'graph_service') and app.state.graph_service:
             try:
@@ -313,34 +286,23 @@ async def consult(request: ConsultRequest):
             except Exception as e:
                 logger.warning(f"Graph context retrieval failed: {e}")
 
-        # Combine vector + graph context for hybrid reasoning
-        if graph_context:
-            context = f"{vector_context}\n\n--- Knowledge Graph Context ---\n{graph_context}"
-        else:
-            context = vector_context
+        context = f"{vector_context}\n\n--- Knowledge Graph Context ---\n{graph_context}" if graph_context else vector_context
 
-        # AUTONOMY PROTOCOL: Evaluate request before processing
+        # Autonomy protocol
         context_summary = f"Retrieved {len(documents)} documents from vector store"
         if graph_context:
             context_summary += " + knowledge graph context"
 
-        evaluation = app.state.brain.evaluate_incoming_request(
-            query=query,
-            context_summary=context_summary
-        )
+        evaluation = app.state.brain.evaluate_incoming_request(query=query, context_summary=context_summary)
 
-        # Parse evaluation results
-        eval_confidence = float(getattr(evaluation, 'confidence', '0.8'))
+        eval_confidence = float(getattr(evaluation, 'confidence_level', getattr(evaluation, 'confidence', 0.8)))
         eval_response_type = getattr(evaluation, 'response_type', 'answer')
-        eval_can_handle = getattr(evaluation, 'can_handle', 'yes')
         eval_suggested_agent = getattr(evaluation, 'suggested_agent', 'none')
         eval_reasoning = getattr(evaluation, 'reasoning', '')
 
-        logger.info(f"Evaluation: can_handle={eval_can_handle}, confidence={eval_confidence}, "
-                   f"response_type={eval_response_type}, suggested={eval_suggested_agent}")
+        logger.info(f"Evaluation: confidence={eval_confidence}, response_type={eval_response_type}, suggested={eval_suggested_agent}")
 
         # Process through DSPy brain
-        logger.info("Processing through DSPy brain (hybrid context)...")
         result = app.state.brain(
             query=query,
             context=context,
@@ -348,28 +310,30 @@ async def consult(request: ConsultRequest):
             is_symptom=is_symptom
         )
 
-        # Convert retrieved docs to DocumentReference
+        # Document references
         doc_refs = [
             DocumentReference(
-                source=doc.metadata.get('source_type', 'telekom'),
+                source=doc.metadata.get('source_type', 'anthropologist'),
                 file_name=doc.metadata.get('file_name', 'unknown'),
                 content_snippet=doc.page_content[:500] if doc.page_content else "",
-                relevance_score=0.85,  # Would use actual score in production
+                relevance_score=0.85,
                 metadata=doc.metadata
             )
             for doc in documents
         ]
 
-        # Extract delegation info from brain result
+        # Extract delegation info
         target_agent = getattr(result, 'target_agent', 'self')
         delegation_reason = getattr(result, 'delegation_reason', '')
         refined_query = getattr(result, 'refined_query', query)
 
-        # Build base response payload based on query type
+        # Build response payload
         if is_symptom:
             response_payload = {
+                "institution_profile": getattr(result, 'institution_profile', 'Unknown'),
+                "contextual_explanation": getattr(result, 'contextual_explanation', ''),
                 "risk_level": getattr(result, 'risk_level', 'unknown'),
-                "violated_slas": getattr(result, 'violated_slas', 'None identified'),
+                "risk_factors": getattr(result, 'risk_factors', 'None identified'),
                 "recommended_actions": getattr(result, 'recommended_actions', 'No immediate actions'),
                 "delegation": {
                     "target_agent": target_agent,
@@ -377,16 +341,17 @@ async def consult(request: ConsultRequest):
                     "refined_query": refined_query
                 }
             }
-            # Set priority based on risk level (will be updated after integration if applicable)
             initial_risk = getattr(result, 'risk_level', 'low')
             priority = Priority.CRITICAL if initial_risk == 'critical' else (
                 Priority.HIGH if initial_risk == 'high' else Priority.NORMAL
             )
         else:
             response_payload = {
-                "answer": getattr(result, 'answer', 'Unable to determine answer'),
-                "confidence": getattr(result, 'confidence', 'low'),
-                "sources_used": getattr(result, 'sources_used', ''),
+                "workload_assessment": getattr(result, 'workload_assessment', ''),
+                "peak_periods": getattr(result, 'peak_periods', ''),
+                "bottleneck_analysis": getattr(result, 'bottleneck_analysis', ''),
+                "optimization_suggestions": getattr(result, 'optimization_suggestions', ''),
+                "answer": getattr(result, 'answer', ''),
                 "delegation": {
                     "target_agent": target_agent,
                     "reason": delegation_reason,
@@ -395,64 +360,56 @@ async def consult(request: ConsultRequest):
             }
             priority = Priority.NORMAL
 
-        # If delegation needed, await specialist response BEFORE building response card
-        # BASELINE MODE: Skip delegation entirely - answer from unified knowledge
+        if customer_id:
+            response_payload["customer_id"] = customer_id
+
+        # Delegation logic
         if BASELINE_MODE:
             if target_agent and target_agent != 'self':
-                logger.info(f"BASELINE MODE: Would delegate to {target_agent}, but answering directly instead")
+                logger.info(f"BASELINE MODE: Would delegate to {target_agent}, answering directly")
                 response_payload["delegation"]["skipped"] = True
-                response_payload["delegation"]["reason"] = "Baseline mode - single agent answering from unified knowledge"
+                response_payload["delegation"]["reason"] = "Baseline mode - single agent"
         elif target_agent and target_agent != 'self':
-            # MULTI-AGENT MODE: Execute delegation
             logger.info(f"Delegating to {target_agent}...")
-            specialist_response = await delegate_to_specialist(
-                target_agent,
-                refined_query,
-                card.message_id
-            )
+            specialist_response = await delegate_to_specialist(target_agent, refined_query, card.message_id)
             if specialist_response:
                 response_payload["specialist_findings"] = specialist_response
                 logger.info(f"Specialist {target_agent} response received")
 
-                # INTEGRATION STEP: Synthesize Minister + Specialist findings
-                # This improves coherence by creating a unified response
                 try:
                     integration_result = app.state.brain.integrate_specialist_response(
                         query=query,
                         minister_assessment={
-                            "risk_level": response_payload.get("risk_level", "unknown"),
-                            "violated_slas": response_payload.get("violated_slas", "None"),
-                            "recommended_actions": response_payload.get("recommended_actions", "None")
+                            "institution_profile": response_payload.get("institution_profile", "unknown"),
+                            "risk_factors": response_payload.get("risk_factors", "None"),
+                            "contextual_explanation": response_payload.get("contextual_explanation", "None")
                         },
                         specialist_findings=specialist_response,
                         specialist_agent=target_agent
                     )
 
-                    # Update response with integrated findings
                     response_payload["risk_level"] = integration_result.integrated_risk_level
                     response_payload["root_cause"] = integration_result.root_cause_summary
-                    response_payload["violated_slas"] = integration_result.integrated_sla_analysis
                     response_payload["recommended_actions"] = integration_result.integrated_actions
                     response_payload["integration_performed"] = True
 
-                    # Update priority based on integrated risk level
                     integrated_risk = integration_result.integrated_risk_level.lower()
                     if integrated_risk == 'critical':
                         priority = Priority.CRITICAL
                     elif integrated_risk == 'high':
                         priority = Priority.HIGH
 
-                    logger.info(f"Specialist findings successfully integrated into coherent response")
+                    logger.info("Specialist findings integrated into coherent response")
                 except Exception as e:
-                    logger.warning(f"Integration step failed, using non-integrated response: {e}")
+                    logger.warning(f"Integration step failed: {e}")
                     response_payload["integration_performed"] = False
             else:
                 logger.warning(f"Delegation to {target_agent} returned no response")
                 response_payload["specialist_findings"] = {
-                    "error": f"Specialist {target_agent} unavailable or returned no response"
+                    "error": f"Specialist {target_agent} unavailable"
                 }
 
-        # Map evaluation response_type to ResponseType enum
+        # Map response type
         response_type_map = {
             'answer': ResponseType.ANSWER,
             'partial': ResponseType.PARTIAL,
@@ -461,23 +418,17 @@ async def consult(request: ConsultRequest):
             'refuse': ResponseType.REFUSE,
             'consult': ResponseType.CONSULT
         }
-        response_type = response_type_map.get(eval_response_type.lower(), ResponseType.ANSWER)
+        response_type = response_type_map.get(str(eval_response_type).lower(), ResponseType.ANSWER)
 
-        # If we delegated to a specialist, response type should be CONSULT
         if target_agent and target_agent != 'self' and 'specialist_findings' in response_payload:
             response_type = ResponseType.CONSULT
 
-        # Map suggested agent to AgentRole if needed
         suggested_agent_map = {
             'hardware_agent': AgentRole.HARDWARE_AGENT,
             'telemetry_agent': AgentRole.TELEMETRY_AGENT,
-            'governance_agent': AgentRole.GOVERNANCE_AGENT,
-            'siemens_technician': AgentRole.HARDWARE_AGENT,  # Legacy
-            'illigo_operator': AgentRole.TELEMETRY_AGENT,    # Legacy
         }
-        suggested_agent = suggested_agent_map.get(eval_suggested_agent.lower()) if eval_suggested_agent not in ['none', 'self'] else None
+        suggested_agent = suggested_agent_map.get(str(eval_suggested_agent).lower()) if eval_suggested_agent not in ['none', 'self'] else None
 
-        # Build response card WITH specialist findings included
         response_card = AgentCard(
             correlation_id=card.message_id,
             sender=AgentRole.GOVERNANCE_AGENT,
@@ -526,23 +477,14 @@ async def consult(request: ConsultRequest):
 
 
 async def delegate_to_specialist(target: str, query: str, correlation_id: str):
-    """
-    Delegate a query to a specialist agent.
-
-    Args:
-        target: Target agent name ('siemens_technician' or 'illigo_operator')
-        query: Refined query for the specialist
-        correlation_id: Original message ID for correlation
-    """
-    # Support Docker and local environments via environment variables
+    """Delegate a query to a specialist agent (The Specialist or The Auditor)."""
     hardware_url = os.getenv("SIEMENS_TECHNICIAN_URL", "http://localhost:8002")
     telemetry_url = os.getenv("ILLIGO_OPERATOR_URL", "http://localhost:8003")
 
     agent_urls = {
-        # New canonical names
         "hardware_agent": f"{hardware_url}/consult",
         "telemetry_agent": f"{telemetry_url}/consult",
-        # Legacy aliases for backward compatibility
+        # Legacy aliases
         "siemens_technician": f"{hardware_url}/consult",
         "illigo_operator": f"{telemetry_url}/consult",
     }
@@ -584,44 +526,26 @@ async def delegate_to_specialist(target: str, query: str, correlation_id: str):
 
 @app.post("/index")
 async def index_documents(force_reindex: bool = False, use_legacy: bool = False):
-    """
-    Trigger vector store indexing.
-
-    Args:
-        force_reindex: If True, clear existing documents and re-index
-        use_legacy: If True, use legacy TelekomLoader instead of ClinicalGovernanceLoader
-
-    Returns:
-        Indexing results with document count
-    """
+    """Trigger vector store indexing."""
     try:
         logger.info("Starting document indexing...")
 
-        # Load documents using appropriate loader
-        if use_legacy:
-            logger.info("Using legacy TelekomLoader (raw Telekom data)")
+        if use_legacy and TelekomLoader:
+            logger.info("Using legacy TelekomLoader")
             loader = TelekomLoader()
             documents = loader.load()
         else:
-            logger.info("Using ClinicalGovernanceLoader (processed clinical protocols)")
+            logger.info("Using ClinicalGovernanceLoader (institution profiles + feedback)")
             loader = ClinicalGovernanceLoader()
             documents = loader.load()
 
         if not documents:
-            return {
-                "success": True,
-                "message": "No documents found to index",
-                "indexed_count": 0
-            }
+            return {"success": True, "message": "No documents found to index", "indexed_count": 0}
 
-        # Index documents
         if not app.state.vector_store:
-            app.state.vector_store = TelekomVectorStore()
+            app.state.vector_store = WorkflowAnthropologistStore()
 
-        count = app.state.vector_store.index_documents(
-            documents,
-            force_reindex=force_reindex
-        )
+        count = app.state.vector_store.index_documents(documents, force_reindex=force_reindex)
 
         return {
             "success": True,
@@ -637,10 +561,8 @@ async def index_documents(force_reindex: bool = False, use_legacy: bool = False)
 
 @app.get("/documents/count")
 async def get_document_count():
-    """Get the current document count in the vector store."""
     if not app.state.vector_store:
         return {"count": 0, "status": "vector_store_not_initialized"}
-
     count = app.state.vector_store.get_document_count()
     return {"count": count, "status": "ok"}
 
@@ -650,7 +572,7 @@ if __name__ == "__main__":
 
     run_agent_server(
         app=app,
-        agent_name="Telekom Minister",
+        agent_name="Workflow Anthropologist",
         env_var_name="TELEKOM_MINISTER_PORT",
         default_port=8001
     )

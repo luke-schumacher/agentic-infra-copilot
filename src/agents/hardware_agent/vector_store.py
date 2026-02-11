@@ -1,8 +1,9 @@
 """
-Siemens Technician Vector Store
+Diagnostic Specialist Vector Store
 
-Agent-specific ChromaDB collection for equipment specifications and pain points.
-Provides retrieval capabilities for the Technician's hardware expert reasoning.
+Agent-specific ChromaDB collection for DICOM conformance data, MRI hardware
+specifications, and event log errors.
+Provides retrieval capabilities for the Specialist's diagnostic reasoning.
 
 Author: Thesis Project - Agentic Infra Co-Pilot
 """
@@ -37,28 +38,20 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class SiemensVectorStore:
+class DiagnosticSpecialistStore:
     """
-    Agent-specific vector store for Siemens Technician.
+    Agent-specific vector store for The Specialist (Agent 1 - Diagnostic & Technical).
 
-    Uses a dedicated ChromaDB collection: 'siemens_technician_collection'
-    Stores equipment specifications, pain points, and questionnaire data.
+    Uses a dedicated ChromaDB collection: 'diagnostic_specialist_collection'
+    Stores DICOM conformance data, hardware specifications, and event log errors.
     """
 
     def __init__(
         self,
         persist_directory: str = "./chroma_db/hardware_agent",
-        collection_name: str = "siemens_technician_collection",
+        collection_name: str = "diagnostic_specialist_collection",
         embedding_type: str = "auto"
     ):
-        """
-        Initialize the Siemens Technician vector store.
-
-        Args:
-            persist_directory: Directory for ChromaDB persistent storage
-            collection_name: Name of the ChromaDB collection
-            embedding_type: 'openai', 'huggingface', or 'auto' (auto-detect)
-        """
         if not CHROMA_AVAILABLE:
             raise ImportError(
                 "langchain-chroma not installed. Run: pip install langchain-chroma chromadb"
@@ -67,35 +60,22 @@ class SiemensVectorStore:
         self.persist_directory = Path(persist_directory)
         self.collection_name = collection_name
 
-        # Create persist directory if it doesn't exist
         self.persist_directory.mkdir(parents=True, exist_ok=True)
 
-        # Initialize embeddings
         self.embeddings = self._initialize_embeddings(embedding_type)
 
-        # Initialize ChromaDB vector store
         self.vectorstore = Chroma(
             collection_name=self.collection_name,
             embedding_function=self.embeddings,
             persist_directory=str(self.persist_directory)
         )
 
-        logger.info(f"Initialized SiemensVectorStore with {self._get_embedding_type()}")
+        logger.info(f"Initialized DiagnosticSpecialistStore with {self._get_embedding_type()}")
         logger.info(f"Persist directory: {self.persist_directory}")
         logger.info(f"Collection: {self.collection_name}")
 
     def _initialize_embeddings(self, embedding_type: str):
-        """
-        Initialize embedding model based on availability and configuration.
-
-        Args:
-            embedding_type: 'openai', 'huggingface', or 'auto'
-
-        Returns:
-            Embedding model instance
-        """
         if embedding_type == "auto":
-            # Auto-detect: prefer OpenAI if API key is set, else HuggingFace
             if OPENAI_AVAILABLE and os.getenv("OPENAI_API_KEY"):
                 embedding_type = "openai"
             elif HUGGINGFACE_AVAILABLE:
@@ -133,19 +113,12 @@ class SiemensVectorStore:
             raise ValueError(f"Unknown embedding_type: {embedding_type}")
 
     def _get_embedding_type(self) -> str:
-        """Get the name of the embedding model being used."""
         if OPENAI_AVAILABLE and isinstance(self.embeddings, OpenAIEmbeddings):
             return "OpenAI (text-embedding-3-small)"
         else:
             return "HuggingFace (all-MiniLM-L6-v2)"
 
     def get_document_count(self) -> int:
-        """
-        Get the number of documents currently in the vector store.
-
-        Returns:
-            Number of documents
-        """
         try:
             collection = self.vectorstore._collection
             return collection.count()
@@ -159,22 +132,11 @@ class SiemensVectorStore:
         force_reindex: bool = False,
         batch_size: int = 100
     ) -> int:
-        """
-        Index documents into the vector store.
-
-        Args:
-            documents: List of LangChain Document objects
-            force_reindex: If True, clear existing collection before indexing
-            batch_size: Number of documents to index per batch
-
-        Returns:
-            Number of documents indexed
-        """
         if not documents:
             logger.warning("No documents to index")
             return 0
 
-        logger.info(f"Indexing {len(documents)} documents into Siemens Technician store...")
+        logger.info(f"Indexing {len(documents)} documents into Diagnostic Specialist store...")
 
         current_count = self.get_document_count()
 
@@ -191,16 +153,14 @@ class SiemensVectorStore:
             except Exception as e:
                 logger.error(f"Error clearing collection: {e}")
 
-        # Generate unique IDs for documents
         doc_ids = []
         for i, doc in enumerate(documents):
-            source = doc.metadata.get('source_type', 'siemens')
+            source = doc.metadata.get('source_type', 'specialist')
             response_id = doc.metadata.get('response_id', 'unknown')
             content_hash = abs(hash(doc.page_content[:200]))
-            doc_id = f"siemens_{source}_{response_id}_{i}_{content_hash}"
+            doc_id = f"specialist_{source}_{response_id}_{i}_{content_hash}"
             doc_ids.append(doc_id)
 
-        # Add documents in batches
         total_indexed = 0
         for i in range(0, len(documents), batch_size):
             batch_docs = documents[i:i+batch_size]
@@ -226,18 +186,7 @@ class SiemensVectorStore:
         k: int = 5,
         filter_dict: Optional[dict] = None
     ) -> List[Document]:
-        """
-        Perform similarity search.
-
-        Args:
-            query: Search query
-            k: Number of results to return
-            filter_dict: Optional metadata filters
-
-        Returns:
-            List of relevant documents
-        """
-        logger.info(f"Searching Siemens documents for: '{query[:50]}...' (k={k})")
+        logger.info(f"Searching Specialist documents for: '{query[:50]}...' (k={k})")
 
         if filter_dict:
             results = self.vectorstore.similarity_search(query, k=k, filter=filter_dict)
@@ -252,78 +201,29 @@ class SiemensVectorStore:
         query: str,
         k: int = 5
     ) -> List[tuple]:
-        """
-        Perform similarity search with relevance scores.
-
-        Args:
-            query: Search query
-            k: Number of results to return
-
-        Returns:
-            List of (Document, score) tuples
-        """
-        logger.info(f"Searching Siemens documents with scores for: '{query[:50]}...'")
+        logger.info(f"Searching Specialist documents with scores for: '{query[:50]}...'")
         results = self.vectorstore.similarity_search_with_score(query, k=k)
         logger.info(f"Found {len(results)} relevant documents with scores")
         return results
 
-    def search_by_institution(
+    def search_by_customer(
         self,
         query: str,
-        institution: str,
+        customer_id: str,
         k: int = 5
     ) -> List[Document]:
-        """
-        Search documents filtered by institution.
-
-        Args:
-            query: Search query
-            institution: Institution name to filter by
-            k: Number of results to return
-
-        Returns:
-            List of relevant documents from the specified institution
-        """
         return self.similarity_search(
             query=query,
             k=k,
-            filter_dict={"institution": institution}
-        )
-
-    def search_by_country(
-        self,
-        query: str,
-        country: str,
-        k: int = 5
-    ) -> List[Document]:
-        """
-        Search documents filtered by country.
-
-        Args:
-            query: Search query
-            country: Country to filter by
-            k: Number of results to return
-
-        Returns:
-            List of relevant documents from the specified country
-        """
-        return self.similarity_search(
-            query=query,
-            k=k,
-            filter_dict={"country": country}
+            filter_dict={"customer_id": customer_id}
         )
 
     def get_retriever(self, k: int = 5):
-        """
-        Get a retriever for this vector store.
-
-        Args:
-            k: Number of documents to retrieve
-
-        Returns:
-            LangChain retriever
-        """
         return self.vectorstore.as_retriever(
             search_type="similarity",
             search_kwargs={"k": k}
         )
+
+
+# Backward compatibility alias
+SiemensVectorStore = DiagnosticSpecialistStore

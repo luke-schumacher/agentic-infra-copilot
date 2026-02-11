@@ -542,48 +542,275 @@ def preprocess_hardware_specs():
     logger.info(f"  - PDF index: {output_pdf_index} ({len(pdf_docs)} documents)")
 
 
+def preprocess_dcs_pdfs():
+    """
+    Extract DICOM SOP Class tables from DCS PDFs for The Specialist (Agent 1).
+
+    Uses pdfplumber to parse structured tables containing SOP Class UIDs,
+    transfer syntaxes, and roles from DICOM Conformance Statements.
+    """
+    import sys
+    sys.path.insert(0, str(BASE_DIR))
+
+    from src.preprocessing.pdf_extractor import MRIPDFExtractor
+
+    extractor = MRIPDFExtractor()
+
+    # DCS PDFs to process
+    dcs_pdfs = [
+        RAW_SIEMENS / "DCS_MR_XA50.pdf",
+        RAW_SIEMENS / "DCS_MR_XA51A-V03.pdf",
+        RAW_SIEMENS / "DCS_MR_XA60.pdf",
+    ]
+    existing_pdfs = [p for p in dcs_pdfs if p.exists()]
+
+    if not existing_pdfs:
+        logger.warning("No DCS PDFs found")
+        return
+
+    output = HARDWARE_DIR / "dicom_sop_classes.csv"
+    count = extractor.export_sop_classes_to_csv(existing_pdfs, output)
+    logger.info(f"DCS processing: {count} SOP Class entries from {len(existing_pdfs)} PDFs")
+
+
+def preprocess_questionnaires():
+    """
+    Parse MRRT questionnaire data for The Anthropologist (Agent 2).
+
+    Extracts institution profiles from the pre-parsed CSV data.
+    """
+    import sys
+    sys.path.insert(0, str(BASE_DIR))
+
+    from src.preprocessing.questionnaire_parser import MRRTQuestionnaireParser
+
+    parser = MRRTQuestionnaireParser(str(RAW_SIEMENS))
+    output = GOVERNANCE_DIR / "institution_profiles.csv"
+    count = parser.export_profiles(str(output))
+    logger.info(f"Questionnaire processing: {count} institution profiles")
+
+
+def preprocess_safety_docs():
+    """
+    Extract safety procedures from MRI-SOP PDFs for The Auditor (Agent 3).
+
+    Produces:
+    - safety_procedures.csv: Extracted SOP procedures with compliance categories
+    - safety_zones.csv: MRI safety zone definitions (Zone I-IV)
+    """
+    import sys
+    sys.path.insert(0, str(BASE_DIR))
+
+    from src.preprocessing.pdf_extractor import MRIPDFExtractor
+
+    extractor = MRIPDFExtractor(chunk_size=800, chunk_overlap=150)
+
+    safety_pdfs = [
+        RAW_SIEMENS / "MRI-SOP.pdf",
+        RAW_SIEMENS / "SOP-MRI-Safety-Training.jpm-jrs.pdf",
+        RAW_SIEMENS / "ACRAppropriatenessCriteria.pdf",
+    ]
+
+    # Extract and chunk safety PDFs
+    all_chunks = []
+    for pdf_path in safety_pdfs:
+        if pdf_path.exists():
+            chunks = extractor.extract_with_chunking(
+                pdf_path,
+                extra_metadata={'agent': 'safety_auditor'}
+            )
+            all_chunks.extend(chunks)
+        else:
+            logger.warning(f"Safety PDF not found: {pdf_path}")
+
+    # Write safety procedures CSV
+    procedures_path = TELEMETRY_DIR / "safety_procedures.csv"
+    with open(procedures_path, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=[
+            'chunk_id', 'source_file', 'page', 'category', 'content'
+        ])
+        writer.writeheader()
+        for i, chunk in enumerate(all_chunks):
+            writer.writerow({
+                'chunk_id': f"SP-{i:04d}",
+                'source_file': chunk.metadata.get('file_name', ''),
+                'page': chunk.metadata.get('page', ''),
+                'category': chunk.metadata.get('category', 'safety_sop'),
+                'content': chunk.page_content[:2000],
+            })
+
+    logger.info(f"Safety docs: {len(all_chunks)} chunks from {len(safety_pdfs)} PDFs -> {procedures_path}")
+
+    # Generate safety zones reference (static for MRI safety zones)
+    zones_path = TELEMETRY_DIR / "safety_zones.csv"
+    zones = [
+        {"zone": "Zone I", "name": "General Public Area",
+         "description": "Area freely accessible to the general public. No MRI-specific restrictions.",
+         "access": "Unrestricted", "screening_required": "No"},
+        {"zone": "Zone II", "name": "Interface/Reception Area",
+         "description": "Transition between public and MRI-controlled areas. Patient screening begins here.",
+         "access": "Supervised", "screening_required": "MRI screening form"},
+        {"zone": "Zone III", "name": "MRI Environment/Control Room",
+         "description": "Physical access restricted by key lock or code. Only screened individuals allowed.",
+         "access": "Restricted - screened personnel only", "screening_required": "Yes - ferromagnetic screening"},
+        {"zone": "Zone IV", "name": "Magnet Room / Scanner Room",
+         "description": "Contains the MRI magnet. Highest restriction level. Strong magnetic field always present.",
+         "access": "Strictly restricted - Level 2 MR personnel only", "screening_required": "Yes - full screening + supervision"},
+    ]
+    with open(zones_path, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=zones[0].keys())
+        writer.writeheader()
+        writer.writerows(zones)
+
+    logger.info(f"Safety zones: {zones_path}")
+
+
+def preprocess_eventlog_summaries():
+    """
+    Generate per-customer error profiles and workload patterns from event log data.
+
+    Uses the pre-computed *_summary.csv files to avoid scanning full parquet.
+    """
+    eventlog_dir = RAW_SIEMENS / "eventlog_txt"
+    if not eventlog_dir.exists():
+        logger.warning(f"Event log directory not found: {eventlog_dir}")
+        return
+
+    import pandas as pd
+
+    # Per-customer error profiles for The Specialist (Agent 1)
+    error_profiles = []
+    for customer_dir in sorted(eventlog_dir.iterdir()):
+        if not customer_dir.is_dir() or not customer_dir.name.startswith('mr'):
+            continue
+
+        cid = customer_dir.name
+        summary_path = customer_dir / f"{cid}_summary.csv"
+        if not summary_path.exists():
+            continue
+
+        try:
+            df = pd.read_csv(summary_path)
+            errors = df[df['level'] == 'E']
+            warnings = df[df['level'] == 'W']
+
+            total_error_count = int(errors['occurrence_count'].sum()) if not errors.empty else 0
+            total_warning_count = int(warnings['occurrence_count'].sum()) if not warnings.empty else 0
+
+            top_error_sources = (
+                errors.groupby('source')['occurrence_count'].sum()
+                .nlargest(5)
+                .to_dict() if not errors.empty else {}
+            )
+
+            error_profiles.append({
+                'customer_id': cid,
+                'total_error_events': total_error_count,
+                'total_warning_events': total_warning_count,
+                'unique_error_patterns': len(errors),
+                'unique_warning_patterns': len(warnings),
+                'top_error_source_1': list(top_error_sources.keys())[0] if top_error_sources else '',
+                'top_error_source_1_count': list(top_error_sources.values())[0] if top_error_sources else 0,
+                'top_error_source_2': list(top_error_sources.keys())[1] if len(top_error_sources) > 1 else '',
+                'top_error_source_2_count': list(top_error_sources.values())[1] if len(top_error_sources) > 1 else 0,
+                'top_error_source_3': list(top_error_sources.keys())[2] if len(top_error_sources) > 2 else '',
+                'top_error_source_3_count': list(top_error_sources.values())[2] if len(top_error_sources) > 2 else 0,
+            })
+        except Exception as e:
+            logger.warning(f"Failed to process summary for {cid}: {e}")
+
+    if error_profiles:
+        profiles_path = HARDWARE_DIR / "per_customer_error_profiles.csv"
+        pd.DataFrame(error_profiles).to_csv(profiles_path, index=False)
+        logger.info(f"Error profiles: {len(error_profiles)} customers -> {profiles_path}")
+
+    # Safety event flags for The Auditor (Agent 3)
+    safety_events = []
+    safety_keywords = ['quench', 'thermal', 'emergency', 'safety', 'interlock',
+                        'shutdown', 'helium', 'cryo', 'sar limit']
+
+    for customer_dir in sorted(eventlog_dir.iterdir()):
+        if not customer_dir.is_dir() or not customer_dir.name.startswith('mr'):
+            continue
+
+        cid = customer_dir.name
+        summary_path = customer_dir / f"{cid}_summary.csv"
+        if not summary_path.exists():
+            continue
+
+        try:
+            df = pd.read_csv(summary_path)
+            for _, row in df.iterrows():
+                desc = str(row.get('masked_description', '')).lower()
+                if any(kw in desc for kw in safety_keywords):
+                    safety_events.append({
+                        'customer_id': cid,
+                        'level': row.get('level', ''),
+                        'source': row.get('source', ''),
+                        'event_id': row.get('event_id', ''),
+                        'description': str(row.get('masked_description', ''))[:500],
+                        'occurrence_count': row.get('occurrence_count', 0),
+                    })
+        except Exception as e:
+            logger.warning(f"Failed to scan safety events for {cid}: {e}")
+
+    if safety_events:
+        safety_path = TELEMETRY_DIR / "safety_event_flags.csv"
+        pd.DataFrame(safety_events).to_csv(safety_path, index=False)
+        logger.info(f"Safety events: {len(safety_events)} flagged events -> {safety_path}")
+
+
 def create_agent_config():
     """Create configuration file for agent data paths."""
     config = {
-        'data_version': '2.0',
+        'data_version': '3.0',
         'created': datetime.now().isoformat(),
-        'description': 'Healthcare MAS data configuration - Siemens MRI focus',
+        'description': 'Healthcare MAS data configuration - Siemens MRI 3-Agent System',
         'agents': {
             'hardware_agent': {
+                'display_name': 'The Specialist (Diagnostic & Technical)',
+                'port': 8002,
                 'data_dir': 'data/processed/hardware',
                 'files': [
                     'documentation_index.csv',
-                    'versicharge_specifications.csv',
-                    'sample_processed_wide_format.csv',
-                    'sample_processed_long_format.csv'
+                    'dicom_sop_classes.csv',
+                    'per_customer_error_profiles.csv',
+                    'sample_processed_long_format.csv',
                 ],
-                'raw_pdfs': 'data/raw/siemens/*.pdf'
+                'raw_pdfs': 'data/raw/siemens/*.pdf',
+                'parquet_dir': 'data/raw/siemens/eventlog_txt',
             },
             'telemetry_agent': {
+                'display_name': 'The Auditor (Safety & Compliance)',
+                'port': 8003,
                 'data_dir': 'data/processed/telemetry',
                 'files': [
-                    'mri_events.csv',
-                    'event_summary.csv',
-                    'detected_patterns.csv',
-                    'failure_modes.csv'
+                    'safety_procedures.csv',
+                    'safety_zones.csv',
+                    'safety_event_flags.csv',
+                    'failure_modes.csv',
                 ],
-                'raw_logs': 'data/raw/siemens/eventlog_txt/'
+                'raw_pdfs': ['data/raw/siemens/MRI-SOP.pdf',
+                             'data/raw/siemens/SOP-MRI-Safety-Training.jpm-jrs.pdf',
+                             'data/raw/siemens/ACRAppropriatenessCriteria.pdf'],
             },
             'governance_agent': {
+                'display_name': 'The Anthropologist (Workflow & Context)',
+                'port': 8001,
                 'data_dir': 'data/processed/governance',
                 'files': [
+                    'institution_profiles.csv',
                     'clinical_protocols.csv',
                     'radlex_terms.csv',
-                    'protocol_categories.csv'
                 ],
-                'raw_templates': 'data/raw/siemens/examination/RSNA-RAD-REPORT/'
+                'raw_questionnaires': 'data/raw/siemens/RT_Study_MTTI/',
             }
         },
-        'archive': {
-            'telekom': 'data/archive/telekom',
-            'illigo': 'data/archive/illigo',
-            'description': 'Original EV charging data - available for future cross-domain testing'
-        }
+        'shared': {
+            'customer_mapping': 'data/processed/customer_mapping.csv',
+            'knowledge_gap_report': 'data/processed/knowledge_gap_report.csv',
+            'overview': 'data/raw/siemens/eventlog_txt/all_customers_overview.csv',
+        },
     }
 
     config_path = BASE_DIR / "config" / "data_config.json"
@@ -598,39 +825,47 @@ def create_agent_config():
 def main():
     """Run all preprocessing steps."""
     logger.info("=" * 60)
-    logger.info("SIEMENS DATA PREPROCESSING")
+    logger.info("SIEMENS DATA PREPROCESSING - 3-Agent MAS")
     logger.info("=" * 60)
 
     ensure_directories()
 
-    logger.info("\n[1/5] Processing Event Logs for Telemetry Agent...")
+    logger.info("\n[1/9] Processing Event Logs (legacy)...")
     preprocess_event_logs()
 
-    logger.info("\n[2/5] Processing Failure Modes for Telemetry Agent...")
+    logger.info("\n[2/9] Processing Failure Modes...")
     preprocess_failure_modes()
 
-    logger.info("\n[3/5] Processing RSNA Templates for Governance Agent...")
+    logger.info("\n[3/9] Processing RSNA Templates for Governance...")
     preprocess_rsna_templates()
 
-    logger.info("\n[4/5] Processing Hardware Specs for Hardware Agent...")
+    logger.info("\n[4/9] Processing Hardware Specs & PDF Index...")
     preprocess_hardware_specs()
 
-    logger.info("\n[5/5] Creating Agent Configuration...")
+    logger.info("\n[5/9] Extracting DICOM SOP Classes from DCS PDFs...")
+    preprocess_dcs_pdfs()
+
+    logger.info("\n[6/9] Parsing MRRT Questionnaires for Institution Profiles...")
+    preprocess_questionnaires()
+
+    logger.info("\n[7/9] Extracting Safety Procedures from SOP PDFs...")
+    preprocess_safety_docs()
+
+    logger.info("\n[8/9] Generating Event Log Summaries & Safety Flags...")
+    preprocess_eventlog_summaries()
+
+    logger.info("\n[9/9] Creating Agent Configuration...")
     create_agent_config()
 
     logger.info("\n" + "=" * 60)
     logger.info("PREPROCESSING COMPLETE")
     logger.info("=" * 60)
 
-    # Print summary
     logger.info("\nData Structure:")
     logger.info("  data/processed/")
-    logger.info("    hardware/    - Equipment specs, PDF index")
-    logger.info("    telemetry/   - MRI events, failure modes")
-    logger.info("    governance/  - Clinical protocols, RadLex")
-    logger.info("  data/archive/")
-    logger.info("    telekom/     - Archived OCPP data")
-    logger.info("    illigo/      - Archived EV charging data")
+    logger.info("    hardware/    - DCS DICOM tables, error profiles, PDF index (The Specialist)")
+    logger.info("    telemetry/   - Safety SOPs, zones, event flags, failure modes (The Auditor)")
+    logger.info("    governance/  - Institution profiles, clinical protocols (The Anthropologist)")
 
 
 if __name__ == "__main__":

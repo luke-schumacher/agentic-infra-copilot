@@ -339,6 +339,23 @@ class ConsultPayload(BaseModel):
         max_length=10000,
         description="The consultation query text"
     )
+    # MRI-specific fields
+    customer_id: Optional[str] = Field(
+        default=None,
+        max_length=20,
+        description="Siemens Customer ID (e.g., 'mr200103')"
+    )
+    scanner_model: Optional[str] = Field(
+        default=None,
+        max_length=100,
+        description="MRI scanner model (e.g., 'MAGNETOM Sola', 'XA50', 'XA60')"
+    )
+    institution_type: Optional[str] = Field(
+        default=None,
+        max_length=50,
+        description="Institution type: 'academic', 'private', 'cancer_center'"
+    )
+    # Legacy fields (preserved for backward compatibility)
     location: Optional[str] = Field(
         default="unknown",
         max_length=200,
@@ -349,14 +366,14 @@ class ConsultPayload(BaseModel):
         description="Whether the query describes a symptom"
     )
     equipment_type: Optional[str] = Field(
-        default="unknown",
+        default="MRI",
         max_length=200,
         description="Type of equipment involved"
     )
     station_id: Optional[str] = Field(
         default=None,
         max_length=100,
-        description="Charging station identifier (for Illigo)"
+        description="Charging station identifier (legacy)"
     )
     timestamp: Optional[str] = Field(
         default="",

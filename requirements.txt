@@ -25,10 +25,14 @@ dspy-ai>=2.4.0
 streamlit>=1.31.0
 
 # Data Ingestion - "The Eyes"
-# PDF parsing for Telekom Intent docs
+# PDF parsing
 pypdf>=3.17.0
-# CSV processing for Siemens Hardware scans (500+ files)
+# Table-aware PDF extraction (for DICOM Conformance Statement tables)
+pdfplumber>=0.10.0
+# CSV processing for Siemens Hardware scans
 pandas>=2.1.0
+# Memory-efficient Parquet loading with lazy evaluation
+polars>=0.20.0
 # JSON parsing for Illigo Event logs
 jq>=1.6.0
 # Schema validation for OCPP 2.0.1 logs

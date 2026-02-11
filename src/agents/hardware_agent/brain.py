@@ -1,14 +1,14 @@
 """
-Siemens Technician Brain - DSPy Signatures for Hardware Expert Agent
+Diagnostic Specialist Brain - DSPy Signatures for Agent 1 (The Specialist)
 
 Defines DSPy signatures for:
-- Hardware fault diagnosis
-- Equipment specification lookup
-- Technical troubleshooting recommendations
-- Pain point analysis from questionnaire data
+- DICOM conformance failure diagnosis (cross-ref SOP UIDs with event log errors)
+- MRI hardware/software error analysis from event logs
+- Technical specification lookup from DCS/CSPL documentation
+- SOP Class UID cross-referencing
 
-Domain: MR-guided radiotherapy equipment specifications and pain points
-Data: Siemens questionnaire responses from healthcare institutions
+Domain: DICOM conformance, MRI hardware diagnostics, Siemens MRI systems
+Data: DCS_MR_XA50/XA51A/XA60 PDFs, MAGNETOM SOLA CSPL, event logs (Parquet)
 
 Author: Thesis Project - Agentic Infra Co-Pilot
 """
@@ -21,115 +21,124 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class DiagnoseHardwareFault(dspy.Signature):
+class DiagnoseDICOMFailure(dspy.Signature):
     """
-    Diagnose a hardware fault based on symptom description and equipment context.
+    Cross-reference DICOM SOP Class UIDs from DCS PDFs with transfer failures in event logs.
 
-    Given a symptom report and relevant equipment specifications/pain points,
-    determine:
-    1. Likely root cause of the hardware issue
-    2. Severity assessment
-    3. Recommended diagnostic steps
+    Given an error event mentioning DICOM/transfer issues and the relevant DCS conformance
+    data, determine:
+    1. Which SOP class or transfer syntax mismatch caused the failure
+    2. The affected DICOM modality
+    3. Severity and remediation steps referencing DCS documentation
     """
-    symptom_description: str = dspy.InputField(
-        desc="Description of the reported hardware symptom or issue"
+    error_description: str = dspy.InputField(
+        desc="Error event from MRI logs mentioning DICOM, transfer, SOP, or association issues"
     )
-    equipment_context: str = dspy.InputField(
-        desc="Relevant equipment specifications and known pain points from questionnaire data"
+    dcs_context: str = dspy.InputField(
+        desc="Relevant DICOM conformance statement excerpts (SOP UIDs, transfer syntaxes, supported roles)"
     )
-    equipment_type: str = dspy.InputField(
-        desc="Type of equipment (e.g., MR scanner, LINAC, CT simulator)"
+    event_log_context: str = dspy.InputField(
+        desc="Related event log entries around the failure timeframe"
+    )
+
+    root_cause: str = dspy.OutputField(
+        desc="Root cause: which SOP class/transfer syntax mismatch or configuration error caused the failure"
+    )
+    affected_modality: str = dspy.OutputField(
+        desc="Affected DICOM modality or service (e.g., MR Image Storage, Worklist, Print)"
+    )
+    severity: str = dspy.OutputField(
+        desc="Severity: 'low', 'medium', 'high', or 'critical'"
+    )
+    remediation: str = dspy.OutputField(
+        desc="Specific remediation steps referencing DCS documentation sections"
+    )
+
+
+class AnalyzeHardwareError(dspy.Signature):
+    """
+    Diagnose MRI hardware/software errors from event logs using technical documentation.
+
+    Given a cluster of related error events and relevant hardware specifications,
+    determine the technical diagnosis and whether field service is needed.
+    """
+    error_events: str = dspy.InputField(
+        desc="Cluster of related error events from MRI system logs (source, event_id, description, occurrence_count)"
+    )
+    technical_context: str = dspy.InputField(
+        desc="Relevant hardware specs, DCS data, and known failure modes"
+    )
+    scanner_model: str = dspy.InputField(
+        desc="MRI scanner model (e.g., MAGNETOM Sola, XA50, XA60)"
     )
 
     diagnosis: str = dspy.OutputField(
-        desc="Likely root cause of the hardware issue"
+        desc="Technical diagnosis of the hardware/software issue"
+    )
+    affected_component: str = dspy.OutputField(
+        desc="Affected system component (gradient coils, RF amplifier, cooling, cryogen, software, network)"
     )
     severity: str = dspy.OutputField(
         desc="Severity: 'low', 'medium', 'high', or 'critical'"
     )
     diagnostic_steps: str = dspy.OutputField(
-        desc="Recommended diagnostic steps to confirm the issue"
+        desc="Step-by-step diagnostic verification procedure"
     )
-    requires_escalation: str = dspy.OutputField(
-        desc="Whether issue requires escalation: 'yes' or 'no'"
+    requires_service: str = dspy.OutputField(
+        desc="'yes' or 'no' - whether Siemens field service intervention is needed"
     )
 
 
-class LookupEquipmentSpec(dspy.Signature):
+class LookupTechnicalSpec(dspy.Signature):
     """
-    Lookup equipment specifications and configuration details.
+    Look up MRI technical specifications from DCS and hardware documentation.
 
-    Used to answer queries about installed equipment at institutions,
-    vendor information, and technical specifications.
+    Used to answer queries about DICOM support, scanner capabilities,
+    transfer syntaxes, and system specifications.
     """
     query: str = dspy.InputField(
-        desc="User's question about equipment specifications"
+        desc="Technical query about MRI specifications, DICOM support, or scanner capabilities"
     )
-    equipment_data: str = dspy.InputField(
-        desc="Retrieved equipment data from questionnaire responses"
+    documentation_context: str = dspy.InputField(
+        desc="Retrieved DCS/CSPL documentation excerpts"
     )
 
     answer: str = dspy.OutputField(
-        desc="Direct answer to the equipment specification query"
+        desc="Technical answer with specific values, parameters, or UIDs"
     )
-    equipment_details: str = dspy.OutputField(
-        desc="Detailed equipment information found"
+    source_document: str = dspy.OutputField(
+        desc="Source document and section referenced (e.g., 'DCS_MR_XA60, Section 4.2')"
     )
-    source_institutions: str = dspy.OutputField(
-        desc="Institutions referenced in the answer"
+    confidence: str = dspy.OutputField(
+        desc="Confidence level: 'high', 'medium', or 'low'"
     )
 
 
-class AnalyzePainPoints(dspy.Signature):
+class CrossReferenceSOP(dspy.Signature):
     """
-    Analyze pain points reported by healthcare institutions.
+    Cross-reference SOP Class UIDs from event log errors with DCS support tables.
 
-    Aggregates and analyzes qualitative feedback about equipment issues,
-    workflow challenges, and positioning problems.
+    Determines if a SOP Class UID involved in a failure is supported by the scanner,
+    and identifies any mismatch in transfer syntax or role.
     """
-    query: str = dspy.InputField(
-        desc="User's question about pain points or challenges"
+    sop_uid: str = dspy.InputField(
+        desc="DICOM SOP Class UID from the error event or query"
     )
-    pain_point_data: str = dspy.InputField(
-        desc="Retrieved pain point descriptions from questionnaire data"
+    dcs_sop_table: str = dspy.InputField(
+        desc="SOP class support table from the relevant DCS PDF"
     )
-
-    common_issues: str = dspy.OutputField(
-        desc="Most commonly reported issues or pain points"
-    )
-    affected_institutions: str = dspy.OutputField(
-        desc="Types of institutions most affected"
-    )
-    recommended_solutions: str = dspy.OutputField(
-        desc="Potential solutions or mitigations for the pain points"
+    error_context: str = dspy.InputField(
+        desc="Full error context from event logs if available"
     )
 
-
-class TroubleshootEquipment(dspy.Signature):
-    """
-    Provide troubleshooting guidance for equipment issues.
-
-    Uses equipment specifications and known pain points to suggest
-    troubleshooting steps for reported problems.
-    """
-    problem_description: str = dspy.InputField(
-        desc="Description of the equipment problem"
+    is_supported: str = dspy.OutputField(
+        desc="'yes', 'no', or 'partial' - whether the SOP class is supported by this scanner"
     )
-    equipment_context: str = dspy.InputField(
-        desc="Equipment specifications and known issues"
+    mismatch_details: str = dspy.OutputField(
+        desc="Details of any SOP/transfer syntax/role mismatch found"
     )
-    institution_type: str = dspy.InputField(
-        desc="Type of institution (e.g., academic, private, cancer center)"
-    )
-
-    troubleshooting_steps: str = dspy.OutputField(
-        desc="Step-by-step troubleshooting guide"
-    )
-    likely_resolution: str = dspy.OutputField(
-        desc="Most likely resolution based on similar cases"
-    )
-    parts_or_service_needed: str = dspy.OutputField(
-        desc="Parts or service that may be required"
+    recommendation: str = dspy.OutputField(
+        desc="Recommended fix, workaround, or configuration change"
     )
 
 
@@ -149,7 +158,7 @@ class EvaluateRequest(dspy.Signature):
         desc="The incoming query or request to evaluate"
     )
     my_expertise: str = dspy.InputField(
-        desc="Description of this agent's domain expertise (e.g., 'MRI hardware, Siemens equipment')"
+        desc="Description of this agent's domain expertise"
     )
     available_data: str = dspy.InputField(
         desc="Summary of retrieved context and available documents"
@@ -175,160 +184,102 @@ class EvaluateRequest(dspy.Signature):
     )
 
 
-class SiemensTechnicianModule(dspy.Module):
+class DiagnosticSpecialistModule(dspy.Module):
     """
-    Main DSPy module for Siemens Technician agent (Hardware Agent).
+    Main DSPy module for The Specialist (Agent 1 - Diagnostic & Technical).
 
-    Combines multiple signatures into a cohesive hardware expert:
+    Combines multiple signatures into a cohesive diagnostic expert:
     1. Evaluate if request can be handled (autonomy)
-    2. Diagnose hardware faults
-    3. Lookup equipment specifications
-    4. Analyze pain points from questionnaire data
-    5. Provide troubleshooting guidance
+    2. Diagnose DICOM transfer failures by cross-referencing DCS data
+    3. Analyze hardware/software errors from event logs
+    4. Look up technical specifications
+    5. Cross-reference SOP Class UIDs
     """
 
     def __init__(self):
         super().__init__()
         self.evaluate_request = dspy.ChainOfThought(EvaluateRequest)
-        self.diagnose_fault = dspy.ChainOfThought(DiagnoseHardwareFault)
-        self.lookup_spec = dspy.ChainOfThought(LookupEquipmentSpec)
-        self.analyze_pain = dspy.ChainOfThought(AnalyzePainPoints)
-        self.troubleshoot = dspy.ChainOfThought(TroubleshootEquipment)
+        self.diagnose_dicom = dspy.ChainOfThought(DiagnoseDICOMFailure)
+        self.analyze_hardware = dspy.ChainOfThought(AnalyzeHardwareError)
+        self.lookup_spec = dspy.ChainOfThought(LookupTechnicalSpec)
+        self.cross_reference = dspy.ChainOfThought(CrossReferenceSOP)
 
     def forward(
         self,
         query: str,
         context: str,
         query_type: str = "general",
-        equipment_type: str = "unknown"
+        equipment_type: str = "MRI"
     ) -> dspy.Prediction:
         """
-        Process an incoming query through the Technician's reasoning.
+        Process an incoming query through the Specialist's reasoning.
 
         Args:
-            query: User query or symptom description
-            context: Retrieved equipment data and pain points
-            query_type: Type of query - 'diagnosis', 'specification', 'pain_point', or 'general'
-            equipment_type: Type of equipment if applicable
+            query: User query or error description
+            context: Retrieved DCS/technical documentation and event log data
+            query_type: 'dicom_diagnosis', 'hardware_error', 'technical_spec', or 'general'
+            equipment_type: Scanner model if known
 
         Returns:
             DSPy Prediction with appropriate response based on query type
         """
         logger.info(f"Processing query (type={query_type}): {query[:100]}...")
 
-        if query_type == "diagnosis":
-            result = self.diagnose_fault(
-                symptom_description=query,
-                equipment_context=context,
-                equipment_type=equipment_type
+        if query_type == "dicom_diagnosis":
+            result = self.diagnose_dicom(
+                error_description=query,
+                dcs_context=context,
+                event_log_context="See error description for related events."
+            )
+            return dspy.Prediction(
+                diagnosis=result.root_cause,
+                severity=result.severity,
+                affected_component=result.affected_modality,
+                diagnostic_steps=result.remediation,
+                answer=f"DICOM Diagnosis: {result.root_cause}. Severity: {result.severity}. Fix: {result.remediation}"
+            )
+
+        elif query_type == "hardware_error":
+            result = self.analyze_hardware(
+                error_events=query,
+                technical_context=context,
+                scanner_model=equipment_type
             )
             return dspy.Prediction(
                 diagnosis=result.diagnosis,
                 severity=result.severity,
+                affected_component=result.affected_component,
                 diagnostic_steps=result.diagnostic_steps,
-                requires_escalation=result.requires_escalation,
-                answer=f"Diagnosis: {result.diagnosis}. Severity: {result.severity}."
+                requires_service=result.requires_service,
+                answer=f"Hardware Diagnosis: {result.diagnosis}. Component: {result.affected_component}. Severity: {result.severity}."
             )
 
-        elif query_type == "specification":
+        elif query_type == "technical_spec":
             result = self.lookup_spec(
                 query=query,
-                equipment_data=context
+                documentation_context=context
             )
             return dspy.Prediction(
                 answer=result.answer,
-                equipment_details=result.equipment_details,
-                source_institutions=result.source_institutions
-            )
-
-        elif query_type == "pain_point":
-            result = self.analyze_pain(
-                query=query,
-                pain_point_data=context
-            )
-            return dspy.Prediction(
-                answer=result.common_issues,
-                common_issues=result.common_issues,
-                affected_institutions=result.affected_institutions,
-                recommended_solutions=result.recommended_solutions
+                source_document=result.source_document,
+                confidence=result.confidence
             )
 
         else:
-            # General query - use troubleshooting as default
-            result = self.troubleshoot(
-                problem_description=query,
-                equipment_context=context,
-                institution_type="general"
+            # General query - use cross-reference as default diagnostic approach
+            result = self.analyze_hardware(
+                error_events=query,
+                technical_context=context,
+                scanner_model=equipment_type
             )
             return dspy.Prediction(
-                answer=result.troubleshooting_steps,
-                troubleshooting_steps=result.troubleshooting_steps,
-                likely_resolution=result.likely_resolution,
-                parts_or_service_needed=result.parts_or_service_needed
+                diagnosis=result.diagnosis,
+                severity=result.severity,
+                affected_component=result.affected_component,
+                diagnostic_steps=result.diagnostic_steps,
+                requires_service=result.requires_service,
+                answer=f"Analysis: {result.diagnosis}. Severity: {result.severity}."
             )
-
-    def diagnose_hardware_issue(
-        self,
-        symptom: str,
-        equipment_context: str,
-        equipment_type: str = "MR scanner"
-    ) -> dspy.Prediction:
-        """
-        Dedicated method for hardware fault diagnosis.
-
-        Args:
-            symptom: Description of the hardware symptom
-            equipment_context: Relevant equipment data
-            equipment_type: Type of equipment
-
-        Returns:
-            DSPy Prediction with diagnosis results
-        """
-        return self.diagnose_fault(
-            symptom_description=symptom,
-            equipment_context=equipment_context,
-            equipment_type=equipment_type
-        )
-
-    def lookup_equipment_info(
-        self,
-        query: str,
-        equipment_data: str
-    ) -> dspy.Prediction:
-        """
-        Lookup equipment specifications.
-
-        Args:
-            query: Question about equipment
-            equipment_data: Retrieved equipment data
-
-        Returns:
-            DSPy Prediction with equipment information
-        """
-        return self.lookup_spec(
-            query=query,
-            equipment_data=equipment_data
-        )
-
-    def analyze_institution_pain_points(
-        self,
-        query: str,
-        pain_point_data: str
-    ) -> dspy.Prediction:
-        """
-        Analyze pain points from questionnaire data.
-
-        Args:
-            query: Question about pain points
-            pain_point_data: Retrieved pain point descriptions
-
-        Returns:
-            DSPy Prediction with pain point analysis
-        """
-        return self.analyze_pain(
-            query=query,
-            pain_point_data=pain_point_data
-        )
 
     def evaluate_incoming_request(
         self,
@@ -338,31 +289,21 @@ class SiemensTechnicianModule(dspy.Module):
         """
         Evaluate whether this agent should handle the incoming request.
 
-        This method enables agent autonomy by assessing:
-        - Whether the query falls within hardware/equipment domain
-        - Confidence level for potential response
-        - Whether to redirect to or consult other agents
-
         Args:
             query: The incoming query or request
-            context_summary: Summary of retrieved context (e.g., "Retrieved 5 equipment specs")
+            context_summary: Summary of retrieved context
 
         Returns:
-            DSPy Prediction with:
-                - can_fully_answer: bool
-                - confidence_level: float 0.0-1.0
-                - response_type: 'answer', 'partial', 'clarify', 'redirect', 'refuse', 'consult'
-                - suggested_agent: 'governance_agent', 'telemetry_agent', or 'none'
-                - reasoning: explanation of decision
-                - missing_info: what's missing if partial/clarify
+            DSPy Prediction with autonomy evaluation
         """
         return self.evaluate_request(
             query=query,
             my_expertise=(
-                "MRI hardware, Siemens medical imaging equipment, hardware fault diagnosis, "
-                "equipment specifications, MR-guided radiotherapy equipment, technical troubleshooting, "
-                "Phoenix Protocol parameters, temperature sensors, thermal management. "
-                "Can consult telemetry_agent for event logs or governance_agent for SLA implications."
+                "DICOM conformance analysis, MRI hardware diagnostics, SOP Class UID analysis, "
+                "transfer syntax matching, Siemens MRI systems (XA50/XA51A/XA60, MAGNETOM Sola), "
+                "event log error diagnosis, gradient coils, RF amplifiers, cryogen systems, "
+                "thermal management, software service crashes, PACS/DICOM transfer failures. "
+                "Can consult governance_agent for institutional context or telemetry_agent for safety compliance."
             ),
             available_data=context_summary
         )
