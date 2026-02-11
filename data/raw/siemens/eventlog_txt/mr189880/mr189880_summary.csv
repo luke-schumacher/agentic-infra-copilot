@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,1541118
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,1540766
+W,DeveloperLog_DevLogService,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,514399
+W,_unknown,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,285696
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,135606
+I,DeveloperLog_DevLogService,0,Rp 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> cannot be cancelled because some Workflows of the Rp are not in state SCHEDULED or READY,125955
+I,DeveloperLog_DevLogService,0,Workflow States are: COMPLETED,121723
+I,_unknown,0,Rp 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> cannot be cancelled because some Workflows of the Rp are not in state SCHEDULED or READY,107948
+I,_unknown,0,Workflow States are: COMPLETED,103534
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,82850
+I,MRI_FRR,910,"Current coil temperatures (degree C): OVCavg: 22.28, OVC1: 22.55, OVC2: 22.50, OVC3: 22.55, OVC4: 22.15, OVC5: 22.05, OVC6: 22.00, OVC7: 21.80, OVC8: 22.65",68829
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,68714
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,68381
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,68375
+I,MRI_HEC,1025,Coldhead is running.,68375
+I,MRI_HEC,1032,Helium compressor unit is running.,68375
+I,MRI_TBC,247,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",68349
+I,MRI_TBC,249,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",68349
+I,MRI_HEC,1029,DB25: status present.,68328
+I,MRI_TBC,105,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,67107
+I,MRI_HEC,1023,Helium compressor Daily log has updated.,59943
+I,MRI_CMM,1365,Patient table is docked.,57322
+I,MRI_PFW,9113,"InjectorDS425-Injector [Dev#<DEV_ID>] warning: The component is not connected. Connect component to MR System Select ""Restart System"". If the problem persists, please contact Siemens Service.",56894
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_TimApplication.,48828
+I,MRI_FRR,278,Emergency docking released.,46944
+I,MRI_FRR,16,The scanning has finished.,45613
+I,MRI_HEC,1022,Helium compressor Weekly log has updated.,42934
+I,MRI_TBC,106,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,31358
+I,SampleFile,0,Sampled File - Type: Process-<NUM_ID>-<NUM_ID>-<NUM_ID>.xml,29681
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,28359
+I,SampleFile,0,Sampled File - Type: FileCollectionInformation_2<NUM_ID>.log,27349
+I,SampleFile,0,Sampled File - Type: FileTransferInformation_2<NUM_ID>.log,27339
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,25420
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,24155
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",22730
+S,MRI_FRR,278,Emergency docking released.,21643
+I,MRI_HEC,1018,Helium compressor Event log has updated.,21234
+S,MRI_FRR,16,The scanning has finished.,20953
+E,MRI_PFW,8199,PerCon Error: communication error between host and MARS,20489
+I,MRI_FRR,910,"Current coil temperatures (degree C): OVCavg: 22.29, OVC1: 22.55, OVC2: 22.50, OVC3: 22.55, OVC4: 22.15, OVC5: 22.05, OVC6: 22.05, OVC7: 21.80, OVC8: 22.65",20358
+I,MRI_GSP,0,Load image in segment: planningLeft,18209
+E,TransferMgr,17,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP CONNECT error. Ftp server: ""SRSACC1"" FtpUserName: ""rdiagftp"".</Description></Event>",17219
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",17041
+I,MRI_FRR,910,"Current coil temperatures (degree C): OVCavg: 22.27, OVC1: 22.55, OVC2: 22.50, OVC3: 22.55, OVC4: 22.15, OVC5: 22.00, OVC6: 22.00, OVC7: 21.80, OVC8: 22.65",16835
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",16699
+I,MRI_COS,21,SPICE prepare time: 12 ms,16190
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,15924
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",15650
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",15452
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",15448
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",15440
+I,MRI_COS,20,IRIS prepare time: 16 ms,15180
+E,syngo_TransferFramework_SysLogService,0,The DICOM association negotiation with AET GUTTMRWL failed permanently. SCP gave following rejection reason: NoReasonGiven.,15042
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",14424
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",14232
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",14214
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",14088
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",13913
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",13911
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",13910
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,13485
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,13465
+I,_unknown,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,13465
+W,MRI_GIM,74,"GIMLI warning (RFCELK2364_COM-GILGALAD [Dev#<DEV_ID>]): The sequence counter didn't jump back to minus 400 microseconds at the begin of the sequence in FPGA to Gimli direction. Select ""Restart System"". If the problem persists, please contact Siemens Service.",13357
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions:UseDefaultArchive: True, DefaultDestinationNodes: RCIMOD2, PluginOptions: [DatabaseStatus, Integrable]. (-1), Objects:",12619
+I,MRI_FRR,910,"Current coil temperatures (degree C): GC_AVG: 21.32, GC1: 21.50, GC2: 20.75, GC3: 21.00, GC4: 21.50, GC5: 21.50, GC6: 21.00, GC7: 21.50, GC8: 21.00, GC9: 20.75, GC10: 21.50, GC11: 21.00, GC12: 21.00 | Masks - GC1_4: <HEX>, GC5_8: <HEX>, GC9_12: <HEX>, GC9_12: <HEX> | REF - 1_OFF: 85.<NUM_ID>, 2_OK: 65.<NUM_ID>, 3_MAX: 125.<NUM_ID>, 4_LOW: 8.<NUM_ID>",12581
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,12112
+W,MRI_GIM,79,"GIMLI warning (RFCELK2364_COM-GILGALAD [Dev#<DEV_ID>]): The sequence counter didn't jump back to minus 400 microseconds at the begin of the sequence in Gimli to FPGA direction. Select ""Restart System"". If the problem persists, please contact Siemens Service.",12052
+I,_unknown,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,11852
+I,MRI_MPU,3023,Magnet Supervision: Solenoid valve returned to automatic control mode,11608
+I,MRI_VLM,1418,VLM: Normal flow is present.,11608
+I,MRI_MPU,3020,Magnet Supervision: Solenoid valve opened,11602
+I,MRI_CMM,1365,Patient table is docked,11392
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",11347
+I,MRI_PFW,262,"InjectorDS425-Injector [Dev#<DEV_ID>] warning: The component is not connected. Connect component to MR System Select ""Restart System"". If the problem persists, please contact Siemens Service.",11294
+S,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",10768
+I,ExportImportFramework,0,The process syngo.ConfigConvert.exe has finished and the exitCode was 0.,10039
+I,MRI_PAC,104,The following licenses are needed to run the protocol  .,9962
+W,MRI_GIM,79,"GIMLI warning (RxK2304_64Ch_32ChMode_1-Gilgalad [Dev#<DEV_ID>]): The sequence counter didn't jump back to minus 400 microseconds at the begin of the sequence in Gimli to FPGA direction. Select ""Restart System"". If the problem persists, please contact Siemens Service.",9585
+W,MRI_GIM,79,"GIMLI warning (TxK2304-GIMLI [Dev#<DEV_ID>]): The sequence counter didn't jump back to minus 400 microseconds at the begin of the sequence in Gimli to FPGA direction. Select ""Restart System"". If the problem persists, please contact Siemens Service.",9585
+W,MRI_GIM,79,"GIMLI warning (GPAK2368-PCIeCore [Dev#<DEV_ID>]): The sequence counter didn't jump back to minus 400 microseconds at the begin of the sequence in Gimli to FPGA direction. Select ""Restart System"". If the problem persists, please contact Siemens Service.",9582
+I,MRI_CPA,1065,"The center button on the control panel was pressed briefly, i.e. for less than 1 second.",9576
+I,MRI_GIM,77,"GIMLI Information (RFCELK2364_COM-GILGALAD [Dev#<DEV_ID>]): The Sequence Count Watchdog Alarm has occurred in FPGA to Gimli direction. GIMLI Cirdan Information Select ""Restart System"". If the problem persists, please contact Siemens Service.",9574
+I,MRI_GIM,82,"GIMLI Information (RFCELK2364_COM-GILGALAD [Dev#<DEV_ID>]): The Sequence Count Watchdog Alarm has occurred in Gimli to FPGA direction. GIMLI Cirdan Information Select ""Restart System"". If the problem persists, please contact Siemens Service.",9573
+I,MRI_GIM,82,"GIMLI Information (GPAK2368-PCIeCore [Dev#<DEV_ID>]): The Sequence Count Watchdog Alarm has occurred in Gimli to FPGA direction. GIMLI Cirdan Information Select ""Restart System"". If the problem persists, please contact Siemens Service.",9538
+I,MRI_GIM,82,"GIMLI Information (RxK2304_64Ch_32ChMode_1-Gilgalad [Dev#<DEV_ID>]): The Sequence Count Watchdog Alarm has occurred in Gimli to FPGA direction. GIMLI Cirdan Information Select ""Restart System"". If the problem persists, please contact Siemens Service.",9538
+I,MRI_GIM,82,"GIMLI Information (TxK2304-GIMLI [Dev#<DEV_ID>]): The Sequence Count Watchdog Alarm has occurred in Gimli to FPGA direction. GIMLI Cirdan Information Select ""Restart System"". If the problem persists, please contact Siemens Service.",9538
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service.",9179
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),8633
+I,MRI_PTG,1011,The value of ptab_state has changed: 0 (<HEX>),8328
+I,MRI_COS,20,IRIS prepare time: 15 ms,8282
+I,MRI_COS,20,IRIS prepare time: 17 ms,8270
+I,MRI_PTG,226,Patient table information: Y-axis: not in motion Y. Y-Position is: <NUM_ID>,8085
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",7998
+I,MRI_MSR,11,Measurement server unlocked.,7981
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),7920
+I,MRI_PTG,213,Patient table information: Y-axis: in motion Y. Y-Position is: <NUM_ID>,7912
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,7880
+W,MRI_SEP,15,Cooling System: Inverter overrun. Please contact Siemens Service.,7878
+W,MRI_SEP,15,Cooling System: Inverter overrun. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_15_SEP_INVERTCONTROLHIGHWARNING_STATUS,7878
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,7838
+W,MRI_SEP,42,Cooling System: Actuator Status problem. Please contact Siemens Service.,7743
+I,MRI_COS,21,SPICE prepare time: 8 ms,7382
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions:UseDefaultArchive: True, DefaultDestinationNodes: RCIMOD2, PluginOptions: [DatabaseStatus, Integrable]. (-1), Objects:",7370
+I,PowerShell,403,Engine state is changed from Available to Stopped.   Details:  	NewEngineState=Stopped 	PreviousEngineState=Available  	SequenceNumber=15  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3770 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.3770 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,7357
+I,PowerShell,400,Engine state is changed from None to Available.   Details:  	NewEngineState=Available 	PreviousEngineState=None  	SequenceNumber=13  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3770 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.3770 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,7349
+I,PowerShell,600,"Provider ""Alias"" is Started.   Details:  	ProviderName=Alias 	NewProviderState=Started  	SequenceNumber=3  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3770 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7348
+I,PowerShell,600,"Provider ""Environment"" is Started.   Details:  	ProviderName=Environment 	NewProviderState=Started  	SequenceNumber=5  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3770 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7348
+I,PowerShell,600,"Provider ""FileSystem"" is Started.   Details:  	ProviderName=FileSystem 	NewProviderState=Started  	SequenceNumber=7  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3770 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7348
+I,PowerShell,600,"Provider ""Function"" is Started.   Details:  	ProviderName=Function 	NewProviderState=Started  	SequenceNumber=9  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3770 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7348
+I,PowerShell,600,"Provider ""Registry"" is Started.   Details:  	ProviderName=Registry 	NewProviderState=Started  	SequenceNumber=1  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3770 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7348
+I,PowerShell,600,"Provider ""Variable"" is Started.   Details:  	ProviderName=Variable 	NewProviderState=Started  	SequenceNumber=11  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3770 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7348
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'H1U,H2L')",7208
+I,PowerShell,403,Engine state is changed from Available to Stopped.   Details:  	NewEngineState=Stopped 	PreviousEngineState=Available  	SequenceNumber=15  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.3031 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,7206
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",7204
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",7204
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",7204
+I,PowerShell,400,Engine state is changed from None to Available.   Details:  	NewEngineState=Available 	PreviousEngineState=None  	SequenceNumber=13  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.3031 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,7201
+I,PowerShell,600,"Provider ""Alias"" is Started.   Details:  	ProviderName=Alias 	NewProviderState=Started  	SequenceNumber=3  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7201
+I,PowerShell,600,"Provider ""Environment"" is Started.   Details:  	ProviderName=Environment 	NewProviderState=Started  	SequenceNumber=5  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7201
+I,PowerShell,600,"Provider ""FileSystem"" is Started.   Details:  	ProviderName=FileSystem 	NewProviderState=Started  	SequenceNumber=7  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7201
+I,PowerShell,600,"Provider ""Function"" is Started.   Details:  	ProviderName=Function 	NewProviderState=Started  	SequenceNumber=9  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7201
+I,PowerShell,600,"Provider ""Registry"" is Started.   Details:  	ProviderName=Registry 	NewProviderState=Started  	SequenceNumber=1  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7201
+I,PowerShell,600,"Provider ""Variable"" is Started.   Details:  	ProviderName=Variable 	NewProviderState=Started  	SequenceNumber=11  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",7201
+E,syngo_TransferFramework,0,The DICOM association negotiation with AET GUTTMRWL failed permanently. SCP gave following rejection reason: NoReasonGiven.,7193
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",7187
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",7142
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.25, cable2: 20.75, cable3: 21.50, board: 32.00",6964
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",6843
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",6842
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",6842
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",6837
+S,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",6749
+S,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",6715
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",6604
+I,ExportImportFramework,0,The path to the directory where configuration XML files are located: C:\Program Files\Siemens\Numaris\bin\Services\OPM\Configuration\ExportImport\Transfers,6441
+I,ExportImportFramework,0,file:///C:/Program Files/Siemens/Numaris/bin/syngo.Services.OPM.Configuration.ExportImport.exe has been executed and the exitCode is: 0,6441
+S,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,6388
+S,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,6377
+I,MRI_FRR,3,Door of the examination room has been closed.,6263
+I,MRI_GSP,0,Load image in segment: planningRight,6222
+I,MRI_PSR,49,Beat Sensor cardiac signal is off,6208
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_FRR_NlsMessageId.Resources.FRRmsg.MRI_FRR_W_2_FRR_DOOR_OPENED",6197
+I,MRI_FRR,910,"Current coil temperatures (degree C): GC_AVG: 21.36, GC1: 21.50, GC2: 20.75, GC3: 21.00, GC4: 21.50, GC5: 21.50, GC6: 21.00, GC7: 21.50, GC8: 21.00, GC9: 21.00, GC10: 21.50, GC11: 21.00, GC12: 21.00 | Masks - GC1_4: <HEX>, GC5_8: <HEX>, GC9_12: <HEX>, GC9_12: <HEX> | REF - 1_OFF: 85.<NUM_ID>, 2_OK: 65.<NUM_ID>, 3_MAX: 125.<NUM_ID>, 4_LOW: 8.<NUM_ID>",6149
+I,MRI_FRR,447,Door of the examination room has been opened.,6086
+I,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",5992
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.50, cable2: 21.00, cable3: 21.50, board: 32.00",5972
+I,MRI_FRR,910,"Current coil temperatures (degree C): GC_AVG: 21.32, GC1: 21.50, GC2: 20.75, GC3: 21.00, GC4: 21.50, GC5: 21.50, GC6: 21.50, GC7: 21.50, GC8: 21.00, GC9: 20.75, GC10: 21.50, GC11: 21.00, GC12: 21.00 | Masks - GC1_4: <HEX>, GC5_8: <HEX>, GC9_12: <HEX>, GC9_12: <HEX> | REF - 1_OFF: 85.<NUM_ID>, 2_OK: 65.<NUM_ID>, 3_MAX: 125.<NUM_ID>, 4_LOW: 8.<NUM_ID>",5920
+I,MRI_FRR,910,"Current coil temperatures (degree C): GC_AVG: 21.36, GC1: 21.00, GC2: 20.75, GC3: 20.75, GC4: 21.50, GC5: 21.50, GC6: 21.00, GC7: 21.00, GC8: 21.00, GC9: 21.00, GC10: 21.50, GC11: 21.00, GC12: 20.75 | Masks - GC1_4: <HEX>, GC5_8: <HEX>, GC9_12: <HEX>, GC9_12: <HEX> | REF - 1_OFF: 85.<NUM_ID>, 2_OK: 65.<NUM_ID>, 3_MAX: 125.<NUM_ID>, 4_LOW: 8.<NUM_ID>",5910
+I,SampleFile,0,Sampled File - Type: Storage.xml,5843
+I,MRI_FRR,910,"Current coil temperatures (degree C): OVCavg: 22.27, OVC1: 22.55, OVC2: 22.50, OVC3: 22.55, OVC4: 22.15, OVC5: 22.00, OVC6: 22.00, OVC7: 21.80, OVC8: 22.60",5826
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'H1U,H2L,N1U,N2L')",5780
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.50, cable2: 21.50, cable3: 21.75, board: 32.00",5615
+I,SampleFile,0,Sampled File - Type: Diagnostics.xml,5597
+I,MRI_CPA,1067,The laser marker button on the control panel has been pressed.,5522
+I,CSA_LM_FLEXLM,3,"The description for Event ID '<NUM_ID>' in Source 'CSA_LM_FLEXLM' cannot be found. The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.",5504
+I,MRI_PTG,79,IO board: Remaining battery charge in percent: 0 (<HEX>),5433
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",5393
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.50, cable2: 21.50, cable3: 22.00, board: 32.00",5389
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,5306
+W,MRI_SEP,42,Cooling System: Actuator Status problem. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_42_SEP_MIXER_VALVE_ACTUATOR_STATUS,5288
+I,MRI_FRR,266,"XAxisPlusLocked: 0,  XAxisMinusLocked: 0, argument values are boolean.",5242
+I,MRI_FRR,267,"YAxisUpLocked: 0, YAxisDownLocked: 0, argument values are boolean.",5242
+I,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",5242
+I,MRI_COS,21,SPICE prepare time: 7 ms,5072
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",5045
+I,MRI_FRR,910,"Current coil temperatures (degree C): GC_AVG: 21.32, GC1: 21.00, GC2: 20.75, GC3: 20.75, GC4: 21.50, GC5: 21.50, GC6: 21.00, GC7: 21.00, GC8: 21.00, GC9: 20.75, GC10: 21.50, GC11: 21.00, GC12: 20.75 | Masks - GC1_4: <HEX>, GC5_8: <HEX>, GC9_12: <HEX>, GC9_12: <HEX> | REF - 1_OFF: 85.<NUM_ID>, 2_OK: 65.<NUM_ID>, 3_MAX: 125.<NUM_ID>, 4_LOW: 8.<NUM_ID>",5031
+I,MRI_PTG,1011,The value of ptab_state has changed: 4 (<HEX>),4992
+I,MRI_FRR,910,"Current coil temperatures (degree C): GC_AVG: 21.32, GC1: 21.00, GC2: 20.75, GC3: 20.75, GC4: 21.50, GC5: 21.50, GC6: 20.75, GC7: 21.00, GC8: 21.00, GC9: 20.75, GC10: 21.50, GC11: 21.00, GC12: 20.75 | Masks - GC1_4: <HEX>, GC5_8: <HEX>, GC9_12: <HEX>, GC9_12: <HEX> | REF - 1_OFF: 85.<NUM_ID>, 2_OK: 65.<NUM_ID>, 3_MAX: 125.<NUM_ID>, 4_LOW: 8.<NUM_ID>",4985
+I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,4820
+I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,4820
+I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",4818
+I,MRI_MSR,101,Valid coil select (Coil select #0: '18K'),4747
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.00, cable2: 20.75, cable3: 21.00, board: 32.00",4719
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",4687
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.50, cable2: 21.00, cable3: 21.75, board: 32.00",4540
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,4456
+I,MRI_GSP,0,Load image in segment: planningMiddle,4454
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.75, cable2: 21.50, cable3: 22.00, board: 32.00",4448
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,4427
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 21.75, cable2: 20.50, cable3: 21.00, board: 32.00",4422
+I,_unknown,0,Workflow States are: INPROGRESS,4414
+I,DeveloperLog_DevLogService,0,Workflow States are: INPROGRESS,4232
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,4221
+I,MRI_FRR,910,"Current coil temperatures (degree C): OVCavg: 22.27, OVC1: 22.55, OVC2: 22.50, OVC3: 22.55, OVC4: 22.15, OVC5: 22.00, OVC6: 22.00, OVC7: 21.75, OVC8: 22.65",4201
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.75, cable2: 21.50, cable3: 22.00, board: 32.25",4201
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""DataStorage_PatientBrowser_OperationInvoked"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <ClientHost>AWP1<NUM_ID></ClientHost> <ServerHost>AWP1<NUM_ID></ServerHost> <OperationName>SendDataToArchiveOperation</OperationName> <OperationType>Toolbar</OperationType> <SelectionContextType>ISeries</SelectionContextType> <NumberOfItems>1</NumberOfItems> <NumberOfNodes>-1</NumberOfNodes> <ExecutionTime><TIME>.<NUM_ID></ExecutionTime> </Event>",4182
+I,MRI_COS,21,SPICE prepare time: 13 ms,4172
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-990,4144
+I,MRI_PTG,1,Patient table information:  S10 has value 1,4098
+I,MRI_COS,21,SPICE prepare time: 19 ms,4001
+I,MRI_PTG,2,Patient table information:  S10 has value 0,3930
+I,DeveloperLog_DevLogService,0,"Some action locks are already active, screenLock value:ScreenLock holders: (ActionLockDescriptor ScreenLock Screen locked.)",3905
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",3823
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 22.50, cable2: 21.50, cable3: 22.00, board: 32.25",3813
+I,MRI_COS,20,IRIS prepare time: 22 ms,3792
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SP2-4'),3775
+I,DeveloperLog_DevLogService,0,IsStartExamOperationExecutingAsync(): isExecuting=False,3690
+I,MRI_FRR,910,"Current coil temperatures (degree C): cable1: 23.25, cable2: 22.00, cable3: 22.50, board: 32.25",3640
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SHA'),3600

@@ -37,7 +37,9 @@
       "Bash(pkill:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git mv:*)"
+      "Bash(git mv:*)",
+      "Bash(Select-Object -First 10)",
+      "Bash(conda list:*)"
     ]
   }
 }

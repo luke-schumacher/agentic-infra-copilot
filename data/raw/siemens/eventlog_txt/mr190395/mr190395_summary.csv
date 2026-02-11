@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,712924
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,358491
+I,MRI_CMM,1365,Patient table is docked.,358489
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,357714
+I,MRI_HEC,1025,Coldhead is running.,357714
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,357714
+I,MRI_HEC,1032,Helium compressor unit is running.,357714
+I,MRI_TBC,247,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",357697
+I,MRI_TBC,249,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",357697
+I,MRI_HEC,1029,DB25: status present.,357334
+I,MRI_PFW,9113,"InjectorDS425-Injector [Dev#<DEV_ID>] warning: The component is not connected. Connect component to MR System Select ""Restart System"". If the problem persists, please contact Siemens Service.",357328
+W,MRI_CEG,5,CAN24: CAN2 is not connected. Message is only relevant for Siemens Service.,355433
+W,MRI_CEG,6,CAN24: CAN3 is not connected. Message is only relevant for Siemens Service.,355433
+I,MRI_TBC,105,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,354731
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_TimApplication.,268312
+I,MRI_FRR,278,Emergency docking released.,258333
+I,MRI_FRR,16,The scanning has finished.,254746
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,250852
+I,MRI_HEC,1018,Helium compressor Event log has updated.,250105
+I,MRI_HEC,1023,Helium compressor Daily log has updated.,250096
+I,MRI_HEC,1022,Helium compressor Weekly log has updated.,250012
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,216562
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,216040
+I,MRI_TBC,106,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,180259
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,152525
+W,DeveloperLog_DevLogService,0,Category with ID: MR Berechnung doesn't contain translated value to be displayed!,135602
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",116043
+I,MRI_PTG,1011,The value of ptab_state has changed: 0 (<HEX>),113561
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",112773
+S,MRI_FRR,278,Emergency docking released.,99367
+S,MRI_FRR,16,The scanning has finished.,98102
+W,DeveloperLog_DevLogService,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,92978
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",89960
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",89943
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",89942
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",89912
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,89646
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,83834
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,77565
+I,MRI_PTG,1011,The value of ptab_state has changed: 4 (<HEX>),77297
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service.",76826
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",76068
+I,MRI_GSP,0,Load image in segment: planningRight,74564
+I,MRI_GSP,0,Load image in segment: planningMiddle,72785
+I,MRI_GSP,0,Load image in segment: planningLeft,69948
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",65944
+I,MRI_COS,21,SPICE prepare time: 6 ms,65676
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.276.0.37.1.42.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",65310
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",62263
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",61932
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",61916
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",61794
+I,MRI_PTG,226,Patient table information: Y-axis: not in motion Y. Y-Position is: <NUM_ID>,61246
+I,MRI_PTG,213,Patient table information: Y-axis: in motion Y. Y-Position is: <NUM_ID>,60864
+I,_unknown,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,58252
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",57644
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_FRR_NlsMessageId.Resources.FRRmsg.MRI_FRR_W_2_FRR_DOOR_OPENED",55243
+I,_unknown,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,53931
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),52387
+W,DeveloperLog_DevLogService,0,Category with ID: Save As non-DICOM doesn't contain translated value to be displayed!,51343
+W,DeveloperLog_DevLogService,0,Category with ID: Weitere Anwendungen doesn't contain translated value to be displayed!,51043
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",48676
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,48066
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,47120
+I,MRI_COS,21,SPICE prepare time: 5 ms,47067
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",45563
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",45085
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",45079
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",45077
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",45027
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,44905
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,44894
+I,MRI_COS,20,IRIS prepare time: 22 ms,44314
+I,DeveloperLog_DevLogService,0,"Updating MPPS for 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",44110
+S,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",43790
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 1.2.276.0.37.1.42.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",42156
+W,DeveloperLog_DevLogService,0,Did skip 5 messages. Content: Category with ID: MR Berechnung doesn't contain translated value to be displayed!,41490
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.276.0.37.1.42.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",41281
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",40419
+I,MRI_MSR,11,Measurement server unlocked.,39437
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",37338
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE2')",37256
+I,MRI_MSR,101,Valid coil select (Coil select #0: '18K'),37196
+I,MRI_COS,21,SPICE prepare time: 7 ms,36714
+I,MRI_PTG,1011,The value of ptab_state has changed: 3 (<HEX>),36284
+W,_unknown,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,36271
+I,SampleFile,0,Sampled File - Type: Diagnostics.xml,36144
+I,ExportImportFramework,0,The process syngo.ConfigConvert.exe has finished and the exitCode was 0.,35552
+I,DeveloperLog_DevLogService,0,IsStartExamOperationExecutingAsync(): isExecuting=False,35545
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_Deep_Learning_Recon N_Iterative_Denoising|N_Deep_Learning_Recon|N_ms_epi|N_DL_Recon_EPI|N_DL_Recon_HASTE N_Super_Resolution N_TimApplication.,34942
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,34119
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-990,33556
+W,MRI_SEP,15,Cooling System: Inverter overrun. Please contact Siemens Service.,33360
+W,MRI_SEP,15,Cooling System: Inverter overrun. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_15_SEP_INVERTCONTROLHIGHWARNING_STATUS,33352
+I,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",32821
+W,MRI_CPA,1015,Internal warning. The CAN warning level has been reached.,31356
+I,MRI_COS,20,IRIS prepare time: 21 ms,30703
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",30560
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",30554
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",30554
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",30545
+I,MRI_SCD,1009,Safe Component Detection successfully finished,30514
+I,MRI_SCD,1013,Sending data to 'SafeComponentDetectionConsumerAdapter@PerCoil' succeeded.,30512
+I,MRI_SCD,1009,Safe Component Detection successfully finished ID: syngo.MR.MRI_SCD_NlsMessageId.Resources.SCDmsg.MRI_SCD_S_1009_SCD_SUCCESS,30506
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),29850
+I,_unknown,0,"Updating MPPS for 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",28471
+I,DeveloperLog_DevLogService,0,UpdatePatientDataFrom3DCamera line 110:3DCamera update patient data end.,28311
+I,SampleFile,0,Sampled File - Type: FileCollectionInformation_2<NUM_ID>.log,28178
+I,SampleFile,0,Sampled File - Type: FileTransferInformation_2<NUM_ID>.log,28177
+I,MRI_IRC,1005,"MAX_ABS_ADC iNumReadouts: 3, iCha: 26, iNumCha: 32, fVal: 0.<NUM_ID>",27743
+I,MRI_IRC,1005,"MAX_ABS_ADC iNumReadouts: 6, iCha: 26, iNumCha: 32, fVal: 0.<NUM_ID>",27434
+I,MRI_COS,20,IRIS prepare time: 23 ms,27219
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 1.2.276.0.37.1.42.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",26614
+W,MRI_RSA,8,"System warning: Patient air temperature exceeds limit. Reduce temperature in examination room if possible. If the problem still persists, please contact Siemens Service.",26571
+I,MRI_CPA,1065,"The center button on the control panel was pressed briefly, i.e. for less than 1 second.",25936
+S,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",25817
+I,MRI_FRR,266,"XAxisPlusLocked: 0,  XAxisMinusLocked: 0, argument values are boolean.",25682
+I,MRI_FRR,267,"YAxisUpLocked: 0, YAxisDownLocked: 0, argument values are boolean.",25682
+I,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",25676
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,25510
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",23676
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 3 | Archivable = 2 | Contracts = 2.,23637
+I,SampleFile,0,Sampled File - Type: 1.2.276.0.37.1.42.<NUM_ID>.<NUM_ID>.xml,23539
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'UFS'),22794
+I,DeveloperLog_DevLogService,0,"CanExecuteDataCompleteCommand(): CanExecuteExam =True, study instance uid = 1.2.276.0.37.1.42.<NUM_ID>.<NUM_ID>",22708
+I,ExportImportFramework,0,The path to the directory where configuration XML files are located: C:\Program Files\Siemens\Numaris\bin\Services\OPM\Configuration\ExportImport\Transfers,22705
+I,ExportImportFramework,0,file:///C:/Program Files/Siemens/Numaris/bin/syngo.Services.OPM.Configuration.ExportImport.exe has been executed and the exitCode is: 0,22705
+I,DeveloperLog_DevLogService,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=False",22276
+I,DeveloperLog_DevLogService,0,Adapter Exam: NotifyMeasurementSystem() finished,22233
+I,MRI_CPA,1066,The home button on the control panel has been pressed.,22205
+I,DeveloperLog_DevLogService,0,Closing event fired to Patient tab for the workflow : <GUID> and study : 1.2.276.0.37.1.42.<NUM_ID>.<NUM_ID>,22000
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SHA'),21431
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,21386
+I,MRI_IRC,1005,"MAX_ABS_ADC iNumReadouts: 1, iCha: 1, iNumCha: 2, fVal: 0.<NUM_ID>",20480
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,20232
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,20224
+I,MRI_COS,21,SPICE prepare time: 13 ms,19542
+I,MRI_PTG,1,Patient table information:  S10 has value 1,19454
+I,MRI_PTG,128,Patient Table Information: Z-axis: movement outmost possible,19198
+I,MRI_CPA,1071,The lower button on the control panel is fully pressed.,19154
+I,MRI_COS,20,IRIS prepare time: 17 ms,18840
+S,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",18732
+I,MRI_PTG,2,Patient table information:  S10 has value 0,18707
+W,MRI_RSA,8,"System warning: Patient air temperature exceeds limit. Reduce temperature in examination room if possible. If the problem still persists, please contact Siemens Service. ID: syngo.MR.MRI_RSA_NlsMessageId.Resources.RSAmsg.MRI_RSA_W_8_RSA_BORE_OVERTEMP",18707
+I,DeveloperLog_DevLogService,0,ScanUI deactivated,18636
+I,_unknown,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,18462
+I,DeveloperLog_DevLogService,0,ExamPatientRegistration_OnExamDataChanged received,18368
+I,_unknown,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,17913
+I,MRI_CPA,1069,The lower button on the control panel is half pressed.,17637
+S,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",17501
+I,MRI_FRR,270,"New absolute position: 0 mm, New relative position: 990 mm, , Position category: 19. Explanation: First two argument values are long. See enum PerPTABPositionCategory defined in PerMotionControlIF for 3rd argument.",17298
+S,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,17251
+S,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,17245
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user.,16934
+I,MRI_PTG,225,PTAB y-axis is on ZHEIGHT_NEAR position Y-Position is: <NUM_ID>,16587
+I,DeveloperLog_DevLogService,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=True",16482
+I,MRI_COS,21,SPICE prepare time: 2 ms,16457
+I,MRI_CPA,1064,The center button on the control panel was pressed for more than 1 second.,16072
+I,MRI_PTG,41,The table user interface is switched on.,16068
+I,MRI_PTG,72,The IO board is on. Message is only relevant for Siemens Service.,16068
+I,MRI_PTG,127,Patient Table Information: Z-axis: movement inmost possible.,15868
+I,MRI_PTG,126,Patient table information: ready to move in Z-axis.,15866
+I,MRI_PTG,6,Patient table information:  S20 has value 0,15845
+S,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",15834
+I,MRI_PTG,201,Patient table information: magnet bore entry height along Y-axis reached. Y-Position is: <NUM_ID>,15808
+I,MRI_PTG,5,Patient table information:  S20 has value 1,15797
+I,DeveloperLog_DevLogService,0,<GUID>: CorReaHappened received while waiting for Start Scan,15290
+I,DeveloperLog_DevLogService,0,<GUID>: UpdateProcedure received while waiting for StartScan,15280
+I,MRI_COS,21,SPICE prepare time: 12 ms,15091
+I,MRI_COS,21,SPICE prepare time: 8 ms,14936
+I,MRI_COS,20,IRIS prepare time: 18 ms,14873
+I,DeveloperLog_DevLogService,0,"<GUID>: using settings: MPPSAutoComplete=True, QATemplate=MR ViewAndGo, DelayInSecondsForWorkflowDelete=<NUM_ID>, gContextFolderDisable=False",14666
+I,DeveloperLog_DevLogService,0,"Invocation of IPresentationStateDispenserExtended.CreatePresentationState - ModulesToExclude list contains following modules: IPresentationStateModule, IModalityLUTModule, ISpatialTransformationModule, IDisplayShutterModule, IBitmapDisplayShutterModule, IPresentationLUTModule, IGraphicAnnotationModule, IOverlayPlaneModule, IECGGraphicModule, IColorLUTModule",14638
+I,DeveloperLog_DevLogService,0,<GUID>: Prepare Workflow: Studies=1.2.276.0.37.1.42.<NUM_ID>.<NUM_ID> after sorting,14350
+W,DeveloperLog_DevLogService,0,"LM triggers full loading of all documents. This is caused by missing dicom tag(s) : (0018,9082) : (0021,0089)",13773
+I,DeveloperLog_DevLogService,0,Smart ImageText feature is: Enabled,13700
+I,_unknown,0,IsStartExamOperationExecutingAsync(): isExecuting=False,13650
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'BY1-3,SP2-4')",13644
+I,MRI_IRC,1005,"MAX_ABS_ADC iNumReadouts: 4, iCha: 1, iNumCha: 2, fVal: 0.<NUM_ID>",13294
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE1,2')",13165
+I,MRI_COS,21,SPICE prepare time: 4 ms,13157
+S,MRI_FRR,256,PTAB information: New center position has been set: New center position=-990,13095
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",13048
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",13041
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",13041
+I,MRI_FRR,3,Door of the examination room has been closed.,13039
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE3,4,NE1,2,SP1')",12966
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",12894
+I,MRI_FRR,447,Door of the examination room has been opened.,12681
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Overview.xml,12584
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Study01.xml,12584
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>.rde,12584
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Performance.xml,12582
+S,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",12524
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilPos', Sequence: '%AdjustSeq%/AdjCoilPosSeq')",12430
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilPos', Sequence: '%AdjustSeq%/AdjCoilPosSeq')",12429
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilPos', Sequence: '%AdjustSeq%/AdjCoilPosSeq')",12429
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilPos', Sequence: '%AdjustSeq%/AdjCoilPosSeq')",12418
+I,DeveloperLog_DevLogService,0,Receiving event with name DMWL_QUERY_SERVICE_V1.0 in DmwlService IsInitialized Body,12240
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user. ID: syngo.MR.MRI_MSR_NlsMessageId.Resources.MSRmsg.MRI_MSR_I_34_USER_STOP,12221

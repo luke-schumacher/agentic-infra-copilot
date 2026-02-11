@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,321749
+I,MRI_CMM,1365,Patient table is docked,162551
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,162551
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,162390
+I,MRI_HEC,1025,Coldhead is running.,162390
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,162390
+I,MRI_HEC,1032,Helium compressor unit is running.,162390
+I,MRI_VLM,1418,VLM: Normal flow is present.,162388
+I,MRI_HEC,1029,DB25: status present.,162387
+I,MRI_TBC,247,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",160875
+I,MRI_TBC,249,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",160875
+I,MRI_TBC,105,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,160427
+I,MRI_PAC,104,The following licenses are needed to run the protocol  .,140832
+I,MRI_FRR,278,Emergency docking released,138145
+I,MRI_FRR,16,The scanning has finished.,136680
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,100187
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,100027
+W,MRI_VLM,1408,VLM: Air filter needs replacement.,83317
+I,MRI_TBC,106,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,76299
+W,DeveloperLog_DevLogService,0,Inconsistent data arrived,62653
+I,DeveloperLog_DevLogService,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0. Prior flag: False,54223
+I,DeveloperLog_DevLogService,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>. Prior flag: False,49579
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,43717
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",38253
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",38121
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",38087
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",38034
+I,MRI_COS,21,SPICE prepare time: 9 ms,36697
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",36581
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,36223
+I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,35574
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,35537
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE2')",35335
+I,MRI_GSP,0,Load image in segment: planningLeft,32028
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,30676
+I,MRI_HEC,1023,Helium compressor Daily log has updated.,29871
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",27594
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",27217
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",27176
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",27122
+I,MRI_COS,21,SPICE prepare time: 10 ms,26036
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",25584
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),25481
+I,DeveloperLog_DevLogService,0,License is available.,24695
+I,DeveloperLog_DevLogService,0,Did skip 1 messages. Content: License is available.,24693
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",24607
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,24145
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,24140
+S,MRI_FRR,278,Emergency docking released,23371
+S,MRI_FRR,16,The scanning has finished.,23201
+W,DeveloperLog_DevLogService,0,ListView Item value is null => False,21807
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",21691
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),21688
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",21682
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",21680
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",21624
+I,DeveloperLog_DevLogService,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.50.<NUM_ID>.9.<NUM_ID>. Prior flag: False,20748
+I,MRI_SIM,3015,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,20711
+I,MRI_SIM,3014,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,20655
+I,MRI_SIM,3011,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,20640
+I,MRI_SIM,3013,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,20615
+I,MRI_SIM,3016,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 5 was updated successfully.,20602
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Performance_Duration"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <Functionality>CreateLayout</Functionality> <ProcessName>syngo.Common.Container</ProcessName> <ProcessId><NUM_ID></ProcessId> <Hostname>AWP1<NUM_ID></Hostname> <TaskID>null</TaskID> <Precision_Frequency><NUM_ID></Precision_Frequency> <Start_Absolute><DATE>T<TIME>.<NUM_ID>+08:00</Start_Absolute> <Start_Relative><NUM_ID></Start_Relative> <Stop_Absolute><DATE>T<TIME>.<NUM_ID>+08:00</Stop_Absolute> <Stop_Relative><NUM_ID></Stop_Relative> </Event>",19678
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MIP,18383
+I,MRI_FRR,4,A coil has been plugged in.,16724
+I,MRI_MSR,11,Measurement server unlocked.,16476
+I,MRI_GSP,0,Load image in segment: planningMiddle,16360
+I,MRI_COS,21,SPICE prepare time: 11 ms,16126
+I,MRI_GSP,0,Load image in segment: planningRight,14916
+I,MRI_COS,21,SPICE prepare time: 12 ms,14562
+I,DeveloperLog_DevLogService,0,Reporting 0 context items to host for <GUID>.,13842
+I,DeveloperLog_DevLogService,0,Reporting 2 context items to host for <GUID>.,13787
+E,TransferMgr,17,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP CONNECT error. Ftp server: ""SGPT806X"" FtpUserName: ""rdiagftp"".</Description></Event>",12966
+E,TransferMgr,35,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP_UP error: sourcefile: """".</Description></Event>",12966
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MPR_THICK,12880
+W,DeveloperLog_DevLogService,0,Count is zero,12407
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra1D', Sequence: '%AdjustSeq%/AdjTra1DSeq')",11935
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra1D', Sequence: '%AdjustSeq%/AdjTra1DSeq')",11933
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra1D', Sequence: '%AdjustSeq%/AdjTra1DSeq')",11932
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra1D', Sequence: '%AdjustSeq%/AdjTra1DSeq')",11924
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra2D', Sequence: '%AdjustSeq%/AdjTra2DSeq')",11894
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra2D', Sequence: '%AdjustSeq%/AdjTra2DSeq')",11886
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra2D', Sequence: '%AdjustSeq%/AdjTra2DSeq')",11886
+I,DeveloperLog_DevLogService,0,Reporting 1 context items to host for <GUID>.,11876
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra2D', Sequence: '%AdjustSeq%/AdjTra2DSeq')",11869
+I,MRI_COS,20,IRIS prepare time: 25 ms,11494
+I,DeveloperLog_DevLogService,0,Did skip 1 messages. Content: Plug in: VectorRayCaster is used for filter type MPR_THICK,11423
+I,MRI_MSR,101,Valid coil select (Coil select #0: '18K'),11192
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",11014
+W,DeveloperLog_DevLogService,0,Did skip 43 messages. Content: Inconsistent data arrived,10507
+I,MRI_COS,20,IRIS prepare time: 24 ms,10178
+I,MRI_COS,20,IRIS prepare time: 26 ms,10074
+W,_unknown,0,Inconsistent data arrived,10039
+I,MRI_CPA,1065,"The center button on the control panel was pressed briefly, i.e. for less than 1 second.",9700
+I,DeveloperLog_DevLogService,0,Adapter Exam: NotifyMeasurementSystem() finished,9682
+I,_unknown,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0. Prior flag: False,9233
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MPR,9183
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE1,2')",9034
+I,MRI_COS,21,SPICE prepare time: 13 ms,8749
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform 'Global Volume-Generation' on '1.3.12.2.1107.5.2.50.<NUM_ID>.9.<NUM_ID>'.,8578
+I,MRI_PAC,104,The following licenses are needed to run the protocol   MRI_CV_MAIN.,8390
+W,DeveloperLog_DevLogService,0,"Child activity 'SendOperationCorrelationScope' failed with exception: System.ServiceModel.FaultException: The execution of an InstancePersistenceCommand was interrupted because the instance key '<GUID>' was not associated to an instance. This can occur because the instance or key has been cleaned up, or because the key is invalid. The key may be invalid if the message it was generated from was sent at the wrong time or contained incorrect correlation data.    at System.ServiceModel.Activities.FromReply.Execute(CodeActivityContext context)    at System.Activities.CodeActivity.InternalExecute(ActivityInstance instance, ActivityExecutor executor, BookmarkManager bookmarkManager)    at System.Activities.Runtime.ActivityExecutor.ExecuteActivityWorkItem.ExecuteBody(ActivityExecutor executor, BookmarkManager bookmarkManager, Location resultLocation)",8290
+I,DeveloperLog_DevLogService,0,"using settings: MPPSAutoComplete=True, QATemplate=MR ViewAndGo, DelayInSecondsForWorkflowDelete=<NUM_ID>, gContextFolderDisable=False",8197
+I,DeveloperLog_DevLogService,0,*** Prepare Workflow: Studies=1.3.51.<NUM_ID>.<NUM_ID>.<NUM_ID>,8186
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_SY.CAD_AnT"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> <Content><Item Type=""Feature"" Name=""AnatomyVisualizer"" ControlsUsed="""" ToolsUsed="""" /></Content> </Event>",8065
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-1129,7971
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_MR View&GO"" time=""<DATE> <TIME>Z""> <Content></Content> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> </Event>",7939
+W,DeveloperLog_DevLogService,0,IInteractiveFilterToggleImageTextAC not found. Continue without it.,7926
+I,DeveloperLog_DevLogService,0,created Workflow=<GUID>@WorkflowNX in database,7874
+E,DeveloperError_DevLogService,0,Auto Views License not Available!,7762
+E,DeveloperError_DevLogService,0,SY_AUTO_VIEWS_MENU_ID: License not available,7762
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,7680
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,7580
+I,_unknown,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>. Prior flag: False,7245
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",7212
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",7140
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",7131
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",7130
+I,MRI_PTG,79,IO board: Remaining battery charge in percent: 0 (<HEX>),7124
+W,DeveloperLog_DevLogService,0,Did skip 3 messages. Content: Count is zero,7097
+I,MRI_COS,20,IRIS prepare time: 23 ms,7083
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'HE1-4'),7077
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,7062
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,7062
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",7031
+I,MRI_PTG,128,Patient Table Information: Z-axis: movement outmost possible,6939
+I,MRI_COS,20,IRIS prepare time: 27 ms,6906
+I,MRI_PTG,1,Patient table information:  S10 has value 1,6905
+I,MRI_PTG,2,Patient table information:  S10 has value 0,6827
+E,TransferMgr,5,"<Event type=""ProtocolEvent"" name=""TransferMgr""><Description>----- Transfer failed. -----</Description></Event>",6769
+E,TransferMgr,19,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP PUTFILE2SERVER error. Ftp server: ""SGPT806X"" ""Error: Connect to FTP server - A connection with the server could not be established "".</Description></Event>",6656
+I,MRI_CPA,1064,The center button on the control panel was pressed for more than 1 second.,6649
+I,DeveloperLog_DevLogService,0,Using 64 characters for study instance uid length,6495
+I,MRI_PTG,226,Patient table information: Y-axis: not in motion Y. Y-Position is: <NUM_ID>,6431
+I,MRI_PTG,213,Patient table information: Y-axis: in motion Y. Y-Position is: <NUM_ID>,6410
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-1130,6374
+I,MRI_MOV,81,"Drag'n Drop executed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing Scope: DragDropUseCase Action: <Item Type=""DragDropUseCase"" LogicalName=""SimpleReplaceDragDropTool"" /> ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_81_DRAG_DROP",6347
+I,MRI_MOV,82,"Monitor Configuration received Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing Scope: MonitorInformation Action: <Item Type=""MonitorInformation"" MonitorName=""DISPLAY1"" PrimaryMonitor=""True"" Width=""1920"" Height=""1200"" ScalingFactor=""1.1"" /> ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_82_MONITOR_CONFIGURATION",6165
+S,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",6111
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>INPROGRESS</NEW_STATE> </Event>",6107
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user. ID: syngo.MR.MRI_MSR_NlsMessageId.Resources.MSRmsg.MRI_MSR_I_34_USER_STOP,6102
+I,MRI_COS,21,SPICE prepare time: 14 ms,6100
+I,MRI_CCS,1008,Connected coils Plugs/PN/Rev./SN: CoilID 'Body'/1:   Plugs: '0' PN: '<NUM_ID>' Rev.: '05' SN: '2412' CoilID 'HeadNeck_20_TCS'/1:   Plugs: '6' '5' PN: '<NUM_ID>' Rev.: '04' SN: '3043' CoilID 'Spine_32_RS'/1:   Plugs: '7' '8' PN: '<NUM_ID>' Rev.: '02' SN: '2204'PN: '<NUM_ID>' Rev.: '02' SN: '2204',6058
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SHA'),6052
+I,MRI_CCS,11,"Coil change event was handled successfully. (Coil context: 'default'. Coil plug codes: 'ff,0,0,0,0,1315,1314,131c,131d,0,0'. Connected coil elements: BC,HE2,4,NE2,SP1-8.)",6010
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout: MRViewing_Stack3x2-s CurrentLayout:  ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,5972
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_Read_Syngo_Via"" time=""<DATE> <TIME>Z""> <ProcedureUid><NUM_ID></ProcedureUid> <WorkflowId><GUID></WorkflowId> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <UseCase>ClaimWorkflow</UseCase> <UseCaseType>Manual</UseCaseType> <ClientHost>AWP1<NUM_ID></ClientHost> <EventName>via_Claim_transition</EventName> </Event>",5950
+W,DeveloperLog_DevLogService,0,Closing event fired to Patient tab for the workflow : <GUID> and study : 1.3.51.<NUM_ID>.<NUM_ID>.<NUM_ID>,5896
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user.,5891
+I,DeveloperLog_DevLogService,0,IafReadyCommand is true for floating segment,5779
+I,MRI_HEC,1022,Helium compressor Weekly log has updated.,5745
+E,MRI_GWD,6,Stimulation threshold exceeded. ID: syngo.MR.MRI_GWD_NlsMessageId.Resources.GWDmsg.MRI_GWD_E_6_STIMULATION_THRESHOLD_EXCEEDED,5634
+E,MRI_MIF,27,Preparation of measurement system has failed. ID: syngo.MR.MRI_MIF_NlsMessageId.Resources.MIFmsg.MRI_MIF_E_27_SLOT_PREPARE_FAILED,5454
+E,MRI_GWD,6,Stimulation threshold exceeded.,5428
+E,MRI_MIF,27,Preparation of measurement system has failed.,5300
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""DataStorage_DistributionStep_ModifyIntent"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <ClientHost>AWP1<NUM_ID></ClientHost> <ServerHost>AWP1<NUM_ID></ServerHost> <DistributionType>Workflow</DistributionType> <NumberOfItems>1</NumberOfItems> <NumberOfNodes>1</NumberOfNodes> <NumberOfTotalIntents>1</NumberOfTotalIntents> </Event>",5253
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout:  CurrentLayout: MRViewing_Stack3x2-s ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,5204
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>SCHEDULED</NEW_STATE> </Event>",5166
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""DataStorage_DistributionStep_DisplayIntent"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <ClientHost>AWP1<NUM_ID></ClientHost> <ServerHost>AWP1<NUM_ID></ServerHost> <DistributionType>Workflow</DistributionType> <NumberOfSeriesItems>9</NumberOfSeriesItems> <NumberOfInstanceItems>0</NumberOfInstanceItems> </Event>",5137
+W,MRI_SEP,42,Cooling System: Actuator Status problem. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_42_SEP_MIXER_VALVE_ACTUATOR_STATUS,5125
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>COMPLETING</NEW_STATE> </Event>",5095
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Performance_Duration"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <Functionality>CreateLayout</Functionality> <ProcessName>syngo.Common.Container</ProcessName> <ProcessId><NUM_ID></ProcessId> <Hostname>AWP1<NUM_ID></Hostname> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> <LayoutName>MRViewing_Stack3x2-s</LayoutName> <LayoutDescr>Stack 3x2</LayoutDescr> <Precision_Frequency><NUM_ID></Precision_Frequency> <Start_Absolute><DATE>T<TIME>.<NUM_ID>+08:00</Start_Absolute> <Start_Relative><NUM_ID></Start_Relative> <Stop_Absolute><DATE>T<TIME>.<NUM_ID>+08:00</Stop_Absolute> <Stop_Relative><NUM_ID></Stop_Relative> </Event>",5028
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""WorkflowScannerQaAvPrimary"" time=""<DATE> <TIME>Z""> <Trigger>syngo.MR.Services.Workflow.Adapter.ViaWorkflowInvoker</Trigger> <ClientHost>AWP1<NUM_ID></ClientHost> <ProcedureUid>1.3.51.<NUM_ID>.<NUM_ID>.<NUM_ID></ProcedureUid> <StudyUid>1.3.51.<NUM_ID>.<NUM_ID>.<NUM_ID></StudyUid> <WorkflowId><GUID></WorkflowId> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <UseCase>ClaimWorkflow</UseCase> <UseCaseType>Manual</UseCaseType> </Event>",5003
+I,DeveloperLog_DevLogService,0,"DMService Force Delete input uids: study=1.3.51.<NUM_ID>.<NUM_ID>.<NUM_ID> Series= instance= Stacktrace:    at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)    at System.Environment.get_StackTrace()    at syngo.Services.sDM.DMService.Core.DMService.ForceDelete(IList`1 dicomUidList)    at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)    at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)    at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)    at syngo.Services.sDM.Infrastructure.Proxy.Intercept.DynamicProxy.SafeInvoke(MethodInfo method, Object objectInstance, Object[] arguments)    at syngo.Services.sDM.Infrastructure.Performance.PerformanceCounterServiceInterceptor.OnMethodCall(IDynamicProxyInterceptorChain interceptorChain, MethodInfo method, Object[] args)    at syngo.Services.sDM.Infrastructure.Proxy.Intercept.DynamicProxy.OnMethodCall(MethodInfo method, Object[] args)    at syngo.Services.sDM.NavigatorService.NavigatorService.ForceDelete(IList`1 dicomUidList)    at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)    at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)    at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)    at syngo.Services.sDM.Infrastructure.Proxy.Intercept.DynamicProxy.SafeInvoke(MethodInfo method, Object objectInstance, Object[] arguments)    at syngo.Services.sDM.Infrastructure.Performance.PerformanceCounterServiceInterceptor.OnMethodCall(IDynamicProxyInterceptorChain interceptorChain, MethodInfo method, Object[] args)    at syngo.Services.sDM.Infrastructure.Proxy.Intercept.DynamicProxy.OnMethodCall(MethodInfo method, Object[] args)    at SyncInvokeForceDelete(Object , Object[] , Object[] )    at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]& outputs)    at syngo.Services.sDM.Infrastructure.WCF.Behaviors.Identity.IdentityDispatchOperationInvoker.Invoke(Object instance, Object[] inputs, Object[]& outputs)    at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc& rpc)    at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc& rpc)    at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)    at System.ServiceModel.Dispatcher.MessageRpc.Wrapper.Resume(Boolean& alreadyResumedNoLock)    at System.ServiceModel.Dispatcher.ThreadBehavior.ResumeProcessing(IResumeMessageRpc resume)    at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)    at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc& rpc)    at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)    at System.ServiceModel.Dispatcher.ChannelHandler.DispatchAndReleasePump(RequestContext request, Boolean cleanThread, OperationContext currentOperationContext)    at System.ServiceModel.Dispatcher.ChannelHandler.HandleRequest(RequestContext request, OperationContext currentOperationContext)    at System.ServiceModel.Dispatcher.ChannelHandler.AsyncMessagePump(IAsyncResult result)    at System.ServiceModel.Dispatcher.ChannelHandler.OnAsyncReceiveComplete(IAsyncResult result)    at System.Runtime.Fx.AsyncThunk.UnhandledExceptionFrame(IAsyncResult result)    at System.Runtime.AsyncResult.Complete(Boolean completedSynchronously)    at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceiveAsyncResult.OnReceive(IAsyncResult result)    at System.Runtime.Fx.AsyncThunk.UnhandledExceptionFrame(IAsyncResult result)    at System.Runtime.AsyncResult.Complete(Boolean completedSynchronously)    at System.ServiceModel.Channels.SynchronizedMessageSource.ReceiveAsyncResult.OnReceiveComplete(Object state)    at System.ServiceModel.Channels.SessionConnectionReader.OnAsyncReadComplete(Object state)    at System.Net.Sockets.SocketAsyncEventArgs.OnCompleted(SocketAsyncEventArgs e)    at System.Net.Sockets.SocketAsyncEventArgs.FinishOperationSuccess(SocketError socketError, Int32 bytesTransferred, SocketFlags flags)    at System.Net.Sockets.SocketAsyncEventArgs.CompletionPortCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* nativeOverlapped)    at System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)",4985
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Performance_Duration"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <Functionality>CloseStudy</Functionality> <ProcessName>syngo.Common.Container</ProcessName> <ProcessId><NUM_ID></ProcessId> <Hostname>AWP1<NUM_ID></Hostname> <TaskID>TM.WF_MR ViewAndGo_<GUID></TaskID> <CloseOption>Save</CloseOption> <Precision_Frequency><NUM_ID></Precision_Frequency> <Start_Absolute><DATE>T<TIME>.<NUM_ID>+08:00</Start_Absolute> <Start_Relative><NUM_ID></Start_Relative> <Stop_Absolute><DATE>T<TIME>.<NUM_ID>+08:00</Stop_Absolute> <Stop_Relative><NUM_ID></Stop_Relative> </Event>",4967
+W,DeveloperLog_DevLogService,0,The list of Stored target nodes is null => myTargets,4961
+W,DeveloperLog_DevLogService,0,Did skip 1 messages. Content: Count is zero,4947
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>COMPLETED</NEW_STATE> </Event>",4940
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform 'Global Volume-Generation' on '1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>'.,4870
+I,DeveloperLog_DevLogService,0,"*** Invoke Workflow received: ContinueExamination ID=<GUID>@WorkflowNX, ParametersInvoke=Invoke: 2 ProcedureStatus=INPROGRESS ExamSelection=",4859
+I,DeveloperLog_DevLogService,0,CreateReadingWorkflow success=True,4858
+I,DeveloperLog_DevLogService,0,Adapter Exam: 'patient registered'-event sent,4857
+I,DeveloperLog_DevLogService,0,Adapter Exam: examination data mapped to MeasPatient,4857
+I,DeveloperLog_DevLogService,0,Adapter Exam: measurement system initialized (map),4857
+I,DeveloperLog_DevLogService,0,CheckAndAdjustBirthdateToAge() finished,4857
+I,DeveloperLog_DevLogService,0,CheckNewPatient() finished,4857
+I,DeveloperLog_DevLogService,0,DicomDefaultAttributeList.Count: 1,4857
+I,DeveloperLog_DevLogService,0,MPPS created part 2 (send): SOPInstanceUID=1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>,4857
+I,DeveloperLog_DevLogService,0,adding further values to DICOM dataset,4857
+I,DeveloperLog_DevLogService,0,calling InformationExtractor to create DICOM dataset,4857
+I,DeveloperLog_DevLogService,0,dataSetList.Count: 1,4857
+I,DeveloperLog_DevLogService,0,ClaimReadingWorkflow success=True,4850
+I,DeveloperLog_DevLogService,0,ReadingWorkflow claimed successfully,4850
+W,MRI_SEP,42,Cooling System: Actuator Status problem. Please contact Siemens Service.,4832
+I,DeveloperLog_DevLogService,0,"*** Invoke Workflow: Finished Complete Workflow, Id=<GUID>@WorkflowNX",4826
+I,DeveloperLog_DevLogService,0,"*** Invoke Workflow: Complete, WorkflowId=<GUID>@WorkflowNX",4825
+I,DeveloperLog_DevLogService,0,Adapter Exam: 'patient deregistered'-event sent,4825
+I,DeveloperLog_DevLogService,0,Adapter Exam: examination data unmapped from MeasPatient,4825
+I,DeveloperLog_DevLogService,0,Adapter Exam: measurement system initialized (unmap),4825
+I,DeveloperLog_DevLogService,0,starting MPPS complete if autocomplete,4825
+I,MRI_CCS,1009,Coil cache hit ratio 100 % (0 % full).,4783
+I,MRI_IRC,52,IceProgram Info:     DecorrCoils: H12/1 H11/2 H14/3 H13/4 H32/5 H31/6 H34/7 H33/8 H21/9 H22/10 H23/11 H24/12 H42/13 H41/14 H44/15 H43/16 N22/17 N21/18,4764
+I,DeveloperLog_DevLogService,0,*** CorReaHappened received while waiting for Start Scan,4729
+I,DeveloperLog_DevLogService,0,UpdateProcedure received while waiting for StartScan,4723
+I,DeveloperLog_DevLogService,0,ReadingWorkflow created successfully,4722
+I,DeveloperLog_DevLogService,0,Did skip 2 messages. Content: Plug in: VectorRayCaster is used for filter type MPR,4713
+I,DeveloperLog_DevLogService,0,"*** Invoke Workflow: Start from Organizer, ID=<GUID>@WorkflowNX, ParametersInvoke=Invoke: 0",4709
+I,DeveloperLog_DevLogService,0,"Workflow ID=<GUID>@WorkflowNX: isExaminationContextValid=True, validationErrorMessage=",4709
+I,DeveloperLog_DevLogService,0,QueryData: Received PatientId for given RequestedProcedureId=<NUM_ID>,4702
+I,DeveloperLog_DevLogService,0,"TriggerExaminationStart succeeded, WorkflowId=<GUID>@WorkflowNX, StudyInstanceUid=1.3.51.<NUM_ID>.<NUM_ID>.<NUM_ID>",4702

@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,239678
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,238406
+E,DeveloperError_DevLogService,0,Parameter number mismatch occured!,110261
+I,MRI_DVS,1098,dVStarK2268 Info: CANbus {0} reached Error Active level. No parameters are given! Note that the message has been modified due to an error!,95028
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>.0.0.0'.,93488
+I,MRI_DVS,1098,dVStarK2268 Info: CANbus  reached Error Active level.,86645
+I,ExportImportFramework,0,The process syngo.ConfigConvert.exe has finished and the exitCode was 0.,49151
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",45378
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",45378
+I,ExportImportFramework,0,The path to the directory where configuration XML files are located: C:\Program Files\Siemens\Numaris\bin\Services\OPM\Configuration\ExportImport\Transfers,31313
+I,ExportImportFramework,0,file:///C:/Program Files/Siemens/Numaris/bin/syngo.Services.OPM.Configuration.ExportImport.exe has been executed and the exitCode is: 0,31308
+I,MRI_FRR,266,"XAxisPlusLocked: 1,  XAxisMinusLocked: 1, argument values are boolean.",30485
+I,MRI_FRR,267,"YAxisUpLocked: 1, YAxisDownLocked: 1, argument values are boolean.",30484
+I,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",30461
+I,_unknown,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>.0.0.0'.,28721
+I,MRI_RFP,2010,RF Power Amplifier: power down.,26481
+E,_unknown,0,Parameter number mismatch occured!,26469
+I,MRI_RFP,2017,RF Power Amplifier: RFPA Guarding on.,25875
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",25191
+I,DeveloperLog_DevLogService,0,Smart ImageText feature is: Enabled,24636
+I,MRI_FRR,278,Emergency docking released.,22921
+W,MRI_CMM,1323,RFCELK2258_COM-COM [Dev#<DEV_ID>] reports warning: The supervision of U8 of the frontplane has been activated.,21278
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_TimApplication.,21151
+W,MRI_DVS,1099,dVStarK2268 Warning: CANbus {0} reached Error Passive level. No parameters are given! Note that the message has been modified due to an error!,19498
+I,MRI_FRR,16,The scanning has finished.,18173
+W,MRI_DVS,1099,dVStarK2268 Warning: CANbus  reached Error Passive level.,17533
+W,DeveloperLog_DevLogService,0,"LM triggers full loading of all documents. This is caused by missing dicom tag(s) : (0018,9082) : (0021,0089)",14290
+I,DeveloperLog_DevLogService,0,Reporting 0 context items to host for RetroRecon_CFUID_2<NUM_ID>.,14276
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,12992
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",12634
+E,TransferMgr,17,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP CONNECT error. Ftp server: ""SAP09505"" FtpUserName: ""rdiagftp"".</Description></Event>",12518
+I,DeveloperLog_DevLogService,0,Convert shortcut from resx don't pass: Requested value 'ST' was not found.,12413
+W,DeveloperLog_DevLogService,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,11751
+I,MRI_PFW,9001,GPAK2298 [Dev#<DEV_ID>] info: Emergency (EMCY - 1) has been received,11677
+W,DeveloperLog_DevLogService,0,NavigatorAccess not available,11664
+S,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",11473
+S,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",11473
+I,MRI_SEP,200,Cooling System: Insufficient flow to the Cabinet Building Block. The pump status is 1. Please contact Siemens Service.,10325
+W,MRI_SEP,3,Cooling System: Insufficient flow in the Cabinet Building Block. Please contact Siemens Service.,10270
+W,MRI_SEP,3,Cooling System: Insufficient flow in the Cabinet Building Block. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_3_SEP_FLOWCBB_STATUS,9665
+I,DeveloperLog_DevLogService,0,"ACQM: Set distribution intentions for 1 instances to: None. (-1), Objects: <InstanceSyngoUid StudyInstanceUid='1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>' SeriesInstanceUid='1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>.0.0.0' SopInstanceUid='1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>' SopClassUid='1.3.12.2.1107.5.99.3.10'><Location ObjectLocation=''><DeviceHandle DeviceType='FilesystemSyngo' DeviceLocation='CF::RetroRecon_CFUID_2<NUM_ID>'/></Location></InstanceSyngoUid>",9363
+I,DeveloperLog_DevLogService,0,Reporting 0 context items to host for Seso-<NUM_ID>.,8642
+E,MRI_RCC,1101,"RCCS Error: Clock fault on COSLIO board. Retry, reboot Scanner, switch off/on Scanner. If the problem persists, please contact Siemens Service.",8132
+E,MRI_PFW,9109,"RCCSK2254_1_64RX [Dev#<DEV_ID>] error: The component has errors. Retry measurement. Select ""Restart System"". If the problem persists, please contact Siemens Service.",8079
+I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,7862
+E,MRI_RCC,1101,"RCCS Error: Clock fault on COSLIO board. Retry, reboot Scanner, switch off/on Scanner. If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_RCC_NlsMessageId.Resources.RCCmsg.MRI_RCC_E_1101_RCC_RCCSK2254_CLK_CTRL",7784
+E,MRI_PFW,9109,"RCCSK2254_1_64RX [Dev#<DEV_ID>] error: The component has errors. Retry measurement. Select ""Restart System"". If the problem persists, please contact Siemens Service.  ID: syngo.MR.MRI_PFW_NlsMessageId.Resources.PFWmsg.MRI_PFW_E_9109_PFW_COMPONENT_HAS_ERRORS",7733
+S,MRI_FRR,266,"XAxisPlusLocked: 1,  XAxisMinusLocked: 1, argument values are boolean.",7731
+S,MRI_FRR,267,"YAxisUpLocked: 1, YAxisDownLocked: 1, argument values are boolean.",7731
+S,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",7731
+I,TM_TQ,3,"Got status of transfer 1096. Transfer file size: <NUM_ID>, Current file size: <NUM_ID>.",7470
+I,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",7384
+I,_unknown,0,Smart ImageText feature is: Enabled,6777
+S,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",6578
+I,MRI_COS,21,SPICE prepare time: 5 ms,6350
+W,MRI_SEP,15,Cooling System: Inverter overrun. Please contact Siemens Service.,6148
+I,MRI_MSR,11,Measurement server unlocked.,6110
+I,MRI_CCS,11,"Coil change event was handled successfully. (Coil context: 'default'. Coil plug codes: 'ee,ee,ee,ee,ee,ee,ee,ee,ee,ee,ee'. Connected coil elements: .)",6030
+W,MRI_SEP,15,Cooling System: Inverter overrun. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_15_SEP_INVERTCONTROLHIGHWARNING_STATUS,5897
+I,MRI_CCS,11,"Coil change event was handled successfully. (Coil context: 'default'. Coil plug codes: 'ee,ee,ee,ee,ee,ee,ee,ee,ee,ee,ee'. Connected coil elements: .) ID: syngo.MR.MRI_CCS_NlsMessageId.Resources.CCS_msg.MRI_CCS_S_11_UPDATE_MEASCOIL_OK",5885
+W,MRI_MCP,1408,Local SAR watchdog is disabled - no human scanning allowed!,5744
+W,MRI_MCP,1408,Local SAR watchdog is disabled - no human scanning allowed! ID: syngo.MR.MRI_MCP_NlsMessageId.Resources.MCPmsg.MRI_MCP_W_1408_MCP_WATCHDOG_WARNING,5742
+S,MRI_FRR,278,Emergency docking released.,5516
+I,DeveloperLog_DevLogService,0,ExamPatientRegistration_OnExamDataChanged received,5494
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",5468
+I,MRI_PTD,100,Patient Table Information : Z-axis: is in motion.,5462
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",5375
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",5368
+I,SampleFile,0,Sampled File - Type: Process-<NUM_ID>-<NUM_ID>-<NUM_ID>.xml,5296
+I,MRI_PTD,110,Patient Table Information : Z-axis: Start motion acknowledge.,5055
+E,MRI_CCS,12,"Coil change failed: Check the coil connection on the patient table. If the problem still persists, create a SaveLog and contact Siemens Service.",5010
+I,DeveloperLog_DevLogService,0,"ACQM: Set distribution intentions for 1 instances to: None. (-1), Objects: <InstanceSyngoUid StudyInstanceUid='1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>' SeriesInstanceUid='1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>.0.0.0' SopInstanceUid='1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>' SopClassUid='1.3.12.2.1107.5.99.3.10'><Location ObjectLocation=''><DeviceHandle DeviceType='FilesystemSyngo' DeviceLocation='CF::Seso-<NUM_ID>'/></Location></InstanceSyngoUid>",4986
+E,MRI_MIF,27,Preparation of measurement system has failed.,4928
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'AC'),4914
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MPR_THICK,4829
+I,MRI_GSP,0,Load image in segment: planningLeft,4781
+E,MRI_CCS,12,"Coil change failed: Check the coil connection on the patient table. If the problem still persists, create a SaveLog and contact Siemens Service. ID: syngo.MR.MRI_CCS_NlsMessageId.Resources.CCS_msg.MRI_CCS_E_12_UPDATE_MEASCOIL_NOT_OK",4746
+W,ExportImportFramework,0,The execution finished with warning(s). For further details please check the Message Viewer.,4740
+E,MRI_MIF,27,Preparation of measurement system has failed. ID: syngo.MR.MRI_MIF_NlsMessageId.Resources.MIFmsg.MRI_MIF_E_27_SLOT_PREPARE_FAILED,4710
+I,SampleFile,0,Sampled File - Type: Diagnostics.xml,4708
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",4681
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",4642
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",4642
+I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",4598
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'VRH'),4546
+W,DeveloperLog_DevLogService,0,CheckAndLogProcedureStepAttributes(): string.IsNullOrEmpty(patientPosition),4436
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",4382
+I,ExportImportFramework,0,The process syngo.Common.Starter.exe has finished and the exitCode was 0.,4367
+I,Software Protection Platform Service,1003,"The Software Protection service has completed licensing status check. Application Id=<GUID> Licensing Status= 1: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 2: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 3: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 4: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 5: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 6: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 7: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 8: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 9: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 10: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 11: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 12: <GUID>, 1, 1 [(0 )(1 )(2 [<HEX>, 0, 0], [( 1 <HEX>)( 1 <HEX>)(?)(?)(?)(?)(?)(?)])(3 [<HEX>, 0, 0], [( 6 <HEX> 0 0)( 1 <HEX>)( 6 <HEX> 0 0)(?)(?)(?)( 10 <HEX> msft:rm/algorithm/flags/1.0)( 11 <HEX> <HEX>)])]",4334
+S,MRI_FRR,16,The scanning has finished.,4316
+I,DeveloperLog_DevLogService,0,"Updating MPPS for 1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",4258
+W,MRI_SAT,8,"System warning: Patient air temperature exceeds limit. Wait until measurement is possible again. Reduce temperature in examination room if possible. If the problem still persists, please contact Siemens Service.",4249
+I,MRI_FRR,910,"Current coil temperatures (degree C): CableSensor1: 20.00, CableSensor2: 20.00, CableSensor3: 20.00",4205
+I,MRI_FRR,910,"Current coil temperatures (degree C): CableSensor1: 24.00, CableSensor2: 24.00, CableSensor3: 24.00",4196
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service.",4178
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",4165
+I,MRI_PTD,101,Patient Table Information : Z-axis: target reached.,4116
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.61.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",4116
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_FRR_NlsMessageId.Resources.FRRmsg.MRI_FRR_W_2_FRR_DOOR_OPENED",4086
+I,NLS_SysLogService,0,"Got status of transfer 1475. Transfer file size: -<NUM_ID>, Current file size: <NUM_ID>.",4041
+I,TM_TQ,3,"Got status of transfer 1475. Transfer file size: -<NUM_ID>, Current file size: <NUM_ID>.",4040
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,3927
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,3918
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,3867
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MIP,3838
+W,MRI_SAT,8,"System warning: Patient air temperature exceeds limit. Wait until measurement is possible again. Reduce temperature in examination room if possible. If the problem still persists, please contact Siemens Service. ID: syngo.MR.MRI_SAT_NlsMessageId.Resources.SATmsg.MRI_SAT_W_8_SAT_BORE_OVERTEMP",3837
+W,DeveloperLog_DevLogService,0,CheckAndLogProcedureStepAttributes(): defaultBodyPart == null,3836
+I,MRI_FRR,910,"Current coil temperatures (degree C): CableSensor1: 20.50, CableSensor2: 20.50, CableSensor3: 20.50",3764
+I,MRI_PRC,5,Image Reconstruction System successfully prepared. MeasUid <NUM_ID>.,3748
+I,NLS_SysLogService,0,"Got status of transfer 1096. Transfer file size: <NUM_ID>, Current file size: <NUM_ID>.",3743
+I,MRI_SIM,3013,E-Shim (SHIMK2259_5 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,3674
+I,MRI_SIM,3011,E-Shim (SHIMK2259_1_3RD [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,3643
+I,MRI_SIM,3014,E-Shim (SHIMK2259_5 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,3633
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Creating Named pipe Binding,3591
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Host opened,3591
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Named pipe Binding created,3591
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: ImageAccessImpl created,3591
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: Starting Server,3591
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: starting ImageAccessImpl creation,3591
+W,DeveloperLog_DevLogService,0,DeploymentTrait FindingsRestCommunication is not enabled,3591
+I,MRI_SIM,3014,E-Shim (SHIMK2259_1_3RD [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,3586
+I,MRI_SIM,3015,E-Shim (SHIMK2259_1_3RD [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,3570
+I,MRI_SIM,3016,E-Shim (SHIMK2259_1_3RD [Dev#<DEV_ID>]): Shim current in channel 5 was updated successfully.,3547
+I,Microsoft-Windows-Kernel-General,16,The directory cannot be removed.,3546
+I,MRI_SIM,3013,E-Shim (SHIMK2259_1_3RD [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,3525
+I,MRI_SIM,3015,E-Shim (SHIMK2259_5 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,3503
+I,MRI_SIM,3011,E-Shim (SHIMK2259_5 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,3494
+I,DeveloperLog_DevLogService,0,Did skip 1 messages. Content: Plug in: VectorRayCaster is used for filter type MPR_THICK,3451
+E,MRI_FRR,18,The scanning has been cancelled. Message is only relevant for developer.,3433
+I,DeveloperLog_DevLogService,0,CheckAndLogBodyParts(): BodyParts data:,3431
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",3425
+I,PowerShell,403,Engine state is changed from Available to Stopped.   Details:  	NewEngineState=Stopped 	PreviousEngineState=Available  	SequenceNumber=15  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.3031 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,3405
+I,PowerShell,400,Engine state is changed from None to Available.   Details:  	NewEngineState=Available 	PreviousEngineState=None  	SequenceNumber=13  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.3031 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,3396
+I,PowerShell,600,"Provider ""Alias"" is Started.   Details:  	ProviderName=Alias 	NewProviderState=Started  	SequenceNumber=3  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",3396
+I,PowerShell,600,"Provider ""Environment"" is Started.   Details:  	ProviderName=Environment 	NewProviderState=Started  	SequenceNumber=5  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",3396
+I,PowerShell,600,"Provider ""FileSystem"" is Started.   Details:  	ProviderName=FileSystem 	NewProviderState=Started  	SequenceNumber=7  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",3396
+I,PowerShell,600,"Provider ""Function"" is Started.   Details:  	ProviderName=Function 	NewProviderState=Started  	SequenceNumber=9  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",3396
+I,PowerShell,600,"Provider ""Registry"" is Started.   Details:  	ProviderName=Registry 	NewProviderState=Started  	SequenceNumber=1  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",3396
+I,PowerShell,600,"Provider ""Variable"" is Started.   Details:  	ProviderName=Variable 	NewProviderState=Started  	SequenceNumber=11  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.3031 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",3396
+I,_unknown,0,Convert shortcut from resx don't pass: Requested value 'ST' was not found.,3396
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'AC1'),3382
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_Interactive_ImageText"" time=""<DATE> <TIME>Z""> <Version>2.0</Version> <FeatureName>InteractiveImageText</FeatureName> <ImageTextLineName>Slice Thickness</ImageTextLineName> <ImageTextLineType>syngo.BizLogic.Viewing.Visualization.InteractiveImageText.FilterInfo.InteractiveSliceThicknessImageTextLineExtension</ImageTextLineType> <InteractionType>StepWiseChange</InteractionType> </Event>",3275
+I,MRI_SIM,3015,E-Shim (SHIMK2259_2 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,3234
+I,MRI_SIM,3015,E-Shim (SHIMK2259_3 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,3234
+I,MRI_SIM,3015,E-Shim (SHIMK2259_4 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,3234
+I,MRI_SIM,3011,E-Shim (SHIMK2259_6 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,3231
+I,MRI_SIM,3011,E-Shim (SHIMK2259_7 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,3231
+I,MRI_SIM,3014,E-Shim (SHIMK2259_2 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,3231
+I,MRI_SIM,3014,E-Shim (SHIMK2259_3 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,3231
+I,MRI_SIM,3014,E-Shim (SHIMK2259_4 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,3231
+I,MRI_SIM,3011,E-Shim (SHIMK2259_8 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,3230
+W,_unknown,0,NavigatorAccess not available,3220
+I,MRI_SIM,3011,E-Shim (SHIMK2259_2 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,3218
+I,MRI_SIM,3011,E-Shim (SHIMK2259_3 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,3218
+I,MRI_SIM,3011,E-Shim (SHIMK2259_4 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,3218
+I,DeveloperLog_DevLogService,0,Reporting 1 context items to host for f3d7096e12ce449d9db97489d4fd96cd.,3216
+I,_unknown,0,Reporting 1 context items to host for f3d7096e12ce449d9db97489d4fd96cd.,3216
+I,MRI_SIM,3014,E-Shim (SHIMK2259_6 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,3214
+I,MRI_SIM,3014,E-Shim (SHIMK2259_7 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,3214
+I,MRI_SIM,3014,E-Shim (SHIMK2259_8 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,3214
+I,MRI_SIM,3013,E-Shim (SHIMK2259_6 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,3213
+I,MRI_SIM,3013,E-Shim (SHIMK2259_7 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,3213
+I,MRI_SIM,3013,E-Shim (SHIMK2259_8 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,3213
+I,MRI_SIM,3015,E-Shim (SHIMK2259_6 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,3204
+I,MRI_SIM,3015,E-Shim (SHIMK2259_7 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,3204
+I,MRI_SIM,3015,E-Shim (SHIMK2259_8 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,3204
+I,MRI_FRR,910,"Current coil temperatures (degree C): CableSensor1: 22.50, CableSensor2: 22.50, CableSensor3: 22.50",3158
+I,MRI_SIM,3013,E-Shim (SHIMK2259_2 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,3146
+I,MRI_SIM,3013,E-Shim (SHIMK2259_3 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,3146
+I,MRI_SIM,3013,E-Shim (SHIMK2259_4 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,3146
+I,DeveloperLog_DevLogService,0,"Communication Server is started successfully!. Server Id: <GUID>, Service Name: PrintingService",3128
+I,DeveloperLog_DevLogService,0,"ImageAccessRSC is not yet part of the composition, will be added now.",3128
+I,DeveloperLog_DevLogService,0,WorkflowID is not yet part of the composition. Will be exported now with value: net.tcp://localhost:<NUM_ID>/PatientData/<GUID>/service/PDS,3128
+W,DeveloperLog_DevLogService,0,Config key UseLightWeightBiBc not found in service configuration,3128
+I,MRI_FRR,3,Door of the examination room has been closed.,3121
+I,DeveloperLog_DevLogService,0,"Monitor configuration info: Application startup Device Name: ""\\.\DISPLAY1"" hMonitor: ""<NUM_ID>"" Monitor bounds (XYWH): ""0, 0, 1920, 1200"" Monitor physical size={Width=51.9, Height=32.4} in cm",3106
+I,MRI_SIM,3016,E-Shim (SHIMK2259_2 [Dev#<DEV_ID>]): Shim current in channel 5 was updated successfully.,3104
+I,MRI_SIM,3016,E-Shim (SHIMK2259_3 [Dev#<DEV_ID>]): Shim current in channel 5 was updated successfully.,3104
+I,MRI_SIM,3016,E-Shim (SHIMK2259_4 [Dev#<DEV_ID>]): Shim current in channel 5 was updated successfully.,3104
+I,DeveloperLog_DevLogService,0,Reporting 1 context items to host for 9f7845c073d94e1<NUM_ID>6bca3e20.,3068
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",3052
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",3052
+S,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",3010
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",2998
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,2995
+W,_unknown,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,2987
+I,DeveloperLog_DevLogService,0,Open Testchannel net.pipe://localhost/syngo.MR.ModalityViewer.WatchDog.<NUM_ID>/WatchDog,2971
+I,MRI_COS,21,SPICE prepare time: 4 ms,2956
+S,MRI_PFW,9001,GPAK2298 [Dev#<DEV_ID>] info: Emergency (EMCY - 1) has been received,2942
+I,MRI_FRR,910,"Current coil temperatures (degree C): CableSensor1: 23.50, CableSensor2: 23.50, CableSensor3: 23.50",2919
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,2800
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'CSP'),2795
+I,DeveloperLog_DevLogService,0,Neurology: Open Morpho Executor,2788
+I,DeveloperLog_DevLogService,0,T4D: Open Tissue4D Executor,2788
+I,DeveloperLog_DevLogService,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=False",2749
+I,MRI_PTD,63,Patient Table Information: Stopped in motion.,2727
+E,DeveloperError_DevLogService,0,"Could not connect, the MSH service is not running.",2711
+I,MRI_CCS,11,"Coil change event was handled successfully. (Coil context: 'default'. Coil plug codes: 'ee,f2,f1,ee,f1,f2,ee,ee,ee,ee,ee'. Connected coil elements: VRH.)",2696
+I,_unknown,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,2690
+I,MRI_CCS,11,"Coil change event was handled successfully. (Coil context: 'default'. Coil plug codes: 'ee,f2,f1,ee,f1,f2,ee,ee,ee,ee,ee'. Connected coil elements: VRH.) ID: syngo.MR.MRI_CCS_NlsMessageId.Resources.CCS_msg.MRI_CCS_S_11_UPDATE_MEASCOIL_OK",2644

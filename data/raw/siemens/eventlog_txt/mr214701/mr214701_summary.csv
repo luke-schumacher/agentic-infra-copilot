@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,126315
+I,MRI_PRC,5,Image Reconstruction System successfully prepared. MeasUid <NUM_ID>.,79603
+I,MRI_CMM,1365,Patient table is docked,63107
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,63107
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,63106
+I,MRI_VLM,1418,VLM: Normal flow is present.,63106
+I,MRI_HEC,1025,Coldhead is running.,63105
+I,MRI_HEC,1029,DB25: status present.,63105
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,63105
+I,MRI_HEC,1032,Helium compressor unit is running.,63105
+W,MRI_SEP,14,Cooling System: Return pressure in the secondary water circuit low. Please contact Siemens Service.,63104
+I,MRI_FRR,278,Emergency docking released,63098
+I,MRI_TBC,247,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",63098
+I,MRI_TBC,249,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",63098
+W,MRI_SEP,14,Cooling System: Return pressure in the secondary water circuit low. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_14_SEP_RETURNPRESSURELOWWARNING_STATUS,63070
+I,MRI_TBC,105,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,63046
+I,MRI_FRR,16,The scanning has finished.,62831
+I,MRI_HEC,1023,Helium compressor Daily log has updated.,62408
+W,MRI_SEP,15,Cooling System: Inverter overrun. Please contact Siemens Service.,61635
+W,MRI_SEP,15,Cooling System: Inverter overrun. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_15_SEP_INVERTCONTROLHIGHWARNING_STATUS,61603
+I,MRI_PAC,104,The following licenses are needed to run the protocol  .,48205
+I,MRI_HEC,1022,Helium compressor Weekly log has updated.,43808
+I,MRI_COS,70,Image calculation done (MeasUid=<NUM_ID>).,39786
+I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,36145
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,35068
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,35066
+I,DeveloperLog_DevLogService,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.52.<NUM_ID>.<NUM_ID>.0.0.0. Prior flag: False,32247
+I,MRI_TBC,106,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,31519
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,25056
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",21015
+I,DeveloperLog_DevLogService,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.52.<NUM_ID>.<NUM_ID>. Prior flag: False,19871
+W,DeveloperLog_DevLogService,0,"Child activity 'SendOperationCorrelationScope' failed with exception: System.ServiceModel.FaultException: The execution of an InstancePersistenceCommand was interrupted because the instance key '<GUID>' was not associated to an instance. This can occur because the instance or key has been cleaned up, or because the key is invalid. The key may be invalid if the message it was generated from was sent at the wrong time or contained incorrect correlation data.    at System.ServiceModel.Activities.FromReply.Execute(CodeActivityContext context)    at System.Activities.CodeActivity.InternalExecute(ActivityInstance instance, ActivityExecutor executor, BookmarkManager bookmarkManager)    at System.Activities.Runtime.ActivityExecutor.ExecuteActivityWorkItem.ExecuteBody(ActivityExecutor executor, BookmarkManager bookmarkManager, Location resultLocation)",19400
+I,MRI_GSP,0,Load image in segment: planningLeft,16782
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,16722
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",16716
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",16696
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",16691
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",16680
+W,DeveloperLog_DevLogService,0,Inconsistent data arrived,15880
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,14610
+I,MRI_SIM,3015,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,13971
+I,MRI_SIM,3014,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,13960
+I,MRI_SIM,3011,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,13890
+I,MRI_SIM,3013,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,13886
+I,MRI_SIM,3016,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 5 was updated successfully.,13857
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",12207
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,12121
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",11841
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,11699
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,11697
+I,MRI_PAC,104,The following licenses are needed to run the protocol   MRI_CV_MAIN.,11115
+I,MRI_GSP,0,Load image in segment: planningRight,10006
+I,MRI_COS,21,SPICE prepare time: 12 ms,9828
+I,DeveloperLog_DevLogService,0,Did skip 1 messages. Content: License is available.,8763
+I,DeveloperLog_DevLogService,0,License is available.,8763
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",8751
+I,MRI_COS,21,SPICE prepare time: 13 ms,8642
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),8479
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",8263
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",8173
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",8167
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",8164
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE2')",8027
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",7455
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),7453
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",7449
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",7448
+I,MRI_COS,21,SPICE prepare time: 11 ms,7447
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",7427
+I,MRI_COS,21,SPICE prepare time: 3 ms,7404
+I,MRI_GSP,0,Load image in segment: planningMiddle,7312
+I,MRI_COS,21,SPICE prepare time: 14 ms,6715
+I,MRI_PTG,226,Patient table information: Y-axis: not in motion Y. Y-Position is: <NUM_ID>,6012
+I,MRI_PTG,213,Patient table information: Y-axis: in motion Y. Y-Position is: <NUM_ID>,6007
+W,MRI_RSA,8,"System warning: Patient air temperature exceeds limit. Reduce temperature in examination room if possible. If the problem still persists, please contact Siemens Service.",5901
+W,MRI_RSA,8,"System warning: Patient air temperature exceeds limit. Reduce temperature in examination room if possible. If the problem still persists, please contact Siemens Service. ID: syngo.MR.MRI_RSA_NlsMessageId.Resources.RSAmsg.MRI_RSA_W_8_RSA_BORE_OVERTEMP",5901
+I,MRI_COS,21,SPICE prepare time: 15 ms,5359
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",5325
+I,MRI_COS,20,IRIS prepare time: 26 ms,4395
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.86 bar. The return pressure is 0.67 bar. The inverter output is 100 %. Please contact Siemens Service.,4370
+I,MRI_COS,20,IRIS prepare time: 27 ms,4319
+I,MRI_FRR,4,A coil has been plugged in.,4174
+I,MRI_MSR,11,Measurement server unlocked.,3964
+I,MRI_SCT,71,Receive a breathhold finish signal,3948
+I,MRI_SCT,70,Receive a breathhold start signal,3946
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra1D', Sequence: '%AdjustSeq%/AdjTra1DSeq')",3908
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra1D', Sequence: '%AdjustSeq%/AdjTra1DSeq')",3907
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra1D', Sequence: '%AdjustSeq%/AdjTra1DSeq')",3907
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra1D', Sequence: '%AdjustSeq%/AdjTra1DSeq')",3904
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra2D', Sequence: '%AdjustSeq%/AdjTra2DSeq')",3895
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra2D', Sequence: '%AdjustSeq%/AdjTra2DSeq')",3892
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra2D', Sequence: '%AdjustSeq%/AdjTra2DSeq')",3892
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra2D', Sequence: '%AdjustSeq%/AdjTra2DSeq')",3891
+E,TransferMgr,17,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP CONNECT error. Ftp server: ""SGPT806X"" FtpUserName: ""rdiagftp"".</Description></Event>",3847
+E,TransferMgr,35,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP_UP error: sourcefile: """".</Description></Event>",3847
+I,MRI_COS,20,IRIS prepare time: 28 ms,3778
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.89 bar. The return pressure is 0.67 bar. The inverter output is 100 %. Please contact Siemens Service.,3671
+W,DeveloperLog_DevLogService,0,Did skip 43 messages. Content: Inconsistent data arrived,3659
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE1,2')",3636
+I,MRI_COS,20,IRIS prepare time: 25 ms,3604
+I,DeveloperLog_DevLogService,0,Neurology: Open Morpho Executor,3551
+I,DeveloperLog_DevLogService,0,T4D: Open Tissue4D Executor,3551
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",3483
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'BY1-3,SP1-4')",3482
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.85 bar. The return pressure is 0.66 bar. The inverter output is 100 %. Please contact Siemens Service.,3476
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.85 bar. The return pressure is 0.67 bar. The inverter output is 100 %. Please contact Siemens Service.,3395
+I,MRI_FRR,266,"XAxisPlusLocked: 0,  XAxisMinusLocked: 0, argument values are boolean.",3325
+I,MRI_FRR,267,"YAxisUpLocked: 0, YAxisDownLocked: 0, argument values are boolean.",3325
+I,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",3325
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-1130,3283
+I,MRI_COS,21,SPICE prepare time: 16 ms,3276
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.87 bar. The return pressure is 0.67 bar. The inverter output is 100 %. Please contact Siemens Service.,3268
+W,DeveloperLog_DevLogService,0,"RetryScope for activity 'SendFinalizeWorkflow' failed (try 2): System.ServiceModel.FaultException: The execution of an InstancePersistenceCommand was interrupted because the instance key '<GUID>' was not associated to an instance. This can occur because the instance or key has been cleaned up, or because the key is invalid. The key may be invalid if the message it was generated from was sent at the wrong time or contained incorrect correlation data.    at System.ServiceModel.Activities.FromReply.Execute(CodeActivityContext context)    at System.Activities.CodeActivity.InternalExecute(ActivityInstance instance, ActivityExecutor executor, BookmarkManager bookmarkManager)    at System.Activities.Runtime.ActivityExecutor.ExecuteActivityWorkItem.ExecuteBody(ActivityExecutor executor, BookmarkManager bookmarkManager, Location resultLocation)",3232
+E,DeveloperError_DevLogService,0,"RetryScope for activity 'SendFinalizeWorkflow' finally failed after 6 tries: System.ServiceModel.FaultException: The execution of an InstancePersistenceCommand was interrupted because the instance key '<GUID>' was not associated to an instance. This can occur because the instance or key has been cleaned up, or because the key is invalid. The key may be invalid if the message it was generated from was sent at the wrong time or contained incorrect correlation data.    at System.ServiceModel.Activities.FromReply.Execute(CodeActivityContext context)    at System.Activities.CodeActivity.InternalExecute(ActivityInstance instance, ActivityExecutor executor, BookmarkManager bookmarkManager)    at System.Activities.Runtime.ActivityExecutor.ExecuteActivityWorkItem.ExecuteBody(ActivityExecutor executor, BookmarkManager bookmarkManager, Location resultLocation)",3231
+W,DeveloperLog_DevLogService,0,"RetryScope for activity 'SendFinalizeWorkflow' failed (try 3): System.ServiceModel.FaultException: The execution of an InstancePersistenceCommand was interrupted because the instance key '<GUID>' was not associated to an instance. This can occur because the instance or key has been cleaned up, or because the key is invalid. The key may be invalid if the message it was generated from was sent at the wrong time or contained incorrect correlation data.    at System.ServiceModel.Activities.FromReply.Execute(CodeActivityContext context)    at System.Activities.CodeActivity.InternalExecute(ActivityInstance instance, ActivityExecutor executor, BookmarkManager bookmarkManager)    at System.Activities.Runtime.ActivityExecutor.ExecuteActivityWorkItem.ExecuteBody(ActivityExecutor executor, BookmarkManager bookmarkManager, Location resultLocation)",3231
+W,DeveloperLog_DevLogService,0,"RetryScope for activity 'SendFinalizeWorkflow' failed (try 4): System.ServiceModel.FaultException: The execution of an InstancePersistenceCommand was interrupted because the instance key '<GUID>' was not associated to an instance. This can occur because the instance or key has been cleaned up, or because the key is invalid. The key may be invalid if the message it was generated from was sent at the wrong time or contained incorrect correlation data.    at System.ServiceModel.Activities.FromReply.Execute(CodeActivityContext context)    at System.Activities.CodeActivity.InternalExecute(ActivityInstance instance, ActivityExecutor executor, BookmarkManager bookmarkManager)    at System.Activities.Runtime.ActivityExecutor.ExecuteActivityWorkItem.ExecuteBody(ActivityExecutor executor, BookmarkManager bookmarkManager, Location resultLocation)",3231
+W,DeveloperLog_DevLogService,0,"RetryScope for activity 'SendFinalizeWorkflow' failed (try 5): System.ServiceModel.FaultException: The execution of an InstancePersistenceCommand was interrupted because the instance key '<GUID>' was not associated to an instance. This can occur because the instance or key has been cleaned up, or because the key is invalid. The key may be invalid if the message it was generated from was sent at the wrong time or contained incorrect correlation data.    at System.ServiceModel.Activities.FromReply.Execute(CodeActivityContext context)    at System.Activities.CodeActivity.InternalExecute(ActivityInstance instance, ActivityExecutor executor, BookmarkManager bookmarkManager)    at System.Activities.Runtime.ActivityExecutor.ExecuteActivityWorkItem.ExecuteBody(ActivityExecutor executor, BookmarkManager bookmarkManager, Location resultLocation)",3231
+W,DeveloperLog_DevLogService,0,"RetryScope for activity 'SendFinalizeWorkflow' failed (try 1): System.ServiceModel.FaultException: The execution of an InstancePersistenceCommand was interrupted because the instance key '<GUID>' was not associated to an instance. This can occur because the instance or key has been cleaned up, or because the key is invalid. The key may be invalid if the message it was generated from was sent at the wrong time or contained incorrect correlation data.    at System.ServiceModel.Activities.FromReply.Execute(CodeActivityContext context)    at System.Activities.CodeActivity.InternalExecute(ActivityInstance instance, ActivityExecutor executor, BookmarkManager bookmarkManager)    at System.Activities.Runtime.ActivityExecutor.ExecuteActivityWorkItem.ExecuteBody(ActivityExecutor executor, BookmarkManager bookmarkManager, Location resultLocation)",3228
+I,DeveloperLog_DevLogService,0,Adapter Exam: NotifyMeasurementSystem() finished,3227
+I,MRI_CPA,1065,"The center button on the control panel was pressed briefly, i.e. for less than 1 second.",3122
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.9 bar. The return pressure is 0.67 bar. The inverter output is 100 %. Please contact Siemens Service.,3065
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.88 bar. The return pressure is 0.67 bar. The inverter output is 100 %. Please contact Siemens Service.,2795
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'HE1-4'),2780
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE3,4,NE1,2,SP1')",2773
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.86 bar. The return pressure is 0.66 bar. The inverter output is 100 %. Please contact Siemens Service.,2657
+I,MRI_COS,20,IRIS prepare time: 24 ms,2635
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",2597
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",2594
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",2594
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'BY1-3,SP2,3')",2570
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",2570
+I,MRI_COS,20,IRIS prepare time: 29 ms,2565
+W,DeveloperLog_DevLogService,0,"Communication channel 'System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.  Server stack trace:     at System.ServiceModel.Channels.CommunicationObject.Close(TimeSpan timeout)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at System.ServiceModel.ICommunicationObject.Close(TimeSpan timeout)    at System.ServiceModel.ClientBase`1.System.ServiceModel.ICommunicationObject.Close(TimeSpan timeout)    at syngo.MR.PreProcessing.Service.Host.Task.Executor.Communication.CommClient.CommunicationObject.CloseConnection()' could not be closed regularly - forced abort.",2548
+I,MRI_COS,21,SPICE prepare time: 17 ms,2494
+I,MRI_FRR,270,"New absolute position: 0 mm, New relative position: 1130 mm, , Position category: 19. Explanation: First two argument values are long. See enum PerPTABPositionCategory defined in PerMotionControlIF for 3rd argument.",2477
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.84 bar. The return pressure is 0.66 bar. The inverter output is 100 %. Please contact Siemens Service.,2415
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,2332
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-1129,2331
+I,DeveloperLog_DevLogService,0,"using settings: MPPSAutoComplete=True, QATemplate=MR ViewAndGo, DelayInSecondsForWorkflowDelete=<NUM_ID>, gContextFolderDisable=False",2296
+I,DeveloperLog_DevLogService,0,created Workflow=<GUID>@WorkflowNX in database,2261
+I,DeveloperLog_DevLogService,0,*** Prepare Workflow: Studies=1.3.12.2.1107.5.2.52.<NUM_ID>.<NUM_ID>,2250
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.88 bar. The return pressure is 0.66 bar. The inverter output is 100 %. Please contact Siemens Service.,2200
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,2178
+I,MRI_PTG,128,Patient Table Information: Z-axis: movement outmost possible,2110
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE1,2,SP1-4')",2087
+E,TransferMgr,5,"<Event type=""ProtocolEvent"" name=""TransferMgr""><Description>----- Transfer failed. -----</Description></Event>",2079
+I,MRI_CPA,1066,The home button on the control panel has been pressed.,2075
+I,SampleFile,0,Sampled File - Type: 1.3.12.2.1107.5.2.52.<NUM_ID>.<NUM_ID>.xml,2038
+E,TransferMgr,19,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP PUTFILE2SERVER error. Ftp server: ""SGPT806X"" ""Error: Connect to FTP server - A connection with the server could not be established "".</Description></Event>",2023
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Performance_Duration"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <Functionality>CreateLayout</Functionality> <ProcessName>syngo.Common.Container</ProcessName> <ProcessId><NUM_ID></ProcessId> <Hostname>AWP2<NUM_ID></Hostname> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> <LayoutName>MRViewing_Stack3x2-s</LayoutName> <LayoutDescr>Stack 3x2</LayoutDescr> <Precision_Frequency><NUM_ID></Precision_Frequency> <Start_Absolute><DATE>T<TIME>.<NUM_ID>+08:00</Start_Absolute> <Start_Relative><NUM_ID></Start_Relative> <Stop_Absolute><DATE>T<TIME>.<NUM_ID>+08:00</Stop_Absolute> <Stop_Relative><NUM_ID></Stop_Relative> </Event>",2015
+I,MRI_COS,21,SPICE prepare time: 18 ms,1997
+E,MRI_MIF,27,Preparation of measurement system has failed.,1981
+E,MRI_MIF,27,Preparation of measurement system has failed. ID: syngo.MR.MRI_MIF_NlsMessageId.Resources.MIFmsg.MRI_MIF_E_27_SLOT_PREPARE_FAILED,1981
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.87 bar. The return pressure is 0.66 bar. The inverter output is 100 %. Please contact Siemens Service.,1965
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user.,1960
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user. ID: syngo.MR.MRI_MSR_NlsMessageId.Resources.MSRmsg.MRI_MSR_I_34_USER_STOP,1960
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.89 bar. The return pressure is 0.66 bar. The inverter output is 100 %. Please contact Siemens Service.,1954
+I,MRI_PTG,79,IO board: Remaining battery charge in percent: 0 (<HEX>),1930
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,1926
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,1926
+I,MRI_PTG,1,Patient table information:  S10 has value 1,1925
+I,MRI_PTG,2,Patient table information:  S10 has value 0,1924
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_MR View&GO"" time=""<DATE> <TIME>Z""> <Content></Content> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> </Event>",1892
+W,DeveloperLog_DevLogService,0,IInteractiveFilterToggleImageTextAC not found. Continue without it.,1892
+I,DeveloperLog_DevLogService,0,Using 64 characters for study instance uid length,1888
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_SY.CAD_AnT"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> <Content><Item Type=""Feature"" Name=""AnatomyVisualizer"" ControlsUsed="""" ToolsUsed="""" /></Content> </Event>",1883
+E,DeveloperError_DevLogService,0,Auto Views License not Available!,1881
+E,DeveloperError_DevLogService,0,SY_AUTO_VIEWS_MENU_ID: License not available,1881
+I,MRI_COS,20,IRIS prepare time: 23 ms,1876
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>INPROGRESS</NEW_STATE> </Event>",1875
+I,MRI_MOV,82,"Monitor Configuration received Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing Scope: MonitorInformation Action: <Item Type=""MonitorInformation"" MonitorName=""DISPLAY1"" PrimaryMonitor=""True"" Width=""1920"" Height=""1200"" ScalingFactor=""1.1"" /> ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_82_MONITOR_CONFIGURATION",1875
+W,DeveloperLog_DevLogService,0,Closing event fired to Patient tab for the workflow : <GUID> and study : 1.3.12.2.1107.5.2.52.<NUM_ID>.<NUM_ID>,1875
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout: MRViewing_Stack3x2-s CurrentLayout:  ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,1862
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_Read_Syngo_Via"" time=""<DATE> <TIME>Z""> <ProcedureUid><NUM_ID></ProcedureUid> <WorkflowId><GUID></WorkflowId> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <UseCase>ClaimWorkflow</UseCase> <UseCaseType>Manual</UseCaseType> <ClientHost>AWP2<NUM_ID></ClientHost> <EventName>via_Claim_transition</EventName> </Event>",1819
+E,MRI_RFS,8,SAR limit(s) exceeded.,1758
+I,MRI_COS,20,IRIS prepare time: 30 ms,1754
+I,MRI_CPA,1064,The center button on the control panel was pressed for more than 1 second.,1749
+I,MRI_FRR,274,"PTAB Position on Y-Axis: 5, detail values see extended message description.",1700
+I,MRI_COS,20,IRIS prepare time: 15 ms,1691
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.84 bar. The return pressure is 0.67 bar. The inverter output is 100 %. Please contact Siemens Service.,1691
+I,DeveloperLog_DevLogService,0,"DMService Force Delete input uids: study=1.3.12.2.1107.5.2.52.<NUM_ID>.<NUM_ID> Series= instance= Stacktrace:    at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)    at System.Environment.get_StackTrace()    at syngo.Services.sDM.DMService.Core.DMService.ForceDelete(IList`1 dicomUidList)    at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)    at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)    at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)    at syngo.Services.sDM.Infrastructure.Proxy.Intercept.DynamicProxy.SafeInvoke(MethodInfo method, Object objectInstance, Object[] arguments)    at syngo.Services.sDM.Infrastructure.Performance.PerformanceCounterServiceInterceptor.OnMethodCall(IDynamicProxyInterceptorChain interceptorChain, MethodInfo method, Object[] args)    at syngo.Services.sDM.Infrastructure.Proxy.Intercept.DynamicProxy.OnMethodCall(MethodInfo method, Object[] args)    at syngo.Services.sDM.NavigatorService.NavigatorService.ForceDelete(IList`1 dicomUidList)    at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)    at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)    at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)    at syngo.Services.sDM.Infrastructure.Proxy.Intercept.DynamicProxy.SafeInvoke(MethodInfo method, Object objectInstance, Object[] arguments)    at syngo.Services.sDM.Infrastructure.Performance.PerformanceCounterServiceInterceptor.OnMethodCall(IDynamicProxyInterceptorChain interceptorChain, MethodInfo method, Object[] args)    at syngo.Services.sDM.Infrastructure.Proxy.Intercept.DynamicProxy.OnMethodCall(MethodInfo method, Object[] args)    at SyncInvokeForceDelete(Object , Object[] , Object[] )    at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]& outputs)    at syngo.Services.sDM.Infrastructure.WCF.Behaviors.Identity.IdentityDispatchOperationInvoker.Invoke(Object instance, Object[] inputs, Object[]& outputs)    at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc& rpc)    at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc& rpc)    at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)    at System.ServiceModel.Dispatcher.MessageRpc.Wrapper.Resume(Boolean& alreadyResumedNoLock)    at System.ServiceModel.Dispatcher.ThreadBehavior.ResumeProcessing(IResumeMessageRpc resume)    at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc& rpc)    at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc& rpc)    at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)    at System.ServiceModel.Dispatcher.ChannelHandler.DispatchAndReleasePump(RequestContext request, Boolean cleanThread, OperationContext currentOperationContext)    at System.ServiceModel.Dispatcher.ChannelHandler.HandleRequest(RequestContext request, OperationContext currentOperationContext)    at System.ServiceModel.Dispatcher.ChannelHandler.AsyncMessagePump(IAsyncResult result)    at System.ServiceModel.Dispatcher.ChannelHandler.OnAsyncReceiveComplete(IAsyncResult result)    at System.Runtime.Fx.AsyncThunk.UnhandledExceptionFrame(IAsyncResult result)    at System.Runtime.AsyncResult.Complete(Boolean completedSynchronously)    at System.ServiceModel.Channels.TransportDuplexSessionChannel.TryReceiveAsyncResult.OnReceive(IAsyncResult result)    at System.Runtime.Fx.AsyncThunk.UnhandledExceptionFrame(IAsyncResult result)    at System.Runtime.AsyncResult.Complete(Boolean completedSynchronously)    at System.ServiceModel.Channels.SynchronizedMessageSource.ReceiveAsyncResult.OnReceiveComplete(Object state)    at System.ServiceModel.Channels.SessionConnectionReader.OnAsyncReadComplete(Object state)    at System.Net.Sockets.SocketAsyncEventArgs.OnCompleted(SocketAsyncEventArgs e)    at System.Net.Sockets.SocketAsyncEventArgs.FinishOperationSuccess(SocketError socketError, Int32 bytesTransferred, SocketFlags flags)    at System.Net.Sockets.SocketAsyncEventArgs.CompletionPortCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* nativeOverlapped)    at System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)",1685
+E,MRI_MSR,21,Preparation of Measurement System failed. Create Savelog and inform Siemens service for further investigation.,1678
+E,MRI_MSR,21,Preparation of Measurement System failed. Create Savelog and inform Siemens service for further investigation. ID: syngo.MR.MRI_MSR_NlsMessageId.Resources.MSRmsg.MRI_MSR_E_21_PREP_MEAS_ERR,1678
+I,MRI_COS,20,IRIS prepare time: 14 ms,1677
+I,MRI_SEP,208,Cooling System: Return pressure in the secondary water circuit low. The supply pressure is 3.9 bar. The return pressure is 0.68 bar. The inverter output is 100 %. Please contact Siemens Service.,1677
+I,MRI_FRR,274,"PTAB Position on Y-Axis: 3, detail values see extended message description.",1676
+I,MRI_PTG,225,PTAB y-axis is on ZHEIGHT_NEAR position Y-Position is: <NUM_ID>,1662
+I,MRI_PTG,126,Patient table information: ready to move in Z-axis.,1661
+I,MRI_PTG,127,Patient Table Information: Z-axis: movement inmost possible.,1661
+I,MRI_PTG,201,Patient table information: magnet bore entry height along Y-axis reached. Y-Position is: <NUM_ID>,1661
+I,MRI_PTG,5,Patient table information:  S20 has value 1,1661
+I,MRI_FRR,274,"PTAB Position on Y-Axis: 2, detail values see extended message description.",1660
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>SCHEDULED</NEW_STATE> </Event>",1658
+I,MRI_FRR,262,PTAB reached patient change position. Images will be unloaded.,1657
+I,MRI_PTG,6,Patient table information:  S20 has value 0,1657
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout:  CurrentLayout: MRViewing_Stack3x2-s ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,1656
+I,DeveloperLog_DevLogService,0,*** CorReaHappened received while waiting for Start Scan,1627
+I,DeveloperLog_DevLogService,0,ReadingWorkflow claimed successfully,1625
+I,DeveloperLog_DevLogService,0,ReadingWorkflow created successfully,1623
+I,DeveloperLog_DevLogService,0,UpdateProcedure received while waiting for StartScan,1618

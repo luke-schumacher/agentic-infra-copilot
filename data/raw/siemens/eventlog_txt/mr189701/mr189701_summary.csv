@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,555058
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,287330
+I,MRI_CMM,1365,Patient table is docked.,287329
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,286684
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,286683
+I,MRI_HEC,1025,Coldhead is running.,286683
+I,MRI_HEC,1032,Helium compressor unit is running.,286683
+I,MRI_HEC,1029,DB25: status present.,286348
+I,MRI_PFW,9113,"InjectorDS425-Injector [Dev#<DEV_ID>] warning: The component is not connected. Connect component to MR System Select ""Restart System"". If the problem persists, please contact Siemens Service.",286344
+I,MRI_TBC,247,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",278649
+I,MRI_TBC,249,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",278649
+I,MRI_TBC,105,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,275732
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,233681
+I,MRI_FRR,278,Emergency docking released.,230795
+I,MRI_FRR,16,The scanning has finished.,226850
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_TimApplication.,213575
+W,DeveloperLog_DevLogService,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,196868
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,166652
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,166001
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,142572
+I,MRI_TBC,106,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,136186
+E,syngo_TransferFramework_SysLogService,0,An inactivity timeout (5 seconds) occurred during DICOM communication with AET OSIRIX2 (128.1.5.191:4096).,135042
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,115964
+I,MRI_HEC,1018,Helium compressor Event log has updated.,103758
+I,MRI_HEC,1023,Helium compressor Daily log has updated.,103742
+I,MRI_HEC,1022,Helium compressor Weekly log has updated.,103584
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",101065
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 2.16.840.1.<NUM_ID>.632.20.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",89786
+I,MRI_PTG,1011,The value of ptab_state has changed: 0 (<HEX>),87012
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",83412
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",83320
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",83309
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",83209
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",79648
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,67004
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",64019
+I,MRI_MSR,101,Valid coil select (Coil select #0: '18K'),63670
+I,DeveloperLog_DevLogService,0,"Updating MPPS for 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",60241
+I,MRI_PTG,1011,The value of ptab_state has changed: 4 (<HEX>),60090
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,59790
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 2.16.840.1.<NUM_ID>.632.20.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",55862
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,55696
+I,MRI_PTG,213,Patient table information: Y-axis: in motion Y. Y-Position is: <NUM_ID>,52857
+I,MRI_GSP,0,Load image in segment: planningRight,52396
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",51837
+I,MRI_PTG,226,Patient table information: Y-axis: not in motion Y. Y-Position is: <NUM_ID>,51704
+I,MRI_COS,21,SPICE prepare time: 7 ms,50811
+I,MRI_GSP,0,Load image in segment: planningLeft,49333
+E,DeveloperError_DevLogService,0,Sending retry of resource requests failed on 'RCC:<GUID>' possible for '<GUID>'. Denied!,49034
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,48970
+S,MRI_FRR,278,Emergency docking released.,47854
+I,SampleFile,0,Sampled File - Type: Diagnostics.xml,47802
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",47097
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_FRR_NlsMessageId.Resources.FRRmsg.MRI_FRR_W_2_FRR_DOOR_OPENED",47006
+S,MRI_FRR,16,The scanning has finished.,46991
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",46906
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",46861
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",46815
+E,TransferMgr,17,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP CONNECT error. Ftp server: ""SAP09505"" FtpUserName: ""rdiagftp"".</Description></Event>",45704
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service.",44785
+I,DeveloperLog_DevLogService,0,Reporting 0 context items to host for <GUID>.,43916
+I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",43124
+I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,43034
+I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,43034
+W,_unknown,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,42607
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",41674
+I,ExportImportFramework,0,The process syngo.ConfigConvert.exe has finished and the exitCode was 0.,39320
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),39189
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",37563
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",37539
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",37538
+I,MRI_COS,20,IRIS prepare time: 22 ms,37509
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",37426
+I,SampleFile,0,Sampled File - Type: FileTransferInformation_2<NUM_ID>.log,36530
+I,SampleFile,0,Sampled File - Type: FileCollectionInformation_2<NUM_ID>.log,36033
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",35362
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",35216
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,34849
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,34848
+I,MRI_GSP,0,Load image in segment: planningMiddle,34707
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,34595
+I,MRI_COS,21,SPICE prepare time: 6 ms,33356
+I,MRI_MSR,11,Measurement server unlocked.,31738
+W,MRI_SEP,14,Cooling System: Return pressure in the secondary water circuit low. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_14_SEP_RETURNPRESSURELOWWARNING_STATUS,31571
+I,MRI_COS,21,SPICE prepare time: 8 ms,31104
+I,SampleFile,0,Sampled File - Type: 2.16.840.1.<NUM_ID>.632.20.<NUM_ID>.<NUM_ID>.<NUM_ID>.xml,29886
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE2')",29337
+I,_unknown,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,29180
+I,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",28703
+I,MRI_COS,20,IRIS prepare time: 21 ms,28387
+I,MRI_PTG,1011,The value of ptab_state has changed: 3 (<HEX>),27027
+I,MRI_SCD,1009,Safe Component Detection successfully finished ID: syngo.MR.MRI_SCD_NlsMessageId.Resources.SCDmsg.MRI_SCD_S_1009_SCD_SUCCESS,25669
+W,MRI_SEP,14,Cooling System: Return pressure in the secondary water circuit low. Please contact Siemens Service.,25286
+I,ExportImportFramework,0,The path to the directory where configuration XML files are located: C:\Program Files\Siemens\Numaris\bin\Services\OPM\Configuration\ExportImport\Transfers,25132
+I,ExportImportFramework,0,file:///C:/Program Files/Siemens/Numaris/bin/syngo.Services.OPM.Configuration.ExportImport.exe has been executed and the exitCode is: 0,25128
+E,syngo_TransferFramework,0,An inactivity timeout (5 seconds) occurred during DICOM communication with AET OSIRIX2 (128.1.5.191:4096).,24507
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",23987
+I,MRI_FRR,266,"XAxisPlusLocked: 0,  XAxisMinusLocked: 0, argument values are boolean.",23925
+I,MRI_FRR,267,"YAxisUpLocked: 0, YAxisDownLocked: 0, argument values are boolean.",23925
+I,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",23925
+E,syngo_TransferFramework_SysLogService,0,An inactivity timeout (5 seconds) occurred during DICOM communication with AET OSIRIX (128.1.5.175:4096).,23655
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",23159
+I,MRI_SCD,1009,Safe Component Detection successfully finished,23152
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",23146
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",23146
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",23118
+I,MRI_CPA,1066,The home button on the control panel has been pressed.,22927
+I,MRI_SCD,1013,Sending data to 'SafeComponentDetectionConsumerAdapter@PerCoil' succeeded.,22817
+I,_unknown,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,22562
+W,DeveloperLog_DevLogService,0,"LM triggers full loading of all documents. This is caused by missing dicom tag(s) : (0018,9082) : (0021,0089)",21678
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-990,21645
+I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,21456
+S,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",21163
+I,MRI_CPA,1065,"The center button on the control panel was pressed briefly, i.e. for less than 1 second.",20942
+I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",20837
+I,DeveloperLog_DevLogService,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=False",20832
+I,DeveloperLog_DevLogService,0,"CanExecuteDataCompleteCommand(): CanExecuteExam =True, study instance uid = 2.16.840.1.<NUM_ID>.632.20.<NUM_ID>.<NUM_ID>.<NUM_ID>",20801
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,20598
+I,DeveloperLog_DevLogService,0,Adapter Exam: NotifyMeasurementSystem() finished,20518
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),20125
+I,MRI_COS,21,SPICE prepare time: 1 ms,19077
+E,DeveloperError_DevLogService,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.EndpointNotFoundException: The message could not be dispatched because the service at the endpoint address 'net.pipe://localhost/syngo.Services.NetMediaServer/DicomJobProvider' is unavailable for the protocol of the address.  Server stack trace:     at System.ServiceModel.Channels.ConnectionUpgradeHelper.DecodeFramingFault(ClientFramingDecoder decoder, IConnection connection, Uri via, String contentType, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.SendPreamble(IConnection connection, ArraySegment`1 preamble, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.DuplexConnectionPoolHelper.AcceptPooledConnection(IConnection connection, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",19034
+I,MRI_PTG,79,IO board: Remaining battery charge in percent: 0 (<HEX>),18981
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""SeriesNavigator_PrintSeriesInvoked"" time=""<DATE> <TIME>Z""> <SELECTEDDATAROLESCOUNT>5</SELECTEDDATAROLESCOUNT> </Event>",18973
+E,_unknown,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.EndpointNotFoundException: The message could not be dispatched because the service at the endpoint address 'net.pipe://localhost/syngo.Services.NetMediaServer/DicomJobProvider' is unavailable for the protocol of the address.  Server stack trace:     at System.ServiceModel.Channels.ConnectionUpgradeHelper.DecodeFramingFault(ClientFramingDecoder decoder, IConnection connection, Uri via, String contentType, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.SendPreamble(IConnection connection, ArraySegment`1 preamble, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.DuplexConnectionPoolHelper.AcceptPooledConnection(IConnection connection, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",18678
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 2.16.840.1.<NUM_ID>.632.20.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",18450
+I,MRI_PTG,128,Patient Table Information: Z-axis: movement outmost possible,18321
+I,MRI_IRC,1005,"MAX_ABS_ADC iNumReadouts: 3, iCha: 26, iNumCha: 32, fVal: 0.<NUM_ID>",18183
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,18052
+I,MRI_IRC,1005,"MAX_ABS_ADC iNumReadouts: 6, iCha: 26, iNumCha: 32, fVal: 0.<NUM_ID>",17913
+I,MRI_COS,20,IRIS prepare time: 23 ms,17834
+I,DeveloperLog_DevLogService,0,Column widths for restoring is '80|100|301|110|100|140|120|131|131|171|231|184|180|131',17556
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",17218
+I,DeveloperLog_DevLogService,0,Closing event fired to Patient tab for the workflow : <GUID> and study : 2.16.840.1.<NUM_ID>.632.20.<NUM_ID>.<NUM_ID>.<NUM_ID>,17154
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",16875
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,16593
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,16592
+I,DeveloperLog_DevLogService,0,ScanUI deactivated,16342
+I,MRI_COS,21,SPICE prepare time: 9 ms,16282
+I,MRI_COS,21,SPICE prepare time: 2 ms,16068
+I,DeveloperLog_DevLogService,0,IsStartExamOperationExecutingAsync(): isExecuting=False,16066
+I,MRI_CPA,1071,The lower button on the control panel is fully pressed.,16034
+I,MRI_PTG,1,Patient table information:  S10 has value 1,15946
+I,MRI_PTG,2,Patient table information:  S10 has value 0,15281
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SP2-4'),15203
+I,MRI_FRR,270,"New absolute position: 0 mm, New relative position: 990 mm, , Position category: 19. Explanation: First two argument values are long. See enum PerPTABPositionCategory defined in PerMotionControlIF for 3rd argument.",15029
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_Deep_Learning_Recon N_Iterative_Denoising|N_Deep_Learning_Recon|N_ms_epi|N_DL_Recon_EPI|N_DL_Recon_HASTE N_Super_Resolution N_TimApplication.,14721
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'HE1-4'),14641
+I,MRI_COS,20,IRIS prepare time: 17 ms,14397
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Overview.xml,14204
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Performance.xml,14203
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Study01.xml,14201
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>.rde,14200
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""DataStorage_DistributionStep_DisplayIntent"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <ClientHost>AWP1<NUM_ID></ClientHost> <ServerHost>AWP1<NUM_ID></ServerHost> <DistributionType>Workflow</DistributionType> <NumberOfSeriesItems>0</NumberOfSeriesItems> <NumberOfInstanceItems>0</NumberOfInstanceItems> </Event>",14105
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user. ID: syngo.MR.MRI_MSR_NlsMessageId.Resources.MSRmsg.MRI_MSR_I_34_USER_STOP,13785
+I,MRI_PTG,225,PTAB y-axis is on ZHEIGHT_NEAR position Y-Position is: <NUM_ID>,13643
+I,MRI_CPA,1064,The center button on the control panel was pressed for more than 1 second.,13547
+S,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",13508
+I,DeveloperLog_DevLogService,0,Reporting 3 context items to host for <GUID>.,13315
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 3 | Archivable = 2 | Contracts = 2.,13251
+I,DeveloperLog_DevLogService,0,Neurology: Open Morpho Executor,13162
+I,DeveloperLog_DevLogService,0,T4D: Open Tissue4D Executor,13162
+I,MRI_PTG,127,Patient Table Information: Z-axis: movement inmost possible.,13107
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MPR_THICK,13102
+I,MRI_PTG,6,Patient table information:  S20 has value 0,13062
+I,MRI_PTG,126,Patient table information: ready to move in Z-axis.,13050
+I,MRI_PTG,201,Patient table information: magnet bore entry height along Y-axis reached. Y-Position is: <NUM_ID>,13040
+I,MRI_PTG,5,Patient table information:  S20 has value 1,13040
+I,DeveloperLog_DevLogService,0,Smart ImageText feature is: Enabled,12985
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.Common.Loading.Utilities.DataWaitHandle,12774
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",12749
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",12725
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",12725
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user.,12586
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",12528
+I,_unknown,0,"Updating MPPS for 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",12495
+E,DeveloperError_DevLogService,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.  Server stack trace:     at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",12418
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SP2-5'),12367
+I,MRI_FRR,3,Door of the examination room has been closed.,12246
+E,_unknown,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.  Server stack trace:     at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",12048
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout:  CurrentLayout: MRViewing_Stack3x2-s ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,11969
+I,MRI_FRR,447,Door of the examination room has been opened.,11846
+I,DeveloperLog_DevLogService,0,UpdatePatientDataFrom3DCamera line 110:3DCamera update patient data end.,11723
+I,_unknown,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,11682
+I,DeveloperLog_DevLogService,0,BDBC ContextFolderGarbageCollection - ContextFolderId:<GUID>T-<NUM_ID> Decision KeepCF,11625
+I,MRI_IRC,1005,"MAX_ABS_ADC iNumReadouts: 1, iCha: 1, iNumCha: 2, fVal: 0.<NUM_ID>",11587
+I,MRI_COS,21,SPICE prepare time: 5 ms,11584
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 2.16.840.1.<NUM_ID>.632.20.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",11561
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout: MRViewing_Stack3x2-s CurrentLayout:  ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,11474
+I,DeveloperLog_DevLogService,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=True",11390
+I,DeveloperLog_DevLogService,0,Reporting 1 context items to host for <GUID>.,11324
+E,DeveloperError_DevLogService,0,Auto Views License not Available!,11211
+E,DeveloperError_DevLogService,0,SY_AUTO_VIEWS_MENU_ID: License not available,11211
+I,DeveloperLog_DevLogService,0,"RangesExecutorPlugin: MPR Algorithm initialized (-1/Notice), Objects:",11183
+I,DeveloperLog_DevLogService,0,"RangesCalculation: Calculation started (-1/Notice), Objects:",11172
+I,DeveloperLog_DevLogService,0,"RangesCalculation: Offline Ranges Tool created. (-1/Notice), Objects:",11172
+I,DeveloperLog_DevLogService,0,"RangesCalculation: Progress and Finish is attached! (-1/Notice), Objects:",11172
+I,DeveloperLog_DevLogService,0,"RangesCalculation: Ranges Model Parallel created. (-1/Notice), Objects:",11172
+I,DeveloperLog_DevLogService,0,"RangesCalculation: Starting calculation (-1/Notice), Objects:",11172
+I,DeveloperLog_DevLogService,0,"RangesExecutorPlugin: SeriesUid = 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0. (-1/Notice), Objects:",11172

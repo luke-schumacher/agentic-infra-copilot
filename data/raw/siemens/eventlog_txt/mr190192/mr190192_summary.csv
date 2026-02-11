@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,1422803
+I,MRI_TBC,247,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",713863
+I,MRI_TBC,249,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",713863
+I,MRI_TBC,105,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,706859
+I,MRI_CMM,1365,Patient table is docked.,661469
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,661469
+I,MRI_HEC,1029,DB25: status present.,659984
+I,MRI_HEC,1032,Helium compressor unit is running.,659979
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,659975
+I,MRI_HEC,1025,Coldhead is running.,659975
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,659974
+I,MRI_PFW,9113,"InjectorDS425-Injector [Dev#<DEV_ID>] warning: The component is not connected. Connect component to MR System Select ""Restart System"". If the problem persists, please contact Siemens Service.",659216
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_TimApplication.,578532
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,546882
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,545311
+I,MRI_FRR,278,Emergency docking released.,414129
+I,MRI_FRR,16,The scanning has finished.,408288
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,316261
+I,MRI_TBC,106,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,311082
+S,MRI_FRR,278,Emergency docking released.,299742
+S,MRI_FRR,16,The scanning has finished.,295390
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,223798
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,191114
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,190238
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",181529
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",181140
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",181117
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",181058
+I,_unknown,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,165148
+I,MRI_COS,21,SPICE prepare time: 9 ms,163250
+I,MRI_PSR,49,Beat Sensor cardiac signal is off,158182
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,152794
+E,DeveloperError_DevLogService,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.EndpointNotFoundException: The message could not be dispatched because the service at the endpoint address 'net.pipe://localhost/syngo.Services.NetMediaServer/DicomJobProvider' is unavailable for the protocol of the address.  Server stack trace:     at System.ServiceModel.Channels.ConnectionUpgradeHelper.DecodeFramingFault(ClientFramingDecoder decoder, IConnection connection, Uri via, String contentType, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.SendPreamble(IConnection connection, ArraySegment`1 preamble, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.DuplexConnectionPoolHelper.AcceptPooledConnection(IConnection connection, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",150520
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.826.0.1.<NUM_ID>.2.406.2.33.3.<NUM_ID>.1.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",149780
+I,_unknown,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,140950
+I,MRI_COS,21,SPICE prepare time: 8 ms,137680
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,133345
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",127694
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",119945
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",119533
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",119467
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",119372
+I,MRI_COS,21,SPICE prepare time: 2 ms,116024
+E,TransferMgr,17,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP CONNECT error. Ftp server: ""SAP09505"" FtpUserName: ""rdiagftp"".</Description></Event>",114519
+I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,109759
+I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,109759
+I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",109746
+W,DeveloperLog_DevLogService,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,109688
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 1.2.826.0.1.<NUM_ID>.2.406.2.33.3.<NUM_ID>.1.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",108850
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",103867
+I,MRI_GSP,0,Load image in segment: planningLeft,102581
+E,DeveloperError_DevLogService,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.  Server stack trace:     at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",101540
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",100977
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",100926
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,100326
+I,DeveloperLog_DevLogService,0,"Updating MPPS for 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",100314
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,100288
+I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,99698
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",99343
+I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",98698
+I,MRI_COS,20,IRIS prepare time: 22 ms,97516
+S,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",95158
+I,NVWMI,3,NVWMI - Base Profile [c:/program files/siemens/numaris/bin/syngo.common.container.exe] was launched and [Base Profile] profile was applied,93329
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.826.0.1.<NUM_ID>.2.406.2.33.3.<NUM_ID>.1.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",90813
+I,MRI_MSR,101,Valid coil select (Coil select #0: '18K'),90169
+E,_unknown,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.EndpointNotFoundException: The message could not be dispatched because the service at the endpoint address 'net.pipe://localhost/syngo.Services.NetMediaServer/DicomJobProvider' is unavailable for the protocol of the address.  Server stack trace:     at System.ServiceModel.Channels.ConnectionUpgradeHelper.DecodeFramingFault(ClientFramingDecoder decoder, IConnection connection, Uri via, String contentType, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.SendPreamble(IConnection connection, ArraySegment`1 preamble, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.DuplexConnectionPoolHelper.AcceptPooledConnection(IConnection connection, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",87264
+I,MRI_COS,20,IRIS prepare time: 21 ms,85749
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),84151
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",81718
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",81699
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",81699
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",81564
+I,_unknown,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",79353
+I,_unknown,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,79339
+I,_unknown,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,79338
+W,_unknown,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,78006
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",76253
+S,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",74540
+S,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",74155
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",74136
+I,MRI_MSR,11,Measurement server unlocked.,73997
+S,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,73657
+S,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,73609
+I,_unknown,0,"Updating MPPS for 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",72305
+I,_unknown,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,71684
+I,MRI_COS,21,SPICE prepare time: 10 ms,71392
+I,_unknown,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",71104
+I,ExportImportFramework,0,The process syngo.ConfigConvert.exe has finished and the exitCode was 0.,69116
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 1.2.826.0.1.<NUM_ID>.2.406.2.33.3.<NUM_ID>.1.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",65321
+I,MRI_GSP,0,Load image in segment: planningRight,59836
+E,_unknown,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.  Server stack trace:     at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",59114
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",59029
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",59020
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",59020
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",58986
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),57574
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,56081
+I,MRI_GSP,0,Load image in segment: planningMiddle,54141
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""SeriesNavigator_PrintSeriesInvoked"" time=""<DATE> <TIME>Z""> <SELECTEDDATAROLESCOUNT>5</SELECTEDDATAROLESCOUNT> </Event>",49780
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'FA,TO')",49078
+I,MRI_COS,20,IRIS prepare time: 23 ms,48724
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SHA'),48622
+I,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",48257
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 3 | Archivable = 2 | Contracts = 2.,47206
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,45242
+I,ExportImportFramework,0,The path to the directory where configuration XML files are located: C:\Program Files\Siemens\Numaris\bin\Services\OPM\Configuration\ExportImport\Transfers,44406
+I,ExportImportFramework,0,file:///C:/Program Files/Siemens/Numaris/bin/syngo.Services.OPM.Configuration.ExportImport.exe has been executed and the exitCode is: 0,44403
+I,_unknown,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,42073
+I,DeveloperLog_DevLogService,0,ExamPatientRegistration_OnExamDataChanged received,40942
+I,MRI_CPA,1065,"The center button on the control panel was pressed briefly, i.e. for less than 1 second.",39290
+I,MRI_COS,21,SPICE prepare time: 15 ms,37747
+I,MRI_PTG,79,IO board: Remaining battery charge in percent: 0 (<HEX>),34982
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_Deep_Learning_Recon N_Iterative_Denoising|N_Deep_Learning_Recon|N_ms_epi N_Super_Resolution N_TimApplication.,34680
+I,_unknown,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,34375
+I,DeveloperLog_DevLogService,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=False",33705
+I,_unknown,0,Storage-Service: Istances = 3 | Archivable = 2 | Contracts = 2.,33596
+S,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",33411
+I,MRI_PSR,48,Beat Sensor learning phase is active,32722
+I,MRI_COS,20,IRIS prepare time: 17 ms,32413
+I,MRI_COS,21,SPICE prepare time: 11 ms,32198
+I,DeveloperLog_DevLogService,0,"CanExecuteDataCompleteCommand(): CanExecuteExam =True, study instance uid = 1.2.826.0.1.<NUM_ID>.2.406.2.33.3.<NUM_ID>.1.<NUM_ID>",31230
+I,DeveloperLog_DevLogService,0,Adapter Exam: NotifyMeasurementSystem() finished,30916
+I,DeveloperLog_DevLogService,0,"<GUID>: using settings: MPPSAutoComplete=True, QATemplate=MR ViewAndGo, DelayInSecondsForWorkflowDelete=<NUM_ID>, gContextFolderDisable=False",30847
+I,DeveloperLog_DevLogService,0,<GUID>: Prepare Workflow: Studies=1.2.826.0.1.<NUM_ID>.2.406.2.33.3.<NUM_ID>.1.<NUM_ID> after sorting,30384
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE2')",30260
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,30202
+I,DeveloperLog_DevLogService,0,<GUID>: created Workflow=<GUID>@WorkflowNX in database,29830
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,29595
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,29581
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,29055
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",28996
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",28982
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",28982
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",28736
+I,MRI_PTG,1,Patient table information:  S10 has value 1,28142
+I,MRI_CPA,1064,The center button on the control panel was pressed for more than 1 second.,27948
+I,_unknown,0,ExamPatientRegistration_OnExamDataChanged received,27504
+I,MRI_PTG,2,Patient table information:  S10 has value 0,27473
+W,MRI_SEP,42,Cooling System: Actuator Status problem. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_42_SEP_MIXER_VALVE_ACTUATOR_STATUS,27418
+W,MRI_SEP,42,Cooling System: Actuator Status problem. Please contact Siemens Service.,27243
+I,MRI_COS,20,IRIS prepare time: 16 ms,26479
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",26227
+I,DeveloperLog_DevLogService,0,IsStartExamOperationExecutingAsync(): isExecuting=False,26059
+I,MRI_PTG,128,Patient Table Information: Z-axis: movement outmost possible,25741
+I,DeveloperLog_DevLogService,0,ScanUI deactivated,25615
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Performance_Duration"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <Functionality>CreateLayout</Functionality> <ProcessName>syngo.Common.Container</ProcessName> <ProcessId><NUM_ID></ProcessId> <Hostname>AWP1<NUM_ID></Hostname> <TaskID>null</TaskID> <Precision_Frequency><NUM_ID></Precision_Frequency> <Start_Absolute><DATE>T<TIME>.<NUM_ID>+02:00</Start_Absolute> <Start_Relative><NUM_ID></Start_Relative> <Stop_Absolute><DATE>T<TIME>.<NUM_ID>+02:00</Stop_Absolute> <Stop_Relative><NUM_ID></Stop_Relative> </Event>",25385
+I,MRI_COS,20,IRIS prepare time: 24 ms,25110
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_FRR_NlsMessageId.Resources.FRRmsg.MRI_FRR_W_2_FRR_DOOR_OPENED",24824
+I,_unknown,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=False",24773
+I,DeveloperLog_DevLogService,0,Workflow removed from cache on OnWorkflowDelete event <GUID>@WorkflowNX,24766
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service.",24472
+I,_unknown,0,"Printing segment Details :  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef",24445
+I,MRI_COS,21,SPICE prepare time: 16 ms,24155
+I,NVWMI,3,"[tid = <HEX>, pid = <HEX>] - NV GPUs detected",23628
+I,DeveloperLog_DevLogService,0,"Printing segment Details :  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 192.168.2.30,192.168.2.1,169.254.113.206, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef",23582
+I,MRI_PSR,48, Beat Sensor learning phase is active,22871
+I,_unknown,0,"<GUID>: using settings: MPPSAutoComplete=True, QATemplate=MR ViewAndGo, DelayInSecondsForWorkflowDelete=<NUM_ID>, gContextFolderDisable=False",22539
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-990,22513
+I,SampleFile,0,Sampled File - Type: Diagnostics.xml,22507
+I,_unknown,0,"CanExecuteDataCompleteCommand(): CanExecuteExam =True, study instance uid = 1.2.826.0.1.<NUM_ID>.2.406.2.33.3.<NUM_ID>.1.<NUM_ID>",22210
+I,_unknown,0,<GUID>: Prepare Workflow: Studies=1.2.826.0.1.<NUM_ID>.2.406.2.33.3.<NUM_ID>.1.<NUM_ID> after sorting,22136
+I,_unknown,0,Adapter Exam: NotifyMeasurementSystem() finished,21989
+I,_unknown,0,<GUID>: created Workflow=<GUID>@WorkflowNX in database,21498
+I,MRI_PAC,104,The following licenses are needed to run the protocol   MR_AutoAlign_Knee N_Iterative_Denoising N_Iterative_Denoising|N_Deep_Learning_Recon|N_ms_epi N_Super_Resolution N_TimApplication.,21114
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""DataStorage_DistributionStep_DisplayIntent"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <ClientHost>AWP1<NUM_ID></ClientHost> <ServerHost>AWP1<NUM_ID></ServerHost> <DistributionType>Workflow</DistributionType> <NumberOfSeriesItems>0</NumberOfSeriesItems> <NumberOfInstanceItems>0</NumberOfInstanceItems> </Event>",21001
+I,MRI_COS,21,SPICE prepare time: 14 ms,20570
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",20271
+I,NVWMI,3,NVWMI - Base Profile [c:/program files/siemens/numaris/bin/syngo.viewing.shell.host.exe] was launched and [Base Profile] profile was applied,20267
+S,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",20178
+I,DeveloperLog_DevLogService,0,<GUID>: CorReaHappened received while waiting for Start Scan,20080
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilPos', Sequence: '%AdjustSeq%/AdjCoilPosSeq')",20078
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilPos', Sequence: '%AdjustSeq%/AdjCoilPosSeq')",20070
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilPos', Sequence: '%AdjustSeq%/AdjCoilPosSeq')",20070
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SP2-4'),20065
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilPos', Sequence: '%AdjustSeq%/AdjCoilPosSeq')",20052
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user. ID: syngo.MR.MRI_MSR_NlsMessageId.Resources.MSRmsg.MRI_MSR_I_34_USER_STOP,20046
+I,DeveloperLog_DevLogService,0,<GUID>: UpdateProcedure received while waiting for StartScan,20031
+I,DeveloperLog_DevLogService,0,Smart ImageText feature is: Enabled,19976
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user.,19829
+I,MRI_FRR,3,Door of the examination room has been closed.,19817
+W,DeveloperLog_DevLogService,0,CheckAndLogProcedureStepAttributes(): string.IsNullOrEmpty(patientPosition),19810
+I,MRI_CPA,1067,The laser marker button on the control panel has been pressed.,19744
+E,MRI_RFS,8,SAR limit(s) exceeded.,19708
+I,MRI_FRR,447,Door of the examination room has been opened.,19163
+I,_unknown,0,IsStartExamOperationExecutingAsync(): isExecuting=False,18619
+I,MRI_COS,20,IRIS prepare time: 43 ms,18553
+I,_unknown,0,ScanUI deactivated,18384
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Creating Named pipe Binding,18348
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Host opened,18348
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Named pipe Binding created,18348
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: ImageAccessImpl created,18348
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: Starting Server,18348
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: starting ImageAccessImpl creation,18348
+W,DeveloperLog_DevLogService,0,DeploymentTrait FindingsRestCommunication is not enabled,18315
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout: MRViewing_Stack3x2-s CurrentLayout:  ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,18265
+I,_unknown,0,Workflow removed from cache on OnWorkflowDelete event <GUID>@WorkflowNX,18098
+I,DeveloperLog_DevLogService,0,"Communication Server is started successfully!. Server Id: <GUID>, Service Name: PrintingService",17905
+W,DeveloperLog_DevLogService,0,Config key UseLightWeightBiBc not found in service configuration,17905
+I,MRI_COS,20,IRIS prepare time: 44 ms,17901
+I,DeveloperLog_DevLogService,0,"ImageAccessRSC is not yet part of the composition, will be added now.",17874

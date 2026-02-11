@@ -1,0 +1,51 @@
+source,occurrence_count
+syngo_Application,709572
+ExportImportFramework,194308
+DeveloperLog_DevLogService,176334
+MRI_FRR,155029
+MRI_MPU,131341
+MRI_TBC,78836
+Event_UsageTrail,72533
+SampleFile,66230
+_unknown,62203
+MRI_HEC,59734
+MRI_MSR,55240
+MRI_PFW,54473
+MRI_PTG,40454
+PowerShell,39258
+MRI_GIM,38180
+MRI_COS,35179
+MRI_CMM,30095
+MRI_CPA,26484
+MSSQL$MSSQLSERVER_SYDS,23429
+MRI_PRS,21141
+MRI_SIM,14063
+NVWMI,12620
+MRI_PRC,12122
+MRI_PAC,10529
+MRI_EXU,8087
+SystemStatusMonitoringRSC_SysLogService,7341
+syngo.MR.HostInfra.Telemetry,7109
+MRI_CCS,6136
+Microsoft-Windows-Kernel-Processor-Power,6008
+MRI_IRC,5405
+Software Protection Platform Service,5134
+MsiInstaller,4937
+Microsoft-Windows-FilterManager,3937
+MRI_SEP,3832
+Microsoft-Windows-Kernel-General,3442
+Autoreport,3420
+DeveloperError_DevLogService,3038
+MRI_GSP,2946
+Service Control Manager,2917
+MRI_CEG,2913
+ADAM [SyngoConfiguration] General,2805
+Microsoft-Windows-WHEA-Logger,2793
+NLS_SysLogService,2649
+MRI_SUT,2441
+Microsoft-Windows-Time-Service,2383
+ESENT,2213
+Microsoft-Windows-Kernel-Boot,2040
+SystemStatusMonitoringRSC,2038
+TM_TQ,1795
+ADAM [SyngoConfiguration] ISAM,1718
