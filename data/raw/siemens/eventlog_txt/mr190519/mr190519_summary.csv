@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,513347
+I,MRI_CMM,1365,Patient table is docked.,258295
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,258295
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,257723
+I,MRI_HEC,1025,Coldhead is running.,257723
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,257723
+I,MRI_HEC,1032,Helium compressor unit is running.,257723
+I,MRI_HEC,1029,DB25: status present.,257721
+I,MRI_TBC,247,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",257721
+I,MRI_TBC,249,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",257721
+I,MRI_FRR,278,Emergency docking released.,257687
+I,MRI_PFW,9113,"InjectorDS425-Injector [Dev#<DEV_ID>] warning: The component is not connected. Connect component to MR System Select ""Restart System"". If the problem persists, please contact Siemens Service.",257422
+I,MRI_TBC,105,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,255436
+I,MRI_FRR,16,The scanning has finished.,253933
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_TimApplication.,210477
+I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",181827
+I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,181807
+I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,181807
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0'.,129360
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,126049
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,125932
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,125354
+I,MRI_TBC,106,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,119024
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",118231
+E,DeveloperError_DevLogService,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.EndpointNotFoundException: The message could not be dispatched because the service at the endpoint address 'net.pipe://localhost/syngo.Services.NetMediaServer/DicomJobProvider' is unavailable for the protocol of the address.  Server stack trace:     at System.ServiceModel.Channels.ConnectionUpgradeHelper.DecodeFramingFault(ClientFramingDecoder decoder, IConnection connection, Uri via, String contentType, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.SendPreamble(IConnection connection, ArraySegment`1 preamble, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.DuplexConnectionPoolHelper.AcceptPooledConnection(IConnection connection, TimeoutHelper& timeoutHelper)    at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOpenOnce.System.ServiceModel.Channels.ServiceChannel.ICallOnce.Call(ServiceChannel channel, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.CallOnceManager.CallOnce(TimeSpan timeout, CallOnceManager cascade)    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",112971
+I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,101580
+I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",100930
+E,DeveloperError_DevLogService,0,SetObjectStateActivity: Failed to set ArchiveStatus=AD for syngo uids listed below.  Error type: ObjectStateManagementNotExistException  This exception comes from the database indicates that the syngo uids that were given for the TestAndSetState API do not exist in the database! ***** - <InstanceSyngoUid StudyInstanceUid='*' SeriesInstanceUid='*' SopInstanceUid='1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' SopClassUid='1.2.840.<NUM_ID>.5.1.4.1.1.4'><Location ObjectLocation=''><DeviceHandle DeviceType='FilesystemSyngo' DeviceLocation='Local'/></Location></InstanceSyngoUid>,86723
+I,MRI_PSR,49,Beat Sensor cardiac signal is off,81339
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",80265
+E,DeveloperError_DevLogService,0,"A fatal exception occured during using NetmediaServer. The progress and completed events of the Job started earlier will not provide! Exception: System.ServiceModel.CommunicationObjectFaultedException: The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.  Server stack trace:     at System.ServiceModel.Channels.CommunicationObject.ThrowIfDisposedOrNotOpen()    at System.ServiceModel.Channels.ServiceChannel.EnsureOpened(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.ChannelFactory.IDicomJobProviderContract.IsAvailable()    at syngo.BizLogic.Applications.Browsing.TransferJobCommon.DicomJobProviderClient.IsChannelAvailable()",76371
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,73889
+I,MRI_COS,21,SPICE prepare time: 9 ms,69641
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,69232
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",67535
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",66440
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",65490
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",65448
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",65437
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",65420
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: DestinationNodes: null, PluginOptions: null. (-1), Objects:",64023
+I,DeveloperLog_DevLogService,0,"Updating MPPS for 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",63471
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,62742
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service.",61733
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_FRR_NlsMessageId.Resources.FRRmsg.MRI_FRR_W_2_FRR_DOOR_OPENED",61716
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",54769
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",54724
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,52834
+I,MRI_GSP,0,Load image in segment: planningLeft,52740
+I,MRI_COS,21,SPICE prepare time: 8 ms,50728
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",50218
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,49303
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,49302
+I,NVWMI,3,NVWMI - Base Profile [c:/program files/siemens/numaris/bin/syngo.common.container.exe] was launched and [Base Profile] profile was applied,46612
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",46587
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",46367
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",46337
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",46262
+I,MRI_PTG,226,Patient table information: Y-axis: not in motion Y. Y-Position is: <NUM_ID>,44147
+I,MRI_PTG,213,Patient table information: Y-axis: in motion Y. Y-Position is: <NUM_ID>,43851
+W,DeveloperLog_DevLogService,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,39197
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",37794
+I,ExportImportFramework,0,The process syngo.ConfigConvert.exe has finished and the exitCode was 0.,36915
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,36710
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,36399
+I,MRI_COS,20,IRIS prepare time: 21 ms,35855
+I,SampleFile,0,Sampled File - Type: Diagnostics.xml,35417
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),34960
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",34073
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",34061
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",34061
+I,MRI_COS,21,SPICE prepare time: 2 ms,34038
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",34004
+I,MRI_COS,20,IRIS prepare time: 22 ms,32457
+W,MRI_CEG,4,CAN24: CAN1 is not connected. Message is only relevant for Siemens Service.,31937
+I,MRI_GSP,0,Load image in segment: planningRight,30614
+W,MRI_SEP,24,Cooling System: Return pressure in the secondary water circuit high. Please contact Siemens Service.,30529
+W,MRI_SEP,24,Cooling System: Return pressure in the secondary water circuit high. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_24_SEP_RETURNPRESSUREHIGHWARNING_STATUS,30514
+I,MRI_MSR,101,Valid coil select (Coil select #0: '18K'),27961
+I,DeveloperLog_DevLogService,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=False",27808
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE2')",26767
+I,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",26466
+I,MRI_GSP,0,Load image in segment: planningMiddle,26373
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",25711
+I,MRI_FRR,266,"XAxisPlusLocked: 0,  XAxisMinusLocked: 0, argument values are boolean.",25044
+I,MRI_FRR,267,"YAxisUpLocked: 0, YAxisDownLocked: 0, argument values are boolean.",25044
+I,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",25044
+E,TransferMgr,17,"<Event type=""ProtocolEvent"" name =""TransferMgr""><Description>FTP CONNECT error. Ftp server: ""SAP09505"" FtpUserName: ""rdiagftp"".</Description></Event>",24861
+I,ExportImportFramework,0,The path to the directory where configuration XML files are located: C:\Program Files\Siemens\Numaris\bin\Services\OPM\Configuration\ExportImport\Transfers,23721
+I,ExportImportFramework,0,file:///C:/Program Files/Siemens/Numaris/bin/syngo.Services.OPM.Configuration.ExportImport.exe has been executed and the exitCode is: 0,23717
+I,MRI_MSR,11,Measurement server unlocked.,23695
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),23625
+W,MRI_SEP,42,Cooling System: Actuator Status problem. Please contact Siemens Service.,23572
+W,MRI_SEP,42,Cooling System: Actuator Status problem. Please contact Siemens Service. ID: syngo.MR.MRI_SEP_NlsMessageId.Resources.SEPmsg.MRI_SEP_W_42_SEP_MIXER_VALVE_ACTUATOR_STATUS,23564
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",22931
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",22921
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",22921
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",22896
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-990,22695
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 3 | Archivable = 2 | Contracts = 2.,22662
+W,DeveloperLog_DevLogService,0,"Failed to set Archive flag! SeriesUID: '*' Reason: 'NotFound' count of instances:1 min sopInstanceUid:1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> max sopInstanceUid:1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>,",22249
+I,MRI_COS,21,SPICE prepare time: 10 ms,21998
+I,DeveloperLog_DevLogService,0,Adapter Exam: NotifyMeasurementSystem() finished,21489
+I,DeveloperLog_DevLogService,0,IsStartExamOperationExecutingAsync(): isExecuting=False,21431
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,20840
+I,SampleFile,0,Sampled File - Type: 1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID>.xml,20503
+I,DeveloperLog_DevLogService,0,"CanExecuteDataCompleteCommand(): CanExecuteExam =True, study instance uid = 1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID>",20380
+I,DeveloperLog_DevLogService,0,"Printing segment Details :  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                                  ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef",19939
+I,MRI_CPA,1065,"The center button on the control panel was pressed briefly, i.e. for less than 1 second.",19720
+I,MRI_FRR,270,"New absolute position: 0 mm, New relative position: 990 mm, , Position category: 19. Explanation: First two argument values are long. See enum PerPTABPositionCategory defined in PerMotionControlIF for 3rd argument.",18761
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MPR_THICK,18518
+I,DeveloperLog_DevLogService,0,ScanUI deactivated,17272
+I,MRI_PTG,79,IO board: Remaining battery charge in percent: 0 (<HEX>),17068
+I,NVWMI,3,"[tid = <HEX>, pid = <HEX>] - NV GPUs detected",16648
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_Deep_Learning_Recon N_Iterative_Denoising|N_Deep_Learning_Recon|N_ms_epi N_Super_Resolution N_TimApplication.,16247
+I,DeveloperLog_DevLogService,0,ExamPatientRegistration_OnExamDataChanged received,16239
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,15928
+I,MRI_COS,20,IRIS prepare time: 23 ms,15778
+E,DeveloperError_DevLogService,0,Auto Views License not Available!,15364
+E,DeveloperError_DevLogService,0,SY_AUTO_VIEWS_MENU_ID: License not available,15364
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""DataStorage_DistributionStep_DisplayIntent"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <ClientHost>AWP1<NUM_ID></ClientHost> <ServerHost>AWP1<NUM_ID></ServerHost> <DistributionType>Workflow</DistributionType> <NumberOfSeriesItems>0</NumberOfSeriesItems> <NumberOfInstanceItems>0</NumberOfInstanceItems> </Event>",14964
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,14958
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,14955
+I,DeveloperLog_DevLogService,0,Smart ImageText feature is: Enabled,14927
+I,MRI_COS,21,SPICE prepare time: 15 ms,14740
+I,DeveloperLog_DevLogService,0,"<GUID>: using settings: MPPSAutoComplete=True, QATemplate=MR ViewAndGo, DelayInSecondsForWorkflowDelete=<NUM_ID>, gContextFolderDisable=False",14408
+I,MRI_PTG,1,Patient table information:  S10 has value 1,14381
+I,MRI_PTG,2,Patient table information:  S10 has value 0,14087
+I,MRI_CPA,1071,The lower button on the control panel is fully pressed.,14011
+I,MRI_CPA,1066,The home button on the control panel has been pressed.,13975
+I,MRI_PTG,128,Patient Table Information: Z-axis: movement outmost possible,13729
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_Modules_CIP_LayoutManagementUsage"" time=""<DATE> <TIME>Z""> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> <Content><Item Type=""LayoutManagement"" Name=""LayoutManagement"" Action=""DragAndDrop"" Tool_Logical_Name=""ToolsCommon: SimpleReplaceDragDropTool"" Image_Type=""1.3.12.2.1107.5.99.3.10,DERIVED,SECONDARY,M,NONE"" Layout_ID=""MRViewing_Stack3x2-s"" Layout_Name=""Stack 3x2"" Layout_Section=""Site, "" /></Content> </Event>",13647
+I,DeveloperLog_DevLogService,0,<GUID>: Prepare Workflow: Studies=1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID> after sorting,13451
+W,DeveloperLog_DevLogService,0,Failed to set distribution state! UID:'SimpleDicomUid( Level=INSTANCE study='1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID>' series='1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' instance='1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>' sopclass='1.2.840.<NUM_ID>.5.1.4.1.1.88.22' location=SimpleDicomLocation( Hostname='Local' port=0))' Target(s)/Reason: '(Node:SYNAIRM Reason:State transition from: 'Distributed' to: 'DistributionInProgress' is not allowed!)',13321
+I,MRI_CPA,1069,The lower button on the control panel is half pressed.,13319
+I,DeveloperLog_DevLogService,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>. Prior flag: False,12817
+I,MRI_CPA,1064,The center button on the control panel was pressed for more than 1 second.,12668
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>INPROGRESS</NEW_STATE> </Event>",12496
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout: MRViewing_Stack3x2-s CurrentLayout:  ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,12473
+I,MRI_FRR,3,Door of the examination room has been closed.,12431
+I,MRI_FRR,447,Door of the examination room has been opened.,12415
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_MR ViewAndGO"" time=""<DATE> <TIME>Z""> <Content></Content> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> </Event>",12389
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user.,12243
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user. ID: syngo.MR.MRI_MSR_NlsMessageId.Resources.MSRmsg.MRI_MSR_I_34_USER_STOP,12231
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Study01.xml,12051
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Overview.xml,12049
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>-Performance.xml,12048
+I,SampleFile,0,Sampled File - Type: Entry-<NUM_ID>-<NUM_ID>.rde,12048
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>COMPLETING</NEW_STATE> </Event>",12016
+I,DeveloperLog_DevLogService,0,"BE Printing remote Segment Details :  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                      ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                      ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                      ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                      ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                      ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef  DisplayAdapterId: <NUM_ID>, Catalog: <GUID>, HostName: AWP1<NUM_ID>, IPAddress: 10.200.2.152,192.168.2.1,169.254.175.215, Port: <NUM_ID>, ExternalPort: 0,                      ObjectId: <GUID>, ProcessId: <NUM_ID>, Protocol: TCP, System: Standard, Type: DirectConnectServer, Format: Undef",12008
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>COMPLETED</NEW_STATE> </Event>",11975
+I,MRI_PSR,48,Beat Sensor learning phase is active,11816
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",11695
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",11686
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",11686
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",11592
+I,DeveloperLog_DevLogService,0,<GUID>: created Workflow=<GUID>@WorkflowNX in database,11520
+I,MRI_PTG,225,PTAB y-axis is on ZHEIGHT_NEAR position Y-Position is: <NUM_ID>,11508
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_Read_Syngo_Via"" time=""<DATE> <TIME>Z""> <ProcedureUid>1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID></ProcedureUid> <WorkflowId><GUID></WorkflowId> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <UseCase>ClaimWorkflow</UseCase> <UseCaseType>Manual</UseCaseType> <ClientHost>AWP1<NUM_ID></ClientHost> <EventName>via_Claim_transition</EventName> </Event>",11499
+I,DeveloperLog_DevLogService,0,Closing event fired to Patient tab for the workflow : <GUID> and study : 1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID>,11481
+I,MRI_FRR,274,"PTAB Position on Y-Axis: 5, detail values see extended message description.",11442
+I,MRI_PTG,6,Patient table information:  S20 has value 0,11316
+I,MRI_FRR,274,"PTAB Position on Y-Axis: 3, detail values see extended message description.",11103
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.826.0.1.<NUM_ID>.2.455.40.11.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID> 2'. (-1), Objects:",11066
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_Modules_CIP_LayoutManagementUsage"" time=""<DATE> <TIME>Z""> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> <Content><Item Type=""LayoutManagement"" Name=""PreferredLayouts"" Action=""InitialRule"" IsAdmin=""False"" Layout_ID=""MRViewing_Stack3x2-s"" Layout_Name=""Stack 3x2"" Monitors=""1"" MonitorResolutions=""192<HEX>,"" Rule_name=""Viewing"" Modality=""false"" Assignment_object="""" Assignment_condition="""" Preferred_layouts=""Stack 3x2, Stack 2x2, Stack 5x4"" /></Content> </Event>",11007
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""Workflow_WorkItem_StateChange"" time=""<DATE> <TIME>Z""> <ID>TM.WF_MR ViewAndGo_<GUID></ID> <TYPE>READ</TYPE> <NEW_STATE>SCHEDULED</NEW_STATE> </Event>",11003
+I,MRI_MOV,7,Layout changed Task: TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId.Viewing PreviousLayout:  CurrentLayout: MRViewing_Stack3x2-s ID: syngo.MR.MRI_MOV_NlsMessageId.Resources.Labels.MRI_MOV_I_7_LAYOUT_CHANGED,10999
+I,MRI_PTG,127,Patient Table Information: Z-axis: movement inmost possible.,10980
+I,MRI_PTG,126,Patient table information: ready to move in Z-axis.,10979
+I,MRI_PTG,201,Patient table information: magnet bore entry height along Y-axis reached. Y-Position is: <NUM_ID>,10975
+I,MRI_PTG,5,Patient table information:  S20 has value 1,10975
+I,MRI_FRR,274,"PTAB Position on Y-Axis: 2, detail values see extended message description.",10972
+I,MRI_FRR,262,PTAB reached patient change position. Images will be unloaded.,10957
+I,DeveloperLog_DevLogService,0,Exam button clicked,10775
+I,DeveloperLog_DevLogService,0,AcquireLockOfStartExamOperation(): wait at ExamHandlerExecutionSemaphore end,10774
+I,DeveloperLog_DevLogService,0,CreateListOfChecks: Allocating PlausibilityCheckConfirmationWindow,10774
+I,DeveloperLog_DevLogService,0,CreateListOfChecks: Allocating SafetyRelatedQaCheckConfirmationWindow,10774
+I,DeveloperLog_DevLogService,0,ExecuteChecksAndUpdateData(),10774
+I,DeveloperLog_DevLogService,0,Executing Checks,10774
+I,DeveloperLog_DevLogService,0,ImplantChecker: User selected ImplantScanningType=NoImplant,10774
+I,DeveloperLog_DevLogService,0,IsStartExamOperationExecuting(): isExecuting=False,10774
+I,DeveloperLog_DevLogService,0,"IsUseMr3DCameraFeature is false, use default check list.",10774
+I,DeveloperLog_DevLogService,0,ReleaseLockOfStartExamOperation(): ExamHandlerExecutionSemaphore released,10774
+I,DeveloperLog_DevLogService,0,SafetyRelatedQaCheck.AreAllSafetyRelatedStepsDone()=True,10774
+I,DeveloperLog_DevLogService,0,Setting up SyngoRollOutServiceHelper,10774
+I,DeveloperLog_DevLogService,0,StorageSpaceCheck.GetStorageSpaceStatus()=StorageSpaceAvailable,10774
+I,DeveloperLog_DevLogService,0,ExamStartCheck.GetExamStartStatus()=ExamStartStatusCanStart,10771
+I,DeveloperLog_DevLogService,0,<GUID>: CreateReadingWorkflow success=True,10755
+I,DeveloperLog_DevLogService,0,"<GUID>: Invoke Workflow received: ContinueExamination, ParametersInvoke=Invoke: 2 ProcedureStatus=INPROGRESS ExamSelection=",10755
+I,DeveloperLog_DevLogService,0,<GUID>: MPPS created part 2 (send): SOPInstanceUID=1.3.12.2.1107.5.2.53.<NUM_ID>.<NUM_ID>,10755
+I,DeveloperLog_DevLogService,0,<GUID>: ScannerWorkElement.ScannerController received: ScanWorkflow 'in progress',10755
+I,DeveloperLog_DevLogService,0,Adapter Exam: 'patient registered'-event sent,10755
+I,DeveloperLog_DevLogService,0,Adapter Exam: examination data mapped to MeasPatient,10755
+I,DeveloperLog_DevLogService,0,Adapter Exam: measurement system initialized (map),10755
+I,DeveloperLog_DevLogService,0,CheckAndAdjustBirthdateToAge() finished,10755
+I,DeveloperLog_DevLogService,0,CheckNewPatient() finished,10755
+I,DeveloperLog_DevLogService,0,DicomDefaultAttributeList.Count: 1,10755
+I,DeveloperLog_DevLogService,0,ScanUI activated,10755
+I,DeveloperLog_DevLogService,0,adding further values to DICOM dataset,10755
+I,DeveloperLog_DevLogService,0,calling InformationExtractor to create DICOM dataset,10755

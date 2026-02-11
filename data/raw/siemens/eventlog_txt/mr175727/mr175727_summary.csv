@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,56928
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,56267
+I,ExportImportFramework,0,The process syngo.ConfigConvert.exe has finished and the exitCode was 0.,30201
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,21026
+I,ExportImportFramework,0,file:///C:/Program Files/Siemens/Numaris/bin/syngo.Services.OPM.Configuration.ExportImport.exe has been executed and the exitCode is: 0,19905
+I,ExportImportFramework,0,The path to the directory where configuration XML files are located: C:\Program Files\Siemens\Numaris\bin\Services\OPM\Configuration\ExportImport\Transfers,19897
+I,MRI_CMM,1365,Patient table is docked.,12392
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,12392
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,11780
+I,MRI_HEC,1025,Coldhead is running.,11780
+I,MRI_HEC,1032,Helium compressor unit is running.,11780
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,11779
+I,MRI_TBC,247,"TxK2304_2Ch-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",11775
+I,MRI_TBC,249,"TxK2304_2Ch-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",11775
+I,MRI_HEC,1029,DB25: status present.,11668
+I,MRI_PFW,9113,"InjectorDS425-Injector [Dev#<DEV_ID>] warning: The component is not connected. Connect component to MR System Select ""Restart System"". If the problem persists, please contact Siemens Service.",11455
+I,MRI_TBC,1382,TxK2304_2Ch [Dev#<DEV_ID>] unit info: TBC_COSPLIDUO_MUXSTATUS_HIGH_TTX_CH0,11434
+I,MRI_TBC,1384,TxK2304_2Ch [Dev#<DEV_ID>] unit info: TBC_COSPLIDUO_MUXSTATUS_HIGH_TTX_CH1,11434
+I,MRI_TBC,105,TxK2304_2Ch [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,9532
+I,MRI_TBC,86,TxK2304_2Ch [Dev#<DEV_ID>] unit info: CH1_TX_QUEUE_SEQUENZER_BUSY0,9520
+I,MRI_FRR,278,Emergency docking released.,9120
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_TimApplication.,8473
+I,MRI_MPU,3023,Magnet Supervision: Solenoid valve returned to automatic control mode,7540
+I,MRI_MPU,3020,Magnet Supervision: Solenoid valve opened,7539
+I,MRI_FRR,16,The scanning has finished.,6723
+I,MRI_GIM,82,"GIMLI Information (GPAK2368-PCIeCore [Dev#<DEV_ID>]): The Sequence Count Watchdog Alarm has occurred in Gimli to FPGA direction. GIMLI Cirdan Information Select ""Restart System"". If the problem persists, please contact Siemens Service.",6492
+I,MRI_GIM,82,"GIMLI Information (RxK2304_64Ch_1-Gilgalad [Dev#<DEV_ID>]): The Sequence Count Watchdog Alarm has occurred in Gimli to FPGA direction. GIMLI Cirdan Information Select ""Restart System"". If the problem persists, please contact Siemens Service.",6492
+I,MRI_GIM,82,"GIMLI Information (TxK2304_2Ch-GIMLI [Dev#<DEV_ID>]): The Sequence Count Watchdog Alarm has occurred in Gimli to FPGA direction. GIMLI Cirdan Information Select ""Restart System"". If the problem persists, please contact Siemens Service.",6492
+I,DeveloperLog_DevLogService,0,Smart ImageText feature is: Enabled,6116
+W,MRI_GIM,79,GIMLI warning (GPAK2368-PCIeCore [Dev#<DEV_ID>]): The sequence counter didn't jump back to minus 400 microseconds at the begin of the sequence in Gimli to FPGA direction. This message is only relevant for developers and can be ignored by service technicians.,5774
+W,MRI_GIM,79,GIMLI warning (TxK2304_2Ch-GIMLI [Dev#<DEV_ID>]): The sequence counter didn't jump back to minus 400 microseconds at the begin of the sequence in Gimli to FPGA direction. This message is only relevant for developers and can be ignored by service technicians.,5748
+W,MRI_GIM,79,GIMLI warning (RxK2304_64Ch_1-Gilgalad [Dev#<DEV_ID>]): The sequence counter didn't jump back to minus 400 microseconds at the begin of the sequence in Gimli to FPGA direction. This message is only relevant for developers and can be ignored by service technicians.,5743
+I,NVWMI,3,"[tid = <HEX>, pid = <HEX>] - NV GPUs detected",5708
+I,MRI_TBC,106,TxK2304_2Ch [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,5085
+I,MRI_TBC,87,TxK2304_2Ch [Dev#<DEV_ID>] unit info: CH1_TX_QUEUE_SEQUENZER_BUSY1,5079
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",4402
+I,MRI_PTG,79,IO board: Remaining battery charge in percent: 0 (<HEX>),4234
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,4230
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_CaseHostUsage"" time=""<DATE> <TIME>Z""> <Content> <Item Type=""ReservationDetails"" ApplicationType=""MR ViewAndGo"" ReservationType=""Background"" ReservationTime=""<DATE> <TIME>Z"" ClaimType=""Warm"" WorkFlowId=""<GUID>"" CaseHostId=""<GUID>"" ReuseCount=""3"" ReuseCountBackground=""3"" ReuseCountForeground=""0"" /> </Content> </Event>",4147
+W,DeveloperLog_DevLogService,0,Category with ID: MR Calculation doesn't contain translated value to be displayed!,3999
+I,DeveloperLog_DevLogService,0,Convert shortcut from resx don't pass: Requested value 'ST' was not found.,3764
+I,SampleFile,0,Sampled File - Type: Process-<NUM_ID>-<NUM_ID>-<NUM_ID>.xml,3730
+W,DeveloperLog_DevLogService,0,NavigatorAccess not available,3493
+W,ExportImportFramework,0,The execution finished with warning(s). For further details please check the Message Viewer.,3407
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE1,2')",3399
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",3214
+I,MRI_FRR,266,"XAxisPlusLocked: 0,  XAxisMinusLocked: 0, argument values are boolean.",2900
+I,MRI_FRR,267,"YAxisUpLocked: 0, YAxisDownLocked: 0, argument values are boolean.",2900
+I,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",2900
+I,ExportImportFramework,0,The process syngo.Common.Starter.exe has finished and the exitCode was 0.,2840
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",2816
+W,Microsoft-Windows-WHEA-Logger,17,A corrected hardware error has occurred.  Component:  Error Source: 4  Primary Bus:Device:Function: :: Secondary Bus:Device:Function: :: Primary Device Name:<HEX> Secondary Device Name:<HEX>,2677
+S,MRI_FRR,278,Emergency docking released.,2655
+W,DeveloperLog_DevLogService,0,"There is no Category XML element in Categories XML element, action Id: ResetLayout.",2619
+W,DeveloperLog_DevLogService,0,"There is no Category XML element in Categories XML element, action Id: ResetLayout_Viewing.",2619
+W,DeveloperLog_DevLogService,0,myDialogManagement is null,2610
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE2')",2400
+I,Microsoft-Windows-Kernel-General,16,The directory cannot be removed.,2375
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,2274
+I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,2252
+I,MRI_PTG,226,Patient table information: Y-axis: not in motion Y. Y-Position is: <NUM_ID>,2243
+I,_unknown,0,Smart ImageText feature is: Enabled,2212
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",2157
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",2154
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",2154
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",2154
+I,MRI_COS,21,SPICE prepare time: 1 ms,2131
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_CaseHostUsage"" time=""<DATE> <TIME>Z""> <Content> <Item Type=""ReservationDetails"" ApplicationType=""MR ViewAndGo"" ReservationType=""Background"" ReservationTime=""<DATE> <TIME>Z"" ClaimType=""Warm"" WorkFlowId=""<GUID>"" CaseHostId=""<GUID>"" ReuseCount=""5"" ReuseCountBackground=""5"" ReuseCountForeground=""0"" /> </Content> </Event>",2073
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_CaseHostUsage"" time=""<DATE> <TIME>Z""> <Content> <Item Type=""ReservationDetails"" ApplicationType=""MR ViewAndGo"" ReservationType=""Background"" ReservationTime=""<DATE> <TIME>Z"" ClaimType=""Warm"" WorkFlowId=""<GUID>"" CaseHostId=""<GUID>"" ReuseCount=""4"" ReuseCountBackground=""4"" ReuseCountForeground=""0"" /> </Content> </Event>",2004
+I,DeveloperLog_DevLogService,0,SyngoVirtualCockpit Event:UiUnlocked,1997
+I,MRI_PTG,213,Patient table information: Y-axis: in motion Y. Y-Position is: <NUM_ID>,1925
+S,MRI_FRR,16,The scanning has finished.,1895
+I,MRI_CMM,106,RFCELK2364_COM-COM [Dev#<DEV_ID>] reports status: Online Patient Safety (OPS) has stopped the measurement.,1884
+E,MRI_FRR,18,The scanning has been cancelled. Message is only relevant for developer.,1882
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,1867
+I,MRI_SIM,3015,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,1852
+I,MRI_SIM,3013,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,1840
+I,MRI_SIM,3014,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,1840
+I,MRI_SIM,3011,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,1839
+I,MRI_SIM,3016,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 5 was updated successfully.,1838
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,1790
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),1762
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0'.,1753
+I,DeveloperLog_DevLogService,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>. Prior flag: False,1745
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,1714
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,1711
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_CaseHostUsage"" time=""<DATE> <TIME>Z""> <Content> <Item Type=""ReservationDetails"" ApplicationType=""MR ViewAndGo"" ReservationType=""Background"" ReservationTime=""<DATE> <TIME>Z"" ClaimType=""Warm"" WorkFlowId=""<GUID>"" CaseHostId=""<GUID>"" ReuseCount=""5"" ReuseCountBackground=""4"" ReuseCountForeground=""1"" /> </Content> </Event>",1637
+W,DeveloperLog_DevLogService,0,Category with ID: Save As non-DICOM doesn't contain translated value to be displayed!,1573
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-1130,1560
+W,DeveloperLog_DevLogService,0,Category with ID: Additional Applications doesn't contain translated value to be displayed!,1559
+I,_unknown,0,Convert shortcut from resx don't pass: Requested value 'ST' was not found.,1512
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",1494
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",1484
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",1484
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",1484
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",1463
+W,_unknown,0,NavigatorAccess not available,1428
+W,Win32k,263,A pointer device has no information about the monitor it is attached to.,1426
+W,_unknown,0,myDialogManagement is null,1426
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: UseDefaultArchive: True, DefaultDestinationNodes: , DistributionOptions: , PluginOptions: null. (-1), Objects:",1425
+W,_unknown,0,"There is no Category XML element in Categories XML element, action Id: ResetLayout.",1424
+W,_unknown,0,"There is no Category XML element in Categories XML element, action Id: ResetLayout_Viewing.",1424
+I,DeveloperLog_DevLogService,0,IsStartExamOperationExecutingAsync(): isExecuting=False,1403
+I,MRI_MSR,11,Measurement server unlocked.,1393
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,1391
+I,SampleFile,0,Sampled File - Type: Diagnostics.xml,1380
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,1368
+I,MRI_CCS,1008,Connected coils Plugs/PN/Rev./SN/Name: CoilID 'Body'/1:   Plugs: '0' PN: '<NUM_ID>' Rev.: '01' SN: '1087' Name: '' CoilID 'HeadNeck_20_TCS'/1:   Plugs: '6' '5' PN: '<NUM_ID>' Rev.: '00' SN: '1146' Name: '' CoilID 'Spine_32_RS'/1:   Plugs: '7' '8' PN: '<NUM_ID>' Rev.: '01' SN: '1020' Name: ''PN: '<NUM_ID>' Rev.: '01' SN: '1020' Name: '',1352
+I,MRI_COS,21,SPICE prepare time: 10 ms,1345
+I,_unknown,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,1345
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series created '1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: UseDefaultArchive: True, DefaultDestinationNodes: , DistributionOptions: , PluginOptions: null. (-1), Objects:",1332
+S,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",1291
+I,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",1290
+E,MRI_PFW,9042,ERROR message: only for testing supervision,1272
+I,MRI_PFW,9040,INFO message: only for testing supervision,1272
+W,MRI_PFW,9041,WARNING message: only for testing supervision,1272
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,1270
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_CaseHostUsage"" time=""<DATE> <TIME>Z""> <Content> <Item Type=""ReservationDetails"" ApplicationType=""MR ViewAndGo"" ReservationType=""Background"" ReservationTime=""<DATE> <TIME>Z"" ClaimType=""Warm"" WorkFlowId=""<GUID>"" CaseHostId=""<GUID>"" ReuseCount=""7"" ReuseCountBackground=""6"" ReuseCountForeground=""1"" /> </Content> </Event>",1260
+I,MRI_PTG,225,PTAB y-axis is on ZHEIGHT_NEAR position Y-Position is: <NUM_ID>,1252
+I,MRI_FRR,3,Door of the examination room has been closed.,1251
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",1241
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),1241
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",1241
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",1241
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",1241
+I,MRI_PFW,9036,HECK2366-HEC [Dev#<DEV_ID>] info: 'Node guarding state changed' (36) message has been received,1235
+I,DeveloperLog_DevLogService,0,Smart ImageText feature is: Disabled,1212
+W,DeveloperLog_DevLogService,0,Did skip 5 messages. Content: Category with ID: MR Calculation doesn't contain translated value to be displayed!,1207
+I,ExportImportFramework,0,The process regedit.exe has finished and the exitCode was 0.,1189
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service.",1157
+I,syngo_Application,0,"LCMService(__SESSIONPROXY__): Killing process syngo.Common.Container Childprocess of [AT-ServiceManager], PID=<PID>",1128
+I,syngo_Application,0,LCMService(__SESSIONPROXY__): Stopping process syngo.Common.Container Childprocess of [AT-ServiceManager] by killing. PID=<PID>,1128
+I,MRI_CCS,11,"Coil change event was handled successfully. (Coil context: 'default'. Coil plug codes: 'ff,0,0,0,0,1315,<NUM_ID>,131c,131d,0,0'. Connected coil elements: BC,HE2,4,NE2,SP1-8.)",1124
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",1122
+I,MRI_PTG,14,Patient table information: S24 has value 0,1119
+I,_unknown,0,SyngoVirtualCockpit Event:UiUnlocked,1106
+I,DeveloperLog_DevLogService,0,Neurology: Open Morpho Executor,1105
+I,DeveloperLog_DevLogService,0,T4D: Open Tissue4D Executor,1105
+I,Microsoft-Windows-Time-Service,158,The time provider 'VMICTimeProvider' has indicated that the current hardware and operating environment is not supported and has stopped. This behavior is expected for VMICTimeProvider on non-HyperV-guest environments. This may be the expected behavior for the current provider in the current operating environment as well.,1100
+I,MRI_PTG,1,Patient table information:  S10 has value 1,1099
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_CaseHostUsage"" time=""<DATE> <TIME>Z""> <Content> <Item Type=""ReservationDetails"" ApplicationType=""MR ViewAndGo"" ReservationType=""Background"" ReservationTime=""<DATE> <TIME>Z"" ClaimType=""Warm"" WorkFlowId=""<GUID>"" CaseHostId=""<GUID>"" ReuseCount=""7"" ReuseCountBackground=""5"" ReuseCountForeground=""2"" /> </Content> </Event>",1038
+E,MRI_PRS,517,System leaves the readiness for clinical use caused by technical problem.,1008
+I,Service Control Manager,7045,"The description for Event ID '<NUM_ID>' in Source 'Service Control Manager' cannot be found. The local computer may not have the necessary registry information or message DLL files to display the message, or you may not have permission to access them.",998
+I,DeveloperLog_DevLogService,0,"Some action locks are already active, screenLock value:SessionLock holders: (ActionLockDescriptor SessionLock There is a step still running in the measurement queue.)",998
+I,MRI_CPA,1066,The home button on the control panel has been pressed.,991
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: UseDefaultArchive: True, DefaultDestinationNodes: , DistributionOptions: , PluginOptions: null. (-1), Objects:",989
+I,_unknown,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0'.,985
+I,MRI_PFW,9036,CPANK2363_FR [Dev#<DEV_ID>] info: 'Node guarding state changed' (36) message has been received,982
+I,MRI_PFW,9036,CPANK2363_FL [Dev#<DEV_ID>] info: 'Node guarding state changed' (36) message has been received,980
+I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",978
+I,DeveloperLog_DevLogService,0,"Updating MPPS for 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",972
+I,MRI_FRR,270,"New absolute position: 0 mm, New relative position: 1130 mm, , Position category: 19. Explanation: First two argument values are long. See enum PerPTABPositionCategory defined in PerMotionControlIF for 3rd argument.",970
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",968
+I,MRI_PTG,6,Patient table information:  S20 has value 0,967
+I,SampleFile,0,Sampled File - Type: Storage.xml,966
+S,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",966
+I,DeveloperLog_DevLogService,0,Open Testchannel net.pipe://localhost/syngo.MR.ModalityViewer.WatchDog.<NUM_ID>/WatchDog,961
+I,MRI_CPA,1071,The lower button on the control panel is fully pressed.,960
+I,DeveloperLog_DevLogService,0,"Communication Server is started successfully!. Server Id: <GUID>, Service Name: PrintingService",950
+W,DeveloperLog_DevLogService,0,Config key UseLightWeightBiBc not found in service configuration,950
+I,MRI_MSR,100,"Start prepare. (Protocol: 'Initialized by sequence', Sequence: '%AdjustSeq%\STIMOFunctionTest')",945
+I,ExportImportFramework,0,The process cmd.exe has finished and the exitCode was 0.,943
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_CaseHostUsage"" time=""<DATE> <TIME>Z""> <Content> <Item Type=""ReservationDetails"" ApplicationType=""MR ViewAndGo"" ReservationType=""Background"" ReservationTime=""<DATE> <TIME>Z"" ClaimType=""Warm"" WorkFlowId=""<GUID>"" CaseHostId=""<GUID>"" ReuseCount=""6"" ReuseCountBackground=""5"" ReuseCountForeground=""1"" /> </Content> </Event>",943
+I,MRI_MSR,102,"Preparation OK (Protocol: 'Initialized by sequence', Sequence: '%AdjustSeq%\STIMOFunctionTest')",939
+I,MRI_MSR,103,"Start measurement. (Protocol: 'Initialized by sequence', Sequence: '%AdjustSeq%\STIMOFunctionTest')",939
+W,MRI_FRR,2,"Scanner hardware warning: Door of the examination room is open. Close the door. If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_FRR_NlsMessageId.Resources.FRRmsg.MRI_FRR_W_2_FRR_DOOR_OPENED",920
+I,NVWMI,3,NVWMI - Base Profile [c:/program files/siemens/numaris/bin/wglinfo.exe] was launched and [Base Profile] profile was applied,911
+I,PowerShell,403,Engine state is changed from Available to Stopped.   Details:  	NewEngineState=Stopped 	PreviousEngineState=Available  	SequenceNumber=15  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.4780 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.4780 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,903
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'HE2'),901
+I,PowerShell,400,Engine state is changed from None to Available.   Details:  	NewEngineState=Available 	PreviousEngineState=None  	SequenceNumber=13  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.4780 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.4780 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,887
+I,PowerShell,600,"Provider ""Alias"" is Started.   Details:  	ProviderName=Alias 	NewProviderState=Started  	SequenceNumber=3  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.4780 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",887
+I,PowerShell,600,"Provider ""Environment"" is Started.   Details:  	ProviderName=Environment 	NewProviderState=Started  	SequenceNumber=5  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.4780 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",887
+I,PowerShell,600,"Provider ""FileSystem"" is Started.   Details:  	ProviderName=FileSystem 	NewProviderState=Started  	SequenceNumber=7  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.4780 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",887
+I,PowerShell,600,"Provider ""Function"" is Started.   Details:  	ProviderName=Function 	NewProviderState=Started  	SequenceNumber=9  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.4780 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",887
+I,PowerShell,600,"Provider ""Registry"" is Started.   Details:  	ProviderName=Registry 	NewProviderState=Started  	SequenceNumber=1  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.4780 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",887
+I,PowerShell,600,"Provider ""Variable"" is Started.   Details:  	ProviderName=Variable 	NewProviderState=Started  	SequenceNumber=11  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.4780 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",887
+I,MRI_GSP,1,Flyout configuration current value: True Action: configuration readed ID: syngo.MR.MRI_GSP.ResourcesInternal.Labels.MRI_GSP_I_1_FLYOUT,879
+I,Software Protection Platform Service,1003,"The Software Protection service has completed licensing status check. Application Id=<GUID> Licensing Status= 1: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 2: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 3: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 4: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 5: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 6: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 7: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 8: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 9: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 10: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 11: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 12: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 13: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 14: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 15: <GUID>, 1, 0 [(0 [<HEX>, 0, 0], [(?)(?)(?)(?)(?)(?)(?)(?)])(1 )(2 )(3 )] 16: <GUID>, 1, 1 [(0 )(1 )(2 [<HEX>, 0, 0], [( 1 <HEX>)( 1 <HEX>)(?)(?)(?)(?)(?)(?)])(3 [<HEX>, 0, 0], [( 6 <HEX> 0 0)( 1 <HEX>)( 6 <HEX> 0 0)(?)(?)(?)( 10 <HEX> msft:rm/algorithm/flags/1.0)( 11 <HEX> <HEX>)])]",878
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE1,2,SP1')",876
+I,_unknown,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,872
+I,DeveloperLog_DevLogService,0,"Monitor configuration info: Application startup Device Name: ""\\.\DISPLAY1"" hMonitor: ""<NUM_ID>"" Monitor bounds (XYWH): ""0, 0, 1920, 1200"" Monitor physical size={Width=51.9, Height=32.4} in cm",869
+W,MRI_SIM,2004,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Channel current error. Please contact Siemens Service.,852
+S,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",846
+E,Service Control Manager,7000,The DirectIO driver service failed to start due to the following error:  %%2,843
+I,_unknown,0,"ACQM: Checked-In 'CheckinCompleted 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",835
+I,_unknown,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.50.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: UseDefaultArchive: True, DefaultDestinationNodes: , DistributionOptions: , PluginOptions: null. (-1), Objects:",810
+I,MRI_PFW,9039,SUCCESS message: only for testing supervision,804
+I,MRI_GSP,0,Load image in segment: planningLeft,798
+I,PowerShell,403,Engine state is changed from Available to Stopped.   Details:  	NewEngineState=Stopped 	PreviousEngineState=Available  	SequenceNumber=15  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.2803 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.2803 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,793
+I,PowerShell,400,Engine state is changed from None to Available.   Details:  	NewEngineState=Available 	PreviousEngineState=None  	SequenceNumber=13  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.2803 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion=5.1.<NUM_ID>.2803 	RunspaceId=<GUID> 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=,783
+I,PowerShell,600,"Provider ""Alias"" is Started.   Details:  	ProviderName=Alias 	NewProviderState=Started  	SequenceNumber=3  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.2803 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",783
+I,PowerShell,600,"Provider ""Environment"" is Started.   Details:  	ProviderName=Environment 	NewProviderState=Started  	SequenceNumber=5  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.2803 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",783
+I,PowerShell,600,"Provider ""FileSystem"" is Started.   Details:  	ProviderName=FileSystem 	NewProviderState=Started  	SequenceNumber=7  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.2803 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",783
+I,PowerShell,600,"Provider ""Function"" is Started.   Details:  	ProviderName=Function 	NewProviderState=Started  	SequenceNumber=9  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.2803 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",783
+I,PowerShell,600,"Provider ""Registry"" is Started.   Details:  	ProviderName=Registry 	NewProviderState=Started  	SequenceNumber=1  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.2803 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",783
+I,PowerShell,600,"Provider ""Variable"" is Started.   Details:  	ProviderName=Variable 	NewProviderState=Started  	SequenceNumber=11  	HostName=ConsoleHost 	HostVersion=5.1.<NUM_ID>.2803 	HostId=<GUID> 	HostApplication=powershell.exe -ExecutionPolicy ByPass -file C:\Program Files\Siemens\Numaris\bin\RemoteServices\OM\SystemStatusMonitoringRSC\ComponentAdapters\Scripts\GetFileOrDirectorySize.ps1 C:\Store\log\Audit 	EngineVersion= 	RunspaceId= 	PipelineId= 	CommandName= 	CommandType= 	ScriptName= 	CommandPath= 	CommandLine=",783
+I,MRI_FRR,447,Door of the examination room has been opened.,781
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 0, argument values are boolean.",779
+I,MRI_FRR,4000,directly execute trending action HECStatusRegister1,778
+I,NVWMI,3,NVWMI - Base Profile [c:/program files/siemens/numaris/bin/syngo.common.container.exe] was launched and [Base Profile] profile was applied,766

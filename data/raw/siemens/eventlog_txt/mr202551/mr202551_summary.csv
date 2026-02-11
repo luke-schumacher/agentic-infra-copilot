@@ -1,0 +1,201 @@
+level,source,event_id,masked_description,occurrence_count
+I,MRI_CPA,1042,The display and backlight have been deactivated via the switched supply voltage.,272807
+I,MRI_CMM,1365,Patient table is docked.,141392
+I,MRI_CMM,1374,48V supply voltage for patient table is enabled.,141387
+I,MRI_HEC,1029,DB25: status present.,138194
+I,MRI_HEC,1032,Helium compressor unit is running.,138194
+I,MRI_FRR,278,Emergency docking released.,138181
+I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,138175
+I,MRI_HEC,1025,Coldhead is running.,138174
+I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,138174
+I,MRI_TBC,247,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the logging functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",138172
+I,MRI_TBC,249,"TxK2304-NIOS [Dev#<DEV_ID>] unit info: NIOS has an error regarding the jtag uart functionality. Select ""Restart System"". If the problem persists, please contact Siemens Service.",138172
+I,MRI_PFW,9113,"InjectorDS425-Injector [Dev#<DEV_ID>] warning: The component is not connected. Connect component to MR System Select ""Restart System"". If the problem persists, please contact Siemens Service.",137732
+I,MRI_TBC,105,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY0,134335
+I,MRI_FRR,16,The scanning has finished.,132563
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_TimApplication.,110840
+I,DeveloperLog_DevLogService,0,Data Preparation: Perform '<GUID>' on '1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID>.0.0.0'.,94490
+I,MRI_CPA,1068,The rotary wheel on the control panel is deflected.,75312
+I,DeveloperLog_DevLogService,0,CheckIn-Completed: <GUID>|syngo.MR.PreProcessing.Service.Host.Task.Executor.ProcessingJobEnvironment,69560
+I,MRI_TBC,106,TxK2304 [Dev#<DEV_ID>] unit info: CH0_TX_QUEUE_SEQUENZER_BUSY1,63059
+I,ExportImportFramework,0,The process syngo.ConfigConvert.exe has finished and the exitCode was 0.,62450
+I,MRI_FRR,263,"XAxisPlusPossible: 0, XAxisMinusPossible: 0, argument values are boolean.",58591
+I,MRI_PSR,49,Beat Sensor cardiac signal is off,56483
+I,MRI_MPU,104,Magnet Supervision: Pressure Heater is not active.,53089
+I,MRI_MPU,70,Magnet Supervision: Pressure heater is active.,52126
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",49782
+I,MRI_FRR,910,Current coil temperatures (degree C): board: 32.00,48628
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: False, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",46195
+I,MRI_COS,21,SPICE prepare time: 8 ms,41888
+W,DeveloperLog_DevLogService,0,Could not get transfer preference value 'TerminationTimeoutPostCancellation'. Using 4 seconds as fallback value.,41482
+I,MRI_PTG,110,Patient table information: Z-axis: start motion acknowledgment,40318
+I,ExportImportFramework,0,The path to the directory where configuration XML files are located: C:\Program Files\Siemens\Numaris\bin\Services\OPM\Configuration\ExportImport\Transfers,40095
+I,ExportImportFramework,0,file:///C:/Program Files/Siemens/Numaris/bin/syngo.Services.OPM.Configuration.ExportImport.exe has been executed and the exitCode is: 0,40095
+I,DeveloperLog_DevLogService,0,"Updating MPPS for 1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID> (0/Notice), Objects:",39098
+I,MRI_GSP,0,Load image in segment: planningLeft,39020
+W,DeveloperLog_DevLogService,0,"Reconnect attempt #2 for Client <GUID> failed. System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://10.16.30.20:<NUM_ID>/syngo.Services.Workflow/AdapterWorkflowStatus. The connection attempt lasted for a time span of <TIME>.<NUM_ID>. TCP error code <NUM_ID>: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.16.30.20:<NUM_ID>.   Server stack trace:     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)    at System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)    at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.LayeredChannel`1.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at System.ServiceModel.ICommunicationObject.Open()    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.CreateAndOpenChannel()    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.EnsureChannelIsOpen(Boolean forceNewChannelCreation)    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.syngo.Services.Workflow.WCF.IAdapterClient.Connect()    at syngo.Services.Workflow.WCF.AdapterClientBehaviors.AutoReconnectBehavior.TryToReconnect() --> Inner exception (level 1): System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.16.30.20:<NUM_ID>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)    at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)    at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)",38469
+W,DeveloperLog_DevLogService,0,"Reconnect attempt #1 for Client <GUID> failed. System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://10.16.30.20:<NUM_ID>/syngo.Services.Workflow/AdapterWorkflowStatus. The connection attempt lasted for a time span of <TIME>.<NUM_ID>. TCP error code <NUM_ID>: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.16.30.20:<NUM_ID>.   Server stack trace:     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)    at System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)    at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.LayeredChannel`1.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at System.ServiceModel.ICommunicationObject.Open()    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.CreateAndOpenChannel()    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.EnsureChannelIsOpen(Boolean forceNewChannelCreation)    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.syngo.Services.Workflow.WCF.IAdapterClient.Connect()    at syngo.Services.Workflow.WCF.AdapterClientBehaviors.AutoReconnectBehavior.TryToReconnect() --> Inner exception (level 1): System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.16.30.20:<NUM_ID>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)    at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)    at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)",38468
+W,DeveloperLog_DevLogService,0,"Reconnect attempt #3 for Client <GUID> failed. System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://10.16.30.20:<NUM_ID>/syngo.Services.Workflow/AdapterWorkflowStatus. The connection attempt lasted for a time span of <TIME>.<NUM_ID>. TCP error code <NUM_ID>: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.16.30.20:<NUM_ID>.   Server stack trace:     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)    at System.ServiceModel.Channels.BufferedConnectionInitiator.Connect(Uri uri, TimeSpan timeout)    at System.ServiceModel.Channels.ConnectionPoolHelper.EstablishConnection(TimeSpan timeout)    at System.ServiceModel.Channels.ClientFramingDuplexSessionChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.LayeredChannel`1.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)    at System.ServiceModel.Channels.ServiceChannel.OnOpen(TimeSpan timeout)    at System.ServiceModel.Channels.CommunicationObject.Open(TimeSpan timeout)  Exception rethrown at [0]:     at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)    at System.ServiceModel.ICommunicationObject.Open()    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.CreateAndOpenChannel()    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.EnsureChannelIsOpen(Boolean forceNewChannelCreation)    at syngo.Services.Workflow.WCF.AbstractAdapterClient`1.syngo.Services.Workflow.WCF.IAdapterClient.Connect()    at syngo.Services.Workflow.WCF.AdapterClientBehaviors.AutoReconnectBehavior.TryToReconnect() --> Inner exception (level 1): System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 10.16.30.20:<NUM_ID>    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)    at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)    at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)",38461
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID>' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",37868
+I,MRI_FRR,264,"YAxisUpPossible: 0, YAxisDownPossible: 0, argument values are boolean.",37166
+I,MRI_FRR,265,"ZAxisOutPossible: 1, ZAxisInPossible: 1, argument values are boolean.",35920
+I,MRI_FRR,258,Patient table has stopped moving. Absolute PTAB Position: -<NUM_ID>,34602
+I,MRI_FRR,257,Patient table has started moving. Absolute PTAB Position: -<NUM_ID>,34527
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID> 1.2.840.<NUM_ID>.5.1.4.1.1.88.22 1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID> 1'. (-1), Objects:",34320
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",33466
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",33435
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",33417
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFre', Sequence: '%AdjustSeq%/AdjFreSeq')",33314
+I,MRI_PTG,101,Patient table information: Z-axis: target reached.,32039
+I,DeveloperLog_DevLogService,0,Workflow <GUID>@WorkflowScannerQaAvPrimary was notified with Series 1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID>. Prior flag: False,30555
+I,MRI_MSR,2009,Measurement uses RT event controller plugin (QuietRTEventController@libGradNoiseDrop).,28821
+I,MRI_COS,21,SPICE prepare time: 2 ms,26949
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",23876
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",23700
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",23670
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjDico', Sequence: '%AdjustSeq%/AdjDicoSeq')",23644
+I,MRI_SIM,3015,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 4 was updated successfully.,21771
+I,MRI_SIM,3011,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 1 was updated successfully.,21667
+I,MRI_SIM,3014,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 3 was updated successfully.,21666
+I,MRI_SIM,3013,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 2 was updated successfully.,21431
+I,MRI_SIM,3016,E-Shim (SHIMK2259 [Dev#<DEV_ID>]): Shim current in channel 5 was updated successfully.,21245
+I,MRI_MSR,101,Valid coil select (Coil select #1: 'BC'),20764
+I,MRI_COS,21,SPICE prepare time: 9 ms,20369
+I,MRI_FRR,264,"YAxisUpPossible: 1, YAxisDownPossible: 1, argument values are boolean.",19988
+I,NVWMI,3,"[tid = <HEX>, pid = <HEX>] - NV GPUs detected",19897
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 2 | Archivable = 1 | Contracts = 1.,19446
+I,MRI_FRR,4,"A coil has been plugged or unplugged, the IRQ Pin has been activated.",17966
+I,MRI_GSP,0,Load image in segment: planningMiddle,17810
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 1 | Archivable = 1 | Contracts = 1.,17790
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",17759
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",17754
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",17754
+I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,17736
+I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,17736
+I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",17731
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjCoilSens', Sequence: '%AdjustSeq%/AdjCoilSensSeq')",17669
+I,MRI_COS,20,IRIS prepare time: 21 ms,17644
+I,MRI_GSP,0,Load image in segment: planningRight,15416
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 0, argument values are boolean.",15089
+I,MRI_COS,20,IRIS prepare time: 22 ms,14797
+I,MRI_MSR,11,Measurement server unlocked.,14611
+I,MRI_SCT,71,Receive a breathhold finish signal,14055
+I,MRI_SCT,70,Receive a breathhold start signal,14018
+I,MRI_FRR,266,"XAxisPlusLocked: 0,  XAxisMinusLocked: 0, argument values are boolean.",13833
+I,MRI_FRR,267,"YAxisUpLocked: 0, YAxisDownLocked: 0, argument values are boolean.",13833
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'BC'),13527
+I,SampleFile,0,Sampled File - Type: Diagnostics.xml,13522
+I,MRI_FRR,268,"ZAxisOutLocked: 0, ZAxisInLocked: 0, argument values are boolean.",12629
+I,DeveloperLog_DevLogService,0,"ACQM: Notify series complete '1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID>.0.0.0' to QA '<GUID>' with: ViewingOptions: SuppressDisplay: True, PrintOptions: AutoPrint: False, AutoPrintOptions: , RoutingOptions: , DistributionOptions: , PluginOptions: null. (-1), Objects:",12603
+I,MRI_PTG,226,Patient table information: Y-axis: not in motion Y. Y-Position is: <NUM_ID>,11815
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",11364
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",11362
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",11362
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjTra', Sequence: '%AdjustSeq%/AdjTraSeq')",11346
+I,MRI_PTG,213,Patient table information: Y-axis: in motion Y. Y-Position is: <NUM_ID>,11343
+I,MRI_FRR,256,PTAB information: New center position has been set: New center position=-934,11307
+I,MRI_PAC,104,The following licenses are needed to run the protocol   N_Deep_Learning_Recon N_Iterative_Denoising|N_Deep_Learning_Recon|N_ms_epi N_Super_Resolution N_TimApplication.,11268
+I,MRI_COS,21,SPICE prepare time: 14 ms,10919
+I,Service Control Manager,7040,The start type of the Background Intelligent Transfer Service service was changed from demand start to auto start.,10665
+I,Service Control Manager,7040,The start type of the Background Intelligent Transfer Service service was changed from auto start to demand start.,10660
+I,MRI_PTG,211,Patient table information: movement downward along Y axis possible.,10518
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 3 | Archivable = 2 | Contracts = 2.,10416
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""AppLevel_UsageTrail_Modules_CIP_LayoutManagementUsage"" time=""<DATE> <TIME>Z""> <TaskID>TM.WF_MR ViewAndGo_<GUID>.OneViewer.Legacy.TaskId</TaskID> <Content><Item Type=""LayoutManagement"" Name=""LayoutManagement"" Action=""DragAndDrop"" Tool_Logical_Name=""ToolsCommon: SimpleReplaceDragDropTool"" Image_Type=""1.3.12.2.1107.5.99.3.10,DERIVED,SECONDARY,M,NONE"" Layout_ID=""MRViewing_Stack3x2-s"" Layout_Name=""Stack 3x2"" Layout_Section=""Site, "" /></Content> </Event>",10166
+I,MRI_PTG,104,Patient table information: Z-axis: end position reached (outermost).,10090
+I,MRI_PTG,212,Patient table information: movement upward along Y axis possible.,9621
+I,MRI_PTG,200,Patient table information: ready to move in y-axis direction,9620
+I,DeveloperLog_DevLogService,0,Smart ImageText feature is: Enabled,9534
+W,DeveloperLog_DevLogService,0,ListView Item value is null => False,9199
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'BO1-3,SP1-3')",9187
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MPR_THICK,8951
+I,MRI_PTG,1,Patient table information:  S10 has value 1,8862
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE2')",8673
+I,DeveloperLog_DevLogService,0,IsStartExamOperationExecutingAsync(): isExecuting=False,8554
+I,MRI_PTG,2,Patient table information:  S10 has value 0,8414
+I,DeveloperLog_DevLogService,0,Receiving event with name DMWL_QUERY_SERVICE_V1.0 in DmwlService IsInitialized Body,8206
+I,NVWMI,3,NVWMI - Base Profile [c:/program files/siemens/numaris/bin/syngo.common.container.exe] was launched and [Base Profile] profile was applied,8113
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE1,2')",7885
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'BO1-3,SP1-4')",7859
+I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,7852
+I,MRI_COS,20,IRIS prepare time: 17 ms,7686
+I,MRI_FRR,265,"ZAxisOutPossible: 0, ZAxisInPossible: 1, argument values are boolean.",7579
+I,MRI_COS,21,SPICE prepare time: 15 ms,7501
+I,SampleFile,0,Sampled File - Type: 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID>.xml,7416
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE3,4,NE1,2,SP1')",7360
+I,SampleFile,0,Sampled File - Type: Process-<NUM_ID>-<NUM_ID>-<NUM_ID>.xml,7094
+I,DeveloperLog_DevLogService,0,"ACQM: Checked-In 'CheckinCompleted 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> 1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID>.0.0.0 1.2.840.<NUM_ID>.5.1.4.1.1.4.1 1.3.12.2.1107.5.2.55.<NUM_ID>.<NUM_ID> 2'. (-1), Objects:",6820
+I,MRI_CPA,1065,"The center button on the control panel was pressed briefly, i.e. for less than 1 second.",6789
+I,DeveloperLog_DevLogService,0,"<GUID>: Inactivity Delay starting: delay=<NUM_ID> sec, GoOnFlag=True, ActivityFlag=False, UserHasCompletedWorkflowFlag=False",6500
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MIP,6158
+I,DeveloperLog_DevLogService,0,"<GUID>: using settings: MPPSAutoComplete=True, QATemplate=MR ViewAndGo, DelayInSecondsForWorkflowDelete=<NUM_ID>, gContextFolderDisable=False",6157
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'HE1-4,NE1,2,SP1')",6143
+I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",6048
+I,DeveloperLog_DevLogService,0,<GUID>: Prepare Workflow: Studies=1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID> after sorting,6040
+I,MRI_MSR,101,Valid coil select (Coil select #0: 'SP2-5'),6027
+W,MRI_CPA,1015,Internal warning. The CAN warning level has been reached.,6026
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Creating Named pipe Binding,6023
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Host opened,6023
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC:  Named pipe Binding created,6023
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: ImageAccessImpl created,6023
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: Starting Server,6023
+I,DeveloperLog_DevLogService,0,IMAGE_ACCESS_RSC: starting ImageAccessImpl creation,6023
+I,MRI_FRR,270,"New absolute position: 0 mm, New relative position: 934 mm, , Position category: 19. Explanation: First two argument values are long. See enum PerPTABPositionCategory defined in PerMotionControlIF for 3rd argument.",5990
+W,ExportImportFramework,0,The execution finished with warning(s). For further details please check the Message Viewer.,5920
+I,DeveloperLog_DevLogService,0,"CanExecuteDataCompleteCommand(): CanExecuteExam =True, study instance uid = 1.2.840.<NUM_ID>.4.<NUM_ID>.<NUM_ID>.<NUM_ID>.<NUM_ID>",5887
+I,DeveloperLog_DevLogService,0,Adapter Exam: NotifyMeasurementSystem() finished,5800
+I,MRI_COS,20,IRIS prepare time: 16 ms,5770
+I,MRI_COS,20,IRIS prepare time: 23 ms,5766
+I,DeveloperLog_DevLogService,0,<GUID>: created Workflow=<GUID>@WorkflowNX in database,5711
+I,DeveloperLog_DevLogService,0,ExamPatientRegistration_OnExamDataChanged received,5665
+I,DeveloperLog_DevLogService,0,Plug in: VectorRayCaster is used for filter type MPR,5612
+I,DeveloperLog_DevLogService,0,"ImageAccessRSC is not yet part of the composition, will be added now.",5539
+I,DeveloperLog_DevLogService,0,WorkflowID is not yet part of the composition. Will be exported now with value: net.tcp://localhost:<NUM_ID>/PatientData/<GUID>/service/PDS,5539
+I,DeveloperLog_DevLogService,0,"Communication Server is started successfully!. Server Id: <GUID>, Service Name: PrintingService",5535
+W,DeveloperLog_DevLogService,0,Config key UseLightWeightBiBc not found in service configuration,5535
+I,NVWMI,3,NVWMI - Base Profile [c:/program files/siemens/numaris/bin/syngo.viewing.shell.host.exe] was launched and [Base Profile] profile was applied,5532
+I,MRI_PFW,9036,PTABK2363M-PTAB [Dev#<DEV_ID>] info: 'Node guarding state changed' (36) message has been received,5528
+I,DeveloperLog_DevLogService,0,ScanUI deactivated,5504
+I,MRI_FRR,910,Current coil temperatures (degree C): board: 32.25,5488
+I,ExportImportFramework,0,The process syngo.Common.Starter.exe has finished and the exitCode was 0.,5463
+E,NLS_SysLogService,0,CDMA exception occured while remote search.,5456
+E,syngo_TransferFramework_SysLogService,0,An error was detected in the local configuration of remote Network System Device WAHPACS.,5456
+I,MRI_PTG,225,PTAB y-axis is on ZHEIGHT_NEAR position Y-Position is: <NUM_ID>,5294
+W,DeveloperLog_DevLogService,0,Count is zero,5233
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""DataStorage_DistributionStep_Distribute"" time=""<DATE> <TIME>Z""> <Version>1.0</Version> <ClientHost>RPMRSOLA</ClientHost> <ServerHost>RPMRSOLA</ServerHost> <DistributionType>Workflow</DistributionType> <DistributionSource>DirectSend</DistributionSource> <NumberOfItems>1</NumberOfItems> <NumberOfNodes>1</NumberOfNodes> <NumberOfTotalIntents>1</NumberOfTotalIntents> </Event>",5205
+I,MRI_COS,20,IRIS prepare time: 35 ms,5167
+I,MRI_COS,20,IRIS prepare time: 20 ms,5136
+I,DeveloperLog_DevLogService,0,Storage-Service: Istances = 2 | Archivable = 2 | Contracts = 2.,5116
+I,MRI_FRR,910,Current coil temperatures (degree C): board: 31.75,5113
+I,DeveloperLog_DevLogService,0,Convert shortcut from resx don't pass: Requested value 'ST' was not found.,5090
+I,MRI_FRR,269,"PTAB Docking State: 5, detail values see extended message description.",5090
+I,DeveloperLog_DevLogService,0,Open Testchannel net.pipe://localhost/syngo.MR.ModalityViewer.WatchDog.<NUM_ID>/WatchDog,5043
+I,MRI_CCS,1008,Connected coils Plugs/PN/Rev./SN/Name: CoilID 'Body'/1:   Plugs: '0' PN: '<NUM_ID>' Rev.: '07' SN: '4386' Name: '' CoilID 'HeadNeck_20_TCS'/1:   Plugs: '6' '5' PN: '<NUM_ID>' Rev.: '03' SN: '2615' Name: '' CoilID 'Spine_32_RS'/1:   Plugs: '7' '8' PN: '' Rev.: '' SN: '' Name: ''PN: '<NUM_ID>' Rev.: '01' SN: '1942' Name: '',5037
+I,MRI_PAC,104,The following licenses are needed to run the protocol   MRI_CV_MAIN N_TimApplication.,4930
+I,MRI_MSR,100,"Start prepare. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",4929
+I,MRI_MSR,102,"Preparation OK (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",4925
+I,MRI_MSR,103,"Start measurement. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",4925
+I,MRI_CCS,11,"Coil change event was handled successfully. (Coil context: 'default'. Coil plug codes: 'ff,0,0,0,0,1125,1124,111c,111d,0,0'. Connected coil elements: BC,HE2,4,NE2,SP1-8.)",4901
+I,MRI_MSR,104,"Measurement finished OK. (Protocol: 'AdjFieldMap', Sequence: '%AdjustSeq%/AdjFieldMapSeq')",4842
+I,MRI_FRR,274,"PTAB Position on Y-Axis: 5, detail values see extended message description.",4793
+I,MRI_CPA,1067,The laser marker button on the control panel has been pressed.,4768
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user.,4761
+I,MRI_MSR,34,Measurement control information: measurement has been stopped by user. ID: syngo.MR.MRI_MSR_NlsMessageId.Resources.MSRmsg.MRI_MSR_I_34_USER_STOP,4758
+I,MRI_FRR,269,"PTAB Docking State: 2, detail values see extended message description.",4572
+I,MRI_PTG,33,The docking button on the table user interface is pressed.,4561
+E,DeveloperError_DevLogService,0,Auto Views License not Available!,4538
+E,DeveloperError_DevLogService,0,SY_AUTO_VIEWS_MENU_ID: License not available,4538
+E,MRI_MIF,27,Preparation of measurement system has failed. ID: syngo.MR.MRI_MIF_NlsMessageId.Resources.MIFmsg.MRI_MIF_E_27_SLOT_PREPARE_FAILED,4513
+E,MRI_MIF,27,Preparation of measurement system has failed.,4512
+I,Event_UsageTrail,0,"<Event type=""UtilizationEvent"" name =""SeriesNavigator_ExportSeriesInvoked"" time=""<DATE> <TIME>Z""> <SELECTEDDATAROLESCOUNT>5</SELECTEDDATAROLESCOUNT> </Event>",4508
+W,DeveloperLog_DevLogService,0,Did skip 3 messages. Content: Count is zero,4470
+I,MRI_CPA,1066,The home button on the control panel has been pressed.,4415
+I,MRI_PTG,6,Patient table information:  S20 has value 0,4370
+E,MRI_RFS,8,SAR limit(s) exceeded.,4314
+I,DeveloperLog_DevLogService,0,Workflow removed from cache on OnWorkflowDelete event <GUID>@WorkflowNX,4256
+I,DeveloperLog_DevLogService,0,"IMAGE_ACCESS_RSC:  Disposing    at syngo.RemoteServices.Viewing.ImageAccess.Core.ImageAccessRSC.Dispose(Boolean disposing)    at System.ComponentModel.Component.Dispose()    at syngo.Common.Applications.Viewing.Shell.DisposeExtensions.DisposeIfDisposable(Object reference)    at syngo.BizLogic.Applications.Viewing.Shell.Services.ImageAccessService.ViewingShellImageAccessRsc.Dispose(Boolean disposing)    at syngo.BizLogic.Applications.Viewing.Shell.Services.ImageAccessService.ViewingShellImageAccessRsc.Dispose()    at syngo.BizLogic.Applications.Viewing.Shell.Services.ImageAccessService.ImageAccessHost.StopInternalImpl()    at syngo.Common.Applications.Viewing.Shell.Async.AsyncRouterDelegator.<>c__DisplayClass2_0.<RouteAsync>b__0(Boolean _)    at syngo.Common.Applications.Viewing.Shell.Async.AsyncWorkingBoxRouter.WorkingBoxValueWithoutErrorPropagationToBoth`2.Execute()    at syngo.Common.Core.Internal.ObjectTask.RunWbLoop()    at syngo.Common.Core.Internal.ObjectTask.Run()    at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)    at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)    at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)    at System.Threading.ThreadHelper.ThreadStart()",4223
+I,MRI_COS,21,SPICE prepare time: 10 ms,4220
+I,MRI_COS,20,IRIS prepare time: 36 ms,4139
+I,MRI_PSR,48,Beat Sensor learning phase is active,4105
+W,DeveloperLog_DevLogService,0,Did skip 28 messages. Content: ListView Item value is null => False,4082
+I,DeveloperLog_DevLogService,0,Did skip 2 messages. Content: Plug in: VectorRayCaster is used for filter type MPR,4065
+I,MRI_MSR,101,"Valid coil select (Coil select #0: 'BO1-3,SP2-4')",3982
