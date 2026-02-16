@@ -55,7 +55,6 @@ venv.bak/
 data/raw/telekom/*.pdf
 data/raw/siemens/*.csv
 data/raw/illigo/*.json
-data/processed/
 data/vector_store/
 *.db
 *.sqlite

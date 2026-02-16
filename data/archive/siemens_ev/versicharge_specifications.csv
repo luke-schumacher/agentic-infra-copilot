@@ -1,0 +1,41 @@
+spec_id,category,parameter,value,unit,description,fault_relevance
+VS-001,General,Product Family,VersiCharge,text,Siemens EV charging wallbox product line,N/A
+VS-002,General,Model Series,AC Wallbox,text,Alternating current home/commercial charging solution,N/A
+VS-003,Electrical,Rated Voltage,230/400,V,Single phase 230V or three phase 400V operation,Voltage fluctuation faults
+VS-004,Electrical,Max Current Single Phase,32,A,Maximum charging current in single phase mode,Over-current protection
+VS-005,Electrical,Max Current Three Phase,32,A,Maximum charging current per phase in three phase mode,Over-current protection
+VS-006,Electrical,Max Power Single Phase,7.4,kW,Maximum charging power in single phase configuration,Load management
+VS-007,Electrical,Max Power Three Phase,22,kW,Maximum charging power in three phase configuration,Load management
+VS-008,Electrical,Frequency,50/60,Hz,Supported grid frequencies,Frequency deviation detection
+VS-009,Protection,RCD Type,Type A or Type B,text,Residual current device type for ground fault protection,Ground fault detection
+VS-010,Protection,RCD Sensitivity,30,mA,Trip threshold for residual current detection,Ground fault sensitivity
+VS-011,Protection,RCD Trip Time,30,ms,Maximum time to disconnect on fault detection,Safety response time
+VS-012,Protection,Overcurrent Protection,MCB Type C,text,Miniature circuit breaker characteristics,Over-current scenarios
+VS-013,Thermal,Operating Temperature,-25 to +50,C,Ambient temperature operating range,Thermal management
+VS-014,Thermal,Storage Temperature,-40 to +70,C,Temperature range for storage without damage,N/A
+VS-015,Thermal,Internal Temp Limit,55,C,Maximum allowed internal temperature during operation,Thermal runaway prevention
+VS-016,Thermal,Derating Start Temp,40,C,Temperature at which power derating begins,Performance degradation
+VS-017,Connectivity,Protocol,OCPP 1.6J/2.0.1,text,Supported Open Charge Point Protocol versions,Communication faults
+VS-018,Connectivity,Network,Ethernet/WiFi/4G,text,Available network connectivity options,Network failure scenarios
+VS-019,Connectivity,Reconnect Attempts,5,count,Number of automatic reconnection attempts,Connection recovery
+VS-020,Connectivity,Reconnect Interval,30,seconds,Delay between reconnection attempts,Timeout handling
+VS-021,Connector,Type,Type 2 (IEC 62196),text,Standard European EV connector type,Connector compatibility
+VS-022,Connector,Cable Length,5-7.5,m,Available tethered cable lengths,Cable management
+VS-023,Connector,Lock Type,Electromagnetic,text,Connector retention lock mechanism,Lock failure scenarios
+VS-024,Connector,Lock Hold Time,Unlimited,text,Lock remains engaged during entire session,Safety compliance
+VS-025,Authentication,RFID Frequency,13.56,MHz,RFID reader operating frequency,Reader failures
+VS-026,Authentication,RFID Standards,ISO 14443/ISO 15693,text,Supported RFID card standards,Compatibility issues
+VS-027,Authentication,Timeout,60,seconds,Time allowed for authentication completion,Authorization timeout
+VS-028,Display,Type,LED Status Indicators,text,Visual feedback mechanism,Display failures
+VS-029,Display,States,5,count,Number of distinct status indications,Status communication
+VS-030,Enclosure,IP Rating,IP54,text,Ingress protection for dust and water,Environmental protection
+VS-031,Enclosure,IK Rating,IK10,text,Impact resistance rating,Physical damage resistance
+VS-032,Enclosure,Material,Polycarbonate/Metal,text,Housing material composition,Durability
+VS-033,Installation,Mounting,Wall-mounted,text,Standard installation method,Installation requirements
+VS-034,Installation,Cable Entry,Bottom/Rear,text,Power cable entry points,Installation flexibility
+VS-035,Metering,Accuracy Class,B (MID),text,Energy metering accuracy per EU MID directive,Billing accuracy
+VS-036,Metering,Resolution,0.01,kWh,Minimum measurable energy increment,Metering precision
+VS-037,Safety,Emergency Stop,Optional,text,Manual emergency disconnection capability,Emergency response
+VS-038,Safety,Ventilation Required,No,text,EV ventilation requirement during charging,Ventilation scenarios
+VS-039,Firmware,Update Method,Remote OTA,text,Over-the-air firmware update capability,Update failures
+VS-040,Firmware,Rollback,Supported,text,Ability to revert to previous firmware version,Recovery capability

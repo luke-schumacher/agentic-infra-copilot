@@ -1,0 +1,5 @@
+zone,name,description,access,screening_required
+Zone I,General Public Area,Area freely accessible to the general public. No MRI-specific restrictions.,Unrestricted,No
+Zone II,Interface/Reception Area,Transition between public and MRI-controlled areas. Patient screening begins here.,Supervised,MRI screening form
+Zone III,MRI Environment/Control Room,Physical access restricted by key lock or code. Only screened individuals allowed.,Restricted - screened personnel only,Yes - ferromagnetic screening
+Zone IV,Magnet Room / Scanner Room,Contains the MRI magnet. Highest restriction level. Strong magnetic field always present.,Strictly restricted - Level 2 MR personnel only,Yes - full screening + supervision

@@ -102,65 +102,71 @@ class MRIPDFExtractor:
         """
         Parse DICOM SOP Class UID tables from DCS (DICOM Conformance Statement) PDFs.
 
-        Returns list of dicts with: sop_class_uid, sop_class_name, transfer_syntaxes, role, supported.
+        Uses text extraction because DCS PDFs use complex table layouts that
+        pdfplumber cannot parse as structured tables. The text lines follow the
+        pattern: "SOP Class Name 1.2.840.x.x.x Yes Yes [Yes Yes]"
+
+        Returns list of dicts with: sop_class_uid, sop_class_name, role, supported, source_pdf, page.
         """
-        tables = self.extract_tables(dcs_pdf_path)
+        if pdfplumber is None:
+            logger.warning("pdfplumber not installed. Install with: pip install pdfplumber")
+            return []
+
+        dcs_pdf_path = Path(dcs_pdf_path)
         sop_entries = []
 
-        # UID pattern: digits separated by dots (e.g., 1.2.840.10008.5.1.4.1.1.4)
-        uid_pattern = re.compile(r'\d+\.\d+\.\d+(?:\.\d+)+')
+        # Match lines containing a DICOM UID followed by Yes/No fields
+        uid_pattern = re.compile(r'(.*?)(1\.2\.840\.\d+(?:\.\d+)+)\s+((?:Yes|No)(?:\s+(?:Yes|No))*)')
 
-        for table in tables:
-            headers_lower = [h.lower() for h in table['headers']]
+        try:
+            with pdfplumber.open(str(dcs_pdf_path)) as pdf:
+                pending_name = ""
+                for page_num, page in enumerate(pdf.pages, 1):
+                    text = page.extract_text() or ''
+                    for line in text.split('\n'):
+                        line = line.strip()
+                        if not line:
+                            continue
 
-            # Look for tables containing SOP Class UIDs
-            has_uid_col = any('uid' in h or 'sop' in h for h in headers_lower)
-            if not has_uid_col:
-                # Check if any cell contains a UID pattern
-                has_uid_data = False
-                for row in table['rows'][:3]:
-                    for val in row.values():
-                        if uid_pattern.search(val):
-                            has_uid_data = True
-                            break
-                    if has_uid_data:
-                        break
-                if not has_uid_data:
-                    continue
+                        m = uid_pattern.match(line)
+                        if m:
+                            name_part = m.group(1).strip()
+                            uid = m.group(2)
+                            yes_no = m.group(3).strip().split()
 
-            for row in table['rows']:
-                values = list(row.values())
-                # Find the cell containing a UID
-                uid_val = ""
-                name_val = ""
-                role_val = ""
+                            # If name is empty, use pending name from previous line
+                            sop_name = name_part if name_part else pending_name
+                            pending_name = ""
 
-                for i, val in enumerate(values):
-                    if uid_pattern.search(val):
-                        uid_val = uid_pattern.search(val).group()
-                    elif len(val) > 10 and not uid_val:
-                        # Longest non-UID text is likely the name
-                        if len(val) > len(name_val):
-                            name_val = val
+                            # Determine role from Yes/No pattern
+                            # Typical columns: SCU-Store, SCP-Store, SCU-Query, SCP-Query
+                            # or just: SCU, SCP
+                            role = ''
+                            if len(yes_no) >= 2:
+                                is_scu = yes_no[0] == 'Yes'
+                                is_scp = yes_no[1] == 'Yes'
+                                if is_scu and is_scp:
+                                    role = 'SCU/SCP'
+                                elif is_scu:
+                                    role = 'SCU'
+                                elif is_scp:
+                                    role = 'SCP'
 
-                if uid_val:
-                    # Check for role indicators
-                    row_text = " ".join(values).lower()
-                    if 'scu' in row_text:
-                        role_val = 'SCU'
-                    elif 'scp' in row_text:
-                        role_val = 'SCP'
-                    elif 'both' in row_text:
-                        role_val = 'SCU/SCP'
+                            sop_entries.append({
+                                'sop_class_uid': uid,
+                                'sop_class_name': sop_name,
+                                'role': role,
+                                'supported': 'yes',
+                                'source_pdf': dcs_pdf_path.name,
+                                'page': page_num,
+                            })
+                        else:
+                            # Non-UID line might be a SOP class name for the next line
+                            if line and not line.startswith(('SOP Class', 'User of', 'Provider', '(SCU', '(SCP')):
+                                pending_name = line
 
-                    sop_entries.append({
-                        'sop_class_uid': uid_val,
-                        'sop_class_name': name_val.strip(),
-                        'role': role_val,
-                        'supported': 'yes',
-                        'source_pdf': Path(dcs_pdf_path).name,
-                        'page': table['page_number'],
-                    })
+        except Exception as e:
+            logger.error(f"Failed to extract SOP classes from {dcs_pdf_path}: {e}")
 
         # Deduplicate by UID within same PDF
         seen = set()
@@ -171,7 +177,7 @@ class MRIPDFExtractor:
                 seen.add(key)
                 unique_entries.append(entry)
 
-        logger.info(f"Extracted {len(unique_entries)} SOP Class UIDs from {Path(dcs_pdf_path).name}")
+        logger.info(f"Extracted {len(unique_entries)} SOP Class UIDs from {dcs_pdf_path.name}")
         return unique_entries
 
     def extract_with_chunking(

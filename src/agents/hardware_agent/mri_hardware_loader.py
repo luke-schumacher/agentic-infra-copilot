@@ -164,6 +164,68 @@ class MRIHardwareLoader:
             logger.error(f"Error loading failure modes: {str(e)}")
             return []
 
+    def load_failure_mode_catalog(self) -> List[Document]:
+        """Load curated failure mode catalog (FM-001 through FM-020)."""
+        csv_path = self.processed_dir / "failure_modes.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Failure mode catalog not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading failure mode catalog: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            for _, row in df.iterrows():
+                fm_id = row.get('failure_id', '')
+                mode = row.get('failure_mode', '')
+                component = row.get('component', '')
+                symptom = row.get('symptom', '')
+                root_cause = row.get('root_cause', '')
+                detection = row.get('detection_method', '')
+                severity = row.get('severity', '')
+                mttr = row.get('mttr_hours', '')
+                repair = row.get('repair_action', '')
+                parts = row.get('spare_parts_required', '')
+                pm = row.get('preventive_maintenance', '')
+
+                text_parts = [
+                    f"FAILURE MODE {fm_id}: {mode}",
+                    f"Component: {component}",
+                    f"Severity: {severity}",
+                    f"Symptom: {symptom}",
+                    f"Root Cause: {root_cause}",
+                    f"Detection Method: {detection}",
+                    f"Mean Time to Repair: {mttr} hours",
+                    f"Repair Action: {repair}",
+                    f"Spare Parts: {parts}",
+                    f"Preventive Maintenance: {pm}",
+                ]
+
+                doc = Document(
+                    page_content="\n".join(text_parts),
+                    metadata={
+                        'source_type': 'failure_catalog',
+                        'data_type': 'known_failure_mode',
+                        'failure_id': str(fm_id),
+                        'failure_mode': str(mode),
+                        'component': str(component),
+                        'severity': str(severity),
+                        'file_name': csv_path.name,
+                        'agent': 'hardware_agent'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} failure mode definitions")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading failure mode catalog: {str(e)}")
+            return []
+
     def load_event_log_errors(self, customer_id: Optional[str] = None, limit: int = 500) -> List[Document]:
         """
         Load error events from Parquet files via LazyParquetLoader.
@@ -352,6 +414,9 @@ class MRIHardwareLoader:
 
         error_profiles = self.load_known_failure_modes()
         all_documents.extend(error_profiles)
+
+        failure_catalog = self.load_failure_mode_catalog()
+        all_documents.extend(failure_catalog)
 
         if include_pdfs:
             pdfs = self.load_mri_pdfs()

@@ -1,0 +1,2343 @@
+template,code,meaning
+AAST Kidney Injury Grade-50298,RID205,kidney
+AAST Kidney Injury Grade-50298,RID4628,injury
+Aast Kidney Injury Grade,RID205,kidney
+Aast Kidney Injury Grade,RID4628,injury
+Abdomen Series,RID56,abdomen
+Abdomen Series,RID130,intestine
+Abdomen Series,RID4803,pneumoperitoneum
+Abdomen Series,RID10345,projection radiography
+Abdomen Series,RID1559,procedure
+Abdomen Series,RID13166,clinical information
+Abdomen Series,RID28483,comparison
+Abdomen Series,RID4803,pneumoperitoneum
+Abdomen Series,RID28453,abnormal
+Abdomen Series,RID34642,calcifications
+Abdomen Series,RID28569,set of bones
+Abdomen Series,RID13170,impression section
+Abdomen Xray,RID56,abdomen
+Abdomen Xray,RID10345,projection radiography
+Abdomen Xray,RID1559,procedure
+Abdomen Xray,RID13166,clinical information
+Abdomen Xray,RID56,abdomen
+Abdomen Xray,RID28803,pain
+Abdomen Xray,RID5787,distended
+Abdomen Xray,RID56,abdomen
+Abdomen Xray,RID28707,placement
+Abdomen Xray,RID5566,nasogastric tube
+Abdomen Xray,RID5729,postoperative
+Abdomen Xray,RID28483,comparison
+Abdomen Xray,RID28453,abnormal
+Abdomen Xray,RID34642,calcifications
+Abdomen Xray,RID28569,set of bones
+Abdomen Xray,RID13173,normal
+Abdomen Xray,RID13170,impression section
+Akciğer grafisi-50146,RID10345,projection radiography
+Akciğer grafisi-50146,RID1243,thorax
+Akciğer grafisi-50146,RID1559,procedure
+Akciğer grafisi-50146,RID13166,clinical information
+Akciğer grafisi-50146,RID28483,comparison
+Akciğer grafisi-50146,RID1385,heart
+Akciğer grafisi-50146,RID13437,lungs
+Akciğer grafisi-50146,RID28569,set of bones
+Akciğer grafisi-50146,RID13170,impression section
+Ankle Xray,RID28545,ankle
+Ankle Xray,RID10345,projection radiography
+Ankle Xray,RID5821,side (laterality)
+Ankle Xray,RID5825,right
+Ankle Xray,RID5824,left
+Ankle Xray,RID5771,bilateral
+Ankle Xray,RID13060,imaging procedure
+Ankle Xray,RID13166,clinical information
+Ankle Xray,RID28483,comparison
+Ankle Xray,RID28569,bones (set of bones)
+Ankle Xray,RID5387,demineralization
+Ankle Xray,RID28711,set of joints
+Ankle Xray,RID13170,impression section
+Bilateral Wrist Xray,RID10345,projection radiography
+Bilateral Wrist Xray,RID2177,wrist
+Bilateral Wrist Xray,RID1559,procedure
+Bilateral Wrist Xray,RID28483,comparison
+Bilateral Wrist Xray,RID28569,set of bones
+Bilateral Wrist Xray,RID28711,set of joints
+Bilateral Wrist Xray,RID35730,portion of soft tissue
+Bilateral Wrist Xray,RID13170,impression section
+Bladder Reflux,RID237,urinary bladder
+Bladder Reflux,RID5261,vesicoureteral reflux
+Bladder Reflux,RID1559,procedure
+Bladder Reflux,RID13166,clinical information
+Bladder Reflux,RID28483,comparison
+Bladder Reflux,RID13170,impression section
+Bone Age,RID13197,bone organ
+Bone Age,RID5641,child
+Bone Age,RID13208,skeletal system
+Bone Age,RID1559,procedure
+Bone Age,RID5824,left
+Bone Age,RID2318,hand
+Bone Age,RID5825,right
+Bone Age,RID2318,hand
+Bone Age,RID13166,clinical information
+Bone Age,RID28483,comparison
+Bone Age,RID28486,observations section
+Bone Age,RID13173,normal
+Bone Survey,RID13197,bone organ
+Bone Survey,RID10345,projection radiography
+Bone Survey,RID28569,set of bones
+Bone Survey,RID1559,procedure
+Bone Survey,RID28483,comparison
+Bone Survey,RID28569,set of bones
+Bone Survey,RID13173,normal
+Bone Survey,RID5387,demineralization
+Bone Survey,RID28711,set of joints
+Bone Survey,RID5086,intervertebral disc degeneration
+Bone Survey,RID13170,impression section
+Cardiac MRI_ Adenosine Stress Protocol,RID10490,adenosine stress
+Cardiac MRI_ Adenosine Stress Protocol,RID1385,heart
+Cardiac MRI_ Adenosine Stress Protocol,RID10312,magnetic resonance imaging
+Cardiac MRI_ Adenosine Stress Protocol,RID10490,adenosine stress
+Cardiac MRI_ Adenosine Stress Protocol,RID13166,clinical information
+Cardiac MRI_ Adenosine Stress Protocol,RID28483,comparison
+Cardiac MRI_ Adenosine Stress Protocol,RID10376,perfusion
+Cardiac MRI_ Adenosine Stress Protocol,RID13060,imaging procedure
+Cardiac MRI_ Adenosine Stress Protocol,RID28658,under stress
+Cardiac MRI_ Adenosine Stress Protocol,RID10376,perfusion
+Cardiac MRI_ Adenosine Stress Protocol,RID12535,at rest
+Cardiac MRI_ Adenosine Stress Protocol,RID13060,imaging procedure
+Cardiac MRI_ Adenosine Stress Protocol,RID10928,cine loop
+Cardiac MRI_ Adenosine Stress Protocol,RID28668,volume
+Cardiac MRI_ Adenosine Stress Protocol,RID28668,volume
+Cardiac MRI_ Adenosine Stress Protocol,RID5178,stroke
+Cardiac MRI_ Adenosine Stress Protocol,RID28668,volume
+Cardiac MRI_ Adenosine Stress Protocol,RID3874,mass
+Cardiac MRI_ Adenosine Stress Protocol,RID1386,cardiac chamber
+Cardiac MRI_ Adenosine Stress Protocol,RID13822,wall of lateral ventricle
+Cardiac MRI_ Adenosine Stress Protocol,RID1392,left ventricle
+Cardiac MRI_ Adenosine Stress Protocol,RID13432,diameter
+Cardiac MRI_ Adenosine Stress Protocol,RID38772,(unspecified)
+Cardiac MRI_ Adenosine Stress Protocol,RID13170,impression section
+Cardiac MRI_ Function and Viability,RID28812,function
+Cardiac MRI_ Function and Viability,RID1385,heart
+Cardiac MRI_ Function and Viability,RID10312,magnetic resonance imaging
+Cardiac MRI_ Function and Viability,RID3236,myocardial infarction
+Cardiac MRI_ Function and Viability,RID1398,myocardium
+Cardiac MRI_ Function and Viability,RID28821,viability
+Cardiac MRI_ Function and Viability,RID1559,procedure
+Cardiac MRI_ Function and Viability,RID11613,gadolinium chelate
+Cardiac MRI_ Function and Viability,RID28483,comparison
+Cardiac MRI_ Function and Viability,RID28454,none
+Cardiac MRI_ Function and Viability,RID28486,observations section
+Cardiac MRI_ Function and Viability,RID1392,left ventricle
+Cardiac MRI_ Function and Viability,RID10409,measurement
+Cardiac MRI_ Function and Viability,RID1394,aortic valve
+Cardiac MRI_ Function and Viability,RID28668,volume
+Cardiac MRI_ Function and Viability,RID5935,regurgitant flow
+Cardiac MRI_ Function and Viability,RID28668,volume
+Cardiac MRI_ Function and Viability,RID482,supraaortic valve area
+Cardiac MRI_ Function and Viability,RID1395,mitral valve
+Cardiac MRI_ Function and Viability,RID5935,regurgitant flow
+Cardiac MRI_ Function and Viability,RID28668,volume
+Cardiac MRI_ Function and Viability,RID5935,regurgitant flow
+Cardiac MRI_ Function and Viability,RID580,ascending aorta
+Cardiac MRI_ Function and Viability,RID13432,diameter
+Cardiac MRI_ Function and Viability,RID1390,left atrium
+Cardiac MRI_ Function and Viability,RID1390,left atrium
+Cardiac MRI_ Function and Viability,RID5818,anterior
+Cardiac MRI_ Function and Viability,RID5818,anterior
+Cardiac MRI_ Function and Viability,RID5821,laterality
+Cardiac MRI_ Function and Viability,RID29046,zone of heart
+Cardiac MRI_ Function and Viability,RID5823,inferior
+Cardiac MRI_ Function and Viability,RID5818,anterior
+Cardiac MRI_ Function and Viability,RID34906,cardiac septum
+Cardiac MRI_ Function and Viability,RID29046,zone of heart
+Cardiac MRI_ Function and Viability,RID5818,anterior
+Cardiac MRI_ Function and Viability,RID5818,anterior
+Cardiac MRI_ Function and Viability,RID5821,laterality
+Cardiac MRI_ Function and Viability,RID29046,zone of heart
+Cardiac MRI_ Function and Viability,RID5823,inferior
+Cardiac MRI_ Function and Viability,RID5818,anterior
+Cardiac MRI_ Function and Viability,RID34906,cardiac septum
+Cardiac MRI_ Function and Viability,RID29046,zone of heart
+Cardiac MRI_ Function and Viability,RID5818,anterior
+Cardiac MRI_ Function and Viability,RID5693,global
+Cardiac MRI_ Function and Viability,RID28812,function
+Cardiac MRI_ Function and Viability,RID13173,normal
+Cardiac MRI_ Function and Viability,RID5671,mild
+Cardiac MRI_ Function and Viability,RID5672,moderate
+Cardiac MRI_ Function and Viability,RID5673,severe
+Cardiac MRI_ Function and Viability,RID13173,normal
+Cardiac MRI_ Function and Viability,RID5671,mild
+Cardiac MRI_ Function and Viability,RID5672,moderate
+Cardiac MRI_ Function and Viability,RID5673,severe
+Cardiac MRI_ Function and Viability,RID1392,left ventricle
+Cardiac MRI_ Function and Viability,RID3260,valvular heart disease
+Cardiac MRI_ Right Heart Failure,RID1385,heart
+Cardiac MRI_ Right Heart Failure,RID10312,magnetic resonance imaging
+Cardiac MRI_ Right Heart Failure,RID1559,procedure
+Cardiac MRI_ Right Heart Failure,RID13166,clinical information
+Cardiac MRI_ Right Heart Failure,RID28483,comparison
+Cardiac MRI_ Right Heart Failure,RID1394,aortic valve
+Cardiac MRI_ Right Heart Failure,RID13173,normal
+Cardiac MRI_ Right Heart Failure,RID4969,shunt
+Cardiac MRI_ Right Heart Failure,RID13170,impression section
+Cardiac MRI_ Right Heart Failure,RID5693,global
+Cardiac MRI_ Right Heart Failure,RID28812,function
+Cardiac MRI_ Right Heart Failure,RID13173,normal
+Cardiac MRI_ Right Heart Failure,RID5671,mild
+Cardiac MRI_ Right Heart Failure,RID5672,moderate
+Cardiac MRI_ Right Heart Failure,RID5673,severe
+Cardiac MRI_ Right Heart Failure,RID5693,global
+Cardiac MRI_ Right Heart Failure,RID28812,function
+Cardiac MRI_ Right Heart Failure,RID13173,normal
+Cardiac MRI_ Right Heart Failure,RID5671,mild
+Cardiac MRI_ Right Heart Failure,RID5672,moderate
+Cardiac MRI_ Right Heart Failure,RID5673,severe
+Cardiac MRI_ Right Heart Failure,RID11113,intracardiac
+Cardiac MRI_ Right Heart Failure,RID4969,shunt
+Cardiac MRI_ Right Heart Failure,RID3260,valvular heart disease
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID39486,washout appearance
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID43350,threshold growth (liver mass)
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID39483,tumor in vein (LI-RADS)
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID39439,capsule appearance (liver)
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID39468,mild-moderate T2 hyperintensity
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID39149,mosaic architecture
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID13432,diameter
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID10311,imaging modality
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID10321,computed tomography
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID10312,magnetic resonance imaging
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49813,hepatobiliary phase hypointensity
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID43349,restricted diffusion
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID39458,homogeneous marked T2 hyperintensity
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID39463,intralesional fat
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28472,present
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID28473,absent
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49823,LI-RADS assessment
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49794,LR-1
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49795,LR-2
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49796,LR-3
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49797,LR-4
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49799,LR-5
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49802,LR-5V
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49803,LR-M
+CDE_ ACR LI-RADS_ Liver Imaging Reporting and Data System TEST,RID49804,LR-Treated
+CDE_ BI-RADS Assessment Categories -TEST,RID13162,patient date of birth
+CDE_ BI-RADS Assessment Categories -TEST,RID36027,BI-RADS assessment
+CDE_ BI-RADS Assessment Categories -TEST,RID36036,BI-RADS 0
+CDE_ BI-RADS Assessment Categories -TEST,RID36028,BI-RADS 1
+CDE_ BI-RADS Assessment Categories -TEST,RID36029,BI-RADS 2
+CDE_ BI-RADS Assessment Categories -TEST,RID36041,BI-RADS 3
+CDE_ BI-RADS Assessment Categories -TEST,RID36031,BI-RADS 4A
+CDE_ BI-RADS Assessment Categories -TEST,RID36032,BI-RADS 4B
+CDE_ BI-RADS Assessment Categories -TEST,RID36033,BI-RADS 4C
+CDE_ BI-RADS Assessment Categories -TEST,RID36034,BI-RADS 5
+CDE_ BI-RADS Assessment Categories -TEST,RID36035,BI-RADS 6
+CDE_ BI-RADS Assessment Categories -TEST,RID49902,breast tissue
+CDE_ BI-RADS Assessment Categories -TEST,RID49694,almost entirely fat
+CDE_ BI-RADS Assessment Categories -TEST,RID34274,scattered fibroglandular densities
+CDE_ BI-RADS Assessment Categories -TEST,RID34275,heterogeneously dense
+CDE_ BI-RADS Assessment Categories -TEST,RID34276,extremely dense
+CDE_ BI-RADS Assessment Categories -TEST,RID13161,medical record number
+CDE_ BI-RADS Assessment Categories -TEST,RID13160,patient name
+CDE_ BI-RADS Assessment Categories -TEST,RID36027,BI-RADS assessment
+CDE_ BI-RADS Assessment Categories -TEST,RID36036,BI-RADS 0
+CDE_ BI-RADS Assessment Categories -TEST,RID36028,BI-RADS 1
+CDE_ BI-RADS Assessment Categories -TEST,RID36029,BI-RADS 2
+CDE_ BI-RADS Assessment Categories -TEST,RID36041,BI-RADS 3
+CDE_ BI-RADS Assessment Categories -TEST,RID36031,BI-RADS 4A
+CDE_ BI-RADS Assessment Categories -TEST,RID36032,BI-RADS 4B
+CDE_ BI-RADS Assessment Categories -TEST,RID36033,BI-RADS 4C
+CDE_ BI-RADS Assessment Categories -TEST,RID36034,BI-RADS 5
+CDE_ BI-RADS Assessment Categories -TEST,RID36035,BI-RADS 6
+CDE_ BI-RADS Assessment Categories -TEST,RID13163,patient age
+CDE_ BI-RADS Assessment Categories -TEST,RID39050,symptom
+CDE_ BI-RADS Assessment Categories -TEST,RID5638,patient descriptor
+CDE_ BI-RADS Assessment Categories -TEST,RID13165,patient ethnicity
+CDE_ BI-RADS Assessment Categories -TEST,RID13165,patient ethnicity
+CDE_ BI-RADS Assessment Categories -TEST,RID13165,patient ethnicity
+CDE_ BI-RADS Assessment Categories -TEST,RID13159,patient identifier
+CDE_ BI-RADS Assessment Categories -TEST,RID13164,patient gender
+CDE_ BI-RADS Assessment Categories -TEST,RID13164,patient gender
+CDE_ BI-RADS Assessment Categories -TEST,RID13164,patient gender
+Cervical Cancer Follow Up MRI,RID1559,procedure
+Cervical Cancer Follow Up MRI,RID13170,impression section
+Cervical Cancer Follow Up MRI,RID28483,comparison
+Cervical Cancer Follow Up MRI,RID30958,endometrium
+Cervical Cancer Follow Up MRI,RID13166,clinical information section
+Cervical Cancer Follow Up MRI,RID302,uterus
+Cervical Cancer Follow-Up CT,RID13170,impression section
+Cervical Cancer Follow-Up CT,RID1559,procedure
+Cervical Cancer Follow-Up CT,RID410,peritoneum
+Cervical Cancer Follow-Up CT,RID31090,set of ureters
+Cervical Cancer Follow-Up CT,RID39537,set of ovaries
+Cervical Cancer Follow-Up CT,RID13169,comparison image
+Cervical Cancer Follow-Up CT,RID13166,clinical information section
+Cervical Cancer Follow-Up CT,RID302,uterus
+Cervical Cancer Follow-Up CT,RID28769,imaging with IV contrast
+Cervical Cancer Follow-Up CT,RID35817,oral contrast
+Cervical Cancer Staging MRI,RID308,cervix of uterus
+Cervical Cancer Staging MRI,RID6263,exophytic
+Cervical Cancer Staging MRI,RID6263,exophytic
+Cervical Cancer Staging MRI,RID6282,infiltrative
+Cervical Cancer Staging MRI,RID6282,infiltrative
+Cervical Cancer Staging MRI,RID30760,pelvic wall
+Cervical Cancer Staging MRI,RID13170,impression section
+Cervical Cancer Staging MRI,RID32830,left ovary
+Cervical Cancer Staging MRI,RID32829,right ovary
+Cervical Cancer Staging MRI,RID30958,endometrium
+Cervical Cancer Staging MRI,RID28483,comparison
+Cervical Cancer Staging MRI,RID11181,rectal
+Cervical Cancer Staging MRI,RID302,uterus
+Cervical Cancer Staging MRI,RID38806,anteverted
+Cervical Cancer Staging MRI,RID38807,retroverted
+Cervical Cancer Staging MRI,RID39240,retroflexed
+Cervical Cancer Staging MRI,RID5840,displaced
+Cervical Cancer Staging MRI,RID5840,displaced
+Cervical Cancer Staging MRI,RID30135,wall of urinary bladder
+Cervical Cancer Staging MRI,RID13166,clinical information section
+Cervical Cancer Staging MRI,RID1559,procedure
+Cervical Cancer Staging MRI,RID1541,ascites
+Chest radiograph for tuberculosis,RID3820,fibrosis
+Chest radiograph for tuberculosis,RID28530,opacity
+Chest radiograph for tuberculosis,RID28528,traction bronchiectasis
+Chest radiograph for tuberculosis,RID3953,granuloma
+Chest radiograph for tuberculosis,RID1559,procedure
+Chest radiograph for tuberculosis,RID10510,radiography procedure attribute
+Chest radiograph for tuberculosis,RID10510,radiography procedure attribute
+Chest radiograph for tuberculosis,RID29116,tuberculosis
+Chest radiograph for tuberculosis,RID43255,consolidation
+Chest radiograph for tuberculosis,RID35654,tree-in-bud sign
+Chest radiograph for tuberculosis,RID35377,miliary pattern
+Chest radiograph for tuberculosis,RID3798,lymphadenopathy
+Chest radiograph for tuberculosis,RID34539,pleural effusion
+Chest radiograph for tuberculosis,RID50133,most recent comparison
+Chest Tube Removal,RID10415,device removal
+Chest Tube Removal,RID5573,thoracostomy tube
+Chest Tube Removal,RID1243,thorax
+Chest Tube Removal,RID5573,thoracostomy tube
+Chest Tube Removal,RID5825,right
+Chest Tube Removal,RID5824,left
+Chest Tube Removal,RID13166,clinical information
+Chest Tube Removal,RID28483,comparison
+Chest Tube Removal,RID28486,observations section
+Chest Tube Removal,RID13170,impression section
+Chest Xray - 2 Views,RID10345,projection radiography
+Chest Xray - 2 Views,RID1243,thorax
+Chest Xray - PICC,RID5581,peripheral intravenous central catheter
+Chest Xray - PICC,RID10345,projection radiography
+Chest Xray - PICC,RID1243,thorax
+Chest Xray - PICC,RID1559,procedure
+Chest Xray - PICC,RID13166,clinical information
+Chest Xray - PICC,RID28483,comparison
+Chest Xray - PICC,RID6062,body region
+Chest Xray - PICC,RID5825,right
+Chest Xray - PICC,RID5824,left
+Chest Xray - PICC,RID13170,impression section
+CT Abdomen & Pelvis w Contrast,RID187,gallbladder
+CT Abdomen & Pelvis w Contrast,RID205,kidney
+CT Abdomen & Pelvis w Contrast,RID1301,lung
+CT Abdomen & Pelvis w Contrast,RID28722,adrenal region
+CT Abdomen & Pelvis w Contrast,RID86,spleen
+CT Abdomen & Pelvis w Contrast,RID170,pancreas
+CT Abdomen & Pelvis w Contrast,RID168,appendix
+CT Abdomen & Pelvis w Contrast,RID114,stomach
+CT Abdomen & Pelvis w Contrast,RID28854,abdominal lymph node group
+CT Abdomen & Pelvis w Contrast,RID13209,musculoskeletal system
+CT Abdomen & Pelvis w Contrast,RID15989,vasculature
+CT Abdomen & Pelvis w Contrast,RID1547,fluid
+CT Abdomen & Pelvis w Contrast,RID35730,portion of soft tissue
+CT Abdomen & Pelvis w Contrast,RID13166,clinical information section
+CT Abdomen & Pelvis w Contrast,RID2507,pelvis
+CT Abdomen & Pelvis w Contrast,RID13173,normal
+CT Abdomen & Pelvis w Contrast,RID11502,technique effectiveness
+CT Abdomen & Pelvis w Contrast,RID58,liver
+CT Abdomen & Pelvis w Contrast,RID410,peritoneum
+CT AbdPel- Appendicitis,RID170,pancreas
+CT AbdPel- Appendicitis,RID28855,pelvic lymph node group
+CT AbdPel- Appendicitis,RID28722,adrenal region
+CT AbdPel- Appendicitis,RID187,gallbladder
+CT AbdPel- Appendicitis,RID13173,normal
+CT AbdPel- Appendicitis,RID29663,left kidney
+CT AbdPel- Appendicitis,RID28454,none
+CT AbdPel- Appendicitis,RID29662,right kidney
+CT AbdPel- Appendicitis,RID86,spleen
+CT AbdPel- Appendicitis,RID34393,hydronephrosis
+CT AbdPel- Appendicitis,RID28454,none
+CT AbdPel- Appendicitis,RID5671,mild
+CT AbdPel- Appendicitis,RID5672,moderate
+CT AbdPel- Appendicitis,RID5673,severe
+CT AbdPel- Appendicitis,RID1301,lung
+CT AbdPel- Appendicitis,RID13173,normal
+CT AbdPel- Appendicitis,RID28487,report
+CT AbdPel- Appendicitis,RID34393,hydronephrosis
+CT AbdPel- Appendicitis,RID28454,none
+CT AbdPel- Appendicitis,RID5671,mild
+CT AbdPel- Appendicitis,RID5672,moderate
+CT AbdPel- Appendicitis,RID5673,severe
+CT AbdPel- Appendicitis,RID30845,left ureter
+CT AbdPel- Appendicitis,RID28454,none
+CT AbdPel- Appendicitis,RID28472,present
+CT AbdPel- Appendicitis,RID30844,right ureter
+CT AbdPel- Appendicitis,RID28454,none
+CT AbdPel- Appendicitis,RID28472,present
+CT AbdPel- Appendicitis,RID49442,indication
+CT angio abdomen - live liver donor,RID28472,present
+CT angio abdomen - live liver donor,RID28473,absent
+CT angio abdomen - live liver donor,RID49459,liver parenchyma
+CT angio abdomen - live liver donor,RID13170,impression section
+CT angio abdomen - live liver donor,RID15989,vasculature
+CT angio abdomen - live liver donor,RID35817,oral contrast
+CT angio abdomen - live liver donor,RID28483,comparison
+CT angio abdomen - live liver donor,RID39049,atherosclerosis
+CT angio abdomen - live liver donor,RID28472,present
+CT angio abdomen - live liver donor,RID28473,absent
+CT angio abdomen - live liver donor,RID13166,clinical information
+CT angio abdomen - live liver donor,RID205,kidney
+CT angio abdomen - live liver donor,RID94,gastrointestinal tract
+CT angio abdomen - live liver donor,RID86,spleen
+CT angio abdomen - live liver donor,RID28752,set of adrenal glands
+CT angio abdomen - live liver donor,RID170,pancreas
+CT angio abdomen - live liver donor,RID918,right hepatic artery
+CT angio abdomen - live liver donor,RID916,left hepatic artery
+CT angio abdomen - live liver donor,RID13173,normal
+CT angio abdomen - live liver donor,RID28454,none
+CT angio abdomen - live liver donor,RID46041,vascular disease
+CT angio abdomen - live liver donor,RID13173,normal
+CT Appendicitis,RID56,abdomen
+CT Appendicitis,RID3383,appendicitis
+CT Appendicitis,RID168,appendix
+CT Appendicitis,RID10321,computed tomography
+CT Appendicitis,RID2507,pelvis
+CT Appendicitis,RID1559,procedure
+CT Appendicitis,RID28769,imaging with IV contrast
+CT Appendicitis,RID35817,oral contrast
+CT Appendicitis,RID13166,clinical information
+CT Appendicitis,RID28483,comparison
+CT Appendicitis,RID13432,diameter
+CT Appendicitis,RID5987,wall
+CT Appendicitis,RID28671,thickness descriptor
+CT Appendicitis,RID1547,fluid
+CT Appendicitis,RID3711,abscess
+CT Appendicitis,RID5849,adjacent
+CT Appendicitis,RID130,intestine
+CT Appendicitis,RID5987,wall
+CT Appendicitis,RID28509,thickening
+CT Appendicitis,RID4988,appendicolith
+CT Appendicitis,RID3775,enlargement
+CT Appendicitis,RID3798,lymphadenopathy
+CT Appendicitis,RID451,mesenteric lymph node
+CT Appendicitis,RID5774,small
+CT Appendicitis,RID130,intestine
+CT Appendicitis,RID31011,colon
+CT Appendicitis,RID187,gallbladder
+CT Appendicitis,RID28753,biliary system
+CT Appendicitis,RID86,spleen
+CT Appendicitis,RID170,pancreas
+CT Appendicitis,RID28752,set of adrenal glands
+CT Appendicitis,RID205,kidney
+CT Appendicitis,RID31090,set of ureters
+CT Appendicitis,RID5692,major
+CT Appendicitis,RID905,abdominal aorta
+CT Appendicitis,RID3798,lymphadenopathy
+CT Appendicitis,RID1354,lower lung zone
+CT Appendicitis,RID28569,set of bones
+CT Appendicitis,RID13170,impression section
+CT Brain-50529,RID4700,hemorrhage
+CT Brain-50529,RID13477,ventricular system of neuraxis
+CT Brain-50529,RID13173,normal
+CT Brain-50529,RID49442,indication
+CT Brain-50529,RID13209,musculoskeletal system
+CT Brain-50529,RID28579,paranasal sinuses
+CT Brain-50529,RID28601,orbits
+CT Brain-50529,RID49691,postsurgical fluid collection
+CT Brain,RID6434,brain
+CT Brain,RID10321,computed tomography
+CT Brain,RID9080,head
+CT Brain,RID11582,contrast agent
+CT Brain,RID13166,clinical information
+CT Brain,RID28483,comparison
+CT Brain,RID6380,extraaxial
+CT Brain,RID6383,intracranial
+CT Brain,RID4700,hemorrhage
+CT Brain,RID13786,ventricular system of brain
+CT Brain,RID7187,interpeduncular cistern
+CT Brain,RID6437,telencephalon
+CT Brain,RID5826,midline
+CT Brain,RID4738,mechanical disorder
+CT Brain,RID10445,deviation position
+CT Brain,RID6815,cerebellum
+CT Brain,RID6677,brainstem
+CT Brain,RID9196,skull
+CT Brain,RID28579,paranasal sinuses
+CT Brain,RID10144,mastoid air cell
+CT Brain,RID28601,orbits
+CT Brain,RID28674,cervical spine region
+CT Brain,RID7741,spine
+CT Brain,RID9286,sella turcica
+CT Brain,RID28731,base of cranium
+CT Brain,RID13170,impression section
+CT Calcium Score,RID11800,calcium
+CT Calcium Score,RID10321,computed tomography
+CT Calcium Score,RID1385,heart
+CT Calcium Score,RID28727,set of coronary arteries
+CT Calcium Score,RID11250,EKG gating
+CT Calcium Score,RID5822,superior
+CT Calcium Score,RID5683,status descriptor
+CT Calcium Score,RID5823,inferior
+CT Calcium Score,RID5683,status descriptor
+CT Calcium Score,RID11525,complication
+CT Calcium Score,RID13166,clinical information
+CT Calcium Score,RID28483,comparison
+CT Calcium Score,RID10,image quality
+CT Calcium Score,RID12,diagnostic quality
+CT Calcium Score,RID14,non-diagnostic quality
+CT Calcium Score,RID11296,artifact
+CT Calcium Score,RID12776,image registration
+CT Calcium Score,RID11308,patient motion
+CT Calcium Score,RID11800,calcium
+CT Calcium Score,RID11296,artifact
+CT Calcium Score,RID11334,metal artifact
+CT Calcium Score,RID11309,arrhythmia artifact
+CT Calcium Score,RID28808,calcium score
+CT Calcium Score,RID5689,complete
+CT Calcium Score,RID28808,calcium score
+CT Calcium Score,RID5689,complete
+CT Calcium Score,RID28668,volume
+CT Calcium Score,RID486,left coronary artery
+CT Calcium Score,RID490,left anterior descending artery
+CT Calcium Score,RID5824,left
+CT Calcium Score,RID510,circumflex coronary artery
+CT Calcium Score,RID544,right coronary artery
+CT Calcium Score,RID1386,cardiac chamber
+CT Calcium Score,RID879,thoracic aorta
+CT Calcium Score,RID13437,lungs
+CT Calcium Score,RID56,abdomen
+CT Calcium Score,RID13170,impression section
+CT Cerebrum,RID6434,brain
+CT Cerebrum,RID10321,computed tomography
+CT Cerebrum,RID9080,head
+CT Cerebrum,RID11582,contrast agent
+CT Cerebrum,RID13166,clinical information
+CT Cerebrum,RID28483,comparison
+CT Cerebrum,RID6380,extraaxial
+CT Cerebrum,RID6383,intracranial
+CT Cerebrum,RID4700,hemorrhage
+CT Cerebrum,RID13786,ventricular system of brain
+CT Cerebrum,RID7187,interpeduncular cistern
+CT Cerebrum,RID6437,telencephalon
+CT Cerebrum,RID5826,midline
+CT Cerebrum,RID4738,mechanical disorder
+CT Cerebrum,RID10445,deviation position
+CT Cerebrum,RID6815,cerebellum
+CT Cerebrum,RID6677,brainstem
+CT Cerebrum,RID9196,skull
+CT Cerebrum,RID28579,paranasal sinuses
+CT Cerebrum,RID10144,mastoid air cell
+CT Cerebrum,RID28601,orbits
+CT Cerebrum,RID28674,cervical spine region
+CT Cerebrum,RID7741,spine
+CT Cerebrum,RID9286,sella turcica
+CT Cerebrum,RID28731,base of cranium
+CT Cerebrum,RID13170,impression section
+CT Chest ILD,RID13173,normal
+CT Chest ILD,RID49442,indication
+CT Chest ILD,RID5978,parenchyma
+CT Chest ILD,RID29990,upper abdomen
+CT Chest ILD,RID2468,chest wall
+CT Chest ILD,RID1384,mediastinum
+CT Chest ILD,RID1385,heart
+CT Chest PE-50513,RID29990,upper abdomen
+CT Chest PE-50513,RID7488,neck
+CT Chest PE-50513,RID49442,indication
+CT Chest PE-50513,RID1385,heart
+CT Chest PE-50513,RID1363,pleural space
+CT Chest PE-50513,RID6336,osseous
+CT Chest PE-50513,RID1384,mediastinum
+CT Chest PE-50513,RID13437,lungs
+CT Chest PE-50513,RID28586,set of pulmonary arteries
+CT Chest PE,RID29990,upper abdomen
+CT Chest PE,RID7488,neck
+CT Chest PE,RID49442,indication
+CT Chest PE,RID1385,heart
+CT Chest PE,RID1363,pleural space
+CT Chest PE,RID6336,osseous
+CT Chest PE,RID1384,mediastinum
+CT Chest PE,RID13437,lungs
+CT Chest PE,RID28586,set of pulmonary arteries
+CT Chest Pulmonary Embolism,RID10321,computed tomography
+CT Chest Pulmonary Embolism,RID4834,pulmonary embolism
+CT Chest Pulmonary Embolism,RID28586,set of pulmonary arteries
+CT Chest Pulmonary Embolism,RID1243,thorax
+CT Chest Pulmonary Embolism,RID4837,thromboembolism
+CT Chest Pulmonary Embolism,RID11582,contrast agent
+CT Chest Pulmonary Embolism,RID13166,clinical information
+CT Chest Pulmonary Embolism,RID28483,comparison
+CT Chest Pulmonary Embolism,RID12,diagnostic quality
+CT Chest Pulmonary Embolism,RID4834,pulmonary embolism
+CT Chest Pulmonary Embolism,RID1301,lung
+CT Chest Pulmonary Embolism,RID5978,parenchyma
+CT Chest Pulmonary Embolism,RID34539,pleural effusion
+CT Chest Pulmonary Embolism,RID5827,central
+CT Chest Pulmonary Embolism,RID1245,airway
+CT Chest Pulmonary Embolism,RID3798,lymphadenopathy
+CT Chest Pulmonary Embolism,RID1385,heart
+CT Chest Pulmonary Embolism,RID29990,upper abdomen
+CT Chest Pulmonary Embolism,RID28569,set of bones
+CT Chest Pulmonary Embolism,RID13170,impression section
+CT Chest w Contrast,RID7488,neck
+CT Chest w Contrast,RID13437,lungs
+CT Chest w Contrast,RID1363,pleural space
+CT Chest w Contrast,RID1385,heart
+CT Chest w Contrast,RID13173,normal
+CT Chest w Contrast,RID29990,upper abdomen
+CT Chest w Contrast,RID1384,mediastinum
+CT Chest w Contrast,RID49962,set of chest vessels
+CT Chest w Contrast,RID6336,osseous
+CT Chest w Contrast,RID13166,clinical information section
+CT Chest wo Contrast,RID13173,normal
+CT Chest wo Contrast,RID1385,heart
+CT Chest wo Contrast,RID13437,lungs
+CT Chest wo Contrast,RID1363,pleural space
+CT Chest wo Contrast,RID49962,set of chest vessels
+CT Chest wo Contrast,RID1384,mediastinum
+CT Chest wo Contrast,RID2468,chest wall
+CT Chest wo Contrast,RID29990,upper abdomen
+CT Chest wo Contrast,RID13166,clinical information section
+CT Chest,RID10321,computed tomography
+CT Chest,RID1243,thorax
+CT Chest,RID1559,procedure
+CT Chest,RID28483,comparison
+CT Chest,RID13170,impression section
+CT Cirrhosis Module,RID86,spleen
+CT Cirrhosis Module,RID13170,impression section
+CT Cirrhosis Module,RID1208,portal vein
+CT Cirrhosis Module,RID13166,clinical information
+CT Cirrhosis Module,RID3822,cirrhosis
+CT Cirrhosis Module,RID1541,ascites
+CT Cirrhosis Module,RID28454,none
+CT Cirrhosis Module,RID38078,hepatic artery
+CT Cirrhosis Module,RID10579,axial plane
+CT Cirrhosis Module,RID28483,comparison
+CT Cirrhosis Module,RID5803,micronodular
+CT Cirrhosis Module,RID5804,macronodular
+CT Cirrhosis Module,RID5912,smooth
+CT Facial Bones,RID13284,face
+CT Facial Bones,RID4650,fracture
+CT Facial Bones,RID4630,injury due to mechanical trauma
+CT Facial Bones,RID28579,paranasal sinuses
+CT Facial Bones,RID28570,set of facial bones
+CT Facial Bones,RID28483,comparison
+CT Facial Bones,RID13170,impression section
+CT IVP,RID237,urinary bladder
+CT IVP,RID58,liver
+CT IVP,RID187,gallbladder
+CT IVP,RID28722,adrenal region
+CT IVP,RID86,spleen
+CT IVP,RID170,pancreas
+CT IVP,RID130,intestine
+CT IVP,RID33180,mesentery
+CT IVP,RID13209,musculoskeletal system
+CT IVP,RID15989,vasculature
+CT IVP,RID1547,fluid
+CT IVP,RID13209,musculoskeletal system
+CT IVP,RID29662,right kidney
+CT IVP,RID29663,left kidney
+CT IVP,RID13173,normal
+CT IVP,RID30844,right ureter
+CT IVP,RID30845,left ureter
+CT IVP,RID1301,lung
+CT KUB (CT Stone Study),RID237,urinary bladder
+CT KUB (CT Stone Study),RID2507,pelvis
+CT KUB (CT Stone Study),RID30845,left ureter
+CT KUB (CT Stone Study),RID29662,right kidney
+CT KUB (CT Stone Study),RID30844,right ureter
+CT KUB (CT Stone Study),RID49442,indication
+CT KUB (CT Stone Study),RID29663,left kidney
+CT KUB (CT Stone Study),RID13209,musculoskeletal system
+CT KUB (CT Stone Study),RID13437,lungs
+CT KUB (CT Stone Study),RID13209,musculoskeletal system
+CT Liver Surveillance,RID3822,cirrhosis
+CT Liver Surveillance,RID10321,computed tomography
+CT Liver Surveillance,RID4271,hepatocellular carcinoma
+CT Liver Surveillance,RID58,liver
+CT Liver Surveillance,RID11582,contrast agent
+CT Liver Surveillance,RID13166,clinical information
+CT Liver Surveillance,RID28483,comparison
+CT Liver Surveillance,RID58,liver
+CT Liver Surveillance,RID28825,morphology
+CT Liver Surveillance,RID28473,absent
+CT Liver Surveillance,RID34614,portal hypertension
+CT Liver Surveillance,RID86,spleen
+CT Liver Surveillance,RID5772,size descriptor
+CT Liver Surveillance,RID3375,collateral
+CT Liver Surveillance,RID15989,vasculature
+CT Liver Surveillance,RID5666,spontaneous
+CT Liver Surveillance,RID4969,shunt
+CT Liver Surveillance,RID410,peritoneum
+CT Liver Surveillance,RID431,retroperitoneum
+CT Liver Surveillance,RID30970,set of pelvic viscera
+CT Liver Surveillance,RID30970,set of pelvic viscera
+CT Liver Surveillance,RID13209,musculoskeletal system
+CT Liver Surveillance,RID13170,impression section
+CT Neck,RID10321,computed tomography
+CT Neck,RID7488,neck
+CT Neck,RID1559,procedure
+CT Neck,RID13166,clinical information
+CT Neck,RID28483,comparison
+CT Neck,RID28601,orbits
+CT Neck,RID9990,nasopharynx
+CT Neck,RID7540,suprahyoid neck
+CT Neck,RID7576,infrahyoid neck
+CT Neck,RID7578,thyroid gland
+CT Neck,RID1432,thoracic inlet
+CT Neck,RID28847,lymph node group
+CT Neck,RID15990,vasculature of organ
+CT Neck,RID13173,normal
+CT Neck,RID13170,impression section
+CT Onco Lung Mass,RID10321,computed tomography
+CT Onco Lung Mass,RID1301,lung
+CT Onco Lung Mass,RID3874,mass
+CT Onco Lung Mass,RID3957,neoplasm
+CT Onco Lung Mass,RID1243,thorax
+CT Onco Lung Mass,RID1559,procedure
+CT Onco Lung Mass,RID28483,comparison
+CT Onco Lung Mass,RID5772,size descriptor
+CT Onco Lung Mass,RID28668,volume
+CT Onco Lung Mass,RID5945,anatomic sub-part
+CT Onco Lung Mass,RID13390,anatomical structure
+CT Onco Lung Mass,RID6246,(unspecified)
+CT Onco Lung Mass,RID5738,composition modifier
+CT Onco Lung Mass,RID16263,set of nerves
+CT Onco Lung Mass,RID28847,lymph node group
+CT Onco Lung Mass,RID13170,impression section
+CT Onco Renal Mass,RID10321,computed tomography
+CT Onco Renal Mass,RID205,kidney
+CT Onco Renal Mass,RID3874,mass
+CT Onco Renal Mass,RID3957,neoplasm
+CT Onco Renal Mass,RID1559,procedure
+CT Onco Renal Mass,RID13166,clinical information
+CT Onco Renal Mass,RID28483,comparison
+CT Onco Renal Mass,RID5945,anatomic sub-part
+CT Onco Renal Mass,RID13390,anatomical structure
+CT Onco Renal Mass,RID6054,enhancement characteristic
+CT Onco Renal Mass,RID5738,composition modifier
+CT Onco Renal Mass,RID1538,fat
+CT Onco Renal Mass,RID28662,attenuation
+CT Onco Renal Mass,RID5828,peripheral
+CT Onco Renal Mass,RID5987,wall
+CT Onco Renal Mass,RID432,anterior pararenal space
+CT Onco Renal Mass,RID433,posterior pararenal space
+CT Onco Renal Mass,RID28722,adrenal region
+CT Onco Renal Mass,RID58,liver
+CT Onco Renal Mass,RID86,spleen
+CT Onco Renal Mass,RID28822,vascular region
+CT Onco Renal Mass,RID5230,disease spread
+CT Onco Renal Mass,RID5849,adjacent
+CT Onco Renal Mass,RID13296,lymph node
+CT Onco Renal Mass,RID13170,impression section
+CT Pelvis,RID10321,computed tomography
+CT Pelvis,RID2507,pelvis
+CT Pelvis,RID28483,comparison
+CT Pelvis,RID13170,impression section
+CT Pulmonary Veins,RID10321,computed tomography
+CT Pulmonary Veins,RID1385,heart
+CT Pulmonary Veins,RID1231,pulmonary vein
+CT Pulmonary Veins,RID1559,procedure
+CT Pulmonary Veins,RID11582,contrast agent
+CT Pulmonary Veins,RID11525,complication
+CT Pulmonary Veins,RID12357,volume CT dose index
+CT Pulmonary Veins,RID12359,CT dose length product
+CT Pulmonary Veins,RID13166,clinical information
+CT Pulmonary Veins,RID28483,comparison
+CT Pulmonary Veins,RID10,image quality
+CT Pulmonary Veins,RID11254,imaging error
+CT Pulmonary Veins,RID5825,right
+CT Pulmonary Veins,RID5824,left
+CT Pulmonary Veins,RID5016,stenosis
+CT Pulmonary Veins,RID5825,right
+CT Pulmonary Veins,RID5822,superior
+CT Pulmonary Veins,RID5825,right
+CT Pulmonary Veins,RID5823,inferior
+CT Pulmonary Veins,RID5824,left
+CT Pulmonary Veins,RID5822,superior
+CT Pulmonary Veins,RID5824,left
+CT Pulmonary Veins,RID5823,inferior
+CT Pulmonary Veins,RID1390,left atrium
+CT Pulmonary Veins,RID11135,intraluminal
+CT Pulmonary Veins,RID5037,thrombus
+CT Pulmonary Veins,RID28727,set of coronary arteries
+CT Pulmonary Veins,RID28586,set of pulmonary arteries
+CT Pulmonary Veins,RID13432,diameter
+CT Pulmonary Veins,RID4834,pulmonary embolism
+CT Pulmonary Veins,RID879,thoracic aorta
+CT Pulmonary Veins,RID13437,lungs
+CT Pulmonary Veins,RID29990,upper abdomen
+CT Pulmonary Veins,RID10,image quality
+CT Pulmonary Veins,RID11,exemplary quality
+CT Pulmonary Veins,RID12,diagnostic quality
+CT Pulmonary Veins,RID13170,impression section
+CT Renal Donor,RID49729,set of renal arteries
+CT Renal Donor,RID56,abdomen
+CT Renal Donor,RID1184,renal vein
+CT Renal Donor,RID15989,vasculature
+CT Renal Donor,RID205,kidney
+CT Renal Donor,RID49442,indication
+CT Renal Stone,RID10321,computed tomography
+CT Renal Stone,RID204,urinary tract
+CT Renal Stone,RID4996,urolithiasis
+CT Renal Stone,RID1559,procedure
+CT Renal Stone,RID28483,comparison
+CT Renal Stone,RID13166,clinical information
+CT Renal Stone,RID28492,count
+CT Renal Stone,RID10409,measurement
+CT Renal Stone,RID10409,measurement
+CT Renal Stone,RID34393,hydronephrosis
+CT Renal Stone,RID11198,ureteral
+CT Renal Stone,RID4994,calculus
+CT Renal Stone,RID5786,dilated
+CT Renal Stone,RID229,ureter
+CT Renal Stone,RID28492,count
+CT Renal Stone,RID10409,measurement
+CT Renal Stone,RID10409,measurement
+CT Renal Stone,RID34393,hydronephrosis
+CT Renal Stone,RID11198,ureteral
+CT Renal Stone,RID4994,calculus
+CT Renal Stone,RID5786,dilated
+CT Renal Stone,RID229,ureter
+CT Renal Stone,RID28492,count
+CT Renal Stone,RID10409,measurement
+CT Renal Stone,RID10409,measurement
+CT Renal Stone,RID5987,wall
+CT Renal Stone,RID58,liver
+CT Renal Stone,RID86,spleen
+CT Renal Stone,RID170,pancreas
+CT Renal Stone,RID28752,set of adrenal glands
+CT Renal Stone,RID3798,lymphadenopathy
+CT Renal Stone,RID130,intestine
+CT Renal Stone,RID1541,ascites
+CT Renal Stone,RID13170,impression section
+CT Renal Stones,RID10321,computed tomography
+CT Renal Stones,RID205,kidney
+CT Renal Stones,RID38586,renal calculus
+CT Renal Stones,RID229,ureter
+CT Renal Stones,RID237,urinary bladder
+CT Renal Stones,RID4996,urolithiasis
+CT Renal Stones,RID1559,procedure
+CT Renal Stones,RID28483,comparison
+CT Renal Stones,RID13173,normal
+CT Renal Stones,RID13170,impression section
+CT schedel_ acute stroke,RID13170,impression section
+CT schedel_ acute stroke,RID28483,comparison
+CT Sinuses - Normal,RID10321,computed tomography
+CT Sinuses - Normal,RID13173,normal
+CT Sinuses - Normal,RID9554,paranasal sinus
+CT Sinuses - Normal,RID28579,paranasal sinuses
+CT Sinuses - Normal,RID1559,procedure
+CT Sinuses - Normal,RID28483,comparison
+CT Sinuses - Normal,RID13173,normal
+CT Sinuses - Normal,RID13170,impression section
+CT Stone Study,RID170,pancreas
+CT Stone Study,RID28855,pelvic lymph node group
+CT Stone Study,RID28722,adrenal region
+CT Stone Study,RID132,small intestine
+CT Stone Study,RID39057,genital system
+CT Stone Study,RID1826,hysterectomy
+CT Stone Study,RID13209,musculoskeletal system
+CT Stone Study,RID34617,melanoma
+CT Stone Study,RID237,urinary bladder
+CT Stone Study,RID28454,none
+CT Stone Study,RID187,gallbladder
+CT Stone Study,RID13173,normal
+CT Stone Study,RID28473,absent
+CT Stone Study,RID15989,vasculature
+CT Stone Study,RID39049,atherosclerosis
+CT Stone Study,RID29663,left kidney
+CT Stone Study,RID28454,none
+CT Stone Study,RID29662,right kidney
+CT Stone Study,RID58,liver
+CT Stone Study,RID5217,steatosis
+CT Stone Study,RID86,spleen
+CT Stone Study,RID34393,hydronephrosis
+CT Stone Study,RID28454,none
+CT Stone Study,RID5671,mild
+CT Stone Study,RID5672,moderate
+CT Stone Study,RID5673,severe
+CT Stone Study,RID1301,lung
+CT Stone Study,RID13173,normal
+CT Stone Study,RID28487,report
+CT Stone Study,RID237,urinary bladder
+CT Stone Study,RID13173,normal
+CT Stone Study,RID10386,limited evaluation
+CT Stone Study,RID28673,thin
+CT Stone Study,RID5809,irregular
+CT Stone Study,RID168,appendix
+CT Stone Study,RID13173,normal
+CT Stone Study,RID1711,appendectomy
+CT Stone Study,RID34393,hydronephrosis
+CT Stone Study,RID28454,none
+CT Stone Study,RID5671,mild
+CT Stone Study,RID5672,moderate
+CT Stone Study,RID5673,severe
+CT Stone Study,RID30845,left ureter
+CT Stone Study,RID28454,none
+CT Stone Study,RID28472,present
+CT Stone Study,RID30844,right ureter
+CT Stone Study,RID28454,none
+CT Stone Study,RID28472,present
+CT Stone Study,RID49442,indication
+CT,RID10321,computed tomography
+CT,RID1243,thorax
+CT,RID1559,procedure
+CT,RID28483,comparison
+CT,RID13170,impression section
+CTA AP with Runoff,RID480,aorta
+CTA AP with Runoff,RID38761,femoral artery
+CTA AP with Runoff,RID961,superficial femoral artery
+CTA AP with Runoff,RID958,common femoral artery
+CTA AP with Runoff,RID49442,indication
+CTA AP with Runoff,RID3302,peripheral vascular disease
+CTA AP with Runoff,RID958,common femoral artery
+CTA AP with Runoff,RID962,popliteal artery
+CTA AP with Runoff,RID38761,femoral artery
+CTA AP with Runoff,RID13209,musculoskeletal system
+CTA AP with Runoff,RID13173,normal
+CTA AP with Runoff,RID205,kidney
+CTA AP with Runoff,RID28722,adrenal region
+CTA AP with Runoff,RID170,pancreas
+CTA AP with Runoff,RID10392,routine
+CTA AP with Runoff,RID35970,read outside image
+CTA AP with Runoff,RID962,popliteal artery
+CTA AP with Runoff,RID187,gallbladder
+CTA AP with Runoff,RID13173,normal
+CTA AP with Runoff,RID28473,absent
+CTA AP with Runoff,RID961,superficial femoral artery
+CTA AP with Runoff,RID58,liver
+CTA AP with Runoff,RID1301,lung
+CTA AP with Runoff,RID2617,pelvic cavity
+CTA AP with Runoff,RID31970,proximal superior mesenteric lymph node group
+CTA AP with Runoff,RID939,inferior mesenteric artery
+CTA AP with Runoff,RID38168,ureteric segment of right renal artery
+CTA AP with Runoff,RID906,celiac artery
+CTA AP with Runoff,RID927,superior mesenteric artery
+CTA AP with Runoff,RID37860,left renal artery
+CTA AP with Runoff,RID86,spleen
+CTA AP with Runoff,RID13173,normal
+CTA AP with Runoff,RID944,common iliac artery
+CTA AP with Runoff,RID945,internal iliac artery
+CTA AP with Runoff,RID944,common iliac artery
+CTA AP with Runoff,RID945,internal iliac artery
+CTA AP with Runoff,RID957,external iliac artery
+CTA AP with Runoff,RID957,external iliac artery
+CTA AP with Runoff,RID905,abdominal aorta
+Cystogram,RID34878,cystography
+Cystogram,RID237,urinary bladder
+Cystogram,RID1559,procedure
+Cystogram,RID28483,comparison
+Cystogram,RID13170,impression section
+Echo abdomen (man),RID39123,length
+Echo abdomen (man),RID39123,length
+Echo abdomen (man),RID29663,left kidney
+Echo abdomen (man),RID29662,right kidney
+Echo abdomen (man),RID15990,vasculature of organ
+Echo abdomen (man),RID39466,liver mass
+Echo abdomen (man),RID28475,no
+Echo abdomen (man),RID28474,yes
+Echo abdomen (man),RID343,prostate
+Echo abdomen (man),RID30836,surface of liver
+Echo abdomen (man),RID5912,smooth
+Echo abdomen (man),RID5802,nodular
+Echo abdomen (man),RID5802,nodular
+Echo abdomen (man),RID5802,nodular
+Echo abdomen (man),RID86,spleen
+Echo abdomen (man),RID905,abdominal aorta
+Echo abdomen (man),RID237,urinary bladder
+Echo abdomen (man),RID58,liver
+Echo abdomen (man),RID6045,echogenicity characteristic
+Echo abdomen (man),RID6046,hypoechoic
+Echo abdomen (man),RID6048,hyperechoic
+Echo abdomen (man),RID6048,hyperechoic
+Echo abdomen (man),RID205,kidney
+Echo abdomen (man),RID43294,homogeneously dense
+Echo abdomen (man),RID28474,yes
+Echo abdomen (man),RID28475,no
+Echografie van het abdomen #01 (man),RID39123,length
+Echografie van het abdomen #01 (man),RID39123,length
+Echografie van het abdomen #01 (man),RID29663,left kidney
+Echografie van het abdomen #01 (man),RID29662,right kidney
+Echografie van het abdomen #01 (man),RID15990,vasculature of organ
+Echografie van het abdomen #01 (man),RID39466,liver mass
+Echografie van het abdomen #01 (man),RID28475,no
+Echografie van het abdomen #01 (man),RID28474,yes
+Echografie van het abdomen #01 (man),RID343,prostate
+Echografie van het abdomen #01 (man),RID30836,surface of liver
+Echografie van het abdomen #01 (man),RID5912,smooth
+Echografie van het abdomen #01 (man),RID5802,nodular
+Echografie van het abdomen #01 (man),RID5802,nodular
+Echografie van het abdomen #01 (man),RID5802,nodular
+Echografie van het abdomen #01 (man),RID86,spleen
+Echografie van het abdomen #01 (man),RID905,abdominal aorta
+Echografie van het abdomen #01 (man),RID237,urinary bladder
+Echografie van het abdomen #01 (man),RID58,liver
+Echografie van het abdomen #01 (man),RID6045,echogenicity characteristic
+Echografie van het abdomen #01 (man),RID6046,hypoechoic
+Echografie van het abdomen #01 (man),RID6048,hyperechoic
+Echografie van het abdomen #01 (man),RID6048,hyperechoic
+Echografie van het abdomen #01 (man),RID205,kidney
+Echografie van het abdomen #01 (man),RID43294,homogeneously dense
+Echografie van het abdomen #01 (man),RID28474,yes
+Echografie van het abdomen #01 (man),RID28475,no
+ECO Addome ,RID56,abdomen
+ECO Addome ,RID10326,ultrasound
+ECO Addome ,RID13166,clinical information
+ECO Addome ,RID28483,comparison
+ECO Addome ,RID10409,measurement
+ECO Addome ,RID6045,echogenicity characteristic
+ECO Addome ,RID5957,contour
+ECO Addome ,RID3874,mass
+ECO Addome ,RID13432,diameter
+ECO Addome ,RID199,common bile duct
+ECO Addome ,RID187,gallbladder
+ECO Addome ,RID187,gallbladder
+ECO Addome ,RID5987,wall
+ECO Addome ,RID28509,thickening
+ECO Addome ,RID1547,fluid
+ECO Addome ,RID171,head of pancreas
+ECO Addome ,RID174,body of pancreas
+ECO Addome ,RID5772,size descriptor
+ECO Addome ,RID28454,none
+ECO Addome ,RID5671,mild
+ECO Addome ,RID5672,moderate
+ECO Addome ,RID5673,severe
+ECO Addome ,RID13173,normal
+ECO Addome ,RID28454,none
+ECO Addome ,RID5671,mild
+ECO Addome ,RID5672,moderate
+ECO Addome ,RID5673,severe
+ECO Addome ,RID13173,normal
+ECO Addome ,RID28454,none
+ECO Addome ,RID5671,mild
+ECO Addome ,RID5672,moderate
+ECO Addome ,RID5673,severe
+ECO Addome ,RID1178,inferior vena cava
+ECO Addome ,RID905,abdominal aorta
+ECO Addome ,RID28454,none
+ECO Addome ,RID5671,mild
+ECO Addome ,RID5672,moderate
+ECO Addome ,RID5673,severe
+ECO Addome ,RID13170,impression section
+Endometrial Cancer Staging CT,RID1559,procedure
+Endometrial Cancer Staging CT,RID13170,impression section
+Endometrial Cancer Staging CT,RID30958,endometrium
+Endometrial Cancer Staging CT,RID39537,set of ovaries
+Endometrial Cancer Staging CT,RID13166,clinical information section
+Endometrial Cancer Staging CT,RID1541,ascites
+Endometrial Cancer Staging CT,RID28483,comparison
+Endometrial Cancer Staging MRI,RID13166,clinical information section
+Endometrial Cancer Staging MRI,RID13170,impression section
+Endometrial Cancer Staging MRI,RID1541,ascites
+Endometrial Cancer Staging MRI,RID1559,procedure
+Endometrial Cancer Staging MRI,RID39537,set of ovaries
+Endometrial Cancer Staging MRI,RID325,vagina
+Endometrial Cancer Staging MRI,RID302,uterus
+Endoscopic Retrograde Cholangiopancreaticogram (ERCP),RID191,bile duct
+Endoscopic Retrograde Cholangiopancreaticogram (ERCP),RID28548,cholangiography
+Endoscopic Retrograde Cholangiopancreaticogram (ERCP),RID10345,projection radiography
+Endoscopic Retrograde Cholangiopancreaticogram (ERCP),RID1559,procedure
+Endoscopic Retrograde Cholangiopancreaticogram (ERCP),RID28483,comparison
+Endoscopic Retrograde Cholangiopancreaticogram (ERCP),RID13170,impression section
+Endoscopic Retrograde Pancreaticogram (ERP),RID176,pancreatic duct
+Endoscopic Retrograde Pancreaticogram (ERP),RID10345,projection radiography
+Endoscopic Retrograde Pancreaticogram (ERP),RID1559,procedure
+Endoscopic Retrograde Pancreaticogram (ERP),RID28483,comparison
+Endoscopic Retrograde Pancreaticogram (ERP),RID13170,impression section
+Endoscopic Retrograde Cholangiogram (ERC),RID191,bile duct
+Endoscopic Retrograde Cholangiogram (ERC),RID28548,cholangiography
+Endoscopic Retrograde Cholangiogram (ERC),RID10345,projection radiography
+Endoscopic Retrograde Cholangiogram (ERC),RID1559,procedure
+Endoscopic Retrograde Cholangiogram (ERC),RID28483,comparison
+Endoscopic Retrograde Cholangiogram (ERC),RID13170,impression section
+Esophagram,RID95,esophagus
+Esophagram,RID10361,fluoroscopy
+Esophagram,RID10345,projection radiography
+Fluoroscopic Feeding Tube,RID147,ligament of Treitz
+Fluoroscopic Feeding Tube,RID49442,indication
+Fluoroscopic Feeding Tube,RID49440,fluoroscopy time
+Fluoroscopic-guided gastrostomy tube exchange,RID28483,comparison
+Fluoroscopic-guided gastrostomy tube exchange,RID49439,attestation
+Fluoroscopic-guided gastrostomy tube exchange,RID49663,gastrostomy-jejunostomy tube exchange
+Fluoroscopic-guided gastrostomy tube exchange,RID12917,deployment technique
+Fluoroscopic-guided gastrostomy tube exchange,RID49440,fluoroscopy time
+Fluoroscopic-guided gastrostomy tube exchange,RID5893,obstructed
+Fluoroscopic-guided gastrostomy tube exchange,RID49628,gastrostomy-jejunostomy tube placement
+Fluoroscopic-guided gastrostomy tube exchange,RID49663,gastrostomy-jejunostomy tube exchange
+Forearm Xray,RID2107,forearm
+Forearm Xray,RID10345,projection radiography
+Forearm Xray,RID2109,radius
+Forearm Xray,RID2119,ulna
+Forearm Xray,RID5825,right
+Forearm Xray,RID5824,left
+Forearm Xray,RID28483,comparison
+Forearm Xray,RID13170,impression section
+Ga-67 SPECT,RID11703,Gallium-67
+Ga-67 SPECT,RID3382,inflammation
+Ga-67 SPECT,RID3957,neoplasm
+Ga-67 SPECT,RID10334,single photon emission computed tomography
+Ga-67 SPECT,RID1559,procedure
+Ga-67 SPECT,RID13166,clinical information
+Ga-67 SPECT,RID28483,comparison
+Ga-67 SPECT,RID28486,observations section
+Ga-67 SPECT,RID13170,impression section
+Gastric Emptying,RID5244,delayed emptying
+Gastric Emptying,RID4967,gastric outlet obstruction
+Gastric Emptying,RID5255,gastroparesis
+Gastric Emptying,RID114,stomach
+Gastric Emptying,RID11751,Tc-99m sulfur colloid
+Gastric Emptying,RID1559,procedure
+Gastric Emptying,RID13166,clinical information
+Gastric Emptying,RID28483,comparison
+Gastrostomy Tube Removal,RID10415,device removal
+Gastrostomy Tube Removal,RID1634,gastrostomy
+Gastrostomy Tube Removal,RID1559,procedure
+Gastrostomy Tube Removal,RID28483,comparison
+Gastrostomy Tube Removal,RID13170,impression section
+Generic Report (Diagnostic),RID28487,report
+Generic Report (Diagnostic),RID1559,procedure
+Generic Report (Diagnostic),RID28483,comparison
+Generic Report (Diagnostic),RID13170,impression section
+Hip Xray - Prosthesis,RID2639,hip
+Hip Xray - Prosthesis,RID10345,projection radiography
+Hip Xray - Prosthesis,RID28823,prosthesis
+Hip Xray - Prosthesis,RID1559,procedure
+Hip Xray - Prosthesis,RID5821,laterality
+Hip Xray - Prosthesis,RID5824,left
+Hip Xray - Prosthesis,RID2639,hip
+Hip Xray - Prosthesis,RID5825,right
+Hip Xray - Prosthesis,RID2639,hip
+Hip Xray - Prosthesis,RID5770,both
+Hip Xray - Prosthesis,RID2639,hip
+Hip Xray - Prosthesis,RID28483,comparison
+Hip Xray - Prosthesis,RID1845,arthroplasty
+Hip Xray - Prosthesis,RID13173,normal
+Hip Xray - Prosthesis,RID13173,normal
+Jama Brzuszna Całościowo,RID56,abdomen
+Jama Brzuszna Całościowo,RID10345,projection radiography
+Jama Brzuszna Całościowo,RID1559,procedure
+Jama Brzuszna Całościowo,RID28483,comparison
+Jama Brzuszna Całościowo,RID13170,impression section
+Kidney DMSA,RID28812,function
+Kidney DMSA,RID205,kidney
+Kidney DMSA,RID11750,Tc-99m succimer
+Kidney DMSA,RID1559,procedure
+Kidney DMSA,RID13166,clinical information
+Kidney DMSA,RID28483,comparison
+Kidney DMSA,RID28486,observations section
+Kidney DMSA,RID13170,impression section
+Kvið röð,RID56,abdomen
+Kvið röð,RID130,intestine
+Kvið röð,RID4803,pneumoperitoneum
+Kvið röð,RID10345,projection radiography
+Kvið röð,RID1559,procedure
+Kvið röð,RID13166,clinical information
+Kvið röð,RID28483,comparison
+Kvið röð,RID4803,pneumoperitoneum
+Kvið röð,RID28453,abnormal
+Kvið röð,RID34642,calcifications
+Kvið röð,RID28569,set of bones
+Kvið röð,RID13170,impression section
+Lebermasse CT,RID10321,computed tomography
+Lebermasse CT,RID58,liver
+Lebermasse CT,RID3874,mass
+Lebermasse CT,RID3957,neoplasm
+Lebermasse CT,RID1559,procedure
+Lebermasse CT,RID13166,clinical information
+Lebermasse CT,RID28483,comparison
+Lebermasse CT,RID5768,(unspecified)
+Lebermasse CT,RID5945,anatomic sub-part
+Lebermasse CT,RID13390,anatomical structure
+Lebermasse CT,RID6054,enhancement characteristic
+Lebermasse CT,RID5196,calcification
+Lebermasse CT,RID1538,fat
+Lebermasse CT,RID84,(unspecified)
+Lebermasse CT,RID84,(unspecified)
+Lebermasse CT,RID4736,pathophysiologic finding
+Lebermasse CT,RID7466,pathophysiologic process modifier
+Lebermasse CT,RID410,peritoneum
+Lebermasse CT,RID4736,pathophysiologic finding
+Lebermasse CT,RID7466,pathophysiologic process modifier
+Lebermasse CT,RID5849,adjacent
+Lebermasse CT,RID15506,set of organs
+Lebermasse CT,RID28822,vascular region
+Lebermasse CT,RID4736,pathophysiologic finding
+Lebermasse CT,RID7466,pathophysiologic process modifier
+Lebermasse CT,RID191,bile duct
+Lebermasse CT,RID5849,adjacent
+Lebermasse CT,RID13296,lymph node
+Lebermasse CT,RID13170,impression section
+Left Wrist Xray,RID10345,projection radiography
+Left Wrist Xray,RID2177,wrist
+Left Wrist Xray,RID1559,procedure
+Left Wrist Xray,RID28483,comparison
+Left Wrist Xray,RID28569,set of bones
+Left Wrist Xray,RID28711,set of joints
+Left Wrist Xray,RID35730,portion of soft tissue
+Left Wrist Xray,RID13170,impression section
+Lumbar Puncture,RID28675,lumbar spine region
+Lumbar Puncture,RID28483,comparison
+Lumbar Puncture,RID13170,impression section
+Lumbar Spine Xray,RID28675,lumbar spine region
+Lumbar Spine Xray,RID10345,projection radiography
+Lumbar Spine Xray,RID28483,comparison
+Lumbar Spine Xray,RID28569,set of bones
+Lumbar Spine Xray,RID35730,portion of soft tissue
+Lumbar Spine Xray,RID13170,impression section
+Meckel Scan,RID4818,ileal diverticulum
+Meckel Scan,RID11846,technetium
+Meckel Scan,RID1559,procedure
+Meckel Scan,RID28483,comparison
+Meckel Scan,RID13170,impression section
+MR Bladder,RID10312,magnetic resonance imaging
+MR Bladder,RID2507,pelvis
+MR Bladder,RID237,urinary bladder
+MR Bladder,RID1559,procedure
+MR Bladder,RID11582,contrast agent
+MR Bladder,RID13166,clinical information
+MR Bladder,RID28483,comparison
+MR Bladder,RID5945,anatomic sub-part
+MR Bladder,RID13390,anatomical structure
+MR Bladder,RID28454,none
+MR Bladder,RID5687,partial
+MR Bladder,RID5689,complete
+MR Bladder,RID5990,muscularis
+MR Bladder,RID3798,lymphadenopathy
+MR Bladder,RID58,liver
+MR Bladder,RID13170,impression section
+MR Brachial Plexus-44,RID7202,brachial plexus
+MR Brachial Plexus-44,RID10312,magnetic resonance imaging
+MR Brachial Plexus-44,RID1559,procedure
+MR Brachial Plexus-44,RID11582,contrast agent
+MR Brachial Plexus-44,RID13166,clinical information
+MR Brachial Plexus-44,RID28483,comparison
+MR Brachial Plexus-44,RID7361,spinal cord
+MR Brachial Plexus-44,RID16503,set of cords of brachial nerve plexus
+MR Brachial Plexus-44,RID28591,set of ribs
+MR Brachial Plexus-44,RID13170,impression section
+MR Brain,RID6434,brain
+MR Brain,RID9080,head
+MR Brain,RID10312,magnetic resonance imaging
+MR Brain,RID1559,procedure
+MR Brain,RID28482,imaging technique
+MR Brain,RID11582,contrast agent
+MR Brain,RID13166,clinical information
+MR Brain,RID28483,comparison
+MR Brain,RID7113,extramedullary space
+MR Brain,RID6383,intracranial
+MR Brain,RID4700,hemorrhage
+MR Brain,RID13786,ventricular system of brain
+MR Brain,RID7187,interpeduncular cistern
+MR Brain,RID5978,parenchyma
+MR Brain,RID6437,telencephalon
+MR Brain,RID10445,deviation position
+MR Brain,RID6815,cerebellum
+MR Brain,RID6677,brainstem
+MR Brain,RID9196,skull
+MR Brain,RID28822,vascular region
+MR Brain,RID28579,paranasal sinuses
+MR Brain,RID10144,mastoid air cell
+MR Brain,RID28601,orbits
+MR Brain,RID5687,partial
+MR Brain,RID28674,cervical spine region
+MR Brain,RID7741,spine
+MR Brain,RID5684,limited
+MR Brain,RID9286,sella turcica
+MR Brain,RID9196,skull
+MR Brain,RID5949,base
+MR Brain,RID38594,bone marrow
+MR Brain,RID13170,impression section
+MR Cervello,RID6434,brain
+MR Cervello,RID9080,head
+MR Cervello,RID10312,magnetic resonance imaging
+MR Cervello,RID1559,procedure
+MR Cervello,RID28482,imaging technique
+MR Cervello,RID11582,contrast agent
+MR Cervello,RID13166,clinical information
+MR Cervello,RID28483,comparison
+MR Cervello,RID7113,extramedullary space
+MR Cervello,RID6383,intracranial
+MR Cervello,RID4700,hemorrhage
+MR Cervello,RID13786,ventricular system of brain
+MR Cervello,RID7187,interpeduncular cistern
+MR Cervello,RID5978,parenchyma
+MR Cervello,RID6437,telencephalon
+MR Cervello,RID10445,deviation position
+MR Cervello,RID6815,cerebellum
+MR Cervello,RID6677,brainstem
+MR Cervello,RID9196,skull
+MR Cervello,RID28822,vascular region
+MR Cervello,RID28579,paranasal sinuses
+MR Cervello,RID10144,mastoid air cell
+MR Cervello,RID28601,orbits
+MR Cervello,RID5687,partial
+MR Cervello,RID28674,cervical spine region
+MR Cervello,RID7741,spine
+MR Cervello,RID5684,limited
+MR Cervello,RID9286,sella turcica
+MR Cervello,RID9196,skull
+MR Cervello,RID5949,base
+MR Cervello,RID38594,bone marrow
+MR Cervello,RID13170,impression section
+MR Enterography,RID28549,enterography
+MR Enterography,RID10312,magnetic resonance imaging
+MR Enterography,RID132,small intestine
+MR Enterography,RID1559,procedure
+MR Enterography,RID11582,contrast agent
+MR Enterography,RID13166,clinical information
+MR Enterography,RID28483,comparison
+MR Enterography,RID10,image quality
+MR Enterography,RID132,small intestine
+MR Enterography,RID130,intestine
+MR Enterography,RID5987,wall
+MR Enterography,RID28509,thickening
+MR Enterography,RID5945,anatomic sub-part
+MR Enterography,RID13390,anatomical structure
+MR Enterography,RID6054,enhancement characteristic
+MR Enterography,RID4843,fistula
+MR Enterography,RID3711,abscess
+MR Enterography,RID164,anus
+MR Enterography,RID3798,lymphadenopathy
+MR Enterography,RID114,stomach
+MR Enterography,RID134,duodenum
+MR Enterography,RID31011,colon
+MR Enterography,RID58,liver
+MR Enterography,RID187,gallbladder
+MR Enterography,RID170,pancreas
+MR Enterography,RID86,spleen
+MR Enterography,RID28752,set of adrenal glands
+MR Enterography,RID205,kidney
+MR Enterography,RID1354,lower lung zone
+MR Enterography,RID28569,set of bones
+MR Enterography,RID13170,impression section
+MR Hip,RID2639,hip
+MR Hip,RID10312,magnetic resonance imaging
+MR Hip,RID1559,procedure
+MR Hip,RID5825,right
+MR Hip,RID2639,hip
+MR Hip,RID5824,left
+MR Hip,RID2639,hip
+MR Hip,RID13166,clinical information
+MR Hip,RID28483,comparison
+MR Hip,RID5817,location descriptor
+MR Hip,RID6063,musculoskeletal region
+MR Hip,RID2644,acetabular labrum
+MR Hip,RID2643,articular cartilage of femoral head
+MR Hip,RID2642,articular cartilage of acetabulum
+MR Hip,RID2646,capsule of hip joint
+MR Hip,RID2648,ligament of hip joint
+MR Hip,RID6064,flexor muscle
+MR Hip,RID6065,extensor muscle
+MR Hip,RID3165,abductor hallucis muscle
+MR Hip,RID2710,adductor brevis muscle
+MR Hip,RID2708,adductor longus muscle
+MR Hip,RID32445,rotator muscle
+MR Hip,RID2713,hamstring muscle
+MR Hip,RID16263,set of nerves
+MR Hip,RID11185,soft tissue administration
+MR Hip,RID30969,set of viscera
+MR Hip,RID13170,impression section
+MR Orbits,RID10312,magnetic resonance imaging
+MR Orbits,RID9573,orbit
+MR Orbits,RID1559,procedure
+MR Orbits,RID13166,clinical information
+MR Orbits,RID28483,comparison
+MR Orbits,RID3874,mass
+MR Orbits,RID9592,globe
+MR Orbits,RID9196,skull
+MR Orbits,RID9573,orbit
+MR Orbits,RID13473,optic nerve-tract complex
+MR Orbits,RID16429,set of optic nerves
+MR Orbits,RID9699,extraocular muscle
+MR Orbits,RID9760,lacrimal apparatus
+MR Orbits,RID9573,orbit
+MR Orbits,RID5946,apex
+MR Orbits,RID3874,mass
+MR Orbits,RID9592,globe
+MR Orbits,RID9196,skull
+MR Orbits,RID9573,orbit
+MR Orbits,RID13473,optic nerve-tract complex
+MR Orbits,RID16429,set of optic nerves
+MR Orbits,RID9699,extraocular muscle
+MR Orbits,RID9760,lacrimal apparatus
+MR Orbits,RID9573,orbit
+MR Orbits,RID5946,apex
+MR Orbits,RID6434,brain
+MR Orbits,RID1094,cavernous sinus
+MR Orbits,RID5765,multiple
+MR Orbits,RID13170,impression section
+MR Pelvis w and wo contrast - Rectal Cancer,RID465,inguinal lymph node
+MR Pelvis w and wo contrast - Rectal Cancer,RID466,pararectal lymph node
+MR Pelvis w and wo contrast - Rectal Cancer,RID463,internal iliac lymph node group
+MR Pelvis w and wo contrast - Rectal Cancer,RID49442,indication
+MR Pelvis w and wo contrast - Rectal Cancer,RID5231,metastasis
+MR Pelvis w and wo contrast - Rectal Cancer,RID13173,normal
+MR Pelvis w and wo contrast - Rectal Cancer,RID11181,rectal
+MR Temporomandibular Joint,RID10312,magnetic resonance imaging
+MR Temporomandibular Joint,RID9779,temporomandibular joint
+MR Temporomandibular Joint,RID1559,procedure
+MR Temporomandibular Joint,RID28483,comparison
+MR Temporomandibular Joint,RID13170,impression section
+MR Wrist,RID10312,magnetic resonance imaging
+MR Wrist,RID2177,wrist
+MR Wrist,RID1559,procedure
+MR Wrist,RID2177,wrist
+MR Wrist,RID5825,right
+MR Wrist,RID5824,left
+MR Wrist,RID13166,clinical information
+MR Wrist,RID28483,comparison
+MR Wrist,RID10447,ulnar deviation position
+MR Wrist,RID28454,none
+MR Wrist,RID4784,positive ulnar variance
+MR Wrist,RID4783,negative ulnar variance
+MR Wrist,RID2203,distal radioulnar joint
+MR Wrist,RID2177,wrist
+MR Wrist,RID4809,instability
+MR Wrist,RID28454,none
+MR Wrist,RID5848,ventral
+MR Wrist,RID4809,instability
+MR Wrist,RID5847,dorsal
+MR Wrist,RID4809,instability
+MR Wrist,RID4872,effusion
+MR Wrist,RID28454,none
+MR Wrist,RID5671,mild
+MR Wrist,RID5672,moderate
+MR Wrist,RID5673,severe
+MR Wrist,RID4872,effusion
+MR Wrist,RID2203,distal radioulnar joint
+MR Wrist,RID2259,scapholunate ligament
+MR Wrist,RID2260,lunotriquetral ligament
+MR Wrist,RID2223,triangular fibrocartilage
+MR Wrist,RID6118,facet
+MR Wrist,RID2314,carpal tunnel
+MR Wrist,RID7246,median nerve
+MR Wrist,RID2316,Guyon canal
+MR Wrist,RID28569,set of bones
+MR Wrist,RID13196,muscle organ
+MR Wrist,RID15990,vasculature of organ
+MR Wrist,RID13170,impression section
+MRA Neck,RID15989,vasculature
+MRA Neck,RID49442,indication
+MRI sacro-iliacale gewrichten,RID13166,clinical information
+MRI sacro-iliacale gewrichten,RID13170,impression section
+MRI sacro-iliacale gewrichten,RID28483,comparison
+MRT Rektum-Karzinom (MRI rectal cancer),RID13166,Clinical information
+MRT Rektum-Karzinom (MRI rectal cancer),RID13166,Clinical information
+MRT Rektum-Karzinom (MRI rectal cancer),RID13166,Clinical information
+MRT Rektum-Karzinom (MRI rectal cancer),RID39252,Chemotherapy
+MRT Rektum-Karzinom (MRI rectal cancer),RID39252,Chemotherapy
+MRT Rektum-Karzinom (MRI rectal cancer),RID28483,Comparison
+MRT Rektum-Karzinom (MRI rectal cancer),RID28483,Comparison
+MRT Rektum-Karzinom (MRI rectal cancer),RID45684,colorectal cancer
+MRT Rektum-Karzinom (MRI rectal cancer),RID39273,tumor stage
+MRT Rektum-Karzinom (MRI rectal cancer),RID39038,location
+MRT Rektum-Karzinom (MRI rectal cancer),RID39123,length
+Neonatal Enema,RID31011,colon
+Neonatal Enema,RID10361,fluoroscopy
+Neonatal Enema,RID1559,procedure
+Neonatal Enema,RID11582,contrast agent
+Neonatal Enema,RID10361,fluoroscopy
+Neonatal Enema,RID10544,radiation exposure measure
+Neonatal Enema,RID13166,clinical information
+Neonatal Enema,RID28483,comparison
+Neonatal Enema,RID130,intestine
+Neonatal Enema,RID13440,caliber
+Neonatal Enema,RID154,cecum
+Neonatal Enema,RID13170,impression section
+NM Bone Scan,RID34428,scintigraphy
+NM Bone Scan,RID13208,skeletal system
+NM Bone Scan,RID11692,radiopharmaceutical
+NM Bone Scan,RID11320,activity at injection site
+NM Bone Scan,RID13166,clinical information
+NM Bone Scan,RID28483,comparison
+NM Bone Scan,RID13197,bone organ
+NM Bone Scan,RID11185,soft tissue administration
+NM Bone Scan,RID205,kidney
+NM Bone Scan,RID13170,impression section
+NM Hepatobiliary,RID28753,biliary system
+NM Hepatobiliary,RID58,liver
+NM Hepatobiliary,RID34428,scintigraphy
+NM Hepatobiliary,RID8,treatment
+NM Hepatobiliary,RID11738,Tc-99m mebrofenin
+NM Hepatobiliary,RID8,treatment
+NM Hepatobiliary,RID28454,none
+NM Hepatobiliary,RID11510,therapeutic response
+NM Hepatobiliary,RID11510,therapeutic response
+NM Hepatobiliary,RID13166,clinical information
+NM Hepatobiliary,RID28483,comparison
+NM Hepatobiliary,RID187,gallbladder
+NM Hepatobiliary,RID13170,impression section
+Orbits,RID5425,foreign body
+Orbits,RID9573,orbit
+Orbits,RID28601,orbits
+Orbits,RID10345,projection radiography
+Orbits,RID28483,comparison
+Orbits,RID13170,impression section
+Ovarian Cancer Follow Up CT,RID49553,intravenous contrast
+Ovarian Cancer Follow Up CT,RID35817,oral contrast
+Ovarian Cancer Follow Up CT,RID34539,pleural effusion
+Ovarian Cancer Follow Up CT,RID325,vagina
+Ovarian Cancer Follow Up CT,RID39537,set of ovaries
+Ovarian Cancer Follow Up CT,RID13170,impression section
+Ovarian Cancer Follow Up CT,RID1559,procedure
+Ovarian Cancer Follow Up CT,RID34393,hydronephrosis
+Ovarian Cancer Follow Up CT,RID1541,ascites
+Ovarian Cancer Follow Up CT,RID28483,comparison
+Ovarian Cancer Follow Up CT,RID163,rectum
+Ovarian Cancer Follow Up CT,RID58,liver
+Ovarian Cancer Follow Up CT,RID13166,clinical information
+Ovarian Cancer Follow Up CT,RID302,uterus
+Ovarian Cancer Follow Up MRI,RID1559,procedure
+Ovarian Cancer Follow Up MRI,RID13170,impression section
+Ovarian Cancer Follow Up MRI,RID163,rectum
+Ovarian Cancer Follow Up MRI,RID325,vagina
+Ovarian Cancer Follow Up MRI,RID39537,set of ovaries
+Ovarian Cancer Follow Up MRI,RID34539,pleural effusion
+Ovarian Cancer Follow Up MRI,RID30958,endometrium
+Ovarian Cancer Follow Up MRI,RID302,uterus
+Ovarian Cancer Follow Up MRI,RID28483,comparison
+Ovarian Cancer Follow Up MRI,RID13166,clinical information section
+Ovarian Cancer Follow Up MRI,RID58,liver
+Ovarian Cancer Follow Up MRI,RID34393,hydronephrosis
+Ovarian Cancer Follow Up MRI,RID1541,ascites
+Ovarian Cancer Staging CT,RID13170,impression section
+Ovarian Cancer Staging CT,RID34393,hydronephrosis
+Ovarian Cancer Staging CT,RID1541,ascites
+Ovarian Cancer Staging CT,RID1559,procedure
+Ovarian Cancer Staging CT,RID30958,endometrium
+Ovarian Cancer Staging CT,RID28483,comparison
+Ovarian Cancer Staging CT,RID30135,wall of urinary bladder
+Ovarian Cancer Staging CT,RID49553,intravenous contrast
+Ovarian Cancer Staging CT,RID13166,clinical information section
+Ovarian Cancer Staging CT,RID35817,oral contrast
+Ovarian Cancer Staging CT,RID34539,pleural effusion
+Ovarian Cancer Staging CT,RID32936,wall of rectum
+Ovarian Cancer Staging CT,RID302,uterus
+Ovarian Cancer Staging MRI,RID13170,impression section
+Ovarian Cancer Staging MRI,RID302,uterus
+Ovarian Cancer Staging MRI,RID34539,pleural effusion
+Ovarian Cancer Staging MRI,RID28483,comparison
+Ovarian Cancer Staging MRI,RID1559,procedure
+Ovarian Cancer Staging MRI,RID30958,endometrium
+Ovarian Cancer Staging MRI,RID34393,hydronephrosis
+Ovarian Cancer Staging MRI,RID1541,ascites
+Ovarian Cancer Staging MRI,RID30135,wall of urinary bladder
+Ovarian Cancer Staging MRI,RID325,vagina
+Ovarian Cancer Staging MRI,RID32936,wall of rectum
+Ovarian Cancer Staging MRI,RID13166,clinical information section
+Overizchtsopname abdomen,RID56,abdomen
+Overizchtsopname abdomen,RID130,intestine
+Overizchtsopname abdomen,RID4803,pneumoperitoneum
+Overizchtsopname abdomen,RID10345,projection radiography
+Overizchtsopname abdomen,RID1559,procedure
+Overizchtsopname abdomen,RID13166,clinical information
+Overizchtsopname abdomen,RID28483,comparison
+Overizchtsopname abdomen,RID4803,pneumoperitoneum
+Overizchtsopname abdomen,RID28453,abnormal
+Overizchtsopname abdomen,RID34642,calcifications
+Overizchtsopname abdomen,RID28569,set of bones
+Overizchtsopname abdomen,RID13170,impression section
+Overzichtsopname abdomen,RID56,abdomen
+Overzichtsopname abdomen,RID10345,projection radiography
+Overzichtsopname abdomen,RID1559,procedure
+Overzichtsopname abdomen,RID28483,comparison
+Overzichtsopname abdomen,RID13170,impression section
+OVerzichtsopnamen abdomen,RID56,abdomen
+OVerzichtsopnamen abdomen,RID10345,projection radiography
+OVerzichtsopnamen abdomen,RID1559,procedure
+OVerzichtsopnamen abdomen,RID28483,comparison
+OVerzichtsopnamen abdomen,RID13170,impression section
+Paranasal Sinuses,RID9554,paranasal sinus
+Paranasal Sinuses,RID10345,projection radiography
+Paranasal Sinuses,RID1559,procedure
+Paranasal Sinuses,RID28483,comparison
+Paranasal Sinuses,RID13170,impression section
+Parathyroid Planar Scan,RID4211,adenoma
+Parathyroid Planar Scan,RID7587,parathyroid gland
+Parathyroid Planar Scan,RID11749,Tc-99m sestamibi
+Parathyroid Planar Scan,RID1559,procedure
+Parathyroid Planar Scan,RID28483,comparison
+Parathyroid Planar Scan,RID13170,impression section
+Parathyroid SPECT,RID4211,adenoma
+Parathyroid SPECT,RID7587,parathyroid gland
+Parathyroid SPECT,RID11749,Tc-99m sestamibi
+Parathyroid SPECT,RID11846,technetium
+Parathyroid SPECT,RID1559,procedure
+Parathyroid SPECT,RID28483,comparison
+Parathyroid SPECT,RID13170,impression section
+Peds Swallow,RID5641,child
+Peds Swallow,RID10361,fluoroscopy
+Peds Swallow,RID13211,pharynx
+Peds Swallow,RID1559,procedure
+Peds Swallow,RID13166,clinical information
+Peds Swallow,RID28483,comparison
+Peds Swallow,RID1243,thorax
+Peds Swallow,RID35817,oral contrast
+Peds Swallow,RID12917,deployment technique
+Peds Swallow,RID28812,function
+Peds Swallow,RID28668,volume
+Peds Swallow,RID35817,oral contrast
+Peds Swallow,RID7672,glottis
+Peds Swallow,RID5727,residual
+Peds Swallow,RID7558,cricopharyngeus
+Peds Swallow,RID5259,reflux
+Peds Swallow,RID95,esophagus
+Peds Swallow,RID13170,impression section
+Peds Upper GI,RID5641,child
+Peds Upper GI,RID134,duodenum
+Peds Upper GI,RID95,esophagus
+Peds Upper GI,RID10361,fluoroscopy
+Peds Upper GI,RID114,stomach
+Peds Upper GI,RID35817,oral contrast
+Peds Upper GI,RID11087,route of administration
+Peds Upper GI,RID28482,imaging technique
+Peds Upper GI,RID28642,imaging technique modifier
+Peds Upper GI,RID13166,clinical information
+Peds Upper GI,RID28483,comparison
+Peds Upper GI,RID5321,pulmonary aspiration
+Peds Upper GI,RID95,esophagus
+Peds Upper GI,RID114,stomach
+Peds Upper GI,RID13173,normal
+Peds Upper GI,RID5772,size descriptor
+Peds Upper GI,RID134,duodenum
+Peds Upper GI,RID134,duodenum
+Peds Upper GI,RID32232,duodenojejunal junction
+Peds Upper GI,RID5260,gastroesophageal reflux
+Peds Upper GI,RID13170,impression section
+Peds Upper GI,RID5260,gastroesophageal reflux
+Peds Upper GI,RID130,intestine
+Peds Upper GI,RID4812,malrotation
+Peds Upper GI,RID134,duodenum
+Peds Upper GI,RID4962,obstruction
+Peds VCUG,RID5641,child
+Peds VCUG,RID10361,fluoroscopy
+Peds VCUG,RID237,urinary bladder
+Peds VCUG,RID34433,voiding urethrography
+Peds VCUG,RID10345,projection radiography
+Peds VCUG,RID237,urinary bladder
+Peds VCUG,RID11582,contrast agent
+Peds VCUG,RID28668,volume
+Peds VCUG,RID28482,imaging technique
+Peds VCUG,RID28642,imaging technique modifier
+Peds VCUG,RID10361,fluoroscopy
+Peds VCUG,RID10361,fluoroscopy
+Peds VCUG,RID10544,radiation exposure measure
+Peds VCUG,RID13166,clinical information
+Peds VCUG,RID28483,comparison
+Peds VCUG,RID27,atypical
+Peds VCUG,RID5196,calcification
+Peds VCUG,RID3874,mass
+Peds VCUG,RID11185,soft tissue administration
+Peds VCUG,RID28569,set of bones
+Peds VCUG,RID34640,ureterocele
+Peds VCUG,RID5957,contour
+Peds VCUG,RID5261,vesicoureteral reflux
+Peds VCUG,RID34890,urethra
+Peds VCUG,RID5727,residual
+Peds VCUG,RID28668,volume
+Peds VCUG,RID13170,impression section
+Pelvis,RID2507,pelvis
+Pelvis,RID10345,projection radiography
+Pelvis,RID28483,comparison
+Pelvis,RID13170,impression section
+PET-CT Oncologic,RID3957,neoplasm
+PET-CT Oncologic,RID10341,PET-CT
+PET-CT Oncologic,RID13166,clinical information
+PET-CT Oncologic,RID28483,comparison
+PET-CT Oncologic,RID34302,foci
+PET-CT Oncologic,RID1385,heart
+PET-CT Oncologic,RID15990,vasculature of organ
+PET-CT Oncologic,RID1385,heart
+PET-CT Oncologic,RID3798,lymphadenopathy
+PET-CT Oncologic,RID34539,pleural effusion
+PET-CT Oncologic,RID58,liver
+PET-CT Oncologic,RID86,spleen
+PET-CT Oncologic,RID170,pancreas
+PET-CT Oncologic,RID187,gallbladder
+PET-CT Oncologic,RID480,aorta
+PET-CT Oncologic,RID205,kidney
+PET-CT Oncologic,RID30008,anterior abdominal wall
+PET-CT Oncologic,RID28847,lymph node group
+PET-CT Oncologic,RID34302,foci
+PET-CT Oncologic,RID30020,subdivision of pelvis
+PET-CT Oncologic,RID30970,set of pelvic viscera
+PET-CT Oncologic,RID4803,pneumoperitoneum
+PET-CT Oncologic,RID1547,fluid
+PET-CT Oncologic,RID13296,lymph node
+PET-CT Oncologic,RID5121,spondylosis deformans
+PET-CT Oncologic,RID13170,impression section
+PET-CT Oncologic,RID13051,(unspecified)
+PET-CT Oncologic,RID11565,response to treatment
+PET-CT Oncologic,RID11511,complete imaging response
+PET-CT Oncologic,RID11513,partial response
+PET-CT Oncologic,RID11515,progressive disease
+PET-CT Oncologic,RID11514,stable disease
+PICC Exchange,RID5576,catheter
+PICC Exchange,RID5581,peripheral intravenous central catheter
+PICC Exchange,RID28483,comparison
+PICC Exchange,RID13170,impression section
+PICC Insertion,RID5576,catheter
+PICC Insertion,RID5581,peripheral intravenous central catheter
+PICC Insertion,RID1243,thorax
+PICC Insertion,RID28483,comparison
+PICC Insertion,RID13170,impression section
+PICC Removal,RID5576,catheter
+PICC Removal,RID5581,peripheral intravenous central catheter
+PICC Removal,RID1559,procedure
+PICC Removal,RID28483,comparison
+PICC Removal,RID28454,none
+PICC Removal,RID13170,impression section
+Rad Chest 2 Views,RID1385,heart
+Rad Chest 2 Views,RID13173,normal
+Rad Chest 2 Views,RID6336,osseous
+Rad Chest 2 Views,RID13173,normal
+Rad Chest 2 Views,RID5085,spine degeneration
+Rad Chest 2 Views,RID4758,levoscoliosis
+Rad Chest 2 Views,RID4757,dextroscoliosis
+Rad Chest 2 Views,RID4756,scoliosis
+Rad Chest 2 Views,RID13170,impression section
+Rad Chest 2 Views,RID13173,normal
+Rad Chest 2 Views,RID38670,clear
+Rad Chest 2 Views,RID28493,atelectasis
+Rad Chest 2 Views,RID4872,effusion
+Rad Chest 2 Views,RID4863,congestion
+Rad Chest 2 Views,RID28493,atelectasis
+Rad Chest 2 Views,RID28493,atelectasis
+Rad Chest 2 Views,RID4872,effusion
+Rad Chest 2 Views,RID4872,effusion
+Rad Chest 2 Views,RID1384,mediastinum
+Rad Chest 2 Views,RID13173,normal
+Rad Chest 2 Views,RID1363,pleural space
+Rad Chest 2 Views,RID13173,normal
+Rad Chest 2 Views,RID34539,pleural effusion
+Rad Chest 2 Views,RID34539,pleural effusion
+Rad Chest 2 Views,RID34539,pleural effusion
+Rad Chest 2 Views,RID34539,pleural effusion
+Rad Chest 2 Views,RID13169,comparison image
+"Radiografie abdomen, liggend en staand",RID56,abdomen
+"Radiografie abdomen, liggend en staand",RID130,intestine
+"Radiografie abdomen, liggend en staand",RID4803,pneumoperitoneum
+"Radiografie abdomen, liggend en staand",RID10345,projection radiography
+"Radiografie abdomen, liggend en staand",RID1559,procedure
+"Radiografie abdomen, liggend en staand",RID13166,clinical information
+"Radiografie abdomen, liggend en staand",RID28483,comparison
+"Radiografie abdomen, liggend en staand",RID4803,pneumoperitoneum
+"Radiografie abdomen, liggend en staand",RID28453,abnormal
+"Radiografie abdomen, liggend en staand",RID34642,calcifications
+"Radiografie abdomen, liggend en staand",RID28569,set of bones
+"Radiografie abdomen, liggend en staand",RID13170,impression section
+Radiografie abdomen,RID56,abdomen
+Radiografie abdomen,RID10345,projection radiography
+Radiografie abdomen,RID1559,procedure
+Radiografie abdomen,RID13166,clinical information
+Radiografie abdomen,RID56,abdomen
+Radiografie abdomen,RID28803,pain
+Radiografie abdomen,RID5787,distended
+Radiografie abdomen,RID56,abdomen
+Radiografie abdomen,RID28707,placement
+Radiografie abdomen,RID5566,nasogastric tube
+Radiografie abdomen,RID5729,postoperative
+Radiografie abdomen,RID28483,comparison
+Radiografie abdomen,RID28453,abnormal
+Radiografie abdomen,RID34642,calcifications
+Radiografie abdomen,RID28569,set of bones
+Radiografie abdomen,RID13173,normal
+Radiografie abdomen,RID13170,impression section
+Radiografie pols beiderzijds,RID10345,projection radiography
+Radiografie pols beiderzijds,RID2177,wrist
+Radiografie pols beiderzijds,RID1559,procedure
+Radiografie pols beiderzijds,RID28483,comparison
+Radiografie pols beiderzijds,RID28569,set of bones
+Radiografie pols beiderzijds,RID28711,set of joints
+Radiografie pols beiderzijds,RID35730,portion of soft tissue
+Radiografie pols beiderzijds,RID13170,impression section
+Radiografie van de enkel,RID28545,ankle
+Radiografie van de enkel,RID10345,projection radiography
+Radiografie van de enkel,RID5821,side (laterality)
+Radiografie van de enkel,RID5825,right
+Radiografie van de enkel,RID5824,left
+Radiografie van de enkel,RID5771,bilateral
+Radiografie van de enkel,RID13060,imaging procedure
+Radiografie van de enkel,RID13166,clinical information
+Radiografie van de enkel,RID28483,comparison
+Radiografie van de enkel,RID28569,bones (set of bones)
+Radiografie van de enkel,RID5387,demineralization
+Radiografie van de enkel,RID28711,set of joints
+Radiografie van de enkel,RID13170,impression section
+Radiografía de abdomen,RID56,abdomen
+Radiografía de abdomen,RID10345,projection radiography
+Radiografía de abdomen,RID1559,procedure
+Radiografía de abdomen,RID13166,clinical information
+Radiografía de abdomen,RID56,abdomen
+Radiografía de abdomen,RID28803,pain
+Radiografía de abdomen,RID5787,distended
+Radiografía de abdomen,RID56,abdomen
+Radiografía de abdomen,RID28707,placement
+Radiografía de abdomen,RID5566,nasogastric tube
+Radiografía de abdomen,RID5729,postoperative
+Radiografía de abdomen,RID28483,comparison
+Radiografía de abdomen,RID28453,abnormal
+Radiografía de abdomen,RID34642,calcifications
+Radiografía de abdomen,RID28569,set of bones
+Radiografía de abdomen,RID13173,normal
+Radiografía de abdomen,RID13170,impression section
+Radiografía de Torax para detección de Tuberculosis-50140,RID10345,projection radiography
+Radiografía de Torax para detección de Tuberculosis-50140,RID1243,thorax
+Radiografía de Torax para detección de Tuberculosis-50140,RID29116,tuberculosis
+Radiografía de Torax para detección de Tuberculosis-50140,RID13166,clinical information
+Radiografía de Torax para detección de Tuberculosis-50140,RID29116,tuberculosis
+Radiografía de Torax para detección de Tuberculosis-50140,RID28817,screening
+Radiografía de Torax para detección de Tuberculosis-50140,RID28483,comparison
+Radiografía de Torax para detección de Tuberculosis-50140,RID28486,observations section
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5825,right
+Radiografía de Torax para detección de Tuberculosis-50140,RID5824,left
+Radiografía de Torax para detección de Tuberculosis-50140,RID5701,diffuse
+Radiografía de Torax para detección de Tuberculosis-50140,RID1301,lung
+Radiografía de Torax para detección de Tuberculosis-50140,RID28668,volume
+Radiografía de Torax para detección de Tuberculosis-50140,RID13173,normal
+Radiografía de Torax para detección de Tuberculosis-50140,RID5884,hyperinflated
+Radiografía de Torax para detección de Tuberculosis-50140,RID28799,interstitial lung disease
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5825,right
+Radiografía de Torax para detección de Tuberculosis-50140,RID5824,left
+Radiografía de Torax para detección de Tuberculosis-50140,RID5701,diffuse
+Radiografía de Torax para detección de Tuberculosis-50140,RID28493,atelectasis
+Radiografía de Torax para detección de Tuberculosis-50140,RID13173,normal
+Radiografía de Torax para detección de Tuberculosis-50140,RID1315,lower lobe of right lung
+Radiografía de Torax para detección de Tuberculosis-50140,RID1315,lower lobe of right lung
+Radiografía de Torax para detección de Tuberculosis-50140,RID1327,upper lobe of left lung
+Radiografía de Torax para detección de Tuberculosis-50140,RID1338,lower lobe of left lung
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID35095,coin lesion
+Radiografía de Torax para detección de Tuberculosis-50140,RID5765,multiple
+Radiografía de Torax para detección de Tuberculosis-50140,RID35377,miliary pattern
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5671,mild
+Radiografía de Torax para detección de Tuberculosis-50140,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis-50140,RID5673,severe
+Radiografía de Torax para detección de Tuberculosis-50140,RID480,aorta
+Radiografía de Torax para detección de Tuberculosis-50140,RID13173,normal
+Radiografía de Torax para detección de Tuberculosis-50140,RID480,aorta
+Radiografía de Torax para detección de Tuberculosis-50140,RID5789,ectatic
+Radiografía de Torax para detección de Tuberculosis-50140,RID480,aorta
+Radiografía de Torax para detección de Tuberculosis-50140,RID3321,aneurysm
+Radiografía de Torax para detección de Tuberculosis-50140,RID28588,set of pulmonary veins
+Radiografía de Torax para detección de Tuberculosis-50140,RID28586,set of pulmonary arteries
+Radiografía de Torax para detección de Tuberculosis-50140,RID13173,normal
+Radiografía de Torax para detección de Tuberculosis-50140,RID5791,enlarged
+Radiografía de Torax para detección de Tuberculosis-50140,RID36044,decreased
+Radiografía de Torax para detección de Tuberculosis-50140,RID3798,lymphadenopathy
+Radiografía de Torax para detección de Tuberculosis-50140,RID7726,paratracheal lymph node
+Radiografía de Torax para detección de Tuberculosis-50140,RID28473,absent
+Radiografía de Torax para detección de Tuberculosis-50140,RID28472,present
+Radiografía de Torax para detección de Tuberculosis-50140,RID3798,lymphadenopathy
+Radiografía de Torax para detección de Tuberculosis-50140,RID1497,bronchopulmonary lymph node
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5825,right
+Radiografía de Torax para detección de Tuberculosis-50140,RID5824,left
+Radiografía de Torax para detección de Tuberculosis-50140,RID1384,mediastinum
+Radiografía de Torax para detección de Tuberculosis-50140,RID3874,mass
+Radiografía de Torax para detección de Tuberculosis-50140,RID28473,absent
+Radiografía de Torax para detección de Tuberculosis-50140,RID28472,present
+Radiografía de Torax para detección de Tuberculosis-50140,RID5825,right
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5774,small
+Radiografía de Torax para detección de Tuberculosis-50140,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis-50140,RID5778,large
+Radiografía de Torax para detección de Tuberculosis-50140,RID5824,left
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5774,small
+Radiografía de Torax para detección de Tuberculosis-50140,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis-50140,RID5778,large
+Radiografía de Torax para detección de Tuberculosis-50140,RID1362,pleura
+Radiografía de Torax para detección de Tuberculosis-50140,RID3829,scar
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5825,right
+Radiografía de Torax para detección de Tuberculosis-50140,RID28584,apex of lung
+Radiografía de Torax para detección de Tuberculosis-50140,RID5825,right
+Radiografía de Torax para detección de Tuberculosis-50140,RID5821,laterality
+Radiografía de Torax para detección de Tuberculosis-50140,RID5825,right
+Radiografía de Torax para detección de Tuberculosis-50140,RID5834,basilar
+Radiografía de Torax para detección de Tuberculosis-50140,RID5824,left
+Radiografía de Torax para detección de Tuberculosis-50140,RID5833,apical
+Radiografía de Torax para detección de Tuberculosis-50140,RID5824,left
+Radiografía de Torax para detección de Tuberculosis-50140,RID5821,laterality
+Radiografía de Torax para detección de Tuberculosis-50140,RID5824,left
+Radiografía de Torax para detección de Tuberculosis-50140,RID5834,basilar
+Radiografía de Torax para detección de Tuberculosis-50140,RID5825,right
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5774,small
+Radiografía de Torax para detección de Tuberculosis-50140,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis-50140,RID5778,large
+Radiografía de Torax para detección de Tuberculosis-50140,RID5824,left
+Radiografía de Torax para detección de Tuberculosis-50140,RID28454,none
+Radiografía de Torax para detección de Tuberculosis-50140,RID5774,small
+Radiografía de Torax para detección de Tuberculosis-50140,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis-50140,RID5778,large
+Radiografía de Torax para detección de Tuberculosis-50140,RID13170,impression section
+Radiografía de Torax para detección de Tuberculosis,RID10345,projection radiography
+Radiografía de Torax para detección de Tuberculosis,RID1243,thorax
+Radiografía de Torax para detección de Tuberculosis,RID29116,tuberculosis
+Radiografía de Torax para detección de Tuberculosis,RID13166,clinical information
+Radiografía de Torax para detección de Tuberculosis,RID29116,tuberculosis
+Radiografía de Torax para detección de Tuberculosis,RID28817,screening
+Radiografía de Torax para detección de Tuberculosis,RID28483,comparison
+Radiografía de Torax para detección de Tuberculosis,RID28486,observations section
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5825,right
+Radiografía de Torax para detección de Tuberculosis,RID5824,left
+Radiografía de Torax para detección de Tuberculosis,RID5701,diffuse
+Radiografía de Torax para detección de Tuberculosis,RID1301,lung
+Radiografía de Torax para detección de Tuberculosis,RID28668,volume
+Radiografía de Torax para detección de Tuberculosis,RID13173,normal
+Radiografía de Torax para detección de Tuberculosis,RID5884,hyperinflated
+Radiografía de Torax para detección de Tuberculosis,RID28799,interstitial lung disease
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5825,right
+Radiografía de Torax para detección de Tuberculosis,RID5824,left
+Radiografía de Torax para detección de Tuberculosis,RID5701,diffuse
+Radiografía de Torax para detección de Tuberculosis,RID28493,atelectasis
+Radiografía de Torax para detección de Tuberculosis,RID13173,normal
+Radiografía de Torax para detección de Tuberculosis,RID1315,lower lobe of right lung
+Radiografía de Torax para detección de Tuberculosis,RID1315,lower lobe of right lung
+Radiografía de Torax para detección de Tuberculosis,RID1327,upper lobe of left lung
+Radiografía de Torax para detección de Tuberculosis,RID1338,lower lobe of left lung
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID35095,coin lesion
+Radiografía de Torax para detección de Tuberculosis,RID5765,multiple
+Radiografía de Torax para detección de Tuberculosis,RID35377,miliary pattern
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5671,mild
+Radiografía de Torax para detección de Tuberculosis,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis,RID5673,severe
+Radiografía de Torax para detección de Tuberculosis,RID480,aorta
+Radiografía de Torax para detección de Tuberculosis,RID13173,normal
+Radiografía de Torax para detección de Tuberculosis,RID480,aorta
+Radiografía de Torax para detección de Tuberculosis,RID5789,ectatic
+Radiografía de Torax para detección de Tuberculosis,RID480,aorta
+Radiografía de Torax para detección de Tuberculosis,RID3321,aneurysm
+Radiografía de Torax para detección de Tuberculosis,RID28588,set of pulmonary veins
+Radiografía de Torax para detección de Tuberculosis,RID28586,set of pulmonary arteries
+Radiografía de Torax para detección de Tuberculosis,RID13173,normal
+Radiografía de Torax para detección de Tuberculosis,RID5791,enlarged
+Radiografía de Torax para detección de Tuberculosis,RID36044,decreased
+Radiografía de Torax para detección de Tuberculosis,RID3798,lymphadenopathy
+Radiografía de Torax para detección de Tuberculosis,RID7726,paratracheal lymph node
+Radiografía de Torax para detección de Tuberculosis,RID28473,absent
+Radiografía de Torax para detección de Tuberculosis,RID28472,present
+Radiografía de Torax para detección de Tuberculosis,RID3798,lymphadenopathy
+Radiografía de Torax para detección de Tuberculosis,RID1497,bronchopulmonary lymph node
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5825,right
+Radiografía de Torax para detección de Tuberculosis,RID5824,left
+Radiografía de Torax para detección de Tuberculosis,RID1384,mediastinum
+Radiografía de Torax para detección de Tuberculosis,RID3874,mass
+Radiografía de Torax para detección de Tuberculosis,RID28473,absent
+Radiografía de Torax para detección de Tuberculosis,RID28472,present
+Radiografía de Torax para detección de Tuberculosis,RID5825,right
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5774,small
+Radiografía de Torax para detección de Tuberculosis,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis,RID5778,large
+Radiografía de Torax para detección de Tuberculosis,RID5824,left
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5774,small
+Radiografía de Torax para detección de Tuberculosis,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis,RID5778,large
+Radiografía de Torax para detección de Tuberculosis,RID1362,pleura
+Radiografía de Torax para detección de Tuberculosis,RID3829,scar
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5825,right
+Radiografía de Torax para detección de Tuberculosis,RID28584,apex of lung
+Radiografía de Torax para detección de Tuberculosis,RID5825,right
+Radiografía de Torax para detección de Tuberculosis,RID5821,laterality
+Radiografía de Torax para detección de Tuberculosis,RID5825,right
+Radiografía de Torax para detección de Tuberculosis,RID5834,basilar
+Radiografía de Torax para detección de Tuberculosis,RID5824,left
+Radiografía de Torax para detección de Tuberculosis,RID5833,apical
+Radiografía de Torax para detección de Tuberculosis,RID5824,left
+Radiografía de Torax para detección de Tuberculosis,RID5821,laterality
+Radiografía de Torax para detección de Tuberculosis,RID5824,left
+Radiografía de Torax para detección de Tuberculosis,RID5834,basilar
+Radiografía de Torax para detección de Tuberculosis,RID5825,right
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5774,small
+Radiografía de Torax para detección de Tuberculosis,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis,RID5778,large
+Radiografía de Torax para detección de Tuberculosis,RID5824,left
+Radiografía de Torax para detección de Tuberculosis,RID28454,none
+Radiografía de Torax para detección de Tuberculosis,RID5774,small
+Radiografía de Torax para detección de Tuberculosis,RID5672,moderate
+Radiografía de Torax para detección de Tuberculosis,RID5778,large
+Radiografía de Torax para detección de Tuberculosis,RID13170,impression section
+Radiografía de Tórax ,RID10345,projection radiography
+Radiografía de Tórax ,RID1243,thorax
+Radiografía de Tórax ,RID1559,procedure
+Radiografía de Tórax ,RID13166,clinical information
+Radiografía de Tórax ,RID28483,comparison
+Radiografía de Tórax ,RID1385,heart
+Radiografía de Tórax ,RID13437,lungs
+Radiografía de Tórax ,RID28569,set of bones
+Radiografía de Tórax ,RID13170,impression section
+Radiografía de tórax-50144,RID10345,projection radiography
+Radiografía de tórax-50144,RID1243,thorax
+Radiografía de tórax-50144,RID1559,procedure
+Radiografía de tórax-50144,RID13166,clinical information
+Radiografía de tórax-50144,RID28483,comparison
+Radiografía de tórax-50144,RID1385,heart
+Radiografía de tórax-50144,RID13437,lungs
+Radiografía de tórax-50144,RID28569,set of bones
+Radiografía de tórax-50144,RID13170,impression section
+Radiografía de tórax,RID10345,projection radiography
+Radiografía de tórax,RID1243,thorax
+Radiografía de tórax,RID1559,procedure
+Radiografía de tórax,RID13166,clinical information
+Radiografía de tórax,RID28483,comparison
+Radiografía de tórax,RID1385,heart
+Radiografía de tórax,RID13437,lungs
+Radiografía de tórax,RID28569,set of bones
+Radiografía de tórax,RID13170,impression section
+Right Wrist Xray,RID10345,projection radiography
+Right Wrist Xray,RID2177,wrist
+Right Wrist Xray,RID1559,procedure
+Right Wrist Xray,RID28483,comparison
+Right Wrist Xray,RID28569,set of bones
+Right Wrist Xray,RID28711,set of joints
+Right Wrist Xray,RID35730,portion of soft tissue
+Right Wrist Xray,RID13170,impression section
+RTG jamy brzusznej,RID56,abdomen
+RTG jamy brzusznej,RID10345,projection radiography
+RTG jamy brzusznej,RID1559,procedure
+RTG jamy brzusznej,RID13166,clinical information
+RTG jamy brzusznej,RID56,abdomen
+RTG jamy brzusznej,RID28803,pain
+RTG jamy brzusznej,RID5787,distended
+RTG jamy brzusznej,RID56,abdomen
+RTG jamy brzusznej,RID28707,placement
+RTG jamy brzusznej,RID5566,nasogastric tube
+RTG jamy brzusznej,RID5729,postoperative
+RTG jamy brzusznej,RID28483,comparison
+RTG jamy brzusznej,RID28453,abnormal
+RTG jamy brzusznej,RID34642,calcifications
+RTG jamy brzusznej,RID28569,set of bones
+RTG jamy brzusznej,RID13173,normal
+RTG jamy brzusznej,RID13170,impression section
+RX de Tórax,RID10345,projection radiography
+RX de Tórax,RID1243,thorax
+RX de Tórax,RID1559,procedure
+RX de Tórax,RID13166,clinical information
+RX de Tórax,RID28483,comparison
+RX de Tórax,RID1385,heart
+RX de Tórax,RID13437,lungs
+RX de Tórax,RID28569,set of bones
+RX de Tórax,RID13170,impression section
+Scanner cérvical,RID28847,lymph node group
+Scanner cérvical,RID7540,suprahyoid neck
+Scanner cérvical,RID7578,thyroid gland
+Scanner cérvical,RID13170,impression section
+Scanner cérvical,RID13173,normal
+Scanner cérvical,RID1432,thoracic inlet
+Scanner cérvical,RID15990,vasculature of organ
+Scanner cérvical,RID7576,infrahyoid neck
+Scanner cérvical,RID9990,nasopharynx
+Scanner cérvical,RID28601,orbits
+Scanner cérvical,RID13166,clinical information
+Scanner cérvical,RID1559,procedure
+Serie Abdominal-50141,RID56,abdomen
+Serie Abdominal-50141,RID130,intestine
+Serie Abdominal-50141,RID4803,pneumoperitoneum
+Serie Abdominal-50141,RID10345,projection radiography
+Serie Abdominal-50141,RID1559,procedure
+Serie Abdominal-50141,RID13166,clinical information
+Serie Abdominal-50141,RID28483,comparison
+Serie Abdominal-50141,RID4803,pneumoperitoneum
+Serie Abdominal-50141,RID28453,abnormal
+Serie Abdominal-50141,RID34642,calcifications
+Serie Abdominal-50141,RID28569,set of bones
+Serie Abdominal-50141,RID13170,impression section
+Serie Abdominal,RID56,abdomen
+Serie Abdominal,RID130,intestine
+Serie Abdominal,RID4803,pneumoperitoneum
+Serie Abdominal,RID10345,projection radiography
+Serie Abdominal,RID1559,procedure
+Serie Abdominal,RID13166,clinical information
+Serie Abdominal,RID28483,comparison
+Serie Abdominal,RID4803,pneumoperitoneum
+Serie Abdominal,RID28453,abnormal
+Serie Abdominal,RID34642,calcifications
+Serie Abdominal,RID28569,set of bones
+Serie Abdominal,RID13170,impression section
+Skeletal Survey,RID4643,child abuse
+Skeletal Survey,RID4650,fracture
+Skeletal Survey,RID10345,projection radiography
+Skeletal Survey,RID28819,skeletal survey
+Skeletal Survey,RID1559,procedure
+Skeletal Survey,RID13166,clinical information
+Skeletal Survey,RID28483,comparison
+Skeletal Survey,RID28486,observations section
+Skeletal Survey,RID4650,fracture
+Skeletal Survey,RID11185,soft tissue administration
+Skeletal Survey,RID13197,bone organ
+Skeletal Survey,RID6041,density characteristic
+Skeletal Survey,RID13170,impression section
+Skull Xray,RID10345,projection radiography
+Skull Xray,RID9196,skull
+Skull Xray,RID1559,procedure
+Skull Xray,RID28483,comparison
+Skull Xray,RID13170,impression section
+Small Bowel,RID11588,barium sulfate suspension
+Small Bowel,RID10345,projection radiography
+Small Bowel,RID132,small intestine
+Small Bowel,RID1559,procedure
+Small Bowel,RID28483,comparison
+Small Bowel,RID13170,impression section
+TC Cálculos Renales-50142,RID10321,computed tomography
+TC Cálculos Renales-50142,RID205,kidney
+TC Cálculos Renales-50142,RID38586,renal calculus
+TC Cálculos Renales-50142,RID229,ureter
+TC Cálculos Renales-50142,RID237,urinary bladder
+TC Cálculos Renales-50142,RID4996,urolithiasis
+TC Cálculos Renales-50142,RID1559,procedure
+TC Cálculos Renales-50142,RID28483,comparison
+TC Cálculos Renales-50142,RID13173,normal
+TC Cálculos Renales-50142,RID13170,impression section
+TC Cálculos Renales,RID10321,computed tomography
+TC Cálculos Renales,RID205,kidney
+TC Cálculos Renales,RID38586,renal calculus
+TC Cálculos Renales,RID229,ureter
+TC Cálculos Renales,RID237,urinary bladder
+TC Cálculos Renales,RID4996,urolithiasis
+TC Cálculos Renales,RID1559,procedure
+TC Cálculos Renales,RID28483,comparison
+TC Cálculos Renales,RID13173,normal
+TC Cálculos Renales,RID13170,impression section
+TC Torace,RID10321,computed tomography
+TC Torace,RID1243,thorax
+TC Torace,RID1559,procedure
+TC Torace,RID28483,comparison
+TC Torace,RID13170,impression section
+Tc-99m WBC Scan,RID11733,Tc-99m exametazine
+Tc-99m WBC Scan,RID28483,comparison
+Tc-99m WBC Scan,RID13170,impression section
+Thoraxfoto,RID10345,projection radiography
+Thoraxfoto,RID1243,thorax
+Thoraxfoto,RID1559,procedure
+Thoraxfoto,RID13166,clinical information
+Thoraxfoto,RID28483,comparison
+Thoraxfoto,RID1385,heart
+Thoraxfoto,RID13437,lungs
+Thoraxfoto,RID28569,set of bones
+Thoraxfoto,RID13170,impression section
+TK kamica nerkowa,RID170,pancreas
+TK kamica nerkowa,RID5987,wall
+TK kamica nerkowa,RID5786,dilated
+TK kamica nerkowa,RID58,liver
+TK kamica nerkowa,RID86,spleen
+TK kamica nerkowa,RID11198,ureteral
+TK kamica nerkowa,RID11198,ureteral
+TK kamica nerkowa,RID10409,measurement
+TK kamica nerkowa,RID28483,comparison
+TK kamica nerkowa,RID1559,procedure
+TK kamica nerkowa,RID28492,count
+TK kamica nerkowa,RID10409,measurement
+TK kamica nerkowa,RID10409,measurement
+TK kamica nerkowa,RID34393,hydronephrosis
+TK kamica nerkowa,RID3798,lymphadenopathy
+TK kamica nerkowa,RID34393,hydronephrosis
+TK kamica nerkowa,RID10409,measurement
+TK kamica nerkowa,RID10409,measurement
+TK kamica nerkowa,RID28752,set of adrenal glands
+TK kamica nerkowa,RID28492,count
+TK kamica nerkowa,RID1541,ascites
+TK kamica nerkowa,RID10409,measurement
+TK kamica nerkowa,RID130,intestine
+TK kamica nerkowa,RID28492,count
+TK kamica nerkowa,RID13166,clinical information
+TK kamica nerkowa,RID13170,impression section
+TK kamica nerkowa,RID5786,dilated
+Trophoblastic Diseases CT,RID13170,impression section
+Trophoblastic Diseases CT,RID13166,clinical information section
+Trophoblastic Diseases CT,RID28483,comparison
+Trophoblastic Diseases CT,RID302,uterus
+Trophoblastic Diseases CT,RID1541,ascites
+Trophoblastic Diseases CT,RID30760,pelvic wall
+Trophoblastic Diseases CT,RID1559,procedure
+Trophoblastic Diseases CT,RID39537,set of ovaries
+Trophoblastic Diseases MRI,RID302,uterus
+Trophoblastic Diseases MRI,RID1559,procedure
+Trophoblastic Diseases MRI,RID13170,impression section
+Trophoblastic Diseases MRI,RID28483,comparison
+Trophoblastic Diseases MRI,RID13166,clinical information section
+Trophoblastic Diseases MRI,RID1541,ascites
+Ultrasound Scrotal,RID39184,varicocele
+Ultrasound Scrotal,RID39541,set of testicles
+Ultrasound Scrotal,RID13166,clinical information
+Ultrasound Scrotal,RID3912,hydrocele
+Ultrasound Scrotal,RID371,epididymis
+Ultrasound Scrotal,RID13170,impression section
+Ultrasound Scrotal,RID28483,comparison
+Upper GI,RID134,duodenum
+Upper GI,RID95,esophagus
+Upper GI,RID10361,fluoroscopy
+Upper GI,RID114,stomach
+Upper GI,RID35817,oral contrast
+Upper GI,RID11872,barium
+Upper GI,RID11582,contrast agent
+Upper GI,RID13166,clinical information
+Upper GI,RID28483,comparison
+Upper GI,RID28486,observations section
+Upper GI,RID95,esophagus
+Upper GI,RID5260,gastroesophageal reflux
+Upper GI,RID114,stomach
+Upper GI,RID134,duodenum
+Upper GI,RID13170,impression section
+US - 1st Trimester,RID49841,fetal biophysical profile
+US - 1st Trimester,RID2509,sacrum
+US - 1st Trimester,RID32829,right ovary
+US - 1st Trimester,RID32830,left ovary
+US - 1st Trimester,RID49442,indication
+US - 1st Trimester,RID13173,normal
+US - 1st Trimester,RID302,uterus
+US - 1st Trimester,RID1547,fluid
+US Kidneys,RID29662,right kidney
+US Kidneys,RID29663,left kidney
+US Kidneys,RID13173,normal
+US Kidneys,RID205,kidney
+US Kidneys,RID49442,indication
+US Kidneys,RID237,urinary bladder
+US Left Upper Extremity,RID5824,left
+US Left Upper Extremity,RID34624,thrombosis
+US Left Upper Extremity,RID10326,ultrasound
+US Left Upper Extremity,RID1850,upper extremity
+US Left Upper Extremity,RID28483,comparison
+US Left Upper Extremity,RID28453,abnormal
+US Left Upper Extremity,RID13170,impression section
+US Neonatal Head,RID49442,indication
+US Neonatal Head,RID13173,normal
+US Pelvis-50531,RID302,uterus
+US Pelvis-50531,RID3874,mass
+US Pelvis-50531,RID32829,right ovary
+US Pelvis-50531,RID13173,normal
+US Pelvis-50531,RID30958,endometrium
+US Pelvis-50531,RID49442,indication
+US Pelvis-50531,RID294,uterine adnexa
+US Pelvis-50531,RID1547,fluid
+US Pelvis-50531,RID5978,parenchyma
+US Pelvis-50531,RID32830,left ovary
+US Pelvis,RID290,ovary
+US Pelvis,RID2507,pelvis
+US Pelvis,RID10326,ultrasound
+US Pelvis,RID237,urinary bladder
+US Pelvis,RID302,uterus
+US Pelvis,RID13166,clinical information
+US Pelvis,RID28483,comparison
+US Pelvis,RID5851,orientation descriptor
+US Pelvis,RID5772,size descriptor
+US Pelvis,RID3874,mass
+US Pelvis,RID308,cervix of uterus
+US Pelvis,RID30958,endometrium
+US Pelvis,RID5772,size descriptor
+US Pelvis,RID32830,left ovary
+US Pelvis,RID13170,impression section
+US Scrotum-50532,RID49442,indication
+US Scrotum-50532,RID371,epididymis
+US Scrotum-50532,RID39541,set of testicles
+US Scrotum-50532,RID365,scrotum
+US Scrotum-50532,RID13173,normal
+US Scrotum-50532,RID39541,set of testicles
+US Thyroid FNA,RID12933,fine-needle aspiration
+US Thyroid FNA,RID7578,thyroid gland
+US Thyroid FNA,RID10326,ultrasound
+US Thyroid FNA,RID28483,comparison
+US Thyroid FNA,RID13170,impression section
+US Thyroid,RID7581,right lobe of thyroid gland
+US Thyroid,RID49442,indication
+US Thyroid,RID7579,left lobe of thyroid gland
+US Thyroid,RID13173,normal
+US Thyroid,RID7584,isthmus of thyroid gland
+US Thyroid,RID38136,lymph node group along superior mesenteric vein
+US Thyroid,RID7578,thyroid gland
+US Tiroide,RID7578,thyroid gland
+US Tiroide,RID10326,ultrasound
+US Tiroide,RID28483,comparison
+US Tiroide,RID13170,impression section
+Uterine Malformations MRI,RID325,vagina
+Uterine Malformations MRI,RID237,urinary bladder
+Uterine Malformations MRI,RID30958,endometrium
+Uterine Malformations MRI,RID13169,comparison image
+Uterine Malformations MRI,RID13170,impression section
+Uterine Malformations MRI,RID1541,ascites
+Uterine Malformations MRI,RID13166,clinical information section
+Uterine Malformations MRI,RID302,uterus
+Vaginal Cancer MRI,RID32936,wall of rectum
+Vaginal Cancer MRI,RID325,vagina
+Vaginal Cancer MRI,RID32629,left side of pelvic wall
+Vaginal Cancer MRI,RID13170,impression section
+Vaginal Cancer MRI,RID13166,clinical information section
+Vaginal Cancer MRI,RID28483,comparison
+Vaginal Cancer MRI,RID302,uterus
+Vaginal Cancer MRI,RID30135,wall of urinary bladder
+Vaginal Cancer MRI,RID30958,endometrium
+Vesico-ureteraal reflux,RID237,urinary bladder
+Vesico-ureteraal reflux,RID5261,vesicoureteral reflux
+Vesico-ureteraal reflux,RID1559,procedure
+Vesico-ureteraal reflux,RID13166,clinical information
+Vesico-ureteraal reflux,RID28483,comparison
+Vesico-ureteraal reflux,RID13170,impression section
+Vulvar Cancer MRI,RID13170,impression section
+Vulvar Cancer MRI,RID32936,wall of rectum
+Vulvar Cancer MRI,RID28483,comparison
+Vulvar Cancer MRI,RID30135,wall of urinary bladder
+Vulvar Cancer MRI,RID30958,endometrium
+Vulvar Cancer MRI,RID302,uterus
+Vulvar Cancer MRI,RID1559,procedure
+Vulvar Cancer MRI,RID272,vulva
+Vulvar Cancer MRI,RID39537,set of ovaries
+Vulvar Cancer MRI,RID325,vagina
+White Blood Cell Scan,RID11858,indium
+White Blood Cell Scan,RID3710,infection
+White Blood Cell Scan,RID3382,inflammation
+White Blood Cell Scan,RID1559,procedure
+White Blood Cell Scan,RID13166,clinical information
+White Blood Cell Scan,RID28483,comparison
+White Blood Cell Scan,RID28486,observations section
+White Blood Cell Scan,RID13170,impression section
+Wrist Xray,RID10345,projection radiography
+Wrist Xray,RID2177,wrist
+Wrist Xray,RID5825,right
+Wrist Xray,RID2177,wrist
+Wrist Xray,RID5824,left
+Wrist Xray,RID2177,wrist
+Wrist Xray,RID5770,both
+Wrist Xray,RID2177,wrist
+Wrist Xray,RID28483,comparison
+Wrist Xray,RID28569,set of bones
+Wrist Xray,RID28711,set of joints
+Wrist Xray,RID35730,portion of soft tissue
+Wrist Xray,RID13170,impression section
+Zevalin In-111 Imaging,RID11858,indium
+Zevalin In-111 Imaging,RID3840,lymphoma
+Zevalin In-111 Imaging,RID1559,procedure
+Zevalin In-111 Imaging,RID28483,comparison
+Zevalin In-111 Imaging,RID13170,impression section
