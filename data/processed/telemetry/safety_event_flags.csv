@@ -1,0 +1,354 @@
+customer_id,level,source,event_id,description,occurrence_count,safety_keyword
+mr141049,I,MRI_FRR,273,Emergency evacuation released.,401926,emergency
+mr141049,I,MRI_FRR,278,Emergency docking released.,401923,emergency
+mr141049,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",96092,shutdown
+mr141049,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,96090,shutdown
+mr141049,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,96090,shutdown
+mr141049,E,MRI_RFS,8,SAR limit(s) exceeded.,26052,sar limit
+mr141049,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,24222,shutdown
+mr141049,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",23433,shutdown
+mr141049,I,DeveloperLog_DevLogService,0,CreateListOfChecks: Allocating SafetyRelatedQaCheckConfirmationWindow,16501,safety
+mr141049,I,DeveloperLog_DevLogService,0,SafetyRelatedQaCheck.AreAllSafetyRelatedStepsDone()=True,16501,safety
+mr155687,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",34028,shutdown
+mr155687,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,34024,shutdown
+mr155687,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,34024,shutdown
+mr155687,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,18669,shutdown
+mr155687,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",17770,shutdown
+mr175693,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,160098,helium
+mr175693,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,160091,helium
+mr175693,I,MRI_HEC,1032,Helium compressor unit is running.,160091,helium
+mr175693,I,MRI_FRR,278,Emergency docking released.,160070,emergency
+mr175693,I,MRI_HEC,1018,Helium compressor Event log has updated.,12044,helium
+mr175693,W,MRI_HEC,1011,Refrigeration Circuit Helium leakage.  Please contact Siemens Service.,11043,helium
+mr175693,W,MRI_HEC,1011,Refrigeration Circuit Helium leakage.  Please contact Siemens Service. ID: syngo.MR.MRI_HEC_NlsMessageId.Resources.HECmsg.MRI_HEC_W_1011_HEC_HELIUM_LEAK_WARNING,11033,helium
+mr175693,E,MRI_RFS,8,SAR limit(s) exceeded.,6932,sar limit
+mr175693,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,5186,shutdown
+mr175693,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,5186,shutdown
+mr175693,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",5185,shutdown
+mr175727,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,11780,helium
+mr175727,I,MRI_HEC,1032,Helium compressor unit is running.,11780,helium
+mr175727,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,11779,helium
+mr175727,I,MRI_FRR,278,Emergency docking released.,9120,emergency
+mr175727,S,MRI_FRR,278,Emergency docking released.,2655,emergency
+mr175727,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,2252,shutdown
+mr175727,I,MRI_CMM,106,RFCELK2364_COM-COM [Dev#<DEV_ID>] reports status: Online Patient Safety (OPS) has stopped the measurement.,1884,safety
+mr175727,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",978,shutdown
+mr175727,I,_unknown,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,872,shutdown
+mr175832,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,295002,helium
+mr175832,I,MRI_HEC,1032,Helium compressor unit is running.,295002,helium
+mr175832,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,295001,helium
+mr175832,I,MRI_FRR,278,Emergency docking released.,294941,emergency
+mr175832,I,MRI_HEC,1023,Helium compressor Daily log has updated.,170798,helium
+mr175832,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,30354,shutdown
+mr175832,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,30354,shutdown
+mr175832,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",30352,shutdown
+mr175832,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,28021,shutdown
+mr175832,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",27727,shutdown
+mr176133,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,602929,helium
+mr176133,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,602929,helium
+mr176133,I,MRI_HEC,1032,Helium compressor unit is running.,602929,helium
+mr176133,I,MRI_FRR,278,Emergency docking released.,517407,emergency
+mr176133,I,MRI_HEC,1023,Helium compressor Daily log has updated.,467850,helium
+mr176133,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,210907,helium
+mr176133,S,MRI_FRR,278,Emergency docking released.,94425,emergency
+mr176133,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",69641,shutdown
+mr176133,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,69629,shutdown
+mr176133,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,69629,shutdown
+mr176133,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,41278,shutdown
+mr176133,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",40878,shutdown
+mr176430,I,MRI_FRR,278,Emergency docking released,504159,emergency
+mr176430,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,503577,helium
+mr176430,I,MRI_HEC,1032,Helium compressor unit is running.,503569,helium
+mr176430,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,503565,helium
+mr176430,I,MRI_HEC,1023,Helium compressor Daily log has updated.,483317,helium
+mr176430,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,269943,shutdown
+mr176430,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,210642,helium
+mr176659,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,146853,helium
+mr176659,I,MRI_HEC,1032,Helium compressor unit is running.,146852,helium
+mr176659,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,146851,helium
+mr176659,I,MRI_FRR,278,Emergency docking released.,119794,emergency
+mr176659,S,MRI_FRR,278,Emergency docking released.,51855,emergency
+mr176659,E,MRI_RFS,8,SAR limit(s) exceeded.,12078,sar limit
+mr176659,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,10589,shutdown
+mr176659,W,MRI_PTG,21,"Patient table warning: The safety edge for vertical collision detection is activated. Check for obstacles above the docking station and table chassis. Only upward movement is possible.  If the problem persists, please contact Siemens Service.",8525,safety
+mr176659,I,MRI_PTG,22,The safety edge for vertical collision detection is released. Vertical movement is enabled.,8230,safety
+mr176659,W,MRI_PTG,21,"Patient table warning: The safety edge for vertical collision detection is activated. Check for obstacles above the docking station and table chassis. Only upward movement is possible.  If the problem persists, please contact Siemens Service. ID: syngo.MR.MRI_PTG_NlsMessageId.Resources.PTGmsg.MRI_PTG_W_21_PTG_PTAB_SWITCH_S60_OBSTACLE_OCCURED",8058,safety
+mr176659,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",7975,shutdown
+mr176659,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",7716,shutdown
+mr176659,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,7710,shutdown
+mr176659,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,7710,shutdown
+mr176750,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,162390,helium
+mr176750,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,162390,helium
+mr176750,I,MRI_HEC,1032,Helium compressor unit is running.,162390,helium
+mr176750,I,MRI_FRR,278,Emergency docking released,138145,emergency
+mr176750,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,35574,shutdown
+mr176750,I,MRI_HEC,1023,Helium compressor Daily log has updated.,29871,helium
+mr176750,S,MRI_FRR,278,Emergency docking released,23371,emergency
+mr176750,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,5745,helium
+mr176802,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,277399,helium
+mr176802,I,MRI_HEC,1032,Helium compressor unit is running.,277386,helium
+mr176802,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,277366,helium
+mr176802,I,MRI_FRR,278,Emergency docking released,276074,emergency
+mr176802,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,36312,shutdown
+mr176802,I,MRI_HEC,1023,Helium compressor Daily log has updated.,13866,helium
+mr176802,E,MRI_RFS,8,SAR limit(s) exceeded.,13182,sar limit
+mr176887,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,106735,helium
+mr176887,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,106735,helium
+mr176887,I,MRI_HEC,1032,Helium compressor unit is running.,106735,helium
+mr176887,I,MRI_FRR,278,Emergency docking released.,106720,emergency
+mr176887,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,5592,shutdown
+mr176887,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",4832,shutdown
+mr176887,E,MRI_RFS,8,SAR limit(s) exceeded.,4516,sar limit
+mr176887,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,3949,shutdown
+mr176887,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,3949,shutdown
+mr176887,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",3946,shutdown
+mr177658,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,210186,helium
+mr177658,I,MRI_HEC,1032,Helium compressor unit is running.,210186,helium
+mr177658,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,210184,helium
+mr177658,I,MRI_HEC,1023,Helium compressor Daily log has updated.,177708,helium
+mr177658,I,MRI_FRR,278,Emergency docking released.,174489,emergency
+mr177658,S,MRI_FRR,278,Emergency docking released.,77609,emergency
+mr177658,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,58725,shutdown
+mr177658,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,58725,shutdown
+mr177658,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",58714,shutdown
+mr177658,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,37946,helium
+mr177658,I,_unknown,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",26198,shutdown
+mr177658,I,_unknown,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,26192,shutdown
+mr177658,I,_unknown,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,26192,shutdown
+mr177658,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,21273,shutdown
+mr177658,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",20268,shutdown
+mr177658,E,MRI_RFS,8,SAR limit(s) exceeded.,13991,sar limit
+mr183848,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,130319,helium
+mr183848,I,MRI_HEC,1032,Helium compressor unit is running.,130318,helium
+mr183848,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,130317,helium
+mr183848,I,MRI_FRR,278,Emergency docking released.,121939,emergency
+mr183848,S,MRI_FRR,278,Emergency docking released.,9637,emergency
+mr183848,E,MRI_RFS,8,SAR limit(s) exceeded.,5080,sar limit
+mr183848,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,4510,shutdown
+mr188001,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,495935,helium
+mr188001,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,495925,helium
+mr188001,I,MRI_HEC,1032,Helium compressor unit is running.,495925,helium
+mr188001,I,MRI_FRR,278,Emergency docking released.,495864,emergency
+mr188001,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",360550,shutdown
+mr188001,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,360402,shutdown
+mr188001,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,360401,shutdown
+mr188001,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,183465,shutdown
+mr188001,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",182586,shutdown
+mr188001,I,MRI_HEC,1023,Helium compressor Daily log has updated.,25123,helium
+mr188001,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,24012,helium
+mr189541,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,322425,helium
+mr189541,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,322354,helium
+mr189541,I,MRI_HEC,1032,Helium compressor unit is running.,322354,helium
+mr189541,I,MRI_FRR,278,Emergency docking released.,316869,emergency
+mr189541,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,158377,shutdown
+mr189541,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,158377,shutdown
+mr189541,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",158359,shutdown
+mr189541,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,23113,shutdown
+mr189541,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",22434,shutdown
+mr189701,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,286684,helium
+mr189701,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,286683,helium
+mr189701,I,MRI_HEC,1032,Helium compressor unit is running.,286683,helium
+mr189701,I,MRI_FRR,278,Emergency docking released.,230795,emergency
+mr189701,I,MRI_HEC,1018,Helium compressor Event log has updated.,103758,helium
+mr189701,I,MRI_HEC,1023,Helium compressor Daily log has updated.,103742,helium
+mr189701,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,103584,helium
+mr189701,S,MRI_FRR,278,Emergency docking released.,47854,emergency
+mr189701,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",43124,shutdown
+mr189701,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,43034,shutdown
+mr189701,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,43034,shutdown
+mr189701,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,21456,shutdown
+mr189701,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",20837,shutdown
+mr189779,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,280279,helium
+mr189779,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,280260,helium
+mr189779,I,MRI_HEC,1032,Helium compressor unit is running.,280260,helium
+mr189779,I,MRI_FRR,278,Emergency docking released.,280235,emergency
+mr189779,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,21952,shutdown
+mr189779,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",21324,shutdown
+mr189779,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",11822,shutdown
+mr189779,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,11820,shutdown
+mr189779,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,11820,shutdown
+mr189779,I,DeveloperLog_DevLogService,0,CreateListOfChecks: Allocating SafetyRelatedQaCheckConfirmationWindow,10957,safety
+mr189779,I,DeveloperLog_DevLogService,0,SafetyRelatedQaCheck.AreAllSafetyRelatedStepsDone()=True,10957,safety
+mr189880,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,68381,helium
+mr189880,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,68375,helium
+mr189880,I,MRI_HEC,1032,Helium compressor unit is running.,68375,helium
+mr189880,I,MRI_HEC,1023,Helium compressor Daily log has updated.,59943,helium
+mr189880,I,MRI_FRR,278,Emergency docking released.,46944,emergency
+mr189880,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,42934,helium
+mr189880,S,MRI_FRR,278,Emergency docking released.,21643,emergency
+mr189880,I,MRI_HEC,1018,Helium compressor Event log has updated.,21234,helium
+mr189880,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,4820,shutdown
+mr189880,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,4820,shutdown
+mr189880,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",4818,shutdown
+mr190001,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,453221,helium
+mr190001,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,453158,helium
+mr190001,I,MRI_HEC,1032,Helium compressor unit is running.,453156,helium
+mr190001,I,MRI_FRR,278,Emergency docking released.,402931,emergency
+mr190001,S,MRI_FRR,278,Emergency docking released.,61226,emergency
+mr190001,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,23623,shutdown
+mr190001,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,23623,shutdown
+mr190001,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",23621,shutdown
+mr190192,I,MRI_HEC,1032,Helium compressor unit is running.,659979,helium
+mr190192,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,659975,helium
+mr190192,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,659974,helium
+mr190192,I,MRI_FRR,278,Emergency docking released.,414129,emergency
+mr190192,S,MRI_FRR,278,Emergency docking released.,299742,emergency
+mr190192,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,109759,shutdown
+mr190192,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,109759,shutdown
+mr190192,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",109746,shutdown
+mr190192,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,99698,shutdown
+mr190192,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",98698,shutdown
+mr190192,I,_unknown,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",79353,shutdown
+mr190192,I,_unknown,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,79339,shutdown
+mr190192,I,_unknown,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,79338,shutdown
+mr190192,I,_unknown,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,71684,shutdown
+mr190192,I,_unknown,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",71104,shutdown
+mr190192,E,MRI_RFS,8,SAR limit(s) exceeded.,19708,sar limit
+mr190293,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,434297,helium
+mr190293,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,434293,helium
+mr190293,I,MRI_HEC,1032,Helium compressor unit is running.,434293,helium
+mr190293,I,MRI_HEC,1023,Helium compressor Daily log has updated.,373251,helium
+mr190293,I,MRI_HEC,1018,Helium compressor Event log has updated.,372190,helium
+mr190293,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,372140,helium
+mr190293,I,MRI_FRR,278,Emergency docking released.,328954,emergency
+mr190293,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",177031,shutdown
+mr190293,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,176973,shutdown
+mr190293,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,176973,shutdown
+mr190293,S,MRI_FRR,278,Emergency docking released.,103656,emergency
+mr190293,I,_unknown,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",55371,shutdown
+mr190293,I,_unknown,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,55325,shutdown
+mr190293,I,_unknown,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,55325,shutdown
+mr190293,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,38367,shutdown
+mr190293,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",37554,shutdown
+mr190293,E,MRI_RFS,8,SAR limit(s) exceeded.,14332,sar limit
+mr190387,I,MRI_HEC,1032,Helium compressor unit is running.,274606,helium
+mr190387,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,274598,helium
+mr190387,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,274591,helium
+mr190387,I,MRI_FRR,278,Emergency docking released.,274590,emergency
+mr190387,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,82814,shutdown
+mr190387,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,82814,shutdown
+mr190387,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",82801,shutdown
+mr190387,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,21800,shutdown
+mr190387,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",21144,shutdown
+mr190387,I,DeveloperLog_DevLogService,0,CreateListOfChecks: Allocating SafetyRelatedQaCheckConfirmationWindow,11574,safety
+mr190395,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,357714,helium
+mr190395,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,357714,helium
+mr190395,I,MRI_HEC,1032,Helium compressor unit is running.,357714,helium
+mr190395,I,MRI_FRR,278,Emergency docking released.,258333,emergency
+mr190395,I,MRI_HEC,1018,Helium compressor Event log has updated.,250105,helium
+mr190395,I,MRI_HEC,1023,Helium compressor Daily log has updated.,250096,helium
+mr190395,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,250012,helium
+mr190395,S,MRI_FRR,278,Emergency docking released.,99367,emergency
+mr190519,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,257723,helium
+mr190519,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,257723,helium
+mr190519,I,MRI_HEC,1032,Helium compressor unit is running.,257723,helium
+mr190519,I,MRI_FRR,278,Emergency docking released.,257687,emergency
+mr190519,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",181827,shutdown
+mr190519,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,181807,shutdown
+mr190519,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,181807,shutdown
+mr190519,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,101580,shutdown
+mr190519,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",100930,shutdown
+mr190519,I,DeveloperLog_DevLogService,0,CreateListOfChecks: Allocating SafetyRelatedQaCheckConfirmationWindow,10774,safety
+mr190519,I,DeveloperLog_DevLogService,0,SafetyRelatedQaCheck.AreAllSafetyRelatedStepsDone()=True,10774,safety
+mr193521,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,104668,helium
+mr193521,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,104668,helium
+mr193521,I,MRI_HEC,1032,Helium compressor unit is running.,104668,helium
+mr193521,I,MRI_FRR,278,Emergency docking released,79926,emergency
+mr193521,S,MRI_FRR,278,Emergency docking released,35394,emergency
+mr193521,E,MRI_RFS,8,SAR limit(s) exceeded.,5740,sar limit
+mr193521,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,4512,shutdown
+mr194220,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,87380,helium
+mr194220,I,MRI_HEC,1032,Helium compressor unit is running.,87364,helium
+mr194220,I,MRI_FRR,278,Emergency docking released,87352,emergency
+mr194220,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,87346,helium
+mr194220,I,MRI_HEC,1023,Helium compressor Daily log has updated.,85411,helium
+mr194220,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,70295,helium
+mr194220,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,47392,shutdown
+mr196296,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,295216,helium
+mr196296,I,MRI_HEC,1032,Helium compressor unit is running.,295216,helium
+mr196296,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,295212,helium
+mr196296,I,MRI_FRR,278,Emergency docking released.,295168,emergency
+mr196296,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",57272,shutdown
+mr196296,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,57259,shutdown
+mr196296,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,57259,shutdown
+mr196296,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,52980,shutdown
+mr196296,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",49065,shutdown
+mr200103,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,28540,helium
+mr200103,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,28540,helium
+mr200103,I,MRI_HEC,1032,Helium compressor unit is running.,28540,helium
+mr200103,I,MRI_FRR,278,Emergency docking released.,28536,emergency
+mr200103,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,1749,shutdown
+mr200103,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,1390,shutdown
+mr200103,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,1390,shutdown
+mr200103,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",1390,shutdown
+mr202008,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,185371,helium
+mr202008,I,MRI_HEC,1032,Helium compressor unit is running.,185371,helium
+mr202008,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,185366,helium
+mr202008,I,MRI_FRR,278,Emergency docking released.,185328,emergency
+mr202008,I,MRI_HEC,1023,Helium compressor Daily log has updated.,141882,helium
+mr202008,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,117232,shutdown
+mr202008,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,117232,shutdown
+mr202008,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",117208,shutdown
+mr202008,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,34098,shutdown
+mr202008,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",33943,shutdown
+mr202045,I,MRI_HEC,1032,Helium compressor unit is running.,519359,helium
+mr202045,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,519356,helium
+mr202045,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,519321,helium
+mr202045,I,MRI_FRR,278,Emergency docking released.,472557,emergency
+mr202045,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,199102,shutdown
+mr202045,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,199102,shutdown
+mr202045,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",199101,shutdown
+mr202045,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,85329,shutdown
+mr202045,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",82260,shutdown
+mr202045,S,MRI_FRR,278,Emergency docking released.,57872,emergency
+mr202045,I,_unknown,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",24122,shutdown
+mr202045,I,_unknown,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,24095,shutdown
+mr202045,I,_unknown,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,24095,shutdown
+mr202045,E,MRI_RFS,8,SAR limit(s) exceeded.,24000,sar limit
+mr202551,I,MRI_HEC,1032,Helium compressor unit is running.,138194,helium
+mr202551,I,MRI_FRR,278,Emergency docking released.,138181,emergency
+mr202551,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,138175,helium
+mr202551,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,138174,helium
+mr202551,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,17736,shutdown
+mr202551,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,17736,shutdown
+mr202551,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",17731,shutdown
+mr202551,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,7852,shutdown
+mr202551,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",6048,shutdown
+mr202551,E,MRI_RFS,8,SAR limit(s) exceeded.,4314,sar limit
+mr202596,I,MRI_HEC,1032,Helium compressor unit is running.,192122,helium
+mr202596,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,192099,helium
+mr202596,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,192099,helium
+mr202596,I,MRI_FRR,278,Emergency docking released.,146113,emergency
+mr202596,S,MRI_FRR,278,Emergency docking released.,55941,emergency
+mr202596,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,50726,shutdown
+mr202596,I,DeveloperLog_DevLogService,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,50726,shutdown
+mr202596,I,DeveloperLog_DevLogService,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",50723,shutdown
+mr202596,I,_unknown,0,"ShutdownService.RequestShutdownDelayInternal: Adding Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>, requestInfo=PendingShutdownActivities",21459,shutdown
+mr202596,I,_unknown,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,21452,shutdown
+mr202596,I,_unknown,0,ShutdownService.CancelShutdownDelayRequest: Removed Shutdown Delay Request: requestId=PendingShutdownActivities_<GUID>,21452,shutdown
+mr202596,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,21236,shutdown
+mr202596,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",20630,shutdown
+mr202596,E,MRI_RFS,8,SAR limit(s) exceeded.,19914,sar limit
+mr202596,I,_unknown,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,8742,shutdown
+mr202596,I,_unknown,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",8527,shutdown
+mr213726,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,324023,shutdown
+mr213726,I,MRI_FRR,278,Emergency docking released,47713,emergency
+mr213726,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,47562,helium
+mr213726,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,47550,helium
+mr213726,I,MRI_HEC,1032,Helium compressor unit is running.,47550,helium
+mr213726,I,MRI_HEC,1023,Helium compressor Daily log has updated.,39707,helium
+mr213726,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,13762,helium
+mr214701,I,MRI_HEC,1017,Helium compressor bypass solenoid valve closed.,63106,helium
+mr214701,I,MRI_HEC,1031,Helium compressor unit is running in normal mode.,63105,helium
+mr214701,I,MRI_HEC,1032,Helium compressor unit is running.,63105,helium
+mr214701,I,MRI_FRR,278,Emergency docking released,63098,emergency
+mr214701,I,MRI_HEC,1023,Helium compressor Daily log has updated.,62408,helium
+mr214701,I,MRI_HEC,1022,Helium compressor Weekly log has updated.,43808,helium
+mr214701,I,DeveloperLog_DevLogService,0,RequestShutdownDelaysForPendingActivities: There are no more pending activities.,36145,shutdown
+mr214701,E,MRI_RFS,8,SAR limit(s) exceeded.,1758,sar limit
+mr237202,I,MRI_FRR,278,Emergency docking released.,22921,emergency
+mr237202,I,MRI_PFW,9001,GPAK2298 [Dev#<DEV_ID>] info: Emergency (EMCY - 1) has been received,11677,emergency
+mr237202,I,DeveloperLog_DevLogService,0,ShutdownManagement.Shutdown - Point of no return -> ShutdownExecute,7862,shutdown
+mr237202,S,MRI_FRR,278,Emergency docking released.,5516,emergency
+mr237202,I,DeveloperLog_DevLogService,0,"ShutdownManagement - Executing: Immediate shutdown, as indicated by shutdown type 'Default' - no LCM involvement.",4598,shutdown
+mr237202,S,MRI_PFW,9001,GPAK2298 [Dev#<DEV_ID>] info: Emergency (EMCY - 1) has been received,2942,emergency

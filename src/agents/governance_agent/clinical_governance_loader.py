@@ -20,6 +20,8 @@ from pathlib import Path
 from typing import List, Dict, Any, Optional
 import logging
 from langchain_core.documents import Document
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -27,6 +29,12 @@ logger = logging.getLogger(__name__)
 DEFAULT_PROCESSED_DIR = "data/processed/governance"
 DEFAULT_PROCESSED_BASE = "data/processed"
 DEFAULT_RAW_DIR = "data/raw/siemens"
+
+# Clinical/protocol PDFs for the Governance Agent
+GOVERNANCE_PDF_PATTERNS = [
+    'MRI-PROTOCOLS-COMPLETE', 'Radiologist MRI Interpretation Manual',
+    'Siemens-Dot-Cockpit'
+]
 
 
 class ClinicalGovernanceLoader:
@@ -36,7 +44,9 @@ class ClinicalGovernanceLoader:
         self,
         processed_dir: Optional[str] = None,
         processed_base: Optional[str] = None,
-        raw_dir: Optional[str] = None
+        raw_dir: Optional[str] = None,
+        chunk_size: int = 1000,
+        chunk_overlap: int = 200
     ):
         self.processed_dir = Path(
             processed_dir or os.getenv("GOVERNANCE_DATA_DIR", DEFAULT_PROCESSED_DIR)
@@ -47,6 +57,8 @@ class ClinicalGovernanceLoader:
         self.raw_dir = Path(
             raw_dir or os.getenv("RAW_DATA_DIR", DEFAULT_RAW_DIR)
         )
+        self.chunk_size = chunk_size
+        self.chunk_overlap = chunk_overlap
 
         logger.info(f"ClinicalGovernanceLoader initialized: {self.processed_dir}")
 
@@ -259,7 +271,189 @@ class ClinicalGovernanceLoader:
             logger.error(f"Error loading customer mapping: {str(e)}")
             return []
 
-    def load(self) -> List[Document]:
+    def load_clinical_protocols(self) -> List[Document]:
+        """Load clinical protocol templates from RSNA RadReport data."""
+        csv_path = self.processed_dir / "clinical_protocols.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Clinical protocols not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading clinical protocols: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            # Group by modality to create manageable document chunks
+            group_col = 'modality' if 'modality' in df.columns else df.columns[0]
+            for modality, group in df.groupby(group_col):
+                text_parts = [
+                    f"CLINICAL PROTOCOLS - {modality}",
+                    f"Total templates: {len(group)}",
+                    ""
+                ]
+
+                for _, row in group.iterrows():
+                    title = row.get('title', row.get('filename', ''))
+                    body_region = row.get('body_region', '')
+                    desc = row.get('description', '')
+                    lang = row.get('language', '')
+                    line = f"- {title}"
+                    if body_region:
+                        line += f" [{body_region}]"
+                    if lang and lang != 'en':
+                        line += f" ({lang})"
+                    text_parts.append(line)
+                    if pd.notna(desc) and str(desc).strip():
+                        text_parts.append(f"  {desc}")
+
+                doc = Document(
+                    page_content="\n".join(text_parts),
+                    metadata={
+                        'source_type': 'clinical_protocol',
+                        'data_type': 'radreport_template',
+                        'modality': str(modality),
+                        'template_count': len(group),
+                        'file_name': csv_path.name,
+                        'agent': 'governance_agent'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} clinical protocol groups")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading clinical protocols: {str(e)}")
+            return []
+
+    def load_radlex_terms(self) -> List[Document]:
+        """Load RadLex terminology grouped by template category."""
+        csv_path = self.processed_dir / "radlex_terms.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"RadLex terms not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading RadLex terms: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            # Group by unique RadLex code to create a terminology reference
+            # Deduplicate meanings per code
+            if 'code' in df.columns and 'meaning' in df.columns:
+                terms = df.drop_duplicates(subset=['code', 'meaning'])
+                unique_terms = terms.groupby('code')['meaning'].first().reset_index()
+
+                # Create chunks of ~50 terms each to stay manageable
+                chunk_size = 50
+                for i in range(0, len(unique_terms), chunk_size):
+                    chunk = unique_terms.iloc[i:i + chunk_size]
+                    text_parts = [
+                        f"RADLEX TERMINOLOGY (terms {i+1}-{i+len(chunk)})",
+                        f"Total terms in this chunk: {len(chunk)}",
+                        ""
+                    ]
+                    for _, row in chunk.iterrows():
+                        text_parts.append(f"- {row['code']}: {row['meaning']}")
+
+                    doc = Document(
+                        page_content="\n".join(text_parts),
+                        metadata={
+                            'source_type': 'radlex_terminology',
+                            'data_type': 'radlex_terms',
+                            'chunk_index': i // chunk_size,
+                            'term_count': len(chunk),
+                            'file_name': csv_path.name,
+                            'agent': 'governance_agent'
+                        }
+                    )
+                    documents.append(doc)
+            else:
+                # Fallback: single document
+                text_parts = ["RADLEX TERMINOLOGY", f"Total entries: {len(df)}", ""]
+                for _, row in df.head(200).iterrows():
+                    text_parts.append(" | ".join(str(v) for v in row.values if pd.notna(v)))
+                doc = Document(
+                    page_content="\n".join(text_parts),
+                    metadata={
+                        'source_type': 'radlex_terminology',
+                        'data_type': 'radlex_terms',
+                        'entry_count': len(df),
+                        'file_name': csv_path.name,
+                        'agent': 'governance_agent'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} RadLex term documents")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading RadLex terms: {str(e)}")
+            return []
+
+    def load_governance_pdfs(self) -> List[Document]:
+        """Load and chunk clinical protocol and interpretation PDFs."""
+        pdf_files = []
+        for pattern in GOVERNANCE_PDF_PATTERNS:
+            found = list(self.raw_dir.glob(f"*{pattern}*"))
+            pdf_files.extend([f for f in found if f.suffix.lower() == '.pdf'])
+
+        # Deduplicate
+        seen_stems = set()
+        unique_pdfs = []
+        for pdf in pdf_files:
+            stem = pdf.stem.split(' (')[0]
+            if stem not in seen_stems:
+                seen_stems.add(stem)
+                unique_pdfs.append(pdf)
+
+        if not unique_pdfs:
+            logger.warning("No governance PDFs found")
+            return []
+
+        logger.info(f"Loading {len(unique_pdfs)} governance PDFs")
+
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=self.chunk_size,
+            chunk_overlap=self.chunk_overlap,
+            length_function=len,
+            separators=["\n\n", "\n", ". ", " ", ""]
+        )
+
+        all_documents = []
+
+        for pdf_path in unique_pdfs:
+            try:
+                logger.info(f"Processing: {pdf_path.name}")
+                loader = PyPDFLoader(str(pdf_path))
+                documents = loader.load()
+
+                chunks = text_splitter.split_documents(documents)
+
+                for chunk in chunks:
+                    chunk.metadata.update({
+                        'source_type': 'clinical_documentation',
+                        'data_type': 'protocol_pdf',
+                        'file_name': pdf_path.name,
+                        'agent': 'governance_agent'
+                    })
+
+                all_documents.extend(chunks)
+                logger.info(f"  Created {len(chunks)} chunks from {len(documents)} pages")
+
+            except Exception as e:
+                logger.error(f"Error processing {pdf_path.name}: {str(e)}")
+                continue
+
+        logger.info(f"Total governance PDF chunks: {len(all_documents)}")
+        return all_documents
+
+    def load(self, include_pdfs: bool = True) -> List[Document]:
         """Load all governance data for RAG indexing."""
         logger.info(f"Loading Workflow Anthropologist data from {self.processed_dir}")
 
@@ -276,6 +470,16 @@ class ClinicalGovernanceLoader:
 
         mapping = self.load_customer_mapping()
         all_documents.extend(mapping)
+
+        protocols = self.load_clinical_protocols()
+        all_documents.extend(protocols)
+
+        radlex = self.load_radlex_terms()
+        all_documents.extend(radlex)
+
+        if include_pdfs:
+            pdfs = self.load_governance_pdfs()
+            all_documents.extend(pdfs)
 
         logger.info(f"Total documents loaded: {len(all_documents)}")
         return all_documents
@@ -322,8 +526,8 @@ def main():
         for file, info in summary.get('files', {}).items():
             logger.info(f"  {file}: {info}")
 
-        documents = loader.load()
-        logger.info(f"\nLoaded {len(documents)} documents")
+        documents = loader.load(include_pdfs=False)
+        logger.info(f"\nLoaded {len(documents)} documents (excluding PDFs)")
 
         if documents:
             logger.info(f"\nExample: {documents[0].page_content[:300]}...")

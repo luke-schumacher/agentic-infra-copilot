@@ -1,0 +1,4 @@
+response_id,institution_name,country,org_type,mr_vendor_1,mr_model_1
+R001,University Hospital Munich,Germany,"public,academic,cancer_center",Siemens Healthineers,MAGNETOM Vida
+R002,Memorial Cancer Center,USA,"private,cancer_center",GE Healthcare,Discovery MR750w
+R003,Karolinska University Hospital,Sweden,"public,academic",Siemens Healthineers,MAGNETOM Aera

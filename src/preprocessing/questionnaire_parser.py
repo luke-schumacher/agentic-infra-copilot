@@ -82,6 +82,27 @@ class MRRTQuestionnaireParser:
             profile['mr_vendor_2'] = text_map.get('mr_vendor_2', '')
             profile['mr_model_2'] = text_map.get('mr_model_2', '')
 
+            # Combined scanner model (vendor + model for primary MR)
+            v1 = str(profile['mr_vendor_1']).strip() if profile['mr_vendor_1'] else ''
+            m1 = str(profile['mr_model_1']).strip() if profile['mr_model_1'] else ''
+            profile['scanner_model'] = f"{v1} {m1}".strip() if (v1 or m1) else ''
+
+            # Equipment summary string
+            equip_parts = []
+            n_linacs = profile['num_linacs']
+            if n_linacs and n_linacs > 0:
+                equip_parts.append(f"{n_linacs} LINAC(s)")
+            n_ct = profile['num_ct_simulators']
+            if n_ct and n_ct > 0:
+                equip_parts.append(f"{n_ct} CT simulator(s)")
+            if m1:
+                equip_parts.append(f"{v1} {m1}".strip() if v1 else m1)
+            v2 = str(profile['mr_vendor_2']).strip() if profile['mr_vendor_2'] else ''
+            m2 = str(profile['mr_model_2']).strip() if profile['mr_model_2'] else ''
+            if m2:
+                equip_parts.append(f"{v2} {m2}".strip() if v2 else m2)
+            profile['equipment'] = '; '.join(equip_parts) if equip_parts else ''
+
             # Workload
             profile['patients_per_year'] = field_map.get('patients_per_year', '')
             profile['pct_mr_planning'] = self._safe_float(

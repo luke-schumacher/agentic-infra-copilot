@@ -1,0 +1,36 @@
+customer_id,institution_name,has_event_logs,has_parquet,has_questionnaire,has_dcs_docs,total_events,error_count,gap_count,gaps,data_completeness_pct
+mr188001,nan,True,False,False,True,43602030,1230362,3,missing_parquet; missing_questionnaire; unmatched_institution,50.0
+mr141049,nan,True,True,False,True,31576681,360858,2,missing_questionnaire; unmatched_institution,75.0
+mr155687,nan,True,True,False,True,32556078,391929,2,missing_questionnaire; unmatched_institution,75.0
+mr175693,nan,True,True,False,True,11833462,113794,2,missing_questionnaire; unmatched_institution,75.0
+mr175727,nan,True,True,False,True,2262088,68935,2,missing_questionnaire; unmatched_institution,75.0
+mr175832,nan,True,True,False,True,24614143,193469,2,missing_questionnaire; unmatched_institution,75.0
+mr176133,nan,True,True,False,True,50466880,1937635,2,missing_questionnaire; unmatched_institution,75.0
+mr176430,nan,True,True,False,True,31028506,412323,2,missing_questionnaire; unmatched_institution,75.0
+mr176659,nan,True,True,False,True,15534802,895391,2,missing_questionnaire; unmatched_institution,75.0
+mr176750,nan,True,True,False,True,9151836,427788,2,missing_questionnaire; unmatched_institution,75.0
+mr176802,nan,True,True,False,True,19090111,395754,2,missing_questionnaire; unmatched_institution,75.0
+mr176887,nan,True,True,False,True,9946643,96785,2,missing_questionnaire; unmatched_institution,75.0
+mr177658,nan,True,True,False,True,21768552,1068170,2,missing_questionnaire; unmatched_institution,75.0
+mr183848,nan,True,True,False,True,11018525,250855,2,missing_questionnaire; unmatched_institution,75.0
+mr189541,nan,True,True,False,True,26513097,241586,2,missing_questionnaire; unmatched_institution,75.0
+mr189701,nan,True,True,False,True,26187889,1870178,2,missing_questionnaire; unmatched_institution,75.0
+mr189779,nan,True,True,False,True,20060012,166257,2,missing_questionnaire; unmatched_institution,75.0
+mr189880,nan,True,True,False,True,11253312,575642,2,missing_questionnaire; unmatched_institution,75.0
+mr190001,nan,True,True,False,True,53176621,1100222,2,missing_questionnaire; unmatched_institution,75.0
+mr190192,nan,True,True,False,True,50308972,4736038,2,missing_questionnaire; unmatched_institution,75.0
+mr190293,nan,True,True,False,True,34809748,2817184,2,missing_questionnaire; unmatched_institution,75.0
+mr190387,nan,True,True,False,True,21837535,559015,2,missing_questionnaire; unmatched_institution,75.0
+mr190395,nan,True,True,False,True,28319837,1578719,2,missing_questionnaire; unmatched_institution,75.0
+mr190519,nan,True,True,False,True,22081290,622108,2,missing_questionnaire; unmatched_institution,75.0
+mr193521,nan,True,True,False,True,7813250,580833,2,missing_questionnaire; unmatched_institution,75.0
+mr194220,nan,True,True,False,True,6877185,30552,2,missing_questionnaire; unmatched_institution,75.0
+mr196296,nan,True,True,False,True,24379292,483029,2,missing_questionnaire; unmatched_institution,75.0
+mr200103,nan,True,True,False,True,3367620,49554,2,missing_questionnaire; unmatched_institution,75.0
+mr202008,nan,True,True,False,True,16795510,209715,2,missing_questionnaire; unmatched_institution,75.0
+mr202045,nan,True,True,False,True,53048931,1597201,2,missing_questionnaire; unmatched_institution,75.0
+mr202551,nan,True,True,False,True,12547395,104308,2,missing_questionnaire; unmatched_institution,75.0
+mr202596,nan,True,True,False,True,17535713,1676212,2,missing_questionnaire; unmatched_institution,75.0
+mr213726,nan,True,True,False,True,4180227,47595,2,missing_questionnaire; unmatched_institution,75.0
+mr214701,nan,True,True,False,True,3909473,39188,2,missing_questionnaire; unmatched_institution,75.0
+mr237202,nan,True,True,False,True,7543267,584726,2,missing_questionnaire; unmatched_institution,75.0

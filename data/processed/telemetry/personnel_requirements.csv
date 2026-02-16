@@ -1,0 +1,5 @@
+role,level,zone_access,supervision_required,training_requirements,certification
+Level 1 MR Personnel,1,Zones I-III,Yes - by Level 2 in Zone III,MR safety orientation; site-specific safety training,Facility-specific MR safety training completion
+Level 2 MR Personnel,2,Zones I-IV,No,Extensive MR safety education; hands-on MR experience; ongoing CE,ARRT(MR) or equivalent; ACR-recommended MR safety training
+MR Medical Director,2,Zones I-IV,No,Board-certified radiologist; MR physics training; safety program oversight,Board certification in Radiology; MR safety officer qualification
+MR Safety Officer,2,Zones I-IV,No,MR safety expertise; emergency procedure training; policy development,MRSO certification (ABMRS) or equivalent; annual safety training renewal
