@@ -160,35 +160,74 @@ class DiagnosisLog(BaseModel):
         if round_log.agent not in self.agents_consulted:
             self.agents_consulted.append(round_log.agent)
 
+    # Stopwords to exclude from cross-domain overlap detection
+    _STOPWORDS = frozenset({
+        'the', 'a', 'an', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
+        'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could',
+        'should', 'may', 'might', 'shall', 'can', 'need', 'must', 'ought',
+        'i', 'me', 'my', 'we', 'our', 'you', 'your', 'he', 'she', 'it',
+        'they', 'them', 'their', 'this', 'that', 'these', 'those', 'which',
+        'what', 'who', 'whom', 'where', 'when', 'how', 'why', 'if', 'then',
+        'else', 'and', 'or', 'but', 'not', 'no', 'nor', 'so', 'yet',
+        'for', 'of', 'in', 'on', 'at', 'to', 'from', 'by', 'with', 'as',
+        'into', 'about', 'than', 'after', 'before', 'during', 'between',
+        'also', 'more', 'most', 'very', 'just', 'only', 'still', 'even',
+    })
+
+    # Domain-specific keyword sets for meaningful cross-domain detection
+    _DOMAIN_KEYWORDS = {
+        'governance_agent': {
+            'institution', 'workload', 'scheduling', 'staffing', 'protocol',
+            'capacity', 'utilization', 'throughput', 'bottleneck', 'volume',
+            'academic', 'private', 'hospital', 'radlex', 'questionnaire',
+        },
+        'hardware_agent': {
+            'dicom', 'sop', 'gradient', 'coil', 'cryogen', 'helium',
+            'thermal', 'calibration', 'magnetom', 'xa50', 'xa60', 'xa51',
+            'quench', 'rf', 'amplifier', 'failure', 'component', 'sensor',
+        },
+        'telemetry_agent': {
+            'safety', 'zone', 'compliance', 'screening', 'ferromagnetic',
+            'personnel', 'sop', 'acr', 'training', 'restricted', 'level',
+            'audit', 'regulation', 'procedure', 'interlock',
+        },
+    }
+
     def detect_cross_domain_references(self) -> None:
-        """Analyze rounds to detect cross-domain references."""
+        """Analyze rounds to detect cross-domain references using domain-specific keywords."""
         agent_findings: Dict[str, str] = {}
 
         for round_log in self.rounds:
             findings = round_log.findings_summary.lower()
             agent_findings[round_log.agent] = findings
 
-            # Check if this agent references other agents
+            # Check if this agent references other agents' domains
             for other_agent, other_findings in agent_findings.items():
                 if other_agent == round_log.agent:
                     continue
 
-                # Simple keyword matching for demonstration
-                # In production, use semantic similarity
-                other_keywords = set(other_findings.split())
-                current_keywords = set(findings.split())
-                overlap = other_keywords & current_keywords
+                # Filter out stopwords, keep only meaningful terms
+                other_words = set(other_findings.split()) - self._STOPWORDS
+                current_words = set(findings.split()) - self._STOPWORDS
 
-                if len(overlap) > 2:  # Significant overlap
+                # Check overlap with domain-specific keywords of the other agent
+                other_domain_kw = self._DOMAIN_KEYWORDS.get(other_agent, set())
+                domain_overlap = current_words & other_domain_kw
+                general_overlap = other_words & current_words
+
+                # Require either domain keyword match or significant filtered overlap
+                if len(domain_overlap) >= 1 or len(general_overlap) > 3:
                     ref_type = self._determine_reference_type(findings, other_findings)
+                    overlap = domain_overlap or general_overlap
                     self.cross_domain_refs.append(CrossDomainReference(
                         from_agent=round_log.agent,
                         to_agent=other_agent,
                         reference_type=ref_type,
-                        content_snippet=f"Overlap: {', '.join(list(overlap)[:5])}",
+                        content_snippet=f"Domain overlap: {', '.join(sorted(overlap)[:5])}",
                         round_number=round_log.round_number
                     ))
-                    round_log.cited_agents.append(other_agent)
+                    if other_agent not in round_log.cited_agents:
+                        round_log.cited_agents.append(other_agent)
 
     def _determine_reference_type(self, current: str, other: str) -> str:
         """Determine how current findings relate to other findings."""
@@ -241,6 +280,89 @@ class DiagnosisLog(BaseModel):
         # Score based on unique agent pairs that communicated
         max_pairs = 3  # 3 agents = 3 possible pairs
         return len(unique_pairs) / max_pairs
+
+    def to_graph_notation(self) -> str:
+        """
+        Output a dynamic reasoning graph in typed-edge notation.
+
+        Format: [AGENT:RESPONSE_TYPE(confidence)] --EDGE_TYPE--> [AGENT:RESPONSE_TYPE(confidence)]
+
+        Example:
+            [GOV:PARTIAL(0.4)] --CONSULT--> [HW:ANSWER(0.85)] --SYNTHESIS--> [GOV:FINAL(0.9)]
+        """
+        if not self.rounds:
+            return "[NO ROUNDS LOGGED]"
+
+        agent_abbrev = {
+            'governance_agent': 'GOV',
+            'hardware_agent': 'HW',
+            'telemetry_agent': 'TEL',
+        }
+
+        parts = []
+        for i, r in enumerate(self.rounds):
+            abbr = agent_abbrev.get(r.agent, r.agent.upper()[:3])
+            node = f"[{abbr}:{r.response_type.upper()}({r.confidence:.1f})]"
+            parts.append(node)
+
+            if i < len(self.rounds) - 1:
+                next_r = self.rounds[i + 1]
+                # Determine edge type from response_type of current round
+                if r.response_type.lower() == 'consult':
+                    edge = 'CONSULT'
+                elif r.response_type.lower() == 'partial':
+                    edge = 'CONSULT'
+                elif r.response_type.lower() == 'redirect':
+                    edge = 'REDIRECT'
+                elif r.response_type.lower() == 'answer' and next_r.agent != r.agent:
+                    edge = 'SYNTHESIS'
+                else:
+                    edge = 'NEXT'
+                parts.append(f" --{edge}--> ")
+
+        return "".join(parts)
+
+    def to_visualization_data(self) -> dict:
+        """
+        Return structured data for reasoning chain visualization.
+
+        Includes graph notation, confidence progression, and node/edge lists
+        suitable for rendering in TikZ or other graph visualization tools.
+        """
+        agent_abbrev = {
+            'governance_agent': 'GOV',
+            'hardware_agent': 'HW',
+            'telemetry_agent': 'TEL',
+        }
+
+        nodes = []
+        edges = []
+        for i, r in enumerate(self.rounds):
+            abbr = agent_abbrev.get(r.agent, r.agent.upper()[:3])
+            nodes.append({
+                'id': f"r{i}",
+                'agent': r.agent,
+                'abbrev': abbr,
+                'response_type': r.response_type,
+                'confidence': r.confidence,
+                'round': r.round_number,
+            })
+            if i > 0:
+                prev = self.rounds[i - 1]
+                edge_type = 'CONSULT' if prev.response_type.lower() in ('consult', 'partial') else 'NEXT'
+                edges.append({
+                    'from': f"r{i-1}",
+                    'to': f"r{i}",
+                    'type': edge_type,
+                })
+
+        return {
+            'graph_notation': self.to_graph_notation(),
+            'confidence_progression': self.get_confidence_progression(),
+            'nodes': nodes,
+            'edges': edges,
+            'emergence_score': self.get_emergence_score(),
+        }
 
     class Config:
         json_encoders = {

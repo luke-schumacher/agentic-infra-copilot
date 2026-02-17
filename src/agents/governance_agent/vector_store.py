@@ -38,12 +38,23 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
+# Federated Agentic RAG: Allowed document types for this agent's cognitive silo
+SILO_ALLOWED_TYPES = {
+    'institution_profile', 'workload_pattern', 'customer_feedback',
+    'clinical_protocol', 'radlex_terms', 'protocol_pdf',
+    'clinical_documentation', 'customer_mapping', 'radlex_terminology',
+    'governance_data',
+}
+
+
 class WorkflowAnthropologistStore:
     """
     Agent-specific vector store for The Anthropologist (Agent 2 - Workflow & Context).
 
     Uses a dedicated ChromaDB collection: 'workflow_anthropologist_collection'
     Stores institution profiles, workload patterns, and customer feedback.
+
+    Enforces cognitive silo separation: only governance-domain documents are accepted.
     """
 
     def __init__(
@@ -138,6 +149,24 @@ class WorkflowAnthropologistStore:
 
         logger.info(f"Indexing {len(documents)} documents into Workflow Anthropologist store...")
 
+        # Silo validation: reject documents from other domains
+        valid_docs = []
+        rejected = 0
+        for doc in documents:
+            data_type = doc.metadata.get('data_type', '')
+            source_type = doc.metadata.get('source_type', '')
+            if data_type in SILO_ALLOWED_TYPES or source_type in SILO_ALLOWED_TYPES:
+                valid_docs.append(doc)
+            else:
+                rejected += 1
+                logger.warning(
+                    f"Silo violation: rejected document with data_type='{data_type}', "
+                    f"source_type='{source_type}' (not in governance domain)"
+                )
+        if rejected > 0:
+            logger.warning(f"Silo enforcement: rejected {rejected}/{len(documents)} documents")
+        documents = valid_docs
+
         current_count = self.get_document_count()
 
         if force_reindex and current_count > 0:
@@ -196,11 +225,44 @@ class WorkflowAnthropologistStore:
         logger.info(f"Found {len(results)} relevant documents")
         return results
 
+    def similarity_search_with_score(
+        self,
+        query: str,
+        k: int = 5
+    ) -> List[tuple]:
+        logger.info(f"Searching Anthropologist documents with scores for: '{query[:50]}...'")
+        results = self.vectorstore.similarity_search_with_score(query, k=k)
+        logger.info(f"Found {len(results)} relevant documents with scores")
+        return results
+
     def get_retriever(self, k: int = 5):
         return self.vectorstore.as_retriever(
             search_type="similarity",
             search_kwargs={"k": k}
         )
+
+    def get_silo_audit(self) -> dict:
+        """Return collection stats and unique data_types for silo auditing."""
+        doc_count = self.get_document_count()
+        data_types = set()
+        try:
+            collection = self.vectorstore._collection
+            result = collection.get(include=["metadatas"])
+            if result and result.get("metadatas"):
+                for meta in result["metadatas"]:
+                    if meta:
+                        dt = meta.get("data_type", "unknown")
+                        data_types.add(dt)
+        except Exception as e:
+            logger.warning(f"Silo audit metadata scan failed: {e}")
+        return {
+            "agent": "governance_agent",
+            "collection": self.collection_name,
+            "document_count": doc_count,
+            "allowed_types": sorted(SILO_ALLOWED_TYPES),
+            "actual_data_types": sorted(data_types),
+            "silo_clean": data_types.issubset(SILO_ALLOWED_TYPES | {"unknown"}),
+        }
 
 
 # Backward compatibility alias

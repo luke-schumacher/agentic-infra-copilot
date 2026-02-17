@@ -142,6 +142,37 @@ class CrossReferenceSOP(dspy.Signature):
     )
 
 
+class AnalyzeEventLogs(dspy.Signature):
+    """
+    Analyze MRI event log data retrieved via Polars from per-customer Parquet files.
+
+    Given pre-filtered event log data (errors, warnings, DICOM events),
+    identify patterns, recurring issues, and correlations with known failure modes.
+    """
+    customer_id: str = dspy.InputField(
+        desc="Siemens customer ID (e.g., 'mr200103')"
+    )
+    event_data_summary: str = dspy.InputField(
+        desc="Summary of event log data: top errors, temporal patterns, source distribution"
+    )
+    known_failure_modes: str = dspy.InputField(
+        desc="Relevant failure modes from the curated FM catalog (FM-001 to FM-020)"
+    )
+
+    analysis: str = dspy.OutputField(
+        desc="Analysis of event log patterns and their operational significance"
+    )
+    identified_issues: str = dspy.OutputField(
+        desc="List of identified issues with severity and frequency"
+    )
+    failure_mode_matches: str = dspy.OutputField(
+        desc="Which known failure modes (FM-XXX) match the observed patterns"
+    )
+    recommendations: str = dspy.OutputField(
+        desc="Recommended actions based on event log analysis"
+    )
+
+
 class EvaluateRequest(dspy.Signature):
     """
     Evaluate if I can handle this request before attempting diagnosis.
@@ -203,6 +234,7 @@ class DiagnosticSpecialistModule(dspy.Module):
         self.analyze_hardware = dspy.ChainOfThought(AnalyzeHardwareError)
         self.lookup_spec = dspy.ChainOfThought(LookupTechnicalSpec)
         self.cross_reference = dspy.ChainOfThought(CrossReferenceSOP)
+        self.analyze_event_logs = dspy.ChainOfThought(AnalyzeEventLogs)
 
     def forward(
         self,

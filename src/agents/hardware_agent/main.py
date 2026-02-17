@@ -46,6 +46,14 @@ from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
 from src.agents.shared.security import configure_cors
 
+# Polars event log loader
+try:
+    from src.preprocessing.parquet_loader import LazyParquetLoader
+    PARQUET_AVAILABLE = True
+except ImportError:
+    LazyParquetLoader = None
+    PARQUET_AVAILABLE = False
+
 # Backward compatibility imports
 try:
     from src.agents.hardware_agent.data_loader import SiemensLoader
@@ -113,6 +121,23 @@ async def lifespan(app: FastAPI):
         logger.warning(f"Graph service initialization skipped: {e}")
         app.state.graph_service = None
         app.state.graph_ready = False
+
+    # Initialize Polars event log loader
+    try:
+        parquet_dir = os.getenv("PARQUET_DATA_DIR", "data/raw/siemens/eventlog_txt")
+        if PARQUET_AVAILABLE:
+            app.state.parquet_loader = LazyParquetLoader(parquet_dir)
+            customers = app.state.parquet_loader.list_customers()
+            logger.info(f"Polars event log loader ready: {len(customers)} customers available")
+            app.state.parquet_ready = True
+        else:
+            logger.warning("Polars not available - event log queries disabled")
+            app.state.parquet_loader = None
+            app.state.parquet_ready = False
+    except Exception as e:
+        logger.warning(f"Parquet loader initialization failed: {e}")
+        app.state.parquet_loader = None
+        app.state.parquet_ready = False
 
     logger.info("=" * 60)
     logger.info("DIAGNOSTIC SPECIALIST (The Specialist) - Ready to serve!")
@@ -266,8 +291,10 @@ async def consult(request: ConsultRequest):
         if not app.state.brain:
             raise HTTPException(status_code=503, detail="Brain module not initialized")
 
-        # Retrieve relevant documents
-        documents = app.state.vector_store.similarity_search(query, k=5)
+        # Retrieve relevant documents with actual relevance scores
+        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=5)
+        documents = [doc for doc, _ in doc_score_pairs]
+        doc_scores = {id(doc): score for doc, score in doc_score_pairs}
 
         vector_context = "\n\n".join([
             f"[{doc.metadata.get('data_type', 'technical')}] {doc.page_content}"
@@ -276,6 +303,20 @@ async def consult(request: ConsultRequest):
 
         if not vector_context:
             vector_context = "No relevant technical documentation found."
+
+        # Polars event log enrichment for customer-specific or event-log queries
+        event_log_context = ""
+        if customer_id and getattr(app.state, 'parquet_loader', None):
+            try:
+                summary = app.state.parquet_loader.get_error_summary(customer_id)
+                if summary.get('source') != 'not_found':
+                    event_log_context = f"\n\n--- Event Log Data ({customer_id}) ---\n{str(summary)[:1500]}"
+                    logger.info(f"Event log context added for {customer_id}")
+            except Exception as e:
+                logger.warning(f"Event log enrichment failed: {e}")
+
+        if event_log_context:
+            vector_context += event_log_context
 
         # Knowledge Graph enrichment
         graph_context = ""
@@ -314,13 +355,13 @@ async def consult(request: ConsultRequest):
             equipment_type=equipment_type
         )
 
-        # Document references
+        # Document references with actual similarity scores
         doc_refs = [
             DocumentReference(
                 source=doc.metadata.get('source_type', 'specialist'),
                 file_name=doc.metadata.get('file_name', 'unknown'),
                 content_snippet=doc.page_content[:500] if doc.page_content else "",
-                relevance_score=0.85,
+                relevance_score=round(1.0 - doc_scores.get(id(doc), 0.15), 4),
                 metadata=doc.metadata
             )
             for doc in documents
@@ -498,6 +539,95 @@ async def search_documents(query: str, k: int = 5):
             for doc in documents
         ]
     }
+
+
+@app.get("/silo-audit")
+async def silo_audit():
+    """Return cognitive silo audit: collection stats and domain boundary verification."""
+    if not app.state.vector_store:
+        return {"error": "vector_store_not_initialized"}
+    return app.state.vector_store.get_silo_audit()
+
+
+@app.post("/event-logs/{customer_id}")
+async def query_event_logs(
+    customer_id: str,
+    severity: Optional[str] = None,
+    source_filter: Optional[str] = None,
+    dicom_only: bool = False,
+    limit: int = 100
+):
+    """
+    Query MRI event logs for a specific customer via Polars LazyParquetLoader.
+
+    Supports filtering by severity (E/W/I), source, and DICOM-specific errors.
+    Optionally runs DSPy analysis on retrieved events.
+    """
+    if not getattr(app.state, 'parquet_loader', None):
+        raise HTTPException(status_code=503, detail="Event log loader not available")
+
+    loader = app.state.parquet_loader
+
+    if not loader.has_parquet(customer_id):
+        raise HTTPException(status_code=404, detail=f"No event logs found for {customer_id}")
+
+    try:
+        if dicom_only:
+            df = loader.find_dicom_errors(customer_id=customer_id, limit=limit)
+        else:
+            df = loader.query_events_for_customer(
+                customer_id=customer_id,
+                severity=severity,
+                source_filter=source_filter,
+                limit=limit
+            )
+
+        if df is None or len(df) == 0:
+            return {"customer_id": customer_id, "events": [], "count": 0}
+
+        events = df.to_dicts()
+        summary = loader.get_error_summary(customer_id)
+
+        result = {
+            "customer_id": customer_id,
+            "events": events[:limit],
+            "count": len(events),
+            "summary": summary,
+        }
+
+        # Run DSPy analysis if brain is available and we have events
+        if app.state.brain and len(events) > 0:
+            try:
+                # Get failure mode context from vector store
+                fm_context = ""
+                if app.state.vector_store:
+                    fm_docs = app.state.vector_store.similarity_search(
+                        f"failure mode {customer_id} errors", k=3
+                    )
+                    fm_context = "\n".join(d.page_content[:300] for d in fm_docs)
+
+                analysis_result = app.state.brain.analyze_event_logs(
+                    customer_id=customer_id,
+                    event_data_summary=str(summary)[:2000],
+                    known_failure_modes=fm_context or "No failure mode catalog available"
+                )
+                result["analysis"] = {
+                    "analysis": getattr(analysis_result, 'analysis', ''),
+                    "identified_issues": getattr(analysis_result, 'identified_issues', ''),
+                    "failure_mode_matches": getattr(analysis_result, 'failure_mode_matches', ''),
+                    "recommendations": getattr(analysis_result, 'recommendations', ''),
+                }
+            except Exception as e:
+                logger.warning(f"Event log DSPy analysis failed: {e}")
+                result["analysis"] = {"error": str(e)}
+
+        return result
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Event log query failed: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":
