@@ -274,8 +274,10 @@ async def consult(request: ConsultRequest):
         if not app.state.brain:
             raise HTTPException(status_code=503, detail="Brain module not initialized")
 
-        # Retrieve relevant documents
-        documents = app.state.vector_store.similarity_search(query, k=5)
+        # Retrieve relevant documents with actual relevance scores
+        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=5)
+        documents = [doc for doc, _ in doc_score_pairs]
+        doc_scores = {id(doc): score for doc, score in doc_score_pairs}
 
         vector_context = "\n\n".join([
             f"[{doc.metadata.get('data_type', 'safety')}] {doc.page_content}"
@@ -325,13 +327,13 @@ async def consult(request: ConsultRequest):
             station_id=station_id
         )
 
-        # Document references
+        # Document references with actual similarity scores
         doc_refs = [
             DocumentReference(
                 source=doc.metadata.get('source_type', 'auditor'),
                 file_name=doc.metadata.get('file_name', 'safety_doc'),
                 content_snippet=doc.page_content[:500] if doc.page_content else "",
-                relevance_score=0.85,
+                relevance_score=round(1.0 - doc_scores.get(id(doc), 0.15), 4),
                 metadata=doc.metadata
             )
             for doc in documents
@@ -518,6 +520,14 @@ async def search_documents(query: str, k: int = 5):
             for doc in documents
         ]
     }
+
+
+@app.get("/silo-audit")
+async def silo_audit():
+    """Return cognitive silo audit: collection stats and domain boundary verification."""
+    if not app.state.vector_store:
+        return {"error": "vector_store_not_initialized"}
+    return app.state.vector_store.get_silo_audit()
 
 
 if __name__ == "__main__":

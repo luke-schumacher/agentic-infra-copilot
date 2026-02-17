@@ -51,6 +51,7 @@ from src.agents.governance_agent.vector_store import WorkflowAnthropologistStore
 from src.agents.shared.dspy_config import configure_dspy
 from src.agents.shared.graph_service import get_graph_service
 from src.agents.shared.security import configure_cors
+from src.evaluation.diagnosis_logging import DiagnosisLog, DiagnosisLogger, RoundLog
 
 # Backward compatibility imports
 try:
@@ -144,6 +145,10 @@ async def lifespan(app: FastAPI):
         logger.warning(f"Graph service initialization skipped: {e}")
         app.state.graph_service = None
         app.state.graph_ready = False
+
+    # Initialize diagnosis logger for reasoning chain capture
+    app.state.diagnosis_logger = DiagnosisLogger()
+    logger.info("Diagnosis logger initialized (logs/diagnosis/)")
 
     logger.info("=" * 60)
     logger.info("WORKFLOW ANTHROPOLOGIST (The Anthropologist) - Ready to serve!")
@@ -262,8 +267,10 @@ async def consult(request: ConsultRequest):
         if not app.state.brain:
             raise HTTPException(status_code=503, detail="Brain module not initialized")
 
-        # Retrieve relevant documents
-        documents = app.state.vector_store.similarity_search(query, k=5)
+        # Retrieve relevant documents with actual relevance scores
+        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=5)
+        documents = [doc for doc, _ in doc_score_pairs]
+        doc_scores = {id(doc): score for doc, score in doc_score_pairs}
 
         vector_context = "\n\n".join([
             f"[Source: {doc.metadata.get('file_name', 'unknown')}]\n{doc.page_content}"
@@ -310,13 +317,13 @@ async def consult(request: ConsultRequest):
             is_symptom=is_symptom
         )
 
-        # Document references
+        # Document references with actual similarity scores
         doc_refs = [
             DocumentReference(
                 source=doc.metadata.get('source_type', 'anthropologist'),
                 file_name=doc.metadata.get('file_name', 'unknown'),
                 content_snippet=doc.page_content[:500] if doc.page_content else "",
-                relevance_score=0.85,
+                relevance_score=round(1.0 - doc_scores.get(id(doc), 0.15), 4),
                 metadata=doc.metadata
             )
             for doc in documents
@@ -447,6 +454,46 @@ async def consult(request: ConsultRequest):
 
         logger.info(f"Consultation completed in {processing_time:.2f}ms")
 
+        # Capture reasoning chain log
+        try:
+            import uuid as _uuid
+            diag_log = DiagnosisLog(
+                session_id=card.message_id or str(_uuid.uuid4()),
+                mode="mas_full" if (target_agent and target_agent != 'self') else "governance_only",
+                original_query=query,
+                query_metadata={"customer_id": customer_id, "location": location, "is_symptom": is_symptom},
+                final_diagnosis=response_payload.get("contextual_explanation", response_payload.get("answer", "")),
+            )
+            diag_log.add_round(RoundLog(
+                round_number=0,
+                agent="governance_agent",
+                response_type=str(eval_response_type),
+                confidence=eval_confidence,
+                findings_summary=str(response_payload.get("contextual_explanation", response_payload.get("answer", "")))[:500],
+                latency_ms=processing_time,
+            ))
+            if target_agent and target_agent != 'self' and 'specialist_findings' in response_payload:
+                spec = response_payload.get("specialist_findings", {})
+                spec_card = spec.get("response_card", {})
+                spec_conf = spec_card.get("confidence", 0.7)
+                spec_rt = spec_card.get("response_type", "answer")
+                spec_payload = spec_card.get("payload", {})
+                diag_log.add_round(RoundLog(
+                    round_number=1,
+                    agent=target_agent,
+                    response_type=str(spec_rt),
+                    confidence=float(spec_conf) if spec_conf else 0.7,
+                    findings_summary=str(spec_payload.get("diagnosis", spec_payload.get("answer", "")))[:500],
+                    latency_ms=spec.get("processing_time_ms", 0),
+                ))
+            diag_log.termination_reason = "delegation_complete" if target_agent and target_agent != 'self' else "single_agent"
+            # Add visualization data to response
+            response_payload["reasoning_chain_visualization"] = diag_log.to_visualization_data()
+            if hasattr(app.state, 'diagnosis_logger'):
+                app.state.diagnosis_logger.save_log(diag_log)
+        except Exception as log_err:
+            logger.warning(f"Diagnosis logging failed (non-critical): {log_err}")
+
         return ConsultResponse(
             success=True,
             response_card=response_card,
@@ -565,6 +612,14 @@ async def get_document_count():
         return {"count": 0, "status": "vector_store_not_initialized"}
     count = app.state.vector_store.get_document_count()
     return {"count": count, "status": "ok"}
+
+
+@app.get("/silo-audit")
+async def silo_audit():
+    """Return cognitive silo audit: collection stats and domain boundary verification."""
+    if not app.state.vector_store:
+        return {"error": "vector_store_not_initialized"}
+    return app.state.vector_store.get_silo_audit()
 
 
 if __name__ == "__main__":

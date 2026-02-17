@@ -38,12 +38,22 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
+# Federated Agentic RAG: Allowed document types for this agent's cognitive silo
+SILO_ALLOWED_TYPES = {
+    'safety_procedure', 'safety_zone', 'personnel_requirement',
+    'safety_event_flag', 'safety_pdf', 'safety_documentation',
+    'compliance_data', 'zone_definition', 'telemetry_data',
+}
+
+
 class SafetyAuditorStore:
     """
     Agent-specific vector store for The Auditor (Agent 3 - Safety & Compliance).
 
     Uses a dedicated ChromaDB collection: 'safety_auditor_collection'
     Stores MRI safety procedures, zone definitions, and compliance documentation.
+
+    Enforces cognitive silo separation: only safety/compliance-domain documents are accepted.
     """
 
     def __init__(
@@ -138,6 +148,24 @@ class SafetyAuditorStore:
 
         logger.info(f"Indexing {len(documents)} documents into Safety Auditor store...")
 
+        # Silo validation: reject documents from other domains
+        valid_docs = []
+        rejected = 0
+        for doc in documents:
+            data_type = doc.metadata.get('data_type', '')
+            source_type = doc.metadata.get('source_type', '')
+            if data_type in SILO_ALLOWED_TYPES or source_type in SILO_ALLOWED_TYPES:
+                valid_docs.append(doc)
+            else:
+                rejected += 1
+                logger.warning(
+                    f"Silo violation: rejected document with data_type='{data_type}', "
+                    f"source_type='{source_type}' (not in safety/compliance domain)"
+                )
+        if rejected > 0:
+            logger.warning(f"Silo enforcement: rejected {rejected}/{len(documents)} documents")
+        documents = valid_docs
+
         current_count = self.get_document_count()
 
         if force_reindex and current_count > 0:
@@ -223,6 +251,29 @@ class SafetyAuditorStore:
             search_type="similarity",
             search_kwargs={"k": k}
         )
+
+    def get_silo_audit(self) -> dict:
+        """Return collection stats and unique data_types for silo auditing."""
+        doc_count = self.get_document_count()
+        data_types = set()
+        try:
+            collection = self.vectorstore._collection
+            result = collection.get(include=["metadatas"])
+            if result and result.get("metadatas"):
+                for meta in result["metadatas"]:
+                    if meta:
+                        dt = meta.get("data_type", "unknown")
+                        data_types.add(dt)
+        except Exception as e:
+            logger.warning(f"Silo audit metadata scan failed: {e}")
+        return {
+            "agent": "telemetry_agent",
+            "collection": self.collection_name,
+            "document_count": doc_count,
+            "allowed_types": sorted(SILO_ALLOWED_TYPES),
+            "actual_data_types": sorted(data_types),
+            "silo_clean": data_types.issubset(SILO_ALLOWED_TYPES | {"unknown"}),
+        }
 
 
 # Backward compatibility alias

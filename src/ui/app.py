@@ -408,10 +408,13 @@ def render_chat_interface():
 
                         # Agent icon mapping
                         agent_icons = {
+                            'governance_agent': '🏛️',
+                            'hardware_agent': '🔧',
+                            'telemetry_agent': '🛡️',
                             'diagnostic_specialist': '🔧',
                             'safety_auditor': '🛡️',
                             'siemens_technician': '🔧',
-                            'illigo_operator': '⚡'
+                            'illigo_operator': '⚡',
                         }
                         icon = agent_icons.get(spec_agent, '🔍')
 

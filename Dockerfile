@@ -22,7 +22,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Create directories for data persistence
-RUN mkdir -p /app/chroma_db /app/data /app/results
+RUN mkdir -p /app/chroma_db /app/data /app/results /app/logs/diagnosis
 
 # Set Python path
 ENV PYTHONPATH=/app
