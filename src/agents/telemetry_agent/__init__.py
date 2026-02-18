@@ -1,27 +1,27 @@
 """
-Illigo Operator Agent - Live Monitor (Port 8003)
+Safety Auditor Agent - Live Monitor (Port 8003)
 
 Specialized agent for:
-- OCPP event log analysis
-- Anomaly detection in charging station data
-- Real-time fault correlation
-- Load balance monitoring
+- Compliance and SOP validation
+- Diagnostic action review
+- Safety zone checking
+- Workflow change auditing
 
 Components:
-- brain.py: DSPy signatures for event analysis
-- data_loader.py: Illigo PDF/CSV/event log loader
-- vector_store.py: ChromaDB collection for station data
+- brain.py: DSPy signatures for safety auditing
+- mri_data_loader.py: MRI telemetry data loader
+- vector_store.py: ChromaDB collection for telemetry data
 - main.py: FastAPI microservice
 
 Author: Thesis Project - Agentic Infra Co-Pilot
 """
 
-from src.agents.telemetry_agent.brain import IlligoOperatorModule
-from src.agents.telemetry_agent.data_loader import IlligoLoader
-from src.agents.telemetry_agent.vector_store import IlligoVectorStore
+from src.agents.telemetry_agent.brain import SafetyAuditorModule
+from src.agents.telemetry_agent.mri_data_loader import MRITelemetryLoader
+from src.agents.telemetry_agent.vector_store import SafetyAuditorStore
 
 __all__ = [
-    "IlligoOperatorModule",
-    "IlligoLoader",
-    "IlligoVectorStore"
+    "SafetyAuditorModule",
+    "MRITelemetryLoader",
+    "SafetyAuditorStore"
 ]
