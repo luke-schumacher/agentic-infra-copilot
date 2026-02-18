@@ -1,27 +1,27 @@
 """
-Siemens Technician Agent - Hardware Expert (Port 8002)
+Diagnostic Specialist Agent - Hardware Expert (Port 8002)
 
 Specialized agent for:
 - Hardware fault diagnosis
 - Equipment specification lookup
 - Technical documentation analysis
-- Pain point analysis from questionnaire data
+- MRI hardware data analysis
 
 Components:
 - brain.py: DSPy signatures for hardware reasoning
-- data_loader.py: Siemens CSV questionnaire loader
+- mri_hardware_loader.py: MRI hardware data loader
 - vector_store.py: ChromaDB collection for equipment data
 - main.py: FastAPI microservice
 
 Author: Thesis Project - Agentic Infra Co-Pilot
 """
 
-from src.agents.hardware_agent.brain import SiemensTechnicianModule
-from src.agents.hardware_agent.data_loader import SiemensLoader
-from src.agents.hardware_agent.vector_store import SiemensVectorStore
+from src.agents.hardware_agent.brain import DiagnosticSpecialistModule
+from src.agents.hardware_agent.mri_hardware_loader import MRIHardwareLoader
+from src.agents.hardware_agent.vector_store import DiagnosticSpecialistStore
 
 __all__ = [
-    "SiemensTechnicianModule",
-    "SiemensLoader",
-    "SiemensVectorStore"
+    "DiagnosticSpecialistModule",
+    "MRIHardwareLoader",
+    "DiagnosticSpecialistStore"
 ]
