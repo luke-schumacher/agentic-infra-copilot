@@ -228,12 +228,18 @@ class WorkflowAnthropologistStore:
     def similarity_search_with_score(
         self,
         query: str,
-        k: int = 5
+        k: int = 5,
+        threshold: float = 1.2
     ) -> List[tuple]:
         logger.info(f"Searching Anthropologist documents with scores for: '{query[:50]}...'")
         results = self.vectorstore.similarity_search_with_score(query, k=k)
-        logger.info(f"Found {len(results)} relevant documents with scores")
-        return results
+        # Filter out documents with L2 distance > threshold (lower = more similar)
+        filtered = [(doc, score) for doc, score in results if score <= threshold]
+        if not filtered and results:
+            # Always return at least the best match
+            filtered = [results[0]]
+        logger.info(f"Found {len(results)} documents, {len(filtered)} passed threshold ({threshold})")
+        return filtered
 
     def get_retriever(self, k: int = 5):
         return self.vectorstore.as_retriever(

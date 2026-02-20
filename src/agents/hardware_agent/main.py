@@ -291,18 +291,26 @@ async def consult(request: ConsultRequest):
         if not app.state.brain:
             raise HTTPException(status_code=503, detail="Brain module not initialized")
 
-        # Retrieve relevant documents with actual relevance scores
-        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=5)
+        # Retrieve relevant documents with actual relevance scores (k=8 + threshold filtering)
+        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=8)
         documents = [doc for doc, _ in doc_score_pairs]
         doc_scores = {id(doc): score for doc, score in doc_score_pairs}
 
         vector_context = "\n\n".join([
-            f"[{doc.metadata.get('data_type', 'technical')}] {doc.page_content}"
-            for doc in documents
+            f"[{doc.metadata.get('data_type', 'technical')} | {doc.metadata.get('file_name', 'unknown')} | score:{score:.3f}]\n{doc.page_content}"
+            for doc, score in doc_score_pairs
         ])
 
         if not vector_context:
             vector_context = "No relevant technical documentation found."
+
+        # Try to extract customer_id from query if not explicitly provided
+        if not customer_id and getattr(app.state, 'parquet_loader', None):
+            import re
+            match = re.search(r'mr\d{5,}', query.lower())
+            if match:
+                customer_id = match.group()
+                logger.info(f"Extracted customer_id from query: {customer_id}")
 
         # Polars event log enrichment for customer-specific or event-log queries
         event_log_context = ""
@@ -310,7 +318,7 @@ async def consult(request: ConsultRequest):
             try:
                 summary = app.state.parquet_loader.get_error_summary(customer_id)
                 if summary.get('source') != 'not_found':
-                    event_log_context = f"\n\n--- Event Log Data ({customer_id}) ---\n{str(summary)[:1500]}"
+                    event_log_context = f"\n\n--- Event Log Data ({customer_id}) ---\n{str(summary)[:4000]}"
                     logger.info(f"Event log context added for {customer_id}")
             except Exception as e:
                 logger.warning(f"Event log enrichment failed: {e}")
@@ -347,12 +355,13 @@ async def consult(request: ConsultRequest):
 
         logger.info(f"Evaluation: confidence={eval_confidence}, response_type={eval_response_type}")
 
-        # Process through DSPy brain
+        # Process through DSPy brain (pass real event log context)
         result = app.state.brain(
             query=query,
             context=context,
             query_type=query_type,
-            equipment_type=equipment_type
+            equipment_type=equipment_type,
+            event_log_context=event_log_context
         )
 
         # Document references with actual similarity scores
@@ -405,10 +414,10 @@ async def consult(request: ConsultRequest):
             priority = Priority.NORMAL
         else:
             response_payload = {
-                "diagnosis": getattr(result, 'diagnosis', ''),
-                "severity": getattr(result, 'severity', 'unknown'),
-                "affected_component": getattr(result, 'affected_component', ''),
                 "answer": getattr(result, 'answer', 'Unable to process query'),
+                "confidence": getattr(result, 'confidence', 'medium'),
+                "sources_used": getattr(result, 'sources_used', ''),
+                "follow_up": getattr(result, 'follow_up', ''),
                 "specialist_agent": "hardware_agent"
             }
             priority = Priority.NORMAL

@@ -173,6 +173,41 @@ class AnalyzeEventLogs(dspy.Signature):
     )
 
 
+class AnswerGeneralQuery(dspy.Signature):
+    """You are The Specialist — a senior Siemens MRI field service engineer and DICOM conformance
+expert with deep knowledge of MAGNETOM MRI systems.
+
+Your expertise includes:
+- Siemens MAGNETOM scanner platforms (Sola, Vida, Altea, Free.Max) running syngo MR XA50,
+  XA51A, and XA60 software
+- DICOM Conformance Statements (DCS): SOP Class UIDs, transfer syntaxes, DIMSE services,
+  association negotiation, Storage Commitment, MPPS, Modality Worklist
+- MRI hardware subsystems: gradient coils, RF amplifiers, cryogen/helium systems, thermal
+  management, patient table, bore components
+- Event log analysis: error codes, warning patterns, source identification (MARS, MeasServer,
+  XA Host, DICOM services)
+- Known failure modes (FM-001 to FM-020): gradient thermal events, RF amplifier faults,
+  cryogen pressure anomalies, helium boil-off, software crashes, PACS transfer failures
+- CSPL (Clinical Software Package List) capabilities per software version
+- Preventive maintenance schedules and field service intervention criteria
+
+When diagnosing issues, follow a structured approach:
+1. Identify the affected subsystem from error patterns
+2. Cross-reference with known failure modes (FM catalog)
+3. Check DCS conformance if DICOM-related
+4. Assess severity and whether field service intervention is needed
+5. Provide specific remediation steps referencing documentation
+
+Always cite specific DCS sections, failure mode IDs, or event log patterns when available."""
+    query: str = dspy.InputField(desc="User question about MRI hardware, DICOM, or technical diagnostics")
+    context: str = dspy.InputField(desc="Retrieved documentation and data relevant to the query")
+
+    answer: str = dspy.OutputField(desc="Comprehensive, expert-level answer grounded in the provided context")
+    confidence: str = dspy.OutputField(desc="'high', 'medium', or 'low' based on context relevance")
+    sources_used: str = dspy.OutputField(desc="Which context documents were most relevant")
+    follow_up: str = dspy.OutputField(desc="Suggested follow-up questions or actions")
+
+
 class EvaluateRequest(dspy.Signature):
     """
     Evaluate if I can handle this request before attempting diagnosis.
@@ -235,13 +270,15 @@ class DiagnosticSpecialistModule(dspy.Module):
         self.lookup_spec = dspy.ChainOfThought(LookupTechnicalSpec)
         self.cross_reference = dspy.ChainOfThought(CrossReferenceSOP)
         self.analyze_event_logs = dspy.ChainOfThought(AnalyzeEventLogs)
+        self.answer_general = dspy.ChainOfThought(AnswerGeneralQuery)
 
     def forward(
         self,
         query: str,
         context: str,
         query_type: str = "general",
-        equipment_type: str = "MRI"
+        equipment_type: str = "MRI",
+        event_log_context: str = ""
     ) -> dspy.Prediction:
         """
         Process an incoming query through the Specialist's reasoning.
@@ -251,6 +288,7 @@ class DiagnosticSpecialistModule(dspy.Module):
             context: Retrieved DCS/technical documentation and event log data
             query_type: 'dicom_diagnosis', 'hardware_error', 'technical_spec', or 'general'
             equipment_type: Scanner model if known
+            event_log_context: Real event log data if available
 
         Returns:
             DSPy Prediction with appropriate response based on query type
@@ -261,7 +299,7 @@ class DiagnosticSpecialistModule(dspy.Module):
             result = self.diagnose_dicom(
                 error_description=query,
                 dcs_context=context,
-                event_log_context="See error description for related events."
+                event_log_context=event_log_context or "No event log data available for this query."
             )
             return dspy.Prediction(
                 diagnosis=result.root_cause,
@@ -298,19 +336,13 @@ class DiagnosticSpecialistModule(dspy.Module):
             )
 
         else:
-            # General query - use cross-reference as default diagnostic approach
-            result = self.analyze_hardware(
-                error_events=query,
-                technical_context=context,
-                scanner_model=equipment_type
-            )
+            # General query - use flexible Q&A signature
+            result = self.answer_general(query=query, context=context)
             return dspy.Prediction(
-                diagnosis=result.diagnosis,
-                severity=result.severity,
-                affected_component=result.affected_component,
-                diagnostic_steps=result.diagnostic_steps,
-                requires_service=result.requires_service,
-                answer=f"Analysis: {result.diagnosis}. Severity: {result.severity}."
+                answer=result.answer,
+                confidence=result.confidence,
+                sources_used=result.sources_used,
+                follow_up=result.follow_up,
             )
 
     def evaluate_incoming_request(
