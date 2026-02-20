@@ -148,6 +148,36 @@ class AuditWorkflowChange(dspy.Signature):
     )
 
 
+class AnswerGeneralQuery(dspy.Signature):
+    """You are The Auditor — a certified MRI safety officer and regulatory compliance expert
+specializing in ACR (American College of Radiology) MRI safety guidelines.
+
+Your expertise includes:
+- ACR MRI Safety Zone management: Zone I (public/unrestricted), Zone II (screening/reception),
+  Zone III (controlled access/control room), Zone IV (magnet room/restricted)
+- Personnel classification: Level 1 MR Personnel (basic training, supervised access) vs
+  Level 2 MR Personnel (extensive training, independent Zone IV access)
+- MRI safety screening: ferromagnetic object detection, implant compatibility assessment,
+  patient and personnel screening protocols
+- Quench emergency procedures: oxygen monitoring, emergency ventilation, evacuation protocols
+- SAR (Specific Absorption Rate) monitoring and RF safety limits
+- ACR Appropriateness Criteria for clinical indications
+- Regulatory compliance: Joint Commission, state radiation safety, institutional SOP adherence
+- Safety event classification: thermal incidents, projectile events, quench events,
+  patient burns, acoustic injury prevention
+
+When assessing compliance, always reference specific ACR guideline sections or institutional
+SOP requirements. Classify findings as compliant/non-compliant/needs-review with clear
+justification. Never approve an action that could compromise patient or staff safety."""
+    query: str = dspy.InputField(desc="User question about MRI safety, compliance, or regulatory requirements")
+    context: str = dspy.InputField(desc="Retrieved documentation and data relevant to the query")
+
+    answer: str = dspy.OutputField(desc="Comprehensive, expert-level answer grounded in the provided context")
+    confidence: str = dspy.OutputField(desc="'high', 'medium', or 'low' based on context relevance")
+    sources_used: str = dspy.OutputField(desc="Which context documents were most relevant")
+    follow_up: str = dspy.OutputField(desc="Suggested follow-up questions or actions")
+
+
 class EvaluateRequest(dspy.Signature):
     """
     Evaluate if I can handle this request before attempting analysis.
@@ -203,6 +233,7 @@ class SafetyAuditorModule(dspy.Module):
         self.review_action = dspy.ChainOfThought(ReviewDiagnosticAction)
         self.check_zone = dspy.ChainOfThought(CheckSafetyZone)
         self.audit_workflow = dspy.ChainOfThought(AuditWorkflowChange)
+        self.answer_general = dspy.ChainOfThought(AnswerGeneralQuery)
 
     def forward(
         self,
@@ -210,7 +241,8 @@ class SafetyAuditorModule(dspy.Module):
         context: str,
         query_type: str = "general",
         station_id: str = "unknown",
-        timestamp: str = ""
+        timestamp: str = "",
+        safety_zone_context: str = ""
     ) -> dspy.Prediction:
         """
         Process an incoming query through the Auditor's reasoning.
@@ -221,6 +253,7 @@ class SafetyAuditorModule(dspy.Module):
             query_type: 'compliance_check', 'action_review', 'safety_zone', 'workflow_audit', or 'general'
             station_id: Scanner/institution identifier if applicable
             timestamp: Timestamp if applicable
+            safety_zone_context: Real safety zone definition data if available
 
         Returns:
             DSPy Prediction with safety/compliance assessment
@@ -231,7 +264,7 @@ class SafetyAuditorModule(dspy.Module):
             result = self.validate_compliance(
                 proposed_action=query,
                 sop_context=context,
-                safety_zone_info="See SOP context for zone definitions."
+                safety_zone_info=safety_zone_context or "No specific zone data available. Refer to SOP context."
             )
             return dspy.Prediction(
                 is_compliant=result.is_compliant,
@@ -258,7 +291,7 @@ class SafetyAuditorModule(dspy.Module):
         elif query_type == "safety_zone":
             result = self.check_zone(
                 activity=query,
-                zone_definitions=context,
+                zone_definitions=safety_zone_context or context,
                 current_conditions=station_id or "normal operations"
             )
             return dspy.Prediction(
@@ -284,17 +317,13 @@ class SafetyAuditorModule(dspy.Module):
             )
 
         else:
-            # General safety query - default to compliance check
-            result = self.validate_compliance(
-                proposed_action=query,
-                sop_context=context,
-                safety_zone_info="See SOP context for zone definitions."
-            )
+            # General safety query - use flexible Q&A signature
+            result = self.answer_general(query=query, context=context)
             return dspy.Prediction(
-                answer=f"Compliance: {result.is_compliant}. {result.compliance_details}",
-                is_compliant=result.is_compliant,
-                safety_concerns=result.safety_concerns,
-                required_personnel=result.required_personnel,
+                answer=result.answer,
+                confidence=result.confidence,
+                sources_used=result.sources_used,
+                follow_up=result.follow_up,
             )
 
     def evaluate_incoming_request(

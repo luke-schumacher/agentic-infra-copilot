@@ -174,6 +174,21 @@ app = FastAPI(
 configure_cors(app)
 
 
+def _determine_query_type(query: str, is_symptom: bool) -> str:
+    """Determine query type for routing to the appropriate DSPy signature."""
+    if is_symptom:
+        return "symptom"
+    query_lower = query.lower()
+    workload_keywords = [
+        'workload', 'utilization', 'peak', 'schedule', 'throughput',
+        'bottleneck', 'capacity', 'patient volume', 'scan count',
+        'idle time', 'overloaded', 'underutilized'
+    ]
+    if any(kw in query_lower for kw in workload_keywords):
+        return "workload"
+    return "general"
+
+
 @app.get("/")
 async def root():
     return {
@@ -267,14 +282,14 @@ async def consult(request: ConsultRequest):
         if not app.state.brain:
             raise HTTPException(status_code=503, detail="Brain module not initialized")
 
-        # Retrieve relevant documents with actual relevance scores
-        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=5)
+        # Retrieve relevant documents with actual relevance scores (k=8 + threshold filtering)
+        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=8)
         documents = [doc for doc, _ in doc_score_pairs]
         doc_scores = {id(doc): score for doc, score in doc_score_pairs}
 
         vector_context = "\n\n".join([
-            f"[Source: {doc.metadata.get('file_name', 'unknown')}]\n{doc.page_content}"
-            for doc in documents
+            f"[{doc.metadata.get('data_type', 'unknown')} | {doc.metadata.get('file_name', 'unknown')} | score:{score:.3f}]\n{doc.page_content}"
+            for doc, score in doc_score_pairs
         ])
 
         if not vector_context:
@@ -309,12 +324,17 @@ async def consult(request: ConsultRequest):
 
         logger.info(f"Evaluation: confidence={eval_confidence}, response_type={eval_response_type}, suggested={eval_suggested_agent}")
 
+        # Determine query type
+        query_type = _determine_query_type(query, is_symptom)
+        logger.info(f"Query type detected: {query_type}")
+
         # Process through DSPy brain
         result = app.state.brain(
             query=query,
             context=context,
             location=location,
-            is_symptom=is_symptom
+            is_symptom=is_symptom,
+            query_type=query_type
         )
 
         # Document references with actual similarity scores
@@ -334,8 +354,8 @@ async def consult(request: ConsultRequest):
         delegation_reason = getattr(result, 'delegation_reason', '')
         refined_query = getattr(result, 'refined_query', query)
 
-        # Build response payload
-        if is_symptom:
+        # Build response payload based on query type
+        if query_type == "symptom":
             response_payload = {
                 "institution_profile": getattr(result, 'institution_profile', 'Unknown'),
                 "contextual_explanation": getattr(result, 'contextual_explanation', ''),
@@ -352,13 +372,27 @@ async def consult(request: ConsultRequest):
             priority = Priority.CRITICAL if initial_risk == 'critical' else (
                 Priority.HIGH if initial_risk == 'high' else Priority.NORMAL
             )
-        else:
+        elif query_type == "workload":
             response_payload = {
                 "workload_assessment": getattr(result, 'workload_assessment', ''),
                 "peak_periods": getattr(result, 'peak_periods', ''),
                 "bottleneck_analysis": getattr(result, 'bottleneck_analysis', ''),
                 "optimization_suggestions": getattr(result, 'optimization_suggestions', ''),
                 "answer": getattr(result, 'answer', ''),
+                "delegation": {
+                    "target_agent": target_agent,
+                    "reason": delegation_reason,
+                    "refined_query": refined_query
+                }
+            }
+            priority = Priority.NORMAL
+        else:
+            # General query
+            response_payload = {
+                "answer": getattr(result, 'answer', ''),
+                "confidence": getattr(result, 'confidence', 'medium'),
+                "sources_used": getattr(result, 'sources_used', ''),
+                "follow_up": getattr(result, 'follow_up', ''),
                 "delegation": {
                     "target_agent": target_agent,
                     "reason": delegation_reason,

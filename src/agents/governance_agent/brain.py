@@ -163,6 +163,36 @@ class IntegrateFindings(dspy.Signature):
     )
 
 
+class AnswerGeneralQuery(dspy.Signature):
+    """You are The Anthropologist — a senior MRI operations consultant with 20+ years of experience
+in healthcare facility management. You specialize in understanding WHY problems occur at
+specific institutions based on their operational context.
+
+Your expertise includes:
+- MRI workflow optimization and patient scheduling patterns
+- Institution profiling: academic medical centers vs private clinics vs cancer centers
+- MRRT (Management of Radiology Report Templates) questionnaire analysis
+- Workload pattern analysis: peak hours, bottlenecks, utilization rates
+- Staff-to-scanner ratios and training gap assessment
+- Siemens MAGNETOM fleet management across multi-site deployments
+- RadLex terminology and RSNA RadReport template standards
+- Customer feedback interpretation and pain point analysis
+
+When answering, always ground your response in the provided context data. Reference specific
+institution profiles, workload metrics, or questionnaire responses when available. If the
+context doesn't contain enough information, say so clearly rather than speculating.
+
+Provide actionable, specific recommendations — not generic advice. Consider institutional
+constraints (budget, staffing, equipment age) when making suggestions."""
+    query: str = dspy.InputField(desc="User question about MRI operations, workflows, or institutional context")
+    context: str = dspy.InputField(desc="Retrieved documentation and data relevant to the query")
+
+    answer: str = dspy.OutputField(desc="Comprehensive, expert-level answer grounded in the provided context")
+    confidence: str = dspy.OutputField(desc="'high', 'medium', or 'low' based on context relevance")
+    sources_used: str = dspy.OutputField(desc="Which context documents were most relevant")
+    follow_up: str = dspy.OutputField(desc="Suggested follow-up questions or actions")
+
+
 class EvaluateRequest(dspy.Signature):
     """
     Evaluate if I can handle this request before attempting analysis.
@@ -220,13 +250,16 @@ class WorkflowAnthropologistModule(dspy.Module):
         self.explain_context = dspy.ChainOfThought(ExplainErrorContext)
         self.delegate_query = dspy.ChainOfThought(DelegateToSpecialist)
         self.integrate_findings = dspy.ChainOfThought(IntegrateFindings)
+        self.answer_general = dspy.ChainOfThought(AnswerGeneralQuery)
 
     def forward(
         self,
         query: str,
         context: str,
         location: str = "unknown",
-        is_symptom: bool = True
+        is_symptom: bool = True,
+        query_type: str = "general",
+        event_pattern_context: str = ""
     ) -> dspy.Prediction:
         """
         Process an incoming query through the Anthropologist's reasoning.
@@ -236,11 +269,13 @@ class WorkflowAnthropologistModule(dspy.Module):
             context: Retrieved institution profiles, workload data, feedback
             location: Location/institution identifier
             is_symptom: Whether query describes an issue/symptom
+            query_type: 'symptom', 'workload', or 'general'
+            event_pattern_context: Real event pattern data if available
 
         Returns:
             DSPy Prediction with contextual analysis and delegation
         """
-        logger.info(f"Processing query: {query[:100]}...")
+        logger.info(f"Processing query (type={query_type}): {query[:100]}...")
 
         # Determine delegation first
         delegation = self.delegate_query(
@@ -253,12 +288,12 @@ class WorkflowAnthropologistModule(dspy.Module):
             )
         )
 
-        if is_symptom:
+        if query_type == "symptom" or (is_symptom and query_type != "workload"):
             # For symptom reports, profile the institution and explain context
             result = self.profile_institution(
                 query=query,
                 institution_data=context,
-                event_pattern_context="See query context for error patterns."
+                event_pattern_context=event_pattern_context or "No event pattern data available for this query."
             )
             return dspy.Prediction(
                 risk_level="medium",
@@ -269,10 +304,9 @@ class WorkflowAnthropologistModule(dspy.Module):
                 target_agent=delegation.target_agent,
                 delegation_reason=delegation.delegation_reason,
                 refined_query=delegation.refined_query,
-                violated_slas=result.risk_factors,
             )
-        else:
-            # Direct query - analyze workload or provide context
+        elif query_type == "workload":
+            # Workload-specific query
             result = self.analyze_workload(
                 workload_data=query,
                 institution_context=context
@@ -283,6 +317,18 @@ class WorkflowAnthropologistModule(dspy.Module):
                 peak_periods=result.peak_periods,
                 bottleneck_analysis=result.bottleneck_analysis,
                 optimization_suggestions=result.optimization_suggestions,
+                target_agent=delegation.target_agent,
+                delegation_reason=delegation.delegation_reason,
+                refined_query=delegation.refined_query,
+            )
+        else:
+            # General query - use flexible Q&A signature
+            result = self.answer_general(query=query, context=context)
+            return dspy.Prediction(
+                answer=result.answer,
+                confidence=result.confidence,
+                sources_used=result.sources_used,
+                follow_up=result.follow_up,
                 target_agent=delegation.target_agent,
                 delegation_reason=delegation.delegation_reason,
                 refined_query=delegation.refined_query,

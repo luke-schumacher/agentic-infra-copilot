@@ -274,14 +274,14 @@ async def consult(request: ConsultRequest):
         if not app.state.brain:
             raise HTTPException(status_code=503, detail="Brain module not initialized")
 
-        # Retrieve relevant documents with actual relevance scores
-        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=5)
+        # Retrieve relevant documents with actual relevance scores (k=8 + threshold filtering)
+        doc_score_pairs = app.state.vector_store.similarity_search_with_score(query, k=8)
         documents = [doc for doc, _ in doc_score_pairs]
         doc_scores = {id(doc): score for doc, score in doc_score_pairs}
 
         vector_context = "\n\n".join([
-            f"[{doc.metadata.get('data_type', 'safety')}] {doc.page_content}"
-            for doc in documents
+            f"[{doc.metadata.get('data_type', 'safety')} | {doc.metadata.get('file_name', 'unknown')} | score:{score:.3f}]\n{doc.page_content}"
+            for doc, score in doc_score_pairs
         ])
 
         if not vector_context:
@@ -302,6 +302,18 @@ async def consult(request: ConsultRequest):
 
         context = f"{vector_context}\n\n--- Knowledge Graph Context ---\n{graph_context}" if graph_context else vector_context
 
+        # Retrieve safety zone definitions separately for richer context
+        safety_zone_context = ""
+        try:
+            zone_docs = app.state.vector_store.similarity_search(
+                "safety zone definitions Zone I II III IV access requirements personnel", k=3
+            )
+            if zone_docs:
+                safety_zone_context = "\n\n".join([doc.page_content for doc in zone_docs])
+                logger.info(f"Safety zone context retrieved: {len(safety_zone_context)} chars")
+        except Exception as e:
+            logger.warning(f"Safety zone context retrieval failed: {e}")
+
         # Determine query type
         query_type = _determine_query_type(query)
         logger.info(f"Query type detected: {query_type}")
@@ -319,12 +331,13 @@ async def consult(request: ConsultRequest):
 
         logger.info(f"Evaluation: confidence={eval_confidence}, response_type={eval_response_type}")
 
-        # Process through DSPy brain
+        # Process through DSPy brain (pass real safety zone context)
         result = app.state.brain(
             query=query,
             context=context,
             query_type=query_type,
-            station_id=station_id
+            station_id=station_id,
+            safety_zone_context=safety_zone_context
         )
 
         # Document references with actual similarity scores
@@ -387,9 +400,10 @@ async def consult(request: ConsultRequest):
             priority = Priority.HIGH if audit == 'rejected' else Priority.NORMAL
         else:
             response_payload = {
-                "is_compliant": getattr(result, 'is_compliant', 'needs-review'),
-                "safety_concerns": getattr(result, 'safety_concerns', ''),
                 "answer": getattr(result, 'answer', 'Unable to process query'),
+                "confidence": getattr(result, 'confidence', 'medium'),
+                "sources_used": getattr(result, 'sources_used', ''),
+                "follow_up": getattr(result, 'follow_up', ''),
                 "specialist_agent": "telemetry_agent"
             }
             priority = Priority.NORMAL

@@ -348,27 +348,42 @@ def render_chat_interface():
                         'high': '🟠',
                         'medium': '🟡',
                         'low': '🟢'
-                    }.get(risk_level.lower(), '⚪')
+                    }.get(str(risk_level).lower(), '⚪')
 
-                    response_text = f"""
-### Risk Assessment: {risk_emoji} {risk_level.upper()}
+                    response_text = f"### Risk Assessment: {risk_emoji} {risk_level.upper()}\n\n"
 
-**Violated SLAs:**
-{payload.get('violated_slas', 'None identified')}
-
-**Recommended Actions:**
-{payload.get('recommended_actions', 'No immediate actions required')}
-                    """
+                    if payload.get('contextual_explanation'):
+                        response_text += f"**Context:**\n{payload['contextual_explanation']}\n\n"
+                    if payload.get('institution_profile'):
+                        response_text += f"**Institution Profile:**\n{payload['institution_profile']}\n\n"
+                    if payload.get('risk_factors'):
+                        response_text += f"**Risk Factors:**\n{payload['risk_factors']}\n\n"
+                    if payload.get('recommended_actions'):
+                        response_text += f"**Recommended Actions:**\n{payload['recommended_actions']}\n\n"
                 else:
-                    response_text = f"""
-### Answer
+                    answer = payload.get('answer', 'Unable to determine answer')
+                    response_text = f"### Answer\n\n{answer}\n\n"
 
-{payload.get('answer', 'Unable to determine answer')}
-
-**Confidence:** {payload.get('confidence', 'N/A')}
-                    """
+                    if payload.get('confidence'):
+                        response_text += f"**Confidence:** {payload['confidence']}\n\n"
+                    if payload.get('sources_used'):
+                        response_text += f"**Sources:** {payload['sources_used']}\n\n"
+                    if payload.get('follow_up'):
+                        response_text += f"**Follow-up:** {payload['follow_up']}\n\n"
+                    if payload.get('workload_assessment'):
+                        response_text += f"**Workload Assessment:** {payload['workload_assessment']}\n\n"
+                    if payload.get('peak_periods'):
+                        response_text += f"**Peak Periods:** {payload['peak_periods']}\n\n"
+                    if payload.get('bottleneck_analysis'):
+                        response_text += f"**Bottleneck Analysis:** {payload['bottleneck_analysis']}\n\n"
+                    if payload.get('optimization_suggestions'):
+                        response_text += f"**Optimization Suggestions:** {payload['optimization_suggestions']}\n\n"
 
                 st.markdown(response_text)
+
+                # Show integrated root cause when delegation occurred
+                if payload.get('integration_performed'):
+                    st.success(f"**Root Cause:** {payload.get('root_cause', 'N/A')}")
 
                 # Store message with metadata
                 delegation = payload.get('delegation', {})
@@ -388,7 +403,8 @@ def render_chat_interface():
                 if card.documents:
                     with st.expander("📚 View Sources", expanded=False):
                         for doc in card.documents:
-                            st.markdown(f"- **{doc.source}**: {doc.file_name}")
+                            score_str = f" (relevance: {doc.relevance_score:.2f})" if doc.relevance_score else ""
+                            st.markdown(f"- **{doc.source}**: {doc.file_name}{score_str}")
 
                 # Display delegation
                 if delegation.get('target_agent') and delegation['target_agent'] != 'self':
@@ -439,6 +455,10 @@ def render_chat_interface():
                             st.markdown(f"**Safety Assessment:** {spec_payload['safety_assessment']}")
                         if spec_payload.get('answer'):
                             st.markdown(f"**Analysis:** {spec_payload['answer']}")
+                        if spec_payload.get('sources_used'):
+                            st.markdown(f"**Sources Used:** {spec_payload['sources_used']}")
+                        if spec_payload.get('follow_up'):
+                            st.markdown(f"**Follow-up:** {spec_payload['follow_up']}")
                         if spec_payload.get('common_issues'):
                             st.markdown(f"**Common Issues:** {spec_payload['common_issues']}")
                         if spec_payload.get('recommended_solutions'):
