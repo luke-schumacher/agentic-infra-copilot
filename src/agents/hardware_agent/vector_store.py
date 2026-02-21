@@ -44,6 +44,8 @@ SILO_ALLOWED_TYPES = {
     'failure_mode', 'failure_mode_catalog', 'event_log_error',
     'documentation_index', 'hardware_pdf', 'dcs_pdf',
     'technical_documentation', 'hardware_data',
+    'error_events', 'event_log', 'raw_failure_data', 'common_failure_mode',
+    'known_failure_mode',
 }
 
 

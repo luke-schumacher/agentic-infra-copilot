@@ -262,8 +262,9 @@ class DiagnosticSpecialistModule(dspy.Module):
     5. Cross-reference SOP Class UIDs
     """
 
-    def __init__(self):
+    def __init__(self, router_lm=None):
         super().__init__()
+        self.router_lm = router_lm
         self.evaluate_request = dspy.ChainOfThought(EvaluateRequest)
         self.diagnose_dicom = dspy.ChainOfThought(DiagnoseDICOMFailure)
         self.analyze_hardware = dspy.ChainOfThought(AnalyzeHardwareError)

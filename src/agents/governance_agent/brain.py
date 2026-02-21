@@ -242,8 +242,9 @@ class WorkflowAnthropologistModule(dspy.Module):
     6. Integrate specialist findings with operational context
     """
 
-    def __init__(self):
+    def __init__(self, router_lm=None):
         super().__init__()
+        self.router_lm = router_lm
         self.evaluate_request = dspy.ChainOfThought(EvaluateRequest)
         self.profile_institution = dspy.ChainOfThought(ProfileInstitution)
         self.analyze_workload = dspy.ChainOfThought(AnalyzeWorkloadPattern)
@@ -277,16 +278,28 @@ class WorkflowAnthropologistModule(dspy.Module):
         """
         logger.info(f"Processing query (type={query_type}): {query[:100]}...")
 
-        # Determine delegation first
-        delegation = self.delegate_query(
-            query=query,
-            available_agents=(
-                "hardware_agent (The Specialist: DICOM conformance, MRI hardware diagnostics, "
-                "SOP Class UID analysis, event log error diagnosis), "
-                "telemetry_agent (The Auditor: MRI safety SOPs, compliance auditing, "
-                "safety zone management, personnel requirements)"
+        # Determine delegation first (use router LM for cheap classification)
+        if self.router_lm:
+            with dspy.context(lm=self.router_lm):
+                delegation = self.delegate_query(
+                    query=query,
+                    available_agents=(
+                        "hardware_agent (The Specialist: DICOM conformance, MRI hardware diagnostics, "
+                        "SOP Class UID analysis, event log error diagnosis), "
+                        "telemetry_agent (The Auditor: MRI safety SOPs, compliance auditing, "
+                        "safety zone management, personnel requirements)"
+                    )
+                )
+        else:
+            delegation = self.delegate_query(
+                query=query,
+                available_agents=(
+                    "hardware_agent (The Specialist: DICOM conformance, MRI hardware diagnostics, "
+                    "SOP Class UID analysis, event log error diagnosis), "
+                    "telemetry_agent (The Auditor: MRI safety SOPs, compliance auditing, "
+                    "safety zone management, personnel requirements)"
+                )
             )
-        )
 
         if query_type == "symptom" or (is_symptom and query_type != "workload"):
             # For symptom reports, profile the institution and explain context

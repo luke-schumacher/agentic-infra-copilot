@@ -226,8 +226,9 @@ class SafetyAuditorModule(dspy.Module):
     5. Audit workflow changes from Agent 2 for regulatory compliance
     """
 
-    def __init__(self):
+    def __init__(self, router_lm=None):
         super().__init__()
+        self.router_lm = router_lm
         self.evaluate_request = dspy.ChainOfThought(EvaluateRequest)
         self.validate_compliance = dspy.ChainOfThought(ValidateComplianceSOP)
         self.review_action = dspy.ChainOfThought(ReviewDiagnosticAction)

@@ -37,6 +37,8 @@ from src.evaluation.diagnosis_logging import (
     RoundLog,
     DiagnosisLogger
 )
+from src.evaluation.judge import AgentJudge
+from src.evaluation.metrics import SemanticMetrics
 from src.orchestration.multi_round import MultiRoundOrchestrator
 from src.protocol.schema import DiagnosisSession
 
@@ -84,6 +86,12 @@ class AblationResult(BaseModel):
     )
     emergence_detected: bool = Field(
         description="True if reasoning spans multiple domains"
+    )
+    judge_scores: Optional[Dict[str, float]] = Field(
+        default=None, description="LLM-as-Judge scores"
+    )
+    semantic_score: Optional[float] = Field(
+        default=None, description="Semantic similarity 0.0-1.0"
     )
 
     @property
@@ -175,6 +183,8 @@ class AblationTestRunner:
         self.logger = DiagnosisLogger(log_dir)
         self.results_dir = Path(log_dir)
         self.results_dir.mkdir(parents=True, exist_ok=True)
+        self.judge = AgentJudge(threshold=0.6)
+        self.semantic_metrics = SemanticMetrics()
 
     def _calculate_accuracy(
         self,
@@ -200,6 +210,46 @@ class AblationTestRunner:
 
         accuracy = matches / len(test_case.required_keywords) if test_case.required_keywords else 1.0
         return accuracy, matches
+
+    def _evaluate_with_judge_and_semantics(
+        self,
+        diagnosis: str,
+        test_case: EmergenceTestCase
+    ) -> Tuple[Optional[Dict[str, float]], Optional[float]]:
+        """
+        Evaluate diagnosis with LLM-as-Judge and semantic similarity.
+
+        Returns:
+            Tuple of (judge_scores_dict, semantic_score) with fallbacks to None
+        """
+        judge_scores = None
+        semantic_score = None
+
+        try:
+            judge_result = self.judge.evaluate(
+                query=test_case.description,
+                agent_response=diagnosis,
+                ground_truth=test_case.emergent_diagnosis,
+                keywords=test_case.required_keywords
+            )
+            judge_scores = {
+                'accuracy': judge_result.accuracy,
+                'relevance': judge_result.relevance,
+                'completeness': judge_result.completeness,
+                'cross_domain': judge_result.cross_domain,
+                'overall_score': judge_result.overall_score,
+            }
+        except Exception as e:
+            logger.warning(f"Judge evaluation failed: {e}")
+
+        try:
+            semantic_score = self.semantic_metrics.similarity(
+                diagnosis, test_case.emergent_diagnosis
+            )
+        except Exception as e:
+            logger.warning(f"Semantic similarity failed: {e}")
+
+        return judge_scores, semantic_score
 
     async def _run_single_agent_mode(
         self,
@@ -242,6 +292,7 @@ class AblationTestRunner:
 
         latency_ms = (time.time() - start_time) * 1000
         accuracy, keyword_matches = self._calculate_accuracy(diagnosis, test_case)
+        judge_scores, semantic_score = self._evaluate_with_judge_and_semantics(diagnosis, test_case)
 
         return AblationResult(
             test_case_name=test_case.name,
@@ -255,7 +306,9 @@ class AblationTestRunner:
             latency_ms=latency_ms,
             agents_consulted=[agent_id],
             cross_domain_refs=0,  # Single agent can't have cross-domain refs
-            emergence_detected=False
+            emergence_detected=False,
+            judge_scores=judge_scores,
+            semantic_score=semantic_score
         )
 
     async def _run_single_all_data_mode(
@@ -300,6 +353,7 @@ Telemetry Context:
 
         latency_ms = (time.time() - start_time) * 1000
         accuracy, keyword_matches = self._calculate_accuracy(diagnosis, test_case)
+        judge_scores, semantic_score = self._evaluate_with_judge_and_semantics(diagnosis, test_case)
 
         return AblationResult(
             test_case_name=test_case.name,
@@ -313,7 +367,9 @@ Telemetry Context:
             latency_ms=latency_ms,
             agents_consulted=['governance_agent'],
             cross_domain_refs=0,
-            emergence_detected=False
+            emergence_detected=False,
+            judge_scores=judge_scores,
+            semantic_score=semantic_score
         )
 
     async def _run_mas_full_mode(
@@ -374,6 +430,7 @@ Telemetry Context:
 
         latency_ms = (time.time() - start_time) * 1000
         accuracy, keyword_matches = self._calculate_accuracy(diagnosis, test_case)
+        judge_scores, semantic_score = self._evaluate_with_judge_and_semantics(diagnosis, test_case)
 
         return AblationResult(
             test_case_name=test_case.name,
@@ -387,7 +444,9 @@ Telemetry Context:
             latency_ms=latency_ms,
             agents_consulted=session.agents_consulted if session else [],
             cross_domain_refs=cross_domain_refs,
-            emergence_detected=cross_domain_refs > 0 and accuracy > 0.5
+            emergence_detected=cross_domain_refs > 0 and accuracy > 0.5,
+            judge_scores=judge_scores,
+            semantic_score=semantic_score
         )
 
     async def run_ablation(
@@ -491,6 +550,17 @@ Telemetry Context:
 
     def _save_summary(self, comparisons: List[AblationComparison]) -> None:
         """Save summary of all comparisons."""
+        # Collect judge and semantic scores from MAS mode
+        judge_overall_scores = []
+        semantic_scores = []
+        for c in comparisons:
+            mas_result = c.results.get(AblationMode.MAS_FULL)
+            if mas_result:
+                if mas_result.judge_scores and 'overall_score' in mas_result.judge_scores:
+                    judge_overall_scores.append(mas_result.judge_scores['overall_score'])
+                if mas_result.semantic_score is not None:
+                    semantic_scores.append(mas_result.semantic_score)
+
         summary = {
             'timestamp': datetime.utcnow().isoformat(),
             'total_test_cases': len(comparisons),
@@ -503,6 +573,8 @@ Telemetry Context:
             'average_emergence_margin': sum(
                 c.emergence_margin for c in comparisons
             ) / len(comparisons) if comparisons else 0,
+            'average_judge_overall': sum(judge_overall_scores) / len(judge_overall_scores) if judge_overall_scores else None,
+            'average_semantic_score': sum(semantic_scores) / len(semantic_scores) if semantic_scores else None,
             'test_cases': [c.model_dump() for c in comparisons]
         }
 
@@ -513,23 +585,26 @@ Telemetry Context:
 
     def print_comparison_table(self, comparisons: List[AblationComparison]) -> None:
         """Print ASCII comparison table."""
-        print("\n" + "=" * 80)
+        print("\n" + "=" * 100)
         print("ABLATION COMPARISON RESULTS")
-        print("=" * 80)
+        print("=" * 100)
 
         for comp in comparisons:
             print(f"\nTest Case: {comp.test_case_name} ({comp.test_case_difficulty})")
-            print("-" * 60)
-            print(f"{'Mode':<20} {'Accuracy':<10} {'Confidence':<12} {'Keywords':<10}")
-            print("-" * 60)
+            print("-" * 90)
+            print(f"{'Mode':<20} {'Accuracy':<10} {'Confidence':<12} {'Keywords':<10} {'Judge':<10} {'Semantic':<10}")
+            print("-" * 90)
 
             for mode, result in comp.results.items():
+                judge_str = f"{result.judge_scores['overall_score']:.2f}" if result.judge_scores else "N/A"
+                semantic_str = f"{result.semantic_score:.2f}" if result.semantic_score is not None else "N/A"
                 print(
                     f"{mode:<20} {result.accuracy_score:<10.2%} "
-                    f"{result.confidence:<12.2f} {result.keyword_matches}/{result.total_keywords}"
+                    f"{result.confidence:<12.2f} {result.keyword_matches}/{result.total_keywords:<6} "
+                    f"{judge_str:<10} {semantic_str:<10}"
                 )
 
-            print("-" * 60)
+            print("-" * 90)
             print(f"Best Single Agent: {comp.best_single_agent_accuracy:.2%}")
             print(f"MAS Full:          {comp.mas_accuracy:.2%}")
             print(f"Emergence Margin:  {comp.emergence_margin:+.2%}")

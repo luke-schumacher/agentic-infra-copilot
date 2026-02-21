@@ -49,6 +49,7 @@ from src.agents.governance_agent.brain import WorkflowAnthropologistModule
 from src.agents.governance_agent.clinical_governance_loader import ClinicalGovernanceLoader
 from src.agents.governance_agent.vector_store import WorkflowAnthropologistStore
 from src.agents.shared.dspy_config import configure_dspy
+import dspy
 from src.agents.shared.graph_service import get_graph_service
 from src.agents.shared.security import configure_cors
 from src.evaluation.diagnosis_logging import DiagnosisLog, DiagnosisLogger, RoundLog
@@ -100,12 +101,14 @@ async def lifespan(app: FastAPI):
     app.state.baseline_mode = BASELINE_MODE
 
     try:
-        configure_dspy()
-        logger.info("DSPy configured with Groq/Llama3-70B")
+        lm_config = configure_dspy()
+        app.state.router_lm = lm_config.router
+        logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-3.5-Haiku")
         app.state.dspy_ready = True
     except Exception as e:
         logger.error(f"Failed to configure DSPy: {e}")
         app.state.dspy_ready = False
+        app.state.router_lm = None
 
     try:
         if BASELINE_MODE and BASELINE_AVAILABLE:
@@ -127,7 +130,7 @@ async def lifespan(app: FastAPI):
         app.state.vs_ready = False
 
     try:
-        app.state.brain = WorkflowAnthropologistModule()
+        app.state.brain = WorkflowAnthropologistModule(router_lm=app.state.router_lm)
         logger.info("Brain module (DSPy) initialized")
     except Exception as e:
         logger.error(f"Failed to initialize brain: {e}")
@@ -187,6 +190,18 @@ def _determine_query_type(query: str, is_symptom: bool) -> str:
     if any(kw in query_lower for kw in workload_keywords):
         return "workload"
     return "general"
+
+
+def _reclassify_from_evaluation(reasoning: str, query: str, is_symptom: bool) -> str:
+    """Reclassify query type using LLM evaluation reasoning when keywords return 'general'."""
+    if is_symptom:
+        return 'symptom'
+    reasoning_lower = reasoning.lower()
+    if any(kw in reasoning_lower for kw in ['symptom', 'error', 'issue', 'problem', 'fault']):
+        return 'symptom'
+    if any(kw in reasoning_lower for kw in ['workload', 'utilization', 'schedule', 'peak']):
+        return 'workload'
+    return 'general'
 
 
 @app.get("/")
@@ -315,7 +330,8 @@ async def consult(request: ConsultRequest):
         if graph_context:
             context_summary += " + knowledge graph context"
 
-        evaluation = app.state.brain.evaluate_incoming_request(query=query, context_summary=context_summary)
+        with dspy.context(lm=app.state.router_lm):
+            evaluation = app.state.brain.evaluate_incoming_request(query=query, context_summary=context_summary)
 
         eval_confidence = float(getattr(evaluation, 'confidence_level', getattr(evaluation, 'confidence', 0.8)))
         eval_response_type = getattr(evaluation, 'response_type', 'answer')
@@ -324,8 +340,12 @@ async def consult(request: ConsultRequest):
 
         logger.info(f"Evaluation: confidence={eval_confidence}, response_type={eval_response_type}, suggested={eval_suggested_agent}")
 
-        # Determine query type
+        # Determine query type with semantic fallback
         query_type = _determine_query_type(query, is_symptom)
+        if query_type == 'general' and eval_reasoning:
+            query_type = _reclassify_from_evaluation(eval_reasoning, query, is_symptom)
+            if query_type != 'general':
+                logger.info(f"Reclassified from 'general' to '{query_type}' via LLM reasoning")
         logger.info(f"Query type detected: {query_type}")
 
         # Process through DSPy brain
@@ -411,13 +431,47 @@ async def consult(request: ConsultRequest):
                 response_payload["delegation"]["skipped"] = True
                 response_payload["delegation"]["reason"] = "Baseline mode - single agent"
         elif target_agent and target_agent != 'self':
+            agents_involved = [target_agent]
             logger.info(f"Delegating to {target_agent}...")
             specialist_response = await delegate_to_specialist(target_agent, refined_query, card.message_id)
             if specialist_response:
                 response_payload["specialist_findings"] = specialist_response
                 logger.info(f"Specialist {target_agent} response received")
 
+                # Multi-hop: check if second specialist needed
+                second_specialist_response = None
+                if target_agent == 'hardware_agent' and _needs_safety_review(query, specialist_response):
+                    logger.info("Multi-hop: hardware response needs safety review, consulting telemetry_agent...")
+                    second_specialist_response = await delegate_to_specialist(
+                        'telemetry_agent', f"Safety review: {refined_query}", card.message_id
+                    )
+                    if second_specialist_response:
+                        agents_involved.append('telemetry_agent')
+                        response_payload["second_specialist_findings"] = second_specialist_response
+                        logger.info("Second specialist (telemetry_agent) response received")
+                elif target_agent == 'telemetry_agent' and _needs_hardware_context(query, specialist_response):
+                    logger.info("Multi-hop: safety response needs hardware context, consulting hardware_agent...")
+                    second_specialist_response = await delegate_to_specialist(
+                        'hardware_agent', f"Technical context: {refined_query}", card.message_id
+                    )
+                    if second_specialist_response:
+                        agents_involved.append('hardware_agent')
+                        response_payload["second_specialist_findings"] = second_specialist_response
+                        logger.info("Second specialist (hardware_agent) response received")
+
+                response_payload["agents_involved"] = agents_involved
+
+                # Integrate all specialist findings
                 try:
+                    # Combine findings from both specialists if multi-hop
+                    combined_findings = specialist_response
+                    if second_specialist_response:
+                        combined_findings = {
+                            "primary": specialist_response,
+                            "secondary": second_specialist_response,
+                            "response_card": specialist_response.get("response_card", {}),
+                        }
+
                     integration_result = app.state.brain.integrate_specialist_response(
                         query=query,
                         minister_assessment={
@@ -425,8 +479,8 @@ async def consult(request: ConsultRequest):
                             "risk_factors": response_payload.get("risk_factors", "None"),
                             "contextual_explanation": response_payload.get("contextual_explanation", "None")
                         },
-                        specialist_findings=specialist_response,
-                        specialist_agent=target_agent
+                        specialist_findings=combined_findings,
+                        specialist_agent=", ".join(agents_involved)
                     )
 
                     response_payload["risk_level"] = integration_result.integrated_risk_level
@@ -440,7 +494,7 @@ async def consult(request: ConsultRequest):
                     elif integrated_risk == 'high':
                         priority = Priority.HIGH
 
-                    logger.info("Specialist findings integrated into coherent response")
+                    logger.info(f"Specialist findings integrated ({len(agents_involved)} agents involved)")
                 except Exception as e:
                     logger.warning(f"Integration step failed: {e}")
                     response_payload["integration_performed"] = False
@@ -449,6 +503,7 @@ async def consult(request: ConsultRequest):
                 response_payload["specialist_findings"] = {
                     "error": f"Specialist {target_agent} unavailable"
                 }
+                response_payload["agents_involved"] = [target_agent]
 
         # Map response type
         response_type_map = {
@@ -519,6 +574,22 @@ async def consult(request: ConsultRequest):
                     confidence=float(spec_conf) if spec_conf else 0.7,
                     findings_summary=str(spec_payload.get("diagnosis", spec_payload.get("answer", "")))[:500],
                     latency_ms=spec.get("processing_time_ms", 0),
+                ))
+            # Log second specialist round if multi-hop occurred
+            if 'second_specialist_findings' in response_payload:
+                sec_spec = response_payload.get("second_specialist_findings", {})
+                sec_card = sec_spec.get("response_card", {})
+                sec_conf = sec_card.get("confidence", 0.7)
+                sec_rt = sec_card.get("response_type", "answer")
+                sec_payload = sec_card.get("payload", {})
+                sec_agent = response_payload.get("agents_involved", ["", ""])[1] if len(response_payload.get("agents_involved", [])) > 1 else "unknown"
+                diag_log.add_round(RoundLog(
+                    round_number=2,
+                    agent=sec_agent,
+                    response_type=str(sec_rt),
+                    confidence=float(sec_conf) if sec_conf else 0.7,
+                    findings_summary=str(sec_payload.get("diagnosis", sec_payload.get("answer", "")))[:500],
+                    latency_ms=sec_spec.get("processing_time_ms", 0),
                 ))
             diag_log.termination_reason = "delegation_complete" if target_agent and target_agent != 'self' else "single_agent"
             # Add visualization data to response
@@ -603,6 +674,28 @@ async def delegate_to_specialist(target: str, query: str, correlation_id: str):
     except Exception as e:
         logger.error(f"Delegation to {target} failed: {e}")
         return None
+
+
+def _needs_safety_review(query: str, specialist_findings: dict) -> bool:
+    """Check if a hardware specialist response also needs safety/compliance review."""
+    safety_keywords = ['zone', 'safety', 'compliance', 'screening', 'personnel',
+                       'sop', 'quench', 'ferromagnetic', 'acr', 'recalibrate',
+                       'maintenance', 'service', 'intervention']
+    if any(kw in query.lower() for kw in safety_keywords):
+        return True
+    if specialist_findings:
+        spec_payload = specialist_findings.get('response_card', {}).get('payload', {})
+        spec_text = str(spec_payload.get('diagnostic_steps', '')) + str(spec_payload.get('diagnosis', ''))
+        if any(kw in spec_text.lower() for kw in ['recalibrate', 'replace', 'service', 'zone']):
+            return True
+    return False
+
+
+def _needs_hardware_context(query: str, specialist_findings: dict) -> bool:
+    """Check if a safety/compliance response also needs hardware technical context."""
+    hw_keywords = ['dicom', 'gradient', 'coil', 'cryogen', 'helium', 'thermal',
+                   'error', 'fault', 'failure', 'event log', 'rf', 'amplifier']
+    return any(kw in query.lower() for kw in hw_keywords)
 
 
 @app.post("/index")

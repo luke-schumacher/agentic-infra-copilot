@@ -453,6 +453,43 @@ class ClinicalGovernanceLoader:
         logger.info(f"Total governance PDF chunks: {len(all_documents)}")
         return all_documents
 
+    def load_protocol_categories(self) -> List[Document]:
+        """Load protocol category taxonomy for template classification."""
+        csv_path = self.processed_dir / "protocol_categories.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Protocol categories not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading protocol categories: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            text_parts = ["PROTOCOL CATEGORIES - Template Taxonomy", ""]
+
+            for _, row in df.iterrows():
+                category = row.get('category', '')
+                count = row.get('count', 0)
+                text_parts.append(f"- {category}: {count} templates")
+
+            doc = Document(
+                page_content="\n".join(text_parts),
+                metadata={
+                    'source_type': 'clinical_protocol',
+                    'data_type': 'protocol_category',
+                    'category_count': len(df),
+                    'file_name': csv_path.name,
+                    'agent': 'governance_agent'
+                }
+            )
+
+            logger.info(f"Loaded {len(df)} protocol categories")
+            return [doc]
+
+        except Exception as e:
+            logger.error(f"Error loading protocol categories: {str(e)}")
+            return []
+
     def load(self, include_pdfs: bool = True) -> List[Document]:
         """Load all governance data for RAG indexing."""
         logger.info(f"Loading Workflow Anthropologist data from {self.processed_dir}")
@@ -473,6 +510,9 @@ class ClinicalGovernanceLoader:
 
         protocols = self.load_clinical_protocols()
         all_documents.extend(protocols)
+
+        categories = self.load_protocol_categories()
+        all_documents.extend(categories)
 
         radlex = self.load_radlex_terms()
         all_documents.extend(radlex)
