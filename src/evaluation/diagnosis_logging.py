@@ -180,11 +180,13 @@ class DiagnosisLog(BaseModel):
             'institution', 'workload', 'scheduling', 'staffing', 'protocol',
             'capacity', 'utilization', 'throughput', 'bottleneck', 'volume',
             'academic', 'private', 'hospital', 'radlex', 'questionnaire',
+            'mrrt', 'feedback', 'operational', 'workflow',
         },
         'hardware_agent': {
             'dicom', 'sop', 'gradient', 'coil', 'cryogen', 'helium',
             'thermal', 'calibration', 'magnetom', 'xa50', 'xa60', 'xa51',
             'quench', 'rf', 'amplifier', 'failure', 'component', 'sensor',
+            'dcs', 'cspl', 'pacs', 'error', 'event',
         },
         'telemetry_agent': {
             'safety', 'zone', 'compliance', 'screening', 'ferromagnetic',

@@ -44,6 +44,7 @@ SILO_ALLOWED_TYPES = {
     'clinical_protocol', 'radlex_terms', 'protocol_pdf',
     'clinical_documentation', 'customer_mapping', 'radlex_terminology',
     'governance_data',
+    'protocol_taxonomy', 'protocol_category',
 }
 
 

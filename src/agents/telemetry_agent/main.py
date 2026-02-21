@@ -43,6 +43,7 @@ from src.agents.telemetry_agent.brain import SafetyAuditorModule
 from src.agents.telemetry_agent.mri_data_loader import MRITelemetryLoader
 from src.agents.telemetry_agent.vector_store import SafetyAuditorStore
 from src.agents.shared.dspy_config import configure_dspy
+import dspy
 from src.agents.shared.graph_service import get_graph_service
 from src.agents.shared.security import configure_cors
 
@@ -77,12 +78,14 @@ async def lifespan(app: FastAPI):
     START_TIME = datetime.utcnow()
 
     try:
-        configure_dspy()
-        logger.info("DSPy configured with Groq/Llama3-70B")
+        lm_config = configure_dspy()
+        app.state.router_lm = lm_config.router
+        logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-3.5-Haiku")
         app.state.dspy_ready = True
     except Exception as e:
         logger.error(f"Failed to configure DSPy: {e}")
         app.state.dspy_ready = False
+        app.state.router_lm = None
 
     try:
         app.state.vector_store = SafetyAuditorStore()
@@ -95,7 +98,7 @@ async def lifespan(app: FastAPI):
         app.state.vs_ready = False
 
     try:
-        app.state.brain = SafetyAuditorModule()
+        app.state.brain = SafetyAuditorModule(router_lm=app.state.router_lm)
         logger.info("Brain module (DSPy) initialized")
     except Exception as e:
         logger.error(f"Failed to initialize brain: {e}")
@@ -245,6 +248,20 @@ def _determine_query_type(query: str) -> str:
     return 'general'
 
 
+def _reclassify_from_evaluation(reasoning: str, query: str) -> str:
+    """Reclassify query type using LLM evaluation reasoning when keywords return 'general'."""
+    reasoning_lower = reasoning.lower()
+    if any(kw in reasoning_lower for kw in ['compliance', 'sop', 'regulation', 'procedure']):
+        return 'compliance_check'
+    if any(kw in reasoning_lower for kw in ['review', 'safe', 'approve', 'intervention']):
+        return 'action_review'
+    if any(kw in reasoning_lower for kw in ['zone', 'magnet room', 'access', 'screening']):
+        return 'safety_zone'
+    if any(kw in reasoning_lower for kw in ['workflow', 'schedule', 'staffing', 'audit']):
+        return 'workflow_audit'
+    return 'general'
+
+
 @app.post("/consult", response_model=ConsultResponse)
 async def consult(request: ConsultRequest):
     """Primary consultation endpoint for The Auditor."""
@@ -314,22 +331,28 @@ async def consult(request: ConsultRequest):
         except Exception as e:
             logger.warning(f"Safety zone context retrieval failed: {e}")
 
-        # Determine query type
-        query_type = _determine_query_type(query)
-        logger.info(f"Query type detected: {query_type}")
-
-        # Autonomy protocol
+        # Autonomy protocol (before routing, so reasoning can reclassify)
         context_summary = f"Retrieved {len(documents)} documents from vector store"
         if graph_context:
             context_summary += " + knowledge graph context"
 
-        evaluation = app.state.brain.evaluate_incoming_request(query=query, context_summary=context_summary)
+        with dspy.context(lm=app.state.router_lm):
+            evaluation = app.state.brain.evaluate_incoming_request(query=query, context_summary=context_summary)
 
         eval_confidence = float(getattr(evaluation, 'confidence_level', getattr(evaluation, 'confidence', 0.8)))
         eval_response_type = getattr(evaluation, 'response_type', 'answer')
         eval_suggested_agent = getattr(evaluation, 'suggested_agent', 'none')
+        eval_reasoning = getattr(evaluation, 'reasoning', '')
 
         logger.info(f"Evaluation: confidence={eval_confidence}, response_type={eval_response_type}")
+
+        # Determine query type with semantic fallback
+        query_type = _determine_query_type(query)
+        if query_type == 'general' and eval_reasoning:
+            query_type = _reclassify_from_evaluation(eval_reasoning, query)
+            if query_type != 'general':
+                logger.info(f"Reclassified from 'general' to '{query_type}' via LLM reasoning")
+        logger.info(f"Query type detected: {query_type}")
 
         # Process through DSPy brain (pass real safety zone context)
         result = app.state.brain(

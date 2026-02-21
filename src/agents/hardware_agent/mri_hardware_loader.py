@@ -226,7 +226,7 @@ class MRIHardwareLoader:
             logger.error(f"Error loading failure mode catalog: {str(e)}")
             return []
 
-    def load_event_log_errors(self, customer_id: Optional[str] = None, limit: int = 500) -> List[Document]:
+    def load_event_log_errors(self, customer_id: Optional[str] = None, limit: int = 2000) -> List[Document]:
         """
         Load error events from Parquet files via LazyParquetLoader.
 
@@ -247,11 +247,11 @@ class MRIHardwareLoader:
             if customer_id:
                 customers = [customer_id]
             else:
-                customers = loader.list_customers()[:10]  # Limit to 10 customers for memory
+                customers = loader.list_customers()  # All customers
 
             for cid in customers:
                 try:
-                    errors = loader.query_events_for_customer(cid, severity='error', limit=limit)
+                    errors = loader.query_events_for_customer(cid, severity='E', limit=limit)
                     if errors.is_empty():
                         continue
 
@@ -268,7 +268,7 @@ class MRIHardwareLoader:
                         text_parts.append(f"- [{source}] {event_id}: {desc}")
 
                     doc = Document(
-                        page_content="\n".join(text_parts[:100]),  # Cap at ~100 lines
+                        page_content="\n".join(text_parts[:200]),  # Cap at ~200 lines
                         metadata={
                             'source_type': 'event_log',
                             'data_type': 'error_events',
@@ -394,7 +394,60 @@ class MRIHardwareLoader:
         logger.info(f"Total PDF chunks created: {len(all_documents)}")
         return all_documents
 
-    def load(self, include_pdfs: bool = True, include_event_logs: bool = False) -> List[Document]:
+    def load_common_failure_modes(self) -> List[Document]:
+        """Load common failure modes from raw data CSV."""
+        csv_path = self.raw_pdf_dir / "common_failure_modes.csv"
+
+        if not csv_path.exists():
+            logger.warning(f"Common failure modes CSV not found: {csv_path}")
+            return []
+
+        logger.info(f"Loading common failure modes: {csv_path}")
+
+        try:
+            df = pd.read_csv(csv_path, encoding='utf-8')
+            documents = []
+
+            for _, row in df.iterrows():
+                fm_id = row.get('failure_id', '')
+                mode = row.get('failure_mode', '')
+                component = row.get('component', '')
+                symptom = row.get('symptom', '')
+                root_cause = row.get('root_cause', '')
+                severity = row.get('severity', '')
+                repair = row.get('repair_action', '')
+
+                text_parts = [
+                    f"COMMON FAILURE MODE {fm_id}: {mode}",
+                    f"Component: {component}",
+                    f"Severity: {severity}",
+                    f"Symptom: {symptom}",
+                    f"Root Cause: {root_cause}",
+                    f"Repair Action: {repair}",
+                ]
+
+                doc = Document(
+                    page_content="\n".join(text_parts),
+                    metadata={
+                        'source_type': 'failure_catalog',
+                        'data_type': 'common_failure_mode',
+                        'failure_id': str(fm_id),
+                        'component': str(component),
+                        'severity': str(severity),
+                        'file_name': csv_path.name,
+                        'agent': 'hardware_agent'
+                    }
+                )
+                documents.append(doc)
+
+            logger.info(f"Loaded {len(documents)} common failure modes")
+            return documents
+
+        except Exception as e:
+            logger.error(f"Error loading common failure modes: {str(e)}")
+            return []
+
+    def load(self, include_pdfs: bool = True, include_event_logs: bool = True) -> List[Document]:
         """
         Load all hardware data for RAG indexing.
 
@@ -417,6 +470,9 @@ class MRIHardwareLoader:
 
         failure_catalog = self.load_failure_mode_catalog()
         all_documents.extend(failure_catalog)
+
+        common_fms = self.load_common_failure_modes()
+        all_documents.extend(common_fms)
 
         if include_pdfs:
             pdfs = self.load_mri_pdfs()
