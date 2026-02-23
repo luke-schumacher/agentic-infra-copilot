@@ -80,7 +80,7 @@ async def lifespan(app: FastAPI):
     try:
         lm_config = configure_dspy()
         app.state.router_lm = lm_config.router
-        logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-3.5-Haiku")
+        logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-Haiku-4.5")
         app.state.dspy_ready = True
     except Exception as e:
         logger.error(f"Failed to configure DSPy: {e}")
@@ -90,6 +90,18 @@ async def lifespan(app: FastAPI):
     try:
         app.state.vector_store = SafetyAuditorStore()
         doc_count = app.state.vector_store.get_document_count()
+        if doc_count == 0:
+            logger.info("Vector store empty - auto-indexing telemetry documents...")
+            try:
+                loader = MRITelemetryLoader()
+                documents = loader.load(include_pdfs=True)
+                if documents:
+                    doc_count = app.state.vector_store.index_documents(documents)
+                    logger.info(f"Auto-indexed {doc_count} telemetry documents")
+                else:
+                    logger.warning("No telemetry documents found to auto-index")
+            except Exception as idx_err:
+                logger.error(f"Auto-indexing failed: {idx_err}")
         logger.info(f"Vector store ready: {doc_count} documents indexed")
         app.state.vs_ready = True
     except Exception as e:
@@ -369,7 +381,7 @@ async def consult(request: ConsultRequest):
                 source=doc.metadata.get('source_type', 'auditor'),
                 file_name=doc.metadata.get('file_name', 'safety_doc'),
                 content_snippet=doc.page_content[:500] if doc.page_content else "",
-                relevance_score=round(1.0 - doc_scores.get(id(doc), 0.15), 4),
+                relevance_score=round(max(0.0, 1.0 - doc_scores.get(id(doc), 0.15)), 4),
                 metadata=doc.metadata
             )
             for doc in documents

@@ -66,7 +66,7 @@ class MultiRoundOrchestrator:
         telemetry_url: str = None,
         confidence_threshold: float = 0.8,
         max_rounds: int = 4,
-        timeout_seconds: float = 30.0
+        timeout_seconds: float = 120.0
     ):
         """
         Initialize orchestrator with agent URLs.
@@ -111,16 +111,19 @@ class MultiRoundOrchestrator:
         start_time = time.time()
 
         # Build request card
+        # Note: ConsultPayload.context is Dict[str, Any], so wrap the context string
         card = AgentCard(
             sender=AgentRole.ORCHESTRATOR,
             recipient=AgentRole(agent_id),
             intent=IntentType.DIAGNOSE if not is_consultation else IntentType.QUERY,
             priority=Priority.HIGH,
             payload={
-                'query': query,
-                'context': context,
-                'is_consultation': is_consultation,
-                'expertise_needed': self.AGENT_EXPERTISE.get(agent_id, '')
+                'query': f"{query}\n\nContext:\n{context}" if context else query,
+                'context': {
+                    'accumulated_context': context,
+                    'is_consultation': is_consultation,
+                    'expertise_needed': self.AGENT_EXPERTISE.get(agent_id, '')
+                }
             }
         )
 
@@ -229,16 +232,23 @@ class MultiRoundOrchestrator:
             f"confidence={latest_response.confidence}"
         )
 
+        # Hard termination check — must come first to prevent infinite recursion
+        if session.current_round >= session.max_rounds:
+            latest_response.round_number = session.current_round
+            session.add_agent_response(latest_response)
+            return self._synthesize_best_effort(session)
+
         # Add response to session
         latest_response.round_number = session.current_round
         session.add_agent_response(latest_response)
+
+        unconsulted = self._get_unconsulted_agents(session)
 
         # Check for high-confidence answer
         if latest_response.response_type == ResponseType.ANSWER:
             if latest_response.confidence >= self.confidence_threshold:
                 return self._finalize_diagnosis(session)
             # Low confidence answer - try to get more input
-            unconsulted = self._get_unconsulted_agents(session)
             if unconsulted:
                 session.current_round += 1
                 context = self._build_context(session)
@@ -248,16 +258,19 @@ class MultiRoundOrchestrator:
                     context
                 )
                 return await self.orchestrate_round(session, next_response)
+            else:
+                return self._finalize_diagnosis(session)
 
         # CONSULT - agent wants peer input (critical for emergence)
         elif latest_response.response_type == ResponseType.CONSULT:
             suggested = latest_response.suggested_agent
-            if suggested and suggested in self.agent_urls:
+            # Only consult if the suggested agent hasn't been consulted yet
+            if suggested and suggested in self.agent_urls and suggested not in session.agents_consulted:
                 session.current_round += 1
                 context = self._build_context(session)
                 context += f"\n\nConsultation requested by {latest_response.agent_id}: {latest_response.consultation_reason}"
 
-                logger.info(f"CONSULT: {latest_response.agent_id} → {suggested}")
+                logger.info(f"CONSULT: {latest_response.agent_id} -> {suggested}")
                 next_response, _ = await self._call_agent(
                     suggested,
                     session.original_query,
@@ -265,10 +278,21 @@ class MultiRoundOrchestrator:
                     is_consultation=True
                 )
                 return await self.orchestrate_round(session, next_response)
+            elif unconsulted:
+                # Suggested agent already consulted, try another unconsulted agent
+                session.current_round += 1
+                context = self._build_context(session)
+                next_response, _ = await self._call_agent(
+                    unconsulted[0],
+                    session.original_query,
+                    context
+                )
+                return await self.orchestrate_round(session, next_response)
+            else:
+                return self._synthesize_partial_findings(session)
 
         # PARTIAL - agent has some info but not complete
         elif latest_response.response_type == ResponseType.PARTIAL:
-            unconsulted = self._get_unconsulted_agents(session)
             if unconsulted:
                 session.current_round += 1
                 context = self._build_context(session)
@@ -282,7 +306,6 @@ class MultiRoundOrchestrator:
                 )
                 return await self.orchestrate_round(session, next_response)
             else:
-                # All agents consulted - synthesize partial findings
                 return self._synthesize_partial_findings(session)
 
         # CLARIFY - need user input
@@ -292,21 +315,31 @@ class MultiRoundOrchestrator:
         # REDIRECT - wrong agent for this query
         elif latest_response.response_type == ResponseType.REDIRECT:
             suggested = latest_response.suggested_agent
-            if suggested and suggested in self.agent_urls:
+            if suggested and suggested in self.agent_urls and suggested not in session.agents_consulted:
                 session.current_round += 1
                 context = self._build_context(session)
 
-                logger.info(f"REDIRECT: {latest_response.agent_id} → {suggested}")
+                logger.info(f"REDIRECT: {latest_response.agent_id} -> {suggested}")
                 next_response, _ = await self._call_agent(
                     suggested,
                     session.original_query,
                     context
                 )
                 return await self.orchestrate_round(session, next_response)
+            elif unconsulted:
+                session.current_round += 1
+                context = self._build_context(session)
+                next_response, _ = await self._call_agent(
+                    unconsulted[0],
+                    session.original_query,
+                    context
+                )
+                return await self.orchestrate_round(session, next_response)
+            else:
+                return self._synthesize_best_effort(session)
 
         # REFUSE - agent cannot help
         elif latest_response.response_type == ResponseType.REFUSE:
-            unconsulted = self._get_unconsulted_agents(session)
             if unconsulted:
                 session.current_round += 1
                 context = self._build_context(session)
@@ -316,12 +349,11 @@ class MultiRoundOrchestrator:
                     context
                 )
                 return await self.orchestrate_round(session, next_response)
+            else:
+                return self._synthesize_best_effort(session)
 
-        # Check termination conditions
-        if session.current_round >= session.max_rounds:
-            return self._synthesize_best_effort(session)
-
-        return session
+        # Fallback: if no branch handled finalization, synthesize
+        return self._synthesize_best_effort(session)
 
     def _finalize_diagnosis(self, session: DiagnosisSession) -> DiagnosisSession:
         """Finalize session with high-confidence answer."""
@@ -443,11 +475,19 @@ class MultiRoundOrchestrator:
         )
 
         # Orchestrate until complete
+        last_processed_count = 0
         while not session.is_complete and session.current_round < session.max_rounds:
             session = await self.orchestrate_round(session, initial_response)
 
             if session.termination_reason == "user_clarification_needed":
                 break
+
+            # Guard against infinite loops: if no new responses were added,
+            # there is nothing more to process
+            if len(session.agent_responses) == last_processed_count:
+                session = self._synthesize_best_effort(session)
+                break
+            last_processed_count = len(session.agent_responses)
 
             # If not complete, check for next response to process
             if not session.is_complete and session.agent_responses:

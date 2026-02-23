@@ -3,7 +3,7 @@ DSPy Configuration - Multi-Model LLM Setup for All Agents
 
 Two-tier model strategy:
   - Router (classification/routing): OpenAI GPT-4.1-nano ($0.10/$0.40 per MTok)
-  - Reasoner (all reasoning): Anthropic Claude 3.5 Haiku ($0.80/$4.00 per MTok)
+  - Reasoner (all reasoning): Anthropic Claude Haiku 4.5 ($1.00/$5.00 per MTok)
 
 The reasoner (Haiku) is set as the global default. Router is used explicitly
 via dspy.context(lm=router_lm) for EvaluateRequest and DelegateToSpecialist calls.
@@ -33,7 +33,7 @@ def configure_dspy() -> LMConfig:
     Configure DSPy with two-tier model strategy.
 
     Tier 1 (Router): openai/gpt-4.1-nano - cheap classification
-    Tier 2 (Reasoner): anthropic/claude-3-5-haiku-20241022 - Claude reasoning
+    Tier 2 (Reasoner): anthropic/claude-haiku-4-5-20251001 - Claude reasoning
 
     Returns:
         LMConfig with both LM instances
@@ -56,7 +56,7 @@ def configure_dspy() -> LMConfig:
 
     # Tier 2: Claude reasoner for all substantive reasoning
     reasoner_lm = dspy.LM(
-        model="anthropic/claude-3-5-haiku-20241022",
+        model="anthropic/claude-haiku-4-5-20251001",
         api_key=anthropic_key,
         temperature=0.1,
         max_tokens=2000
@@ -65,7 +65,7 @@ def configure_dspy() -> LMConfig:
     # Set Claude as global default — all ChainOfThought calls use this
     dspy.configure(lm=reasoner_lm)
 
-    logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-3.5-Haiku")
+    logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-Haiku-4.5")
     return LMConfig(router=router_lm, reasoner=reasoner_lm)
 
 
@@ -93,9 +93,9 @@ def test_dspy_connection() -> bool:
 
         test_module = dspy.Predict(TestQuery)
 
-        # Test reasoner (Claude Haiku - global default)
+        # Test reasoner (Claude Haiku 4.5 - global default)
         result = test_module(question="What is 2+2?")
-        logger.info(f"Reasoner (Claude Haiku) test passed: {result.answer}")
+        logger.info(f"Reasoner (Claude Haiku 4.5) test passed: {result.answer}")
 
         # Test router (GPT-4.1-nano)
         with dspy.context(lm=lm_config.router):

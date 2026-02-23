@@ -24,7 +24,6 @@ import os
 import re
 import sys
 from pathlib import Path
-from datetime import datetime
 from typing import Dict, Optional
 
 import streamlit as st
@@ -110,129 +109,310 @@ st.set_page_config(
 
 
 def inject_custom_css():
-    """Inject comprehensive CSS overrides for a Chakra UI-inspired look."""
+    """Inject design-system CSS based on Don Norman's Human Action Cycle."""
     st.markdown("""<style>
-    /* --- Hide Streamlit chrome --- */
+    /* === Design Tokens === */
+    :root {
+        /* Typography - Major Second scale (1.125) */
+        --fs-xs: 0.75rem;
+        --fs-sm: 0.8125rem;
+        --fs-base: 0.875rem;
+        --fs-md: 1rem;
+        --fs-lg: 1.125rem;
+        --fs-xl: 1.25rem;
+        --fs-2xl: 1.5rem;
+        --fs-3xl: 1.75rem;
+
+        /* Spacing - 8px grid */
+        --sp-1: 4px;
+        --sp-2: 8px;
+        --sp-4: 16px;
+        --sp-5: 24px;
+        --sp-6: 32px;
+        --sp-8: 48px;
+
+        /* Backgrounds - 4-level elevation */
+        --bg-base: #0e1117;
+        --bg-elevated: #161b22;
+        --bg-surface: #1c2128;
+        --bg-overlay: #242a33;
+
+        /* Borders - 3 levels */
+        --border-subtle: rgba(255,255,255,0.06);
+        --border-default: rgba(255,255,255,0.10);
+        --border-emphasis: rgba(255,255,255,0.16);
+
+        /* Text */
+        --text-primary: #E6EDF3;
+        --text-secondary: #8B949E;
+        --text-muted: #6E7681;
+
+        /* Accent */
+        --accent-primary: #388BFD;
+        --accent-primary-subtle: rgba(56,139,253,0.15);
+        --accent-primary-muted: rgba(56,139,253,0.4);
+
+        /* Status */
+        --status-success: #3FB950;
+        --status-warning: #D29922;
+        --status-error: #F85149;
+        --status-high-risk: #F0883E;
+        --status-info: #58A6FF;
+
+        /* Border Radius */
+        --radius-sm: 6px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+        --radius-pill: 9999px;
+    }
+
+    /* === Hide Streamlit chrome === */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header[data-testid="stHeader"] {background: transparent; height: 0;}
     .stDeployButton {display: none;}
 
-    /* --- Typography --- */
+    /* === Typography === */
     html, body, [class*="css"] {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     }
-    h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
-    h2 { font-size: 1.375rem; font-weight: 600; }
-    h3 { font-size: 1.125rem; font-weight: 600; }
-    p, li, span { font-size: 0.9375rem; line-height: 1.625; }
+    h1 { font-size: var(--fs-3xl); font-weight: 700; letter-spacing: -0.02em; }
+    h2 { font-size: var(--fs-xl); font-weight: 600; }
+    h3 { font-size: var(--fs-lg); font-weight: 600; }
+    p, li, span { font-size: var(--fs-md); line-height: 1.625; }
 
-    /* --- Buttons --- */
+    /* === Buttons: 3-tier hierarchy === */
     .stButton > button {
-        border-radius: 8px;
-        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border-default);
         background-color: rgba(255,255,255,0.04);
-        color: #E2E8F0;
+        color: var(--text-primary);
         font-weight: 500;
-        font-size: 0.875rem;
-        padding: 0.5rem 1rem;
+        font-size: var(--fs-base);
+        padding: var(--sp-2) var(--sp-4);
+        min-height: 48px;
+        width: 100%;
+        text-align: left;
         transition: all 0.2s;
     }
     .stButton > button:hover {
-        background-color: rgba(49,130,206,0.15);
-        border-color: rgba(49,130,206,0.4);
+        background-color: var(--accent-primary-subtle);
+        border-color: var(--accent-primary-muted);
+    }
+    .stButton > button:active {
+        background-color: var(--accent-primary-muted);
     }
 
-    /* --- Chat messages --- */
+    /* === Chat messages with left-border accent === */
     [data-testid="stChatMessage"] {
-        background-color: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 12px;
-        padding: 1rem 1.25rem;
-        margin-bottom: 0.75rem;
+        background-color: var(--bg-elevated);
+        border: 1px solid var(--border-subtle);
+        border-left: 3px solid var(--accent-primary);
+        border-radius: var(--radius-lg);
+        padding: var(--sp-4) var(--sp-5);
+        margin-bottom: var(--sp-4);
+    }
+    [data-testid="stChatMessage"][aria-label*="assistant"] {
+        border-left-color: var(--status-success);
     }
 
-    /* --- Expanders --- */
+    /* === Expanders === */
     [data-testid="stExpander"] {
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 8px;
-        background-color: rgba(255,255,255,0.02);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        background-color: var(--bg-surface);
     }
     [data-testid="stExpander"] summary {
         font-weight: 500;
-        font-size: 0.875rem;
+        font-size: var(--fs-base);
     }
 
-    /* --- Metrics --- */
+    /* === Metrics === */
     [data-testid="stMetric"] {
-        background-color: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 8px;
-        padding: 0.75rem 1rem;
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-md);
+        padding: var(--sp-4);
+        min-height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     [data-testid="stMetricLabel"] {
-        font-size: 0.75rem;
+        font-size: var(--fs-xs);
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: #A0AEC0;
+        color: var(--text-secondary);
     }
     [data-testid="stMetricValue"] {
-        font-size: 1.5rem;
+        font-size: var(--fs-2xl);
         font-weight: 700;
     }
 
-    /* --- Input fields --- */
+    /* === Input fields === */
     .stTextInput > div > div > input,
     .stSelectbox > div > div {
-        border-radius: 8px;
-        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border-default);
         background-color: rgba(255,255,255,0.04);
     }
     .stTextInput > div > div > input:focus {
-        border-color: #3182CE;
-        box-shadow: 0 0 0 1px #3182CE;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 2px var(--accent-primary-muted);
     }
 
-    /* --- Sidebar --- */
+    /* === Sidebar === */
     [data-testid="stSidebar"] {
-        background-color: #111827;
-        border-right: 1px solid rgba(255,255,255,0.06);
+        background-color: var(--bg-elevated);
+        border-right: 1px solid var(--border-subtle);
     }
     [data-testid="stSidebar"] .stMarkdown p {
-        font-size: 0.8125rem;
+        font-size: var(--fs-sm);
     }
 
-    /* --- Radio buttons (pill style) --- */
+    /* === Radio pills === */
     .stRadio > div {
-        gap: 0.5rem;
+        gap: var(--sp-2);
     }
     .stRadio > div > label {
         background-color: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 20px;
-        padding: 0.375rem 1rem;
-        font-size: 0.8125rem;
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-pill);
+        padding: var(--sp-1) var(--sp-4);
+        font-size: var(--fs-sm);
+    }
+    .stRadio > div > label[data-checked="true"],
+    .stRadio > div > label:has(input:checked) {
+        background-color: var(--accent-primary-subtle);
+        border-color: var(--accent-primary);
     }
 
-    /* --- Dividers --- */
-    hr {
-        border: none;
-        border-top: 1px solid rgba(255,255,255,0.06);
-        margin: 1.5rem 0;
-    }
-
-    /* --- Chat input --- */
+    /* === Chat input === */
     [data-testid="stChatInput"] textarea {
-        border-radius: 12px;
-        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-default);
         background-color: rgba(255,255,255,0.04);
     }
+    [data-testid="stChatInput"] textarea:focus {
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 2px var(--accent-primary-muted);
+    }
+    [data-testid="stChatInput"][aria-disabled="true"] textarea {
+        opacity: 0.5;
+    }
 
-    /* --- Scrollbar --- */
+    /* === Dividers === */
+    hr {
+        border: none;
+        border-top: 1px solid var(--border-subtle);
+        margin: var(--sp-5) 0;
+    }
+
+    /* === Column layout symmetry === */
+    [data-testid="stHorizontalBlock"] {
+        gap: var(--sp-4);
+    }
+
+    /* === Scrollbar === */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+    /* === Component classes === */
+
+    /* Header */
+    .app-header {
+        font-size: var(--fs-3xl);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        margin-bottom: var(--sp-1);
+    }
+    .app-subtitle {
+        color: var(--text-secondary);
+        font-size: var(--fs-base);
+        margin-top: 0;
+        margin-bottom: var(--sp-5);
+    }
+
+    /* Welcome state */
+    .welcome-category {
+        font-weight: 600;
+        font-size: var(--fs-sm);
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: var(--sp-2);
+        padding-left: var(--sp-2);
+        border-left: 3px solid var(--accent-primary);
+    }
+
+    /* Risk badges */
+    .risk-badge {
+        display: inline-block;
+        padding: var(--sp-1) var(--sp-4);
+        border-radius: var(--radius-pill);
+        font-size: var(--fs-sm);
+        font-weight: 600;
+        margin-bottom: var(--sp-4);
+    }
+    .risk-badge--critical {
+        background: rgba(248,81,73,0.15);
+        color: var(--status-error);
+    }
+    .risk-badge--high {
+        background: rgba(240,136,62,0.15);
+        color: var(--status-high-risk);
+    }
+    .risk-badge--medium {
+        background: rgba(210,153,34,0.15);
+        color: var(--status-warning);
+    }
+    .risk-badge--low {
+        background: rgba(63,185,80,0.15);
+        color: var(--status-success);
+    }
+
+    /* Delegation info */
+    .delegation-info {
+        font-size: var(--fs-sm);
+        color: var(--text-secondary);
+        margin-bottom: var(--sp-2);
+    }
+
+    /* Status dots */
+    .status-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: var(--sp-1);
+    }
+    .status-dot--healthy { background-color: var(--status-success); }
+    .status-dot--degraded { background-color: var(--status-warning); }
+    .status-dot--unhealthy { background-color: var(--status-error); }
+    .status-dot--offline { background-color: var(--text-muted); }
+
+    .status-ready { color: var(--status-success); }
+    .status-not-ready { color: var(--status-error); }
+
+    /* Agent card */
+    .agent-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: var(--sp-4);
+        margin-bottom: var(--sp-2);
+    }
+
+    /* Footer */
+    .app-footer {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: var(--fs-xs);
+        margin-top: var(--sp-8);
+    }
     </style>""", unsafe_allow_html=True)
 
 
@@ -304,7 +484,7 @@ def send_query_to_anthropologist(
         response = httpx.post(
             f"{anthropologist_url}/consult",
             json=request.model_dump(),
-            timeout=60.0
+            timeout=180.0
         )
 
         if response.status_code == 200:
@@ -328,25 +508,28 @@ def send_query_to_anthropologist(
 
 def render_sidebar():
     """Render sidebar with agent status and controls."""
-    st.sidebar.title("Agent Status")
+    st.sidebar.markdown("### Agent Status")
     st.sidebar.markdown("---")
 
     for agent_name, config in AGENT_ENDPOINTS.items():
-        with st.sidebar.expander(agent_name, expanded=True):
+        with st.sidebar.expander(agent_name, expanded=False):
             health = check_agent_health(agent_name, config)
 
             if health:
-                status_dot = {
-                    "healthy": '<span style="color:#48BB78;">&#9679;</span>',
-                    "degraded": '<span style="color:#ECC94B;">&#9679;</span>',
-                    "unhealthy": '<span style="color:#FC8181;">&#9679;</span>'
-                }.get(health.status, '<span style="color:#718096;">&#9679;</span>')
+                status_class = {
+                    "healthy": "healthy",
+                    "degraded": "degraded",
+                    "unhealthy": "unhealthy"
+                }.get(health.status, "offline")
 
-                st.markdown(f"{status_dot} {health.status.upper()}", unsafe_allow_html=True)
+                st.markdown(
+                    f'<span class="status-dot status-dot--{status_class}"></span> {health.status.upper()}',
+                    unsafe_allow_html=True
+                )
                 st.markdown(f"**Documents:** {health.document_count:,}")
 
-                ready = '<span style="color:#48BB78;">Ready</span>'
-                not_ready = '<span style="color:#FC8181;">Not ready</span>'
+                ready = '<span class="status-ready">Ready</span>'
+                not_ready = '<span class="status-not-ready">Not ready</span>'
                 st.markdown(f"**DSPy:** {ready if health.dspy_ready else not_ready}", unsafe_allow_html=True)
                 st.markdown(f"**Vector Store:** {ready if health.vector_store_ready else not_ready}", unsafe_allow_html=True)
 
@@ -355,7 +538,7 @@ def render_sidebar():
                     st.markdown(f"**Uptime:** {uptime_min:.1f} min")
             else:
                 st.markdown(
-                    '<span style="color:#FC8181;">&#9679;</span> OFFLINE',
+                    '<span class="status-dot status-dot--offline"></span> OFFLINE',
                     unsafe_allow_html=True
                 )
                 st.caption(f"Port {config['port']} not responding")
@@ -369,28 +552,29 @@ def render_sidebar():
         st.rerun()
 
     if st.sidebar.button("Index Documents"):
-        with st.spinner("Indexing..."):
-            try:
-                anthropologist_url = AGENT_ENDPOINTS["Workflow & Context (The Anthropologist)"]["url"]
-                response = httpx.post(
-                    f"{anthropologist_url}/index",
-                    timeout=120.0
-                )
-                if response.status_code == 200:
-                    result = response.json()
-                    st.sidebar.success(f"Indexed {result.get('indexed_count', 0)} documents")
-                else:
-                    st.sidebar.error("Indexing failed")
-            except Exception as e:
-                st.sidebar.error(f"Error: {e}")
+        with st.spinner("Indexing all agents..."):
+            for agent_name, config in AGENT_ENDPOINTS.items():
+                try:
+                    response = httpx.post(
+                        f"{config['url']}/index",
+                        timeout=120.0
+                    )
+                    if response.status_code == 200:
+                        result = response.json()
+                        st.sidebar.success(
+                            f"{agent_name}: indexed {result.get('indexed_count', 0)} documents"
+                        )
+                    else:
+                        st.sidebar.error(f"{agent_name}: indexing failed")
+                except Exception as e:
+                    st.sidebar.error(f"{agent_name}: {e}")
 
 
 def render_header():
     """Render main header."""
     st.markdown(
-        '<h1 style="margin-bottom:0.25rem;">Agentic Infra Co-Pilot</h1>'
-        '<p style="color:#A0AEC0;font-size:0.9rem;margin-top:0;">'
-        'Multi-Agent System for MRI Operations Analysis</p>',
+        '<h1 class="app-header">Agentic Infra Co-Pilot</h1>'
+        '<p class="app-subtitle">Multi-Agent System for MRI Operations Analysis</p>',
         unsafe_allow_html=True
     )
 
@@ -398,8 +582,7 @@ def render_header():
 def render_welcome_state():
     """I1: Show welcome banner with example prompts when chat is empty."""
     st.markdown(
-        '<p style="color:#A0AEC0;font-size:0.9rem;margin-bottom:1.5rem;">'
-        'Ask about MRI operations, hardware diagnostics, or safety compliance.</p>',
+        '<p class="app-subtitle">Ask about MRI operations, hardware diagnostics, or safety compliance.</p>',
         unsafe_allow_html=True
     )
 
@@ -407,9 +590,8 @@ def render_welcome_state():
 
     with col1:
         st.markdown(
-            '<p style="font-weight:600;font-size:0.8125rem;color:#A0AEC0;'
-            'text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">'
-            'Hardware Diagnostics</p>', unsafe_allow_html=True
+            '<p class="welcome-category">Hardware Diagnostics</p>',
+            unsafe_allow_html=True
         )
         if st.button("Gradient thermal errors for mr176430", key="ex_hw1"):
             st.session_state.example_prompt = "Customer mr176430 is experiencing gradient thermal shutdown events. What could be causing this?"
@@ -418,9 +600,8 @@ def render_welcome_state():
 
     with col2:
         st.markdown(
-            '<p style="font-weight:600;font-size:0.8125rem;color:#A0AEC0;'
-            'text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">'
-            'Workflow & Operations</p>', unsafe_allow_html=True
+            '<p class="welcome-category">Workflow & Operations</p>',
+            unsafe_allow_html=True
         )
         if st.button("Error rate analysis", key="ex_wf1"):
             st.session_state.example_prompt = "Analyze the error rates across our MRI fleet. Which customers have the highest error frequencies?"
@@ -429,9 +610,8 @@ def render_welcome_state():
 
     with col3:
         st.markdown(
-            '<p style="font-weight:600;font-size:0.8125rem;color:#A0AEC0;'
-            'text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">'
-            'Safety & Compliance</p>', unsafe_allow_html=True
+            '<p class="welcome-category">Safety & Compliance</p>',
+            unsafe_allow_html=True
         )
         if st.button("Zone IV recalibration safety", key="ex_sf1"):
             st.session_state.example_prompt = "Is it safe to recalibrate thermal sensors in Zone IV while the magnet is at field? What personnel are required?"
@@ -482,8 +662,7 @@ def render_chat_interface():
                     if deleg.get("target_agent") and deleg["target_agent"] != "self":
                         agent_name = _get_agent_display_name(deleg['target_agent'])
                         st.markdown(
-                            f'<p style="font-size:0.8125rem;color:#A0AEC0;margin-bottom:0.5rem;">'
-                            f'Consulted {agent_name}</p>',
+                            f'<p class="delegation-info">Consulted {agent_name}</p>',
                             unsafe_allow_html=True
                         )
 
@@ -580,8 +759,7 @@ def render_chat_interface():
                 if delegation.get('target_agent') and delegation['target_agent'] != 'self':
                     agent_name = _get_agent_display_name(delegation['target_agent'])
                     st.markdown(
-                        f'<p style="font-size:0.8125rem;color:#A0AEC0;margin-bottom:0.5rem;">'
-                        f'Consulted {agent_name}</p>',
+                        f'<p class="delegation-info">Consulted {agent_name}</p>',
                         unsafe_allow_html=True
                     )
 
@@ -590,24 +768,21 @@ def render_chat_interface():
                     if len(agents_involved) > 1:
                         agent_names = [_get_agent_display_name(a) for a in agents_involved]
                         st.markdown(
-                            f'<p style="font-size:0.8125rem;color:#A0AEC0;margin-bottom:0.5rem;">'
-                            f'Multi-hop: {" &rarr; ".join(agent_names)}</p>',
+                            f'<p class="delegation-info">Multi-hop: {" &rarr; ".join(agent_names)}</p>',
                             unsafe_allow_html=True
                         )
 
                 # Format response based on query type
                 if is_symptom:
                     risk_level = payload.get('risk_level', 'N/A')
-                    risk_colors = {
-                        'critical': '#FC8181', 'high': '#F6AD55',
-                        'medium': '#ECC94B', 'low': '#48BB78'
-                    }
-                    color = risk_colors.get(str(risk_level).lower(), '#A0AEC0')
+                    risk_class = {
+                        'critical': 'critical', 'high': 'high',
+                        'medium': 'medium', 'low': 'low'
+                    }.get(str(risk_level).lower(), 'medium')
 
                     response_text = (
-                        f'<div style="display:inline-block;background:{color}20;color:{color};'
-                        f'padding:0.25rem 0.75rem;border-radius:20px;font-size:0.8125rem;font-weight:600;'
-                        f'margin-bottom:1rem;">{risk_level.upper()}</div>\n\n'
+                        f'<span class="risk-badge risk-badge--{risk_class}">'
+                        f'{risk_level.upper()}</span>\n\n'
                     )
 
                     if payload.get('contextual_explanation'):
@@ -780,9 +955,8 @@ def render_chat_interface():
 def render_footer():
     """Render footer with system info."""
     st.markdown(
-        '<p style="text-align:center;color:#4A5568;font-size:0.75rem;margin-top:2rem;">'
-        'Tripartite MAS &middot; DSPy + Claude 3.5 Haiku / GPT-4.1-nano &middot; '
-        f'{datetime.now().strftime("%Y-%m-%d %H:%M")}</p>',
+        '<p class="app-footer">'
+        'Tripartite MAS &middot; DSPy + Claude Haiku 4.5 / GPT-4.1-nano</p>',
         unsafe_allow_html=True
     )
 

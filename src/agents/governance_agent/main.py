@@ -103,7 +103,7 @@ async def lifespan(app: FastAPI):
     try:
         lm_config = configure_dspy()
         app.state.router_lm = lm_config.router
-        logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-3.5-Haiku")
+        logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-Haiku-4.5")
         app.state.dspy_ready = True
     except Exception as e:
         logger.error(f"Failed to configure DSPy: {e}")
@@ -122,6 +122,18 @@ async def lifespan(app: FastAPI):
         else:
             app.state.vector_store = WorkflowAnthropologistStore()
             doc_count = app.state.vector_store.get_document_count()
+            if doc_count == 0:
+                logger.info("Vector store empty - auto-indexing governance documents...")
+                try:
+                    loader = ClinicalGovernanceLoader()
+                    documents = loader.load()
+                    if documents:
+                        doc_count = app.state.vector_store.index_documents(documents)
+                        logger.info(f"Auto-indexed {doc_count} governance documents")
+                    else:
+                        logger.warning("No governance documents found to auto-index")
+                except Exception as idx_err:
+                    logger.error(f"Auto-indexing failed: {idx_err}")
             logger.info(f"Anthropologist vector store ready: {doc_count} documents indexed")
         app.state.vs_ready = True
     except Exception as e:
@@ -363,7 +375,7 @@ async def consult(request: ConsultRequest):
                 source=doc.metadata.get('source_type', 'anthropologist'),
                 file_name=doc.metadata.get('file_name', 'unknown'),
                 content_snippet=doc.page_content[:500] if doc.page_content else "",
-                relevance_score=round(1.0 - doc_scores.get(id(doc), 0.15), 4),
+                relevance_score=round(max(0.0, 1.0 - doc_scores.get(id(doc), 0.15)), 4),
                 metadata=doc.metadata
             )
             for doc in documents
@@ -667,7 +679,7 @@ async def delegate_to_specialist(target: str, query: str, correlation_id: str):
             response = await client.post(
                 agent_urls[target],
                 json=ConsultRequest(card=delegation_card).model_dump(),
-                timeout=30.0
+                timeout=60.0
             )
             logger.info(f"Delegation to {target} completed: {response.status_code}")
             return response.json()

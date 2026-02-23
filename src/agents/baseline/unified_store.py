@@ -1,7 +1,7 @@
 """
 Unified Vector Store for Baseline Mode
 
-Combines documents from all three domain loaders (Telekom, Siemens, Illigo)
+Combines documents from all three domain loaders (Governance, Hardware, Telemetry)
 into a single ChromaDB collection for single-agent baseline evaluation.
 
 This enables fair A/B comparison between:
@@ -32,9 +32,9 @@ except ImportError:
     HUGGINGFACE_AVAILABLE = False
 
 # Import domain-specific loaders
-from src.agents.governance_agent.data_loader import TelekomLoader
-from src.agents.hardware_agent.data_loader import SiemensLoader
-from src.agents.telemetry_agent.data_loader import IlligoLoader
+from src.agents.governance_agent.clinical_governance_loader import ClinicalGovernanceLoader
+from src.agents.hardware_agent.mri_hardware_loader import MRIHardwareLoader
+from src.agents.telemetry_agent.mri_data_loader import MRITelemetryLoader
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -112,51 +112,51 @@ class UnifiedVectorStore:
         Load documents from ALL three domain loaders.
 
         Returns:
-            Combined list of documents from Telekom, Siemens, and Illigo
+            Combined list of documents from Governance, Hardware, and Telemetry
         """
         all_documents = []
 
-        # Load Telekom documents (governance, SLAs, intents)
-        logger.info("Loading Telekom (governance) documents...")
+        # Load governance documents (clinical workflows, institution profiles, SLAs)
+        logger.info("Loading governance documents...")
         try:
-            telekom_loader = TelekomLoader()
-            telekom_docs = telekom_loader.load()
+            governance_loader = ClinicalGovernanceLoader()
+            governance_docs = governance_loader.load(include_pdfs=False)
             # Tag documents with unified metadata
-            for doc in telekom_docs:
+            for doc in governance_docs:
                 doc.metadata['baseline_domain'] = 'governance'
-                doc.metadata['original_agent'] = 'telekom_minister'
-            all_documents.extend(telekom_docs)
-            logger.info(f"Loaded {len(telekom_docs)} Telekom documents")
+                doc.metadata['original_agent'] = 'governance_agent'
+            all_documents.extend(governance_docs)
+            logger.info(f"Loaded {len(governance_docs)} governance documents")
         except Exception as e:
-            logger.error(f"Error loading Telekom documents: {e}")
+            logger.error(f"Error loading governance documents: {e}")
 
-        # Load Siemens documents (hardware, equipment specs)
-        logger.info("Loading Siemens (hardware) documents...")
+        # Load hardware documents (MRI equipment specs, manuals)
+        logger.info("Loading hardware documents...")
         try:
-            siemens_loader = SiemensLoader()
-            siemens_docs = siemens_loader.load()
+            hardware_loader = MRIHardwareLoader()
+            hardware_docs = hardware_loader.load(include_pdfs=False)
             # Tag documents with unified metadata
-            for doc in siemens_docs:
+            for doc in hardware_docs:
                 doc.metadata['baseline_domain'] = 'hardware'
-                doc.metadata['original_agent'] = 'siemens_technician'
-            all_documents.extend(siemens_docs)
-            logger.info(f"Loaded {len(siemens_docs)} Siemens documents")
+                doc.metadata['original_agent'] = 'hardware_agent'
+            all_documents.extend(hardware_docs)
+            logger.info(f"Loaded {len(hardware_docs)} hardware documents")
         except Exception as e:
-            logger.error(f"Error loading Siemens documents: {e}")
+            logger.error(f"Error loading hardware documents: {e}")
 
-        # Load Illigo documents (operations, telemetry, fault logs)
-        logger.info("Loading Illigo (operations) documents...")
+        # Load telemetry documents (MRI event logs, metrics, fault data)
+        logger.info("Loading telemetry documents...")
         try:
-            illigo_loader = IlligoLoader()
-            illigo_docs = illigo_loader.load()
+            telemetry_loader = MRITelemetryLoader()
+            telemetry_docs = telemetry_loader.load(include_pdfs=False)
             # Tag documents with unified metadata
-            for doc in illigo_docs:
-                doc.metadata['baseline_domain'] = 'operations'
-                doc.metadata['original_agent'] = 'illigo_operator'
-            all_documents.extend(illigo_docs)
-            logger.info(f"Loaded {len(illigo_docs)} Illigo documents")
+            for doc in telemetry_docs:
+                doc.metadata['baseline_domain'] = 'telemetry'
+                doc.metadata['original_agent'] = 'telemetry_agent'
+            all_documents.extend(telemetry_docs)
+            logger.info(f"Loaded {len(telemetry_docs)} telemetry documents")
         except Exception as e:
-            logger.error(f"Error loading Illigo documents: {e}")
+            logger.error(f"Error loading telemetry documents: {e}")
 
         logger.info(f"Total unified documents: {len(all_documents)}")
         return all_documents
@@ -244,7 +244,7 @@ class UnifiedVectorStore:
         Args:
             query: Search query
             k: Number of results
-            filter_domain: Optional domain filter ('governance', 'hardware', 'operations')
+            filter_domain: Optional domain filter ('governance', 'hardware', 'telemetry')
 
         Returns:
             List of relevant documents
