@@ -233,10 +233,10 @@ class AblationTestRunner:
                 keywords=test_case.required_keywords
             )
             judge_scores = {
-                'accuracy': judge_result.accuracy,
-                'relevance': judge_result.relevance,
-                'completeness': judge_result.completeness,
-                'cross_domain': judge_result.cross_domain,
+                'accuracy': judge_result.accuracy_score,
+                'relevance': judge_result.relevance_score,
+                'completeness': judge_result.completeness_score,
+                'cross_domain': judge_result.cross_domain_score,
                 'overall_score': judge_result.overall_score,
             }
         except Exception as e:
