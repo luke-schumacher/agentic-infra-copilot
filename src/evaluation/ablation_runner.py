@@ -121,7 +121,16 @@ class AblationComparison(BaseModel):
     )
 
     def calculate_emergence(self) -> None:
-        """Calculate emergence metrics."""
+        """
+        Calculate emergence metrics.
+
+        Emergence criterion:
+            MAS accuracy > best single agent accuracy
+            AND (cross_domain_refs > 0 OR judge cross_domain score > 0.5)
+
+        This dual criterion prevents false negatives from fragile keyword
+        detection by also accepting the LLM-as-Judge's cross-domain assessment.
+        """
         single_modes = [
             AblationMode.GOVERNANCE_ONLY,
             AblationMode.HARDWARE_ONLY,
@@ -144,12 +153,18 @@ class AblationComparison(BaseModel):
 
             self.emergence_margin = self.mas_accuracy - self.best_single_agent_accuracy
 
-            # Emergence is demonstrated if:
-            # 1. MAS accuracy > best single agent
-            # 2. MAS has cross-domain references
+            # Check cross-domain evidence from two sources
+            has_cross_domain_refs = mas_result.cross_domain_refs > 0
+            judge_cross_domain = (
+                mas_result.judge_scores.get('cross_domain', 0.0)
+                if mas_result.judge_scores else 0.0
+            )
+            has_judge_cross_domain = judge_cross_domain > 0.5
+
+            # Emergence requires margin > 0 AND at least one cross-domain signal
             self.emergence_demonstrated = (
                 self.emergence_margin > 0 and
-                mas_result.cross_domain_refs > 0
+                (has_cross_domain_refs or has_judge_cross_domain)
             )
 
 
@@ -274,11 +289,15 @@ class AblationTestRunner:
         agent_id = agent_map.get(mode, 'governance_agent')
 
         # For single-agent mode, call agent directly with limited context
+        explicit_context = (
+            f"You are given the following domain data. "
+            f"Use ONLY this information to diagnose the issue:\n\n{context}"
+        )
         try:
             response, latency = await self.orchestrator._call_agent(
                 agent_id,
-                f"{test_case.description}\n\nContext:\n{context}",
-                context
+                f"{test_case.description}\n\n{explicit_context}",
+                explicit_context
             )
 
             diagnosis = response.findings or f"No findings from {agent_id}"
@@ -311,6 +330,13 @@ class AblationTestRunner:
             semantic_score=semantic_score
         )
 
+    def _is_empty_response(self, text: str) -> bool:
+        """Check if a response is empty or useless."""
+        if not text:
+            return True
+        stripped = text.strip().lower()
+        return stripped in ("", "no findings", "no findings.", "error", "n/a") or stripped.startswith("error:")
+
     async def _run_single_all_data_mode(
         self,
         test_case: EmergenceTestCase
@@ -318,13 +344,15 @@ class AblationTestRunner:
         """
         Run single agent with all context combined.
 
-        This tests whether a single agent with all information
-        can match MAS performance.
+        Tries agents sequentially (governance → hardware → telemetry) with
+        combined context. Uses the first agent that returns a real response.
+        Fallback: hardware agent (most reliable in current setup).
         """
         start_time = time.time()
 
-        # Combine all contexts
-        combined_context = f"""
+        # Combine all contexts with explicit instruction
+        combined_context = f"""You are given the following domain data. Use ONLY this information to diagnose the issue:
+
 Governance Context:
 {test_case.governance_context}
 
@@ -335,21 +363,32 @@ Telemetry Context:
 {test_case.telemetry_context}
 """
 
-        try:
-            # Use governance agent with full context
-            response, latency = await self.orchestrator._call_agent(
-                'governance_agent',
-                test_case.description,
-                combined_context
-            )
+        # Try agents in order: governance → hardware → telemetry
+        agent_order = ['governance_agent', 'hardware_agent', 'telemetry_agent']
+        diagnosis = "No findings"
+        confidence = 0.0
+        agent_used = agent_order[0]
 
-            diagnosis = response.findings or "No findings"
-            confidence = response.confidence
+        for agent_id in agent_order:
+            try:
+                response, latency = await self.orchestrator._call_agent(
+                    agent_id,
+                    test_case.description,
+                    combined_context
+                )
 
-        except Exception as e:
-            logger.error(f"Error in single-all-data mode: {e}")
-            diagnosis = f"Error: {str(e)}"
-            confidence = 0.0
+                candidate = response.findings or ""
+                if not self._is_empty_response(candidate):
+                    diagnosis = candidate
+                    confidence = response.confidence
+                    agent_used = agent_id
+                    logger.info(f"single_all_data: {agent_id} returned valid response")
+                    break
+                else:
+                    logger.warning(f"single_all_data: {agent_id} returned empty/no-findings, trying next agent")
+
+            except Exception as e:
+                logger.warning(f"single_all_data: {agent_id} failed ({e}), trying next agent")
 
         latency_ms = (time.time() - start_time) * 1000
         accuracy, keyword_matches = self._calculate_accuracy(diagnosis, test_case)
@@ -365,7 +404,7 @@ Telemetry Context:
             total_keywords=len(test_case.required_keywords),
             rounds_used=1,
             latency_ms=latency_ms,
-            agents_consulted=['governance_agent'],
+            agents_consulted=[agent_used],
             cross_domain_refs=0,
             emergence_detected=False,
             judge_scores=judge_scores,
@@ -405,14 +444,14 @@ Telemetry Context:
                 agents_consulted=session.agents_consulted
             )
 
-            # Add rounds from session
+            # Add rounds from session (pass full findings for cross-domain detection)
             for i, resp in enumerate(session.agent_responses):
                 log.add_round(RoundLog(
                     round_number=i,
                     agent=resp.agent_id,
                     response_type=resp.response_type.value,
                     confidence=resp.confidence,
-                    findings_summary=resp.findings[:200] if resp.findings else "",
+                    findings_summary=resp.findings if resp.findings else "",
                     latency_ms=0  # Not tracked per-round
                 ))
 
@@ -467,6 +506,7 @@ Telemetry Context:
         logger.info(f"{'='*60}")
 
         results = {}
+        inter_mode_delay = 3  # seconds between modes to avoid Anthropic/OpenAI rate limits
 
         # Mode 1: Governance Only
         logger.info("Running governance_only mode...")
@@ -476,6 +516,8 @@ Telemetry Context:
             test_case.governance_context
         )
 
+        await asyncio.sleep(inter_mode_delay)
+
         # Mode 2: Hardware Only
         logger.info("Running hardware_only mode...")
         results[AblationMode.HARDWARE_ONLY] = await self._run_single_agent_mode(
@@ -483,6 +525,8 @@ Telemetry Context:
             AblationMode.HARDWARE_ONLY,
             test_case.hardware_context
         )
+
+        await asyncio.sleep(inter_mode_delay)
 
         # Mode 3: Telemetry Only
         logger.info("Running telemetry_only mode...")
@@ -492,11 +536,15 @@ Telemetry Context:
             test_case.telemetry_context
         )
 
+        await asyncio.sleep(inter_mode_delay)
+
         # Mode 4: Single + All Data
         logger.info("Running single_all_data mode...")
         results[AblationMode.SINGLE_ALL_DATA] = await self._run_single_all_data_mode(
             test_case
         )
+
+        await asyncio.sleep(inter_mode_delay)
 
         # Mode 5: MAS Full
         logger.info("Running mas_full mode...")

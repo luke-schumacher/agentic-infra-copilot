@@ -2,7 +2,7 @@
 Shared utilities for all agents in the MAS architecture.
 
 Contains:
-- dspy_config.py: DSPy configuration with Groq LLM
+- dspy_config.py: DSPy configuration (Router=GPT-4.1-nano, Reasoner=Claude-Haiku-4.5)
 - graph_service.py: Knowledge Graph access for hybrid search
 - server_utils.py: Port management and server startup utilities
 - security.py: CORS and security configuration

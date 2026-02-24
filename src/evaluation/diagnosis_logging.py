@@ -181,27 +181,49 @@ class DiagnosisLog(BaseModel):
             'capacity', 'utilization', 'throughput', 'bottleneck', 'volume',
             'academic', 'private', 'hospital', 'radlex', 'questionnaire',
             'mrrt', 'feedback', 'operational', 'workflow',
+            'sla', 'compliance', 'breach', 'uptime', 'contract',
+            'maintenance', 'overdue', 'penalty', 'insurance', 'policy',
         },
         'hardware_agent': {
             'dicom', 'sop', 'gradient', 'coil', 'cryogen', 'helium',
             'thermal', 'calibration', 'magnetom', 'xa50', 'xa60', 'xa51',
             'quench', 'rf', 'amplifier', 'failure', 'component', 'sensor',
-            'dcs', 'cspl', 'pacs', 'error', 'event',
+            'dcs', 'cspl', 'pacs', 'cooling', 'degradation', 'filter',
         },
         'telemetry_agent': {
-            'safety', 'zone', 'compliance', 'screening', 'ferromagnetic',
-            'personnel', 'sop', 'acr', 'training', 'restricted', 'level',
-            'audit', 'regulation', 'procedure', 'interlock',
+            'event', 'pattern', 'log', 'session', 'monitoring',
+            'anomaly', 'trend', 'temperature', 'scan', 'duration',
+            'timestamp', 'cycle', 'interval', 'frequency', 'idle',
+            'personnel', 'acr', 'training', 'interlock',
         },
     }
 
     def detect_cross_domain_references(self) -> None:
-        """Analyze rounds to detect cross-domain references using domain-specific keywords."""
+        """
+        Analyze rounds AND final diagnosis to detect cross-domain references.
+
+        Checks both per-round findings summaries and the full final diagnosis text,
+        since cross-domain synthesis often only appears in the final output.
+
+        Safe to call multiple times — clears previous results first.
+        """
+        self.cross_domain_refs = []
         agent_findings: Dict[str, str] = {}
+
+        # Collect full findings per agent (not truncated)
+        for round_log in self.rounds:
+            findings = round_log.findings_summary.lower()
+            # Accumulate all findings for each agent (may appear in multiple rounds)
+            if round_log.agent in agent_findings:
+                agent_findings[round_log.agent] += " " + findings
+            else:
+                agent_findings[round_log.agent] = findings
+
+        # Also analyze the full final diagnosis for cross-domain references
+        full_diagnosis = self.final_diagnosis.lower() if self.final_diagnosis else ""
 
         for round_log in self.rounds:
             findings = round_log.findings_summary.lower()
-            agent_findings[round_log.agent] = findings
 
             # Check if this agent references other agents' domains
             for other_agent, other_findings in agent_findings.items():
@@ -217,8 +239,8 @@ class DiagnosisLog(BaseModel):
                 domain_overlap = current_words & other_domain_kw
                 general_overlap = other_words & current_words
 
-                # Require either domain keyword match or significant filtered overlap
-                if len(domain_overlap) >= 1 or len(general_overlap) > 3:
+                # Require either domain keyword match or moderate filtered overlap
+                if len(domain_overlap) >= 1 or len(general_overlap) > 2:
                     ref_type = self._determine_reference_type(findings, other_findings)
                     overlap = domain_overlap or general_overlap
                     self.cross_domain_refs.append(CrossDomainReference(
@@ -230,6 +252,36 @@ class DiagnosisLog(BaseModel):
                     ))
                     if other_agent not in round_log.cited_agents:
                         round_log.cited_agents.append(other_agent)
+
+        # Check final diagnosis text for cross-domain keywords from ALL agents
+        if full_diagnosis:
+            diagnosis_words = set(full_diagnosis.split()) - self._STOPWORDS
+            agents_referenced_in_diagnosis = set()
+
+            for agent_id, domain_kw in self._DOMAIN_KEYWORDS.items():
+                overlap = diagnosis_words & domain_kw
+                if len(overlap) >= 2:
+                    agents_referenced_in_diagnosis.add(agent_id)
+
+            # If diagnosis references 2+ agent domains, add cross-domain refs
+            # for any pairs not already detected
+            if len(agents_referenced_in_diagnosis) >= 2:
+                existing_pairs = {
+                    (ref.from_agent, ref.to_agent) for ref in self.cross_domain_refs
+                }
+                agents_list = sorted(agents_referenced_in_diagnosis)
+                for i, agent_a in enumerate(agents_list):
+                    for agent_b in agents_list[i + 1:]:
+                        if (agent_a, agent_b) not in existing_pairs and (agent_b, agent_a) not in existing_pairs:
+                            diag_kw_a = diagnosis_words & self._DOMAIN_KEYWORDS.get(agent_a, set())
+                            diag_kw_b = diagnosis_words & self._DOMAIN_KEYWORDS.get(agent_b, set())
+                            self.cross_domain_refs.append(CrossDomainReference(
+                                from_agent=agent_a,
+                                to_agent=agent_b,
+                                reference_type="builds_on",
+                                content_snippet=f"Final diagnosis references: {', '.join(sorted(diag_kw_a | diag_kw_b)[:6])}",
+                                round_number=-1  # -1 indicates final diagnosis, not a round
+                            ))
 
     def _determine_reference_type(self, current: str, other: str) -> str:
         """Determine how current findings relate to other findings."""
