@@ -17,7 +17,7 @@ import asyncio
 import logging
 import time
 from datetime import datetime
-from typing import Dict, List, Optional, Any, Tuple
+from typing import List, Tuple
 import httpx
 
 from src.protocol.schema import (
@@ -29,6 +29,7 @@ from src.protocol.schema import (
     IntentType,
     Priority
 )
+from src.orchestration.synthesis import DiagnosisSynthesizer
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -87,6 +88,12 @@ class MultiRoundOrchestrator:
         self.confidence_threshold = confidence_threshold
         self.max_rounds = max_rounds
         self.timeout = timeout_seconds
+        self.synthesizer = DiagnosisSynthesizer()
+
+    # Retry configuration for rate-limit / timeout errors
+    # Tuned for Anthropic (Claude Haiku 4.5) + OpenAI (GPT-4.1-nano) rate limits
+    RETRY_DELAYS = [3, 8, 15]  # seconds between retries
+    RETRYABLE_STATUS_CODES = {429, 502, 503, 504, 529}  # 529 = Anthropic overloaded
 
     async def _call_agent(
         self,
@@ -96,7 +103,10 @@ class MultiRoundOrchestrator:
         is_consultation: bool = False
     ) -> Tuple[AgentResponse, float]:
         """
-        Call an agent's /consult endpoint.
+        Call an agent's /consult endpoint with retry and exponential backoff.
+
+        Retries up to 3 times on timeout or rate-limit errors (429, 502-504, 529)
+        with delays of 3s, 8s, 15s between attempts.
 
         Args:
             agent_id: Agent to call
@@ -127,52 +137,96 @@ class MultiRoundOrchestrator:
             }
         )
 
-        try:
-            async with httpx.AsyncClient(timeout=self.timeout) as client:
-                response = await client.post(
-                    url,
-                    json={'card': card.model_dump(), 'await_response': True}
+        last_error = None
+        for attempt in range(1 + len(self.RETRY_DELAYS)):
+            try:
+                async with httpx.AsyncClient(timeout=self.timeout) as client:
+                    response = await client.post(
+                        url,
+                        json={'card': card.model_dump(), 'await_response': True}
+                    )
+
+                    # Check for retryable HTTP status codes
+                    if response.status_code in self.RETRYABLE_STATUS_CODES and attempt < len(self.RETRY_DELAYS):
+                        delay = self.RETRY_DELAYS[attempt]
+                        logger.warning(
+                            f"Agent {agent_id} returned {response.status_code}, "
+                            f"retry {attempt + 1}/{len(self.RETRY_DELAYS)} in {delay}s"
+                        )
+                        await asyncio.sleep(delay)
+                        continue
+
+                    response.raise_for_status()
+                    data = response.json()
+
+                latency_ms = (time.time() - start_time) * 1000
+
+                # Extract response from card
+                response_card = data.get('response_card', {})
+                payload = response_card.get('payload', {})
+
+                # Extract findings from payload — agents use different keys
+                # depending on query type (contextual_explanation, root_cause, diagnosis, answer)
+                findings = (
+                    payload.get('contextual_explanation')
+                    or payload.get('root_cause')
+                    or payload.get('diagnosis')
+                    or payload.get('answer')
+                    or ''
                 )
-                response.raise_for_status()
-                data = response.json()
 
-            latency_ms = (time.time() - start_time) * 1000
+                # Map to AgentResponse
+                agent_response = AgentResponse(
+                    response_type=ResponseType(response_card.get('response_type', 'answer')),
+                    confidence=response_card.get('confidence', 0.5),
+                    findings=findings,
+                    reasoning=payload.get('reasoning', ''),
+                    suggested_agent=response_card.get('suggested_agent'),
+                    missing_information=payload.get('missing_info', ''),
+                    clarification_questions=payload.get('clarification_questions', []),
+                    consultation_reason=payload.get('consultation_reason', ''),
+                    agent_id=agent_id,
+                    round_number=0,  # Will be set by caller
+                    timestamp=datetime.utcnow()
+                )
 
-            # Extract response from card
-            response_card = data.get('response_card', {})
-            payload = response_card.get('payload', {})
+                if attempt > 0:
+                    logger.info(f"Agent {agent_id} succeeded on retry {attempt}")
 
-            # Map to AgentResponse
-            agent_response = AgentResponse(
-                response_type=ResponseType(response_card.get('response_type', 'answer')),
-                confidence=response_card.get('confidence', 0.5),
-                findings=payload.get('answer', payload.get('diagnosis', '')),
-                reasoning=payload.get('reasoning', ''),
-                suggested_agent=response_card.get('suggested_agent'),
-                missing_information=payload.get('missing_info', ''),
-                clarification_questions=payload.get('clarification_questions', []),
-                consultation_reason=payload.get('consultation_reason', ''),
-                agent_id=agent_id,
-                round_number=0,  # Will be set by caller
-                timestamp=datetime.utcnow()
-            )
+                return agent_response, latency_ms
 
-            return agent_response, latency_ms
+            except (httpx.TimeoutException, httpx.ConnectError) as e:
+                last_error = e
+                if attempt < len(self.RETRY_DELAYS):
+                    delay = self.RETRY_DELAYS[attempt]
+                    logger.warning(
+                        f"Agent {agent_id} timeout/connection error, "
+                        f"retry {attempt + 1}/{len(self.RETRY_DELAYS)} in {delay}s: {e}"
+                    )
+                    await asyncio.sleep(delay)
+                    continue
+                # Final attempt failed
+                break
 
-        except Exception as e:
-            logger.error(f"Error calling agent {agent_id}: {e}")
-            latency_ms = (time.time() - start_time) * 1000
+            except Exception as e:
+                last_error = e
+                # Non-retryable error, break immediately
+                break
 
-            # Return error response
-            return AgentResponse(
-                response_type=ResponseType.REFUSE,
-                confidence=0.0,
-                findings=None,
-                reasoning=f"Agent communication error: {str(e)}",
-                agent_id=agent_id,
-                round_number=0,
-                timestamp=datetime.utcnow()
-            ), latency_ms
+        # All retries exhausted or non-retryable error
+        logger.error(f"Error calling agent {agent_id} (after {attempt + 1} attempts): {last_error}")
+        latency_ms = (time.time() - start_time) * 1000
+
+        # Return error response
+        return AgentResponse(
+            response_type=ResponseType.REFUSE,
+            confidence=0.0,
+            findings=None,
+            reasoning=f"Agent communication error: {str(last_error)}",
+            agent_id=agent_id,
+            round_number=0,
+            timestamp=datetime.utcnow()
+        ), latency_ms
 
     def _get_unconsulted_agents(self, session: DiagnosisSession) -> List[str]:
         """Get list of agents not yet consulted."""
@@ -203,6 +257,46 @@ class MultiRoundOrchestrator:
 
         return '\n'.join(context_parts)
 
+    async def _call_agents_parallel(
+        self,
+        agent_ids: List[str],
+        query: str,
+        context: str,
+        is_consultation: bool = False
+    ) -> List[Tuple[AgentResponse, float]]:
+        """
+        Call multiple agents in parallel via asyncio.gather().
+
+        Reduces MAS latency from sum(agent_times) to max(agent_times).
+        Hardware and Telemetry agents operate on non-overlapping knowledge
+        domains, so their analyses are independent and safe to parallelize.
+        """
+        logger.info(f"Parallel call to {len(agent_ids)} agents: {agent_ids}")
+        tasks = [
+            self._call_agent(agent_id, query, context, is_consultation)
+            for agent_id in agent_ids
+        ]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+
+        # Convert exceptions to REFUSE responses
+        processed = []
+        for i, result in enumerate(results):
+            if isinstance(result, Exception):
+                logger.error(f"Parallel call to {agent_ids[i]} failed: {result}")
+                error_resp = AgentResponse(
+                    response_type=ResponseType.REFUSE,
+                    confidence=0.0,
+                    findings=None,
+                    reasoning=f"Parallel call error: {str(result)}",
+                    agent_id=agent_ids[i],
+                    round_number=0,
+                    timestamp=datetime.utcnow()
+                )
+                processed.append((error_resp, 0.0))
+            else:
+                processed.append(result)
+        return processed
+
     async def orchestrate_round(
         self,
         session: DiagnosisSession,
@@ -214,7 +308,7 @@ class MultiRoundOrchestrator:
         Handles all response types per design doc section 4:
         - ANSWER with high confidence → finalize
         - CONSULT → delegate to suggested agent
-        - PARTIAL → try unconsulted agents
+        - PARTIAL → try unconsulted agents (in parallel if 2+)
         - CLARIFY → request user clarification
         - REDIRECT → route to suggested agent
         - REFUSE → try other agents or synthesize
@@ -248,16 +342,17 @@ class MultiRoundOrchestrator:
         if latest_response.response_type == ResponseType.ANSWER:
             if latest_response.confidence >= self.confidence_threshold:
                 return self._finalize_diagnosis(session)
-            # Low confidence answer - try to get more input
+            # Low confidence answer - consult remaining agents
             if unconsulted:
                 session.current_round += 1
                 context = self._build_context(session)
-                next_response, _ = await self._call_agent(
-                    unconsulted[0],
-                    session.original_query,
-                    context
+                responses = await self._call_agents_parallel(
+                    unconsulted, session.original_query, context
                 )
-                return await self.orchestrate_round(session, next_response)
+                for resp, _ in responses:
+                    resp.round_number = session.current_round
+                    session.add_agent_response(resp)
+                return self._finalize_diagnosis(session)
             else:
                 return self._finalize_diagnosis(session)
 
@@ -271,23 +366,36 @@ class MultiRoundOrchestrator:
                 context += f"\n\nConsultation requested by {latest_response.agent_id}: {latest_response.consultation_reason}"
 
                 logger.info(f"CONSULT: {latest_response.agent_id} -> {suggested}")
-                next_response, _ = await self._call_agent(
-                    suggested,
-                    session.original_query,
-                    context,
+
+                # Also call remaining unconsulted agents in parallel
+                remaining = [a for a in unconsulted if a != suggested]
+                agents_to_call = [suggested] + remaining
+                responses = await self._call_agents_parallel(
+                    agents_to_call, session.original_query, context,
                     is_consultation=True
                 )
-                return await self.orchestrate_round(session, next_response)
+                for resp, _ in responses:
+                    resp.round_number = session.current_round
+                    session.add_agent_response(resp)
+
+                # Pick the best response to continue orchestration
+                best = max(
+                    (r for r, _ in responses if r.response_type != ResponseType.REFUSE),
+                    key=lambda r: r.confidence,
+                    default=responses[0][0]
+                )
+                return await self.orchestrate_round(session, best)
             elif unconsulted:
-                # Suggested agent already consulted, try another unconsulted agent
+                # Suggested agent already consulted, try remaining in parallel
                 session.current_round += 1
                 context = self._build_context(session)
-                next_response, _ = await self._call_agent(
-                    unconsulted[0],
-                    session.original_query,
-                    context
+                responses = await self._call_agents_parallel(
+                    unconsulted, session.original_query, context
                 )
-                return await self.orchestrate_round(session, next_response)
+                for resp, _ in responses:
+                    resp.round_number = session.current_round
+                    session.add_agent_response(resp)
+                return self._synthesize_partial_findings(session)
             else:
                 return self._synthesize_partial_findings(session)
 
@@ -299,12 +407,14 @@ class MultiRoundOrchestrator:
                 context += f"\n\nPartial findings: {latest_response.findings}"
                 context += f"\nMissing: {latest_response.missing_information}"
 
-                next_response, _ = await self._call_agent(
-                    unconsulted[0],
-                    session.original_query,
-                    context
+                # Call all unconsulted agents in parallel
+                responses = await self._call_agents_parallel(
+                    unconsulted, session.original_query, context
                 )
-                return await self.orchestrate_round(session, next_response)
+                for resp, _ in responses:
+                    resp.round_number = session.current_round
+                    session.add_agent_response(resp)
+                return self._synthesize_partial_findings(session)
             else:
                 return self._synthesize_partial_findings(session)
 
@@ -320,21 +430,33 @@ class MultiRoundOrchestrator:
                 context = self._build_context(session)
 
                 logger.info(f"REDIRECT: {latest_response.agent_id} -> {suggested}")
-                next_response, _ = await self._call_agent(
-                    suggested,
-                    session.original_query,
-                    context
+
+                # Call suggested + remaining unconsulted in parallel
+                remaining = [a for a in unconsulted if a != suggested]
+                agents_to_call = [suggested] + remaining
+                responses = await self._call_agents_parallel(
+                    agents_to_call, session.original_query, context
                 )
-                return await self.orchestrate_round(session, next_response)
+                for resp, _ in responses:
+                    resp.round_number = session.current_round
+                    session.add_agent_response(resp)
+
+                best = max(
+                    (r for r, _ in responses if r.response_type != ResponseType.REFUSE),
+                    key=lambda r: r.confidence,
+                    default=responses[0][0]
+                )
+                return await self.orchestrate_round(session, best)
             elif unconsulted:
                 session.current_round += 1
                 context = self._build_context(session)
-                next_response, _ = await self._call_agent(
-                    unconsulted[0],
-                    session.original_query,
-                    context
+                responses = await self._call_agents_parallel(
+                    unconsulted, session.original_query, context
                 )
-                return await self.orchestrate_round(session, next_response)
+                for resp, _ in responses:
+                    resp.round_number = session.current_round
+                    session.add_agent_response(resp)
+                return self._synthesize_best_effort(session)
             else:
                 return self._synthesize_best_effort(session)
 
@@ -343,12 +465,19 @@ class MultiRoundOrchestrator:
             if unconsulted:
                 session.current_round += 1
                 context = self._build_context(session)
-                next_response, _ = await self._call_agent(
-                    unconsulted[0],
-                    session.original_query,
-                    context
+                responses = await self._call_agents_parallel(
+                    unconsulted, session.original_query, context
                 )
-                return await self.orchestrate_round(session, next_response)
+                for resp, _ in responses:
+                    resp.round_number = session.current_round
+                    session.add_agent_response(resp)
+
+                best = max(
+                    (r for r, _ in responses if r.response_type != ResponseType.REFUSE),
+                    key=lambda r: r.confidence,
+                    default=responses[0][0]
+                )
+                return await self.orchestrate_round(session, best)
             else:
                 return self._synthesize_best_effort(session)
 
@@ -360,31 +489,31 @@ class MultiRoundOrchestrator:
         session.is_complete = True
         session.termination_reason = "confidence_reached"
 
-        # Synthesize final diagnosis from responses
-        findings = []
-        for resp in session.agent_responses:
-            if resp.findings:
-                findings.append(f"{resp.agent_id}: {resp.findings}")
-
-        session.final_diagnosis = "\n".join(findings)
+        findings_dict = self._collect_findings(session)
+        session.final_diagnosis = self.synthesizer.synthesize(
+            session.original_query, findings_dict
+        )
         session.recommended_actions = self._extract_actions(session)
 
         logger.info(f"Session finalized: {session.termination_reason}")
         return session
+
+    def _collect_findings(self, session: DiagnosisSession) -> dict[str, str]:
+        """Collect per-agent findings from session responses, keeping latest per agent."""
+        findings_dict: dict[str, str] = {}
+        for resp in session.agent_responses:
+            if resp.findings:
+                findings_dict[resp.agent_id] = resp.findings
+        return findings_dict
 
     def _synthesize_partial_findings(self, session: DiagnosisSession) -> DiagnosisSession:
         """Synthesize best diagnosis from partial findings."""
         session.is_complete = True
         session.termination_reason = "all_consulted"
 
-        findings = []
-        for resp in session.agent_responses:
-            if resp.findings:
-                findings.append(f"{resp.agent_id}: {resp.findings}")
-
-        session.final_diagnosis = (
-            "Partial diagnosis synthesized from multiple agents:\n" +
-            "\n".join(findings)
+        findings_dict = self._collect_findings(session)
+        session.final_diagnosis = self.synthesizer.synthesize(
+            session.original_query, findings_dict
         )
         session.recommended_actions = self._extract_actions(session)
 
@@ -396,15 +525,13 @@ class MultiRoundOrchestrator:
         session.is_complete = True
         session.termination_reason = "max_rounds"
 
-        findings = []
-        for resp in session.agent_responses:
-            if resp.findings:
-                findings.append(f"{resp.agent_id}: {resp.findings}")
-
-        session.final_diagnosis = (
-            f"Best-effort diagnosis after {session.max_rounds} rounds:\n" +
-            "\n".join(findings) if findings else "Insufficient data for diagnosis"
-        )
+        findings_dict = self._collect_findings(session)
+        if findings_dict:
+            session.final_diagnosis = self.synthesizer.synthesize(
+                session.original_query, findings_dict
+            )
+        else:
+            session.final_diagnosis = "Insufficient data for diagnosis"
         session.recommended_actions = self._extract_actions(session)
 
         logger.info(f"Session terminated at max rounds")
