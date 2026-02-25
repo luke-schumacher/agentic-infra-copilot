@@ -10,5 +10,6 @@ Components:
 """
 
 from src.orchestration.multi_round import MultiRoundOrchestrator
+from src.orchestration.synthesis import DiagnosisSynthesizer
 
-__all__ = ['MultiRoundOrchestrator']
+__all__ = ['MultiRoundOrchestrator', 'DiagnosisSynthesizer']
