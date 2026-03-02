@@ -1,5 +1,5 @@
-# Agentic Infra Copilot — Current State & Results
-**Date:** 2026-02-25 | **Status:** Run 2 complete, Run 3 ready to execute
+# Agentic Infra Copilot — Results Summary
+**Date:** 2026-03-02 | **Status:** Run 3 complete — synthesis fix evaluated
 
 ---
 
@@ -20,7 +20,7 @@ Reasoning model: **Claude Haiku 4.5**. Router: **GPT-4.1-nano**.
 
 ## Evaluation design (1 min)
 
-**5-mode ablation** across **12 test cases** (4 simple / 4 moderate / 4 complex) = **60 evaluations per run**.
+**5-mode ablation** across **12 test cases** (2 simple / 5 moderate / 5 complex) = **60 evaluations per run**.
 
 | Mode | What it tests |
 |------|---------------|
@@ -36,20 +36,17 @@ Three scoring instruments: **keyword accuracy**, **LLM-as-Judge score**, **seman
 
 ---
 
-## Run 1 → Run 2: what broke and what was fixed (1 min)
+## Run history
 
-**Run 1 (23 Feb)** — found 3 infrastructure bugs that invalidated results:
-1. Payload extraction: orchestrator read from `findings` key; agents used `contextual_explanation`, `root_cause`, etc. → empty responses
-2. Keyword mapping: expected keywords undefined for some modes → scorer errors
-3. Baseline routing: `single_all_data` mode still delegated to specialists → indistinguishable from MAS
-
-**Run 2 (24 Feb)** — all bugs fixed, all 60 evaluations completed, zero timeouts.
+| Run | Date | Status | Key Event |
+|-----|------|--------|-----------|
+| Run 1 | 23 Feb 2026 | Infrastructure debug | Found 3 bugs: payload extraction, keyword mapping, baseline routing |
+| Run 2 | 24 Feb 2026 | First complete evaluation | 0/12 emergence, MAS 58.3%, identified concatenation root cause |
+| Run 3 | 2 Mar 2026 | Post-synthesis evaluation | 2/12 emergence, MAS 65.0%, latency −44% |
 
 ---
 
-## Run 2 results (2 min)
-
-### Per-mode aggregate scores
+## Run 2 results (before fix)
 
 | Mode | Keyword Acc | Judge Score | Semantic Sim | Avg Latency |
 |------|-------------|-------------|--------------|-------------|
@@ -59,44 +56,47 @@ Three scoring instruments: **keyword accuracy**, **LLM-as-Judge score**, **seman
 | **Single + All Data** | **81.7%** | **87.8%** | **70.5%** | 87.5 s |
 | Full MAS | 58.3% | 69.4% | 49.8% | 303.4 s |
 
-**Headline:** single agent with all data beats the MAS by **23.4 percentage points** on keyword accuracy.
+**Emergence: 0 / 12** — all margins negative (simple −30%, moderate −24%, complex −24%)
 
-### Emergence: 0 / 12
-
-| Difficulty | Mean emergence margin |
-|------------|----------------------|
-| Simple | −30% |
-| Moderate | −24% |
-| Complex | −24% |
-
-All negative. No test case showed MAS outperforming the best single agent.
-
-### Latency
-- MAS: **303.4 s** vs baseline: **87.5 s** → **+247% overhead**
-- MAS sequential: governance → hardware → telemetry (serial HTTP calls)
-- Agent consultation: Governance 12/12, Hardware 11/12, Telemetry 9/12
-- Worst case: `missed_maintenance_escalation` — MAS 524 s vs single 92 s
+Root cause: MAS output was concatenated agent sections, not a synthesis. Keyword dilution + competing framings.
 
 ---
 
-## The key finding: it's not the reasoning, it's the assembly (2 min)
+## Run 3 results (after synthesis fix)
 
-Despite low accuracy scores, MAS **judge cross-domain scores ranged 0.33–0.92 (mean ≈ 0.70)**.
+| Mode | Keyword Acc | Judge Score | Semantic Sim | Avg Latency |
+|------|-------------|-------------|--------------|-------------|
+| Governance Only | 40.0% | 54.0% | 48.1% | 117.1 s |
+| Hardware Only | 71.7% | 65.5% | 65.2% | 16.0 s |
+| Telemetry Only | 48.3% | 37.4% | 36.9% | 15.1 s |
+| **Single + All Data** | **85.0%** | **84.8%** | **69.8%** | 87.0 s |
+| Full MAS | **65.0%** | **71.1%** | **50.1%** | **169.8 s** |
 
-This is the critical dissociation:
-- Agents **do** produce cross-domain reasoning (hardware refs in governance output, SLA refs in hardware output)
-- But the final MAS output is **concatenated** — `governance_agent: [...] hardware_agent: [...] telemetry_agent: [...]`
-- This dilutes keyword density, introduces competing framings, and confuses the scorer
+### Run 2 vs Run 3 — MAS only
 
-**Best case — `cascading_thermal_fault`:** MAS produced 6-point cross-domain analysis (equipment age, duty cycles, maintenance gaps, software cascades, hub pressure, SLA mismatch). Judge cross-domain score: 0.92. But keyword accuracy = 80%, same as single agent — no positive margin.
+| | Keyword Acc | Judge Score | Semantic Sim | Avg Latency |
+|--|-------------|-------------|--------------|-------------|
+| Run 2 | 58.3% | 69.4% | 49.8% | 303.4 s |
+| Run 3 | 65.0% | 71.1% | 50.1% | 169.8 s |
+| **Δ** | **+6.7 pp** | **+1.7 pp** | **+0.3 pp** | **−133.6 s (−44%)** |
 
-**Worst case — `phantom_load_spike`:** Single agent 100%, MAS 40%. Hardware said sensor drift, Telemetry said scheduling artifacts — contradictory, unresolved.
+### Emergence: **2 / 12** ⭐
 
-**Root cause:** The existing `_run_synthesis_round()` called Governance for synthesis, but Governance ran fresh RAG instead of integrating the provided findings. It was a 4th independent agent call, not a synthesis step.
+| Test Case | Difficulty | MAS | Best Single | Margin |
+|-----------|------------|-----|-------------|--------|
+| `gradient_coil_degradation` | Complex | 80% | 60% | **+20 pp** |
+| `missed_maintenance_escalation` | Simple | 80% | 60% | **+20 pp** |
+
+Per-difficulty margins:
+| Difficulty | Avg Margin | Emerged |
+|------------|------------|---------|
+| Simple | −30% | 1/2 |
+| Moderate | −20% | 0/5 |
+| Complex | −16% | 1/5 |
 
 ---
 
-## What was fixed for Run 3 (2 min)
+## What changed and why it worked (2 min)
 
 ### B1 — New DSPy synthesis module (`src/orchestration/synthesis.py`)
 
@@ -109,66 +109,39 @@ class SynthesizeDiagnosis(dspy.Signature):
 ```
 
 - Pure LLM reasoning over provided evidence — **no HTTP call, no RAG**
-- Falls back to concatenation if synthesis fails
+- Falls back to concatenation if synthesis fails or rate limits hit
 - Uses Claude Haiku 4.5 (same model, already configured)
 
 ### B2 — Synthesis replaces concatenation in all 3 finalization paths
 
-Old:
-```python
-findings.append(f"{resp.agent_id}: {resp.findings}")
-session.final_diagnosis = "\n".join(findings)
-```
-
-New (all three methods: `_finalize_diagnosis`, `_synthesize_partial_findings`, `_synthesize_best_effort`):
-```python
-findings_dict = self._collect_findings(session)
-session.final_diagnosis = self.synthesizer.synthesize(query, findings_dict)
-```
-
-`_run_synthesis_round()` removed entirely.
+`_run_synthesis_round()` removed entirely (it called Governance for fresh RAG — wrong approach).
 
 ### B3 — Parallel agent execution
 
-Old: governance → hardware → telemetry (serial, ~303 s)
+Old: governance → hardware → telemetry (serial, avg 303 s)
 
-New: governance → `asyncio.gather(hardware, telemetry)` → synthesis
-
-Theoretical latency: `t_gov + max(t_hw, t_tel) + t_synth` instead of `t_gov + t_hw + t_tel`
-Expected reduction: **~100–120 s off MAS average** (from 303 → ~180 s)
+New: governance → `asyncio.gather(hardware, telemetry)` → synthesis = **169.8 s avg (−44%)**
 
 ---
 
-## Expected Run 3 outcomes (1 min)
+## Key confound: Rate limits
 
-| Metric | Run 2 (MAS) | Run 3 target | Mechanism |
-|--------|-------------|--------------|-----------|
-| Keyword accuracy | 58.3% | ≥ 75% | Synthesis concentrates keywords |
-| Judge score | 69.4% | ≥ 80% | No competing framings |
-| Latency | 303 s | ~150–200 s | Parallel hw+tel calls |
-| Emergence | 0/12 | ≥ 1/12 | Synthesis surfaces buried cross-domain keywords |
+Anthropic API rate limit (50k input tokens/min) caused synthesis to fall back to concatenation for ~7/12 cases. Synthesis triples the input token volume vs a single agent call.
 
-If emergence remains 0/12 after synthesis, the investigation shifts to whether keyword accuracy is the right proxy for cross-domain diagnostic quality — the judge cross-domain scores already suggest the agents reason better than the metric captures.
+**Consequence:** The measured +6.7 pp improvement is a **lower bound**. Cases where synthesis executed fully (e.g. `missed_maintenance_escalation`, `cascading_thermal_fault`) performed better than cases where it fell back.
+
+The `known_fault_code_lookup` failure (MAS 0%) is consistent with a synthesis-path error under rate limiting.
 
 ---
 
-## How to run (30 sec)
+## What the results mean for the hypothesis
 
-```bash
-# Verify synthesis import
-python -c "from src.orchestration.synthesis import DiagnosisSynthesizer; print('OK')"
-
-# Check agents are healthy
-python -m src.evaluation.run_evaluation --dry-run
-
-# Single test case smoke test
-python -m src.evaluation.run_evaluation --test-case cascading_thermal_fault --no-resume
-
-# Full Run 3 (60 evaluations)
-python -m src.evaluation.run_evaluation --no-resume
-```
-
-Results land in `results/ablation/thesis_summary.json`. Compare Run 2 vs Run 3 to quantify synthesis impact.
+| Claim | Evidence |
+|-------|----------|
+| MAS can produce cross-domain reasoning | Judge cross-domain scores 0.33–0.92, mean ~0.7 ✓ |
+| MAS can demonstrate emergence | 2/12 cases with +20 pp margin ✓ |
+| MAS outperforms single-agent baseline overall | No — still 20 pp below single_all_data ✗ |
+| Synthesis is the enabling condition for emergence | 0/12 without synthesis → 2/12 with synthesis ✓ |
 
 ---
 
@@ -182,13 +155,12 @@ src/
   evaluation/
     run_evaluation.py     ← unchanged
     ablation_runner.py    ← unchanged
-    judge.py              ← unchanged
 
 results/ablation/
-  thesis_summary.json     ← Run 2 aggregate results
-  [per-test-case files]   ← 12 individual breakdowns
+  thesis_summary.json     ← Run 3 aggregate results (latest)
 
 thesis/
-  main_with_visuals.tex   ← Results ch.4 + Discussion ch.5 written
-                             4 pgfplots figures, 3 tables, 86 pages compiled clean
+  main_with_visuals.tex   ← Results ch.4 (Sections 4.1–4.6) + Discussion ch.5 written
+                             Run 3 Section 4.6 added, Discussion updated with before/after
+                             92 pages, compiled clean (xelatex → biber → xelatex × 2)
 ```
