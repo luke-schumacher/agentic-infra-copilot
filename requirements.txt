@@ -22,9 +22,6 @@ httpx>=0.26.0
 dspy-ai>=2.5.0
 anthropic>=0.25.0
 
-# Streamlit UI Orchestrator
-streamlit>=1.31.0
-
 # Data Ingestion - "The Eyes"
 # PDF parsing
 pypdf>=3.17.0

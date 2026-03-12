@@ -138,37 +138,18 @@ services:
       retries: 3
 
   # ============================================================
-  # Streamlit UI (Port 8501)
+  # React Frontend (Port 3000)
   # ============================================================
-  streamlit-ui:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: agentic-streamlit-ui
-    command: python -m streamlit run src/ui/app.py --server.address=0.0.0.0 --server.port=8501
+  frontend:
+    build: ./frontend
+    container_name: agentic-frontend
     ports:
-      - "8501:8501"
-    environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      # Agent URLs for inter-container communication
-      - TELEKOM_MINISTER_URL=http://governance-agent:8001
-      - SIEMENS_TECHNICIAN_URL=http://hardware-agent:8002
-      - ILLIGO_OPERATOR_URL=http://telemetry-agent:8003
-      - GOVERNANCE_AGENT_URL=http://governance-agent:8001
-      - HARDWARE_AGENT_URL=http://hardware-agent:8002
-      - TELEMETRY_AGENT_URL=http://telemetry-agent:8003
-    mem_limit: 1g
-    mem_reservation: 512m
+      - "3000:3000"
+    command: npm run dev -- --host 0.0.0.0 --port 3000
     depends_on:
       - governance-agent
       - hardware-agent
       - telemetry-agent
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8501"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
 
 volumes:
   neo4j_data:

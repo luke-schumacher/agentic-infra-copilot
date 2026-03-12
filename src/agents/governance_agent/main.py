@@ -39,7 +39,7 @@ import httpx
 project_root = Path(__file__).parent.parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-from pydantic import ValidationError
+from pydantic import BaseModel, ValidationError
 from src.protocol.schema import (
     AgentCard, AgentRole, IntentType, Priority, ResponseType,
     ConsultRequest, ConsultResponse, AgentHealthStatus,
@@ -53,6 +53,7 @@ import dspy
 from src.agents.shared.graph_service import get_graph_service
 from src.agents.shared.security import configure_cors
 from src.evaluation.diagnosis_logging import DiagnosisLog, DiagnosisLogger, RoundLog
+from src.evaluation.eval_service import EvalService
 
 # Backward compatibility imports
 try:
@@ -164,6 +165,10 @@ async def lifespan(app: FastAPI):
     # Initialize diagnosis logger for reasoning chain capture
     app.state.diagnosis_logger = DiagnosisLogger()
     logger.info("Diagnosis logger initialized (logs/diagnosis/)")
+
+    # Initialize evaluation service
+    app.state.eval_service = EvalService()
+    logger.info("Evaluation service initialized")
 
     logger.info("=" * 60)
     logger.info("WORKFLOW ANTHROPOLOGIST (The Anthropologist) - Ready to serve!")
@@ -759,6 +764,95 @@ async def silo_audit():
     if not app.state.vector_store:
         return {"error": "vector_store_not_initialized"}
     return app.state.vector_store.get_silo_audit()
+
+
+# ---------------------------------------------------------------------------
+# Evaluation endpoints
+# ---------------------------------------------------------------------------
+
+class EvalStartRequest(BaseModel):
+    test_cases: list[str] | None = None  # None = all 12
+    no_resume: bool = False
+
+
+@app.post("/evaluation/start")
+async def evaluation_start(request: EvalStartRequest):
+    """Start an async evaluation run. Returns run_id and total evaluation count."""
+    svc: EvalService = app.state.eval_service
+    run_id, total = await svc.start_run(
+        test_cases=request.test_cases,
+        no_resume=request.no_resume,
+    )
+    return {"run_id": run_id, "total_evaluations": total}
+
+
+@app.get("/evaluation/status/{run_id}")
+async def evaluation_status(run_id: str):
+    """Poll progress and partial results for a running or completed evaluation."""
+    svc: EvalService = app.state.eval_service
+    state = svc.get_status(run_id)
+    if state is None:
+        raise HTTPException(status_code=404, detail=f"Run {run_id} not found")
+
+    pct = (state.completed_evaluations / state.total_evaluations * 100) if state.total_evaluations else 0
+    return {
+        "run_id": state.run_id,
+        "status": state.status,
+        "started_at": state.started_at,
+        "error": state.error,
+        "progress": {
+            "completed": state.completed_evaluations,
+            "total": state.total_evaluations,
+            "current_test_case": state.current_test_case,
+            "current_mode": state.current_mode,
+            "percentage": round(pct, 1),
+        },
+        "comparisons": state.comparisons,
+        "thesis_summary": state.thesis_summary,
+    }
+
+
+@app.get("/evaluation/results")
+async def evaluation_results():
+    """Load all past evaluation results from results/ablation/*.json."""
+    svc: EvalService = app.state.eval_service
+    return svc.get_all_results()
+
+
+@app.get("/evaluation/data-status")
+async def evaluation_data_status():
+    """Check /health on all 3 agents and return their doc counts and readiness."""
+    agents = [
+        {"name": "governance_agent", "port": 8001, "url": "http://localhost:8001"},
+        {"name": "hardware_agent",   "port": 8002, "url": "http://localhost:8002"},
+        {"name": "telemetry_agent",  "port": 8003, "url": "http://localhost:8003"},
+    ]
+    results = []
+    async with httpx.AsyncClient(timeout=8.0) as client:
+        for agent in agents:
+            try:
+                resp = await client.get(f"{agent['url']}/health")
+                resp.raise_for_status()
+                data = resp.json()
+                results.append({
+                    "name": agent["name"],
+                    "port": agent["port"],
+                    "status": data.get("status", "unknown"),
+                    "document_count": data.get("document_count", 0),
+                    "dspy_ready": data.get("dspy_ready", False),
+                    "vector_store_ready": data.get("vector_store_ready", False),
+                })
+            except Exception as e:
+                results.append({
+                    "name": agent["name"],
+                    "port": agent["port"],
+                    "status": "unreachable",
+                    "document_count": 0,
+                    "dspy_ready": False,
+                    "vector_store_ready": False,
+                    "error": str(e),
+                })
+    return results
 
 
 if __name__ == "__main__":

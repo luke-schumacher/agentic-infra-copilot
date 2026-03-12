@@ -1,0 +1,7 @@
+.area { flex: 1; overflow-y: auto; }
+
+.messages {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 24px 20px 16px;
+}
