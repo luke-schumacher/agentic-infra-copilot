@@ -1,0 +1,39 @@
+.bubble { padding: 6px 0; }
+
+.inner { max-width: 80%; }
+
+.errorBubble {
+  border: 1px solid var(--status-err);
+  background: rgba(248,113,113,0.05);
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.partialWarning {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--status-warn);
+  background: rgba(245,166,35,0.08);
+  border: 1px solid rgba(245,166,35,0.2);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  margin-bottom: 8px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  min-height: 0;
+}
+
+.content {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}

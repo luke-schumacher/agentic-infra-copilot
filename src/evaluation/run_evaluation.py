@@ -365,7 +365,7 @@ async def run_evaluation(
 
         # Rate-limit delay between test cases
         if idx < total:
-            time.sleep(DELAY_BETWEEN_CASES_S)
+            await asyncio.sleep(DELAY_BETWEEN_CASES_S)
 
     # Generate thesis summary
     if comparisons:

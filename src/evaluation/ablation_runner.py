@@ -194,7 +194,7 @@ class AblationTestRunner:
             orchestrator: Optional pre-configured orchestrator
             log_dir: Directory for result files
         """
-        self.orchestrator = orchestrator or MultiRoundOrchestrator()
+        self.orchestrator = orchestrator or MultiRoundOrchestrator(confidence_threshold=0.5)
         self.logger = DiagnosisLogger(log_dir)
         self.results_dir = Path(log_dir)
         self.results_dir.mkdir(parents=True, exist_ok=True)
@@ -424,7 +424,13 @@ Telemetry Context:
 
         try:
             session = await self.orchestrator.run_diagnosis(
-                query=f"{test_case.description}\n\nGovernance sees: {test_case.governance_context}",
+                query=(
+                    f"{test_case.description}\n\n"
+                    f"Governance context: {test_case.governance_context}\n\n"
+                    f"IMPORTANT: This scenario requires cross-domain analysis. "
+                    f"Consult hardware and telemetry specialists — they hold data "
+                    f"not available in governance records."
+                ),
                 location="Test Environment",
                 equipment_type="MRI"
             )
