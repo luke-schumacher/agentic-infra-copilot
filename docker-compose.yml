@@ -50,11 +50,11 @@ services:
       - PROCESSED_BASE_DIR=data/processed
       - RAW_DATA_DIR=data/raw/siemens
     volumes:
-      - ./data:/app/data
-      - ./config:/app/config
-      - ./chroma_db:/app/chroma_db
-      - ./logs:/app/logs
-      - ./results:/app/results
+      - ./data:/app/data:z
+      - ./config:/app/config:z
+      - ./chroma_db:/app/chroma_db:z
+      - ./logs:/app/logs:z
+      - ./results:/app/results:z
     mem_limit: 1500m
     mem_reservation: 768m
     depends_on:
@@ -88,9 +88,9 @@ services:
       - RAW_PDF_DIR=data/raw/siemens
       - PARQUET_DATA_DIR=data/raw/siemens/eventlog_txt
     volumes:
-      - ./data:/app/data
-      - ./config:/app/config
-      - ./chroma_db:/app/chroma_db
+      - ./data:/app/data:z
+      - ./config:/app/config:z
+      - ./chroma_db:/app/chroma_db:z
     mem_limit: 2g
     mem_reservation: 1g
     depends_on:
@@ -123,9 +123,9 @@ services:
       - TELEMETRY_DATA_DIR=data/processed/telemetry
       - RAW_PDF_DIR=data/raw/siemens
     volumes:
-      - ./data:/app/data
-      - ./config:/app/config
-      - ./chroma_db:/app/chroma_db
+      - ./data:/app/data:z
+      - ./config:/app/config:z
+      - ./chroma_db:/app/chroma_db:z
     mem_limit: 1500m
     mem_reservation: 768m
     depends_on:
