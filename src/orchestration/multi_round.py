@@ -91,8 +91,10 @@ class MultiRoundOrchestrator:
         self.synthesizer = DiagnosisSynthesizer()
 
     # Retry configuration for rate-limit / timeout errors
-    # Tuned for Anthropic (Claude Haiku 4.5) + OpenAI (GPT-4.1-nano) rate limits
-    RETRY_DELAYS = [3, 8, 15]  # seconds between retries
+    # Tuned for Anthropic (Claude Haiku 4.5) + OpenAI (GPT-4.1-nano) rate limits.
+    # Delays are long enough to let the 1-minute token-budget window partially reset
+    # after a 429 — critical for large evaluation runs (100+ test cases).
+    RETRY_DELAYS = [20, 45, 90]  # seconds between retries
     RETRYABLE_STATUS_CODES = {429, 502, 503, 504, 529}  # 529 = Anthropic overloaded
 
     async def _call_agent(

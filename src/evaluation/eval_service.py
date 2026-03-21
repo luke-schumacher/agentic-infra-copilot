@@ -105,9 +105,13 @@ class EvalService:
                 state.completed_evaluations += 5
                 state.comparisons = [c.model_dump() for c in comparisons]
 
-                # Rate-limit delay between test cases
+                # Rate-limit delay between test cases.
+                # 15 s gives the Anthropic 50k-token/min bucket time to partially
+                # refill before the next test case fires. Run 3 showed that 2 s was
+                # insufficient at scale — synthesis fell back to concatenation for
+                # ~7/12 cases. Scale this up further if 429s persist.
                 if idx < total_cases:
-                    await asyncio.sleep(2)
+                    await asyncio.sleep(15)
 
             # Generate thesis summary
             if comparisons:
