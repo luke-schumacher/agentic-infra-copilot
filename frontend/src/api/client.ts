@@ -31,10 +31,10 @@ export async function checkHealth(agentUrl: string): Promise<AgentHealthStatus> 
 
 export async function consultAgent(query: string, context: QueryContext): Promise<ConsultResponse> {
   const card: AgentCard = {
-    sender: 'frontend',
-    recipient: 'governance',
-    intent: context.query_type === 'symptom' ? 'symptom_diagnosis' : 'general_inquiry',
-    priority: context.query_type === 'symptom' ? 'HIGH' : 'NORMAL',
+    sender: 'orchestrator',
+    recipient: 'governance_agent',
+    intent: context.query_type === 'symptom' ? 'diagnose' : 'query',
+    priority: context.query_type === 'symptom' ? 'high' : 'normal',
     payload: {
       query,
       customer_id: context.customer_id || undefined,

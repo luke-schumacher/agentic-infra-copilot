@@ -28,10 +28,49 @@
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.02em;
-  flex: 1;
+  white-space: nowrap;
 }
 
 .brandAccent { color: var(--accent); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+.navLink:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+.navLinkActive {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.navLinkActive:hover {
+  background: var(--accent-dim);
+}
+
+@media (max-width: 640px) {
+  .navLabel { display: none; }
+  .navLink { padding: 4px 8px; }
+}
 
 .pills { display: flex; gap: 6px; }
 

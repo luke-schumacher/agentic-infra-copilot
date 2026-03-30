@@ -1,4 +1,5 @@
-import { Menu, BarChart2 } from 'lucide-react';
+import { Menu, BarChart2, FlaskConical, Network, MessageSquare } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { AGENTS, toDisplayStatus } from '../../types';
 import type { AgentHealthMap } from '../../hooks/useAgentHealth';
@@ -11,6 +12,13 @@ interface Props {
 
 const SHORT: Record<string, string> = { gov: 'Gov', hw: 'HW', tel: 'Tel' };
 
+const NAV_LINKS = [
+  { to: '/research',      label: 'Research',     Icon: FlaskConical },
+  { to: '/architecture',  label: 'Architecture',  Icon: Network },
+  { to: '/results',       label: 'Results',       Icon: BarChart2 },
+  { to: '/',              label: 'Chat',          Icon: MessageSquare, end: true },
+];
+
 export function Header({ onMenuClick, agents, onEvalClick }: Props) {
   return (
     <header className={styles.header}>
@@ -20,6 +28,21 @@ export function Header({ onMenuClick, agents, onEvalClick }: Props) {
       <span className={styles.brand}>
         Agentic Infra <span className={styles.brandAccent}>Co-Pilot</span>
       </span>
+      <nav className={styles.nav}>
+        {NAV_LINKS.map(({ to, label, Icon, end }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end={end}
+            className={({ isActive }) =>
+              `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
+            }
+          >
+            <Icon size={13} />
+            <span className={styles.navLabel}>{label}</span>
+          </NavLink>
+        ))}
+      </nav>
       <div className={styles.pills}>
         {AGENTS.map((a) => {
           const cls = toDisplayStatus(agents[a.id]?.status);

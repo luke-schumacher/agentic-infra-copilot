@@ -824,8 +824,8 @@ async def evaluation_data_status():
     """Check /health on all 3 agents and return their doc counts and readiness."""
     agents = [
         {"name": "governance_agent", "port": 8001, "url": "http://localhost:8001"},
-        {"name": "hardware_agent",   "port": 8002, "url": "http://localhost:8002"},
-        {"name": "telemetry_agent",  "port": 8003, "url": "http://localhost:8003"},
+        {"name": "hardware_agent",   "port": 8002, "url": os.getenv("HARDWARE_AGENT_URL", "http://localhost:8002")},
+        {"name": "telemetry_agent",  "port": 8003, "url": os.getenv("TELEMETRY_AGENT_URL", "http://localhost:8003")},
     ]
     results = []
     async with httpx.AsyncClient(timeout=8.0) as client:

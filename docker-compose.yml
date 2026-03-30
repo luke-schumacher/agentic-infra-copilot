@@ -145,7 +145,11 @@ services:
     container_name: agentic-frontend
     ports:
       - "3000:3000"
-    command: npm run dev -- --host 0.0.0.0 --port 3000
+    command: node ./node_modules/vite/bin/vite.js --host 0.0.0.0 --port 3000
+    environment:
+      - VITE_GOV_HOST=governance-agent
+      - VITE_HW_HOST=hardware-agent
+      - VITE_TEL_HOST=telemetry-agent
     depends_on:
       - governance-agent
       - hardware-agent

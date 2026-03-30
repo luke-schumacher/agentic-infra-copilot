@@ -39,7 +39,20 @@
       "Bash(git commit:*)",
       "Bash(git mv:*)",
       "Bash(Select-Object -First 10)",
-      "Bash(conda list:*)"
+      "Bash(conda list:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Read(//home/lukeschumacher/Documents/GitHub/iot-ipe-copilot/src/evaluation/**)",
+      "Read(//home/lukeschumacher/Documents/GitHub/iot-ipe-copilot/**)",
+      "Bash(gh repo:*)",
+      "Bash(pip3 install:*)",
+      "Bash(chmod:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(grep -E \"\\\\.\\(py|md\\)$\")",
+      "Bash(du:*)",
+      "Bash(file /home/lukeschumacher/Documents/GitHub/agent_files/*.pdf)",
+      "Bash(file /home/lukeschumacher/Documents/GitHub/agent_files/2026-02/InstalledBase_withSWVersions_2026_02/*.xlsx)"
     ]
   }
 }
