@@ -337,8 +337,10 @@ class MRIHardwareLoader:
             return []
 
     def load_mri_pdfs(self) -> List[Document]:
-        """Load and chunk DCS/CSPL technical documentation PDFs."""
-        # Find DCS PDFs only
+        """Load and chunk MRI technical documentation PDFs (DCS + operator manuals)."""
+        all_documents = []
+        
+        # Part 1: Load DCS/CSPL PDFs from root directory
         pdf_files = []
         for pattern in DCS_PDF_PATTERNS:
             found = list(self.raw_pdf_dir.glob(f"*{pattern}*"))
@@ -353,12 +355,33 @@ class MRIHardwareLoader:
                 seen_stems.add(stem)
                 unique_pdfs.append(pdf)
 
-        if not unique_pdfs:
+        if unique_pdfs:
+            logger.info(f"Loading {len(unique_pdfs)} DCS/CSPL PDFs")
+            dcs_docs = self._process_pdf_batch(unique_pdfs, 'dcs_documentation', 'dicom_conformance_pdf')
+            all_documents.extend(dcs_docs)
+            logger.info(f"Total DCS PDF chunks created: {len(dcs_docs)}")
+        else:
             logger.warning("No DCS/CSPL PDFs found")
-            return []
+        
+        # Part 2: Load operator manuals from magnetom_pdfs/hardware
+        hardware_dir = self.raw_pdf_dir / "magnetom_pdfs" / "hardware"
+        if hardware_dir.exists():
+            operator_pdfs = list(hardware_dir.glob("*.pdf"))
+            if operator_pdfs:
+                logger.info(f"Loading {len(operator_pdfs)} operator manual PDFs from {hardware_dir}")
+                operator_docs = self._process_pdf_batch(operator_pdfs, 'operator_manual', 'hardware_documentation')
+                all_documents.extend(operator_docs)
+                logger.info(f"Total operator manual chunks: {len(operator_docs)}")
+            else:
+                logger.warning(f"No operator manual PDFs found in {hardware_dir}")
+        else:
+            logger.warning(f"Hardware manuals directory not found: {hardware_dir}")
 
-        logger.info(f"Loading {len(unique_pdfs)} DCS/CSPL PDFs")
+        logger.info(f"Total documents loaded: {len(all_documents)}")
+        return all_documents
 
+    def _process_pdf_batch(self, pdf_paths: List[Path], source_type: str, data_type: str) -> List[Document]:
+        """Process a batch of PDFs and return chunked documents."""
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=self.chunk_size,
             chunk_overlap=self.chunk_overlap,
@@ -368,7 +391,7 @@ class MRIHardwareLoader:
 
         all_documents = []
 
-        for pdf_path in unique_pdfs:
+        for pdf_path in pdf_paths:
             try:
                 logger.info(f"Processing: {pdf_path.name}")
                 loader = PyPDFLoader(str(pdf_path))
@@ -378,8 +401,8 @@ class MRIHardwareLoader:
 
                 for chunk in chunks:
                     chunk.metadata.update({
-                        'source_type': 'dcs_documentation',
-                        'data_type': 'dicom_conformance_pdf',
+                        'source_type': source_type,
+                        'data_type': data_type,
                         'file_name': pdf_path.name,
                         'agent': 'hardware_agent'
                     })
@@ -391,7 +414,6 @@ class MRIHardwareLoader:
                 logger.error(f"Error processing {pdf_path.name}: {str(e)}")
                 continue
 
-        logger.info(f"Total PDF chunks created: {len(all_documents)}")
         return all_documents
 
     def load_common_failure_modes(self) -> List[Document]:

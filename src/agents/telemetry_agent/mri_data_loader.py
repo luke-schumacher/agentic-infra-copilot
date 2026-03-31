@@ -314,7 +314,10 @@ class MRITelemetryLoader:
             return []
 
     def load_safety_pdfs(self) -> List[Document]:
-        """Load and chunk MRI safety PDFs (MRI-SOP, Safety Training, ACR Criteria)."""
+        """Load and chunk MRI safety PDFs (MRI-SOP, Safety Training, ACR Criteria, and magnetom_pdfs/safety)."""
+        all_documents = []
+        
+        # Part 1: Load safety PDFs from root directory (existing patterns)
         pdf_files = []
         for pattern in SAFETY_PDF_PATTERNS:
             found = list(self.raw_dir.glob(f"*{pattern}*"))
@@ -329,12 +332,31 @@ class MRITelemetryLoader:
                 seen_stems.add(stem)
                 unique_pdfs.append(pdf)
 
-        if not unique_pdfs:
-            logger.warning("No safety PDFs found")
-            return []
+        if unique_pdfs:
+            logger.info(f"Loading {len(unique_pdfs)} safety PDFs from root directory")
+            root_docs = self._process_safety_pdf_batch(unique_pdfs)
+            all_documents.extend(root_docs)
+        else:
+            logger.warning("No safety PDFs found in root directory")
+        
+        # Part 2: Load additional safety PDFs from magnetom_pdfs/safety
+        safety_dir = self.raw_dir / "magnetom_pdfs" / "safety"
+        if safety_dir.exists():
+            safety_pdfs = list(safety_dir.glob("*.pdf"))
+            if safety_pdfs:
+                logger.info(f"Loading {len(safety_pdfs)} safety PDFs from {safety_dir}")
+                safety_docs = self._process_safety_pdf_batch(safety_pdfs)
+                all_documents.extend(safety_docs)
+            else:
+                logger.warning(f"No safety PDFs found in {safety_dir}")
+        else:
+            logger.warning(f"Safety directory not found: {safety_dir}")
 
-        logger.info(f"Loading {len(unique_pdfs)} safety PDFs")
+        logger.info(f"Total safety PDF chunks: {len(all_documents)}")
+        return all_documents
 
+    def _process_safety_pdf_batch(self, pdf_paths: List[Path]) -> List[Document]:
+        """Process a batch of safety PDFs and return chunked documents."""
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=self.chunk_size,
             chunk_overlap=self.chunk_overlap,
@@ -344,7 +366,7 @@ class MRITelemetryLoader:
 
         all_documents = []
 
-        for pdf_path in unique_pdfs:
+        for pdf_path in pdf_paths:
             try:
                 logger.info(f"Processing: {pdf_path.name}")
                 loader = PyPDFLoader(str(pdf_path))
@@ -367,7 +389,6 @@ class MRITelemetryLoader:
                 logger.error(f"Error processing {pdf_path.name}: {str(e)}")
                 continue
 
-        logger.info(f"Total safety PDF chunks: {len(all_documents)}")
         return all_documents
 
     def load(self, include_pdfs: bool = True) -> List[Document]:
