@@ -15,7 +15,7 @@ from typing import Optional
 
 import dspy
 
-from src.agents.shared.dspy_config import configure_dspy
+from src.agents.shared.dspy_config import configure_dspy, get_lm_config
 
 logger = logging.getLogger(__name__)
 
@@ -90,6 +90,8 @@ class AgentJudge:
 
         try:
             configure_dspy()
+            lm_config = get_lm_config()
+            self._sonnet_lm = lm_config.sonnet if lm_config else None
             self._judge = dspy.ChainOfThought(JudgeSignature)
             self._initialized = True
             logger.info("AgentJudge initialized with DSPy")
@@ -128,13 +130,24 @@ class AgentJudge:
             # Prepare inputs
             keywords_str = ", ".join(keywords) if keywords else "none specified"
 
-            # Run judge
-            result = self._judge(
-                query=query,
-                agent_response=agent_response,
-                ground_truth=ground_truth,
-                expected_keywords=keywords_str
-            )
+            # Run judge with Sonnet (higher quality evaluation)
+            sonnet_lm = getattr(self, '_sonnet_lm', None)
+            ctx = dspy.context(lm=sonnet_lm) if sonnet_lm else None
+            if ctx:
+                with ctx:
+                    result = self._judge(
+                        query=query,
+                        agent_response=agent_response,
+                        ground_truth=ground_truth,
+                        expected_keywords=keywords_str
+                    )
+            else:
+                result = self._judge(
+                    query=query,
+                    agent_response=agent_response,
+                    ground_truth=ground_truth,
+                    expected_keywords=keywords_str
+                )
 
             # Parse scores (ensure 0-1 range)
             accuracy = self._parse_score(result.accuracy_score)

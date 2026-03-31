@@ -10,7 +10,7 @@ Author: Thesis Project - Agentic Infra Co-Pilot
 
 import logging
 import dspy
-from src.agents.shared.dspy_config import configure_dspy
+from src.agents.shared.dspy_config import configure_dspy, get_lm_config
 
 logger = logging.getLogger(__name__)
 
@@ -38,6 +38,8 @@ class DiagnosisSynthesizer:
         # Ensure DSPy is configured (idempotent if already configured by agents)
         if dspy.settings.lm is None:
             configure_dspy()
+        lm_config = get_lm_config()
+        self._sonnet_lm = lm_config.sonnet if lm_config else None
         self._synthesizer = dspy.ChainOfThought(SynthesizeDiagnosis)
 
     def synthesize(self, query: str, findings_dict: dict[str, str]) -> str:
@@ -66,10 +68,19 @@ class DiagnosisSynthesizer:
             return "No substantive findings from any agent."
 
         try:
-            result = self._synthesizer(
-                original_query=query,
-                agent_findings=formatted_findings
-            )
+            # Use Sonnet for cross-domain synthesis (higher quality than Haiku default)
+            ctx = dspy.context(lm=self._sonnet_lm) if self._sonnet_lm else None
+            if ctx:
+                with ctx:
+                    result = self._synthesizer(
+                        original_query=query,
+                        agent_findings=formatted_findings
+                    )
+            else:
+                result = self._synthesizer(
+                    original_query=query,
+                    agent_findings=formatted_findings
+                )
             synthesis = result.unified_diagnosis
 
             if synthesis and len(synthesis.strip()) > 20:

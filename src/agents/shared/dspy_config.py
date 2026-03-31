@@ -41,9 +41,9 @@ def configure_dspy() -> LMConfig:
     """
     Configure DSPy with three-tier model strategy via Azure AI endpoint.
 
-    Tier 1 (Router):     azure_ai/gpt-4-1          — classification, temp=0.0
-    Tier 2 (Reasoner):   azure_ai/claude-haiku-4-5  — agent reasoning, global default
-    Tier 3 (Sonnet):     azure_ai/claude-sonnet-4-5 — judge + synthesis
+    Tier 1 (Router):     azure/gpt-4-1          — classification, temp=0.0
+    Tier 2 (Reasoner):   azure/claude-haiku-4-5  — agent reasoning, global default
+    Tier 3 (Sonnet):     azure/claude-sonnet-4-5 — judge + synthesis
 
     Falls back to direct OpenAI/Anthropic if Azure vars are absent.
 
@@ -65,7 +65,7 @@ def configure_dspy() -> LMConfig:
         logger.info(f"Using Azure AI endpoint: {azure_endpoint}")
 
         router_lm = dspy.LM(
-            model=f"azure_ai/{azure_gpt}",
+            model=f"azure/{azure_gpt}",
             api_key=azure_key,
             api_base=azure_endpoint,
             api_version=azure_api_version,
@@ -74,7 +74,7 @@ def configure_dspy() -> LMConfig:
         )
 
         reasoner_lm = dspy.LM(
-            model=f"azure_ai/{azure_haiku}",
+            model=f"azure/{azure_haiku}",
             api_key=azure_key,
             api_base=azure_endpoint,
             api_version=azure_api_version,
@@ -83,7 +83,7 @@ def configure_dspy() -> LMConfig:
         )
 
         sonnet_lm = dspy.LM(
-            model=f"azure_ai/{azure_sonnet}",
+            model=f"azure/{azure_sonnet}",
             api_key=azure_key,
             api_base=azure_endpoint,
             api_version=azure_api_version,

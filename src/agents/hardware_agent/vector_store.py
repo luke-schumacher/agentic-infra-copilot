@@ -46,6 +46,10 @@ SILO_ALLOWED_TYPES = {
     'technical_documentation', 'hardware_data',
     'error_events', 'event_log', 'raw_failure_data', 'common_failure_mode',
     'known_failure_mode',
+    # PDF-derived document types from mri_hardware_loader
+    'dcs_documentation', 'dicom_conformance_pdf',  # DCS PDFs
+    'operator_manual', 'hardware_documentation',    # Operator manuals
+    'failure_catalog',                              # failure catalog entries
 }
 
 
