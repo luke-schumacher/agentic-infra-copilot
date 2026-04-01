@@ -67,7 +67,7 @@ class MultiRoundOrchestrator:
         telemetry_url: str = None,
         confidence_threshold: float = 0.8,
         max_rounds: int = 4,
-        timeout_seconds: float = 120.0
+        timeout_seconds: float = 180.0
     ):
         """
         Initialize orchestrator with agent URLs.
