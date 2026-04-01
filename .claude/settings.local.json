@@ -52,7 +52,17 @@
       "Bash(grep -E \"\\\\.\\(py|md\\)$\")",
       "Bash(du:*)",
       "Bash(file /home/lukeschumacher/Documents/GitHub/agent_files/*.pdf)",
-      "Bash(file /home/lukeschumacher/Documents/GitHub/agent_files/2026-02/InstalledBase_withSWVersions_2026_02/*.xlsx)"
+      "Bash(file /home/lukeschumacher/Documents/GitHub/agent_files/2026-02/InstalledBase_withSWVersions_2026_02/*.xlsx)",
+      "Bash(git log:*)",
+      "Bash(while read:*)",
+      "Bash(do git:*)",
+      "Bash(done)",
+      "Bash(git ls-tree:*)",
+      "Bash(npm run:*)",
+      "Bash(git push:*)",
+      "Bash(git fetch:*)",
+      "Bash(npx --no-install tsc --noEmit --skipLibCheck)",
+      "Bash(grep -E \"\\\\.py$\")"
     ]
   }
 }
