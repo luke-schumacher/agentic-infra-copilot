@@ -1,12 +1,25 @@
 """
 DSPy Configuration - Multi-Model LLM Setup for All Agents
 
-Three-tier model strategy (via Azure AI endpoint):
+Three-tier model strategy:
   - Router (classification/routing): Azure GPT-4.1
-  - Reasoner (agent brain): Azure Claude Haiku 4.5 (global default, fast)
-  - Judge/Synthesizer: Azure Claude Sonnet 4.5 (higher quality for evaluation)
+  - Reasoner (agent brain): Claude Haiku 4.5 (global default, fast)
+  - Judge/Synthesizer: Claude Sonnet 4.5 (higher quality for evaluation)
 
-Falls back to direct Anthropic/OpenAI keys if Azure vars are not set.
+Three configuration modes (selected automatically from env vars):
+
+  Mode 1 — Full Azure (AZURE_API_KEY + AZURE_ENDPOINT, no ANTHROPIC_API_KEY):
+    All three models via Azure Cognitive Services endpoint.
+    Requires Claude deployments on the Azure subscription.
+
+  Mode 2 — Hybrid (AZURE_API_KEY + AZURE_ENDPOINT + ANTHROPIC_API_KEY):
+    Router  → Azure GPT-4.1  (uses AZURE_ENDPOINT / AZURE_API_KEY)
+    Reasoner + Judge → Direct Anthropic Haiku/Sonnet  (uses ANTHROPIC_API_KEY)
+    Use this when Claude is not deployable on the Azure subscription (e.g. student accounts).
+
+  Mode 3 — Direct APIs only (no AZURE_API_KEY):
+    Router  → OpenAI GPT-4.1-nano  (uses OPENAI_API_KEY)
+    Reasoner + Judge → Direct Anthropic Haiku/Sonnet  (uses ANTHROPIC_API_KEY)
 
 The reasoner (Haiku) is set as the global default. Router is used explicitly
 via dspy.context(lm=router_lm) for EvaluateRequest and DelegateToSpecialist calls.
@@ -56,13 +69,48 @@ def configure_dspy() -> LMConfig:
     azure_endpoint = os.getenv("AZURE_ENDPOINT")
     azure_api_version = os.getenv("AZURE_API_VERSION", "2024-10-21")
     azure_gpt = os.getenv("AZURE_DEPLOYMENT_GPT", "gpt-4-1")
-    azure_haiku = os.getenv("AZURE_DEPLOYMENT_HAIKU", "claude-haiku-4-5")
-    azure_sonnet = os.getenv("AZURE_DEPLOYMENT_SONNET", "claude-sonnet-4-5")
+    anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+    openai_key = os.getenv("OPENAI_API_KEY")
 
-    use_azure = bool(azure_key and azure_endpoint)
+    use_azure_router = bool(azure_key and azure_endpoint)
+    use_hybrid = use_azure_router and bool(anthropic_key)
 
-    if use_azure:
-        logger.info(f"Using Azure AI endpoint: {azure_endpoint}")
+    if use_hybrid:
+        # Mode 2: Azure GPT-4.1 for routing + direct Anthropic for Claude tiers
+        # Used when Claude deployments are not available on the Azure subscription.
+        logger.info(f"Hybrid mode: Router via Azure ({azure_endpoint}), Claude via direct Anthropic API")
+
+        router_lm = dspy.LM(
+            model=f"azure/{azure_gpt}",
+            api_key=azure_key,
+            api_base=azure_endpoint,
+            api_version=azure_api_version,
+            temperature=0.0,
+            max_tokens=500
+        )
+
+        reasoner_lm = dspy.LM(
+            model="anthropic/claude-haiku-4-5-20251001",
+            api_key=anthropic_key,
+            temperature=0.1,
+            max_tokens=2000
+        )
+
+        sonnet_lm = dspy.LM(
+            model="anthropic/claude-sonnet-4-5-20251001",
+            api_key=anthropic_key,
+            temperature=0.1,
+            max_tokens=4000
+        )
+
+        logger.info("DSPy configured: Router=Azure/GPT-4.1, Reasoner=Anthropic/Haiku-4.5, Judge=Anthropic/Sonnet-4.5")
+
+    elif use_azure_router:
+        # Mode 1: All three models via Azure Cognitive Services
+        azure_haiku = os.getenv("AZURE_DEPLOYMENT_HAIKU", "claude-haiku-4-5")
+        azure_sonnet = os.getenv("AZURE_DEPLOYMENT_SONNET", "claude-sonnet-4-5")
+
+        logger.info(f"Full Azure mode: all models via {azure_endpoint}")
 
         router_lm = dspy.LM(
             model=f"azure/{azure_gpt}",
@@ -97,16 +145,13 @@ def configure_dspy() -> LMConfig:
         )
 
     else:
-        # Fallback: direct Anthropic + OpenAI
-        logger.warning("Azure vars not set — falling back to direct Anthropic/OpenAI APIs")
-
-        anthropic_key = os.getenv("ANTHROPIC_API_KEY")
-        openai_key = os.getenv("OPENAI_API_KEY")
+        # Mode 3: Direct APIs only — no Azure configured
+        logger.warning("Azure vars not set — using direct OpenAI + Anthropic APIs")
 
         if not anthropic_key:
-            raise ValueError("Neither AZURE_API_KEY nor ANTHROPIC_API_KEY found.")
+            raise ValueError("No AZURE_API_KEY and no ANTHROPIC_API_KEY found. Set one of them.")
         if not openai_key:
-            raise ValueError("Neither AZURE_API_KEY nor OPENAI_API_KEY found.")
+            raise ValueError("No AZURE_API_KEY and no OPENAI_API_KEY found. Set one of them.")
 
         router_lm = dspy.LM(
             model="openai/gpt-4.1-nano",
@@ -129,7 +174,7 @@ def configure_dspy() -> LMConfig:
             max_tokens=4000
         )
 
-        logger.info("DSPy configured: Router=GPT-4.1-nano, Reasoner=Claude-Haiku-4.5, Judge=Claude-Sonnet-4.5")
+        logger.info("DSPy configured: Router=OpenAI/GPT-4.1-nano, Reasoner=Anthropic/Haiku-4.5, Judge=Anthropic/Sonnet-4.5")
 
     # Set Haiku as global default — fast for all agent ChainOfThought calls
     dspy.configure(lm=reasoner_lm)
