@@ -514,10 +514,12 @@ Telemetry Context:
         logger.info(f"{'='*60}")
 
         results = {}
-        # 10 s between modes lets the Anthropic token-budget window partially refill
+        # 30 s between modes lets the Anthropic token-budget window partially refill
         # before the next (heavier) mode fires — especially important before MAS which
         # fires parallel agent calls and synthesis in rapid succession.
-        inter_mode_delay = 10  # seconds between modes to avoid Anthropic/OpenAI rate limits
+        # 10 s was insufficient: hardware/telemetry agents hit 429s immediately after
+        # governance consumed the per-minute token budget.
+        inter_mode_delay = 30  # seconds between modes to avoid Anthropic/OpenAI rate limits
 
         # Mode 1: Governance Only
         logger.info("Running governance_only mode...")

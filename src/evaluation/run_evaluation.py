@@ -68,8 +68,41 @@ async def check_agent_health(name: str, url: str) -> Dict:
         return {"status": "unreachable", "error": str(e), "document_count": 0}
 
 
+async def probe_agent_consult(name: str, url: str) -> bool:
+    """
+    Send a minimal /consult probe to confirm the agent can actually process
+    requests end-to-end (DSPy + vector store), not just pass the health check.
+
+    Returns True if the agent responds with a 200 (even empty findings are OK —
+    we only care that it doesn't time out or error).
+    """
+    from src.protocol.schema import AgentCard, AgentRole, IntentType, Priority
+    card = AgentCard(
+        sender=AgentRole.ORCHESTRATOR,
+        recipient=AgentRole(name),
+        intent=IntentType.DIAGNOSE,
+        priority=Priority.LOW,
+        payload={
+            "query": "preflight probe: MRI system status check",
+            "context": {"accumulated_context": "", "is_consultation": False, "expertise_needed": ""},
+        },
+    )
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            resp = await client.post(
+                f"{url}/consult",
+                json={"card": card.model_dump(), "await_response": True},
+            )
+            return resp.status_code == 200
+    except Exception:
+        return False
+
+
 async def preflight_check() -> bool:
-    """Check all agents are healthy with documents indexed. Returns True if OK."""
+    """
+    Check all agents are healthy with documents indexed AND can process a
+    real /consult request. Returns True only if all three pass both checks.
+    """
     print("\n" + "=" * 60)
     print("PRE-FLIGHT HEALTH CHECK")
     print("=" * 60)
@@ -82,21 +115,34 @@ async def preflight_check() -> bool:
         vs_ready = health.get("vector_store_ready", False)
         dspy_ready = health.get("dspy_ready", False)
 
-        icon = "[OK]" if status == "healthy" and doc_count > 0 else "[FAIL]"
+        # Step 1: health endpoint
+        health_ok = status in ("healthy", "degraded") and doc_count > 0
+        icon = "[OK]" if health_ok else "[FAIL]"
         print(
             f"  {icon} {name:20s}  status={status:10s}  "
             f"docs={doc_count}  vs={vs_ready}  dspy={dspy_ready}  "
             f"url={url}"
         )
 
-        if status not in ("healthy", "degraded") or doc_count == 0:
+        if not health_ok:
+            all_ok = False
+            continue
+
+        # Step 2: live consult probe — confirms DSPy + vector store end-to-end
+        print(f"       probing /consult ... ", end="", flush=True)
+        consult_ok = await probe_agent_consult(name, url)
+        if consult_ok:
+            print("OK")
+        else:
+            print("FAIL  ← agent not responding to queries")
             all_ok = False
 
     print("=" * 60)
     if all_ok:
-        print("All agents healthy with indexed documents.")
+        print("All agents healthy and responding to queries.")
     else:
-        print("ABORT: One or more agents unhealthy or have 0 documents.")
+        print("ABORT: One or more agents failed health or consult probe.")
+        print("       Start all 3 agents (ports 8001-8003) and retry.")
     print()
     return all_ok
 
