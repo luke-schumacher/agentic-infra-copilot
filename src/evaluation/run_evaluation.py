@@ -50,7 +50,7 @@ AGENTS = {
     "telemetry_agent": "http://localhost:8003",
 }
 
-DELAY_BETWEEN_CASES_S = 2
+DELAY_BETWEEN_CASES_S = 45
 
 
 # ---------------------------------------------------------------------------

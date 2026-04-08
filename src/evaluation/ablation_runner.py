@@ -427,6 +427,8 @@ Telemetry Context:
                 query=(
                     f"{test_case.description}\n\n"
                     f"Governance context: {test_case.governance_context}\n\n"
+                    f"Hardware context: {test_case.hardware_context}\n\n"
+                    f"Telemetry context: {test_case.telemetry_context}\n\n"
                     f"IMPORTANT: This scenario requires cross-domain analysis. "
                     f"Consult hardware and telemetry specialists — they hold data "
                     f"not available in governance records."

@@ -62,7 +62,10 @@
       "Bash(git push:*)",
       "Bash(git fetch:*)",
       "Bash(npx --no-install tsc --noEmit --skipLibCheck)",
-      "Bash(grep -E \"\\\\.py$\")"
+      "Bash(grep -E \"\\\\.py$\")",
+      "Bash(grep -r \"Figure\\\\|figure\\\\|Fig\\\\|fig\\\\|image\\\\|Image\" /home/lukeschumacher/Documents/GitHub/agentic-infra-copilot --include=\"*.md\" ! -path \"*/node_modules/*\")",
+      "Bash(mkdir -p /home/lukeschumacher/Documents/Thesis/archive)",
+      "Bash(mv /home/lukeschumacher/Documents/Thesis/main_part1.tex /home/lukeschumacher/Documents/Thesis/main_part2.tex /home/lukeschumacher/Documents/Thesis/main_with_visuals_overleaf.tex /home/lukeschumacher/Documents/Thesis/archive/)"
     ]
   }
 }
