@@ -2,8 +2,8 @@
 
 A **tripartite Multi-Agent System (MAS)** for MRI infrastructure fault diagnosis, built as the primary validation artefact for a Master's thesis at AISS investigating emergent cross-domain reasoning in multi-agent architectures.
 
-> **Current status — 2026-02-25**
-> Run 2 complete (60/60 evaluations, zero timeouts). Synthesis architecture fix implemented. Run 3 pending.
+> **Current status — 2026-04-09**
+> Run 4 complete (60/60 evaluations). Five DSPy output hardening fixes applied (commit `ad30962`). Run 5 is the final thesis evaluation — ready to execute.
 
 ---
 
@@ -13,15 +13,17 @@ A **tripartite Multi-Agent System (MAS)** for MRI infrastructure fault diagnosis
 2. [System Architecture](#system-architecture)
 3. [Technology Stack](#technology-stack)
 4. [Evaluation Framework](#evaluation-framework)
-5. [Results — Run 2](#results--run-2-2026-02-24)
-6. [Architecture Fix — Synthesis Module](#architecture-fix--synthesis-module-run-3-ready)
-7. [Project Structure](#project-structure)
-8. [Setup](#setup)
-9. [Running the System](#running-the-system)
-10. [Running the Evaluation](#running-the-evaluation)
-11. [API Reference](#api-reference)
-12. [Troubleshooting](#troubleshooting)
-13. [Key Documents](#key-documents)
+5. [Results Summary — All Runs](#results-summary--all-runs)
+6. [Run 4 Results (Pre-Final)](#run-4-results-pre-final)
+7. [Architecture Fixes Applied](#architecture-fixes-applied)
+8. [DSPy Hardening Fixes (Run 5 Ready)](#dspy-hardening-fixes-run-5-ready)
+9. [Project Structure](#project-structure)
+10. [Setup](#setup)
+11. [Running the System](#running-the-system)
+12. [Running the Evaluation](#running-the-evaluation)
+13. [API Reference](#api-reference)
+14. [Troubleshooting](#troubleshooting)
+15. [Key Documents](#key-documents)
 
 ---
 
@@ -29,7 +31,7 @@ A **tripartite Multi-Agent System (MAS)** for MRI infrastructure fault diagnosis
 
 ### Thesis
 
-**Domain-agnostic critical infrastructure diagnostics via multi-agent emergence**, validated on Siemens Healthineers MRI operations data (40 customer installations, machine manuals, DICOM conformance documentation).
+**Domain-agnostic critical infrastructure diagnostics via multi-agent emergence**, validated on Siemens Healthineers MRI operations data (40 customer installations, MAGNETOM operator manuals, DICOM conformance documentation, safety PDFs).
 
 **Validation partner**: Siemens Healthineers (primary). Deutsche Telekom and Illigo (background data).
 
@@ -45,7 +47,9 @@ A **tripartite Multi-Agent System (MAS)** for MRI infrastructure fault diagnosis
 
 Emergence is demonstrated when **both** of the following hold simultaneously:
 1. MAS keyword accuracy exceeds the best single-agent accuracy across all four non-MAS modes (positive *emergence margin*)
-2. The MAS response contains explicit cross-domain references — reasoning chains that connect concepts from at least two agent domains
+2. The MAS response contains explicit cross-domain references, OR the LLM-as-Judge cross_domain score exceeds 0.5
+
+The dual criterion prevents false negatives from fragile keyword detection.
 
 ---
 
@@ -64,26 +68,23 @@ Each agent runs as an independent FastAPI microservice with its own domain-speci
               ┌──────────────────────────┐
               │    Governance Agent       │  :8001
               │  SLA · Policies · Intent  │  ← always called first
-              │  ChromaDB: governance/    │
+              │  ChromaDB: 418 docs       │
               └──────┬──────────┬────────┘
-                     │CONSULT   │REDIRECT / PARTIAL
+                     │CONSULT   │PARTIAL / REDIRECT
            ┌─────────▼──┐  ┌───▼──────────┐
            │  Hardware   │  │  Telemetry   │
            │   Agent     │  │    Agent     │  :8003
            │  :8002      │  │              │
            │ MRI · DICOM │  │ Event logs · │
-           │ Thermal     │  │ Sessions ·   │
-           │ ChromaDB:   │  │ Patterns     │
-           │ hardware/   │  │ ChromaDB:    │
-           └──────┬──────┘  │ telemetry/   │
-                  │          └──────┬───────┘
+           │ 9,853 docs  │  │ 945 docs     │
+           └──────┬──────┘  └──────┬───────┘
                   └────────┬────────┘
                            │ findings_dict
                            ▼
               ┌──────────────────────────┐
               │   DiagnosisSynthesizer    │
               │   (DSPy ChainOfThought)   │  ← no HTTP, no RAG
-              │   unified_diagnosis       │  ← <300 words
+              │   Claude Sonnet 4.6       │  ← unified_diagnosis < 300 words
               └──────────────────────────┘
 ```
 
@@ -91,30 +92,28 @@ Each agent runs as an independent FastAPI microservice with its own domain-speci
 
 | Agent | Port | Domain | Knowledge Base |
 |-------|------|---------|----------------|
-| **Governance** | 8001 | SLA compliance, uptime targets, clinical protocols, institutional policy | Institution profiles, workload patterns, SLA documents |
-| **Hardware** | 8002 | MRI hardware errors, DICOM conformance, thermal management, Phoenix Protocol | Siemens manuals, DICOM Conformance Statements, error catalogs |
-| **Telemetry** | 8003 | MRI event logs, session monitoring, temporal fault patterns, safety zones | Safety procedures, zone access rules, session metrics |
+| **Governance** | 8001 | SLA compliance, uptime targets, clinical protocols, institutional policy | Institution profiles, workload patterns, SLA documents (418 docs) |
+| **Hardware** | 8002 | MRI hardware errors, DICOM conformance, thermal management, Phoenix Protocol | MAGNETOM operator manuals, DICOM Conformance Statements, safety PDFs (9,853 docs) |
+| **Telemetry** | 8003 | MRI event logs, session monitoring, temporal fault patterns, safety zones | Safety procedures, zone access rules, session metrics (945 docs) |
 
 ### Autonomy Protocol
 
-Before answering any query, each agent evaluates the request and returns one of six response types:
+Before answering any query, each agent evaluates the request using its `EvaluateRequest` DSPy signature (via router LM) and returns one of six response types:
 
 | Response Type | Meaning | Orchestrator Action |
 |---------------|---------|---------------------|
-| `ANSWER` | Complete, confident response | Finalize if confidence ≥ 0.8 |
+| `ANSWER` | Complete, confident response | Finalise if confidence ≥ 0.5; else consult remaining agents |
 | `PARTIAL` | Incomplete — more context needed | Consult remaining agents in parallel |
 | `CONSULT` | Wants a specific peer agent's input | Call suggested agent (+ remaining in parallel) |
 | `REDIRECT` | Wrong agent for this query | Route to suggested agent |
 | `CLARIFY` | Needs information from the user | Surface clarification questions |
 | `REFUSE` | Cannot or should not answer | Try remaining agents |
 
-This prevents hallucination cascades and provides measurable signals for evaluation (response type distribution per mode).
-
 ### Multi-Round Orchestration
 
 ```
 run_diagnosis()
-  └─ _call_agent(governance)           # always entry point
+  └─ _call_agent(governance)              # always entry point
       └─ orchestrate_round()
           ├─ ANSWER (high confidence) → _finalize_diagnosis()
           ├─ ANSWER (low confidence)  → _call_agents_parallel(unconsulted)
@@ -123,13 +122,13 @@ run_diagnosis()
           ├─ REDIRECT                 → _call_agents_parallel([suggested] + remaining)
           └─ REFUSE                   → _call_agents_parallel(unconsulted)
 
-All finalization paths:
-  _finalize_diagnosis()         → synthesizer.synthesize(query, findings_dict)
-  _synthesize_partial_findings()→ synthesizer.synthesize(query, findings_dict)
-  _synthesize_best_effort()     → synthesizer.synthesize(query, findings_dict)
+All finalisation paths:
+  _finalize_diagnosis()          → synthesizer.synthesize(query, findings_dict)
+  _synthesize_partial_findings() → synthesizer.synthesize(query, findings_dict)
+  _synthesize_best_effort()      → synthesizer.synthesize(query, findings_dict)
 ```
 
-Maximum 4 rounds. Retry logic: 3 attempts at 3 s / 8 s / 15 s for HTTP 429, 502, 503, 504, 529.
+Maximum 4 rounds. Retry logic: 3 attempts at 20 s / 45 s / 90 s (total 155 s) for HTTP 429, 502, 503, 504, 529 (Anthropic overload).
 
 ---
 
@@ -137,8 +136,9 @@ Maximum 4 rounds. Retry logic: 3 attempts at 3 s / 8 s / 15 s for HTTP 429, 502,
 
 | Layer | Technology | Role |
 |-------|-----------|------|
-| **Reasoning** | Claude Haiku 4.5 (`claude-haiku-4-5-20251001`) | All agent reasoning, synthesis, LLM-as-Judge |
-| **Routing** | GPT-4.1-nano (`openai/gpt-4.1-nano`) | Request classification, intent routing |
+| **Reasoner** | Claude Haiku 4.5 (`claude-haiku-4-5-20251001`) | All agent domain reasoning, LLM-as-Judge |
+| **Synthesiser** | Claude Sonnet 4.6 (`claude-sonnet-4-6`) | Final cross-domain synthesis in MAS mode |
+| **Router** | Azure OpenAI GPT-4.1 | Request classification, delegation routing |
 | **Agent framework** | DSPy 2.5+ | Signature-based prompting, ChainOfThought |
 | **Agent services** | FastAPI + Uvicorn | Three microservices on :8001–:8003 |
 | **HTTP client** | httpx (async) | Inter-agent communication |
@@ -146,15 +146,16 @@ Maximum 4 rounds. Retry logic: 3 attempts at 3 s / 8 s / 15 s for HTTP 429, 502,
 | **Embeddings** | sentence-transformers (`all-MiniLM-L6-v2`) | Document and query embedding |
 | **UI** | Streamlit | Interactive diagnostic interface on :8501 |
 | **Schema** | Pydantic v2 | `AgentCard`, `AgentResponse`, `DiagnosisSession` |
-| **Graph DB** | Neo4j | Built but not used in ablation evaluation |
+| **Containers** | Docker Compose | Three-service deployment |
 
-### Model Configuration (`src/agents/shared/dspy_config.py`)
+### Three-Tier Model Strategy (`src/agents/shared/dspy_config.py`)
 
 ```python
-# Two-tier strategy
-router_lm  = dspy.LM("openai/gpt-4.1-nano",                    temperature=0.0)
-reasoner_lm = dspy.LM("anthropic/claude-haiku-4-5-20251001",   temperature=0.1)
-dspy.configure(lm=reasoner_lm)   # Claude is global default
+# Hybrid mode: Azure GPT-4.1 router + Anthropic Haiku reasoner + Anthropic Sonnet synthesiser
+router_lm    = dspy.LM("openai/gpt-4.1",                      temperature=0.0)
+reasoner_lm  = dspy.LM("anthropic/claude-haiku-4-5-20251001", temperature=0.1)
+synthesizer_lm = dspy.LM("anthropic/claude-sonnet-4-6",       temperature=0.1)
+dspy.configure(lm=reasoner_lm)  # Haiku is global default
 ```
 
 ---
@@ -163,15 +164,15 @@ dspy.configure(lm=reasoner_lm)   # Claude is global default
 
 ### 5-Mode Ablation
 
-Every test case is executed in five modes to isolate the effect of data access and agent collaboration:
+Every test case is executed in five modes to isolate the effect of data access versus agent collaboration:
 
 | Mode | Agents | Data Access | Purpose |
 |------|--------|-------------|---------|
 | `governance_only` | Governance only | Governance store | Single-domain ceiling |
 | `hardware_only` | Hardware only | Hardware store | Single-domain ceiling |
 | `telemetry_only` | Telemetry only | Telemetry store | Single-domain ceiling |
-| `single_all_data` | Governance only | **All three stores merged** | **The critical baseline** — isolates collaboration value from data access |
-| `mas_full` | All three | Domain-specific stores | **The system under test** |
+| `single_all_data` | Governance only | **All three stores merged** | **Critical baseline** — isolates collaboration value from data access |
+| `mas_full` | All three | Domain-specific stores | **System under test** |
 
 The key comparison is `mas_full` vs `single_all_data`. If MAS wins, the value comes from structured collaboration, not just data aggregation.
 
@@ -181,135 +182,145 @@ Distributed across three difficulty levels:
 
 | Difficulty | Count | Characteristic |
 |-----------|-------|----------------|
-| Simple | 4 | Single-domain fault, one expected agent |
-| Moderate | 4 | Two-domain fault, consultation expected |
-| Complex | 4 | Three-domain fault, full MAS required for complete diagnosis |
+| Simple | 2 | Single-domain fault, one expected agent |
+| Moderate | 5 | Two-domain fault, consultation expected |
+| Complex | 5 | Three-domain fault, full MAS required for complete diagnosis |
 
-Test cases include: `cascading_thermal_fault`, `phantom_load_spike`, `known_fault_code_lookup`, `helium_boiloff_cascade`, `gradient_coil_degradation`, `missed_maintenance_escalation`, `rf_amplifier_intermittent`, `protocol_conflict_sla`, `network_false_alarm`, `software_update_regression`, `multi_scanner_cooling`, `shimming_environmental`.
+Test cases: `cascading_thermal_fault`, `phantom_load_spike`, `gradient_coil_degradation`, `helium_boiloff_cascade`, `shimming_environmental`, `multi_scanner_cooling`, `software_update_regression`, `rf_amplifier_intermittent`, `network_false_alarm`, `protocol_conflict_sla`, `missed_maintenance_escalation`, `known_fault_code_lookup`.
 
 ### Scoring Instruments
 
 | Instrument | Method | What it captures |
 |-----------|--------|-----------------|
-| **Keyword accuracy** | Ground-truth keyword matching against expected terms | Diagnostic precision — are the right concepts present? |
-| **LLM-as-Judge (4D)** | Claude Haiku 4.5 scores accuracy, relevance, completeness, cross_domain (0–1 each) | Qualitative response quality |
+| **Keyword accuracy** | Ground-truth keyword matching | Diagnostic precision (primary metric) |
+| **LLM-as-Judge (4D)** | Claude Haiku scores accuracy, relevance, completeness, cross_domain | Qualitative response quality |
 | **Semantic similarity** | Sentence-transformer cosine vs reference diagnosis | Meaning-level fidelity |
 | **Latency** | Wall-clock time per evaluation | Orchestration overhead |
-| **Emergence margin** | MAS keyword accuracy − best single-agent keyword accuracy | Core emergence signal |
+| **Emergence margin** | MAS accuracy − best single-agent accuracy | Core emergence signal |
 
 ---
 
-## Results — Run 2 (2026-02-24)
+## Results Summary — All Runs
 
-> Run 1 (2026-02-23) identified three infrastructure bugs (payload extraction, keyword mapping, baseline routing) and was discarded. Run 2 corrected all three and completed all 60 evaluations with zero timeouts.
+| Run | Date | Status | MAS Acc | Best Single | Emergence | Key change |
+|-----|------|--------|---------|------------|-----------|------------|
+| Run 1 | 2026-02-23 | ❌ Infrastructure bugs | — | — | — | Payload extraction, keyword mapping, baseline routing broken |
+| Run 2 | 2026-02-24 | ✅ 60/60 | 58.3% | 81.7% (SAD) | 0/12 | First complete run; root cause: concatenation not synthesis |
+| Run 3 | 2026-04-08 | ❌ Agents offline | ~58% | — | 0/12 | Hardware/telemetry containers not running; 0% for both |
+| Run 4 | 2026-04-08 | ✅ 60/60 | **53.3%** | **50.0%** (SAD) | **2/12** | All three agents active; first positive emergence; 5 cases still 0% |
+| **Run 5** | pending | 🔄 Ready | — | — | — | DSPy None hardening (5 bugs fixed) |
+
+**Cross-run trajectory:**
+- Run 2 emergence margin: −23.4 pp (MAS 58.3% vs SAD 81.7%)
+- Run 4 emergence margin: **+3.3 pp** (MAS 53.3% vs SAD 50.0%) — first positive emergence overall
+
+---
+
+## Run 4 Results (Pre-Final)
 
 ### Aggregate Scores
 
 | Mode | Keyword Acc | Judge Score | Semantic Sim | Avg Latency |
 |------|:-----------:|:-----------:|:------------:|:-----------:|
-| Governance Only | 48.3% | 66.9% | 54.5% | 97.9 s |
-| Hardware Only | 73.3% | 78.2% | 68.3% | 16.7 s |
-| Telemetry Only | 53.3% | 41.3% | 41.0% | 13.9 s |
-| **Single + All Data** | **81.7%** | **87.8%** | **70.5%** | 87.5 s |
-| Full MAS | 58.3% | 69.4% | 49.8% | 303.4 s |
+| Governance Only | 33.3% | 43.2% | 5.6% | 109.8 s |
+| Hardware Only | 43.3% | 41.0% | 7.8% | 15.2 s |
+| Telemetry Only | 36.7% | 41.5% | 4.5% | 15.0 s |
+| **Single + All Data** | **50.0%** | **47.9%** | **6.1%** | 79.2 s |
+| **Full MAS** | **53.3%** | **55.5%** | **3.3%** | 102.2 s |
 
-Single agent with all data beats the MAS by **23.4 percentage points** on keyword accuracy.
+MAS outperforms Single + All Data by **+3.3 pp** — a reversal from Run 2.
 
-### Emergence Analysis
+### Emergence Cases (Run 4)
 
-**0 / 12 test cases demonstrated emergence.**
+| Test Case | Difficulty | MAS | Best Single | Margin | Cross-domain refs |
+|-----------|-----------|-----|------------|:------:|:-----------------:|
+| `gradient_coil_degradation` | complex | 80% | 60% (hw/tel) | **+20 pp** | 6 |
+| `helium_boiloff_cascade` | complex | 100% | 80% (hw/sad) | **+20 pp** | 8 |
 
-| Difficulty | MAS avg | Best single avg | Emergence margin |
-|-----------|---------|-----------------|:----------------:|
-| Simple | 30% | 60% | **−30%** |
-| Moderate | 64% | 88% | **−24%** |
-| Complex | 64% | 88% | **−24%** |
+### Per-Case Breakdown
 
-All margins are negative across all difficulty levels — the penalty is not task-complexity-dependent.
+| Test Case | Gov | Hw | Tel | SAD | **MAS** | Emergence |
+|-----------|-----|-----|-----|-----|---------|:---------:|
+| cascading_thermal_fault | 80% | 80% | 80% | 80% | **80%** | — |
+| phantom_load_spike | 20% | 60% | 60% | 100% | **100%** | — |
+| gradient_coil_degradation | 40% | 60% | 60% | 60% | **80%** | ✓ |
+| helium_boiloff_cascade | 40% | 80% | 60% | 80% | **100%** | ✓ |
+| shimming_environmental | 40% | 80% | 40% | 100% | **100%** | — |
+| multi_scanner_cooling | 80% | 100% | 60% | 100% | **100%** | — |
+| software_update_regression | 40% | 60% | 80% | 80% | **80%** | — |
+| rf_amplifier_intermittent | 60% | 0%* | 0%* | 0%* | **0%*** | — |
+| network_false_alarm | 0%* | 0%* | 0%* | 0%* | **0%*** | — |
+| protocol_conflict_sla | 0%* | 0%* | 0%* | 0%* | **0%*** | — |
+| missed_maintenance_escalation | 0%* | 0%* | 0%* | 0%* | **0%*** | — |
+| known_fault_code_lookup | 0%* | 0%* | 0%* | 0%* | **0%*** | — |
 
-### Latency Breakdown
+*\* = DSPy None output failure, fixed in commit `ad30962`*
 
-| Metric | Value |
-|--------|-------|
-| MAS average | 303.4 s |
-| Single + All Data | 87.5 s |
-| MAS overhead | +215.9 s (+247%) |
-| Worst case (`missed_maintenance_escalation`) | 524.7 s |
-| Avg rounds per MAS evaluation | 1.67 |
-| Governance consulted | 12/12 (100%) |
-| Hardware consulted | 11/12 (92%) |
-| Telemetry consulted | 9/12 (75%) |
+### MAS Agent Participation (Run 4)
 
-### The Key Finding: Reasoning vs Assembly
-
-Despite low accuracy scores, MAS **LLM-as-Judge cross-domain scores ranged 0.33–0.92 (mean ≈ 0.70)**, indicating that agents genuinely produce cross-domain reasoning.
-
-**The dissociation:**
-- Agents **do** produce cross-domain insights (high judge cross-domain scores)
-- But the final output is agent-prefixed **concatenation** — `governance_agent: [...] hardware_agent: [...]`
-- This dilutes keyword density, introduces competing framings, and confuses both scoring instruments
-
-**Best case — `cascading_thermal_fault`:** 6-point cross-domain analysis (equipment age, duty cycles, maintenance gaps, software cascades, hub pressure, SLA mismatch). Judge cross-domain score: 0.92. Keyword accuracy: 80% — same as the single-agent baseline. Zero positive margin.
-
-**Worst case — `phantom_load_spike`:** Single agent 100%, MAS 40%. Hardware said sensor drift, Telemetry said scheduling artifacts — contradictory explanations with no synthesis step to resolve them.
+- All three agents consulted: 12/12 (100%)
+- Average rounds: 1.0
+- Governance consulted: 12/12
+- Hardware consulted: 12/12
+- Telemetry consulted: 12/12
 
 ---
 
-## Architecture Fix — Synthesis Module (Run 3 Ready)
+## Architecture Fixes Applied
 
-### Root Cause
+The following architectural fixes were implemented between Run 2 and Run 4:
 
-The previous `_run_synthesis_round()` called the Governance Agent to synthesise findings, but Governance ran fresh RAG retrieval against its vector store instead of reasoning over the provided text. It produced a fourth independent agent response, not an integration step.
+### Fix 1 — DSPy Synthesis Module (Run 2 → Run 3)
 
-All three finalization methods (`_finalize_diagnosis`, `_synthesize_partial_findings`, `_synthesize_best_effort`) concatenated agent outputs with prefixes rather than synthesising them.
+Replaced governance-agent-based synthesis with a dedicated `DiagnosisSynthesizer` class (`src/orchestration/synthesis.py`) using DSPy `ChainOfThought` over Claude Sonnet 4.6. Pure LLM reasoning — no HTTP call, no RAG retrieval. All three finalisation methods now call `synthesizer.synthesize(query, findings_dict)`.
 
-### Fix 1 — DSPy Synthesis Module (`src/orchestration/synthesis.py`)
+### Fix 2 — Parallel Agent Execution (Run 2 → Run 3)
 
-```python
-class SynthesizeDiagnosis(dspy.Signature):
-    """Synthesize findings from multiple specialist agents into one unified diagnosis."""
-    original_query: str = dspy.InputField(desc="The original diagnostic query")
-    agent_findings: str = dspy.InputField(desc="Labeled findings from each specialist agent")
-    unified_diagnosis: str = dspy.OutputField(
-        desc="Concise integrated root-cause diagnosis with cross-domain connections "
-             "and recommended actions in under 300 words"
-    )
-```
+Added `_call_agents_parallel()` via `asyncio.gather()`. Hardware and Telemetry operate on non-overlapping domains and are safe to parallelise. Reduced expected MAS latency from `sum(agent_times)` to `max(t_hw, t_tel) + t_synth`.
 
-- Pure LLM reasoning over provided evidence — **no HTTP call, no RAG retrieval**
-- Uses Claude Haiku 4.5 (already globally configured via `dspy.configure()`)
-- Falls back to concatenation if synthesis fails — safe degradation
-- All three finalization methods now call `self.synthesizer.synthesize(query, findings_dict)`
+### Fix 3 — Context Injection Parity (Run 2 → Run 3)
 
-### Fix 2 — Parallel Agent Execution (`src/orchestration/multi_round.py`)
+MAS mode previously passed only `governance_context` in the query while `single_all_data` received all three domain contexts. Fixed to include all three in the MAS query, eliminating the data-access confound.
 
-Old (serial): `t_gov + t_hw + t_tel ≈ 303 s average`
+### Fix 4 — Inter-Mode Delay (Run 3)
 
-New (parallel): `t_gov + max(t_hw, t_tel) + t_synth`
+Increased from 10 s to 30 s between ablation modes within each test case. The 10 s gap was insufficient for the Anthropic token-budget window to partially reset between governance (which consumed the per-minute budget) and hardware/telemetry.
 
-Hardware and Telemetry operate on non-overlapping knowledge domains, making their analyses independent and safe to parallelise via `asyncio.gather()`.
+### Fix 5 — Between-Case Delay (Run 3/4)
 
-```python
-async def _call_agents_parallel(self, agent_ids, query, context, ...):
-    tasks = [self._call_agent(aid, query, context) for aid in agent_ids]
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-    # exceptions → REFUSE responses, not crashes
-```
+Increased `DELAY_BETWEEN_CASES_S` from 2 s to 45 s between test cases.
 
-Expected latency reduction: **~100–120 s off MAS average**.
+### Fix 6 — Live Consult Probe in Preflight (Run 3/4)
 
-### Fix 3 — Removed `_run_synthesis_round()`
+Extended preflight from `/health`-only to include a real `/consult` request to each agent. Verifies end-to-end DSPy processing, not just HTTP availability. Uses 120 s timeout to accommodate DSPy cold-start. Run 3 failed because `/health` passed while DSPy was not initialised.
 
-The governance-based synthesis round is removed entirely. The `run_diagnosis()` loop no longer calls it.
+---
 
-### Expected Run 3 Outcomes
+## DSPy Hardening Fixes (Run 5 Ready)
 
-| Metric | Run 2 | Run 3 target | Mechanism |
-|--------|-------|-------------|-----------|
-| MAS keyword accuracy | 58.3% | ≥ 75% | Synthesis concentrates keywords |
-| MAS judge score | 69.4% | ≥ 80% | No competing framings |
-| MAS latency | 303 s | ~150–200 s | Parallel hw + tel calls |
-| Emergence | 0/12 | ≥ 1/12 | Synthesis surfaces buried cross-domain keywords |
+Five bugs causing empty DSPy output for 5/12 test cases were identified in Run 4 post-analysis and fixed in commit `ad30962`:
+
+### Bug 1 — `getattr` None Leakage (All 3 Agents)
+
+`getattr(result, field, default)` returns `None` (not `default`) when a DSPy Prediction attribute exists but is `None`. Every response payload field now uses `getattr(result, field, default) or default`.
+
+### Bug 2 — `float(None)` TypeError on Confidence Extraction (All 3 Agents)
+
+`float(getattr(evaluation, 'confidence_level', ...))` crashed when DSPy returned `None` for `confidence_level`. Replaced with safe extraction and try/except fallback to `0.8`.
+
+### Bug 3 — Narrow Findings Extraction
+
+`multi_round.py` only checked 4 payload keys; symptom queries never have `answer`. Expanded to all 14 known payload keys across all three agents and all query types.
+
+### Bug 4 — Fallback String Masking
+
+Agent `getattr` defaults (`'Unknown'`, `'None identified'`, etc.) are truthy and would terminate the `or`-chain before real content fields. Added `_real()` helper to filter fallback strings. Reordered `institution_profile` to last (weakest signal).
+
+### Bug 5 — `_is_empty_response` Gaps
+
+`single_all_data` mode accepted `"No findings from governance_agent"` and fallback strings as valid responses. Extended `_is_empty_response()` to catch all agent fallback strings and the `"no findings from"` prefix, allowing correct fallthrough to hardware/telemetry.
+
+**Full technical details:** See `docs/evaluation-process-log.md`.
 
 ---
 
@@ -322,10 +333,10 @@ agentic-infra-copilot/
 │   ├── agents/
 │   │   ├── governance_agent/           # :8001 — SLA & policy
 │   │   │   ├── main.py                 # FastAPI app, /consult endpoint
-│   │   │   ├── brain.py                # DSPy signatures (EvaluateRequest,
-│   │   │   │                           #   DiagnoseCompliance, DelegateToSpecialist...)
+│   │   │   ├── brain.py                # DSPy signatures (ProfileInstitution,
+│   │   │   │                           #   AnalyzeWorkloadPattern, EvaluateRequest...)
 │   │   │   ├── clinical_governance_loader.py
-│   │   │   └── store.py                # ChromaDB vector store wrapper
+│   │   │   └── store.py
 │   │   │
 │   │   ├── hardware_agent/             # :8002 — MRI hardware & DICOM
 │   │   │   ├── main.py
@@ -343,90 +354,66 @@ agentic-infra-copilot/
 │   │   │
 │   │   ├── baseline/
 │   │   │   └── unified_store.py        # Merged vector store for single_all_data mode
-│   │   │                               # activated via BASELINE_MODE=true env var
 │   │   └── shared/
-│   │       └── dspy_config.py          # Two-tier LM setup (Claude Haiku + GPT-4.1-nano)
+│   │       └── dspy_config.py          # Three-tier LM config (Haiku + Sonnet + GPT-4.1)
 │   │
 │   ├── orchestration/
 │   │   ├── multi_round.py              # MultiRoundOrchestrator — parallel calls,
-│   │   │                               #   all response types, retry logic
-│   │   └── synthesis.py                # ★ NEW — DiagnosisSynthesizer (DSPy CoT)
+│   │   │                               #   retry logic, 14-key findings extraction,
+│   │   │                               #   _real() fallback filter
+│   │   └── synthesis.py                # DiagnosisSynthesizer (DSPy CoT, Sonnet)
 │   │
 │   ├── evaluation/
 │   │   ├── run_evaluation.py           # Top-level CLI (--dry-run, --test-case,
-│   │   │                               #   --no-resume, --modes)
-│   │   ├── ablation_runner.py          # 5-mode runner, mode switching, logging
+│   │   │                               #   --no-resume, --modes); live consult probe
+│   │   ├── ablation_runner.py          # 5-mode runner, _is_empty_response (hardened),
+│   │   │                               #   single_all_data fallthrough logic
 │   │   ├── emergence_tests.py          # 12 EmergenceTestCase definitions
 │   │   ├── judge.py                    # LLM-as-Judge (4D scoring via Claude Haiku)
 │   │   ├── metrics.py                  # Semantic similarity (sentence-transformers)
 │   │   └── diagnosis_logging.py        # DiagnosisLog schema + keyword scorer
 │   │
 │   ├── protocol/
-│   │   ├── schema.py                   # AgentCard, AgentResponse, DiagnosisSession,
-│   │   │                               #   ResponseType, AgentRole, IntentType, Priority
-│   │   └── output_schema.py
+│   │   └── schema.py                   # AgentCard, AgentResponse, DiagnosisSession,
+│   │                                   #   ResponseType, AgentRole, IntentType, Priority
 │   │
 │   ├── retrieval/
-│   │   ├── vector_store.py             # ChromaDB wrapper
-│   │   └── embeddings.py               # sentence-transformer embedding util
+│   │   ├── vector_store.py
+│   │   └── embeddings.py
 │   │
 │   ├── ingestion/                      # Data loaders (PDF, CSV, JSON, Parquet)
 │   │   ├── pdf_parser.py
 │   │   ├── siemens_loader.py
-│   │   ├── siemens_eventlog_parser.py
-│   │   └── ...
-│   │
-│   ├── preprocessing/                  # Domain-specific preprocessors
-│   │   ├── siemens_preprocessor.py
-│   │   └── ...
+│   │   └── siemens_eventlog_parser.py
 │   │
 │   └── ui/
 │       └── app.py                      # Streamlit diagnostic UI (:8501)
 │
 ├── results/
-│   ├── ablation/
-│   │   ├── thesis_summary.json         # ★ Run 2 aggregate results (60 evaluations)
-│   │   ├── *_ablation.json (×12)       # Per-test-case detailed breakdowns
-│   │   └── *.json (UUID files)         # Individual MAS session logs
-│   └── ab_comparison/                  # Earlier A/B comparison runs (pre-ablation)
+│   └── ablation/
+│       ├── thesis_summary.json         # ★ Run 4 aggregate results (60 evaluations)
+│       ├── *_ablation.json (×12)       # Per-test-case detailed breakdowns
+│       └── *_mas_full.json             # Individual MAS session traces
 │
-├── logs/
-│   └── diagnosis/                      # Per-session diagnosis traces (UUID-named)
-│
-├── data/
-│   ├── processed/
-│   │   ├── customer_mapping.csv        # 40 Siemens customer installations
-│   │   └── ...
-│   └── scenarios/
-│       └── cross_domain_evaluation.json
+├── chroma_db/
+│   ├── governance_agent/               # 418 governance documents
+│   ├── hardware_agent/                 # 9,853 hardware documents
+│   └── telemetry_agent/                # 945 telemetry documents
 │
 ├── docs/
+│   ├── evaluation-process-log.md       # ★ Complete audit trail of all runs and fixes
 │   ├── plans/
-│   │   └── 2026-02-04-mas-architecture-evaluation-design.md  # Architecture spec
-│   ├── logs/
-│   │   └── 2026-02-23-evaluation-run.md                       # Run 1 log
-│   ├── MAS_ASSESSMENT.md               # Multi-agent system assessment
-│   ├── MAS_BEST_PRACTICES.md
-│   ├── HOW_TO_RUN.md                   # Detailed run guide
+│   │   └── 2026-02-04-mas-architecture-evaluation-design.md
+│   ├── MAS_ASSESSMENT.md
+│   ├── HOW_TO_RUN.md
 │   └── DEPLOYMENT.md
-│
-├── notebooks/
-│   ├── thesis_comprehensive_eda.ipynb  # Full EDA notebook
-│   └── *.ipynb                         # Domain-specific EDA
 │
 ├── tests/
 │   ├── test_delegation_e2e.py
 │   └── test_ingestion.py
 │
-├── config/
-│   ├── .env.example                    # Environment variable template
-│   └── config.yaml
-│
-├── RESULTS_SUMMARY.md                  # ★ 10-min verbal summary of Run 2 results
-├── SESSION_SUMMARY.md
-├── Cooperbench.md
+├── docker-compose.yml                  # Three-service deployment
 ├── requirements.txt
-├── docker-compose.yml
 └── Dockerfile
 ```
 
@@ -437,8 +424,9 @@ agentic-infra-copilot/
 ### Prerequisites
 
 - Python 3.10+
-- Anthropic API key (Claude Haiku 4.5 — reasoning + judge)
-- OpenAI API key (GPT-4.1-nano — routing)
+- Docker + Docker Compose (for containerised deployment)
+- Anthropic API key (Claude Haiku 4.5 reasoning + Claude Sonnet 4.6 synthesis)
+- Azure OpenAI API key (GPT-4.1 routing)
 
 ### Install
 
@@ -446,71 +434,55 @@ agentic-infra-copilot/
 git clone <repository-url>
 cd agentic-infra-copilot
 python -m venv venv
-
-# Windows
-venv\Scripts\activate
-
-# Mac/Linux
-source venv/bin/activate
-
+source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
 ### Environment Variables
 
-Create a `.env` file in the project root (not `config/`):
+Create a `.env` file in the project root:
 
 ```env
 # Required
 ANTHROPIC_API_KEY=your_anthropic_key_here
-OPENAI_API_KEY=your_openai_key_here
+AZURE_OPENAI_API_KEY=your_azure_key_here
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
 
-# Optional — controls single_all_data baseline mode
+# Optional
 BASELINE_MODE=false          # set true to disable delegation in governance agent
-
-# Optional — logging
 LOG_LEVEL=INFO
-```
-
-The system uses `python-dotenv` — `.env` in the project root is loaded automatically.
-
-### Verify DSPy Configuration
-
-```bash
-python -c "
-from src.agents.shared.dspy_config import configure_dspy
-cfg = configure_dspy()
-print('Router:', cfg.router.model)
-print('Reasoner:', cfg.reasoner.model)
-"
-```
-
-Expected output:
-```
-Router: openai/gpt-4.1-nano
-Reasoner: anthropic/claude-haiku-4-5-20251001
 ```
 
 ---
 
 ## Running the System
 
-### 1. Start the Three Agents
+### Via Docker Compose (Recommended)
 
-Open three terminal windows (or use `&` for background):
+```bash
+# Start all three agents
+docker compose up --build
+
+# Or start in background
+docker compose up -d --build
+```
+
+Wait for all three services to initialise (~60–90 s for DSPy cold-start).
+
+### Manual (Development)
 
 ```bash
 # Terminal 1 — Governance Agent (:8001)
-python -m uvicorn src.agents.governance_agent.main:app --host 0.0.0.0 --port 8001 --reload
+python -m uvicorn src.agents.governance_agent.main:app --host 0.0.0.0 --port 8001
 
 # Terminal 2 — Hardware Agent (:8002)
-python -m uvicorn src.agents.hardware_agent.main:app --host 0.0.0.0 --port 8002 --reload
+python -m uvicorn src.agents.hardware_agent.main:app --host 0.0.0.0 --port 8002
 
 # Terminal 3 — Telemetry Agent (:8003)
-python -m uvicorn src.agents.telemetry_agent.main:app --host 0.0.0.0 --port 8003 --reload
+python -m uvicorn src.agents.telemetry_agent.main:app --host 0.0.0.0 --port 8003
 ```
 
-### 2. Verify Health
+### Verify Health
 
 ```bash
 curl http://localhost:8001/health
@@ -518,94 +490,52 @@ curl http://localhost:8002/health
 curl http://localhost:8003/health
 ```
 
-Expected response from each:
-```json
-{"status": "healthy", "agent": "governance_agent", "documents_loaded": true}
-```
-
-### 3. Start the UI (Optional)
-
-```bash
-streamlit run src/ui/app.py --server.port 8501
-```
-
-Open `http://localhost:8501` in your browser.
-
-### 4. Send a Test Query
-
-```bash
-curl -X POST http://localhost:8001/consult \
-  -H "Content-Type: application/json" \
-  -d '{
-    "card": {
-      "sender": "orchestrator",
-      "recipient": "governance_agent",
-      "intent": "diagnose",
-      "priority": "high",
-      "payload": {
-        "query": "MRI scanner showing 94% uptime vs 99% SLA target with intermittent thermal alerts",
-        "context": {"accumulated_context": "", "is_consultation": false}
-      }
-    },
-    "await_response": true
-  }'
-```
-
 ---
 
 ## Running the Evaluation
 
-### Quick Checks
+### Preflight Check (Always Run First)
 
 ```bash
-# Verify synthesis module imports correctly (post-fix)
-python -c "from src.orchestration.synthesis import DiagnosisSynthesizer; print('OK')"
-
-# Health check all agents (dry run — no LLM calls)
+# Verifies /health AND live /consult probe for all three agents
+# Will FAIL if DSPy is still initialising — wait and retry
 python -m src.evaluation.run_evaluation --dry-run
+```
+
+Expected passing output:
+```
+✓ governance_agent  status=healthy  docs=418   consult=OK
+✓ hardware_agent    status=healthy  docs=9853  consult=OK
+✓ telemetry_agent   status=healthy  docs=945   consult=OK
+All agents healthy. Ready to evaluate.
+```
+
+### Full Run (Run 5 — Final Thesis Evaluation)
+
+```bash
+# Delete previous results first
+rm -f results/ablation/*_ablation.json results/ablation/thesis_summary.json
+
+# Full 60-evaluation run (12 cases × 5 modes)
+# Takes ~60–120 min depending on API rate limits
+python -m src.evaluation.run_evaluation --no-resume
 ```
 
 ### Single Test Case
 
 ```bash
-# Run one test case across all 5 modes
+# One test case across all 5 modes
 python -m src.evaluation.run_evaluation --test-case cascading_thermal_fault --no-resume
 
-# Run one test case in specific modes only
-python -m src.evaluation.run_evaluation --test-case cascading_thermal_fault --modes mas_full single_all_data
+# One test case in specific modes
+python -m src.evaluation.run_evaluation --test-case gradient_coil_degradation --modes mas_full single_all_data
 ```
-
-### Full Ablation (Run 3)
-
-```bash
-# Full 60-evaluation run (12 cases × 5 modes)
-# Takes ~60–90 min depending on API rate limits
-python -m src.evaluation.run_evaluation --no-resume
-```
-
-Results are written to `results/ablation/` as each test case completes.
-Aggregate summary: `results/ablation/thesis_summary.json`.
 
 ### Resume an Interrupted Run
 
 ```bash
-# Resume from last completed test case (default behaviour)
+# Resumes from last completed test case (default behaviour)
 python -m src.evaluation.run_evaluation
-```
-
-### Comparing Run 2 vs Run 3
-
-```python
-import json
-
-run2 = json.load(open("results/ablation/thesis_summary_run2.json"))
-run3 = json.load(open("results/ablation/thesis_summary.json"))
-
-for mode in ["mas_full", "single_all_data"]:
-    r2 = run2["mode_averages"][mode]
-    r3 = run3["mode_averages"][mode]
-    delta = r3["accuracy"] - r2["accuracy"]
-    print(f"{mode}: {r2['accuracy']:.1%} → {r3['accuracy']:.1%} ({delta:+.1%})")
 ```
 
 ---
@@ -618,12 +548,11 @@ Each agent exposes the same endpoint pattern:
 |----------|--------|-------------|
 | `/` | GET | Agent info and status |
 | `/health` | GET | Health check — confirms vector store is loaded |
-| `/consult` | POST | Submit a diagnostic query (primary evaluation endpoint) |
-| `/index` | POST | Re-index domain documents into ChromaDB |
+| `/consult` | POST | Submit a diagnostic query |
+| `/index` | POST | Re-index domain documents |
 | `/documents/count` | GET | Number of indexed documents |
-| `/documents/search` | GET | Search the vector store directly |
 
-### `/consult` Request Schema
+### `/consult` Request
 
 ```json
 {
@@ -633,11 +562,11 @@ Each agent exposes the same endpoint pattern:
     "intent": "diagnose",
     "priority": "high",
     "payload": {
-      "query": "string",
+      "query": "MRI scanner showing 94% uptime vs 99% SLA target with intermittent thermal alerts",
       "context": {
-        "accumulated_context": "string",
+        "accumulated_context": "",
         "is_consultation": false,
-        "expertise_needed": "string"
+        "expertise_needed": ""
       }
     }
   },
@@ -645,7 +574,7 @@ Each agent exposes the same endpoint pattern:
 }
 ```
 
-### `/consult` Response Schema
+### `/consult` Response
 
 ```json
 {
@@ -657,53 +586,46 @@ Each agent exposes the same endpoint pattern:
       "contextual_explanation": "string",
       "root_cause": "string",
       "diagnosis": "string",
-      "reasoning": "string",
-      "missing_info": "string",
-      "consultation_reason": "string"
+      "risk_factors": "string",
+      "recommended_actions": "string"
     }
   }
 }
 ```
 
-The orchestrator checks payload keys in priority order: `contextual_explanation → root_cause → diagnosis → answer`.
+The orchestrator checks payload keys in priority order via the `_real()` filter (see `src/orchestration/multi_round.py` lines 174–203).
 
 ---
 
 ## Troubleshooting
 
+### Preflight probe fails — `consult=FAIL`
+
+The agent HTTP server is up but DSPy has not finished initialising. Wait 60–90 s and retry. Do not start evaluation until the probe passes.
+
+### `float(None)` TypeError
+
+Fixed in `ad30962`. All three agents now use safe confidence extraction. If you see this in older code, upgrade to commit `ad30962` or later.
+
+### Empty findings — `"No findings from {agent}"`
+
+Fixed in `ad30962`. The orchestrator now checks 14 payload keys via the `_real()` filter. If you see this with current code, the DSPy output for all fields is genuinely None for that case.
+
 ### `ANTHROPIC_API_KEY not found`
-Create `.env` in the project root with `ANTHROPIC_API_KEY=...` and `OPENAI_API_KEY=...`.
 
-### `DSPy not configured. Call configure_dspy() first.`
-`configure_dspy()` is called at agent startup. If using the synthesizer standalone, call it explicitly:
-```python
-from src.agents.shared.dspy_config import configure_dspy
-configure_dspy()
-```
+Create `.env` in the project root with `ANTHROPIC_API_KEY=...` and `AZURE_OPENAI_API_KEY=...`.
 
-### Agent returns empty `findings`
-The payload key mismatch was fixed in Run 2. The orchestrator now checks `contextual_explanation`, `root_cause`, `diagnosis`, and `answer` in order. If you're seeing empty findings, check the raw response payload from the agent's `/consult` endpoint.
+### Evaluation timeout / retry exhaustion (155 s per case)
 
-### `BASELINE_MODE` not working
-Set `BASELINE_MODE=true` in your `.env` **before** starting the Governance Agent. The agent reads this at startup; changing it mid-run requires a restart.
-
-### Evaluation timeout
-Default per-call timeout is 120 s with 3 retries. If Claude or OpenAI rate-limits are frequent, increase the timeout in `MultiRoundOrchestrator`:
-```python
-orchestrator = MultiRoundOrchestrator(timeout_seconds=180.0)
-```
+Agents are not responding. Check that all three Docker containers are running (`docker ps`). The 155 s pattern (`20 + 45 + 90`) is the fingerprint of retry exhaustion, not slow responses.
 
 ### Port already in use
+
 ```bash
-# Windows — find process on port 8001
-netstat -ano | findstr :8001
-
-# Kill by PID
-taskkill /PID <pid> /F
+# Find and kill process on port 8001
+lsof -ti:8001 | xargs kill -9   # Linux/Mac
+netstat -ano | findstr :8001    # Windows (then taskkill /PID <pid> /F)
 ```
-
-### Vector store not loading
-Each agent indexes on startup. If documents aren't loading, check that the ChromaDB path is writable and the raw data files exist in `data/raw/<domain>/`.
 
 ---
 
@@ -711,34 +633,35 @@ Each agent indexes on startup. If documents aren't loading, check that the Chrom
 
 | File | Contents |
 |------|----------|
-| `RESULTS_SUMMARY.md` | Condensed 10-minute briefing on Run 2 findings and Run 3 plan |
-| `results/ablation/thesis_summary.json` | Full Run 2 aggregate metrics (60 evaluations) |
-| `docs/plans/2026-02-04-mas-architecture-evaluation-design.md` | Architecture specification and evaluation design |
-| `docs/MAS_ASSESSMENT.md` | Multi-agent system assessment and CooperBench context |
-| `docs/logs/2026-02-23-evaluation-run.md` | Run 1 session log (bugged run, retained for audit trail) |
-| `src/orchestration/synthesis.py` | DSPy synthesis module (Run 3 fix) |
-| `src/orchestration/multi_round.py` | Full orchestration logic with parallel execution |
+| `docs/evaluation-process-log.md` | ★ **Complete audit trail** — all runs, all bugs, all fixes with code. Thesis appendix reference. |
+| `results/ablation/thesis_summary.json` | Run 4 aggregate metrics (60 evaluations) |
+| `results/ablation/*_ablation.json` | Per-test-case mode breakdowns |
+| `src/orchestration/synthesis.py` | DiagnosisSynthesizer (DSPy CoT, Sonnet) |
+| `src/orchestration/multi_round.py` | Full orchestration with parallel execution and hardened findings extraction |
 | `src/evaluation/emergence_tests.py` | All 12 test case definitions |
-| `src/agents/shared/dspy_config.py` | Model configuration (Claude Haiku + GPT-4.1-nano) |
+| `src/agents/shared/dspy_config.py` | Three-tier model configuration |
+| `docs/plans/2026-02-04-mas-architecture-evaluation-design.md` | Architecture specification |
 
 ---
 
 ## Evaluation Run History
 
-| Run | Date | Evaluations | Status | Key outcome |
-|-----|------|-------------|--------|-------------|
-| Run 1 | 2026-02-23 | 60 attempted | ❌ Infrastructure bugs | Payload extraction failure, keyword mapping errors, baseline routing broken |
-| Run 2 | 2026-02-24 | 60/60 ✓ | ✅ Complete | MAS 58.3% vs baseline 81.7%; 0/12 emergence; root cause: concatenation not synthesis |
-| Run 3 | Pending | 60 planned | 🔄 Ready | Synthesis fix + parallel execution; target ≥75% MAS accuracy |
+| Run | Date | Evaluations | Status | MAS / SAD | Emergence | Key outcome |
+|-----|------|-------------|--------|-----------|-----------|-------------|
+| Run 1 | 2026-02-23 | 60 attempted | ❌ Bugs | — | — | Payload extraction, keyword mapping, baseline routing broken |
+| Run 2 | 2026-02-24 | 60/60 ✓ | ✅ Complete | 58.3% / 81.7% | 0/12 | Root cause: concatenation not synthesis; −23.4 pp margin |
+| Run 3 | 2026-04-08 | 60/60 ✓ | ❌ Invalid | ~58% / — | 0/12 | Hardware/telemetry containers offline; 0% for both agents |
+| Run 4 | 2026-04-08 | 60/60 ✓ | ✅ Valid | 53.3% / 50.0% | **2/12** | First positive emergence; 5 cases still 0% (DSPy None bug) |
+| **Run 5** | pending | 60 planned | 🔄 Ready | — | — | 5 DSPy hardening bugs fixed (`ad30962`); final thesis run |
 
 ---
 
 ## Acknowledgements
 
-- **Siemens Healthineers** — primary validation partner; MRI operations data, DICOM conformance statements, machine manuals
+- **Siemens Healthineers** — primary validation partner; MRI operations data, DICOM conformance statements, MAGNETOM operator manuals, safety documentation
 - **Deutsche Telekom** — background infrastructure data (network intent, SLA documentation)
 - **Illigo** — background data (operational scheduling)
 
 ---
 
-*Master's thesis — AISS programme. See `docs/` for architecture plans, deployment guides, and session logs.*
+*Master's thesis — AISS programme. Full evaluation audit trail: `docs/evaluation-process-log.md`.*
