@@ -97,7 +97,7 @@ def configure_dspy() -> LMConfig:
         )
 
         sonnet_lm = dspy.LM(
-            model="anthropic/claude-sonnet-4-5-20251001",
+            model="anthropic/claude-sonnet-4-5",
             api_key=anthropic_key,
             temperature=0.1,
             max_tokens=4000
@@ -168,7 +168,7 @@ def configure_dspy() -> LMConfig:
         )
 
         sonnet_lm = dspy.LM(
-            model="anthropic/claude-sonnet-4-5-20251001",
+            model="anthropic/claude-sonnet-4-5",
             api_key=anthropic_key,
             temperature=0.1,
             max_tokens=4000

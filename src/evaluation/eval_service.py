@@ -14,6 +14,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
+# Must match DELAY_BETWEEN_CASES_S in run_evaluation.py — rate-limit budget recovery
+DELAY_BETWEEN_CASES_S = 45
+
 logger = logging.getLogger(__name__)
 
 RESULTS_DIR = Path("results/ablation")
@@ -68,12 +71,58 @@ class EvalService:
         return run_id, total
 
     async def _run_background(self, run_id: str, suite, no_resume: bool) -> None:
+        import os
         from src.evaluation.ablation_runner import AblationTestRunner
-        from src.evaluation.run_evaluation import generate_thesis_summary, load_existing_result
+        from src.evaluation.run_evaluation import (
+            generate_thesis_summary,
+            load_existing_result,
+            check_agent_health,
+        )
 
         state = self.runs[run_id]
         results_path = RESULTS_DIR
         results_path.mkdir(parents=True, exist_ok=True)
+
+        # When running inside the governance-agent container, we must reach the
+        # other agents via their docker network names, not localhost. Allow env
+        # overrides to match the URLs already declared in docker-compose.yml.
+        AGENTS_INTERNAL = {
+            "governance_agent": os.getenv("GOVERNANCE_AGENT_URL", "http://localhost:8001"),
+            "hardware_agent":   os.getenv("HARDWARE_AGENT_URL",   "http://hardware-agent:8002"),
+            "telemetry_agent":  os.getenv("TELEMETRY_AGENT_URL",  "http://telemetry-agent:8003"),
+        }
+
+        # --- Preflight: lightweight /health check for all agents ---
+        # We rely on the health endpoint's dspy_ready + vector_store_ready flags
+        # rather than firing a live /consult probe. A live probe would pass
+        # through the full DSPy routing pipeline (potentially delegating to
+        # other agents) and burn ~45s of LLM credits per agent on every run.
+        preflight_errors = []
+        for name, url in AGENTS_INTERNAL.items():
+            health = await check_agent_health(name, url)
+            status = health.get("status", "unknown")
+            doc_count = health.get("document_count", 0)
+            vs_ready = health.get("vector_store_ready", False)
+            dspy_ready = health.get("dspy_ready", False)
+
+            if status not in ("healthy", "degraded"):
+                preflight_errors.append(f"{name}: status={status}")
+                continue
+            if doc_count <= 0:
+                preflight_errors.append(f"{name}: no documents indexed (docs={doc_count})")
+                continue
+            if not vs_ready:
+                preflight_errors.append(f"{name}: vector store not ready")
+                continue
+            if not dspy_ready:
+                preflight_errors.append(f"{name}: DSPy not initialized")
+                continue
+
+        if preflight_errors:
+            state.status = "failed"
+            state.error = "Preflight failed:\n" + "\n".join(preflight_errors)
+            logger.error(f"Eval run {run_id} aborted: {state.error}")
+            return
 
         runner = AblationTestRunner(log_dir=str(results_path))
         comparisons = []
@@ -105,13 +154,9 @@ class EvalService:
                 state.completed_evaluations += 5
                 state.comparisons = [c.model_dump() for c in comparisons]
 
-                # Rate-limit delay between test cases.
-                # 15 s gives the Anthropic 50k-token/min bucket time to partially
-                # refill before the next test case fires. Run 3 showed that 2 s was
-                # insufficient at scale — synthesis fell back to concatenation for
-                # ~7/12 cases. Scale this up further if 429s persist.
+                # Rate-limit delay — must match DELAY_BETWEEN_CASES_S in run_evaluation.py
                 if idx < total_cases:
-                    await asyncio.sleep(15)
+                    await asyncio.sleep(DELAY_BETWEEN_CASES_S)
 
             # Generate thesis summary
             if comparisons:

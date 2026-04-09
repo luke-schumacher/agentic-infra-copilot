@@ -65,7 +65,25 @@
       "Bash(grep -E \"\\\\.py$\")",
       "Bash(grep -r \"Figure\\\\|figure\\\\|Fig\\\\|fig\\\\|image\\\\|Image\" /home/lukeschumacher/Documents/GitHub/agentic-infra-copilot --include=\"*.md\" ! -path \"*/node_modules/*\")",
       "Bash(mkdir -p /home/lukeschumacher/Documents/Thesis/archive)",
-      "Bash(mv /home/lukeschumacher/Documents/Thesis/main_part1.tex /home/lukeschumacher/Documents/Thesis/main_part2.tex /home/lukeschumacher/Documents/Thesis/main_with_visuals_overleaf.tex /home/lukeschumacher/Documents/Thesis/archive/)"
+      "Bash(mv /home/lukeschumacher/Documents/Thesis/main_part1.tex /home/lukeschumacher/Documents/Thesis/main_part2.tex /home/lukeschumacher/Documents/Thesis/main_with_visuals_overleaf.tex /home/lukeschumacher/Documents/Thesis/archive/)",
+      "Bash(docker compose:*)",
+      "Bash(docker volume:*)",
+      "Bash(stat:*)",
+      "Bash(dmesg)",
+      "Bash(journalctl --since \"1 hour ago\" -p err -q)",
+      "Bash(nohup python3:*)",
+      "Bash(echo \"PID: $!\")",
+      "Read(//tmp/**)",
+      "Bash(ps -p 95620 -o pid,etime,stat)",
+      "Bash(kill 95620)",
+      "Bash(ps -p 95620 -o pid,stat)",
+      "Bash(ps -p 114101 -o pid,etime,stat)",
+      "Bash(ps -p 114101 -o pid,etime)",
+      "Read(//home/lukeschumacher/.claude/skills/**)",
+      "Read(//home/lukeschumacher/.claude/**)",
+      "Bash(find / -iname \"aiss*\" -type f)",
+      "Read(//home/lukeschumacher/Documents/Thesis/**)",
+      "Read(//home/lukeschumacher/Documents/Thesis/overleaf/**)"
     ]
   }
 }

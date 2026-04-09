@@ -88,20 +88,27 @@ async def probe_agent_consult(name: str, url: str) -> bool:
         },
     )
     try:
-        async with httpx.AsyncClient(timeout=30.0) as client:
+        async with httpx.AsyncClient(timeout=120.0) as client:
             resp = await client.post(
                 f"{url}/consult",
                 json={"card": card.model_dump(), "await_response": True},
             )
+            if resp.status_code != 200:
+                print(f"HTTP {resp.status_code}: {resp.text[:120]}", end=" ")
             return resp.status_code == 200
-    except Exception:
+    except Exception as e:
+        print(f"{type(e).__name__}: {str(e)[:80]}", end=" ")
         return False
 
 
 async def preflight_check() -> bool:
     """
-    Check all agents are healthy with documents indexed AND can process a
-    real /consult request. Returns True only if all three pass both checks.
+    Check all agents are healthy with documents indexed and DSPy initialized.
+
+    We rely on the /health endpoint's dspy_ready + vector_store_ready flags
+    rather than firing a live /consult probe. A live probe passes through the
+    full DSPy routing pipeline (potentially delegating to other agents) and
+    burns ~45 s of LLM credits per agent on every preflight.
     """
     print("\n" + "=" * 60)
     print("PRE-FLIGHT HEALTH CHECK")
@@ -115,8 +122,12 @@ async def preflight_check() -> bool:
         vs_ready = health.get("vector_store_ready", False)
         dspy_ready = health.get("dspy_ready", False)
 
-        # Step 1: health endpoint
-        health_ok = status in ("healthy", "degraded") and doc_count > 0
+        health_ok = (
+            status in ("healthy", "degraded")
+            and doc_count > 0
+            and vs_ready
+            and dspy_ready
+        )
         icon = "[OK]" if health_ok else "[FAIL]"
         print(
             f"  {icon} {name:20s}  status={status:10s}  "
@@ -126,22 +137,12 @@ async def preflight_check() -> bool:
 
         if not health_ok:
             all_ok = False
-            continue
-
-        # Step 2: live consult probe — confirms DSPy + vector store end-to-end
-        print(f"       probing /consult ... ", end="", flush=True)
-        consult_ok = await probe_agent_consult(name, url)
-        if consult_ok:
-            print("OK")
-        else:
-            print("FAIL  ← agent not responding to queries")
-            all_ok = False
 
     print("=" * 60)
     if all_ok:
-        print("All agents healthy and responding to queries.")
+        print("All agents healthy and ready.")
     else:
-        print("ABORT: One or more agents failed health or consult probe.")
+        print("ABORT: One or more agents failed health check.")
         print("       Start all 3 agents (ports 8001-8003) and retry.")
     print()
     return all_ok
