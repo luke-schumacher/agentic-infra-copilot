@@ -351,7 +351,11 @@ async def consult(request: ConsultRequest):
         with dspy.context(lm=app.state.router_lm):
             evaluation = app.state.brain.evaluate_incoming_request(query=query, context_summary=context_summary)
 
-        eval_confidence = float(getattr(evaluation, 'confidence_level', getattr(evaluation, 'confidence', 0.8)))
+        _raw_conf = getattr(evaluation, 'confidence_level', None) or getattr(evaluation, 'confidence', None)
+        try:
+            eval_confidence = float(_raw_conf) if _raw_conf is not None else 0.8
+        except (TypeError, ValueError):
+            eval_confidence = 0.8
         eval_response_type = getattr(evaluation, 'response_type', 'answer')
         eval_suggested_agent = getattr(evaluation, 'suggested_agent', 'none')
         eval_reasoning = getattr(evaluation, 'reasoning', '')
@@ -390,55 +394,55 @@ async def consult(request: ConsultRequest):
         # Build response payload
         if query_type == "compliance_check":
             response_payload = {
-                "is_compliant": getattr(result, 'is_compliant', 'needs-review'),
-                "compliance_details": getattr(result, 'compliance_details', ''),
-                "safety_concerns": getattr(result, 'safety_concerns', ''),
-                "required_personnel": getattr(result, 'required_personnel', ''),
-                "answer": getattr(result, 'answer', ''),
+                "is_compliant": getattr(result, 'is_compliant', 'needs-review') or 'needs-review',
+                "compliance_details": getattr(result, 'compliance_details', '') or '',
+                "safety_concerns": getattr(result, 'safety_concerns', '') or '',
+                "required_personnel": getattr(result, 'required_personnel', '') or '',
+                "answer": getattr(result, 'answer', '') or '',
                 "specialist_agent": "telemetry_agent"
             }
-            compliance = getattr(result, 'is_compliant', 'needs-review')
+            compliance = getattr(result, 'is_compliant', 'needs-review') or 'needs-review'
             priority = Priority.HIGH if compliance == 'non-compliant' else Priority.NORMAL
         elif query_type == "action_review":
             response_payload = {
-                "safety_assessment": getattr(result, 'safety_assessment', 'unknown'),
-                "sop_compliance": getattr(result, 'sop_compliance', ''),
-                "personnel_requirements": getattr(result, 'personnel_requirements', ''),
-                "safety_checklist": getattr(result, 'safety_checklist', ''),
-                "answer": getattr(result, 'answer', ''),
+                "safety_assessment": getattr(result, 'safety_assessment', 'unknown') or 'unknown',
+                "sop_compliance": getattr(result, 'sop_compliance', '') or '',
+                "personnel_requirements": getattr(result, 'personnel_requirements', '') or '',
+                "safety_checklist": getattr(result, 'safety_checklist', '') or '',
+                "answer": getattr(result, 'answer', '') or '',
                 "specialist_agent": "telemetry_agent"
             }
-            assessment = getattr(result, 'safety_assessment', 'caution')
+            assessment = getattr(result, 'safety_assessment', 'caution') or 'caution'
             priority = Priority.CRITICAL if assessment == 'unsafe' else (
                 Priority.HIGH if assessment == 'caution' else Priority.NORMAL
             )
         elif query_type == "safety_zone":
             response_payload = {
-                "zone_classification": getattr(result, 'zone_classification', ''),
-                "access_requirements": getattr(result, 'access_requirements', ''),
-                "screening_requirements": getattr(result, 'screening_requirements', ''),
-                "restrictions": getattr(result, 'restrictions', ''),
-                "answer": getattr(result, 'answer', ''),
+                "zone_classification": getattr(result, 'zone_classification', '') or '',
+                "access_requirements": getattr(result, 'access_requirements', '') or '',
+                "screening_requirements": getattr(result, 'screening_requirements', '') or '',
+                "restrictions": getattr(result, 'restrictions', '') or '',
+                "answer": getattr(result, 'answer', '') or '',
                 "specialist_agent": "telemetry_agent"
             }
             priority = Priority.HIGH  # Zone queries are always important
         elif query_type == "workflow_audit":
             response_payload = {
-                "audit_result": getattr(result, 'audit_result', 'needs-review'),
-                "safety_gaps": getattr(result, 'safety_gaps', ''),
-                "training_requirements": getattr(result, 'training_requirements', ''),
-                "documentation_requirements": getattr(result, 'documentation_requirements', ''),
-                "answer": getattr(result, 'answer', ''),
+                "audit_result": getattr(result, 'audit_result', 'needs-review') or 'needs-review',
+                "safety_gaps": getattr(result, 'safety_gaps', '') or '',
+                "training_requirements": getattr(result, 'training_requirements', '') or '',
+                "documentation_requirements": getattr(result, 'documentation_requirements', '') or '',
+                "answer": getattr(result, 'answer', '') or '',
                 "specialist_agent": "telemetry_agent"
             }
-            audit = getattr(result, 'audit_result', 'conditionally-approved')
+            audit = getattr(result, 'audit_result', 'conditionally-approved') or 'conditionally-approved'
             priority = Priority.HIGH if audit == 'rejected' else Priority.NORMAL
         else:
             response_payload = {
-                "answer": getattr(result, 'answer', 'Unable to process query'),
-                "confidence": getattr(result, 'confidence', 'medium'),
-                "sources_used": getattr(result, 'sources_used', ''),
-                "follow_up": getattr(result, 'follow_up', ''),
+                "answer": getattr(result, 'answer', 'Unable to process query') or 'Unable to process query',
+                "confidence": getattr(result, 'confidence', 'medium') or 'medium',
+                "sources_used": getattr(result, 'sources_used', '') or '',
+                "follow_up": getattr(result, 'follow_up', '') or '',
                 "specialist_agent": "telemetry_agent"
             }
             priority = Priority.NORMAL

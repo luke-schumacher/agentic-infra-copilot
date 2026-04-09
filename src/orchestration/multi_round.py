@@ -168,14 +168,39 @@ class MultiRoundOrchestrator:
                 payload = response_card.get('payload', {})
 
                 # Extract findings from payload — agents use different keys
-                # depending on query type (contextual_explanation, root_cause, diagnosis, answer)
+                # depending on query type. Try all known keys across all three agents.
+                # Skip agent getattr-fallback strings ('Unknown', 'None identified',
+                # etc.) so real content from later fields can surface.
+                _FALLBACK_STRS = {
+                    'unknown', 'none identified', 'no immediate actions',
+                    'unable to determine', 'unable to process query',
+                    'unable to find specification', 'needs-review',
+                }
+                def _real(v):
+                    """Return v if it contains real content, else None."""
+                    if not v:
+                        return None
+                    if str(v).strip().lower() in _FALLBACK_STRS:
+                        return None
+                    return v
+
                 findings = (
-                    payload.get('contextual_explanation')
-                    or payload.get('root_cause')
-                    or payload.get('diagnosis')
-                    or payload.get('answer')
+                    _real(payload.get('contextual_explanation'))
+                    or _real(payload.get('root_cause'))
+                    or _real(payload.get('diagnosis'))
+                    or _real(payload.get('answer'))
+                    or _real(payload.get('risk_factors'))
+                    or _real(payload.get('recommended_actions'))
+                    or _real(payload.get('workload_assessment'))
+                    or _real(payload.get('compliance_details'))
+                    or _real(payload.get('safety_assessment'))
+                    or _real(payload.get('sop_compliance'))
+                    or _real(payload.get('zone_classification'))
+                    or _real(payload.get('audit_result'))
+                    or _real(payload.get('safety_gaps'))
+                    or _real(payload.get('institution_profile'))
                     or ''
-                )
+                ) or ''
 
                 # Map to AgentResponse
                 agent_response = AgentResponse(

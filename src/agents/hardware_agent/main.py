@@ -373,7 +373,11 @@ async def consult(request: ConsultRequest):
         with dspy.context(lm=app.state.router_lm):
             evaluation = app.state.brain.evaluate_incoming_request(query=query, context_summary=context_summary)
 
-        eval_confidence = float(getattr(evaluation, 'confidence_level', getattr(evaluation, 'confidence', 0.8)))
+        _raw_conf = getattr(evaluation, 'confidence_level', None) or getattr(evaluation, 'confidence', None)
+        try:
+            eval_confidence = float(_raw_conf) if _raw_conf is not None else 0.8
+        except (TypeError, ValueError):
+            eval_confidence = 0.8
         eval_response_type = getattr(evaluation, 'response_type', 'answer')
         eval_suggested_agent = getattr(evaluation, 'suggested_agent', 'none')
         eval_reasoning = getattr(evaluation, 'reasoning', '')
@@ -412,45 +416,45 @@ async def consult(request: ConsultRequest):
         # Build response payload
         if query_type == "dicom_diagnosis":
             response_payload = {
-                "diagnosis": getattr(result, 'diagnosis', 'Unable to determine'),
-                "severity": getattr(result, 'severity', 'unknown'),
-                "affected_component": getattr(result, 'affected_component', ''),
-                "diagnostic_steps": getattr(result, 'diagnostic_steps', ''),
-                "answer": getattr(result, 'answer', ''),
+                "diagnosis": getattr(result, 'diagnosis', 'Unable to determine') or 'Unable to determine',
+                "severity": getattr(result, 'severity', 'unknown') or 'unknown',
+                "affected_component": getattr(result, 'affected_component', '') or '',
+                "diagnostic_steps": getattr(result, 'diagnostic_steps', '') or '',
+                "answer": getattr(result, 'answer', '') or '',
                 "specialist_agent": "hardware_agent"
             }
-            severity = getattr(result, 'severity', 'low')
+            severity = getattr(result, 'severity', 'low') or 'low'
             priority = Priority.CRITICAL if severity == 'critical' else (
                 Priority.HIGH if severity == 'high' else Priority.NORMAL
             )
         elif query_type == "hardware_error":
             response_payload = {
-                "diagnosis": getattr(result, 'diagnosis', 'Unable to determine'),
-                "severity": getattr(result, 'severity', 'unknown'),
-                "affected_component": getattr(result, 'affected_component', ''),
-                "diagnostic_steps": getattr(result, 'diagnostic_steps', ''),
-                "requires_service": getattr(result, 'requires_service', 'unknown'),
-                "answer": getattr(result, 'answer', ''),
+                "diagnosis": getattr(result, 'diagnosis', 'Unable to determine') or 'Unable to determine',
+                "severity": getattr(result, 'severity', 'unknown') or 'unknown',
+                "affected_component": getattr(result, 'affected_component', '') or '',
+                "diagnostic_steps": getattr(result, 'diagnostic_steps', '') or '',
+                "requires_service": getattr(result, 'requires_service', 'unknown') or 'unknown',
+                "answer": getattr(result, 'answer', '') or '',
                 "specialist_agent": "hardware_agent"
             }
-            severity = getattr(result, 'severity', 'low')
+            severity = getattr(result, 'severity', 'low') or 'low'
             priority = Priority.CRITICAL if severity == 'critical' else (
                 Priority.HIGH if severity == 'high' else Priority.NORMAL
             )
         elif query_type == "technical_spec":
             response_payload = {
-                "answer": getattr(result, 'answer', 'Unable to find specification'),
-                "source_document": getattr(result, 'source_document', ''),
-                "confidence": getattr(result, 'confidence', 'low'),
+                "answer": getattr(result, 'answer', 'Unable to find specification') or 'Unable to find specification',
+                "source_document": getattr(result, 'source_document', '') or '',
+                "confidence": getattr(result, 'confidence', 'low') or 'low',
                 "specialist_agent": "hardware_agent"
             }
             priority = Priority.NORMAL
         else:
             response_payload = {
-                "answer": getattr(result, 'answer', 'Unable to process query'),
-                "confidence": getattr(result, 'confidence', 'medium'),
-                "sources_used": getattr(result, 'sources_used', ''),
-                "follow_up": getattr(result, 'follow_up', ''),
+                "answer": getattr(result, 'answer', 'Unable to process query') or 'Unable to process query',
+                "confidence": getattr(result, 'confidence', 'medium') or 'medium',
+                "sources_used": getattr(result, 'sources_used', '') or '',
+                "follow_up": getattr(result, 'follow_up', '') or '',
                 "specialist_agent": "hardware_agent"
             }
             priority = Priority.NORMAL

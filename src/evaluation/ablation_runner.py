@@ -331,11 +331,27 @@ class AblationTestRunner:
         )
 
     def _is_empty_response(self, text: str) -> bool:
-        """Check if a response is empty or useless."""
+        """Check if a response is empty or useless (including agent fallback strings)."""
         if not text:
             return True
         stripped = text.strip().lower()
-        return stripped in ("", "no findings", "no findings.", "error", "n/a") or stripped.startswith("error:")
+        # Exact-match empty/error strings
+        if stripped in ("", "no findings", "no findings.", "error", "n/a"):
+            return True
+        if stripped.startswith("error:") or stripped.startswith("no findings from"):
+            return True
+        # Agent fallback strings from getattr defaults — these indicate DSPy returned None
+        # for all output fields (no real content was generated)
+        fallback_strings = {
+            "unknown",
+            "none identified",
+            "no immediate actions",
+            "unable to determine",
+            "unable to process query",
+            "unable to find specification",
+            "needs-review",
+        }
+        return stripped in fallback_strings
 
     async def _run_single_all_data_mode(
         self,

@@ -350,7 +350,11 @@ async def consult(request: ConsultRequest):
         with dspy.context(lm=app.state.router_lm):
             evaluation = app.state.brain.evaluate_incoming_request(query=query, context_summary=context_summary)
 
-        eval_confidence = float(getattr(evaluation, 'confidence_level', getattr(evaluation, 'confidence', 0.8)))
+        _raw_conf = getattr(evaluation, 'confidence_level', None) or getattr(evaluation, 'confidence', None)
+        try:
+            eval_confidence = float(_raw_conf) if _raw_conf is not None else 0.8
+        except (TypeError, ValueError):
+            eval_confidence = 0.8
         eval_response_type = getattr(evaluation, 'response_type', 'answer')
         eval_suggested_agent = getattr(evaluation, 'suggested_agent', 'none')
         eval_reasoning = getattr(evaluation, 'reasoning', '')
@@ -387,35 +391,35 @@ async def consult(request: ConsultRequest):
         ]
 
         # Extract delegation info
-        target_agent = getattr(result, 'target_agent', 'self')
-        delegation_reason = getattr(result, 'delegation_reason', '')
-        refined_query = getattr(result, 'refined_query', query)
+        target_agent = getattr(result, 'target_agent', 'self') or 'self'
+        delegation_reason = getattr(result, 'delegation_reason', '') or ''
+        refined_query = getattr(result, 'refined_query', query) or query
 
         # Build response payload based on query type
         if query_type == "symptom":
             response_payload = {
-                "institution_profile": getattr(result, 'institution_profile', 'Unknown'),
-                "contextual_explanation": getattr(result, 'contextual_explanation', ''),
-                "risk_level": getattr(result, 'risk_level', 'unknown'),
-                "risk_factors": getattr(result, 'risk_factors', 'None identified'),
-                "recommended_actions": getattr(result, 'recommended_actions', 'No immediate actions'),
+                "institution_profile": getattr(result, 'institution_profile', 'Unknown') or 'Unknown',
+                "contextual_explanation": getattr(result, 'contextual_explanation', '') or '',
+                "risk_level": getattr(result, 'risk_level', 'unknown') or 'unknown',
+                "risk_factors": getattr(result, 'risk_factors', 'None identified') or 'None identified',
+                "recommended_actions": getattr(result, 'recommended_actions', 'No immediate actions') or 'No immediate actions',
                 "delegation": {
                     "target_agent": target_agent,
                     "reason": delegation_reason,
                     "refined_query": refined_query
                 }
             }
-            initial_risk = getattr(result, 'risk_level', 'low')
+            initial_risk = getattr(result, 'risk_level', 'low') or 'low'
             priority = Priority.CRITICAL if initial_risk == 'critical' else (
                 Priority.HIGH if initial_risk == 'high' else Priority.NORMAL
             )
         elif query_type == "workload":
             response_payload = {
-                "workload_assessment": getattr(result, 'workload_assessment', ''),
-                "peak_periods": getattr(result, 'peak_periods', ''),
-                "bottleneck_analysis": getattr(result, 'bottleneck_analysis', ''),
-                "optimization_suggestions": getattr(result, 'optimization_suggestions', ''),
-                "answer": getattr(result, 'answer', ''),
+                "workload_assessment": getattr(result, 'workload_assessment', '') or '',
+                "peak_periods": getattr(result, 'peak_periods', '') or '',
+                "bottleneck_analysis": getattr(result, 'bottleneck_analysis', '') or '',
+                "optimization_suggestions": getattr(result, 'optimization_suggestions', '') or '',
+                "answer": getattr(result, 'answer', '') or '',
                 "delegation": {
                     "target_agent": target_agent,
                     "reason": delegation_reason,
@@ -426,10 +430,10 @@ async def consult(request: ConsultRequest):
         else:
             # General query
             response_payload = {
-                "answer": getattr(result, 'answer', ''),
-                "confidence": getattr(result, 'confidence', 'medium'),
-                "sources_used": getattr(result, 'sources_used', ''),
-                "follow_up": getattr(result, 'follow_up', ''),
+                "answer": getattr(result, 'answer', '') or '',
+                "confidence": getattr(result, 'confidence', 'medium') or 'medium',
+                "sources_used": getattr(result, 'sources_used', '') or '',
+                "follow_up": getattr(result, 'follow_up', '') or '',
                 "delegation": {
                     "target_agent": target_agent,
                     "reason": delegation_reason,
