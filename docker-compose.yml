@@ -126,7 +126,7 @@ services:
     container_name: agentic-telemetry-agent
     command: python src/agents/telemetry_agent/main.py
     ports:
-      - "8003:8003"
+      - "8013:8003"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
